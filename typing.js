@@ -117,7 +117,8 @@ originalText.split("").forEach(function(char){
 
 let input =
 document.getElementById("input");
-
+const keySound =
+document.getElementById("keySound");
 
 document.body.addEventListener("click",function(){
 
@@ -481,6 +482,22 @@ originalText.length
 ========================================= */
 
 document.addEventListener("keydown", function(event){
+
+   if(
+
+event.key.length === 1 ||
+
+event.key === "Backspace" ||
+
+event.key === " "
+
+){
+
+    keySound.currentTime = 0;
+
+    keySound.play().catch(()=>{});
+
+}
 
     document.querySelectorAll(".key")
     .forEach(function(key){
