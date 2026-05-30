@@ -191,13 +191,31 @@ if(timeElement){
 }
 
 
-            if(timer <= 0){
+           if(timer <= 0){
 
-                clearInterval(interval);
+    clearInterval(interval);
 
-                alert("Time Up");
+    input.disabled = true;
 
-            }
+    let popup =
+    document.getElementById(
+    "resultPopup"
+    );
+
+    popup.style.visibility =
+    "visible";
+
+    popup.style.opacity = "1";
+
+    document.querySelector(
+    ".typing-box"
+    ).style.opacity = "0.25";
+
+    document.querySelector(
+    ".keyboard"
+    ).style.opacity = "0.15";
+
+}
 
         },1000);
 
