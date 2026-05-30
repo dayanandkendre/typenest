@@ -22,7 +22,8 @@ let paragraphs = [
 
 "A curious student became interested in astronomy after watching a documentary about space exploration. He started reading books about planets, stars, and galaxies. Learning about the universe inspired him to ask questions and explore science further.",
 
-"During a rainy afternoon, a family gathered together to play board games and share stories. Laughter filled the room as they spent quality time with one another. These moments created memories that would be remembered for many years."
+"During a rainy afternoon, a family gathered together to play board games and share stories. Laughter filled the room as they spent quality time with one another. These moments created memories that would be remembered for many years.",
+   
 "The ancient castle stood on top of a hill overlooking the entire valley. Visitors traveled from different places to learn about its history and admire its impressive architecture. The castle remained a symbol of strength and tradition for many generations.",
 
 "A small puppy followed its owner through the garden every afternoon. It chased butterflies, explored new corners, and played happily in the sunshine. Spending time with pets often brings joy, comfort, and companionship to people of all ages.",
