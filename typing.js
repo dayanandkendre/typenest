@@ -4,13 +4,49 @@
 
 let paragraphs = [
 
-"Typing regularly improves your focus,  every year.",
+"The little boy walked to the village market every morning with his grandfather. Along the way, they greeted neighbors, watched birds flying across the sky, and enjoyed the fresh morning air. These simple daily walks taught him kindness, patience, and the value of community.",
 
-"Frontend experiences.",
+"A young traveler decided to explore a small mountain town during his vacation. He spent his days meeting local people, tasting traditional food, and learning about the history of the region. The experience helped him understand different cultures and appreciate new perspectives.",
 
-"Creative thinking technology industry."
+"The library was one of the quietest places in the city. Students, teachers, and readers visited every day to discover new ideas and improve their knowledge. Reading books regularly opened doors to imagination, learning, and personal growth.",
+
+"A farmer worked hard throughout the year to grow healthy crops for his family and community. He carefully planted seeds, watered the fields, and protected the plants from harsh weather. His dedication showed how persistence often leads to success.",
+
+"The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans.",
+
+"Many successful people begin their day with a simple routine. They wake up early, exercise, plan their goals, and focus on important tasks. Small daily habits often create positive changes that lead to long-term achievements.",
+
+"A group of friends decided to plant trees in their neighborhood park. They wanted to make the area greener and cleaner for future generations. Their efforts inspired many other residents to participate in environmental activities.",
+
+"The history of human communication has changed dramatically over time. People once relied on handwritten letters that took weeks to arrive. Today, digital technology allows messages to travel across the world within seconds.",
+
+"A curious student became interested in astronomy after watching a documentary about space exploration. He started reading books about planets, stars, and galaxies. Learning about the universe inspired him to ask questions and explore science further.",
+
+"During a rainy afternoon, a family gathered together to play board games and share stories. Laughter filled the room as they spent quality time with one another. These moments created memories that would be remembered for many years."
+"The ancient castle stood on top of a hill overlooking the entire valley. Visitors traveled from different places to learn about its history and admire its impressive architecture. The castle remained a symbol of strength and tradition for many generations.",
+
+"A small puppy followed its owner through the garden every afternoon. It chased butterflies, explored new corners, and played happily in the sunshine. Spending time with pets often brings joy, comfort, and companionship to people of all ages.",
+
+"The world's rainforests are home to thousands of unique plants and animals. These ecosystems play an important role in maintaining global climate balance. Protecting forests helps preserve biodiversity and supports the health of our planet.",
+
+"A skilled chef spent years learning how to prepare delicious meals. Through practice and creativity, he developed recipes that people enjoyed sharing with family and friends. Cooking is both a practical skill and a form of artistic expression.",
+
+"The first bicycle ride can feel challenging for many children. However, with patience and determination, they gradually learn to balance and gain confidence. Each small improvement encourages them to keep trying until they succeed.",
+
+"Astronauts undergo extensive training before traveling into space. They learn how to operate equipment, solve technical problems, and adapt to unique conditions. Space exploration continues to expand our understanding of the universe and its mysteries.",
+
+"Every city has its own character shaped by history, culture, and people. Exploring different cities allows travelers to discover new traditions, architecture, and local experiences. Each journey provides opportunities for learning and personal growth.",
+
+"A teacher has the ability to influence the lives of many students. By encouraging curiosity and critical thinking, teachers help learners develop valuable skills for the future. Education remains one of the strongest foundations for success.",
+
+"The invention of the printing press changed the way information was shared across the world. Books became more accessible, knowledge spread faster, and literacy rates gradually improved. This innovation played a major role in human progress.",
+
+"A peaceful lake reflected the colors of the evening sky as the sun slowly disappeared beyond the horizon. Birds returned to their nests while gentle waves moved across the water. Nature often provides moments of beauty that inspire calmness and reflection."
 
 ];
+
+
+
 
 
 /* =========================================
