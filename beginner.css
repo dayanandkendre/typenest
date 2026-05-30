@@ -1,0 +1,461 @@
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+    margin:0;
+
+    font-family:Arial, sans-serif;
+
+    background:#f5f7ff;
+
+    color:#111827;
+
+}
+
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar{
+
+    height:80px;
+
+    width:100%;
+
+    background:white;
+
+    border-bottom:1px solid #e5e7eb;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    box-sizing:border-box;
+
+    position:fixed;
+
+    top:0;
+
+    z-index:9999;
+
+}
+
+
+
+.logo{
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    color:#2563eb;
+
+}
+
+
+
+.menu{
+
+    display:flex;
+
+    gap:32px;
+
+}
+
+
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#111827;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+
+
+.menu a:hover{
+
+    color:#4f46e5;
+
+}
+
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.about-hero{
+
+    text-align:center;
+
+    padding-top:120px;
+
+    padding-bottom:25px;
+
+}
+
+
+
+.about-hero h1{
+
+    font-size:46px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.about-hero p{
+
+    font-size:16px;
+
+    color:#64748b;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =========================================
+   COURSE CONTENT
+========================================= */
+
+.course-content{
+
+    width:92%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+
+
+.content-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+
+    margin-bottom:20px;
+
+}
+
+
+
+.content-card h2{
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+    color:#111827;
+
+}
+
+
+
+.content-card h3{
+
+    font-size:22px;
+
+    margin-top:20px;
+
+    margin-bottom:10px;
+
+    color:#2563eb;
+
+}
+
+
+
+.content-card p{
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    color:#374151;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.content-card ul{
+
+    padding-left:25px;
+
+}
+
+
+
+.content-card li{
+
+    margin-bottom:10px;
+
+    line-height:1.8;
+
+    color:#374151;
+
+}
+
+
+
+.content-card pre{
+
+    background:#eef2ff;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    overflow-x:auto;
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.course-cta{
+
+    text-align:center;
+
+    margin:60px auto;
+
+    width:92%;
+
+    max-width:900px;
+
+}
+
+
+
+.course-cta h2{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.course-cta p{
+
+    color:#64748b;
+
+    margin-bottom:25px;
+
+    font-size:16px;
+
+}
+
+
+
+.course-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+
+
+.course-btn:hover{
+
+    background:#4f46e5;
+
+}
+
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+    margin-top:50px;
+
+    background:#04102d;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:60px 80px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.footer-logo h1{
+
+    margin:0;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.footer-logo p{
+
+    color:#d1d5db;
+
+}
+
+
+
+.footer-links h2{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.footer-links a{
+
+    display:block;
+
+    color:#d1d5db;
+
+    text-decoration:none;
+
+    margin:12px 0;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+    .navbar{
+
+        padding:0 20px;
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding-top:15px;
+
+        padding-bottom:15px;
+
+    }
+
+    .menu{
+
+        gap:15px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .about-hero{
+
+        padding-top:140px;
+
+    }
+
+    .about-hero h1{
+
+        font-size:34px;
+
+    }
+
+    .content-card{
+
+        padding:22px;
+
+    }
+
+    .content-card h2{
+
+        font-size:26px;
+
+    }
+
+    .content-card h3{
+
+        font-size:20px;
+
+    }
+
+    .footer{
+
+        padding:40px 25px;
+
+        flex-direction:column;
+
+        gap:25px;
+
+    }
+
+}
