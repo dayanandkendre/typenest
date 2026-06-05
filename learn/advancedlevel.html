@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<title>
+Words Practice | TypeNest
+</title>
+
+<link rel="stylesheet"
+href="level.css">
+
+</head>
+
+<body>
+
+<!-- =========================================
+     TOP BAR
+========================================= -->
+
+<div class="topbar">
+
+    <div class="back-link"
+    onclick="window.location.href='advanced.html'">
+
+        ← Advanced
+
+    </div>
+
+    <div class="level-title" id="levelNumber">
+
+        Level 1
+
+    </div>
+
+    <div class="stars" id="topStars">
+
+        ☆☆☆
+
+    </div>
+
+</div>
+
+
+
+
+<!-- =========================================
+     LESSON HEADER
+========================================= -->
+
+<div class="lesson-header">
+
+    <h1 id="lessonTitle">
+
+AS Practice
+
+</h1>
+
+<p id="lessonSubtitle">
+
+Practice common words and improve typing speed.
+
+</p>
+
+</div>
+
+<!-- =========================================
+     LETTER BOXES
+========================================= -->
+
+<div class="text-display">
+
+    <div id="textDisplay"></div>
+
+</div>
+
+<!-- TYPING AREA -->
+
+<div class="typing-box"
+style="
+position:absolute;
+left:-9999px;
+top:-9999px;
+">
+
+<textarea id="typingInput"></textarea>
+
+</div>
+
+<div id="capsWarning"
+style="
+display:none;
+color:#ef4444;
+font-weight:bold;
+text-align:center;
+margin-top:-20px;
+margin-bottom:20px;
+">
+⚠️ Caps Lock is ON
+</div>
+
+<!-- =========================================
+     FULL KEYBOARD
+========================================= -->
+
+<div class="keyboard">
+
+    <!-- ROW 1 -->
+    <div class="key-row">
+
+        <div class="key" id="keyTilde">~</div>
+        <div class="key" id="key1">1</div>
+        <div class="key" id="key2">2</div>
+        <div class="key" id="key3">3</div>
+        <div class="key" id="key4">4</div>
+        <div class="key" id="key5">5</div>
+        <div class="key" id="key6">6</div>
+        <div class="key" id="key7">7</div>
+        <div class="key" id="key8">8</div>
+        <div class="key" id="key9">9</div>
+        <div class="key" id="key0">0</div>
+        <div class="key" id="keyMinus">-</div>
+        <div class="key" id="keyEqual">=</div>
+
+        <div class="key backspace-key" id="keyBackspace">
+            Backspace
+        </div>
+
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="key-row">
+
+        <div class="key tab-key" id="keyTab">
+            Tab
+        </div>
+
+        <div class="key" id="keyQ">Q</div>
+        <div class="key" id="keyW">W</div>
+        <div class="key" id="keyE">E</div>
+        <div class="key" id="keyR">R</div>
+        <div class="key" id="keyT">T</div>
+        <div class="key" id="keyY">Y</div>
+        <div class="key" id="keyU">U</div>
+        <div class="key" id="keyI">I</div>
+        <div class="key" id="keyO">O</div>
+        <div class="key" id="keyP">P</div>
+
+        <div class="key" id="keyLeftBrace">{</div>
+        <div class="key" id="keyRightBrace">}</div>
+        <div class="key" id="keyBackslash">\</div>
+
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="key-row">
+
+        <div class="key caps-key" id="keyCaps">
+            Caps
+        </div>
+
+        <div class="key" id="keyA">A</div>
+        <div class="key" id="keyS">S</div>
+        <div class="key" id="keyD">D</div>
+        <div class="key" id="keyF">F</div>
+        <div class="key" id="keyG">G</div>
+        <div class="key" id="keyH">H</div>
+        <div class="key" id="keyJ">J</div>
+        <div class="key" id="keyK">K</div>
+        <div class="key" id="keyL">L</div>
+
+        <div class="key" id="keySemicolon">;</div>
+        <div class="key" id="keyQuote">'</div>
+
+        <div class="key enter-key" id="keyEnter">
+            Enter
+        </div>
+
+    </div>
+
+    <!-- ROW 4 -->
+    <div class="key-row">
+
+        <div class="key shift-key" id="keyShiftLeft">
+            Shift
+        </div>
+
+        <div class="key" id="keyZ">Z</div>
+        <div class="key" id="keyX">X</div>
+        <div class="key" id="keyC">C</div>
+        <div class="key" id="keyV">V</div>
+        <div class="key" id="keyB">B</div>
+        <div class="key" id="keyN">N</div>
+        <div class="key" id="keyM">M</div>
+
+        <div class="key" id="keyLess">&lt;</div>
+        <div class="key" id="keyGreater">&gt;</div>
+        <div class="key" id="keyQuestion">?</div>
+
+        <div class="key shift-key" id="keyShiftRight">
+            Shift
+        </div>
+
+    </div>
+
+    <!-- ROW 5 -->
+    <div class="key-row">
+
+        <div class="key" id="keyCtrlLeft">Ctrl</div>
+        <div class="key" id="keyWin">Win</div>
+        <div class="key" id="keyAltLeft">Alt</div>
+
+        <div class="key space-key" id="spaceKey">
+            Space
+        </div>
+
+        <div class="key" id="keyAltRight">Alt</div>
+        <div class="key" id="keyFn">Fn</div>
+        <div class="key" id="keyCtrlRight">Ctrl</div>
+
+    </div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="stat-box">
+        <span class="stat-label">Mistakes</span>
+        <span class="stat-value red" id="mistakes">0</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-value green" id="accuracy">100%</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">WPM</span>
+        <span class="stat-value blue" id="wpm">0</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">Time</span>
+        <span class="stat-value" id="time">00:00</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">Progress</span>
+        <span class="stat-value blue" id="progress">0%</span>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- LEVEL COMPLETE POPUP -->
+
+<div id="popup" class="popup">
+
+    <div class="popup-card advanced-popup">
+
+        <div class="popup-content">
+
+            <div class="popup-left">
+
+    <div class="level-circle" id="circleProgress">
+
+        <div class="popup-trophy">
+            🏆
+        </div>
+
+        <div id="popupTitle" class="circle-title">
+            LEVEL COMPLETE
+        </div>
+
+        <div id="starRating">
+            ⭐⭐⭐
+        </div>
+</div>
+
+<div id="performanceBadge"
+class="performance-badge">
+✅ Excellent Work
+</div>
+
+</div>
+
+            <div class="result-card">
+
+                <div class="result-row">
+                    <span>🎯 Accuracy</span>
+                    <span id="resultAccuracy">100%</span>
+                </div>
+
+                <div class="result-row">
+                    <span>❌ Mistakes</span>
+                    <span id="resultMistakes">0</span>
+                </div>
+
+                <div class="result-row">
+                    <span>⚡ WPM</span>
+                    <span id="resultWpm">0</span>
+                </div>
+
+                <div class="result-row">
+                    <span>⏱ Time Taken</span>
+                    <span id="resultTime">00:00</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Buttons OUTSIDE popup-content -->
+
+        <div class="popup-buttons">
+
+            <button id="restartBtn">
+                🔄 Retry
+            </button>
+
+            <button id="backBtn">
+                ⬅ Back
+            </button>
+
+            <button id="nextBtn">
+                Next Level →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="advanced.js"></script>
+
+</body>
+</html>
