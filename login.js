@@ -109,12 +109,17 @@ user.displayName;
 
 }
 
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
+const loginBtn =
+document.querySelector(
+".login-btn"
+);
+
+if(loginBtn){
+
+loginBtn.style.display =
 "none";
+
+}
 
 alert(
 "Welcome " +
