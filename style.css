@@ -1588,7 +1588,7 @@ body.light .practice-box{
 
     cursor:pointer;
 
-    color:inherit;
+   color:var(--text-color);
 
 }
 
