@@ -88,14 +88,7 @@ user.photoURL
 );
 
 /* UI UPDATE */
-
-document
-.querySelector(
-".login-btn"
-)
-.style.display =
-"none";
-
+  
 const userInfo =
 document.getElementById(
 "userInfo"
