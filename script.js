@@ -388,23 +388,44 @@ body.className
 
 function openLoginModal(){
 
-    let modal =
+let modal =
 
-    document.getElementById(
-    "loginModal"
-    );
+document.getElementById(
+"loginModal"
+);
 
+modal.style.visibility =
+"visible";
 
+modal.style.opacity =
+"1";
 
-    modal.style.visibility =
-    "visible";
-
-
-    modal.style.opacity = "1";
+modal.style.display =
+"flex";
 
 document.querySelector(
 ".login-box"
 ).style.transform =
 "scale(1)";
+
+}
+
+
+function closeLoginModal(){
+
+let modal =
+
+document.getElementById(
+"loginModal"
+);
+
+modal.style.visibility =
+"hidden";
+
+modal.style.opacity =
+"0";
+
+modal.style.display =
+"none";
 
 }
