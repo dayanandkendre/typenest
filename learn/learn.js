@@ -25,12 +25,27 @@ for(let i=2;i<=20;i++){
             );
 
             card.onclick =
-            function(){
+function(){
 
-                window.location.href =
-                "level.html?id="+i;
+const userUID =
+localStorage.getItem(
+"userUID"
+);
 
-            };
+if(!userUID){
+
+alert(
+"Please login to start learning."
+);
+
+return;
+
+}
+
+window.location.href =
+"level.html?id="+i;
+
+};
 
         }
 
