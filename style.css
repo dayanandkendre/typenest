@@ -1592,6 +1592,14 @@ body.light .practice-box{
 
 }
 
+/* DARK THEME FIX */
+
+body.dark .google-login{
+
+    color:#111827;
+
+}
+
 .footer-links a{
 
     display:block;
