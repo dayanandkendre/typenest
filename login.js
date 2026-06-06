@@ -96,13 +96,18 @@ document
 .style.display =
 "none";
 
-document
-.getElementById(
+const userInfo =
+document.getElementById(
 "userInfo"
-)
-.innerHTML =
+);
+
+if(userInfo){
+
+userInfo.innerHTML =
 "👤 " +
 user.displayName;
+
+}
 
 document
 .getElementById(
