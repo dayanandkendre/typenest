@@ -148,24 +148,36 @@ console.log(
 user.displayName
 );
 
-document
-.getElementById(
+const userInfo =
+document.getElementById(
 "userInfo"
-)
-.innerHTML =
+);
+
+if(userInfo){
+
+userInfo.innerHTML =
 "👤 " +
 user.displayName;
 
-document
-.querySelector(
+}
+
+const loginBtn =
+document.querySelector(
 ".login-btn"
-)
-.style.display =
+);
+
+if(loginBtn){
+
+loginBtn.style.display =
 "none";
+
+}
 
 }
 
 }
 );
 
-console.log("Firestore Saved Successfully");
+console.log(
+"Firestore Saved Successfully"
+);
