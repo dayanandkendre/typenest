@@ -400,9 +400,6 @@ modal.style.visibility =
 modal.style.opacity =
 "1";
 
-modal.style.display =
-"flex";
-
 document.querySelector(
 ".login-box"
 ).style.transform =
@@ -424,8 +421,5 @@ modal.style.visibility =
 
 modal.style.opacity =
 "0";
-
-modal.style.display =
-"none";
 
 }
