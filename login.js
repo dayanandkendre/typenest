@@ -114,6 +114,13 @@ loginBtn.style.display =
 
 }
 
+document
+.getElementById(
+"loginModal"
+)
+.style.display =
+"none";  
+
 alert(
 "Welcome " +
 user.displayName
