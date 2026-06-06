@@ -3,7 +3,7 @@ const lessons = {
 1:{
 title:"Morning Story",
 subtitle:"Simple sentence practice.",
-target:"Today I woke up early in the morning and went for a walk in the garden."
+target:"Today I woke up early in the morning and went for a walk in the garden. The weather was cool and pleasant. Birds were singing on the trees and children were playing happily in the park."
 },
 
 2:{
