@@ -34,9 +34,7 @@ localStorage.getItem(
 
 if(!userUID){
 
-alert(
-"Please login to start learning."
-);
+openLoginModal();
 
 return;
 
