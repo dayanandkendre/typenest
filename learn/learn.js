@@ -176,6 +176,10 @@ document
 .innerText =
 (streak - 1) + " Levels";
 
+/* =========================================
+   LOGIN CHECK FOR LEVEL ACCESS
+========================================= */
+
 function openLevel(level){
 
 const userUID =
