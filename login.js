@@ -39,7 +39,7 @@ const user =
 result.user;
 
 /* SAVE USER TO FIRESTORE */
-
+console.log("Before Save");
 await setDoc(
 doc(
 db,
@@ -65,7 +65,7 @@ new Date()
 merge:true
 }
 );
-
+console.log("After Save");
 /* SAVE LOCAL */
 
 localStorage.setItem(
