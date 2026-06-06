@@ -235,6 +235,11 @@ localStorage.getItem(
 
 if(!userUID){
 
+localStorage.setItem(
+"selectedLevel",
+level
+);
+
 openLoginModal();
 
 return;
