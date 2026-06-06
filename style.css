@@ -1818,8 +1818,7 @@ color:#16a34a;
 }
 
 #userInfo{
-color:#00008B;
+color:inherit;
 font-weight:600;
 margin-left:15px;
-
 }
