@@ -861,3 +861,49 @@ body{
     color:white;
 
 }
+
+/* =========================================
+   NAVBAR LINKS
+========================================= */
+
+.navbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    font-weight:700;
+
+}
+
+.home-link{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    font-weight:600;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.home-link:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
