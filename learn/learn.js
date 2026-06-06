@@ -189,8 +189,9 @@ localStorage.getItem(
 
 if(!userUID){
 
-window.location.href =
-"../index.html";
+alert(
+"Please login to start learning."
+);
 
 return;
 
