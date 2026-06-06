@@ -176,6 +176,33 @@ document
 .innerText =
 (streak - 1) + " Levels";
 
+
+/* =========================================
+   LOGIN MODAL
+========================================= */
+
+function openLoginModal(){
+
+document
+.getElementById(
+"loginModal"
+)
+.style.display =
+"flex";
+
+}
+
+function closeLoginModal(){
+
+document
+.getElementById(
+"loginModal"
+)
+.style.display =
+"none";
+
+}
+
 /* =========================================
    LOGIN CHECK FOR LEVEL ACCESS
 ========================================= */
