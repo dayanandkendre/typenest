@@ -88,6 +88,17 @@ console.log(
 user.displayName
 );
 
+document
+.getElementById("userInfo")
+.innerHTML =
+"👤 " +
+user.displayName;
+
+document
+.querySelector(".login-btn")
+.style.display =
+"none";
+
 }
 
 }
