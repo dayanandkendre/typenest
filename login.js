@@ -126,6 +126,23 @@ alert(
 user.displayName
 );
 
+const selectedLevel =
+localStorage.getItem(
+"selectedLevel"
+);
+
+if(selectedLevel){
+
+localStorage.removeItem(
+"selectedLevel"
+);
+
+window.location.href =
+"level.html?id=" +
+selectedLevel;
+
+}
+  
 }
 catch(error){
 
