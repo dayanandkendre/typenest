@@ -37,6 +37,10 @@ provider
 
 const user =
 result.user;
+  localStorage.setItem(
+"userUID",
+user.uid
+);
 
 /* SAVE USER TO FIRESTORE */
 console.log("Before Save");
