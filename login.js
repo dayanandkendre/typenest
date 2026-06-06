@@ -28,6 +28,8 @@ await signInWithPopup(
 auth,
 provider
 );
+  document.querySelector(".login-btn")
+.style.display = "none";
 
 const user =
 result.user;
