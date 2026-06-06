@@ -158,3 +158,5 @@ document
 
 }
 );
+
+console.log("Firestore Saved Successfully");
