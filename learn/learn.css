@@ -863,7 +863,7 @@ body{
 }
 
 /* =========================================
-   NAVBAR LINKS
+   NAVBAR LEFT
 ========================================= */
 
 .navbar-left{
@@ -872,7 +872,7 @@ body{
 
     align-items:center;
 
-    gap:15px;
+    gap:20px;
 
 }
 
@@ -880,9 +880,15 @@ body{
 
     text-decoration:none;
 
-    color:inherit;
+    color:white;
+
+    font-size:18px;
 
     font-weight:700;
+
+    display:flex;
+
+    align-items:center;
 
 }
 
@@ -890,20 +896,28 @@ body{
 
     text-decoration:none;
 
-    color:inherit;
+    color:white;
+
+    font-size:15px;
 
     font-weight:600;
 
-    padding:8px 14px;
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:8px 12px;
 
     border-radius:10px;
 
-    transition:.3s;
+    transition:0.3s;
 
 }
 
 .home-link:hover{
 
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,0.15);
 
 }
