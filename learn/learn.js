@@ -160,3 +160,25 @@ document
 .getElementById("bestStreak")
 .innerText =
 (streak - 1) + " Levels";
+
+function openLevel(level){
+
+const userUID =
+localStorage.getItem(
+"userUID"
+);
+
+if(!userUID){
+
+alert(
+"Please login to start learning."
+);
+
+return;
+
+}
+
+window.location.href =
+"level.html?id=" + level;
+
+}
