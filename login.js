@@ -51,7 +51,7 @@ document
 .getElementById(
 "loginModal"
 )
-style.display =
+.style.display =
 "none";
 
 alert(
