@@ -181,22 +181,38 @@ document
 
 function openLoginModal(){
 
-document
-.getElementById(
+let modal =
+
+document.getElementById(
 "loginModal"
-)
-.style.display =
+);
+
+modal.style.display =
 "flex";
+
+modal.style.visibility =
+"visible";
+
+modal.style.opacity =
+"1";
 
 }
 
 function closeLoginModal(){
 
-document
-.getElementById(
+let modal =
+
+document.getElementById(
 "loginModal"
-)
-.style.display =
+);
+
+modal.style.opacity =
+"0";
+
+modal.style.visibility =
+"hidden";
+
+modal.style.display =
 "none";
 
 }
