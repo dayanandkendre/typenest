@@ -437,3 +437,23 @@ function closeLoginModal(){
 "scale(0.85)";
 
 }
+
+function startLearning(){
+
+const userUID =
+localStorage.getItem(
+"userUID"
+);
+
+if(!userUID){
+
+openLoginModal();
+
+return;
+
+}
+
+window.location.href =
+"learn/learn.html";
+
+}
