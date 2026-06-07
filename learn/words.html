@@ -22,6 +22,30 @@ href="learn.css">
 
 <body>
 
+    <script>
+
+/* SECTION LOCK CHECK */
+
+let sectionUnlocked =
+parseInt(
+localStorage.getItem(
+"sectionUnlocked"
+) || 1
+);
+
+if(sectionUnlocked < 4){
+
+alert(
+"Complete Bottom Row first."
+);
+
+window.location.href =
+"bottomrow.html";
+
+}
+
+</script>
+
 <!-- NAVBAR -->
 
 <div class="navbar">
