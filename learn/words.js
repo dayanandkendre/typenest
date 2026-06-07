@@ -551,7 +551,15 @@ if(
 
 }
 
+if(level === 20){
 
+    localStorage.setItem(
+    "sectionUnlocked",
+    "5"
+    );
+
+}
+    
 let stars = "⭐⭐⭐";
 
 if(mistakes >= 3){
