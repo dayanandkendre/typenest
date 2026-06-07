@@ -559,25 +559,12 @@ onclick="window.location.href='toprowlevel.html?id=1'">
 
 <script>
 
-/* SECTION LOCK CHECK */
-
-let sectionUnlocked =
-parseInt(
+alert(
+"sectionUnlocked = " +
 localStorage.getItem(
 "sectionUnlocked"
-) || 1
+)
 );
-
-if(sectionUnlocked < 2){
-
-alert(
-"Complete Home Row first."
-);
-
-window.location.href =
-"learn.html";
-
-}
 
 </script>
     
