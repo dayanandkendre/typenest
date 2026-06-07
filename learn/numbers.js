@@ -550,6 +550,15 @@ if(
 
     }
 
+        if(level === 20){
+
+    localStorage.setItem(
+    "sectionUnlocked",
+    "6"
+    );
+
+}
+        
 }
 
 
