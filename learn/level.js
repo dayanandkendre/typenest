@@ -606,6 +606,43 @@ if(level > streak){
 
 }
 
+const userUID =
+localStorage.getItem(
+"userUID"
+);
+
+if(userUID){
+
+await setDoc(
+doc(
+db,
+"users",
+userUID
+),
+{
+currentLevel:
+localStorage.getItem(
+"currentLevel"
+),
+
+sectionUnlocked:
+localStorage.getItem(
+"sectionUnlocked"
+),
+
+bestStreak:
+localStorage.getItem(
+"bestStreak"
+)
+
+},
+{
+merge:true
+}
+);
+
+}
+      
 document
 .getElementById(
 "popup"
