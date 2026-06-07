@@ -559,7 +559,30 @@ onclick="window.location.href='bottomrowlevel.html?id=1'">
 
 </div>
 
+<script>
 
+/* SECTION LOCK CHECK */
+
+let sectionUnlocked =
+parseInt(
+localStorage.getItem(
+"sectionUnlocked"
+) || 1
+);
+
+if(sectionUnlocked < 3){
+
+alert(
+"Complete Top Row first."
+);
+
+window.location.href =
+"toprow.html";
+
+}
+
+</script>
+    
 <script>
 
 let unlocked =
