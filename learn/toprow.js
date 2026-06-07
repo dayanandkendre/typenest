@@ -397,6 +397,17 @@ if(level >= unlocked){
 
 }
 
+/* TOP ROW COMPLETE → UNLOCK BOTTOM ROW */
+
+if(level === 20){
+
+    localStorage.setItem(
+    "sectionUnlocked",
+    "3"
+    );
+
+}
+       
 let stars = "⭐⭐⭐";
 
 if(mistakes >= 3){
