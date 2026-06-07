@@ -400,6 +400,15 @@ if(level >= unlocked){
 
 }
 
+if(level === 20){
+
+    localStorage.setItem(
+    "sectionUnlocked",
+    2
+    );
+
+}
+      
 let stars = "⭐⭐⭐";
 
 if(mistakes >= 3){
