@@ -1,0 +1,159 @@
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    background:#f5f7ff;
+
+    color:#111827;
+
+    
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.tests-hero{
+
+    text-align:center;
+
+    padding:35px 20px 15px;
+
+}
+
+
+
+.tests-hero h1{
+
+    font-size:56px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.tests-hero p{
+
+    font-size:18px;
+
+    color:#6b7280;
+
+}
+
+
+
+/* =========================================
+   TEST GRID
+========================================= */
+
+.tests-grid{
+
+    width:82%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+
+}
+
+
+
+/* =========================================
+   TEST CARD
+========================================= */
+
+.test-card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+
+    transition:0.3s;
+
+    margin-bottom:60px;
+
+}
+
+
+
+.test-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+
+.test-card h2{
+
+    font-size:28px;
+
+    margin-bottom:16px;
+
+}
+
+
+
+.test-card p{
+
+    color:#6b7280;
+
+    line-height:1.6;
+
+    margin-bottom:24px;
+
+}
+
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.test-card button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.test-card button:hover{
+
+    background:#4f46e5;
+
+}
+

@@ -1,0 +1,224 @@
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    background:#f5f7ff;
+
+    color:#111827;
+
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.courses-hero{
+
+    text-align:center;
+
+    padding-top:20px;
+
+    padding-bottom:15px;
+
+}
+
+
+
+.courses-hero h1{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.courses-hero p{
+
+    font-size:16px;
+
+    color:#6b7280;
+
+}
+
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.courses-grid{
+
+    width:92%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-bottom:60px;
+}
+
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.course-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+
+    transition:0.3s;
+
+}
+
+
+
+.course-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.course-card h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.course-card p{
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* =========================================
+   COURSE BADGE
+========================================= */
+
+.course-badge{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.intermediate{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+}
+
+
+
+.advanced{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}
+
+
+
+/* =========================================
+   COURSE INFO
+========================================= */
+
+.course-info{
+
+    color:#64748b;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.course-card button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.course-card button:hover{
+
+    background:#4f46e5;
+
+}
+
+

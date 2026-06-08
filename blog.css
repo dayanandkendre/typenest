@@ -1,0 +1,162 @@
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+    margin:0;
+
+    font-family:Arial;
+
+    background:#f5f7ff;
+
+    color:#111827;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.blog-hero{
+
+    text-align:center;
+
+    padding-top:95px;
+
+    padding-bottom:15px;
+
+}
+
+
+
+.blog-hero h1{
+
+    font-size:40px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.blog-hero p{
+
+    font-size:15px;
+
+    color:#64748b;
+
+    margin:0;
+
+}
+
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.blog-grid{
+
+    width:92%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.blog-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+
+    transition:0.3s;
+   
+    margin-bottom:60px;
+
+}
+
+
+
+.blog-card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+.blog-card h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.blog-card p{
+
+    font-size:14px;
+
+    color:#64748b;
+
+    line-height:1.5;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.blog-card button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.blog-card button:hover{
+
+    background:#4f46e5;
+
+}
