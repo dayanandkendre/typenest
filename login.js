@@ -178,19 +178,6 @@ console.log(
 user.displayName
 );
 
-const userInfo =
-document.getElementById(
-"userInfo"
-);
-
-if(userInfo){
-
-userInfo.innerHTML =
-"👤 " +
-user.displayName;
-
-}
-
 const loginBtn =
 document.getElementById(
 "loginBtn"
