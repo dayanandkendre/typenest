@@ -103,14 +103,23 @@ user.displayName;
 }
 
 const loginBtn =
-document.querySelector(
-".login-btn"
+document.getElementById(
+"loginBtn"
 );
 
 if(loginBtn){
 
-loginBtn.style.display =
-"none";
+loginBtn.textContent =
+"👤 " +
+user.displayName;
+
+loginBtn.onclick =
+function(){
+
+window.location.href =
+"profile.html";
+
+};
 
 }
 
@@ -190,14 +199,23 @@ user.displayName;
 }
 
 const loginBtn =
-document.querySelector(
-".login-btn"
+document.getElementById(
+"loginBtn"
 );
 
 if(loginBtn){
 
-loginBtn.style.display =
-"none";
+loginBtn.textContent =
+"👤 " +
+user.displayName;
+
+loginBtn.onclick =
+function(){
+
+window.location.href =
+"profile.html";
+
+};
 
 }
 
