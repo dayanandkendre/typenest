@@ -101,6 +101,10 @@ loginBtn.textContent =
 "👤 " +
 user.displayName;
 
+loginBtn.removeAttribute(
+"onclick"
+);
+  
 }
 
 const loginModal =
@@ -180,7 +184,11 @@ if(loginBtn){
 loginBtn.textContent =
 "👤 " +
 user.displayName;
-
+  
+loginBtn.removeAttribute(
+"onclick"
+);
+  
 }
 
 }
