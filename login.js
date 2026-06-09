@@ -105,18 +105,6 @@ loginBtn.removeAttribute(
 "onclick"
 );
 
-const dropdownMenu =
-document.getElementById(
-"dropdownMenu"
-);
-
-if(dropdownMenu){
-
-dropdownMenu.style.display =
-"block";
-
-}
-
 }
 
 const loginModal =
@@ -200,17 +188,8 @@ loginBtn.removeAttribute(
 "onclick"
 );
 
-const dropdownMenu =
-document.getElementById(
-"dropdownMenu"
-);
-
-if(dropdownMenu){
-
-dropdownMenu.style.display =
-"block";
-
-}
+loginBtn.dataset.loggedin =
+"true";
 
 }
 
@@ -238,6 +217,13 @@ if(loginBtn && dropdownMenu){
 loginBtn.addEventListener(
 "click",
 function(e){
+
+if(
+loginBtn.dataset.loggedin
+!== "true"
+){
+return;
+}
 
 e.preventDefault();
 
