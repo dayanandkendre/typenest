@@ -2574,3 +2574,58 @@ margin-left:15px;
 
 }
 
+.user-menu{
+
+    position:relative;
+
+}
+
+.dropdown-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:60px;
+
+    right:0;
+
+    min-width:180px;
+
+    background:white;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    overflow:hidden;
+
+    z-index:999;
+
+}
+
+.dropdown-menu a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-weight:500;
+
+}
+
+.dropdown-menu a:hover{
+
+    background:#f5f7ff;
+
+}
+
+.dropdown-menu.show{
+
+    display:block;
+
+}
