@@ -227,12 +227,24 @@ return;
 
 e.preventDefault();
 
+e.stopPropagation();
+
 dropdownMenu.classList.toggle(
 "show"
 );
 
 });
 
+document.addEventListener(
+"click",
+function(){
+
+dropdownMenu.classList.remove(
+"show"
+);
+
+});
+  
 }
 
 const logoutDropdown =
