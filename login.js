@@ -89,18 +89,6 @@ user.photoURL
 
 /* UI UPDATE */
   
-const userInfo =
-document.getElementById(
-"userInfo"
-);
-
-if(userInfo){
-
-userInfo.innerHTML =
-"👤 " +
-user.displayName;
-
-}
 
 const loginBtn =
 document.getElementById(
