@@ -123,12 +123,17 @@ window.location.href =
 
 }
 
-document
-.getElementById(
+const loginModal =
+document.getElementById(
 "loginModal"
-)
-.style.display =
-"none";  
+);
+
+if(loginModal){
+
+    loginModal.style.display =
+    "none";
+
+} 
 
 alert(
 "Welcome " +
