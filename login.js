@@ -104,7 +104,19 @@ user.displayName;
 loginBtn.removeAttribute(
 "onclick"
 );
-  
+
+const dropdownMenu =
+document.getElementById(
+"dropdownMenu"
+);
+
+if(dropdownMenu){
+
+dropdownMenu.style.display =
+"block";
+
+}
+
 }
 
 const loginModal =
@@ -183,11 +195,23 @@ if(loginBtn){
 loginBtn.textContent =
 "👤 " +
 user.displayName;
-  
+
 loginBtn.removeAttribute(
 "onclick"
 );
-  
+
+const dropdownMenu =
+document.getElementById(
+"dropdownMenu"
+);
+
+if(dropdownMenu){
+
+dropdownMenu.style.display =
+"block";
+
+}
+
 }
 
 }
