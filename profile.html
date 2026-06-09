@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | TypeNest</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        TypeNest
+    </div>
+
+    <div class="menu">
+
+        <a href="index.html">Home</a>
+        <a href="typing.html">Practice</a>
+        <a href="tests.html">Tests</a>
+        <a href="courses.html">Courses</a>
+        <a href="leaderboard.html">Leaderboard</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+
+    </div>
+
+    <a href="profile.html" class="login-btn">
+        Profile
+    </a>
+
+</div>
+
+<div class="profile-dashboard">
+
+    <!-- PROFILE HEADER -->
+
+    <div class="profile-header">
+
+        <div class="profile-banner"></div>
+
+        <div class="profile-info">
+
+            <img
+            id="profilePhoto"
+            src="https://ui-avatars.com/api/?name=User"
+            alt="Profile">
+
+            <h1 id="userName">
+
+                Loading...
+
+            </h1>
+
+            <p id="userEmail">
+
+                Loading...
+
+            </p>
+
+            <div class="member-badge">
+
+                ⭐ TypeNest Member
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats-row">
+
+        <div class="stats-card">
+
+            <div class="stats-icon">
+                📝
+            </div>
+
+            <div class="stats-content">
+
+                <h2>24</h2>
+
+                <p>Tests Taken</p>
+
+                <span>Keep going!</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats-card">
+
+            <div class="stats-icon">
+                ⚡
+            </div>
+
+            <div class="stats-content">
+
+                <h2>78</h2>
+
+                <p>Best WPM</p>
+
+                <span>Your best speed</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats-card">
+
+            <div class="stats-icon">
+                🎯
+            </div>
+
+            <div class="stats-content">
+
+                <h2>97%</h2>
+
+                <p>Accuracy</p>
+
+                <span>Amazing!</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats-card">
+
+            <div class="stats-icon">
+                👑
+            </div>
+
+            <div class="stats-content">
+
+                <h2>#8</h2>
+
+                <p>Leaderboard Rank</p>
+
+                <span>Keep climbing!</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT AREA -->
+
+    <div class="dashboard-grid">
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="dashboard-card">
+
+            <h2>
+
+                ⚡ Quick Actions
+
+            </h2>
+
+            <div class="action-list">
+
+                <a href="typing.html"
+                class="action-item">
+
+                    ⌨️ Start Practice
+
+                </a>
+
+                <a href="tests.html"
+                class="action-item">
+
+                    📝 Take Test
+
+                </a>
+
+                <a href="leaderboard.html"
+                class="action-item">
+
+                    🏆 View Leaderboard
+
+                </a>
+
+                <a href="courses.html"
+                class="action-item">
+
+                    📚 Browse Courses
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT TESTS -->
+
+        <div class="dashboard-card">
+
+            <h2>
+
+                📈 Recent Tests
+
+            </h2>
+
+            <div class="recent-tests">
+
+                <div class="test-item">
+
+                    <span>Test #25</span>
+
+                    <strong>72 WPM</strong>
+
+                    <span>98%</span>
+
+                </div>
+
+                <div class="test-item">
+
+                    <span>Test #24</span>
+
+                    <strong>69 WPM</strong>
+
+                    <span>97%</span>
+
+                </div>
+
+                <div class="test-item">
+
+                    <span>Test #23</span>
+
+                    <strong>65 WPM</strong>
+
+                    <span>96%</span>
+
+                </div>
+
+                <div class="test-item">
+
+                    <span>Test #22</span>
+
+                    <strong>61 WPM</strong>
+
+                    <span>95%</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTTOM INFO -->
+
+    <div class="bottom-cards">
+
+        <div class="bottom-card">
+
+            <h3>
+
+                🔥 Current Streak
+
+            </h3>
+
+            <p>
+
+                12 Days
+
+            </p>
+
+        </div>
+
+        <div class="bottom-card">
+
+            <h3>
+
+                🏅 Member Since
+
+            </h3>
+
+            <p>
+
+                June 2026
+
+            </p>
+
+        </div>
+
+        <div class="bottom-card">
+
+            <button id="logoutBtn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 TypeNest. All rights reserved.
+    </p>
+
+</div>
+
+<script type="module" src="profile.js"></script>
+
+</body>
+</html>
