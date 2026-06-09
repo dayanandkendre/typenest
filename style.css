@@ -2600,7 +2600,7 @@ margin-left:15px;
 
     overflow:hidden;
 
-    z-index:999;
+    z-index:99999;
 
 }
 
@@ -2615,6 +2615,8 @@ margin-left:15px;
     color:#222;
 
     font-weight:500;
+   
+   cursor:pointer;
 
 }
 
