@@ -142,9 +142,8 @@ selectedLevel;
 }
 else{
 
-window.location.href =
-"profile.html";
-
+ window.location.reload();
+  
 }
   
 }
