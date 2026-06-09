@@ -101,14 +101,6 @@ loginBtn.textContent =
 "👤 " +
 user.displayName;
 
-loginBtn.onclick =
-function(){
-
-window.location.href =
-"profile.html";
-
-};
-
 }
 
 const loginModal =
@@ -189,14 +181,6 @@ loginBtn.textContent =
 "👤 " +
 user.displayName;
 
-loginBtn.onclick =
-function(){
-
-window.location.href =
-"profile.html";
-
-};
-
 }
 
 }
@@ -207,3 +191,51 @@ window.location.href =
 console.log(
 "Firestore Saved Successfully"
 );
+
+const loginBtn =
+document.getElementById(
+"loginBtn"
+);
+
+const dropdownMenu =
+document.getElementById(
+"dropdownMenu"
+);
+
+if(loginBtn && dropdownMenu){
+
+loginBtn.addEventListener(
+"click",
+function(e){
+
+e.preventDefault();
+
+dropdownMenu.classList.toggle(
+"show"
+);
+
+});
+
+}
+
+const logoutDropdown =
+document.getElementById(
+"logoutDropdown"
+);
+
+if(logoutDropdown){
+
+logoutDropdown.addEventListener(
+"click",
+async function(e){
+
+e.preventDefault();
+
+await signOut(auth);
+
+window.location.href =
+"index.html";
+
+});
+
+}
