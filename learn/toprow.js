@@ -194,6 +194,11 @@ lettersHTML;
 const input =
 document.getElementById("typingInput");
 
+const keySound =
+document.getElementById(
+"keySound"
+);
+
 let current = 0;
 let mistakes = 0;
 
@@ -664,6 +669,14 @@ function(){
 document.addEventListener(
 "keydown",
 function(event){
+
+   if(keySound){
+
+    keySound.currentTime = 0;
+
+    keySound.play().catch(()=>{});
+
+}
 
     if(event.getModifierState("CapsLock")){
 
