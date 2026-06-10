@@ -54,7 +54,7 @@ logoutBtn.addEventListener(
     .then(()=>{
 
         window.location.href =
-        "login.html";
+        "index.html";
 
     });
 
