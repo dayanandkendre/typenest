@@ -356,6 +356,11 @@ renderText();
 const input =
 document.getElementById("typingInput");
 
+const keySound =
+document.getElementById(
+"keySound"
+);
+
 let lessonCompleted = false;
 
 
@@ -903,6 +908,14 @@ function(){
 document.addEventListener(
 "keydown",
 function(e){
+
+    if(keySound){
+
+    keySound.currentTime = 0;
+
+    keySound.play().catch(()=>{});
+
+}
 
 if(
     lessonCompleted
