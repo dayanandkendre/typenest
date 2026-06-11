@@ -61,6 +61,25 @@ users.forEach(function(user,index){
 
 leaderboardBox.innerHTML += `
 <div class="leader-row">
+
+let medal = "#" + (index + 1);
+
+if(index === 0){
+
+medal = "🥇";
+
+}
+else if(index === 1){
+
+medal = "🥈";
+
+}
+else if(index === 2){
+
+medal = "🥉";
+
+}
+
 <div class="rank">
 #${index + 1}
 </div>
