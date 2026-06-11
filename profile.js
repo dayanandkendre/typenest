@@ -148,6 +148,88 @@ async (user)=>{
     ).textContent =
     "#" + (rank + 1);
 
+const historyQuery =
+
+query(
+collection(
+db,
+"history"
+),
+where(
+"userId",
+"==",
+user.uid
+)
+);
+
+const historySnap =
+
+await getDocs(
+historyQuery
+);
+
+let tests = [];
+
+historySnap.forEach((doc)=>{
+
+tests.push(
+doc.data()
+);
+
+});
+
+tests.sort(function(a,b){
+
+return new Date(
+b.date
+)
+-
+new Date(
+a.date
+);
+
+});
+
+recentTests.innerHTML = "";
+
+tests.slice(0,5)
+.forEach(function(test,index){
+
+recentTests.innerHTML +=
+`
+<div class="test-item">
+
+<span>
+
+Test #${tests.length - index}
+
+</span>
+
+<strong>
+
+${test.wpm} WPM
+
+</strong>
+
+<span>
+
+${test.accuracy}%
+
+</span>
+
+</div>
+`;
+
+});
+
+if(tests.length === 0){
+
+recentTests.innerHTML =
+
+"No tests found";
+
+}
+    
 });
 
 logoutBtn.addEventListener(
