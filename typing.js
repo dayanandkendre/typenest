@@ -55,6 +55,29 @@ finalWpm,
 accuracy
 );
 
+const userRef =
+
+doc(
+db,
+"users",
+userUID
+);
+
+const userSnap =
+
+await getDoc(
+userRef
+);
+
+if(userSnap.exists()){
+
+console.log(
+"CURRENT DATA:",
+userSnap.data()
+);
+
+}
+
 }
 
 /* =========================================
