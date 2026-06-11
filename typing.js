@@ -7,6 +7,16 @@ updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+const userUID =
+localStorage.getItem(
+"userUID"
+);
+
+console.log(
+"USER UID:",
+userUID
+);
+
 /* =========================================
    PARAGRAPHS
 ========================================= */
