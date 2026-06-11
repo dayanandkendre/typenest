@@ -44,8 +44,8 @@ console.log(users);
 
 users.sort(function(a,b){
 
-## return (b.bestWpm || 0)
-
+return (b.bestWpm || 0)
+-
 (a.bestWpm || 0);
 
 });
