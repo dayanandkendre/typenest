@@ -6,6 +6,14 @@ from "./firebase-config.js";
 
 import {
 
+doc,
+getDoc
+
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+import {
+
     onAuthStateChanged,
     signOut
 
@@ -20,10 +28,26 @@ document.getElementById("userEmail");
 const profilePhoto =
 document.getElementById("profilePhoto");
 
+const testsTaken =
+document.getElementById(
+"testsTaken"
+);
+
+const bestWpm =
+document.getElementById(
+"bestWpm"
+);
+
+const bestAccuracy =
+document.getElementById(
+"bestAccuracy"
+);
+
 const logoutBtn =
 document.getElementById("logoutBtn");
 
-onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth,
+async (user)=>{
 
     if(!user){
 
@@ -47,6 +71,37 @@ onAuthStateChanged(auth,(user)=>{
         user.photoURL;
 
     }
+
+    const userRef =
+
+doc(
+db,
+"users",
+user.uid
+);
+
+const userSnap =
+
+await getDoc(
+userRef
+);
+
+if(userSnap.exists()){
+
+const data =
+userSnap.data();
+
+testsTaken.textContent =
+data.testsTaken || 0;
+
+bestWpm.textContent =
+data.bestWpm || 0;
+
+bestAccuracy.textContent =
+(data.bestAccuracy || 0)
++ "%";
+
+}
 
 });
 
