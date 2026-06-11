@@ -52,6 +52,11 @@ accuracy
 ){
 
 console.log(
+"USER UID IN SAVE:",
+userUID
+);
+   
+console.log(
 "SAVE RESULT:",
 finalWpm,
 accuracy
