@@ -51,18 +51,21 @@ db,
 user.uid
 ),
 {
-name:
-user.displayName,
+name:user.displayName,
 
-email:
-user.email,
+email:user.email,
 
-photo:
-user.photoURL,
+photo:user.photoURL,
 
 lastLogin:
 new Date()
-.toISOString()
+.toISOString(),
+
+testsTaken: 0,
+
+bestWpm: 0,
+
+bestAccuracy: 0
 
 },
 {
