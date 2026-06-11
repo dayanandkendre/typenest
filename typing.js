@@ -675,7 +675,7 @@ document
  
    saveResult(
 finalWpm,
-Accuracy
+accuracy
 );   
 
 }
