@@ -311,7 +311,7 @@ if(timer <= 0){
 
     saveResult(
 finalWpm,
-accuracy
+liveAccuracy
 );
    
     let popup =
@@ -675,7 +675,7 @@ document
  
    saveResult(
 finalWpm,
-accuracy
+liveAccuracy
 );   
 
 }
