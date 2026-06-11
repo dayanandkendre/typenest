@@ -59,9 +59,6 @@ leaderboardBox.innerHTML = "";
 
 users.forEach(function(user,index){
 
-leaderboardBox.innerHTML += `
-<div class="leader-row">
-
 let medal = "#" + (index + 1);
 
 if(index === 0){
@@ -80,6 +77,9 @@ medal = "🥉";
 
 }
 
+leaderboardBox.innerHTML += `
+<div class="leader-row">
+
 <div class="rank">
 ${medal}
 </div>
@@ -96,4 +96,3 @@ ${user.bestWpm || 0} WPM
 `;
 
 });
-
