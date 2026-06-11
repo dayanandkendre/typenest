@@ -74,34 +74,72 @@ async (user)=>{
 
     const userRef =
 
-doc(
-db,
-"users",
-user.uid
-);
+    doc(
+    db,
+    "users",
+    user.uid
+    );
 
-const userSnap =
+    const userSnap =
 
-await getDoc(
-userRef
-);
+    await getDoc(
+    userRef
+    );
 
-if(userSnap.exists()){
+    if(userSnap.exists()){
 
-const data =
-userSnap.data();
+        const data =
+        userSnap.data();
 
-testsTaken.textContent =
-data.testsTaken || 0;
+        testsTaken.textContent =
+        data.testsTaken || 0;
 
-bestWpm.textContent =
-data.bestWpm || 0;
+        bestWpm.textContent =
+        data.bestWpm || 0;
 
-bestAccuracy.textContent =
-(data.bestAccuracy || 0)
-+ "%";
+        bestAccuracy.textContent =
+        (data.bestAccuracy || 0)
+        + "%";
 
-}
+    }
+
+    const allUsers =
+
+    await getDocs(
+    collection(
+    db,
+    "users"
+    )
+    );
+
+    let users = [];
+
+    allUsers.forEach((doc)=>{
+
+        users.push(
+        doc.data()
+        );
+
+    });
+
+    users.sort(function(a,b){
+
+        return (b.bestWpm || 0)
+        -
+        (a.bestWpm || 0);
+
+    });
+
+    let rank =
+
+    users.findIndex(
+    u => u.email === user.email
+    );
+
+    document.getElementById(
+    "userRank"
+    ).textContent =
+    "#" + (rank + 1);
 
 });
 
