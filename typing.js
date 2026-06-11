@@ -100,12 +100,18 @@ accuracy
 );
 
 console.log(
-"NEW VALUES:",
-{
-newTestsTaken,
-newBestWpm,
+"NEW TESTS:",
+newTestsTaken
+);
+
+console.log(
+"NEW BEST WPM:",
+newBestWpm
+);
+
+console.log(
+"NEW BEST ACCURACY:",
 newBestAccuracy
-}
 );
    
 }
