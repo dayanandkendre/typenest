@@ -1,4 +1,12 @@
 import { db } from "./firebase-config.js";
+
+import {
+doc,
+getDoc,
+updateDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 /* =========================================
    PARAGRAPHS
 ========================================= */
