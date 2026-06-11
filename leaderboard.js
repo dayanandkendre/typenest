@@ -9,6 +9,13 @@ getDocs
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+const leaderboardBox =
+
+document.getElementById(
+"leaderboardBox"
+);
+
+
 const snapshot =
 
 await getDocs(
@@ -23,10 +30,15 @@ console.log(
 snapshot.size
 );
 
+let users = [];
+
 snapshot.forEach((doc)=>{
 
-console.log(
+users.push(
 doc.data()
 );
 
 });
+
+console.log(users);
+
