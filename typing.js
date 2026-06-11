@@ -672,7 +672,11 @@ finalWpm > Number(bestWpm)
 document
 .getElementById("bestWpm")
 .innerText = bestWpm;
-    
+ 
+   saveResult(
+finalWpm,
+accuracy
+);   
 
 }
  
