@@ -8,7 +8,9 @@ import {
 doc,
 getDoc,
 collection,
-getDocs
+getDocs,
+query,
+where
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
@@ -36,6 +38,11 @@ document.getElementById(
 const bestWpm =
 document.getElementById(
 "bestWpm"
+);
+
+const recentTests =
+document.getElementById(
+"recentTests"
 );
 
 const bestAccuracy =
