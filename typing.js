@@ -17,6 +17,33 @@ console.log(
 userUID
 );
 
+if(userUID){
+
+const userRef =
+
+doc(
+db,
+"users",
+userUID
+);
+
+const userSnap =
+
+await getDoc(
+userRef
+);
+
+if(userSnap.exists()){
+
+console.log(
+"USER DATA:",
+userSnap.data()
+);
+
+}
+
+}
+
 /* =========================================
    PARAGRAPHS
 ========================================= */
