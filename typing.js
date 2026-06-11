@@ -44,6 +44,19 @@ userSnap.data()
 
 }
 
+async function saveResult(
+finalWpm,
+accuracy
+){
+
+console.log(
+"SAVE RESULT:",
+finalWpm,
+accuracy
+);
+
+}
+
 /* =========================================
    PARAGRAPHS
 ========================================= */
