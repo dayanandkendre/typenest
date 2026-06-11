@@ -309,6 +309,11 @@ if(timer <= 0){
     .getElementById("bestWpm")
     .innerText = bestWpm;
 
+    saveResult(
+finalWpm,
+accuracy
+);
+   
     let popup =
     document.getElementById(
     "resultPopup"
