@@ -39,17 +39,6 @@ console.log(
 "USER DATA:",
 userSnap.data()
 );
-
-await updateDoc(
-userRef,
-{
-testValue: 123
-}
-);
-
-console.log(
-"TEST VALUE SAVED"
-);
    
 }
 
