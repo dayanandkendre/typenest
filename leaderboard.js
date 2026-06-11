@@ -81,7 +81,7 @@ medal = "🥉";
 }
 
 <div class="rank">
-#${index + 1}
+${medal}
 </div>
 
 <div class="user">
