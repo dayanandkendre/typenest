@@ -3,7 +3,9 @@ import { db } from "./firebase-config.js";
 import {
 doc,
 getDoc,
-updateDoc
+updateDoc,
+collection,
+addDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
@@ -130,6 +132,30 @@ newBestAccuracy
 
 console.log(
 "FIRESTORE UPDATED"
+);
+
+await addDoc(
+collection(
+db,
+"history"
+),
+{
+userId:
+userUID,
+
+wpm:
+finalWpm,
+
+accuracy:
+accuracy,
+
+date:
+new Date().toISOString()
+}
+);
+
+console.log(
+"HISTORY SAVED"
 );
    
 }
