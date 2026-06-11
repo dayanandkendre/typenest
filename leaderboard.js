@@ -42,3 +42,16 @@ doc.data()
 
 console.log(users);
 
+users.sort(function(a,b){
+
+## return (b.bestWpm || 0)
+
+(a.bestWpm || 0);
+
+});
+
+console.log(
+"SORTED USERS:",
+users
+);
+
