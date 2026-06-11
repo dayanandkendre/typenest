@@ -113,6 +113,24 @@ console.log(
 "NEW BEST ACCURACY:",
 newBestAccuracy
 );
+
+await updateDoc(
+userRef,
+{
+testsTaken:
+newTestsTaken,
+
+bestWpm:
+newBestWpm,
+
+bestAccuracy:
+newBestAccuracy
+}
+);
+
+console.log(
+"FIRESTORE UPDATED"
+);
    
 }
 
