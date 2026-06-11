@@ -76,6 +76,38 @@ console.log(
 userSnap.data()
 );
 
+const currentData =
+
+userSnap.data();
+
+const newTestsTaken =
+
+(currentData.testsTaken || 0)
++ 1;
+
+const newBestWpm =
+
+Math.max(
+currentData.bestWpm || 0,
+finalWpm
+);
+
+const newBestAccuracy =
+
+Math.max(
+currentData.bestAccuracy || 0,
+accuracy
+);
+
+console.log(
+"NEW VALUES:",
+{
+newTestsTaken,
+newBestWpm,
+newBestAccuracy
+}
+);
+   
 }
 
 }
