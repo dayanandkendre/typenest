@@ -10,6 +10,44 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 /* =========================================
    LEVEL UNLOCK SYSTEM
 ========================================= */
+const userUID =
+localStorage.getItem(
+"userUID"
+);
+
+let unlocked = 1;
+
+if(userUID){
+
+const userSnap =
+await getDoc(
+doc(
+db,
+"users",
+userUID
+)
+);
+
+if(userSnap.exists()){
+
+unlocked =
+userSnap.data()
+.progress?.home || 1;
+
+}
+
+}
+else{
+
+unlocked =
+parseInt(
+localStorage.getItem(
+"currentLevel"
+) || 1
+);
+
+}
+
 
 let unlocked =
 parseInt(
