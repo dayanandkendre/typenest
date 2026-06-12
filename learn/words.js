@@ -1,3 +1,12 @@
+import { auth, db }
+from "../firebase-config.js";
+
+import {
+doc,
+updateDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 const lessons = {
 
 1:{
@@ -419,9 +428,7 @@ function(){
 
 });
 
-input.addEventListener(
-"input",
-function(){
+input.addEventListener("input", function(){
 
 if(!timerStarted){
 
@@ -552,6 +559,27 @@ if(
             level + 1
         );
 
+        const user = auth.currentUser;
+
+if(user){
+
+    await updateDoc(
+    doc(
+    db,
+    "users",
+    user.uid
+    ),
+    {
+    "progress.bottomrow": level + 1
+    }
+    );
+
+    console.log(
+    "BOTTOM ROW PROGRESS UPDATED:",
+    level + 1
+    );
+
+}
     }
 
 }
