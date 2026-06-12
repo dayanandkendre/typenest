@@ -399,7 +399,8 @@ if(level >= unlocked){
     localStorage.setItem(
         "topRowCurrentLevel",
         level + 1
-    );
+    );  
+}
 
 const user = auth.currentUser;
 
@@ -422,9 +423,7 @@ if(user){
     );
 
 }
-   
-}
-
+       
 /* TOP ROW COMPLETE → UNLOCK BOTTOM ROW */
 
 if(level === 20){
