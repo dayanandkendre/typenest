@@ -1,19 +1,12 @@
-import { auth } from "../firebase-config.js";
+import { auth, db }
+from "../firebase-config.js";
 
 import {
 doc,
-updateDoc
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-import { db } from "../firebase-config.js";
-
-import {
-doc,
+updateDoc,
 setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
 /* =========================================
    LESSON DATA
 ========================================= */
