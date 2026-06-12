@@ -7,6 +7,15 @@ updateDoc,
 setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const level =
+parseInt(
+new URLSearchParams(
+window.location.search
+).get("id")
+|| 1
+);
+
 /* =========================================
    LESSON DATA
 ========================================= */
@@ -135,15 +144,6 @@ target:["a","s","d","f","j","k","l",";"]
 
 };
 
-
-
-let level =
-parseInt(
-new URLSearchParams(
-window.location.search
-).get("id")
-|| 1
-);
 
 const lesson =
 lessons[level];
