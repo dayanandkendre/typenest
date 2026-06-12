@@ -575,9 +575,11 @@ if(
         localStorage.setItem(
             "advancedCurrentLevel",
             level + 1
-        );
+        );       
+    }
+}
 
-  const user = auth.currentUser;
+ const user = auth.currentUser;
 
 if(user){
 
@@ -598,12 +600,7 @@ if(user){
     );
 
 }      
-        
-    }
-
-}
-
-
+    
 let stars = "⭐⭐⭐";
 
 if(mistakes >= 3){
