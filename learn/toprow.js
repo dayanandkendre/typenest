@@ -664,7 +664,7 @@ document
 function(){
 
     window.location.href =
-    "learn.html";
+    "toprow.html";
 
 });
 
