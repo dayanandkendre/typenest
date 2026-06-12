@@ -557,9 +557,11 @@ if(
         localStorage.setItem(
             "wordsCurrentLevel",
             level + 1
-        );
+        ); 
+    }
+}
 
-        const user = auth.currentUser;
+ const user = auth.currentUser;
 
 if(user){
 
@@ -580,10 +582,7 @@ if(user){
     );
 
 }
-    }
-
-}
-
+    
 if(level === 20){
 
     localStorage.setItem(
