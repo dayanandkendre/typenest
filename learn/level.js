@@ -144,6 +144,13 @@ target:["a","s","d","f","j","k","l",";"]
 
 };
 
+let level =
+parseInt(
+new URLSearchParams(
+window.location.search
+).get("id")
+|| 1
+);
 
 const lesson =
 lessons[level];
@@ -389,14 +396,6 @@ if(
     ========================================= */
 
    if(current === 8){
-
-let level =
-parseInt(
-    new URLSearchParams(
-        window.location.search
-    ).get("id")
-    || 1
-);
 
 let unlocked =
 parseInt(
