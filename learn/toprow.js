@@ -1,3 +1,12 @@
+import { auth, db }
+from "../firebase-config.js";
+
+import {
+doc,
+updateDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 /* =========================================
    LESSON DATA
 ========================================= */
@@ -247,7 +256,7 @@ setInterval(function(){
    TYPING LOGIC
 ========================================= */
 
-input.addEventListener("input", function(){
+input.addEventListener("input", async function(){
 
 if(!timerStarted){
 
@@ -378,14 +387,6 @@ if(
 
     if(current === 8){
 
-let level =
-parseInt(
-    new URLSearchParams(
-        window.location.search
-    ).get("id")
-    || 1
-);
-
 let unlocked =
 parseInt(
     localStorage.getItem(
@@ -400,6 +401,28 @@ if(level >= unlocked){
         level + 1
     );
 
+const user = auth.currentUser;
+
+if(user){
+
+    await updateDoc(
+    doc(
+    db,
+    "users",
+    user.uid
+    ),
+    {
+    "progress.toprow": level + 1
+    }
+    );
+
+    console.log(
+    "TOP ROW PROGRESS UPDATED:",
+    level + 1
+    );
+
+}
+   
 }
 
 /* TOP ROW COMPLETE → UNLOCK BOTTOM ROW */
