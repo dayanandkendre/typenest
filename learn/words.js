@@ -428,7 +428,7 @@ function(){
 
 });
 
-input.addEventListener("input", function(){
+input.addEventListener("input", async function(){
 
 if(!timerStarted){
 
