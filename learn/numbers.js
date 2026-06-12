@@ -558,7 +558,8 @@ if(
         localStorage.setItem(
             "numbersCurrentLevel",
             level + 1
-        );
+        );    
+    }
 
 const user = auth.currentUser;
 
@@ -582,8 +583,6 @@ if(user){
 
 }
         
-    }
-
         if(level === 20){
 
     localStorage.setItem(
