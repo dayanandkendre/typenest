@@ -289,3 +289,7 @@ window.location.href =
 "level.html?id=" + level;
 
 }
+
+window.openLevel = openLevel;
+window.openLoginModal = openLoginModal;
+window.closeLoginModal = closeLoginModal;
