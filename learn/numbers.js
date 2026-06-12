@@ -572,12 +572,12 @@ if(user){
     user.uid
     ),
     {
-    "progress.bottomrow": level + 1
+    "progress.numbers": level + 1
     }
     );
 
     console.log(
-    "BOTTOM ROW PROGRESS UPDATED:",
+    "NUMBERS ROW PROGRESS UPDATED:",
     level + 1
     );
 
