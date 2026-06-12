@@ -581,65 +581,94 @@ onclick="window.location.href='toprowlevel.html?id=1'">
 
 </div>
 
-    
-<script>
+<script src="toprow.js"></script>
 
-let unlocked =
-parseInt(
+<script type="module">
+
+import { db }
+from "../firebase-config.js";
+
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const userUID =
 localStorage.getItem(
-"topRowCurrentLevel"
-) || 1
+"userUID"
 );
 
-for(let i=2;i<=20;i++){
+let unlocked = 1;
 
-    if(i <= unlocked){
+if(userUID){
 
-        let card =
-        document.getElementById(
-        "level"+i
-        );
+const userSnap =
+await getDoc(
+doc(
+db,
+"users",
+userUID
+)
+);
 
-        if(card){
+if(userSnap.exists()){
 
-            card.classList.remove(
-            "locked"
-            );
-
-            card.onclick =
-            function(){
-
-                window.location.href =
-                "toprowlevel.html?id="+i;
-
-            };
-
-        }
-
-    }
+unlocked =
+userSnap.data()
+.progress?.toprow || 1;
 
 }
 
-</script>
+}
+else{
 
-
-<script>
-
-let currentLevel =
+unlocked =
 parseInt(
 localStorage.getItem(
 "topRowCurrentLevel"
 ) || 1
 );
+
+}
+
+for(let i=2;i<=20;i++){
+
+if(i <= unlocked){
+
+let card =
+document.getElementById(
+"level"+i
+);
+
+if(card){
+
+card.classList.remove(
+"locked"
+);
+
+card.onclick =
+function(){
+
+window.location.href =
+"toprowlevel.html?id="+i;
+
+};
+
+}
+
+}
+
+}
 
 document
 .getElementById("progressCount")
 .innerText =
-(currentLevel - 1)
+(unlocked - 1)
 + " / 20";
 
 let percentage =
-((currentLevel - 1) / 20)
+((unlocked - 1) / 20)
 * 100;
 
 document
@@ -650,15 +679,11 @@ percentage + "%";
 document
 .getElementById("bestStreak")
 .innerText =
-(currentLevel - 1)
+(unlocked - 1)
 + " Levels";
 
 </script>
-
-
-
-<script src="toprow.js"></script>
-
+    
 </body>
 
 </html>
