@@ -403,6 +403,28 @@ if(level >= unlocked){
         level + 1
     );
 
+const user = auth.currentUser;
+
+if(user){
+
+    await updateDoc(
+    doc(
+    db,
+    "users",
+    user.uid
+    ),
+    {
+    "progress.home": level + 1
+    }
+    );
+
+    console.log(
+    "HOME PROGRESS UPDATED:",
+    level + 1
+    );
+
+}
+   
 }
 
 if(level === 20){
