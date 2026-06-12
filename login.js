@@ -65,7 +65,7 @@ testsTaken: 0,
 
 bestWpm: 0,
 
-bestAccuracy: 0
+bestAccuracy: 0,
 
 progress: {
 
