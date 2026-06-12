@@ -67,6 +67,22 @@ bestWpm: 0,
 
 bestAccuracy: 0
 
+progress: {
+
+home: 1,
+
+toprow: 1,
+
+bottomrow: 1,
+
+words: 1,
+
+numbers: 1,
+
+advanced: 1
+
+}
+  
 },
 {
 merge:true
