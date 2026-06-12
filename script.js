@@ -101,17 +101,20 @@ let interval;
 let textDiv =
 document.getElementById("text");
 
+if(textDiv){
 
-originalText.split("").forEach(function(char){
+    originalText.split("").forEach(function(char){
 
-    let span =
-    document.createElement("span");
+        let span =
+        document.createElement("span");
 
-    span.innerText = char;
+        span.innerText = char;
 
-    textDiv.appendChild(span);
+        textDiv.appendChild(span);
 
-});
+    });
+
+}
 
 
 
@@ -161,9 +164,12 @@ function startTest(){
    TYPING DETECTION
 ========================================= */
 
-document.getElementById("input")
+const inputBox =
+document.getElementById("input");
 
-.addEventListener("input",function(){
+if(inputBox){
+
+inputBox.addEventListener("input",function(){
 
 
     if(timerStarted == false){
@@ -333,7 +339,7 @@ document.getElementById("progressBar")
 
 });
 
-
+}
 
 /* =========================================
    RESTART TEST
