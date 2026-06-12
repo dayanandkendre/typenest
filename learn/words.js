@@ -559,8 +559,6 @@ if(
             level + 1
         ); 
     }
-}
-
  const user = auth.currentUser;
 
 if(user){
@@ -589,9 +587,8 @@ if(level === 20){
     "sectionUnlocked",
     "5"
     );
-
 }
-    
+}    
 let stars = "⭐⭐⭐";
 
 if(mistakes >= 3){
