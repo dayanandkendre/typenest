@@ -415,7 +415,7 @@ if(user){
     user.uid
     ),
     {
-    "progress.home": level + 1
+    "progress.level": level + 1
     }
     );
 
