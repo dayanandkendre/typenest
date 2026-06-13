@@ -161,36 +161,16 @@ body{
 
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
-
 @media(max-width:768px){
 
 .blog-grid{
 
-    grid-template-columns:1fr;
+display:grid !important;
 
-    gap:15px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.blog-grid{
-
-    grid-template-columns:1fr;
-
-    gap:15px;
-
-    border:5px solid red;
+grid-template-columns:1fr !important;
 
 }
 
 }
 
-body{
-border:10px solid red !important;
-}
+
