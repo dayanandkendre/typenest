@@ -161,16 +161,13 @@ body{
 
 }
 
-@media(max-width:768px){
+@media(max-width:1024px){
 
 .blog-grid{
 
-display:grid !important;
-
-grid-template-columns:1fr !important;
+    grid-template-columns:1fr;
 
 }
 
 }
-
 
