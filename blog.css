@@ -160,3 +160,19 @@ body{
     background:#4f46e5;
 
 }
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+.blog-grid{
+
+    grid-template-columns:1fr;
+
+    gap:15px;
+
+}
+
+}
