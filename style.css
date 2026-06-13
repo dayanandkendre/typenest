@@ -2450,11 +2450,13 @@ color:#16a34a;
 
 .learn-section{
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
-padding:25px;
+    text-align:center;
 
-gap:25px;
+    padding:25px;
+
+    gap:25px;
 
 }
 
@@ -2470,6 +2472,12 @@ gap:25px;
 
 }
 
+.journey-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+   
 }
 
 #userInfo{
