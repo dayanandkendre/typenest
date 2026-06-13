@@ -2450,8 +2450,11 @@ color:#16a34a;
 
 .learn-section{
 
-    flex-direction:column;
-    text-align:center;
+grid-template-columns:1fr;
+
+padding:25px;
+
+gap:25px;
 
 }
 
