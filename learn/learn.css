@@ -492,14 +492,12 @@ body{
 
 @media (max-width:768px){
 
-    .levels-grid{
+   .levels-grid{
+    grid-template-columns:
+    repeat(2,1fr);
 
-        grid-template-columns:
-        repeat(3,1fr);
-
-        gap:12px;
-
-    }
+    gap:15px;
+}
 
 }
 
