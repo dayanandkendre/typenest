@@ -405,6 +405,32 @@
 
 }
 
+.certificate-btn{
+
+display:inline-block;
+
+background:#2563eb;
+
+color:white;
+
+padding:15px 30px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-weight:600;
+
+margin:20px 0;
+
+}
+
+.certificate-btn:hover{
+
+opacity:.9;
+
+}
+
 @media(max-width:768px){
 
 .progress-sections{
