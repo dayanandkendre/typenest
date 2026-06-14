@@ -113,6 +113,56 @@ data.progress?.numbers || 1;
 const advanced =
 data.progress?.advanced || 1;
 
+if(home >= 21){
+
+document.getElementById(
+"badgeHome"
+).classList.add(
+"badge-earned"
+);
+
+}
+
+if(bottom >= 21){
+
+document.getElementById(
+"badgeBottom"
+).classList.add(
+"badge-earned"
+);
+
+}
+
+if(words >= 21){
+
+document.getElementById(
+"badgeWords"
+).classList.add(
+"badge-earned"
+);
+
+}
+
+if(numbers >= 21){
+
+document.getElementById(
+"badgeNumbers"
+).classList.add(
+"badge-earned"
+);
+
+}
+
+if(advanced >= 21){
+
+document.getElementById(
+"badgeAdvanced"
+).classList.add(
+"badge-earned"
+);
+
+}
+        
 document.getElementById(
 "homeProgress"
 ).textContent =
