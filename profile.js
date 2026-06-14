@@ -200,6 +200,16 @@ const overallProgress =
 Math.round(
 (totalCompleted / 100) * 100
 );
+
+if(overallProgress >= 100){
+
+document.getElementById(
+"badgeChampion"
+).classList.add(
+"badge-earned"
+);
+
+}
         
 if(overallProgress >= 100){
 
