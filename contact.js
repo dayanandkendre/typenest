@@ -1,25 +1,11 @@
-import {
-initializeApp
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { db } from "./firebase-config.js";
 
 import {
-getFirestore,
 collection,
 addDoc,
 serverTimestamp
 }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-const firebaseConfig = {
-
-  // tuza firebase config
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const sendBtn =
 document.getElementById("sendBtn");
@@ -29,21 +15,23 @@ sendBtn.addEventListener(
 async () => {
 
 const name =
-document.getElementById("name").value;
+document.getElementById("name").value.trim();
 
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 const message =
-document.getElementById("message").value;
+document.getElementById("message").value.trim();
 
 if(
 !name ||
 !email ||
 !message
 ){
+
 alert("Please fill all fields");
 return;
+
 }
 
 try{
@@ -51,14 +39,16 @@ try{
 await addDoc(
 collection(db,"messages"),
 {
-name:name,
-email:email,
-message:message,
+name,
+email,
+message,
 createdAt:serverTimestamp()
 }
 );
 
-alert("Message sent successfully!");
+alert(
+"Thank you! Your message has been sent."
+);
 
 document.getElementById("name").value="";
 document.getElementById("email").value="";
@@ -67,9 +57,11 @@ document.getElementById("message").value="";
 }
 catch(error){
 
-alert("Error sending message");
-
 console.error(error);
+
+alert(
+"Failed to send message."
+);
 
 }
 
