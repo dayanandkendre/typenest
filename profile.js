@@ -98,6 +98,71 @@ async (user)=>{
         const data =
         userSnap.data();
 
+        const home =
+data.progress?.home || 1;
+
+const bottom =
+data.progress?.bottomrow || 1;
+
+const words =
+data.progress?.words || 1;
+
+const numbers =
+data.progress?.numbers || 1;
+
+const advanced =
+data.progress?.advanced || 1;
+
+document.getElementById(
+"homeProgress"
+).textContent =
+(home - 1) + "/20";
+
+document.getElementById(
+"bottomProgress"
+).textContent =
+(bottom - 1) + "/20";
+
+document.getElementById(
+"wordsProgress"
+).textContent =
+(words - 1) + "/20";
+
+document.getElementById(
+"numbersProgress"
+).textContent =
+(numbers - 1) + "/20";
+
+document.getElementById(
+"advancedProgress"
+).textContent =
+(advanced - 1) + "/20";
+
+const totalCompleted =
+
+(home - 1) +
+(bottom - 1) +
+(words - 1) +
+(numbers - 1) +
+(advanced - 1);
+
+const overallProgress =
+Math.round(
+(totalCompleted / 100) * 100
+);
+
+document.getElementById(
+"progressText"
+).textContent =
+overallProgress +
+"% Complete";
+
+document.getElementById(
+"progressFill"
+).style.width =
+overallProgress +
+"%";
+        
         testsTaken.textContent =
         data.testsTaken || 0;
 
