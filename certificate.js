@@ -126,3 +126,11 @@ today.toLocaleDateString(
 
 }
 );
+
+printBtn.addEventListener(
+"click",
+function(){
+
+window.print();
+
+});
