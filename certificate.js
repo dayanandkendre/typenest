@@ -29,6 +29,11 @@ document.getElementById(
 "completionDate"
 );
 
+const printBtn =
+document.getElementById(
+"printBtn"
+);
+
 onAuthStateChanged(
 auth,
 async(user)=>{
