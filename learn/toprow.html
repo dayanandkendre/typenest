@@ -588,6 +588,38 @@ userUID
 
 if(userSnap.exists()){
 
+const homeProgress =
+userSnap.data()
+.progress?.home || 1;
+
+if(homeProgress < 21){
+
+alert(
+"Complete Home Row first."
+);
+
+window.location.href =
+"learn.html";
+
+}
+
+}
+
+}
+    
+if(userUID){
+
+const userSnap =
+await getDoc(
+doc(
+db,
+"users",
+userUID
+)
+);
+
+if(userSnap.exists()){
+
 unlocked =
 userSnap.data()
 .progress?.toprow || 1;
