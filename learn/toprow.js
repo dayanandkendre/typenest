@@ -406,16 +406,27 @@ const user = auth.currentUser;
 
 if(user){
 
-    await updateDoc(
-    doc(
-    db,
-    "users",
-    user.uid
-    ),
-    {
-    "progress.toprow": level + 1
-    }
-    );
+   const userRef =
+doc(db,"users",user.uid);
+
+const userSnap =
+await getDoc(userRef);
+
+const oldProgress =
+userSnap.data()?.progress?.toprow || 1;
+
+const newProgress =
+Math.max(
+oldProgress,
+level + 1
+);
+
+await updateDoc(
+userRef,
+{
+   "progress.toprow": newProgress
+}
+);
 
     console.log(
     "TOP ROW PROGRESS UPDATED:",
