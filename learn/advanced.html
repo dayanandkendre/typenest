@@ -22,25 +22,49 @@ href="learn.css">
 
 <body>
 
-    <script>
+    <script type="module">
 
-/* SECTION LOCK CHECK */
+import { db }
+from "../firebase-config.js";
 
-let sectionUnlocked =
-parseInt(
-localStorage.getItem(
-"sectionUnlocked"
-) || 1
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const userUID =
+localStorage.getItem("userUID");
+
+if(userUID){
+
+const userSnap =
+await getDoc(
+doc(
+db,
+"users",
+userUID
+)
 );
 
-if(sectionUnlocked < 6){
+if(userSnap.exists()){
+
+const numbersProgress =
+userSnap.data()
+.progress?.numbers || 1;
+
+if(numbersProgress < 21){
 
 alert(
 "Complete Numbers first."
 );
 
 window.location.href =
-"learn.html";
+"numbers.html";
+
+}
+
+}
 
 }
 
