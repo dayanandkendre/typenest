@@ -573,7 +573,7 @@ const userSnap =
 await getDoc(userRef);
 
 const oldProgress =
-userSnap.data()?.progress?.home || 1;
+userSnap.data()?.progress?.numbers || 1;
 
 const newProgress =
 Math.max(
@@ -584,7 +584,7 @@ level + 1
 await updateDoc(
 userRef,
 {
-"progress.home": newProgress
+"progress.numbers": newProgress
 }
 );
 
