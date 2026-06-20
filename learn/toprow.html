@@ -682,6 +682,75 @@ document
 (unlocked - 1)
 + " Levels";
 
+/* ===== STARS LOAD ===== */
+
+for(let i=1;i<=20;i++){
+
+let stars =
+localStorage.getItem(
+"level" + i + "Stars"
+);
+
+let starBox =
+document.getElementById(
+"stars" + i
+);
+
+if(stars && starBox){
+
+starBox.innerText =
+stars;
+
+}
+
+}
+
+/* ===== SCORE LOAD ===== */
+
+for(let i=1;i<=20;i++){
+
+let score =
+localStorage.getItem(
+"level" + i + "Score"
+);
+
+let scoreBox =
+document.getElementById(
+"score" + i
+);
+
+if(score && scoreBox){
+
+scoreBox.innerText =
+score;
+
+}
+
+}
+
+/* ===== BADGE LOAD ===== */
+
+for(let i=1;i<=20;i++){
+
+let badge =
+localStorage.getItem(
+"topLevel" + i + "Badge"
+);
+
+let badgeBox =
+document.getElementById(
+"badge" + i
+);
+
+if(badge && badgeBox){
+
+badgeBox.innerText =
+badge;
+
+}
+
+}
+    
 </script>
     
 </body>
