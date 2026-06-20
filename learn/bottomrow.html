@@ -558,6 +558,68 @@ onclick="window.location.href='bottomrowlevel.html?id=1'">
     </div>
 
 </div>
+
+<script type="module">
+
+import { db }
+from "../firebase-config.js";
+
+import {
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const userUID =
+localStorage.getItem("userUID");
+
+if(userUID){
+
+const userSnap =
+await getDoc(
+doc(
+db,
+"users",
+userUID
+)
+);
+
+if(userSnap.exists()){
+
+const homeProgress =
+userSnap.data()
+.progress?.home || 1;
+
+const topRowProgress =
+userSnap.data()
+.progress?.toprow || 1;
+
+if(homeProgress < 21){
+
+alert(
+"Complete Home Row first."
+);
+
+window.location.href =
+"learn.html";
+
+}
+else if(topRowProgress < 21){
+
+alert(
+"Complete Top Row first."
+);
+
+window.location.href =
+"toprow.html";
+
+}
+
+}
+
+}
+
+</script>
     
 <script>
 
