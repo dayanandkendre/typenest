@@ -4,6 +4,7 @@ from "../firebase-config.js";
 import {
 doc,
 updateDoc,
+getDoc,
 setDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
@@ -408,16 +409,27 @@ const user = auth.currentUser;
 
 if(user){
 
-    await updateDoc(
-    doc(
-    db,
-    "users",
-    user.uid
-    ),
-    {
-    "progress.home": level + 1
-    }
-    );
+   const userRef =
+doc(db,"users",user.uid);
+
+const userSnap =
+await getDoc(userRef);
+
+const oldProgress =
+userSnap.data()?.progress?.home || 1;
+
+const newProgress =
+Math.max(
+oldProgress,
+level + 1
+);
+
+await updateDoc(
+userRef,
+{
+"progress.home": newProgress
+}
+);
 
     console.log(
     "HOME PROGRESS UPDATED:",
