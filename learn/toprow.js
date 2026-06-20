@@ -608,6 +608,18 @@ localStorage.setItem(
 accuracy + "%"
 );
 
+if(
+accuracy === 100 &&
+mistakes === 0
+){
+
+localStorage.setItem(
+"topLevel" + level + "Badge",
+"🏆 Perfect"
+);
+
+}
+       
 let streak =
 parseInt(
 localStorage.getItem(
