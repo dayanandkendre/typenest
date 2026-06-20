@@ -43,6 +43,14 @@ result.user;
 user.uid
 );
 
+localStorage.removeItem("currentLevel");
+localStorage.removeItem("topRowCurrentLevel");
+localStorage.removeItem("bottomRowCurrentLevel");
+localStorage.removeItem("wordsCurrentLevel");
+localStorage.removeItem("numbersCurrentLevel");
+localStorage.removeItem("advancedCurrentLevel");
+localStorage.removeItem("sectionUnlocked");
+  
 /* SAVE USER TO FIRESTORE */
 console.log("Before Save");
 await setDoc(
