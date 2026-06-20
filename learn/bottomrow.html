@@ -594,14 +594,14 @@ const topRowProgress =
 userSnap.data()
 .progress?.toprow || 1;
 
-if(homeProgress < 21){
+if(topRowProgress < 21){
 
 alert(
-"Complete Home Row first."
+"Complete Top Row first."
 );
 
 window.location.href =
-"learn.html";
+"toprow.html";
 
 }
 else if(topRowProgress < 21){
