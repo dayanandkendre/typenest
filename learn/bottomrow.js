@@ -424,6 +424,15 @@ if(user){
     );
 
 }
+
+if(level === 20){
+
+localStorage.setItem(
+"sectionUnlocked",
+"4"
+);
+
+}
        
 let stars = "⭐⭐⭐";
 
