@@ -590,10 +590,6 @@ const homeProgress =
 userSnap.data()
 .progress?.home || 1;
 
-const homeProgress =
-userSnap.data()
-.progress?.home || 1;
-
 const topRowProgress =
 userSnap.data()
 .progress?.toprow || 1;
@@ -607,6 +603,8 @@ alert(
 window.location.href =
 "learn.html";
 
+return;
+
 }
 else if(topRowProgress < 21){
 
@@ -616,6 +614,8 @@ alert(
 
 window.location.href =
 "toprow.html";
+
+return;
 
 }
 
