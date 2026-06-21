@@ -680,7 +680,33 @@ bestAccuracy:
 Math.max(
 data.bestAccuracy || 0,
 accuracy
-)
+),
+
+"stats.totalStars":
+(data.stats?.totalStars || 0)
++
+(stars === "⭐⭐⭐" ? 3 :
+stars === "⭐⭐" ? 2 : 1),
+
+"stats.perfectRuns":
+(data.stats?.perfectRuns || 0)
++
+(
+accuracy === 100 &&
+mistakes === 0
+? 1 : 0
+),
+
+"stats.bestStreak":
+Math.max(
+data.stats?.bestStreak || 0,
+level
+),
+
+"stats.totalScore":
+(data.stats?.totalScore || 0)
++
+accuracy
 
 }
 );
