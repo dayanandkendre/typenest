@@ -635,6 +635,59 @@ if(level > streak){
     );
 
 }
+
+ const userUID =
+localStorage.getItem("userUID");
+
+if(userUID){
+
+const userRef =
+doc(
+db,
+"users",
+userUID
+);
+
+const userSnap =
+await getDoc(userRef);
+
+if(userSnap.exists()){
+
+const data =
+userSnap.data();
+
+let currentWpm =
+parseInt(
+document
+.getElementById("wpm")
+.innerText
+) || 0;
+
+await updateDoc(
+userRef,
+{
+
+testsTaken:
+(data.testsTaken || 0) + 1,
+
+bestWpm:
+Math.max(
+data.bestWpm || 0,
+currentWpm
+),
+
+bestAccuracy:
+Math.max(
+data.bestAccuracy || 0,
+accuracy
+)
+
+}
+);
+
+}
+
+}     
      
 document
 .getElementById(
