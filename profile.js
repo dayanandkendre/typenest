@@ -231,7 +231,7 @@ document.getElementById(
 const totalCompleted =
 
 (home - 1) +
-(toprow - 1)   
+(toprow - 1) +  
 (bottom - 1) +
 (words - 1) +
 (numbers - 1) +
