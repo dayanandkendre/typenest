@@ -101,6 +101,9 @@ async (user)=>{
         const home =
 data.progress?.home || 1;
 
+const toprow =
+data.progress?.toprow || 1;
+        
 const bottom =
 data.progress?.bottomrow || 1;
 
@@ -191,6 +194,7 @@ document.getElementById(
 const totalCompleted =
 
 (home - 1) +
+(toprow - 1)   
 (bottom - 1) +
 (words - 1) +
 (numbers - 1) +
