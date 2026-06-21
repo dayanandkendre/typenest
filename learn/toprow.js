@@ -168,7 +168,7 @@ document
 
 let savedStars =
 localStorage.getItem(
-"level" + level + "Stars"
+"toprowLevel" + level + "Stars"
 );
 
 if(savedStars){
