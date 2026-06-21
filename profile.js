@@ -75,9 +75,6 @@ document.getElementById(
 "logoutBtn"
 );
 
-const logoutBtn =
-document.getElementById("logoutBtn");
-
 onAuthStateChanged(auth,
 async (user)=>{
 
