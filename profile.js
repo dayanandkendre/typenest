@@ -50,6 +50,36 @@ document.getElementById(
 "bestAccuracy"
 );
 
+const bestAccuracy =
+document.getElementById(
+"bestAccuracy"
+);
+
+const totalStars =
+document.getElementById(
+"totalStars"
+);
+
+const perfectRuns =
+document.getElementById(
+"perfectRuns"
+);
+
+const bestStreakStat =
+document.getElementById(
+"bestStreak"
+);
+
+const totalScore =
+document.getElementById(
+"totalScore"
+);
+
+const logoutBtn =
+document.getElementById(
+"logoutBtn"
+);
+
 const logoutBtn =
 document.getElementById("logoutBtn");
 
