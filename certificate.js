@@ -100,7 +100,7 @@ const totalCompleted =
 
 const overallProgress =
 Math.round(
-(totalCompleted / 100) * 100
+(totalCompleted / 120) * 100
 );
 
 if(overallProgress < 100){
