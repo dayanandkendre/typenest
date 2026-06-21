@@ -53,11 +53,11 @@ localStorage.removeItem("sectionUnlocked");
 
 for(let i=1;i<=20;i++){
 
-localStorage.removeItem("level"+i+"Stars");
-localStorage.removeItem("level"+i+"Score");
+localStorage.removeItem("homeLevel"+i+"Stars");
+localStorage.removeItem("homeLevel"+i+"Score");
 
-localStorage.removeItem("topLevel"+i+"Stars");
-localStorage.removeItem("topLevel"+i+"Score");
+localStorage.removeItem("toprowLevel"+i+"Stars");
+localStorage.removeItem("toprowLevel"+i+"Score");
 
 localStorage.removeItem("bottomLevel"+i+"Stars");
 localStorage.removeItem("bottomLevel"+i+"Score");
@@ -71,7 +71,14 @@ localStorage.removeItem("numbersLevel"+i+"Score");
 localStorage.removeItem("advancedLevel"+i+"Stars");
 localStorage.removeItem("advancedLevel"+i+"Score");
 
-localStorage.removeItem("badge"+i);
+localStorage.removeItem("bottomLevel"+i+"Badge");
+
+localStorage.removeItem("wordsLevel"+i+"Badge");
+
+localStorage.removeItem("numbersLevel"+i+"Badge");
+
+localStorage.removeItem("advancedLevel"+i+"Badge");
+  
 
 }  
   
