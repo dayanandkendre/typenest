@@ -566,6 +566,12 @@ else{
         mistakes === 0
     ){
 
+localStorage.setItem(
+"toprowLevel" + level + "Badge",
+"🏆 Perfect"
+);
+       
+
         document
         .getElementById(
         "performanceBadge"
@@ -583,6 +589,10 @@ else{
 
     }
     else{
+
+       localStorage.removeItem(
+       "toprowLevel" + level + "Badge"
+        );
 
         document
         .getElementById(
