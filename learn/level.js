@@ -146,7 +146,7 @@ target:["a","s","d","f","j","k","l",";"]
 };
 
 const lesson =
-lessons[];
+lessons[level];
 
 const target =
 lesson.target;
