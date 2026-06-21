@@ -50,11 +50,6 @@ document.getElementById(
 "bestAccuracy"
 );
 
-const bestAccuracy =
-document.getElementById(
-"bestAccuracy"
-);
-
 const totalStars =
 document.getElementById(
 "totalStars"
