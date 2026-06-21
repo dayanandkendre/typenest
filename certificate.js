@@ -74,6 +74,9 @@ userSnap.data();
 const home =
 data.progress?.home || 1;
 
+const toprow =
+data.progress?.toprow || 1;
+  
 const bottom =
 data.progress?.bottomrow || 1;
 
