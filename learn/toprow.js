@@ -611,12 +611,12 @@ else{
 }
 
 localStorage.setItem(
-"topLevel" + level + "Stars",
+"toprowLevel" + level + "Stars",
 stars
 );
 
 localStorage.setItem(
-"topLevel" + level + "Score",
+"toprowLevel" + level + "Score",
 accuracy + "%"
 );
 
