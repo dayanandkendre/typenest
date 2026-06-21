@@ -746,56 +746,136 @@ document
 
 else{
 
+document
+.getElementById(
+"popupTitle"
+)
+.innerText =
+"🎉 Level Complete";
+
+if(
+    accuracy === 100 &&
+    mistakes === 0
+){
+
     document
     .getElementById(
-    "popupTitle"
+    "performanceBadge"
     )
     .innerText =
-    "🎉 Level Complete";
+    "🏆 PERFECT RUN";
 
-    if(
+    document
+    .getElementById(
+    "performanceBadge"
+    )
+    .classList.add(
+    "perfect-badge"
+    );
+
+}
+else{
+
+    document
+    .getElementById(
+    "performanceBadge"
+    )
+    .innerText =
+    "✅ Excellent Work";
+
+    document
+    .getElementById(
+    "performanceBadge"
+    )
+    .classList.remove(
+    "perfect-badge"
+    );
+
+}
+
+lessonCompleted = true;
+
+const userUID =
+localStorage.getItem("userUID");
+
+if(userUID){
+
+    const userRef =
+    doc(
+    db,
+    "users",
+    userUID
+    );
+
+    const userSnap =
+    await getDoc(userRef);
+
+    if(userSnap.exists()){
+
+        const data =
+        userSnap.data();
+
+        let currentWpm =
+        parseInt(
+        document
+        .getElementById("wpm")
+        .innerText
+        ) || 0;
+
+        await updateDoc(
+        userRef,
+        {
+
+        testsTaken:
+        (data.testsTaken || 0) + 1,
+
+        bestWpm:
+        Math.max(
+        data.bestWpm || 0,
+        currentWpm
+        ),
+
+        bestAccuracy:
+        Math.max(
+        data.bestAccuracy || 0,
+        accuracy
+        ),
+
+        "stats.totalStars":
+        (data.stats?.totalStars || 0)
+        +
+        (stars === "⭐⭐⭐" ? 3 :
+        stars === "⭐⭐" ? 2 : 1),
+
+        "stats.perfectRuns":
+        (data.stats?.perfectRuns || 0)
+        +
+        (
         accuracy === 100 &&
         mistakes === 0
-    ){
+        ? 1 : 0
+        ),
 
-        document
-        .getElementById(
-        "performanceBadge"
-        )
-        .innerText =
-        "🏆 PERFECT RUN";
+        "stats.bestStreak":
+        Math.max(
+        data.stats?.bestStreak || 0,
+        level
+        ),
 
-        document
-        .getElementById(
-        "performanceBadge"
-        )
-        .classList.add(
-        "perfect-badge"
-        );
+        "stats.totalScore":
+        (data.stats?.totalScore || 0)
+        +
+        accuracy
 
-    }
-    else{
-
-        document
-        .getElementById(
-        "performanceBadge"
-        )
-        .innerText =
-        "✅ Excellent Work";
-
-        document
-        .getElementById(
-        "performanceBadge"
-        )
-        .classList.remove(
-        "perfect-badge"
+        }
         );
 
     }
 
 }
 
-lessonCompleted = true;
+}
+
 
 document
 .getElementById("popup")
