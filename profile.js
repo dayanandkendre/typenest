@@ -128,6 +128,21 @@ async (user)=>{
         const data =
         userSnap.data();
 
+const stats =
+data.stats || {};
+
+totalStars.textContent =
+stats.totalStars || 0;
+
+perfectRuns.textContent =
+stats.perfectRuns || 0;
+
+bestStreakStat.textContent =
+stats.bestStreak || 0;
+
+totalScore.textContent =
+stats.totalScore || 0;
+        
         const home =
 data.progress?.home || 1;
 
