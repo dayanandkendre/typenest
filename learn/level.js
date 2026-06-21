@@ -146,7 +146,7 @@ target:["a","s","d","f","j","k","l",";"]
 };
 
 const lesson =
-lessons[level];
+lessons[];
 
 const target =
 lesson.target;
@@ -162,13 +162,13 @@ document
 lesson.subtitle;
 
 document
-.getElementById("levelNumber")
+.getElementById("Number")
 .innerText =
 "Level " + level;
 
 let savedStars =
 localStorage.getItem(
-"level" + level + "Stars"
+"homeLevel" + level + "Stars"
 );
 
 if(savedStars){
