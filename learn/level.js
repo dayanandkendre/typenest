@@ -162,7 +162,7 @@ document
 lesson.subtitle;
 
 document
-.getElementById("Number")
+.getElementById("levelNumber")
 .innerText =
 "Level " + level;
 
