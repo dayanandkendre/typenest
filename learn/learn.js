@@ -103,7 +103,7 @@ for(let i=1;i<=20;i++){
 
     let stars =
     localStorage.getItem(
-    "level"+i+"Stars"
+    "homeLevel"+i+"Stars"
     );
 
     let box =
@@ -128,7 +128,7 @@ for(let i=1;i<=20;i++){
 
     let score =
     localStorage.getItem(
-    "level"+i+"Score"
+    "homeLevel"+i+"Score"
     );
 
     let box =
@@ -153,7 +153,7 @@ for(let i=1;i<=20;i++){
 
     let stars =
     localStorage.getItem(
-    "level"+i+"Stars"
+    "homeLevel"+i+"Stars"
     );
 
     if(stars === "⭐⭐⭐"){
