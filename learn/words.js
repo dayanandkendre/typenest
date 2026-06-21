@@ -738,88 +738,88 @@ else{
     .innerText =
     "🎉 Level Complete";
 
-}
+    lessonCompleted = true;
 
-lessonCompleted = true;
+    timerStarted = false;
 
-timerStarted = false;
+    const userUID =
+    localStorage.getItem("userUID");
 
-const userUID =
-localStorage.getItem("userUID");
+    if(userUID){
 
-if(userUID){
+        const userRef =
+        doc(
+        db,
+        "users",
+        userUID
+        );
 
-const userRef =
-doc(
-db,
-"users",
-userUID
-);
+        const userSnap =
+        await getDoc(userRef);
 
-const userSnap =
-await getDoc(userRef);
+        if(userSnap.exists()){
 
-if(userSnap.exists()){
+            const data =
+            userSnap.data();
 
-const data =
-userSnap.data();
+            let currentWpm =
+            parseInt(
+            document
+            .getElementById("wpm")
+            .innerText
+            ) || 0;
 
-let currentWpm =
-parseInt(
-document
-.getElementById("wpm")
-.innerText
-) || 0;
+            await updateDoc(
+            userRef,
+            {
 
-await updateDoc(
-userRef,
-{
+            testsTaken:
+            (data.testsTaken || 0) + 1,
 
-testsTaken:
-(data.testsTaken || 0) + 1,
+            bestWpm:
+            Math.max(
+            data.bestWpm || 0,
+            currentWpm
+            ),
 
-bestWpm:
-Math.max(
-data.bestWpm || 0,
-currentWpm
-),
+            bestAccuracy:
+            Math.max(
+            data.bestAccuracy || 0,
+            accuracy
+            ),
 
-bestAccuracy:
-Math.max(
-data.bestAccuracy || 0,
-accuracy
-),
+            "stats.totalStars":
+            (data.stats?.totalStars || 0)
+            +
+            (stars === "⭐⭐⭐" ? 3 :
+            stars === "⭐⭐" ? 2 : 1),
 
-"stats.totalStars":
-(data.stats?.totalStars || 0)
-+
-(stars === "⭐⭐⭐" ? 3 :
-stars === "⭐⭐" ? 2 : 1),
+            "stats.perfectRuns":
+            (data.stats?.perfectRuns || 0)
+            +
+            (
+            accuracy === 100 &&
+            mistakes === 0
+            ? 1 : 0
+            ),
 
-"stats.perfectRuns":
-(data.stats?.perfectRuns || 0)
-+
-(
-accuracy === 100 &&
-mistakes === 0
-? 1 : 0
-),
+            "stats.bestStreak":
+            Math.max(
+            data.stats?.bestStreak || 0,
+            level
+            ),
 
-"stats.bestStreak":
-Math.max(
-data.stats?.bestStreak || 0,
-level
-),
+            "stats.totalScore":
+            (data.stats?.totalScore || 0)
+            +
+            accuracy
 
-"stats.totalScore":
-(data.stats?.totalScore || 0)
-+
-accuracy
+            }
+            );
 
-}
-);
+        }
 
-}
+    }
 
 }
     
