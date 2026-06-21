@@ -251,16 +251,7 @@ document.getElementById(
 );
 
 }
-        
-if(overallProgress >= 100){
-
-document.getElementById(
-"certificateBtn"
-).style.display =
-"block";
-
-}
-        
+                
 document.getElementById(
 "progressText"
 ).textContent =
