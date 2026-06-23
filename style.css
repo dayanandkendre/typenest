@@ -2731,3 +2731,9 @@ body.dark .menu{
     background:#1e293b;
 
 }
+
+body.dark .menu a{
+
+    color:white;
+
+}
