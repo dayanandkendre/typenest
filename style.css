@@ -1916,25 +1916,32 @@ body.light .practice-box{
 
 .menu{
 
-    display:none;
+    position:fixed;
 
-    position:absolute;
+    top:0;
 
-    top:80px;
+    right:-280px;
 
-    left:0;
+    width:260px;
 
-    width:100%;
-
-    flex-direction:column;
-
-    gap:0;
+    height:100vh;
 
     background:white;
 
-    padding:15px 0;
+    display:flex;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    flex-direction:column;
+
+    padding:80px 25px;
+
+    gap:20px;
+
+    box-shadow:
+    -5px 0 20px rgba(0,0,0,.15);
+
+    transition:0.3s ease;
+
+    z-index:9999;
 
 }
 
@@ -1948,9 +1955,9 @@ body.light .practice-box{
 
 }
 
-.menu.show{
+.menu.active{
 
-    display:flex;
+    right:0;
 
 }
 
@@ -2717,4 +2724,10 @@ margin-left:15px;
 
 .menu-btn{
     margin-left:12px;
+}
+
+body.dark .menu{
+
+    background:#1e293b;
+
 }
