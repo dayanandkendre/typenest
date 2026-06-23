@@ -454,6 +454,21 @@ mobileMenu.classList.toggle(
 "active"
 );
 
+if(
+mobileMenu.classList.contains(
+"active"
+)
+){
+
+menuBtn.innerHTML = "✕";
+
+}
+else{
+
+menuBtn.innerHTML = "☰";
+
+}
+
 });
 
 }
