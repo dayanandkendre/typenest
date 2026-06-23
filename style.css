@@ -14,7 +14,7 @@ body{
 
     color:var(--text-color);
    
-   overflow-x:hidden;
+   overflow-x:hidden !important;
 
    width:100%;
 
@@ -1949,6 +1949,12 @@ body.light .practice-box{
     z-index:99999;
 
     box-shadow:-5px 0 20px rgba(0,0,0,.15);
+
+    left:auto;
+
+    overflow-y:auto;
+
+   max-width:200px;
 
 }
 
