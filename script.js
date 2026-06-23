@@ -453,7 +453,7 @@ function(){
 mobileMenu.classList.toggle(
 "active"
 );
-
+document.body.style.overflowX = "hidden";
 if(
 mobileMenu.classList.contains(
 "active"
