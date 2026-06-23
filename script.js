@@ -429,3 +429,31 @@ modal.style.opacity =
 "0";
 
 }
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+const menuBtn =
+document.getElementById(
+"menuBtn"
+);
+
+const menu =
+document.querySelector(
+".menu"
+);
+
+if(menuBtn && menu){
+
+menuBtn.addEventListener(
+"click",
+function(){
+
+menu.classList.toggle(
+"show"
+);
+
+});
+
+}
