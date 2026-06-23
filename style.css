@@ -1892,7 +1892,7 @@ body.light .practice-box{
    MOBILE RESPONSIVE
 ========================================= */
 
-@media(max-width:768px){
+@media(max-width:993px){
 
     .navbar{
 
@@ -1920,9 +1920,9 @@ body.light .practice-box{
 
     top:0;
 
-    right:-280px;
+    right:-100%;
 
-    width:260px;
+    width:280px;
 
     height:100vh;
 
@@ -1932,18 +1932,18 @@ body.light .practice-box{
 
     flex-direction:column;
 
-    padding:80px 25px;
+    padding:90px 25px;
 
     gap:20px;
 
-    box-shadow:
-    -5px 0 20px rgba(0,0,0,.15);
-
     transition:0.3s ease;
 
-    z-index:9999;
+    z-index:99999;
+
+    box-shadow:-5px 0 20px rgba(0,0,0,.15);
 
 }
+
 
 .menu a{
 
