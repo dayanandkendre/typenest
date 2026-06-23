@@ -1911,7 +1911,7 @@ body.light .practice-box{
 .menu-btn{
 
     display:block;
-
+    margin-left:12px;
 }
 
 .menu{
@@ -2720,10 +2720,6 @@ margin-left:15px;
         display:none;
     }
 
-}
-
-.menu-btn{
-    margin-left:12px;
 }
 
 body.dark .menu{
