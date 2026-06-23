@@ -2737,3 +2737,11 @@ body.dark .menu a{
     color:white;
 
 }
+
+@media (max-width:993px){
+
+    .user-menu{
+        display:none;
+    }
+
+}
