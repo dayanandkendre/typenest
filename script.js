@@ -431,7 +431,7 @@ modal.style.opacity =
 }
 
 /* =========================================
-   MOBILE MENU
+   MOBILE SLIDE MENU
 ========================================= */
 
 const menuBtn =
@@ -439,19 +439,19 @@ document.getElementById(
 "menuBtn"
 );
 
-const menu =
-document.querySelector(
-".menu"
+const mobileMenu =
+document.getElementById(
+"mobileMenu"
 );
 
-if(menuBtn && menu){
+if(menuBtn && mobileMenu){
 
 menuBtn.addEventListener(
 "click",
 function(){
 
-menu.classList.toggle(
-"show"
+mobileMenu.classList.toggle(
+"active"
 );
 
 });
