@@ -101,6 +101,24 @@ body.dark .navbar{
 
 }
 
+.menu-btn{
+
+display:none;
+
+background:none;
+
+border:none;
+
+font-size:32px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+color:inherit;
+
+}
+
 /* LOGO */
 
 .logo{
