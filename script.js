@@ -472,3 +472,29 @@ menuBtn.innerHTML = "☰";
 });
 
 }
+
+/* =========================================
+   CLOSE MENU AFTER CLICK
+========================================= */
+
+const menuLinks =
+document.querySelectorAll(
+".menu-link"
+);
+
+menuLinks.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+mobileMenu.classList.remove(
+"active"
+);
+
+menuBtn.innerHTML = "☰";
+
+});
+
+});
+
