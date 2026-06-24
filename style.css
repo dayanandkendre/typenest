@@ -1938,6 +1938,19 @@ z-index:100001;
 
 }
 
+body.dark .menu.active{
+
+    background:#1e293b !important;
+
+}
+
+   body.dark .menu a{
+
+    color:white !important;
+
+}
+   
+
 .menu{
 
     position:fixed !important;
