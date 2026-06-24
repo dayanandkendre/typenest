@@ -2082,6 +2082,15 @@ body.dark .menu.active{
     line-height:48px;
 
 }
+body.light .hero-left h1,
+body.dark .hero-left h1{
+
+    font-size:42px !important;
+
+    line-height:50px !important;
+
+}
+   
 
 .hero-left p{
 
