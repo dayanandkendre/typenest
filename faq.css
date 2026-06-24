@@ -273,3 +273,75 @@ body{
     font-size:14px;
 
 }
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:993px){
+
+    .about-hero{
+
+        padding:20px;
+
+    }
+
+    .about-hero h1{
+
+        font-size:32px;
+
+    }
+
+    .about-hero p{
+
+        font-size:16px;
+
+    }
+
+    .about-grid{
+
+        width:95%;
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-container{
+
+        width:95%;
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-card{
+
+        padding:25px;
+
+    }
+
+    .about-card h2{
+
+        font-size:20px;
+
+    }
+
+    .about-card p{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+    .about-stats{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+    }
+
+}
