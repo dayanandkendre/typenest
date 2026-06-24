@@ -221,4 +221,16 @@ body{
 
 }
 
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
 
+@media(max-width:993px){
+
+    .courses-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
