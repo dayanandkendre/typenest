@@ -1920,7 +1920,11 @@ body.light .practice-box{
 
 display:block;
 
-position:relative;
+position:fixed;
+
+top:20px;
+
+right:20px;
 
 z-index:100001;
 
@@ -1940,8 +1944,6 @@ z-index:100001;
    
     max-height:80vh;
 
-    background:white;
-
    display:none !important;
 
     flex-direction:column;
@@ -1960,7 +1962,7 @@ z-index:100001;
 
     overflow-y:auto;
 
-   max-width:200px;
+   max-width:220px;
 
 }
 
