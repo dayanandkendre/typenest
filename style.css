@@ -2237,7 +2237,30 @@ body.light .practice-box{
     width:100%;
 
 }
+.stats-item{
 
+    flex:none !important;
+
+    padding:0 !important;
+
+    margin:0 !important;
+
+}
+
+.stats-icon{
+
+    margin-bottom:8px !important;
+
+}
+
+.stats-item h1{
+
+    font-size:42px !important;
+
+    margin:5px 0 !important;
+
+}
+   
 .stats-divider{
 
     width:80% !important;
