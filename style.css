@@ -2164,6 +2164,40 @@ body.light .practice-box{
 
     }
 
+   .cta-left{
+
+    flex-direction:column !important;
+
+    width:100%;
+
+}
+
+.cta-right{
+
+    width:100%;
+
+}
+
+   .cta-content{
+
+    width:100%;
+
+}
+
+.cta-content h1{
+
+    font-size:34px !important;
+
+    line-height:42px !important;
+
+}
+
+   .cta-btn{
+
+    width:100%;
+
+}
+   
     .footer{
 
         flex-direction:column;
