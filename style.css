@@ -1942,7 +1942,7 @@ z-index:100001;
 
     background:white;
 
-   display:flex;
+   display:none !important;
 
     flex-direction:column;
 
@@ -1976,12 +1976,9 @@ z-index:100001;
 }
 
 .menu.active{
-
+    display:flex !important;
     right:0;
-   
-   display:flex;
-   
-   transform:translateX(0);
+    visibility:visible;
 }
 
     .hero{
