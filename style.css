@@ -2364,6 +2364,15 @@ body.dark .journey-item p{
     line-height:28px !important;
 
 }
+
+html,
+body{
+
+    overflow-x:hidden !important;
+
+    width:100%;
+
+}
    
 }
 
