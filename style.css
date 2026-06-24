@@ -1983,7 +1983,7 @@ z-index:100001;
 
     width:220px !important;
 
-    height:100vh !important;
+    height:auto !important;
 
     display:flex !important;
 
@@ -1993,6 +1993,7 @@ z-index:100001;
 
     transform:none !important;
 
+   padding:90px 25px 30px 25px;
 }
 
     .hero{
