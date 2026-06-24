@@ -1928,7 +1928,7 @@ z-index:100001;
 
 .menu{
 
-    position:fixed;
+    position:fixed !important;
 
     top:0;
 
