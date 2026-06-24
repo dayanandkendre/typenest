@@ -2373,6 +2373,36 @@ body{
     width:100%;
 
 }
+
+.users{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.circle{
+
+    width:45px !important;
+
+    height:45px !important;
+
+    min-width:45px;
+
+    border-radius:50%;
+
+}
+
+.users h3{
+
+    font-size:16px !important;
+
+    line-height:24px !important;
+
+}
    
 }
 
