@@ -1978,8 +1978,10 @@ z-index:100001;
 .menu.active{
 
     right:0;
+   
    display:flex;
-
+   
+   visibility:visible;
 }
 
     .hero{
