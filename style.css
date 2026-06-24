@@ -1976,9 +1976,15 @@ z-index:100001;
 }
 
 .menu.active{
+
     display:flex !important;
-    right:0;
-    visibility:visible;
+
+    visibility:visible !important;
+
+    right:0 !important;
+
+    background:red !important;
+
 }
 
     .hero{
