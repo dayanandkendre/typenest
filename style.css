@@ -2330,6 +2330,40 @@ body.dark .journey-item p{
     color:#cbd5e1 !important;
 
 }
+
+.footer{
+
+    flex-direction:column !important;
+
+    padding:40px 20px !important;
+
+    gap:30px !important;
+
+}
+
+.footer-logo{
+
+    width:100% !important;
+
+}
+
+.footer-links{
+
+    width:100% !important;
+
+}
+
+.footer-logo h1{
+
+    font-size:42px !important;
+
+}
+
+.footer-logo p{
+
+    line-height:28px !important;
+
+}
    
 }
 
