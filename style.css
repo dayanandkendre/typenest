@@ -1940,7 +1940,7 @@ z-index:100001;
 
     background:white;
 
-   display:none;
+   display:flex;
 
     flex-direction:column;
 
