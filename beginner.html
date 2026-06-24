@@ -26,38 +26,94 @@ href="https://typenest.in/beginner.html">
 
 <body>
 
-    <!-- =========================================
+   <!-- =========================================
      NAVBAR
 ========================================= -->
 
-   <div class="navbar">
+<div class="navbar">
 
     <div class="logo">
+
         TypeNest
-    </div>
-
-    <div class="menu">
-
-        <a href="index.html">Home</a>
-        <a href="typing.html">Practice</a>
-        <a href="tests.html">Tests</a>
-        <a href="courses.html">Courses</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
 
     </div>
+  
+    <div class="menu" id="mobileMenu">
+         
+<a href="index.html" class="menu-link">Home</a>
 
-    <a href="#"
-class="login-btn"
-id="loginBtn">
+<a href="typing.html" class="menu-link">Practice</a>
+
+<a href="tests.html" class="menu-link">Tests</a>
+
+<a href="courses.html" class="menu-link">Courses</a>
+
+<a href="leaderboard.html" class="menu-link">Leaderboard</a>
+
+<a href="blog.html" class="menu-link">Blog</a>
+
+<a href="about.html" class="menu-link">About</a>
+
+<a href="#"
+class="mobile-login"
+onclick="openLoginModal()">
 
     Login
 
 </a>
+         
+    </div>
+
+    <!-- THEME BUTTON -->
+
+    <button class="theme-btn"
+    onclick="toggleTheme()">
+
+        🌙
+
+    </button>
+
+     <button
+id="menuBtn"
+class="menu-btn">
+
+☰
+
+</button>
+
+    <!-- LOGIN / USER BUTTON -->
+
+    <div class="user-menu">
+
+    <a href="#"
+    class="login-btn"
+    id="loginBtn"
+    onclick="openLoginModal()">
+
+        Login
+
+    </a>
+
+   <div class="dropdown-menu"
+id="dropdownMenu">
+        <a href="profile.html">
+
+            My Profile
+
+        </a>
+
+        <a href="#"
+        id="logoutDropdown">
+
+            Logout
+
+        </a>
+
+    </div>
 
 </div>
 
+</div>
 
     <!-- =========================================
          HERO
