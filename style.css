@@ -1936,7 +1936,9 @@ z-index:100001;
 
     width:220px;
 
-    height:100vh;
+    height:auto;
+   
+    max-height:80vh;
 
     background:white;
 
@@ -1985,6 +1987,10 @@ z-index:100001;
 
     height:auto !important;
 
+    max-height:80vh;
+
+    overflow-y:auto;
+
     display:flex !important;
 
     flex-direction:column;
@@ -1993,7 +1999,8 @@ z-index:100001;
 
     transform:none !important;
 
-   padding:90px 25px 30px 25px;
+    padding:70px 25px 20px 25px;
+
 }
 
     .hero{
