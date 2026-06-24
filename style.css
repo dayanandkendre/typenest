@@ -2178,6 +2178,8 @@ body.light .practice-box{
 
     display:flex;
 
+   flex:none !important;
+
     justify-content:center;
 
     align-items:center;
