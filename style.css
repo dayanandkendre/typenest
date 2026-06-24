@@ -1920,11 +1920,7 @@ body.light .practice-box{
 
 display:block;
 
-position:fixed;
-
-top:20px;
-
-right:20px;
+position:relative;
 
 z-index:100001;
 
