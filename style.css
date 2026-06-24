@@ -1934,6 +1934,8 @@ z-index:100001;
 
     right:-220px;
 
+   transform:translateX(100%);
+
     width:220px;
 
     height:100vh;
@@ -1960,8 +1962,6 @@ z-index:100001;
 
    max-width:200px;
 
-   visibility:hidden;
-
 }
 
 
@@ -1981,7 +1981,7 @@ z-index:100001;
    
    display:flex;
    
-   visibility:visible;
+   transform:translateX(0);
 }
 
     .hero{
