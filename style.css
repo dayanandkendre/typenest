@@ -1964,17 +1964,6 @@ z-index:100001;
 
 }
 
-
-.menu a{
-
-    display:block;
-
-    padding:15px 20px;
-
-    text-align:center;
-
-}
-
 .menu.active{
 
     position:fixed !important;
@@ -2010,6 +1999,34 @@ z-index:100001;
 -15px 0 40px rgba(37,99,235,0.15),
 
 -5px 0 20px rgba(0,0,0,0.08);
+
+}
+
+   .menu a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    text-align:left;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+   .menu a:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateX(5px);
 
 }
 
