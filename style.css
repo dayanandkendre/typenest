@@ -1995,7 +1995,11 @@ z-index:100001;
 
     flex-direction:column;
 
-    background:white !important;
+   background:rgba(255,255,255,0.92) !important;
+
+   backdrop-filter:blur(20px);
+
+   -webkit-backdrop-filter:blur(20px);
 
     transform:none !important;
 
