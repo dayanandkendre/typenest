@@ -2172,6 +2172,54 @@ body.light .practice-box{
 
     }
 
+.typing-card{
+
+    min-height:auto !important;
+
+    padding:25px !important;
+
+}
+
+.showcase-title{
+
+    width:100% !important;
+
+    font-size:36px !important;
+
+    line-height:44px !important;
+
+}
+
+.showcase-text{
+
+    font-size:18px !important;
+
+    line-height:28px !important;
+
+}
+
+.mini-card{
+
+    position:static !important;
+
+    width:100% !important;
+
+    margin-top:15px;
+
+    box-sizing:border-box;
+
+}
+
+.bottom-note{
+
+    position:static !important;
+
+    transform:none !important;
+
+    margin-top:20px;
+
+}
+   
 }
 
 /* =========================================
