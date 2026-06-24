@@ -28,7 +28,9 @@ body{
 
 .contact-card{
 
-    width:700px;
+    max-width:700px;
+    
+    width:90%;
 
     margin:auto;
 
@@ -102,5 +104,57 @@ body{
 .contact-card textarea{
 
     resize:vertical;
+
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:993px){
+
+    .contact-hero{
+
+        padding:20px;
+
+    }
+
+    .contact-hero h1{
+
+        font-size:34px;
+
+    }
+
+    .contact-card{
+
+        width:90%;
+
+        padding:25px;
+
+        box-sizing:border-box;
+
+    }
+
+    .contact-card h2{
+
+        font-size:24px;
+
+    }
+
+    .contact-card p{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+    .contact-card button{
+
+        width:100%;
+
+        padding:16px;
+
+    }
 
 }
