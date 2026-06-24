@@ -2304,6 +2304,24 @@ body.light .practice-box{
     margin:0 auto;
 
 }
+
+body.dark-mode .journey-item{
+
+    background:#1e293b !important;
+
+}
+
+body.dark-mode .journey-item h4{
+
+    color:#ffffff !important;
+
+}
+
+body.dark-mode .journey-item p{
+
+    color:#cbd5e1 !important;
+
+}
    
 }
 
