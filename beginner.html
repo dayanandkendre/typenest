@@ -815,9 +815,109 @@ computer
 </div>
 
     </div>
+<!-- =========================================
+     LOGIN MODAL
+========================================= -->
+
+<div class="login-modal"
+id="loginModal">
+
+
+    <div class="login-box">
+
+
+        <!-- CLOSE -->
+
+        <div class="close-login"
+        onclick="closeLoginModal()">
+
+            ✕
+
+        </div>
+
+
+
+        <!-- TITLE -->
+
+        <h1>
+
+            Welcome Back
+
+        </h1>
+
+
+        <p>
+
+            Login to continue your typing journey.
+
+        </p>
+
+
+
+        <!-- INPUT -->
+
+        <input
+type="email"
+id="email"
+placeholder="Email Address">
+
+
+
+        <input
+type="password"
+id="password"
+placeholder="Password">
+
+
+
+        <!-- BUTTON -->
+
+        <button id="loginBtn">
+
+    Login
+
+</button>
+
+
+
+        <!-- GOOGLE -->
+
+        <div
+class="google-login"
+id="googleLoginBtn">
+
+    Continue with Google
+
+</div>
+
+    </div>
+
+</div>
+<script>
+
+function closeLoginModal(){
+
+document
+.getElementById(
+"loginModal"
+)
+.style.display =
+"none";
+
+}   
+    
+</script>
+
 <script src="script.js"></script>
-<script type="module"
-src="auth-navbar.js">
+
+<script
+type="module"
+src="firebase-config.js">
+</script>
+
+<script
+type="module"
+src="login.js">
 </script>
     
 </body>
