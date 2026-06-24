@@ -286,6 +286,13 @@ user.displayName;
 mobileLoginBtn.dataset.loggedin =
 "true";
 
+mobileLoginBtn.removeAttribute(
+"onclick"
+);
+
+mobileLoginBtn.href =
+"profile.html";
+  
 }
   
 }
