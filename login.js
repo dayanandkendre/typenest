@@ -166,6 +166,23 @@ loginBtn.removeAttribute(
 
 }
 
+const mobileLoginBtn =
+document.getElementById(
+"mobileLoginBtn"
+);
+
+if(mobileLoginBtn){
+
+mobileLoginBtn.textContent =
+"👤 " +
+user.displayName;
+
+mobileLoginBtn.removeAttribute(
+"onclick"
+);
+
+}
+  
 const loginModal =
 document.getElementById(
 "loginModal"
