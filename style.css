@@ -2162,6 +2162,12 @@ body.light .practice-box{
 
         text-align:center;
 
+        width:92% !important;
+
+        margin:40px auto !important;
+
+        padding:30px 20px !important;
+
     }
 
    .cta-left{
@@ -2186,9 +2192,11 @@ body.light .practice-box{
 
 .cta-content h1{
 
-    font-size:34px !important;
+    font-size:42px !important;
 
-    line-height:42px !important;
+    line-height:52px !important;
+
+    text-align:center;
 
 }
 
