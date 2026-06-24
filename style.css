@@ -2305,19 +2305,19 @@ body.light .practice-box{
 
 }
 
-body.dark-mode .journey-item{
+body.dark .journey-item{
 
     background:#1e293b !important;
 
 }
 
-body.dark-mode .journey-item h4{
+body.dark .journey-item h4{
 
     color:#ffffff !important;
 
 }
 
-body.dark-mode .journey-item p{
+body.dark .journey-item p{
 
     color:#cbd5e1 !important;
 
