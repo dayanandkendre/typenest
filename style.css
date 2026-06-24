@@ -1926,6 +1926,18 @@ z-index:100001;
 
 }
 
+   body.dark .menu-btn{
+
+    color:white;
+
+}
+
+   body.light .menu-btn{
+
+    color:#111827;
+
+}
+
 .menu{
 
     position:fixed !important;
