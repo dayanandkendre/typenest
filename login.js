@@ -181,6 +181,9 @@ mobileLoginBtn.removeAttribute(
 "onclick"
 );
 
+mobileLoginBtn.href =
+"profile.html";
+  
 }
   
 const loginModal =
