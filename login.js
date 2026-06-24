@@ -269,6 +269,22 @@ loginBtn.dataset.loggedin =
 
 }
 
+const mobileLoginBtn =
+document.getElementById(
+"mobileLoginBtn"
+);
+
+if(mobileLoginBtn){
+
+mobileLoginBtn.textContent =
+"👤 " +
+user.displayName;
+
+mobileLoginBtn.dataset.loggedin =
+"true";
+
+}
+  
 }
 
 }
