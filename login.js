@@ -364,6 +364,11 @@ e.preventDefault();
 
 await signOut(auth);
 
+localStorage.removeItem("userUID");
+localStorage.removeItem("userName");
+localStorage.removeItem("userEmail");
+localStorage.removeItem("userPhoto");  
+
 window.location.href =
 "index.html";
 
