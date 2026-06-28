@@ -50,15 +50,7 @@ async function saveResult(
 finalWpm,
 accuracy
 ){
-
-if(!userUID){
-
-console.log("Guest User - Result Not Saved");
-
-return;
-
-}
-   
+  
 console.log(
 "USER UID IN SAVE:",
 userUID
