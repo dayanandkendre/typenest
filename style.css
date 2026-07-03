@@ -3093,7 +3093,7 @@ body.dark .menu a{
 
 .about-home{
 
-padding:70px 20px;
+padding:45px 20px 65px;
 
 background:#ffffff;
 
@@ -3193,7 +3193,7 @@ margin-bottom:22px;
 
 .about-header h2{
 
-font-size:52px;
+font-size:44px;
 
 line-height:1.15;
 
@@ -3211,6 +3211,8 @@ color:#2563eb;
 
 display:block;
 
+margin-top:6px;   
+
 }
 
 .about-intro{
@@ -3222,6 +3224,10 @@ line-height:1.9;
 color:#555;
 
 margin-bottom:20px;
+
+max-width:760px;
+
+margin:0 auto 18px;   
 
 }
 
