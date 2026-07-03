@@ -3511,7 +3511,7 @@ overflow:hidden;
 
 .why-section .container{
 
-max-width:900px;
+max-width:1250px;
 
 margin:auto;
 
@@ -3637,7 +3637,7 @@ position:relative;
 
 overflow:hidden;
 
-min-height:270px;
+min-height:100px;
 
 display:flex;
 
