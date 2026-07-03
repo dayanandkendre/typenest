@@ -3093,7 +3093,7 @@ body.dark .menu a{
 
 .about-home{
 
-padding:45px 20px 65px;
+padding:45px 20px 30px;
 
 background:#ffffff;
 
@@ -3383,7 +3383,9 @@ border-radius:10px;
 
 text-align:center;
 
-margin-top:60px;
+margin-top:30px;
+
+margin-bottom:0;   
 
 position:relative;
 
@@ -3497,7 +3499,7 @@ padding:18px;
 
 .why-section{
 
-padding:45px 20px 65px;
+padding:35px 20px 60px;
 
 background:#f8fbff;
 
