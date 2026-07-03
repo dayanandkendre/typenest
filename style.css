@@ -3539,13 +3539,11 @@ filter:blur(90px);
 
 .why-header{
 
-max-width:900px;
+max-width:850px;
 
-margin:auto;
+margin:0 auto 40px;
 
 text-align:center;
-
-margin-bottom:70px;
 
 position:relative;
 
@@ -3571,7 +3569,7 @@ border-radius:50px;
 
 letter-spacing:.5px;
 
-margin-bottom:22px;
+margin-bottom:14px;
 
 }
 
@@ -3585,7 +3583,7 @@ line-height:1.2;
 
 color:#111827;
 
-margin-bottom:22px;
+margin-bottom:16px;
 
 }
 
