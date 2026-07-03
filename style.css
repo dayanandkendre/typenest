@@ -4838,3 +4838,61 @@ font-size:22px;
 }
 
 }
+
+/* =========================================
+   DROPDOWN BUTTON
+========================================= */
+
+.dropdown-btn{
+
+background:none;
+
+border:none;
+
+padding:0;
+
+margin:0;
+
+font:inherit;
+
+color:inherit;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+gap:6px;
+
+text-decoration:none;
+
+transition:.3s ease;
+
+}
+
+.dropdown-btn:hover{
+
+color:#2563eb;
+
+}
+
+.dropdown-btn:focus{
+
+outline:none;
+
+}
+
+.dropdown-btn i{
+
+font-size:12px;
+
+transition:.3s ease;
+
+}
+
+.dropdown:hover .dropdown-btn i{
+
+transform:rotate(180deg);
+
+}
