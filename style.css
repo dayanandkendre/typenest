@@ -1830,22 +1830,29 @@ body.light .practice-box{
 
 .mini-card span{
 
-    color:#64748b;
+    font-size:12px;
 
-    font-size:14px;
+letter-spacing:1px;
 
-    font-weight:600;
+font-weight:700;
+
+color:#6b7280;
 
 }
 
 
 .mini-card h3{
 
-    margin-top:10px;
+    margin-top:6px;
 
-    font-size:32px;
+    font-size:18px;
 
     color:#0f172a;
+   
+   font-weight:700;
+
+line-height:1.35;
+
 
 }
 
@@ -2247,6 +2254,8 @@ body.light .practice-box{
     width:100% !important;
 
     margin-top:15px;
+
+   padding:18px 20px;
 
     box-sizing:border-box;
 
