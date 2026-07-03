@@ -371,7 +371,7 @@ ARTICLE
 
     border-radius:18px;
 
-    padding:45px;
+    padding:38px;
 
     box-shadow:0 10px 35px rgba(0,0,0,.05);
 
@@ -391,9 +391,9 @@ HEADINGS
 
     color:#222;
 
-    margin-top:45px;
+    margin-top:34px;
 
-    margin-bottom:18px;
+    margin-bottom:14px;
 
     font-weight:700;
 
@@ -407,17 +407,13 @@ HEADINGS
 
     color:#333;
 
-    margin-top:30px;
+    margin-top:24px;
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 
     font-weight:700;
 
 }
-
-
-
-
 
 /*==================================================
 PARAGRAPH
@@ -435,10 +431,6 @@ PARAGRAPH
 
 }
 
-
-
-
-
 /*==================================================
 LISTS
 ==================================================*/
@@ -447,11 +439,9 @@ LISTS
 
 .article-content ol{
 
-    margin:20px 0 25px 28px;
+    margin:16px 0 18px 28px;
 
 }
-
-
 
 .article-content li{
 
@@ -459,14 +449,11 @@ LISTS
 
     color:#444;
 
-    line-height:1.9;
+    line-height:1.7;
 
-    margin-bottom:10px;
+    margin-bottom:7px;
 
 }
-
-
-
 
 
 /*==================================================
@@ -483,17 +470,11 @@ LINKS
 
 }
 
-
-
 .article-content a:hover{
 
     color:#ff7a00;
 
 }
-
-
-
-
 
 /*==================================================
 BLOCKQUOTE
@@ -507,7 +488,7 @@ BLOCKQUOTE
 
     padding:22px;
 
-    margin:35px 0;
+    margin:24px 0;
 
     border-radius:12px;
 
@@ -934,7 +915,7 @@ TABLES
 
     border-collapse:collapse;
 
-    margin:35px 0;
+    margin:24px 0;
 
     background:#fff;
 
@@ -1038,7 +1019,7 @@ ARTICLE IMAGES
 
     border-radius:14px;
 
-    margin:30px 0;
+    margin:22px 0;
 
     box-shadow:0 12px 30px rgba(0,0,0,.08);
 
@@ -1060,7 +1041,7 @@ HORIZONTAL LINE
 
     background:#e8e8e8;
 
-    margin:45px 0;
+    margin:30px 0;
 
 }
 
