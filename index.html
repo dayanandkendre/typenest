@@ -63,14 +63,15 @@ href="style.css">
 
 <a href="about.html" class="menu-link">About</a>
 
-<a href="#"
+<button
+type="button"
 class="mobile-login"
 id="mobileLoginBtn"
 onclick="openLoginModal()">
 
-    Login
+Login
 
-</a>
+</button>
          
     </div>
 
@@ -95,14 +96,15 @@ class="menu-btn">
 
     <div class="user-menu">
 
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
+    <button
+type="button"
+class="login-btn"
+id="loginBtn"
+onclick="openLoginModal()">
 
-        Login
+Login
 
-    </a>
+</button>
 
    <div class="dropdown-menu"
 id="dropdownMenu">
@@ -112,12 +114,14 @@ id="dropdownMenu">
 
         </a>
 
-        <a href="#"
-        id="logoutDropdown">
+       <button
+type="button"
+id="logoutDropdown"
+class="dropdown-btn">
 
-            Logout
+Logout
 
-        </a>
+</button>
 
     </div>
 
@@ -720,19 +724,7 @@ onclick="window.location.href='learn/learn.html'">
         <p class="footer-trust">
             Trusted by 10,000+ learners worldwide.
         </p>
-
-        <div class="social-icons">
-
-            <a href="#">📘</a>
-
-            <a href="#">📷</a>
-
-            <a href="#">▶️</a>
-
-            <a href="#">💼</a>
-
-        </div>
-
+         
     </div>
 
 
@@ -789,15 +781,6 @@ onclick="window.location.href='learn/learn.html'">
         <p>
             Subscribe to get latest updates and typing tips.
         </p>
-
-        <div class="newsletter">
-
-            <input type="email"
-                   placeholder="Enter your email">
-
-            <button>➤</button>
-
-        </div>
 
     </div>
 
