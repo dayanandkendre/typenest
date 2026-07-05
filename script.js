@@ -527,3 +527,48 @@ faqItems.forEach(item => {
     });
 
 });
+
+
+/* =========================================
+   COURSES FAQ
+========================================= */
+
+const faqQuestions =
+document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question=>{
+
+question.addEventListener("click",()=>{
+
+const currentItem=
+question.parentElement;
+
+const currentAnswer=
+currentItem.querySelector(".faq-answer");
+
+document
+.querySelectorAll(".faq-item")
+.forEach(item=>{
+
+if(item!==currentItem){
+
+item.querySelector(".faq-answer")
+.style.display="none";
+
+}
+
+});
+
+if(currentAnswer.style.display==="block"){
+
+currentAnswer.style.display="none";
+
+}else{
+
+currentAnswer.style.display="block";
+
+}
+
+});
+
+});
