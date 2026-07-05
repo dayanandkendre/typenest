@@ -1,4 +1,107 @@
 /* =========================================
+   BLOG HERO
+========================================= */
+
+.blog-hero{
+
+padding:45px 20px 25px;
+
+background:linear-gradient(180deg,#f8fbff,#ffffff);
+
+text-align:center;
+
+}
+
+.blog-hero .container{
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+.blog-badge{
+
+display:inline-block;
+
+padding:8px 20px;
+
+background:#eef4ff;
+
+color:#2563eb;
+
+font-size:13px;
+
+font-weight:700;
+
+border-radius:50px;
+
+margin-bottom:16px;
+
+letter-spacing:.3px;
+
+}
+
+.blog-hero h1{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.15;
+
+color:#111827;
+
+margin:0 0 18px;
+
+}
+
+.blog-hero h1 span{
+
+display:block;
+
+color:#2563eb;
+
+}
+
+.blog-hero p{
+
+font-size:17px;
+
+line-height:1.85;
+
+color:#64748b;
+
+max-width:760px;
+
+margin:auto;
+
+}
+
+@media(max-width:768px){
+
+.blog-hero{
+
+padding:38px 18px 20px;
+
+}
+
+.blog-hero h1{
+
+font-size:36px;
+
+}
+
+.blog-hero p{
+
+font-size:16px;
+
+line-height:1.8;
+
+}
+
+}
+/* =========================================
    BLOG GRID
 ========================================= */
 
