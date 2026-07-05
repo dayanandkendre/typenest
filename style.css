@@ -3351,31 +3351,25 @@ color:#666;
 
 }
 
-.about-card::after{
+.about-card h2::after{
 
 content:"";
 
-position:absolute;
-
-left:30px;
-
-bottom:24px;
+display:block;
 
 width:70px;
 
 height:4px;
 
+margin-top:12px;
+
 background:linear-gradient(
-
 90deg,
-
 #2563eb,
-
 #60a5fa
-
 );
 
-border-radius:10px;
+border-radius:20px;
 
 }
 
