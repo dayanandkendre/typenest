@@ -129,7 +129,9 @@ body{
 
     font-size:22px;
 
-    margin-bottom:10px;
+    margin:0 0 22px;
+
+    line-height:1.35;
 
 }
 
@@ -143,7 +145,7 @@ body{
 
     line-height:1.5;
 
-    margin:0;
+    margin-top:16px;
 
 }
 
