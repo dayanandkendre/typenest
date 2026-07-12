@@ -241,30 +241,7 @@ body{
 
 @media(max-width:768px){
 
-    .navbar{
-
-        padding:0 20px;
-
-        flex-direction:column;
-
-        height:auto;
-
-        padding-top:15px;
-
-        padding-bottom:15px;
-
-    }
-
-    .menu{
-
-        gap:15px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
+   
     .about-hero{
 
         padding-top:140px;
