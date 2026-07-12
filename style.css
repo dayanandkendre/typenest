@@ -2800,6 +2800,17 @@ gap:25px;
 .journey-item{
 
 text-align:center;
+   
+text-decoration:none;
+
+color:inherit;
+
+display:block;
+}
+
+.journey-item:hover{
+
+color:inherit;
 
 }
 
