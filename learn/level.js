@@ -23,124 +23,124 @@ window.location.search
 
 const lessons = {
 
-1:{
-title:"F J Introduction",
-subtitle:"Learn the home keys F and J.",
-target:["f","j","f","j","f","j","f","j"]
+1: {
+  title: "F J Introduction",
+  subtitle: "Learn the home keys F and J.",
+  target: ["f", "j", "f", "j", "f", "j", "f", "j", "f", "f", "j", "j", "f", "j", "f", "j", "j", "f", "j", "f", "f", "j", "f", "j", "f", "f", "j", "j", "f", "j", "f", "j"]
 },
 
-2:{
-title:"Keys F & J",
-subtitle:"Practice repeated F and J keys.",
-target:["f","f","j","j","f","f","j","j"]
+2: {
+  title: "Keys F & J",
+  subtitle: "Practice repeated F and J keys.",
+  target: ["f", "f", "j", "j", "f", "f", "j", "j", "j", "j", "f", "f", "j", "j", "f", "f", "f", "j", "f", "j", "j", "f", "j", "f", "f", "f", "j", "j", "j", "f", "f", "j"]
 },
 
-3:{
-title:"FJ Practice",
-subtitle:"Build rhythm with FJ combinations.",
-target:["f","j","j","f","f","j","j","f"]
+3: {
+  title: "FJ Practice",
+  subtitle: "Build rhythm with FJ combinations.",
+  target: ["f", "j", "j", "f", "f", "j", "j", "f", "j", "f", "f", "j", "j", "f", "j", "f", "f", "j", "j", "f", "f", "j", "f", "j", "j", "f", "f", "j", "j", "f", "j", "f"]
 },
 
-4:{
-title:"Space Bar",
-subtitle:"Learn using the space key.",
-target:["f"," ","j"," ","f"," ","j"," "]
+4: {
+  title: "Space Bar",
+  subtitle: "Learn using the space key.",
+  target: ["f", " ", "j", " ", "f", " ", "j", " ", "f", "f", " ", "j", "j", " ", "f", "j", " ", "j", "f", " ", "f", " ", "j", " ", "f", "f", " ", "j", "j", " ", "f", "j"]
 },
 
-5:{
-title:"Keys D & K",
-subtitle:"Introduce D and K keys.",
-target:["d","k","d","k","d","k","d","k"]
+5: {
+  title: "Keys D & K",
+  subtitle: "Introduce D and K keys.",
+  target: ["d", "k", "d", "k", "d", "k", "d", "k", "d", "d", "k", "k", "d", "k", "d", "k", "k", "d", "k", "d", "d", "k", "d", "k", "d", "d", "k", "k", "d", "k", "d", "k"]
 },
 
-6:{
-title:"Keys D & F",
-subtitle:"Practice D and F keys.",
-target:["d","f","d","f","d","f","d","f"]
+6: {
+  title: "Keys D & F",
+  subtitle: "Practice D and F keys.",
+  target: ["d", "f", "d", "f", "d", "f", "d", "f", "f", "d", "f", "d", "d", "f", "f", "d", "d", "d", "f", "f", "f", "d", "f", "d", "f", "f", "d", "d", "f", "d", "f", "d"]
 },
 
-7:{
-title:"Keys J & K",
-subtitle:"Practice J and K keys.",
-target:["j","k","j","k","j","k","j","k"]
+7: {
+  title: "Keys J & K",
+  subtitle: "Practice J and K keys.",
+  target: ["j", "k", "j", "k", "j", "k", "j", "k", "k", "j", "k", "j", "j", "k", "k", "j", "j", "j", "k", "k", "k", "j", "k", "j", "k", "k", "j", "j", "k", "j", "k", "j"]
 },
 
-8:{
-title:"DKF Practice",
-subtitle:"Mixed practice.",
-target:["d","k","f","d","k","f","d","k"]
+8: {
+  title: "DKF Practice",
+  subtitle: "Mixed practice.",
+  target: ["d", "k", "f", "d", "k", "f", "d", "k", "f", "d", "k", "f", "k", "d", "f", "k", "d", "f", "f", "d", "k", "f", "d", "k", "d", "f", "k", "d", "f", "k", "d", "k"]
 },
 
-9:{
-title:"Keys S & L",
-subtitle:"Practice S and L keys.",
-target:["s","l","s","l","s","l","s","l"]
+9: {
+  title: "Keys S & L",
+  subtitle: "Practice S and L keys.",
+  target: ["s", "l", "s", "l", "s", "l", "s", "l", "s", "s", "l", "l", "s", "l", "s", "l", "l", "s", "l", "s", "s", "l", "s", "l", "s", "s", "l", "l", "s", "l", "s", "l"]
 },
 
-10:{
-title:"Semicolon",
-subtitle:"Practice semicolon key.",
-target:[";",";",";",";",";",";",";",";"]
+10: {
+  title: "Semicolon",
+  subtitle: "Practice semicolon key.",
+  target: [";", ";", ";", ";", ";", ";", ";", ";", "l", ";", "l", ";", "k", ";", "k", ";", ";", ";", "l", ";", "k", ";", ";", ";", ";", "l", "k", ";", ";", "l", "k", ";"]
 },
 
-11:{
-title:"All Home Keys",
-subtitle:"Home row practice.",
-target:["a","s","d","f","j","k","l",";"]
+11: {
+  title: "All Home Keys",
+  subtitle: "Home row practice.",
+  target: ["a", "s", "d", "f", "j", "k", "l", ";", "a", "s", "d", "f", "j", "k", "l", ";", "f", "d", "s", "a", "j", "k", "l", ";", "a", "s", "d", "f", "j", "k", "l", ";"]
 },
 
-12:{
-title:"Home Row Review",
-subtitle:"Final review.",
-target:["f","j","d","k","s","l","a",";"]
+12: {
+  title: "Home Row Review",
+  subtitle: "Final review.",
+  target: ["f", "j", "d", "k", "s", "l", "a", ";", ";", "a", "l", "s", "k", "d", "j", "f", "f", "d", "s", "a", "j", "k", "l", ";", "a", "j", "s", "k", "d", "l", "f", ";"]
 },
 
-13:{
-title:"Left Hand Practice",
-subtitle:"Practice A S D F keys.",
-target:["a","s","d","f","a","s","d","f"]
+13: {
+  title: "Left Hand Practice",
+  subtitle: "Practice A S D F keys.",
+  target: ["a", "s", "d", "f", "a", "s", "d", "f", "f", "d", "s", "a", "f", "d", "s", "a", "a", "a", "s", "s", "d", "d", "f", "f", "a", "d", "s", "f", "d", "a", "s", "f"]
 },
 
-14:{
-title:"Right Hand Practice",
-subtitle:"Practice J K L ; keys.",
-target:["j","k","l",";","j","k","l",";"]
+14: {
+  title: "Right Hand Practice",
+  subtitle: "Practice J K L ; keys.",
+  target: ["j", "k", "l", ";", "j", "k", "l", ";", ";", "l", "k", "j", ";", "l", "k", "j", "j", "j", "k", "k", "l", "l", ";", ";", "j", "l", "k", ";", "k", "j", "l", ";"]
 },
 
-15:{
-title:"Left Hand Drill",
-subtitle:"Build speed with left hand.",
-target:["a","s","f","d","a","f","s","d"]
+15: {
+  title: "Left Hand Drill",
+  subtitle: "Build speed with left hand.",
+  target: ["a", "s", "f", "d", "a", "f", "s", "d", "d", "f", "a", "s", "s", "a", "d", "f", "f", "a", "s", "d", "a", "d", "f", "s", "d", "s", "a", "f", "f", "d", "s", "a"]
 },
 
-16:{
-title:"Right Hand Drill",
-subtitle:"Build speed with right hand.",
-target:["j","k",";","l","j",";","k","l"]
+16: {
+  title: "Right Hand Drill",
+  subtitle: "Build speed with right hand.",
+  target: ["j", "k", ";", "l", "j", ";", "k", "l", "l", ";", "j", "k", "k", "j", "l", ";", ";", "j", "k", "l", "j", "l", ";", "k", "l", "k", "j", ";", ";", "l", "k", "j"]
 },
 
-17:{
-title:"Home Row Mix 1",
-subtitle:"Mix both hands together.",
-target:["a","j","s","k","d","l","f",";"]
+17: {
+  title: "Home Row Mix 1",
+  subtitle: "Mix both hands together.",
+  target: ["a", "j", "s", "k", "d", "l", "f", ";", ";", "f", "l", "d", "k", "s", "j", "a", "a", "s", "j", "k", "d", "f", "l", ";", "f", "j", "d", "k", "s", "l", "a", ";"]
 },
 
-18:{
-title:"Home Row Mix 2",
-subtitle:"Advanced home row combinations.",
-target:["f","j","d","k","s","l","a",";"]
+18: {
+  title: "Home Row Mix 2",
+  subtitle: "Advanced home row combinations.",
+  target: ["f", "j", "d", "k", "s", "l", "a", ";", "a", "s", "d", "f", "j", "k", "l", ";", "d", "d", "k", "k", "s", "s", "l", "l", "f", "f", "j", "j", "a", "a", ";", ";"]
 },
 
-19:{
-title:"Home Row Words",
-subtitle:"Type real home row words.",
-target:["s","a","d",";","a","s","k","l"]
+19: {
+  title: "Home Row Words",
+  subtitle: "Type real home row words.",
+  target: ["s", "a", "d", " ", "a", "s", "k", " ", "f", "a", "l", "l", " ", "l", "a", "d", " ", "a", "s", "s", "a", "m", " ", "d", "a", "d", " ", "s", "a", "l", "a", "d"]
 },
 
-20:{
-title:"Final Test",
-subtitle:"Complete home row challenge.",
-target:["a","s","d","f","j","k","l",";"]
+20: {
+  title: "Final Test",
+  subtitle: "Complete home row challenge.",
+  target: ["a", "s", "d", "f", "j", "k", "l", ";", " ", "f", "j", "d", "k", "s", "l", "a", ";", " ", "a", "j", "s", "k", "d", "l", "f", ";", " ", "s", "a", "d", "l", "y"]
 }
 
 };
