@@ -78,37 +78,59 @@ if(timeElement) timeElement.innerHTML = timer;
    DYNAMIC RENDER + HORIZONTAL SCROLL LOGIC
 ========================================= */
 function renderText(value = "") {
-    let currentWord = 0;
-    for (let i = 0; i < value.length; i++) {
-        if (originalText[i] === " ") currentWord++;
-    }
+    // युझरने सध्या किती स्पेस टाईप केल्या आहेत त्यावरून चालू शब्दाचा इंडेक्स काढणे
+    let currentWordIndex = value.split(" ").length - 1;
 
     let html = "";
-    for (let i = 0; i < originalText.length; i++) {
-        let cls = "pending-char";
-        let tempWord = 0;
+    let words = originalText.split(" ");
+    let globalCharIndex = 0;
+
+    for (let w = 0; w < words.length; w++) {
+        let word = words[w];
+        let isCurrentWord = (w === currentWordIndex);
         
-        for (let j = 0; j < i; j++) {
-            if (originalText[j] === " ") tempWord++;
+        // प्रत्येक शब्दाला स्वतंत्र स्पॅन देण्याऐवजी अक्षरांना त्यांच्या शब्दाच्या स्टेटनुसार रेंडर करणे
+        for (let c = 0; c < word.length; c++) {
+            let cls = "pending-char";
+            
+            if (isCurrentWord) cls += " current-word";
+            if (globalCharIndex === value.length) cls += " current";
+
+            if (globalCharIndex < value.length) {
+                if (value[globalCharIndex] === originalText[globalCharIndex]) {
+                    cls += " correct";
+                } else {
+                    cls += " wrong";
+                }
+            }
+
+            html += `<span class="${cls}">${word[c]}</span>`;
+            globalCharIndex++;
         }
 
-        if (tempWord === currentWord) cls += " active-word";
-        if (i === value.length) cls += " current";
+        // शब्दांमधील स्पेससाठी स्वतंत्र हँडलिंग
+        if (w < words.length - 1) {
+            let cls = "pending-char";
+            if (isCurrentWord) cls += " current-word";
+            if (globalCharIndex === value.length) cls += " current";
 
-        if (i < value.length) {
-            if (value[i] === originalText[i]) cls += " correct";
-            else cls += " wrong";
+            if (globalCharIndex < value.length) {
+                if (value[globalCharIndex] === originalText[globalCharIndex]) {
+                    cls += " correct";
+                } else {
+                    cls += " wrong";
+                }
+            }
+
+            html += `<span class="${cls}">&nbsp;</span>`;
+            globalCharIndex++;
         }
-
-        let ch = originalText[i];
-        if (ch === " ") ch = "&nbsp;";
-        html += `<span class="${cls}">${ch}</span>`;
     }
 
     const textDisplay = document.getElementById("textDisplay");
     textDisplay.innerHTML = html;
 
-    // SCROLL LIMIT BOUNDARIES
+    // HORIZONTAL AUTOMATIC SCROLL LIMITS
     const currentChar = document.querySelector(".current");
     if (currentChar) {
         const container = document.getElementById("textDisplayContainer");
@@ -130,7 +152,7 @@ function renderText(value = "") {
     }
 }
 
-// Initial Call
+// Initial Render
 renderText();
 
 let input = document.getElementById("input");
@@ -178,7 +200,7 @@ function endTest() {
     document.querySelector(".keyboard").style.opacity = "0.15";
 }
 
-/* TYPING INPUT DETECTION */
+/* INPUT HANDLING */
 input.addEventListener("input", function() {
     startTimer();
     let inputText = this.value;
@@ -193,7 +215,7 @@ input.addEventListener("input", function() {
 
     renderText(inputText);
 
-    // LIVE WPM UPDATE (NET SPEED)
+    // LIVE PROFESSIONAL NET WPM
     let timeElapsed = totalInitialTime - timer;
     let wpmElement = document.getElementById("wpm");
     if (timeElapsed > 0) {
@@ -204,9 +226,15 @@ input.addEventListener("input", function() {
         if (wpmElement) wpmElement.innerHTML = currentLiveWpm;
     }
 
-    // ACCURACY
+    // LIVE STATS UPDATE
     let totalTyped = correctCount + mistakes;
     let accuracy = (totalTyped > 0) ? Math.floor((correctCount / totalTyped) * 100) : 0;
+
+    let accuracyElement = document.getElementById("accuracy");
+    if(accuracyElement) accuracyElement.innerHTML = accuracy + "%";
+
+    let mistakesElement = document.getElementById("mistakes");
+    if(mistakesElement) mistakesElement.innerHTML = mistakes;
 
     liveCorrectCount = correctCount;
     liveAccuracy = accuracy;
