@@ -18,7 +18,7 @@ window.location.search
 );
 
 /* =========================================
-   LESSON DATA
+   LESSON DATA (EVERY LEVEL HAS EXACTLY 32 CHARACTERS)
 ========================================= */
 
 const lessons = {
@@ -26,121 +26,121 @@ const lessons = {
 1:{
 title:"F J Introduction",
 subtitle:"Learn the home keys F and J.",
-target:["f","j","f","j","f","j","f","j"]
+target:["f","j","f","j"," ","f","j","f","j"," ","f","f","j","j"," ","j","j","f","f"," ","f","j","j","f"," ","j","f","f","j"," ","f","j"]
 },
 
 2:{
 title:"Keys F & J",
 subtitle:"Practice repeated F and J keys.",
-target:["f","f","j","j","f","f","j","j"]
+target:["f","f","j","j"," ","f","f","j","j"," ","f","j","f","j"," ","j","f","j","f"," ","f","f","f","j"," ","j","j","j","f"," tap","f","j"]
 },
 
 3:{
 title:"FJ Practice",
 subtitle:"Build rhythm with FJ combinations.",
-target:["f","j","j","f","f","j","j","f"]
+target:["f","j","j","f"," ","f","j","j","f"," ","j","f","f","j"," ","j","f","f","j"," ","f","f","j","j"," ","j","j","f","f"," ","f","j"]
 },
 
 4:{
 title:"Space Bar",
 subtitle:"Learn using the space key.",
-target:["f"," ","j"," ","f"," ","j"," "]
+target:["f"," ","j"," ","f"," ","j"," ","f","f"," ","j","j"," ","f","j"," ","j","f"," ","f"," ","j"," ","f","f"," ","j","j"," ","f","j"]
 },
 
 5:{
 title:"Keys D & K",
 subtitle:"Introduce D and K keys.",
-target:["d","k","d","k","d","k","d","k"]
+target:["d","k","d","k"," ","d","k","d","k"," ","d","d","k","k"," ","k","k","d","d"," ","d","k","k","d"," ","k","d","d","k"," ","d","k"]
 },
 
 6:{
 title:"Keys D & F",
 subtitle:"Practice D and F keys.",
-target:["d","f","d","f","d","f","d","f"]
+target:["d","f","d","f"," Bell","d","f","d","f"," ","d","d","f","f"," ","f","f","d","d"," ","d","f","f","d"," ","f","d","d","f"," ","d","f"]
 },
 
 7:{
 title:"Keys J & K",
 subtitle:"Practice J and K keys.",
-target:["j","k","j","k","j","k","j","k"]
+target:["j","k","j","k"," ","j","k","j","k"," ","j","j","k","k"," ","k","k","j","j"," ","j","k","k","j"," ","k","j","j","k"," ","j","k"]
 },
 
 8:{
 title:"DKF Practice",
 subtitle:"Mixed practice.",
-target:["d","k","f","d","k","f","d","k"]
+target:["d","k","f"," ","d","k","f"," ","f","k","d"," ","f","k","d"," ","d","f","k"," ","k","f","d"," ","d","d","k","k","f","f","d","k"]
 },
 
 9:{
 title:"Keys S & L",
 subtitle:"Practice S and L keys.",
-target:["s","l","s","l","s","l","s","l"]
+target:["s","l","s","l"," ","s","l","s","l"," ","s","s","l","l"," ","l","l","s","s"," ","s","l","l","s"," ","l","s","s","l"," ","s","l"]
 },
 
 10:{
 title:"Semicolon",
 subtitle:"Practice semicolon key.",
-target:[";",";",";",";",";",";",";",";"]
+target:[";",";",";",";"," ",";",";",";",";"," ",";",";",";",";"," ",";",";",";",";"," ",";",";",";",";"," ",";",";",";",";"," ",";",";"]
 },
 
 11:{
 title:"All Home Keys",
 subtitle:"Home row practice.",
-target:["a","s","d","f","j","k","l",";"]
+target:["a","s","d","f"," ","j","k","l",";"," ","a","s","d","f"," ","j","k","l",";"," ","f","j","d","k"," ","s","l","a",";"," ","f","j"]
 },
 
 12:{
 title:"Home Row Review",
 subtitle:"Final review.",
-target:["f","j","d","k","s","l","a",";"]
+target:["f","j","d","k"," ","s","l","a",";"," ","a","s","d","f"," ","j","k","l",";"," ",";","l","k","j"," ","f","d","s","a"," ","f","j"]
 },
 
 13:{
 title:"Left Hand Practice",
 subtitle:"Practice A S D F keys.",
-target:["a","s","d","f","a","s","d","f"]
+target:["a","s","d","f"," ","a","s","d","f"," ","f","d","s","a"," ","f","d","s","a"," ","a","a","s","s"," ","d","d","f","f"," ","a","f"]
 },
 
 14:{
 title:"Right Hand Practice",
 subtitle:"Practice J K L ; keys.",
-target:["j","k","l",";","j","k","l",";"]
+target:["j","k","l",";"," ","j","k","l",";"," ",";","l","k","j"," ",";","l","k","j"," ","j","j","k","k"," ","l","l",";",";"," ","j",";"]
 },
 
 15:{
 title:"Left Hand Drill",
 subtitle:"Build speed with left hand.",
-target:["a","s","f","d","a","f","s","d"]
+target:["a","s","f","d"," ","a","f","s","d"," ","d","s","f","a"," ","f","s","a","d"," ","a","s","d","f"," ","f","d","s","a"," ","a","s"]
 },
 
 16:{
 title:"Right Hand Drill",
 subtitle:"Build speed with right hand.",
-target:["j","k",";","l","j",";","k","l"]
+target:["j","k",";","l"," ","j",";","k","l"," ",";","l","k","j"," ","l","k",";","j"," ","j","k","l",";"," ",";","l","k","j"," ","j","k"]
 },
 
 17:{
 title:"Home Row Mix 1",
 subtitle:"Mix both hands together.",
-target:["a","j","s","k","d","l","f",";"]
+target:["a","j","s","k"," ","d","l","f",";"," ","j","a","k","s"," ","l","d",";","f"," ","a","s","d","f"," ","j","k","l",";"," ","a","j"]
 },
 
 18:{
 title:"Home Row Mix 2",
 subtitle:"Advanced home row combinations.",
-target:["f","j","d","k","s","l","a",";"]
+target:["f","j","d","k"," ","s","l","a",";"," ",";","a","l","s"," ","k","d","j","f"," ","a","j","s","k"," ","d","l","f",";"," ","f","j"]
 },
 
 19:{
 title:"Home Row Words",
 subtitle:"Type real home row words.",
-target:["s","a","d",";","a","s","k","l"]
+target:["s","a","d"," ","a","s","k"," ","l","a","d"," ","f","a","d"," ","a","d","d"," ","a","l","l"," ","f","a","l","l"," ","s","a","d"]
 },
 
 20:{
 title:"Final Test",
 subtitle:"Complete home row challenge.",
-target:["a","s","d","f","j","k","l",";"]
+target:["a","s","d","f"," ","j","k","l",";"," ","s","a","l","a","d"," ","f","l","a","s","h"," ","g","l","a","s","s"," ","d","a","d"," "]
 }
 
 };
