@@ -381,6 +381,20 @@ if(
 
 }
 
+/* =========================================
+       AUTOMATIC SCROLLING LOGIC
+    ========================================= */
+    const activeLetter = document.getElementById("l" + current);
+    const lettersContainer = document.querySelector(".letters-row");
+    
+    if (activeLetter && lettersContainer) {
+        const containerWidth = lettersContainer.offsetWidth;
+        const letterLeft = activeLetter.offsetLeft;
+        const letterWidth = activeLetter.offsetWidth;
+        
+        // ॲक्टिव्ह लेटर नेहमी मध्यभागी ठेवण्यासाठी स्क्रोल कॅल्क्युलेशन
+        lettersContainer.scrollLeft = letterLeft - (containerWidth / 2) + (letterWidth / 2);
+    }   
 
     /* =========================================
        LEVEL COMPLETE
