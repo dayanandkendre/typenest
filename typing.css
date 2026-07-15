@@ -1,222 +1,341 @@
-body{
+*{
     margin:0;
-    font-family:Arial;
-    background: linear-gradient(to right, #020617, #0f172a, #020617);
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f5f7ff;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* TOP BAR */
+.topbar{
+    height:70px;
+    background:#111827;
     color:white;
-    overflow:hidden;
-}
-
-.typing-page{
-    width:100%;
-    min-height:100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
+    padding:0 30px;
 }
 
-.typing-wrapper{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    position:relative;
-}
-
-.esc-tip{
-    position:absolute;
-    top:18px;
-    left:22px;
-    width:42px;
-    height:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:12px;
-    color:#cbd5e1;
-    font-size:22px;
+.back-link{
+    font-size:14px;
     cursor:pointer;
-    backdrop-filter:blur(10px);
-    transition:0.2s;
 }
 
-.esc-tip:hover{
-    background:rgba(255,255,255,0.12);
-    color:white;
+.level-title{
+    font-size:20px;
+    font-weight:bold;
 }
 
-/* TYPING BOX - ADJUSTED FOR HORIZONTAL FLOW */
-.typing-box{
-    width:78%;
-    height:90px; /* सिंगल लाईनसाठी बॉक्सची उंची कमी केली */
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:24px;
-    padding:0px 35px;
-    backdrop-filter:blur(12px);
-    margin:35px auto 0 auto;
+.timer-box {
+    font-size: 16px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+/* LESSON HEADER */
+.lesson-header{
+    text-align:center;
+    margin:25px 0 10px 0;
+}
+
+.lesson-header h1{
+    font-size:32px;
+    margin:0;
+}
+
+.lesson-header h1::first-letter{
+    color:#2563eb;
+}
+
+.lesson-header p{
+    color:#64748b;
+    margin:5px 0;
+    font-size:16px;
+}
+
+/* HORIZONTAL SINGLE LINE WORD DISPLAY */
+.text-display{
+    width:900px;
+    max-width:90%;
+    height:75px;
+    margin:20px auto;
+    padding:0 25px;
+    background:#ffffff;
+    border-radius:16px;
+    font-size:36px;
     overflow:hidden;
     position:relative;
     display:flex;
     align-items:center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.typing-text{
-    width:100%;
-    overflow:hidden;
+#textDisplay{
+    white-space:nowrap; /* एका रेषेत ठेवण्यासाठी */
+    transition: transform 0.22s ease-out;
+    will-change:transform;
+}
+
+/* CHARACTER STATUSES */
+.correct-char{
+    color:#22c55e;
+}
+
+.wrong-char{
+    color:#ef4444;
+}
+
+.pending-char{
+    color:#9ca3af;
+}
+
+.wrong-space{
+    background: rgba(239, 68, 68, 0.18);
+    border-radius: 4px;
+}
+
+/* ACTIVE WORD HIGHLIGHT */
+.active-word{
+    background: rgba(59, 130, 246, 0.08);
+    border-radius: 4px;
+}
+
+/* BLINKING CURSOR LINE */
+.current-char{
     position:relative;
 }
 
-/* SINGLE LINE INNER INNER ELEMENT */
-.text-display-inner {
-    display: inline-block;
-    white-space: nowrap; /* 👈 मजकूर खाली न तुटता एकाच ओळीत राहील */
-    font-size: 32px;
-    color: #e2e8f0;
-    font-family: "Consolas", "Courier New", monospace;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: transform 0.2s ease-out; /* 👈 स्मूथ स्क्रोलिंग इफेक्ट */
-    will-change: transform;
-}
-
-.hidden-input{
-    opacity:0;
+.current-char::before{
+    content:"";
     position:absolute;
-    left:-9999px;
+    left:-2px;
+    top:4px;
+    width:2.5px;
+    height:80%;
+    background:#3b82f6;
+    animation:blinkCursor 1s infinite;
 }
 
-/* =========================================
-   CORRECT / WRONG / CURRENT ADJUSTMENTS
-========================================= */
-
-.correct {
-    color: #22c55e;
+@keyframes blinkCursor{
+    50%{ opacity:0; }
 }
 
-.wrong {
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.15); 
-    border-radius: 4px;
-}
-
-/* चालू अक्षराखालील पिवळा कर्सर (Blinking Line) */
-.current {
-    border-bottom: 3px solid #eab308;
-    animation: blink 1.5s infinite;
-}
-
-/* 🏆 PROFESSIONAL CURRENT WORD HIGHLIGHT (एकदम स्पष्ट दिसण्यासाठी) */
-.current-word {
-    color: #ffffff !important; /* चालू शब्द पांढऱ्या रंगात स्पष्ट दिसेल */
-    border-bottom: 2px solid #2563eb; /* 👈 शब्दाच्या खाली निळी स्पष्ट अंडरलाईन */
-    background: rgba(37, 99, 235, 0.15); /* हलका निळा पारदर्शक बॅकग्राउंड */
-    border-radius: 4px;
-    padding: 2px 6px;
-    text-shadow: 0 0 8px rgba(37, 99, 235, 0.5); /* 👈 शब्दाला हलकासा ग्लो इफेक्ट */
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-/* KEYBOARD */
+/* KEYBOARD DESIGN */
 .keyboard{
-    width:68%;
-    margin-top:25px;
+    width:90%;
+    max-width:900px;
+    margin:15px auto;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:6px;
 }
 
 .key-row{
     display:flex;
     justify-content:center;
     gap:6px;
-    margin-bottom:10px;
+    margin-bottom:4px;
 }
 
 .key{
-    width:44px;
-    height:44px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:14px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:15px;
-    color:#cbd5e1;
-    backdrop-filter:blur(10px);
-    transition:0.15s;
-}
-
-.space-key{ width:420px; }
-.enter-key{ width:120px; }
-.shift-key{ width:130px; }
-.tab-key{ width:95px; }
-.caps-key{ width:110px; }
-.backspace-key{ width:120px; }
-
-.active-key{
-    background:#2563eb;
+    width:46px;
+    height:46px;
+    background:#111827;
     color:white;
-    transform:scale(1.08);
-    box-shadow:0px 0px 20px #2563eb;
-}
-
-/* FLOATING TIMER */
-.floating-timer{
-    position:absolute;
-    top:18px;
-    right:22px;
-    min-width:90px;
-    height:42px;
+    border-radius:10px;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:14px;
-    color:#f8fafc;
-    font-size:18px;
-    font-weight:600;
-    backdrop-filter:blur(10px);
-    letter-spacing:1px;
+    font-weight:bold;
+    font-size:15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+    transition: 0.1s ease;
 }
 
-/* RESULT POPUP */
-.result-popup{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:rgba(0,0,0,0.72);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999999;
-    visibility:hidden;
-    opacity:0;
-    transition:0.3s;
+/* KEYBOARD SPECIAL BUTTON WIDTHS */
+.space-key{ width:260px; height:46px; border-radius:12px; }
+.backspace-key{ width:100px !important; }
+.enter-key{ width:85px !important; }
+.shift-key{ width:80px !important; }
+.tab-key{ width:65px !important; }
+.caps-key{ width:70px !important; }
+
+/* ANIMATION HIGHLIGHTS */
+.space-active{
+    background:#2563eb !important;
+    color:white !important;
 }
 
-.result-box{
-    width:650px;
-    background: linear-gradient(to bottom right, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
-    padding:45px;
+.key-pressed{
+    transform:scale(0.94);
+    background:#22c55e !important;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+/* STATS ROW */
+.stats{
+    width:90%;
+    max-width:900px;
+    margin:25px auto;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:15px;
+}
+
+.stat-box{
+    background:white;
+    border-radius:12px;
+    padding:12px;
     text-align:center;
-    backdrop-filter:blur(18px);
-    box-shadow: 0px 20px 45px rgba(0,0,0,0.35);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    height:85px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
-.result-title{ font-size:42px; margin-top:0; color:white; }
-.result-stats{ display:flex; justify-content:space-between; gap:18px; margin-top:35px; }
-.result-card{ flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:28px 20px; }
-.result-card h2{ font-size:42px; margin:0; color:#60a5fa; }
-.result-card p{ color:#cbd5e1; margin-top:10px; font-size:16px; }
-.result-message{ margin-top:35px; color:#cbd5e1; font-size:18px; line-height:32px; }
-.result-buttons{ display:flex; justify-content:center; gap:20px; margin-top:35px; }
-.restart-result-btn{ background:#2563eb; color:white; border:none; padding:16px 32px; border-radius:14px; font-size:18px; cursor:pointer; }
-.home-result-btn{ background:rgba(255,255,255,0.08); color:white; border:1px solid rgba(255,255,255,0.08); padding:16px 32px; border-radius:14px; font-size:18px; cursor:pointer; }
+.stat-label{
+    display:block;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.stat-value{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.red{ color:#ef4444; }
+.green{ color:#22c55e; }
+.blue{ color:#2563eb; }
+
+.progress-bar{
+    width:100%;
+    height:6px;
+    background:#e5e7eb;
+    border-radius:20px;
+    margin-top:8px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#2563eb;
+    transition:0.2s;
+}
+
+/* POPUP MODULE */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.advanced-popup{
+    width:90%;
+    max-width:600px;
+    background:#ffffff;
+    border-radius:24px;
+    padding:30px;
+    text-align:center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+}
+
+.popup-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin-bottom:20px;
+}
+
+.popup-left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.level-circle{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    border:6px solid #2563eb;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    box-shadow: 0 12px 25px rgba(37,99,241,.15);
+}
+
+.popup-trophy{
+    font-size:42px;
+}
+
+.circle-title{
+    font-size:13px;
+    font-weight:800;
+    color:#1e293b;
+    margin-top:5px;
+}
+
+.result-card{
+    width:280px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:20px;
+    padding:15px;
+}
+
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid #e5e7eb;
+    font-size:15px;
+}
+
+.result-row:last-of-type{ border-bottom:none; }
+.result-row span:last-child{ font-weight:700; color:#2563eb; }
+
+.popup-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-top:10px;
+}
+
+.popup-buttons button{
+    border:none;
+    min-width:130px;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    transition:.15s;
+}
+
+#restartBtn{ background:#8b5cf6; }
+#backBtn{ background:#64748b; }
+
+@media(max-width:768px){
+    .stats{ grid-template-columns: repeat(2,1fr); }
+    .popup-content{ flex-direction:column; }
+    .popup-buttons button{ width:100%; }
+}
