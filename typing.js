@@ -1,13 +1,5 @@
 import { db } from "./firebase-config.js";
-
-import {
-doc,
-getDoc,
-updateDoc,
-collection,
-addDoc
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const userUID = localStorage.getItem("userUID");
 
@@ -18,14 +10,10 @@ async function saveResult(finalWpm, accuracy){
 
     if(userSnap.exists()){
         const currentData = userSnap.data();
-        const newTestsTaken = (currentData.testsTaken || 0) + 1;
-        const newBestWpm = Math.max(currentData.bestWpm || 0, finalWpm);
-        const newBestAccuracy = Math.max(currentData.bestAccuracy || 0, accuracy);
-
         await updateDoc(userRef, {
-            testsTaken: newTestsTaken,
-            bestWpm: newBestWpm,
-            bestAccuracy: newBestAccuracy
+            testsTaken: (currentData.testsTaken || 0) + 1,
+            bestWpm: Math.max(currentData.bestWpm || 0, finalWpm),
+            bestAccuracy: Math.max(currentData.bestAccuracy || 0, accuracy)
         });
 
         await addDoc(collection(db, "history"), {
@@ -37,33 +25,19 @@ async function saveResult(finalWpm, accuracy){
     }
 }
 
-/* =========================================
-   PARAGRAPHS DATA
-========================================= */
 let paragraphs = [
     "The little boy walked to the village market every morning with his grandfather. Along the way, they greeted neighbors, watched birds flying across the sky, and enjoyed the fresh morning air. These simple daily walks taught him kindness, patience, and the value of community.",
     "A young traveler decided to explore a small mountain town during his vacation. He spent his days meeting local people, tasting traditional food, and learning about the history of the region. The experience helped him understand different cultures and appreciate new perspectives.",
     "The library was one of the quietest places in the city. Students, teachers, and readers visited every day to discover new ideas and improve their knowledge. Reading books regularly opened doors to imagination, learning, and personal growth.",
-    "A farmer worked hard throughout the year to grow healthy crops for his family and community. He carefully planted seeds, watered the fields, and protected the plants from harsh weather. His dedication showed how persistence often leads to success.",
-    "The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans.",
-    "Many successful people begin their day with a simple routine. They wake up early, exercise, plan their goals, and focus on important tasks. Small daily habits often create positive changes that lead to long-term achievements.",
-    "A group of friends decided to plant trees in their neighborhood park. They wanted to make the area greener and cleaner for future generations. Their efforts inspired many other residents to participate in environmental activities.",
-    "The history of human communication has changed dramatically over time. People once relied on handwritten letters that took weeks to arrive. Today, digital technology allows messages to travel across the world within seconds.",
-    "A curious student became interested in astronomy after watching a documentary about space exploration. He started reading books about planets, stars, and galaxies. Learning about the universe inspired him to ask questions and explore science further.",
-    "During a rainy afternoon, a family gathered together to play board games and share stories. Laughter filled the room as they spent quality time with one another. These moments created memories that would be remembered for many years."
+    "The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans."
 ];
 
 let originalText = paragraphs[Math.floor(Math.random() * paragraphs.length)];
 
 let urlParams = new URLSearchParams(window.location.search);
 let selectedTime = urlParams.get("time");
-let totalInitialTime = 60;
-let timer = 60;
-
-if(selectedTime == "1") timer = 60;
-else if(selectedTime == "3") timer = 180;
-else if(selectedTime == "5") timer = 300;
-totalInitialTime = timer;
+let totalInitialTime = selectedTime == "3" ? 180 : (selectedTime == "5" ? 300 : 60);
+let timer = totalInitialTime;
 
 let timerStarted = false;
 let interval;
@@ -74,63 +48,47 @@ let liveMistakes = 0;
 let timeElement = document.getElementById("time");
 if(timeElement) timeElement.innerHTML = timer;
 
-/* =========================================
-   DYNAMIC RENDER + HORIZONTAL SCROLL LOGIC
-========================================= */
 function renderText(value = "") {
-    // युझरने सध्या किती स्पेस टाईप केल्या आहेत त्यावरून चालू शब्दाचा इंडेक्स काढणे
-    let currentWordIndex = value.split(" ").length - 1;
+    // सध्या युझर कितव्या शब्दावर आहे ते स्पेस मोजून काढणे
+    let currentWordIndex = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (originalText[i] === " ") currentWordIndex++;
+    }
 
     let html = "";
-    let words = originalText.split(" ");
-    let globalCharIndex = 0;
+    let tempWordIndex = 0;
 
-    for (let w = 0; w < words.length; w++) {
-        let word = words[w];
-        let isCurrentWord = (w === currentWordIndex);
+    for (let i = 0; i < originalText.length; i++) {
+        let cls = "pending-char";
+
+        // चालू शब्दाला ओळखून हायलाइट देणे
+        if (tempWordIndex === currentWordIndex) {
+            cls += " current-word";
+        }
         
-        // प्रत्येक शब्दाला स्वतंत्र स्पॅन देण्याऐवजी अक्षरांना त्यांच्या शब्दाच्या स्टेटनुसार रेंडर करणे
-        for (let c = 0; c < word.length; c++) {
-            let cls = "pending-char";
-            
-            if (isCurrentWord) cls += " current-word";
-            if (globalCharIndex === value.length) cls += " current";
-
-            if (globalCharIndex < value.length) {
-                if (value[globalCharIndex] === originalText[globalCharIndex]) {
-                    cls += " correct";
-                } else {
-                    cls += " wrong";
-                }
-            }
-
-            html += `<span class="${cls}">${word[c]}</span>`;
-            globalCharIndex++;
+        // चालू अक्षरावर अंडरलाईन कर्सर देणे
+        if (i === value.length) {
+            cls += " current";
         }
 
-        // शब्दांमधील स्पेससाठी स्वतंत्र हँडलिंग
-        if (w < words.length - 1) {
-            let cls = "pending-char";
-            if (isCurrentWord) cls += " current-word";
-            if (globalCharIndex === value.length) cls += " current";
-
-            if (globalCharIndex < value.length) {
-                if (value[globalCharIndex] === originalText[globalCharIndex]) {
-                    cls += " correct";
-                } else {
-                    cls += " wrong";
-                }
-            }
-
-            html += `<span class="${cls}">&nbsp;</span>`;
-            globalCharIndex++;
+        if (i < value.length) {
+            if (value[i] === originalText[i]) cls += " correct";
+            else cls += " wrong";
         }
+
+        let ch = originalText[i];
+        if (ch === " ") {
+            ch = "&nbsp;";
+            tempWordIndex++; // स्पेस आल्यावर पुढचा शब्द सुरू होतो
+        }
+
+        html += `<span class="${cls}">${ch}</span>`;
     }
 
     const textDisplay = document.getElementById("textDisplay");
     textDisplay.innerHTML = html;
 
-    // HORIZONTAL AUTOMATIC SCROLL LIMITS
+    // हॉरिझॉन्टल स्क्रोल मॅनेजमेंट
     const currentChar = document.querySelector(".current");
     if (currentChar) {
         const container = document.getElementById("textDisplayContainer");
@@ -152,7 +110,6 @@ function renderText(value = "") {
     }
 }
 
-// Initial Render
 renderText();
 
 let input = document.getElementById("input");
@@ -163,7 +120,7 @@ document.body.addEventListener("click", function() {
 });
 
 function startTimer() {
-    if (timerStarted == false) {
+    if (!timerStarted) {
         timerStarted = true;
         interval = setInterval(function() {
             timer--;
@@ -193,14 +150,12 @@ function endTest() {
 
     saveResult(finalWpm, liveAccuracy);
 
-    let popup = document.getElementById("resultPopup");
-    popup.style.visibility = "visible";
-    popup.style.opacity = "1";
+    document.getElementById("resultPopup").style.visibility = "visible";
+    document.getElementById("resultPopup").style.opacity = "1";
     document.querySelector(".typing-box").style.opacity = "0.25";
     document.querySelector(".keyboard").style.opacity = "0.15";
 }
 
-/* INPUT HANDLING */
 input.addEventListener("input", function() {
     startTimer();
     let inputText = this.value;
@@ -215,7 +170,6 @@ input.addEventListener("input", function() {
 
     renderText(inputText);
 
-    // LIVE PROFESSIONAL NET WPM
     let timeElapsed = totalInitialTime - timer;
     let wpmElement = document.getElementById("wpm");
     if (timeElapsed > 0) {
@@ -226,7 +180,6 @@ input.addEventListener("input", function() {
         if (wpmElement) wpmElement.innerHTML = currentLiveWpm;
     }
 
-    // LIVE STATS UPDATE
     let totalTyped = correctCount + mistakes;
     let accuracy = (totalTyped > 0) ? Math.floor((correctCount / totalTyped) * 100) : 0;
 
@@ -246,7 +199,6 @@ input.addEventListener("input", function() {
     }
 });
 
-/* LIVE KEYBOARD ANIMATION */
 document.addEventListener("keydown", function(event) {
     if (event.key.length === 1 || event.key === "Backspace" || event.key === " ") {
         keySound.currentTime = 0;
