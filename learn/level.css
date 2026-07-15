@@ -112,42 +112,31 @@ body{
 
 .letters-row{
     display: flex;
-    justify-content: flex-start; /* स्क्रोलिंग डावीकडून सुरू होण्यासाठी */
+    justify-content: flex-start; /* 👈 हे डावीकडून सुरू करेल */
     gap: 12px;
     margin: 5px auto;
-    width: 90%; /* टायपिंग बॉक्स एवढीच रुंदी ठेवण्यासाठी */
+    width: 90%;
     max-width: 900px;
-    overflow-x: hidden; /* बाहेर जाणारे लेटर्स लपवण्यासाठी */
-    white-space: nowrap; /* लेटर्स खाली न येता एकाच ओळीत राहण्यासाठी */
+    overflow-x: hidden; 
+    white-space: nowrap; 
     padding: 10px 0;
-    scroll-behavior: smooth; /* स्क्रोलिंग एकदम मऊ (Smooth) होण्यासाठी */
+    scroll-behavior: smooth;
 }
 
 
 
 .letter{
-
-    width:55px;
-
-    height:55px;
-
-    background:white;
-
-    border-radius:12px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,0.08);
-
+    width: 55px;
+    height: 55px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    flex-shrink: 0; /* 👈 हे लेटर्सला चपटं होण्यापासून वाचवेल! */
 }
 
 
