@@ -32,7 +32,7 @@ target:["f","j","f","j"," ","f","j","f","j"," ","f","f","j","j"," ","j","j","f",
 2:{
 title:"Keys F & J",
 subtitle:"Practice repeated F and J keys.",
-target:["f","f","j","j"," ","f","f","j","j"," ","f","j","f","j"," ","j","f","j","f"," ","f","f","f","j"," ","j","j","j","f"," tap","f","j"]
+target:["f","f","j","j"," ","f","f","j","j"," ","f","j","f","j"," ","j","f","j","f"," ","f","f","f","j"," ","j","j","j","f","j","f","j"]
 },
 
 3:{
