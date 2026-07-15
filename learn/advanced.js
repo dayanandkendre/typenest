@@ -474,35 +474,22 @@ document
 progressPercent + "%";
 
 /* =========================================
-   WPM
+   WPM (PROFESSIONAL NET SPEED CALCULATOR)
 ========================================= */
 
-if(timerStarted){
+if (timerStarted) {
+    let minutes = (Date.now() - startTime) / 60000;
 
-    let minutes =
-    (
-        Date.now() -
-        startTime
-    ) / 60000;
+    if (minutes > 0) {
+        // एकूण टाईप केलेल्या अक्षरांमधून चुका वजा करून अचूक अक्षरे मोजणे
+        let correctCharacters = value.length - mistakes;
+        if (correctCharacters < 0) correctCharacters = 0;
 
-    if(minutes > 0){
+        // ५ अक्षरे = १ शब्द (Standard Rule) नुसार नेट स्पीड काढणे
+        let wpm = Math.round((correctCharacters / 5) / minutes);
 
-        let wpm =
-        Math.round(
-            (
-                value.length / 5
-            ) / minutes
-        );
-
-        document
-        .getElementById(
-        "wpm"
-        )
-        .innerText =
-        wpm;
-
+        document.getElementById("wpm").innerText = wpm;
     }
-
 }
 
 if(
