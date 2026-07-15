@@ -8,126 +8,129 @@ updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+/* =========================================
+   LESSON DATA (WORDS - ENHANCED & EXTENDED)
+========================================= */
 const lessons = {
 
 1:{
 title:"AS Practice",
-subtitle:"Practice AS and SA.",
-target:"as sa as sa as sa"
+subtitle:"Practice AS and SA patterns.",
+target:"as sa as sa as sa as sa as sa as sa as sa as sa as sa as sa as sa as sa"
 },
 
 2:{
 title:"SAD Practice",
-subtitle:"Practice SAD and DAD.",
-target:"sad dad sad dad sad dad sad dad sad dad sad dad"
+subtitle:"Practice SAD and DAD combinations.",
+target:"sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad"
 },
 
 3:{
 title:"DAD Practice",
-subtitle:"Practice DAD and SAD.",
-target:"dad sad dad sad dad sad"
+subtitle:"Practice DAD and SAD combinations.",
+target:"dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad dad sad"
 },
 
 4:{
 title:"FALL Practice",
-subtitle:"Practice FALL.",
-target:"fall fall fall fall fall fall"
+subtitle:"Practice FALL rhythm.",
+target:"fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall fall"
 },
 
 5:{
 title:"ASK Practice",
-subtitle:"Practice ASK.",
-target:"ask ask ask ask ask ask"
+subtitle:"Practice ASK word flow.",
+target:"ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask ask"
 },
 
 6:{
 title:"RED Practice",
-subtitle:"Practice RED.",
-target:"red red red red red red"
+subtitle:"Practice RED top row integration.",
+target:"red red red red red red red red red red red red red red red red red red red red"
 },
 
 7:{
 title:"ROW Practice",
-subtitle:"Practice ROW.",
-target:"row row row row row row"
+subtitle:"Practice ROW transitions.",
+target:"row row row row row row row row row row row row row row row row row row row row"
 },
 
 8:{
 title:"OUR Practice",
-subtitle:"Practice OUR.",
-target:"our our our our our our"
+subtitle:"Practice OUR finger movements.",
+target:"our our our our our our our our our our our our our our our our our our our our"
 },
 
 9:{
 title:"WERE Practice",
-subtitle:"Practice WERE.",
-target:"were were were were were were"
+subtitle:"Practice WERE combination.",
+target:"were were were were were were were were were were were were were were were were"
 },
 
 10:{
 title:"POWER Practice",
-subtitle:"Practice POWER.",
-target:"power power power power"
+subtitle:"Practice POWER rolling flow.",
+target:"power power power power power power power power power power power power power power"
 },
 
 11:{
 title:"CAN Practice",
-subtitle:"Practice CAN.",
-target:"can can can can can can"
+subtitle:"Practice CAN bottom row key.",
+target:"can can can can can can can can can can can can can can can can can can can can"
 },
 
 12:{
 title:"MAN Practice",
-subtitle:"Practice MAN.",
-target:"man man man man man man"
+subtitle:"Practice MAN hand coordination.",
+target:"man man man man man man man man man man man man man man man man man man man man"
 },
 
 13:{
 title:"BOX Practice",
-subtitle:"Practice BOX.",
-target:"box box box box box box"
+subtitle:"Practice BOX accuracy.",
+target:"box box box box box box box box box box box box box box box box box box box box"
 },
 
 14:{
 title:"ZOOM Practice",
-subtitle:"Practice ZOOM.",
-target:"zoom zoom zoom zoom"
+subtitle:"Practice ZOOM pinky stretch.",
+target:"zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom zoom"
 },
 
 15:{
 title:"MIX Practice",
-subtitle:"Practice MIX.",
-target:"mix mix mix mix mix mix"
+subtitle:"Practice MIX combination.",
+target:"mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix mix"
 },
 
 16:{
 title:"Word Mix 1",
-subtitle:"Mixed words.",
-target:"as sad dad ask red row"
+subtitle:"Mixed home and top row words.",
+target:"as sad dad ask red row as sad dad ask red row as sad dad ask red row as sad dad ask"
 },
 
 17:{
 title:"Word Mix 2",
-subtitle:"Mixed words.",
-target:"our were power can man box"
+subtitle:"Mixed top and bottom row words.",
+target:"our were power can man box our were power can man box our were power can man box our were"
 },
 
 18:{
 title:"Speed Practice",
-subtitle:"Speed words.",
-target:"red row our were power zoom"
+subtitle:"Speed building with dynamic words.",
+target:"red row our were power zoom red row our were power zoom red row our were power zoom red row"
 },
 
 19:{
 title:"Advanced Practice",
-subtitle:"Advanced words.",
-target:"mix zoom power were row box"
+subtitle:"Advanced finger shifts across all rows.",
+target:"mix zoom power were row box mix zoom power were row box mix zoom power were row box mix zoom"
 },
 
 20:{
 title:"Final Test",
-subtitle:"Final challenge.",
-target:"as sad dad ask red row our were power can"
+subtitle:"Ultimate word row challenge.",
+target:"as sad dad ask red row our were power can man box mix zoom fall as sad dad ask red row our were power"
 }
 
 };
@@ -175,7 +178,7 @@ for(
     if(
         lesson.target[i]
         === " "
-    ){
+    ):{
 
         currentWord++;
 
@@ -198,8 +201,8 @@ let tempWord =
 for(
     let j = 0;
     j < i;
-    j++
-){
+    j
+++){
 
     if(
         lesson.target[j]
