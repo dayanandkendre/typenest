@@ -318,7 +318,7 @@ value.length
 
     }
 
-    if(current < 8){
+    if(current < target.length){
 
         document
         .getElementById("l"+current)
@@ -327,9 +327,9 @@ value.length
     }
 
     document
-    .getElementById("progress")
-    .innerText =
-    current + " / 8";
+.getElementById("progress")
+.innerText =
+current + " / " + target.length;
 
     document
     .getElementById("mistakes")
@@ -388,7 +388,7 @@ if(
        LEVEL COMPLETE
     ========================================= */
 
-   if(current === 8){
+  if(current === target.length){
 
 let unlocked =
 parseInt(
