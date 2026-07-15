@@ -384,6 +384,19 @@ if(
 
 }
 
+/* =========================================
+       SCROLL CODE (इथे पेस्ट केला आहे)
+    ========================================= */
+    const activeLetter = document.getElementById("l" + current);
+    const lettersContainer = document.querySelector(".letters-row");
+    
+    if (activeLetter && lettersContainer) {
+        const containerWidth = lettersContainer.offsetWidth;
+        const letterLeft = activeLetter.offsetLeft;
+        const letterWidth = activeLetter.offsetWidth;
+        lettersContainer.scrollLeft = letterLeft - (containerWidth / 2) + (letterWidth / 2);
+    }
+   
     /* =========================================
        LEVEL COMPLETE
     ========================================= */
