@@ -87,25 +87,34 @@ body{
     left:-9999px;
 }
 
-.correct{
-    color:#22c55e;
+/* =========================================
+   CORRECT / WRONG / CURRENT ADJUSTMENTS
+========================================= */
+
+.correct {
+    color: #22c55e;
 }
 
-.wrong{
-    color:#ef4444;
-    background: rgba(239, 68, 68, 0.15);
+.wrong {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.15); 
     border-radius: 4px;
 }
 
-.current{
+/* चालू अक्षराखालील पिवळा कर्सर (Blinking Line) */
+.current {
     border-bottom: 3px solid #eab308;
-    animation: blink 1s infinite;
+    animation: blink 1.5s infinite;
 }
 
-.current-word{
-    background: rgba(37, 99, 235, 0.12);
-    border-radius: 6px;
-    padding: 2px 2px;
+/* 🏆 PROFESSIONAL CURRENT WORD HIGHLIGHT (एकदम स्पष्ट दिसण्यासाठी) */
+.current-word {
+    color: #ffffff !important; /* चालू शब्द पांढऱ्या रंगात स्पष्ट दिसेल */
+    border-bottom: 2px solid #2563eb; /* 👈 शब्दाच्या खाली निळी स्पष्ट अंडरलाईन */
+    background: rgba(37, 99, 235, 0.15); /* हलका निळा पारदर्शक बॅकग्राउंड */
+    border-radius: 4px;
+    padding: 2px 6px;
+    text-shadow: 0 0 8px rgba(37, 99, 235, 0.5); /* 👈 शब्दाला हलकासा ग्लो इफेक्ट */
 }
 
 @keyframes blink {
