@@ -178,7 +178,7 @@ for(
     if(
         lesson.target[i]
         === " "
-    ):{
+    ){
 
         currentWord++;
 
