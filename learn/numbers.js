@@ -459,32 +459,18 @@ if(
     .innerText =
     accuracy + "%";
 
-let elapsedMinutes =
-(
-    Date.now() -
-    startTime
-) / 60000;
+let elapsedMinutes = (Date.now() - startTime) / 60000;
 
-if(
-    elapsedMinutes > 0
-){
+if (elapsedMinutes > 0) {
+    // एकूण टाईप केलेल्या अक्षरांमधून चुका वजा करणे (निव्वळ अचूक कॅरेक्टर्स)
+    let correctCharacters = value.length - mistakes; 
+    if (correctCharacters < 0) correctCharacters = 0;
 
-    let wordsTyped =
-    value.length / 5;
+    // ५ कॅरेक्टर्स = १ शब्द या जागतिक नियमानुसार
+    let wordsTyped = correctCharacters / 5;
+    let wpm = Math.round(wordsTyped / elapsedMinutes);
 
-    let wpm =
-    Math.round(
-        wordsTyped /
-        elapsedMinutes
-    );
-
-    document
-    .getElementById(
-    "wpm"
-    )
-    .innerText =
-    wpm;
-
+    document.getElementById("wpm").innerText = wpm;
 }
 
 if(
