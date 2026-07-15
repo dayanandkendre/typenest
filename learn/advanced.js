@@ -160,106 +160,53 @@ document
 
 function renderText(value = ""){
 
-let currentWord =
-0;
+let currentWord = 0;
+let wordStart = 0;
 
-let wordStart =
-0;
-
-for(
-    let i = 0;
-    i < value.length;
-    i++
-){
-
-    if(
-        lesson.target[i]
-        === " "
-    ){
-
+for(let i = 0; i < value.length; i++){
+    if(lesson.target[i] === " "){
         currentWord++;
-
-        wordStart =
-        i + 1;
-
+        wordStart = i + 1;
     }
-
 }
 
-    let html = "";
+let html = "";
 
-    for(let i = 0; i < lesson.target.length; i++){
+for(let i = 0; i < lesson.target.length; i++){
+    let cls = "pending-char";
+    let tempWord = 0;
 
-        let cls = "pending-char";
-
-let tempWord =
-0;
-
-for(
-    let j = 0;
-    j < i;
-    j++
-){
-
-    if(
-        lesson.target[j]
-        === " "
-    ){
-
-        tempWord++;
-
-    }
-
-}
-
-if(
-    tempWord ===
-    currentWord
-){
-
-    cls +=
-    " active-word";
-
-}
-
-if(i === value.length){
-
-    cls += " current-char";
-
-}
-
-        if(i < value.length){
-
-            if(value[i] === lesson.target[i]){
-
-                cls = "correct-char";
-
-            }
-
-            else{
-
-                cls = "wrong-char";
-
-            }
-
+    for(let j = 0; j < i; j++){
+        if(lesson.target[j] === " "){
+            tempWord++;
         }
-
-        let ch = lesson.target[i];
-
-if(ch === " "){
-
-    ch = "&nbsp;&nbsp;&nbsp;";
-
-}
-
-html += `<span class="${cls}">${ch}</span>`;
-
     }
 
-    document
-    .getElementById("textDisplay")
-    .innerHTML =
-    html;
+    if(tempWord === currentWord){
+        cls += " active-word";
+    }
+
+    if(i === value.length){
+        cls += " current-char";
+    }
+
+    if(i < value.length){
+        if(value[i] === lesson.target[i]){
+            cls = "correct-char";
+        } else {
+            cls = "wrong-char";
+        }
+    }
+
+    let ch = lesson.target[i];
+    if(ch === " "){
+        ch = "&nbsp;&nbsp;&nbsp;";
+    }
+
+    html += `<span class="${cls}">${ch}</span>`;
+}
+
+document.getElementById("textDisplay").innerHTML = html;
 
 
 document
@@ -330,31 +277,38 @@ else{
 }
 
 
-const currentChar =
-document.querySelector(
-".current-char"
-);
-
-if(currentChar){
-
-    const container =
-    document.querySelector(
-    ".text-display"
-    );
-
-    const center =
-    container.offsetWidth / 2;
-
-    const x =
-    currentChar.offsetLeft;
-
-    document
-    .getElementById(
-    "textDisplay"
-    )
-    .style.transform =
-    `translateX(${center - x}px)`;
-
+/* =========================================
+   SMART CLAMPED SCROLLING LOGIC
+========================================= */
+const currentChar = document.querySelector(".current-char");
+if (currentChar) {
+    const container = document.querySelector(".text-display");
+    const textDisplay = document.getElementById("textDisplay");
+    
+    const containerWidth = container.offsetWidth;
+    const textWidth = textDisplay.scrollWidth;
+    const x = currentChar.offsetLeft;
+    const center = containerWidth / 2;
+    
+    let targetTranslate = center - x;
+    
+    // १. जर मजकूर स्क्रीनपेक्षा लहान असेल, तर स्क्रोल करू नका
+    if (textWidth <= containerWidth) {
+        targetTranslate = 0;
+    } else {
+        // २. सुरुवातीला टेक्स्ट जास्त उजवीकडे सरकू नये म्हणून सीमा
+        if (targetTranslate > 0) {
+            targetTranslate = 0;
+        }
+        
+        // ३. शेवटी वाक्य संपत आल्यावर डावीकडे जास्त सरकू नये म्हणून सीमा
+        const maxScroll = containerWidth - textWidth - 20;
+        if (targetTranslate < maxScroll) {
+            targetTranslate = maxScroll;
+        }
+    }
+    
+    textDisplay.style.transform = `translateX(${targetTranslate}px)`;
 }
 
 }
@@ -576,7 +530,7 @@ if(
         localStorage.setItem(
             "advancedCurrentLevel",
             level + 1
-        );       
+        );        
     }
 }
 
