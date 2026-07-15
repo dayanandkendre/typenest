@@ -163,106 +163,55 @@ document
 
 function renderText(value = ""){
 
-let currentWord =
-0;
+let currentWord = 0;
+let wordStart = 0;
 
-let wordStart =
-0;
-
-for(
-    let i = 0;
-    i < value.length;
-    i++
-){
-
-    if(
-        lesson.target[i]
-        === " "
-    ){
-
+for(let i = 0; i < lesson.target.length; i++){
+    if(lesson.target[i] === " "){
         currentWord++;
-
-        wordStart =
-        i + 1;
-
+        wordStart = i + 1;
     }
-
 }
 
-    let html = "";
+let html = "";
 
-    for(let i = 0; i < lesson.target.length; i++){
+for(let i = 0; i < lesson.target.length; i++){
+    let cls = "pending-char";
+    let tempWord = 0;
 
-        let cls = "pending-char";
-
-let tempWord =
-0;
-
-for(
-    let j = 0;
-    j < i;
-    j
-++){
-
-    if(
-        lesson.target[j]
-        === " "
-    ){
-
-        tempWord++;
-
-    }
-
-}
-
-if(
-    tempWord ===
-    currentWord
-){
-
-    cls +=
-    " active-word";
-
-}
-
-if(i === value.length){
-
-    cls += " current-char";
-
-}
-
-        if(i < value.length){
-
-            if(value[i] === lesson.target[i]){
-
-                cls = "correct-char";
-
-            }
-
-            else{
-
-                cls = "wrong-char";
-
-            }
-
+    for(let j = 0; j < i; j++){
+        if(lesson.target[j] === " "){
+            tempWord++;
         }
-
-        let ch = lesson.target[i];
-
-if(ch === " "){
-
-    ch = "&nbsp;&nbsp;&nbsp;";
-
-}
-
-html += `<span class="${cls}">${ch}</span>`;
-
     }
 
-    document
-    .getElementById("textDisplay")
-    .innerHTML =
-    html;
+    if(tempWord === currentWord){
+        cls += " active-word";
+    }
+
+    if(i === value.length){
+        cls += " current-char";
+    }
+
+    if(i < value.length){
+        if(value[i] === lesson.target[i]){
+            cls = "correct-char";
+        } else {
+            cls = "wrong-char";
+        }
+    }
+
+    let ch = lesson.target[i];
+    if(ch === " "){
+        ch = "&nbsp;&nbsp;&nbsp;";
+    }
+
+    html += `<span class="${cls}">${ch}</span>`;
+}
+
+document.getElementById("textDisplay").innerHTML = html;
+
+// बाकीचा कीबोर्ड आणि स्क्रोलिंगचा कोड याच्या खाली जसा आहे तसाच राहील...
 
 
 document
