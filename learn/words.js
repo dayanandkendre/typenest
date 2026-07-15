@@ -282,33 +282,36 @@ else{
 }
 
 
-const currentChar =
-document.querySelector(
-".current-char"
-);
-
-if(currentChar){
-
-    const container =
-    document.querySelector(
-    ".text-display"
-    );
-
-    const center =
-    container.offsetWidth / 2;
-
-    const x =
-    currentChar.offsetLeft;
-
-    document
-    .getElementById(
-    "textDisplay"
-    )
-    .style.transform =
-    `translateX(${center - x}px)`;
-
+const currentChar = document.querySelector(".current-char");
+if (currentChar) {
+    const container = document.querySelector(".text-display");
+    const textDisplay = document.getElementById("textDisplay");
+    
+    const containerWidth = container.offsetWidth;
+    const textWidth = textDisplay.scrollWidth;
+    const x = currentChar.offsetLeft;
+    const center = containerWidth / 2;
+    
+    let targetTranslate = center - x;
+    
+    // १. जर पूर्ण टेक्स्ट बॉक्स स्क्रीनपेक्षा लहान असेल, तर स्क्रोल करू नका (डावीकडेच स्थिर ठेवा)
+    if (textWidth <= containerWidth) {
+        targetTranslate = 0;
+    } else {
+        // २. सुरुवातीला टेक्स्ट विनाकारण जास्त उजवीकडे सरकू नये म्हणून सीमा
+        if (targetTranslate > 0) {
+            targetTranslate = 0;
+        }
+        
+        // ३. शेवटी वाक्य संपत आल्यावर डावीकडे जास्त सरकून मजकूर गायब होऊ नये म्हणून सीमा
+        const maxScroll = containerWidth - textWidth - 20; // 20px पॅडिंगसाठी
+        if (targetTranslate < maxScroll) {
+            targetTranslate = maxScroll;
+        }
+    }
+    
+    textDisplay.style.transform = `translateX(${targetTranslate}px)`;
 }
-
 }
 
 renderText();
