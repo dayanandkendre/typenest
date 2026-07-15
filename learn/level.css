@@ -111,13 +111,16 @@ body{
 ========================================= */
 
 .letters-row{
-
-    display:flex;
-    justify-content:center;
-    gap:12px;
-
-    margin:5px 0 5px 0;
-
+    display: flex;
+    justify-content: flex-start; /* स्क्रोलिंग डावीकडून सुरू होण्यासाठी */
+    gap: 12px;
+    margin: 5px auto;
+    width: 90%; /* टायपिंग बॉक्स एवढीच रुंदी ठेवण्यासाठी */
+    max-width: 900px;
+    overflow-x: hidden; /* बाहेर जाणारे लेटर्स लपवण्यासाठी */
+    white-space: nowrap; /* लेटर्स खाली न येता एकाच ओळीत राहण्यासाठी */
+    padding: 10px 0;
+    scroll-behavior: smooth; /* स्क्रोलिंग एकदम मऊ (Smooth) होण्यासाठी */
 }
 
 
