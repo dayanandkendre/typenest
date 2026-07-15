@@ -4,10 +4,13 @@
     box-sizing:border-box;
 }
 
-body{
-    background:#f5f7ff;
-    font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 👈 हे महत्त्वाचे आहे */
+    overflow: hidden; /* 👈 स्क्रीनच्या बाहेर जाऊ नये म्हणून */
+    background: #f5f7ff;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* TOP BAR */
@@ -339,3 +342,39 @@ body{
     .popup-content{ flex-direction:column; }
     .popup-buttons button{ width:100%; }
 }
+
+/* २. typing-page ला पूर्ण उंची द्या */
+.typing-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 👈 घटकांना समान अंतरावर विभागण्यासाठी */
+    padding: 10px;
+}
+
+/* ३. कीबोर्डची साईझ थोडी कमी करा जेणेकरून जागा वाचेल */
+.keyboard {
+    width: 90%;
+    max-width: 800px; /* थोडं कॉम्पॅक्ट करा */
+    margin: 10px auto;
+}
+
+.key {
+    width: 40px; /* किंचित साईझ कमी */
+    height: 40px;
+    font-size: 13px;
+}
+
+/* ४. Stats सेक्शनला कॉम्पॅक्ट करा */
+.stats {
+    width: 90%;
+    max-width: 900px;
+    margin: 5px auto; /* मार्जिन कमी केली */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.stat-box {
+    height: 70px; /* उंची थोडी कमी केली */
+    padding: 5px;
