@@ -353,32 +353,17 @@ current + " / " + target.length;
     .innerText =
     accuracy + "%";
 
-let elapsedMinutes =
-(
-    Date.now() -
-    startTime
-) / 60000;
+let elapsedMinutes = (Date.now() - startTime) / 60000;
 
-if(
-    elapsedMinutes > 0
-){
+if (elapsedMinutes > 0) {
+    // एकूण टाईप केलेल्या अक्षरांमधून चुका वजा करणे (Net Speed)
+    let correctCharacters = current - mistakes;
+    if (correctCharacters < 0) correctCharacters = 0;
 
-    let wordsTyped =
-    current / 5;
+    let wordsTyped = correctCharacters / 5;
+    let wpm = Math.round(wordsTyped / elapsedMinutes);
 
-    let wpm =
-    Math.round(
-        wordsTyped /
-        elapsedMinutes
-    );
-
-    document
-    .getElementById(
-    "wpm"
-    )
-    .innerText =
-    wpm;
-
+    document.getElementById("wpm").innerText = wpm;
 }
 
 /* =========================================
