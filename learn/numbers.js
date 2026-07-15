@@ -8,126 +8,129 @@ updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+/* =========================================
+   LESSON DATA (NUMBERS ROW - ENHANCED & EXTENDED)
+========================================= */
 const lessons = {
 
 1:{
 title:"1 and 9",
 subtitle:"Index fingers practice.",
-target:"19 91 19 91 19 91"
+target:"19 91 19 91 19 91 19 91 19 91 19 91 19 91 19 91 19 91"
 },
 
 2:{
 title:"2 and 0",
 subtitle:"Middle fingers practice.",
-target:"20 02 20 02 20 02"
+target:"20 02 20 02 20 02 20 02 20 02 20 02 20 02 20 02 20 02"
 },
 
 3:{
 title:"1 9 2 0",
 subtitle:"Mixed numbers.",
-target:"1920 2019 1920 2019"
+target:"1920 2019 1920 2019 1920 2019 1920 2019 1920 2019"
 },
 
 4:{
 title:"3 and 8",
 subtitle:"Ring fingers practice.",
-target:"38 83 38 83 38 83"
+target:"38 83 38 83 38 83 38 83 38 83 38 83 38 83 38 83 38 83"
 },
 
 5:{
 title:"4 and 7",
 subtitle:"Little fingers practice.",
-target:"47 74 47 74 47 74"
+target:"47 74 47 74 47 74 47 74 47 74 47 74 47 74 47 74 47 74"
 },
 
 6:{
 title:"1 2 3 4",
 subtitle:"Left hand numbers.",
-target:"1234 4321 1234 4321"
+target:"1234 4321 1234 4321 1234 4321 1234 4321 1234 4321"
 },
 
 7:{
 title:"9 0 8 7",
 subtitle:"Right hand numbers.",
-target:"9087 7809 9087 7809"
+target:"9087 7809 9087 7809 9087 7809 9087 7809 9087 7809"
 },
 
 8:{
 title:"Mixed Numbers",
 subtitle:"Both hands practice.",
-target:"1920 3847 9201 7483"
+target:"1920 3847 9201 7483 1920 3847 9201 7483 1920 3847"
 },
 
 9:{
 title:"Number Flow",
 subtitle:"Smooth typing.",
-target:"1234 9870 1234 9870"
+target:"1234 9870 1234 9870 1234 9870 1234 9870 1234 9870"
 },
 
 10:{
 title:"Number Test",
 subtitle:"Mixed test.",
-target:"19203847 92017483"
+target:"19203847 92017483 19203847 92017483 19203847 92017483"
 },
 
 11:{
 title:"A1 B2",
 subtitle:"Letters and numbers.",
-target:"A1 B2 A1 B2 A1 B2"
+target:"A1 B2 A1 B2 A1 B2 A1 B2 A1 B2 A1 B2 A1 B2 A1 B2 A1 B2"
 },
 
 12:{
 title:"C3 D4",
 subtitle:"Letters and numbers.",
-target:"C3 D4 C3 D4 C3 D4"
+target:"C3 D4 C3 D4 C3 D4 C3 D4 C3 D4 C3 D4 C3 D4 C3 D4 C3 D4"
 },
 
 13:{
 title:"E5 F6",
 subtitle:"Letters and numbers.",
-target:"E5 F6 E5 F6 E5 F6"
+target:"E5 F6 E5 F6 E5 F6 E5 F6 E5 F6 E5 F6 E5 F6 E5 F6 E5 F6"
 },
 
 14:{
 title:"P71",
 subtitle:"Drawing number.",
-target:"P71 P71 P71 P71 P71"
+target:"P71 P71 P71 P71 P71 P71 P71 P71 P71 P71 P71 P71 P71 P71"
 },
 
 15:{
 title:"MS9",
 subtitle:"Industrial code.",
-target:"MS9 MS9 MS9 MS9"
+target:"MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9 MS9"
 },
 
 16:{
 title:"P71-9MS",
 subtitle:"Drawing code.",
-target:"P71-9MS P71-9MS P71-9MS"
+target:"P71-9MS P71-9MS P71-9MS P71-9MS P71-9MS P71-9MS P71-9MS"
 },
 
 17:{
 title:"051361",
 subtitle:"Material number.",
-target:"051361 051361 051361"
+target:"051361 051361 051361 051361 051361 051361 051361 051361"
 },
 
 18:{
 title:"P71-9MS-051361",
 subtitle:"Industrial typing.",
-target:"P71-9MS-051361 P71-9MS-051361"
+target:"P71-9MS-051361 P71-9MS-051361 P71-9MS-051361 P71-9MS"
 },
 
 19:{
 title:"Production Code",
 subtitle:"Advanced code typing.",
-target:"P71 051361 MS9 P71"
+target:"P71 051361 MS9 P71 P71 051361 MS9 P71 P71 051361 MS9"
 },
 
 20:{
 title:"Final Test",
 subtitle:"Complete challenge.",
-target:"P71-9MS-051361 P71 MS9 051361"
+target:"P71-9MS-051361 P71 MS9 051361 P71-9MS-051361 P71 MS9"
 }
 
 };
@@ -160,107 +163,53 @@ document
 
 function renderText(value = ""){
 
-let currentWord =
-0;
+let currentWord = 0;
+let wordStart = 0;
 
-let wordStart =
-0;
-
-for(
-    let i = 0;
-    i < value.length;
-    i++
-){
-
-    if(
-        lesson.target[i]
-        === " "
-    ){
-
+for(let i = 0; i < value.length; i++){
+    if(lesson.target[i] === " "){
         currentWord++;
-
-        wordStart =
-        i + 1;
-
+        wordStart = i + 1;
     }
-
 }
 
-    let html = "";
+let html = "";
 
-    for(let i = 0; i < lesson.target.length; i++){
+for(let i = 0; i < lesson.target.length; i++){
+    let cls = "pending-char";
+    let tempWord = 0;
 
-        let cls = "pending-char";
-
-let tempWord =
-0;
-
-for(
-    let j = 0;
-    j < i;
-    j++
-){
-
-    if(
-        lesson.target[j]
-        === " "
-    ){
-
-        tempWord++;
-
-    }
-
-}
-
-if(
-    tempWord ===
-    currentWord
-){
-
-    cls +=
-    " active-word";
-
-}
-
-if(i === value.length){
-
-    cls += " current-char";
-
-}
-
-        if(i < value.length){
-
-            if(value[i] === lesson.target[i]){
-
-                cls = "correct-char";
-
-            }
-
-            else{
-
-                cls = "wrong-char";
-
-            }
-
+    for(let j = 0; j < i; j++){
+        if(lesson.target[j] === " "){
+            tempWord++;
         }
-
-        let ch = lesson.target[i];
-
-if(ch === " "){
-
-    ch = "&nbsp;&nbsp;&nbsp;";
-
-}
-
-html += `<span class="${cls}">${ch}</span>`;
-
     }
 
-    document
-    .getElementById("textDisplay")
-    .innerHTML =
-    html;
+    if(tempWord === currentWord){
+        cls += " active-word";
+    }
 
+    if(i === value.length){
+        cls += " current-char";
+    }
+
+    if(i < value.length){
+        if(value[i] === lesson.target[i]){
+            cls = "correct-char";
+        } else {
+            cls = "wrong-char";
+        }
+    }
+
+    let ch = lesson.target[i];
+    if(ch === " "){
+        ch = "&nbsp;&nbsp;&nbsp;";
+    }
+
+    html += `<span class="${cls}">${ch}</span>`;
+}
+
+document.getElementById("textDisplay").innerHTML = html;
 
 document
 .querySelectorAll(".key")
