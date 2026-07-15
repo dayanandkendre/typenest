@@ -1,365 +1,93 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585"
-     crossorigin="anonymous"></script>
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
     <title>TypeNest Typing Engine</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-content="Practice typing online with interactive lessons and exercises. Improve your typing speed, accuracy, and keyboard skills with TypeNest.">
-
-<meta name="keywords"
-content="typing practice, online typing practice, touch typing, typing lessons, typing speed improvement, typing accuracy, keyboard practice">
-
-<link rel="canonical"
-href="https://typenest.in/typing.html">
-<link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet"
-    href="typing.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practice typing online with interactive lessons and exercises. Improve your typing speed, accuracy, and keyboard skills with TypeNest.">
+    <meta name="keywords" content="typing practice, online typing practice, touch typing, typing lessons, typing speed improvement, typing accuracy, keyboard practice">
+    <link rel="canonical" href="https://typenest.in/typing.html">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="typing.css">
 </head>
-
 <body class="dark">
 
-
     <div class="typing-page">
-
-
-        <!-- =========================================
-             TYPING WRAPPER
-        ========================================= -->
-
+        <!-- TYPING WRAPPER -->
         <div class="typing-wrapper">
-
-
             <!-- ESC EXIT -->
+            <div class="esc-tip" onclick="window.history.back()">✕</div>
 
-            <div class="esc-tip"
-onclick="window.history.back()">
+            <!-- TIMER -->
+            <div class="floating-timer" id="time">60</div>
 
-    ✕
-
-</div>
-
-<!-- =========================================
-     TIMER
-========================================= -->
-
-<div class="floating-timer"
-id="time">
-
-    60
-
-</div>
-
-
-
-            <!-- =========================================
-                 TYPING BOX
-            ========================================= -->
-
+            <!-- TYPING BOX -->
             <div class="typing-box">
-
-                <div class="typing-text"
-                id="text">
-
+                <!-- HORIZONTAL SCROLL CONTAINER -->
+                <div class="typing-text" id="textDisplayContainer">
+                    <div class="text-display-inner" id="textDisplay"></div>
                 </div>
-
             </div>
-
         </div>
 
+        <!-- HIDDEN INPUT -->
+        <input type="text" id="input" class="hidden-input" autofocus>
 
-
-        <!-- =========================================
-             HIDDEN INPUT
-        ========================================= -->
-
-        <input type="text"
-        id="input"
-        class="hidden-input"
-        autofocus>
-
-
-
-        <!-- =========================================
-             FULL KEYBOARD
-        ========================================= -->
-
+        <!-- FULL KEYBOARD -->
         <div class="keyboard">
-
-
             <!-- ROW 1 -->
-
             <div class="key-row">
-
-                <div class="key">~</div>
-                <div class="key">1</div>
-                <div class="key">2</div>
-                <div class="key">3</div>
-                <div class="key">4</div>
-                <div class="key">5</div>
-                <div class="key">6</div>
-                <div class="key">7</div>
-                <div class="key">8</div>
-                <div class="key">9</div>
-                <div class="key">0</div>
-                <div class="key">-</div>
-                <div class="key">=</div>
-
-                <div class="key backspace-key">
-
-                    Backspace
-
-                </div>
-
+                <div class="key">~</div><div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div><div class="key">5</div><div class="key">6</div><div class="key">7</div><div class="key">8</div><div class="key">9</div><div class="key">0</div><div class="key">-</div><div class="key">=</div>
+                <div class="key backspace-key">Backspace</div>
             </div>
-
-
-
             <!-- ROW 2 -->
-
             <div class="key-row">
-
-                <div class="key tab-key">
-
-                    Tab
-
-                </div>
-
-                <div class="key">Q</div>
-                <div class="key">W</div>
-                <div class="key">E</div>
-                <div class="key">R</div>
-                <div class="key">T</div>
-                <div class="key">Y</div>
-                <div class="key">U</div>
-                <div class="key">I</div>
-                <div class="key">O</div>
-                <div class="key">P</div>
-
-                <div class="key">{</div>
-                <div class="key">}</div>
-                <div class="key">\</div>
-
+                <div class="key tab-key">Tab</div>
+                <div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div><div class="key">T</div><div class="key">Y</div><div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div>
+                <div class="key">{</div><div class="key">}</div><div class="key">\</div>
             </div>
-
-
-
             <!-- ROW 3 -->
-
             <div class="key-row">
-
-                <div class="key caps-key">
-
-                    Caps
-
-                </div>
-
-                <div class="key">A</div>
-                <div class="key">S</div>
-                <div class="key">D</div>
-                <div class="key">F</div>
-                <div class="key">G</div>
-                <div class="key">H</div>
-                <div class="key">J</div>
-                <div class="key">K</div>
-                <div class="key">L</div>
-
-                <div class="key">;</div>
-                <div class="key">'</div>
-
-                <div class="key enter-key">
-
-                    Enter
-
-                </div>
-
+                <div class="key caps-key">Caps</div>
+                <div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div><div class="key">G</div><div class="key">H</div><div class="key">J</div><div class="key">K</div><div class="key">L</div>
+                <div class="key">;</div><div class="key">'</div>
+                <div class="key enter-key">Enter</div>
             </div>
-
-
-
             <!-- ROW 4 -->
-
             <div class="key-row">
-
-                <div class="key shift-key">
-
-                    Shift
-
-                </div>
-
-                <div class="key">Z</div>
-                <div class="key">X</div>
-                <div class="key">C</div>
-                <div class="key">V</div>
-                <div class="key">B</div>
-                <div class="key">N</div>
-                <div class="key">M</div>
-
-                <div class="key"><</div>
-                <div class="key">></div>
-                <div class="key">?</div>
-
-                <div class="key shift-key">
-
-                    Shift
-
-                </div>
-
+                <div class="key shift-key">Shift</div>
+                <div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div><div class="key">B</div><div class="key">N</div><div class="key">M</div>
+                <div class="key">&lt;</div><div class="key">&gt;</div><div class="key">?</div>
+                <div class="key shift-key">Shift</div>
             </div>
-
-
-
             <!-- ROW 5 -->
-
             <div class="key-row">
-
-                <div class="key">Ctrl</div>
-                <div class="key">Win</div>
-                <div class="key">Alt</div>
-
-                <div class="key space-key">
-
-                    Space
-
-                </div>
-
-                <div class="key">Alt</div>
-                <div class="key">Fn</div>
-                <div class="key">Ctrl</div>
-
+                <div class="key">Ctrl</div><div class="key">Win</div><div class="key">Alt</div>
+                <div class="key space-key">Space</div>
+                <div class="key">Alt</div><div class="key">Fn</div><div class="key">Ctrl</div>
             </div>
-
         </div>
-
     </div>
 
-
-
-<!-- =========================================
-     RESULT POPUP
-========================================= -->
-
-<div class="result-popup"
-id="resultPopup">
-
-
-    <div class="result-box">
-
-
-        <h1 class="result-title">
-
-            Test Completed 🎉
-
-        </h1>
-
-
-        <div class="result-stats">
-
-
-            <div class="result-card">
-
-                <h2 id="finalWpm">
-
-                    0
-
-                </h2>
-
-                <p>WPM</p>
-
+    <!-- RESULT POPUP -->
+    <div class="result-popup" id="resultPopup">
+        <div class="result-box">
+            <h1 class="result-title">Test Completed 🎉</h1>
+            <div class="result-stats">
+                <div class="result-card"><h2 id="finalWpm">0</h2><p>WPM</p></div>
+                <div class="result-card"><h2 id="finalAccuracy">0%</h2><p>Accuracy</p></div>
+                <div class="result-card"><h2 id="finalMistakes">0</h2><p>Mistakes</p></div>
+                <div class="result-card"><h2 id="bestWpm">0</h2><p>Best WPM</p></div>
             </div>
-
-
-
-            <div class="result-card">
-
-                <h2 id="finalAccuracy">
-
-                    0%
-
-                </h2>
-
-                <p>Accuracy</p>
-
+            <p class="result-message">Great consistency beats perfect speed. Keep practicing every day 🚀</p>
+            <div class="result-buttons">
+                <button class="restart-result-btn" onclick="location.reload()">Restart Test</button>
+                <button class="home-result-btn" onclick="window.location.href='index.html'">Home</button>
             </div>
-
-
-
-            <div class="result-card">
-
-                <h2 id="finalMistakes">
-
-                    0
-
-                </h2>
-
-                <p>Mistakes</p>
-
-            </div>
-
-<div class="result-card">
-
-    <h2 id="bestWpm">
-
-        0
-
-    </h2>
-
-    <p>Best WPM</p>
-
-</div>
-
-</div>
-
-
-
-        <p class="result-message">
-
-            Great consistency beats perfect speed.
-            Keep practicing every day 🚀
-
-        </p>
-
-
-
-        <div class="result-buttons">
-
-            <button class="restart-result-btn"
-            onclick="location.reload()">
-
-                Restart Test
-
-            </button>
-
-
-
-            <button class="home-result-btn"
-            onclick="window.location.href='index.html'">
-
-                Home
-
-            </button>
-
         </div>
-
-
     </div>
 
-</div>
-
-<audio
-id="keySound"
-src="key.wav"
-preload="auto">
-</audio>
-
-<script type="module" src="typing.js"></script>
-
+    <audio id="keySound" src="key.wav" preload="auto"></audio>
+    <script type="module" src="typing.js"></script>
 </body>
-
 </html>
