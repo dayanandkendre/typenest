@@ -9,7 +9,7 @@ updateDoc
 from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 /* =========================================
-   LESSON DATA
+   LESSON DATA (TOP ROW - EXACTLY 32 CHARACTERS)
 ========================================= */
 
 const lessons = {
@@ -17,121 +17,121 @@ const lessons = {
 1:{
 title:"R U Introduction",
 subtitle:"Learn the top row keys R and U.",
-target:["r","u","r","u","r","u","r","u"]
+target:["r","u","r","u"," ","r","u","r","u"," ","r","r","u","u"," ","u","u","r","r"," ","r","u","u","r"," ","u","r","r","u"," ","r","u"]
 },
 
 2:{
 title:"Keys R & U",
 subtitle:"Practice repeated R and U keys.",
-target:["r","r","u","u","r","r","u","u"]
+target:["r","r","u","u"," ","r","r","u","u"," ","r","u","r","u"," ","u","r","u","r"," ","r","r","r","u"," ","u","u","u","r"," ","r","u"]
 },
 
 3:{
 title:"RU Practice",
 subtitle:"Build rhythm with RU combinations.",
-target:["r","u","u","r","r","u","u","r"]
+target:["r","u","u","r"," ","r","u","u","r"," ","u","r","r","u"," ","u","r","r","u"," ","r","r","u","u"," ","u","u","r","r"," ","r","u"]
 },
 
 4:{
 title:"Keys E & I",
 subtitle:"Learn E and I keys.",
-target:["e","i","e","i","e","i","e","i"]
+target:["e","i","e","i"," ","e","i","e","i"," ","e","e","i","i"," ","i","i","e","e"," ","e","i","i","e"," ","i","e","e","i"," ","e","i"]
 },
 
 5:{
 title:"EI Practice",
 subtitle:"Practice E and I combinations.",
-target:["e","e","i","i","e","e","i","i"]
+target:["e","e","i","i"," ","e","e","i","i"," ","e","i","e","i"," ","i","e","i","e"," ","e","e","e","i"," ","i","i","i","e"," ","e","i"]
 },
 
 6:{
 title:"REUI Mix",
 subtitle:"Mix R E U I keys.",
-target:["r","e","u","i","r","e","u","i"]
+target:["r","e","u","i"," ","r","e","u","i"," ","e","i","r","u"," ","i","e","u","r"," ","r","r","e","e"," ","u","u","i","i"," ","r","u"]
 },
 
 7:{
 title:"Keys W & O",
 subtitle:"Learn W and O keys.",
-target:["w","o","w","o","w","o","w","o"]
+target:["w","o","w","o"," ","w","o","w","o"," ","w","w","o","o"," ","o","o","w","w"," ","w","o","o","w"," ","o","w","w","o"," ","w","o"]
 },
 
 8:{
 title:"WO Practice",
 subtitle:"Practice W and O combinations.",
-target:["w","w","o","o","w","w","o","o"]
+target:["w","w","o","o"," ","w","w","o","o"," ","w","o","w","o"," ","o","w","o","w"," ","w","w","w","o"," ","o","o","o","w"," ","w","o"]
 },
 
 9:{
 title:"Top Row Mix",
 subtitle:"Mix W O R E keys.",
-target:["w","o","r","e","w","o","r","e"]
+target:["w","o","r","e"," ","w","o","r","e"," ","o","r","e","w"," ","e","r","o","w"," ","w","w","o","o"," ","r","r","e","e"," ","w","e"]
 },
 
 10:{
 title:"Keys Q & P",
 subtitle:"Learn Q and P keys.",
-target:["q","p","q","p","q","p","q","p"]
+target:["q","p","q","p"," ","q","p","q","p"," ","q","q","p","p"," ","p","p","q","q"," ","q","p","p","q"," ","p","q","q","p"," ","q","p"]
 },
 
 11:{
 title:"QP Practice",
 subtitle:"Practice Q and P combinations.",
-target:["q","q","p","p","q","q","p","p"]
+target:["q","q","p","p"," ","q","q","p","p"," ","q","p","q","p"," ","p","q","p","q"," ","q","q","q","p"," ","p","p","p","q"," ","q","p"]
 },
 
 12:{
 title:"Top Row Review",
 subtitle:"Review all top row keys.",
-target:["q","w","e","r","u","i","o","p"]
+target:["q","w","e","r"," ","u","i","o","p"," ","q","w","e","r"," ","u","i","o","p"," ","p","o","i","u"," ","r","e","w","q"," ","q","p"]
 },
 
 13:{
 title:"Left Hand Practice",
 subtitle:"Practice Q W E R keys.",
-target:["q","w","e","r","q","w","e","r"]
+target:["q","w","e","r"," ","q","w","e","r"," ","r","e","w","q"," ","r","e","w","q"," ","q","q","w","w"," ","e","e","r","r"," ","q","r"]
 },
 
 14:{
 title:"Right Hand Practice",
 subtitle:"Practice U I O P keys.",
-target:["u","i","o","p","u","i","o","p"]
+target:["u","i","o","p"," ","u","i","o","p"," ","p","o","i","u"," ","p","o","i","u"," ","u","u","i","i"," ","o","o","p","p"," ","u","p"]
 },
 
 15:{
 title:"Left Drill",
 subtitle:"Build speed with QWER.",
-target:["q","e","w","r","q","r","w","e"]
+target:["q","e","w","r"," ","q","r","w","e"," ","e","w","r","q"," ","r","w","e","q"," ","q","w","e","r"," ","r","e","w","q"," ","q","e"]
 },
 
 16:{
 title:"Right Drill",
 subtitle:"Build speed with UIOP.",
-target:["u","o","i","p","u","p","i","o"]
+target:["u","o","i","p"," ","u","p","i","o"," ","o","i","p","u"," ","p","i","o","u"," ","u","i","o","p"," ","p","o","i","u"," ","u","o"]
 },
 
 17:{
 title:"Top Row Mix",
 subtitle:"Mixed top row practice.",
-target:["q","u","w","i","e","o","r","p"]
+target:["q","u","w","i"," ","e","o","r","p"," ","u","q","i","w"," ","o","e","p","r"," ","q","w","e","r"," ","u","i","o","p"," ","q","u"]
 },
 
 18:{
 title:"Advanced Mix",
 subtitle:"Advanced top row combinations.",
-target:["r","u","e","i","w","o","q","p"]
+target:["r","u","e","i"," ","w","o","q","p"," ","p","q","o","w"," ","i","e","u","r"," ","q","u","w","i"," ","e","o","r","p"," ","r","e"]
 },
 
 19:{
 title:"Top Row Words",
 subtitle:"Top row word practice.",
-target:["q","w","e","r","u","i","o","p"]
+target:["t","y","p","e"," ","r","o","u","t","e"," ","p","o","w","e","r"," ","w","r","i","t","e"," ","o","u","t","p","u","t"," ","p","i"]
 },
 
 20:{
 title:"Final Test",
 subtitle:"Complete the top row challenge.",
-target:["q","w","e","r","u","i","o","p"]
+target:["p","r","o","p","e","r"," ","q","u","i","e","t"," ","p","o","e","t","r","y"," ","e","q","u","i","p"," ","w","o","r","r","y"," "]
 }
 
 };
