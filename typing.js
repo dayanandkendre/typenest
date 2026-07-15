@@ -215,74 +215,45 @@ let paragraphs = [
 
 ];
 
-
-
-
-
 /* =========================================
    RANDOM TEXT
 ========================================= */
 
 let originalText =
-
 paragraphs[
 Math.floor(Math.random() * paragraphs.length)
 ];
-
-
-
-/* =========================================
-   VARIABLES
-========================================= */
 
 /* =========================================
    TIMER FROM URL
 ========================================= */
 
 let urlParams =
-
 new URLSearchParams(
 window.location.search
 );
 
-
-
 let selectedTime =
-
 urlParams.get("time");
 
-
-
+let totalInitialTime = 60; // टाइमरची सुरुवात कुठून झाली हे ट्रॅक करण्यासाठी व्हेरिएबल
 let timer = 60;
 
-
-
 if(selectedTime == "1"){
-
     timer = 60;
-
 }
-
 else if(selectedTime == "3"){
-
     timer = 180;
-
 }
-
 else if(selectedTime == "5"){
-
     timer = 300;
-
 }
+totalInitialTime = timer;
 
 let timerStarted = false;
-
 let interval;
-
 let liveCorrectCount = 0;
-
 let liveAccuracy = 0;
-
 let liveMistakes = 0;
 
 /* =========================================
@@ -290,17 +261,11 @@ let liveMistakes = 0;
 ========================================= */
 
 let timeElement =
-
 document.getElementById("time");
 
-
 if(timeElement){
-
     timeElement.innerHTML = timer;
-
 }
-
-
 
 /* =========================================
    SHOW TEXT
@@ -309,19 +274,12 @@ if(timeElement){
 let textDiv =
 document.getElementById("text");
 
-
 originalText.split("").forEach(function(char){
-
     let span =
     document.createElement("span");
-
     span.innerText = char;
-
     textDiv.appendChild(span);
-
 });
-
-
 
 /* =========================================
    HIDDEN INPUT
@@ -333,12 +291,8 @@ const keySound =
 document.getElementById("keySound");
 
 document.body.addEventListener("click",function(){
-
     input.focus();
-
 });
-
-
 
 /* =========================================
    START TIMER
@@ -347,109 +301,50 @@ document.body.addEventListener("click",function(){
 function startTimer(){
 
     if(timerStarted == false){
-
         timerStarted = true;
 
         interval = setInterval(function(){
-
             timer--;
 
             let timeElement =
+            document.getElementById("time");
 
-document.getElementById("time");
+            if(timeElement){
+                timeElement.innerHTML = timer;
+            }
 
-if(timeElement){
+            if(timer <= 0){
+                clearInterval(interval);
+                input.disabled = true;
 
-    timeElement.innerHTML =
-    timer;
+                // प्रोफेशनल नेट डब्ल्यूपीएम (टाइम अप झाल्यावर)
+                let finalWpm = Math.floor(liveCorrectCount / 5);
 
-}
+                document.getElementById("finalWpm").innerText = finalWpm;
+                document.getElementById("finalAccuracy").innerText = liveAccuracy + "%";
+                document.getElementById("finalMistakes").innerText = liveMistakes;
 
+                let bestWpm = localStorage.getItem("bestWpm");
 
-if(timer <= 0){
+                if(bestWpm === null || finalWpm > Number(bestWpm)){
+                    localStorage.setItem("bestWpm", finalWpm);
+                    bestWpm = finalWpm;
+                }
 
-    clearInterval(interval);
+                document.getElementById("bestWpm").innerText = bestWpm;
 
-    input.disabled = true;
+                saveResult(finalWpm, liveAccuracy);
+               
+                let popup = document.getElementById("resultPopup");
+                popup.style.visibility = "visible";
+                popup.style.opacity = "1";
 
-    let finalWpm =
-
-    Math.floor(
-    liveCorrectCount / 5
-    );
-
-    document
-    .getElementById("finalWpm")
-    .innerText = finalWpm;
-
-    document
-    .getElementById("finalAccuracy")
-    .innerText =
-    liveAccuracy + "%";
-
-    document
-    .getElementById("finalMistakes")
-    .innerText =
-    liveMistakes;
-
-    let bestWpm =
-
-    localStorage.getItem(
-    "bestWpm"
-    );
-
-    if(
-
-    bestWpm === null ||
-
-    finalWpm > Number(bestWpm)
-
-    ){
-
-        localStorage.setItem(
-        "bestWpm",
-        finalWpm
-        );
-
-        bestWpm = finalWpm;
-
-    }
-
-    document
-    .getElementById("bestWpm")
-    .innerText = bestWpm;
-
-    saveResult(
-finalWpm,
-liveAccuracy
-);
-   
-    let popup =
-    document.getElementById(
-    "resultPopup"
-    );
-
-    popup.style.visibility =
-    "visible";
-
-    popup.style.opacity = "1";
-
-    document.querySelector(
-    ".typing-box"
-    ).style.opacity = "0.25";
-
-    document.querySelector(
-    ".keyboard"
-    ).style.opacity = "0.15";
-
-}
+                document.querySelector(".typing-box").style.opacity = "0.25";
+                document.querySelector(".keyboard").style.opacity = "0.15";
+            }
         },1000);
-
     }
-
 }
-
-
 
 /* =========================================
    TYPING DETECTION
@@ -459,414 +354,191 @@ input.addEventListener("input",function(){
 
     startTimer();
 
-    let inputText =
-    this.value;
-
-
-    let spans =
-    document.querySelectorAll("#text span");
-
+    let inputText = this.value;
+    let spans = document.querySelectorAll("#text span");
 
     let correctCount = 0;
-
     let mistakes = 0;
 
-
-
     spans.forEach(function(span,index){
-
         span.classList.remove("current");
-
         span.classList.remove("current-word");
 
-
-        let typedChar =
-        inputText[index];
-
-
+        let typedChar = inputText[index];
 
         /* CURRENT LETTER */
-
         if(index == inputText.length){
-
             span.classList.add("current");
-
         }
-
-
 
         /* EMPTY */
-
-       if(typedChar === undefined){
-
-    span.classList.remove("correct");
-
-    span.classList.remove("wrong");
-
-}
-
-
-
-        /* CORRECT */
-
-        else if(typedChar === span.innerText){
-
-            span.classList.add("correct");
-
-            span.classList.remove("wrong");
-
-            correctCount++;
-
-        }
-
-
-
-        /* WRONG */
-
-        else{
-
-            span.classList.add("wrong");
-
+        if(typedChar === undefined){
             span.classList.remove("correct");
-
-            mistakes++;
-
+            span.classList.remove("wrong");
         }
-
+        /* CORRECT */
+        else if(typedChar === span.innerText){
+            span.classList.add("correct");
+            span.classList.remove("wrong");
+            correctCount++;
+        }
+        /* WRONG */
+        else{
+            span.classList.add("wrong");
+            span.classList.remove("correct");
+            mistakes++;
+        }
     });
 
-
-
     /* =========================================
-       CURRENT WORD
+       CURRENT WORD HIGHLIGHTING
     ========================================= */
 
-    let words =
-    originalText.split(" ");
-
-
-    let currentWordIndex =
-    inputText.split(" ").length - 1;
-
-
+    let words = originalText.split(" ");
+    let currentWordIndex = inputText.split(" ").length - 1;
     let charCount = 0;
 
-
     words.forEach(function(word,wordIndex){
-
-        let wordLength =
-        word.length + 1;
-
+        let wordLength = word.length + 1;
 
         if(wordIndex == currentWordIndex){
-
-            for(
-
-                let i = charCount;
-
-                i < charCount + word.length;
-
-                i++
-
-            ){
-
+            for(let i = charCount; i < charCount + word.length; i++){
                 if(spans[i]){
-
-                    spans[i].classList.add(
-                    "current-word"
-                    );
-
+                    spans[i].classList.add("current-word");
                 }
-
             }
-
         }
-
         charCount += wordLength;
-
     });
 
-
-
     /* =========================================
-       WPM
+       LIVE PROFESSIONAL NET WPM CALCULATOR
     ========================================= */
 
-    let wpmElement =
+    let timeElapsed = totalInitialTime - timer; // किती सेकंद झाले
+    let wpmElement = document.getElementById("wpm");
 
-document.getElementById("wpm");
-
-if(wpmElement){
-
-    wpmElement.innerHTML =
-    totalWords;
-
-}
-
-
-    /* =========================================
-       ACCURACY
-    ========================================= */
-
-    let totalTyped =
-
-    correctCount + mistakes;
-
-
-    let accuracy = 0;
-
-
-    if(totalTyped > 0){
-
-        accuracy =
-
-        Math.floor(
-        (correctCount / totalTyped) * 100
-        );
-
+    if(wpmElement && timeElapsed > 0){
+        let elapsedMinutes = timeElapsed / 60;
+        
+        // नेट कॅरेक्टर्स = बरोबर अक्षरे - चुकीची अक्षरे
+        let correctCharacters = correctCount - mistakes;
+        if(correctCharacters < 0) correctCharacters = 0;
+        
+        // ५ अक्षरे = १ शब्द या नियमाने लाइव्ह स्पीड
+        let currentLiveWpm = Math.round((correctCharacters / 5) / elapsedMinutes);
+        wpmElement.innerHTML = currentLiveWpm;
+    } else if(wpmElement) {
+        wpmElement.innerHTML = 0;
     }
 
+    /* =========================================
+       ACCURACY & MISTAKES UPDATE
+    ========================================= */
 
-    let accuracyElement =
+    let totalTyped = correctCount + mistakes;
+    let accuracy = 0;
 
-document.getElementById(
-"accuracy"
-);
+    if(totalTyped > 0){
+        accuracy = Math.floor((correctCount / totalTyped) * 100);
+    }
 
-if(accuracyElement){
+    let accuracyElement = document.getElementById("accuracy");
+    if(accuracyElement){
+        accuracyElement.innerHTML = accuracy + "%";
+    }
 
-    accuracyElement.innerHTML =
-    accuracy + "%";
+    let mistakesElement = document.getElementById("mistakes");
+    if(mistakesElement){
+        mistakesElement.innerHTML = mistakes;
+    }
 
-}
+    liveCorrectCount = correctCount;
+    liveAccuracy = accuracy;
+    liveMistakes = mistakes;
 
- let mistakesElement =
+    /* =========================================
+       PROGRESS BAR
+    ========================================= */
 
-document.getElementById(
-"mistakes"
-);
+    let progress = (inputText.length / originalText.length) * 100;
+    let progressBar = document.getElementById("progressBar");
 
-if(mistakesElement){
+    if(progressBar){
+        progressBar.style.width = progress + "%";
+    }
 
-    mistakesElement.innerHTML =
-    mistakes;
+    /* =========================================
+       TEST COMPLETE (मजकूर संपल्यावर)
+    ========================================= */
 
-}
+    if(inputText.length === originalText.length){
+        console.log("POPUP WORKING");
+        clearInterval(interval);
 
-liveCorrectCount = correctCount;
+        let popup = document.getElementById("resultPopup");
+        popup.style.visibility = "visible";
+        popup.style.opacity = "1";
 
-liveAccuracy = accuracy;
+        document.querySelector(".typing-box").style.opacity = "0.25";
+        document.querySelector(".keyboard").style.opacity = "0.15";
 
-liveMistakes = mistakes;
+        // फायनल नेट स्पीड
+        let finalWpm = Math.floor(correctCount / 5);
 
-  /* =========================================
-   PROGRESS BAR
-========================================= */
+        document.getElementById("finalWpm").innerText = finalWpm;
+        document.getElementById("finalAccuracy").innerText = accuracy + "%";
+        document.getElementById("finalMistakes").innerText = mistakes;
 
-let progress =
+        let bestWpm = localStorage.getItem("bestWpm");
 
-(inputText.length / originalText.length) * 100;
+        if(bestWpm === null || finalWpm > Number(bestWpm)){
+            localStorage.setItem("bestWpm", finalWpm);
+            bestWpm = finalWpm;
+        }
 
-
-let progressBar =
-document.getElementById("progressBar");
-
-
-if(progressBar){
-
-    progressBar.style.width =
-    progress + "%";
-
-}
-
-console.log(inputText.length);
-console.log(originalText.length);
+        document.getElementById("bestWpm").innerText = bestWpm;
+        
+        saveResult(finalWpm, accuracy);   
+    }
+});
 
 /* =========================================
-   TEST COMPLETE
-========================================= */
-
-if(
-
-inputText.length ===
-originalText.length
-
-){
-
-    console.log("POPUP WORKING");
-
-
-
-    clearInterval(interval);
-
-
-
-    /* SHOW RESULT POPUP */
-
-    let popup =
-
-    document.getElementById(
-    "resultPopup"
-    );
-
-
-
-    popup.style.visibility =
-    "visible";
-
-
-    popup.style.opacity = "1";
-
-
-
-    /* DIM BACKGROUND */
-
-    document.querySelector(
-    ".typing-box"
-    ).style.opacity = "0.25";
-
-
-    document.querySelector(
-    ".keyboard"
-    ).style.opacity = "0.15";
-
-
-
-    /* FINAL VALUES */
-
-    let finalWpm =
-
-    Math.floor(correctCount / 5);
-
-
-
-    document
-    .getElementById("finalWpm")
-    .innerText = finalWpm;
-
-
-
-    document
-    .getElementById("finalAccuracy")
-    .innerText = accuracy + "%";
-
-
-
-    document
-    .getElementById("finalMistakes")
-    .innerText = mistakes;
-
-let bestWpm =
-
-localStorage.getItem(
-"bestWpm"
-);
-
-if(
-
-bestWpm === null ||
-
-finalWpm > Number(bestWpm)
-
-){
-
-    localStorage.setItem(
-    "bestWpm",
-    finalWpm
-    );
-
-    bestWpm = finalWpm;
-
-}
-
-document
-.getElementById("bestWpm")
-.innerText = bestWpm;
- 
-   saveResult(
-finalWpm,
-accuracy
-);   
-
-}
- 
- });
-
-
-
-/* =========================================
-   LIVE KEYBOARD
+   LIVE KEYBOARD ANIMATION
 ========================================= */
 
 document.addEventListener("keydown", function(event){
 
-   if(
+   if(event.key.length === 1 || event.key === "Backspace" || event.key === " "){
+        keySound.currentTime = 0;
+        keySound.play().catch(()=>{});
+   }
 
-event.key.length === 1 ||
-
-event.key === "Backspace" ||
-
-event.key === " "
-
-){
-
-    keySound.currentTime = 0;
-
-    keySound.play().catch(()=>{});
-
-}
-
-    document.querySelectorAll(".key")
-    .forEach(function(key){
-
+    document.querySelectorAll(".key").forEach(function(key){
         key.classList.remove("active-key");
-
     });
-
 
     let pressedKey = event.key;
 
-
     if(pressedKey === " "){
-
         pressedKey = "Space";
-
     }
-
     else if(pressedKey === "Backspace"){
-
         pressedKey = "Backspace";
-
     }
-
     else if(pressedKey === "Enter"){
-
         pressedKey = "Enter";
-
     }
-
     else if(pressedKey === "Shift"){
-
         pressedKey = "Shift";
-
     }
-
     else{
-
         pressedKey = pressedKey.toUpperCase();
-
     }
 
-
-    document.querySelectorAll(".key")
-    .forEach(function(key){
-
+    document.querySelectorAll(".key").forEach(function(key){
         if(key.innerText === pressedKey){
-
             key.classList.add("active-key");
-
         }
-
     });
-
 });
