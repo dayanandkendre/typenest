@@ -10,7 +10,7 @@ from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 
 /* =========================================
-   LESSON DATA
+   LESSON DATA (BOTTOM ROW - EXACTLY 32 CHARACTERS)
 ========================================= */
 
 const lessons = {
@@ -18,121 +18,121 @@ const lessons = {
 1:{
 title:"V N Introduction",
 subtitle:"Learn the bottom row keys V and N.",
-target:["v","n","v","n","v","n","v","n"]
+target:["v","n","v","n"," ","v","n","v","n"," ","v","v","n","n"," ","n","n","v","v"," ","v","n","n","v"," ","n","v","v","n"," ","v","n"]
 },
 
 2:{
 title:"Keys V & N",
 subtitle:"Practice repeated V and N keys.",
-target:["v","v","n","n","v","v","n","n"]
+target:["v","v","n","n"," ","v","v","n","n"," ","v","n","v","n"," ","n","v","v","n"," ","v","v","v","n"," ","n","n","n","v"," ","v","n"]
 },
 
 3:{
 title:"VN Practice",
 subtitle:"Build rhythm with VN combinations.",
-target:["v","n","n","v","v","n","n","v"]
+target:["v","n","n","v"," ","v","n","n","v"," ","n","v","v","n"," ","n","v","v","n"," ","v","v","n","n"," ","n","n","v","v"," ","v","n"]
 },
 
 4:{
 title:"Keys C & M",
 subtitle:"Learn C and M keys.",
-target:["c","m","c","m","c","m","c","m"]
+target:["c","m","c","m"," ","c","m","c","m"," ","c","c","m","m"," ","m","m","c","c"," ","c","m","m","c"," ","m","c","c","m"," ","c","m"]
 },
 
 5:{
 title:"CM Practice",
 subtitle:"Practice C and M combinations.",
-target:["c","c","m","m","c","c","m","m"]
+target:["c","c","m","m"," ","c","c","m","m"," ","c","m","c","m"," ","m","c","m","c"," ","c","c","c","m"," ","m","m","m","c"," ","c","m"]
 },
 
 6:{
 title:"VCNM Mix",
 subtitle:"Mix V C N M keys.",
-target:["v","c","n","m","v","c","n","m"]
+target:["v","c","n","m"," ","v","c","n","m"," ","c","m","v","n"," ","m","c","n","v"," ","v","v","c","c"," ","n","n","m","m"," ","v","n"]
 },
 
 7:{
 title:"Keys X & B",
 subtitle:"Learn X and B keys.",
-target:["x","b","x","b","x","b","x","b"]
+target:["x","b","x","b"," ","x","b","x","b"," ","x","x","b","b"," ","b","b","x","x"," ","x","b","b","x"," ","b","x","x","b"," ","x","b"]
 },
 
 8:{
 title:"XB Practice",
 subtitle:"Practice X and B combinations.",
-target:["x","x","b","b","x","x","b","b"]
+target:["x","x","b","b"," ","x","x","b","b"," ","x","b","x","b"," ","b","x","b","x"," ","x","x","x","b"," ","b","b","b","x"," ","x","b"]
 },
 
 9:{
 title:"Bottom Mix",
 subtitle:"Mix X B C V keys.",
-target:["x","b","c","v","x","b","c","v"]
+target:["x","b","c","v"," Bell","x","b","c","v"," ","b","c","v","x"," ","v","c","b","x"," ","x","x","b","b"," ","c","c","v","v"," ","x","c"]
 },
 
 10:{
 title:"Keys Z & ,",
 subtitle:"Learn Z and Comma keys.",
-target:["z",",","z",",","z",",","z",","]
+target:["z",",","z",","," ","z",",","z",","," ","z","z",",",","," ",",",",","z","z"," ","z",",",",","z"," ",",","z","z",","," ","z",","]
 },
 
 11:{
 title:"Z Comma Practice",
 subtitle:"Practice Z and Comma.",
-target:["z","z",",",",","z","z",",",","]
+target:["z","z",",",","," ","z","z",",",","," ","z",",","z",","," ",",","z",",","z"," ","z","z","z",","," ",",",",",",","z"," ","z",","]
 },
 
 12:{
 title:"Bottom Row Review",
 subtitle:"Review all bottom row keys.",
-target:["z","x","c","v","b","n","m",","]
+target:["z","x","c","v"," ","b","n","m",","," ","z","x","c","v"," ","b","n","m",","," ",",","m","n","b"," ","v","c","x","z"," ","z",","]
 },
 
 13:{
 title:"Left Hand Practice",
 subtitle:"Practice Z X C V keys.",
-target:["z","x","c","v","z","x","c","v"]
+target:["z","x","c","v"," ","z","x","c","v"," ","v","c","x","z"," ","v","c","x","z"," ","z","z","x","x"," ","c","c","v","v"," ","z","v"]
 },
 
 14:{
 title:"Right Hand Practice",
 subtitle:"Practice B N M , keys.",
-target:["b","n","m",",","b","n","m",","]
+target:["b","n","m",","," ","b","n","m",","," ",",","m","n","b"," ",",","m","n","b"," ","b","b","n","n"," ","m","m",",",","," ","b",","]
 },
 
 15:{
 title:"Left Drill",
 subtitle:"Build speed with ZXCV.",
-target:["z","c","x","v","z","v","x","c"]
+target:["z","c","x","v"," ","z","v","x","c"," ","c","x","v","z"," ","v","x","c","z"," ","z","x","c","v"," ","v","c","x","z"," ","z","c"]
 },
 
 16:{
 title:"Right Drill",
 subtitle:"Build speed with BNM,",
-target:["b","m","n",",","b",",","n","m"]
+target:["b","m","n",","," ","b",",","n","m"," ","m","n",",","b"," ",",","n","m","b"," ","b","n","m",","," ",",","m","n","b"," ","b","m"]
 },
 
 17:{
 title:"Bottom Row Mix",
 subtitle:"Mixed bottom row practice.",
-target:["z","b","x","n","c","m","v",","]
+target:["z","b","x","n"," ","c","m","v",","," ","b","z","n","x"," ","m","c",",","v"," ","z","x","c","v"," ","b","n","m",","," ","z","b"]
 },
 
 18:{
 title:"Advanced Mix",
 subtitle:"Advanced bottom row combinations.",
-target:["v","n","c","m","x","b","z",","]
+target:["v","n","c","m"," ","x","b","z",","," ",",","z","b","x"," ","m","c","n","v"," ","z","b","x","n"," ","c","m","v",","," ","v","c"]
 },
 
 19:{
 title:"Bottom Row Words",
 subtitle:"Bottom row word practice.",
-target:["z","x","c","v","b","n","m",","]
+target:["z","o","n","e"," ","m","o","v","e"," ","c","o","m","b"," ","m","e","n","u"," ","b","o","n","d"," ","c","o","i","n"," ","m","v"]
 },
 
 20:{
 title:"Final Test",
 subtitle:"Complete the bottom row challenge.",
-target:["z","x","c","v","b","n","m",","]
+target:["v","o","i","c","e"," ","c","o","n","v","e","x"," ","z","e","b","r","a"," ","m","a","x","i","m","u","m"," ","z","e","r","o"," "]
 }
 
 };
@@ -317,7 +317,7 @@ value.length
 
     }
 
-    if(current < 8){
+    if(current < target.length){
 
         document
         .getElementById("l"+current)
@@ -326,9 +326,9 @@ value.length
     }
 
     document
-    .getElementById("progress")
-    .innerText =
-    current + " / 8";
+.getElementById("progress")
+.innerText =
+current + " / " + target.length;
 
     document
     .getElementById("mistakes")
@@ -382,12 +382,26 @@ if(
 
 }
 
+   /* =========================================
+       AUTOMATIC SCROLLING LOGIC
+    ========================================= */
+    const activeLetter = document.getElementById("l" + current);
+    const lettersContainer = document.querySelector(".letters-row");
+    
+    if (activeLetter && lettersContainer) {
+        const containerWidth = lettersContainer.offsetWidth;
+        const letterLeft = activeLetter.offsetLeft;
+        const letterWidth = activeLetter.offsetWidth;
+        
+        // ॲक्टिव्ह लेटर नेहमी मध्यभागी ठेवण्यासाठी स्क्रोल कॅल्क्युलेशन
+        lettersContainer.scrollLeft = letterLeft - (containerWidth / 2) + (letterWidth / 2);
+    }
 
     /* =========================================
        LEVEL COMPLETE
     ========================================= */
 
-    if(current === 8){
+    if(current === target.length){
 
 let unlocked =
 parseInt(
