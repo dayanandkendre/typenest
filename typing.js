@@ -3,13 +3,28 @@ import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.
 
 const userUID = localStorage.getItem("userUID");
 
-// लॉगिन/डॅशबोर्ड इंडिकेटर टॅगल
+// =========================================================
+// 🔐 AUTHENTICATION & NAVIGATION ROUTER LOGIC
+// =========================================================
 const loginBtnText = document.getElementById("loginBtnText");
+const loginNavBtn = document.getElementById("loginNavBtn");
+
 if (userUID && loginBtnText) {
+    // युझर लॉगिन असेल तर डॅशबोर्डचा ऑप्शन दाखवा
     loginBtnText.innerText = "Dashboard";
-    document.getElementById("loginNavBtn").onclick = function() { window.location.href = "dashboard.html"; };
+    if (loginNavBtn) {
+        loginNavBtn.onclick = function() { 
+            window.location.href = "dashboard.html"; 
+        };
+    }
 } else if (loginBtnText) {
-    document.getElementById("loginNavBtn").onclick = function() { window.location.href = "login.html"; };
+    // युझर लॉगिन नसेल तर 'Sign In' दाखवा आणि लॉगिन पेजवर पाठवा
+    loginBtnText.innerText = "Sign In";
+    if (loginNavBtn) {
+        loginNavBtn.onclick = function() { 
+            window.location.href = "login.html"; 
+        };
+    }
 }
 
 /* =========================================
