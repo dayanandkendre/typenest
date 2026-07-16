@@ -5,10 +5,10 @@
 }
 
 body{
-    background:#1c1c1e; /* 👈 मंकीटाईप सारखा डार्क मॅट डार्क बॅकग्राउंड */
+    background:#1c1c1e; /* डार्क मॅट डार्क थीम[cite: 8] */
     font-family: 'Roboto Mono', monospace;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* कडक कम्प्लायन्स स्क्रोल बार बंद[cite: 8] */
     color: #646669;
 }
 
@@ -19,32 +19,76 @@ body{
     justify-content: flex-start;
 }
 
-/* TOP NAVBAR */
+/* =========================================
+   INTEGRATED HEAD HEADER BAR
+========================================= */
 .topbar{
-    height:65px;
+    height:70px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:0 40px;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-.back-link{
-    font-size:15px;
-    cursor:pointer;
+.brand-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #d1d0c5;
+    cursor: pointer;
+    letter-spacing: -0.5px;
+}
+
+/* CUSTOM MODES NAVIGATION BAR (UNIQUE CENTER CONTAINER) */
+.config-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 16px;
+    border-radius: 10px;
+    gap: 12px;
+}
+
+.config-group {
+    display: flex;
+    gap: 10px;
+}
+
+.cfg-btn {
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
     color: #646669;
+}
+.cfg-btn:hover, .active-cfg {
+    color: #e2b714; /* पिवळा ॲक्सेंट रंग */
+}
+
+.config-gap {
+    color: rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+}
+
+/* LOGIN SYSTEM RIGHT POSITIONING */
+.login-profile-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #d1d0c5;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
     transition: 0.2s;
 }
-.back-link:hover{ color: #d1d0c5; }
-
-.level-title{
-    font-size:14px;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-    opacity: 0.6;
+.login-profile-btn:hover {
+    background: #e2b714;
+    color: #1c1c1e;
+    border-color: #e2b714;
 }
 
-/* MAIN LIVE INTERFACE */
+/* INTERACTIVE LIVE TYPING INTERFACE */
 .main-container {
     flex: 1;
     display: flex;
@@ -61,11 +105,10 @@ body{
     margin-bottom: 15px;
 }
 .giant-timer {
-    font-size: 32px;
-    color: #e2b714; /* पिवळा मंकीटाईप टायमर */
+    font-size: 36px;
+    color: #e2b714;
 }
 
-/* HORIZONTAL SCROLL BOX */
 .text-display{
     width: 100%;
     overflow: hidden;
@@ -78,32 +121,20 @@ body{
 .text-display-inner {
     display: inline-block;
     white-space: nowrap;
-    font-size: 32px;
-    color: #646669; /* अन-टाईप केलेली अक्षरे करड्या रंगात होतील */
+    font-size: 30px;
+    color: #505255;
     letter-spacing: 0.5px;
     transition: transform 0.2s ease-out;
     will-change: transform;
 }
 
-/* TEXT CHAR CHAR CHAR STATUSES */
-.correct-char{
-    color:#d1d0c5; /* टाईप केलेले बरोबर अक्षरे एकदम फिकट पांढरी/क्रीम दिसतील */
-}
+/* TYPING BEHAVIOR RENDERING CHARACTERS */
+.correct-char{ color:#d1d0c5; }
+.wrong-char{ color:#ca4754; border-bottom: 2px solid #ca4754; }
+.wrong-space { background: rgba(202, 71, 84, 0.2); border-radius: 3px; }
 
-.wrong-char{
-    color:#ca4754; /* लाल रंगाची चूक */
-    border-bottom: 2px solid #ca4754;
-}
-
-.wrong-space {
-    background: rgba(202, 71, 84, 0.2);
-    border-radius: 3px;
-}
-
-/* ACTIVE CURSOR LINE */
-.current-char{
-    position: relative;
-}
+/* KINETIC CURSOR ENGINE */
+.current-char{ position: relative; }
 .current-char::before{
     content: "";
     position: absolute;
@@ -112,19 +143,14 @@ body{
     width: 2.5px;
     height: 90%;
     background: #e2b714;
-    animation: blinkCursor 1s infinite;
+    animation: blinkCursor 0.8s infinite;
 }
-@keyframes blinkCursor{
-    50%{ opacity:0; }
-}
+@keyframes blinkCursor{ 50%{ opacity:0; } }
 
-.hidden-input-box {
-    position: absolute;
-    left: -9999px;
-}
+.hidden-input-box { position: absolute; left: -9999px; }
 
 /* =========================================
-   MONKEYTYPE DYNAMIC RESULT SCREEN DESIGN
+   TYPENEST UNIQUE DASHBOARD MATRIX VIEW CSS
 ========================================= */
 .monkey-result-container {
     flex: 1;
@@ -134,116 +160,117 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px 20px;
-    animation: fadeIn 0.4s ease-out;
+    padding: 30px 20px;
+    animation: slideUpView 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes slideUpView {
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .result-main-row {
     display: flex;
     width: 100%;
-    gap: 40px;
+    gap: 50px;
     align-items: center;
 }
 
-/* GIANT WPM ACC STYLING */
 .giant-stats-block {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
-.giant-stat {
-    display: flex;
-    flex-direction: column;
-}
+.giant-stat { display: flex; flex-direction: column; }
+.g-label { font-size: 16px; color: #646669; }
+.g-value { font-size: 58px; font-weight: 700; line-height: 1; }
+.yellow-text { color: #e2b714; }
 
-.g-label {
-    font-size: 18px;
-    color: #646669;
-    text-transform: lowercase;
-}
-
-.g-value {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.yellow-text {
-    color: #e2b714; /* 👈 मंकीटाईप सिग्नेचर पिवळा ग्लो रंग */
-}
-
-/* MOCK CHART BOX */
+/* DYNAMIC MATRIX PERFORMANCE GRID VIEWPORT */
 .chart-placeholder-block {
     flex: 1;
-    height: 180px;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    border: 1px dashed rgba(255,255,255,0.05);
+    height: 160px;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 14px;
+    border: 1px dashed rgba(255, 255, 255, 0.04);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px 25px;
+    position: relative;
 }
 
-.mock-graph-lines {
-    color: #444;
-    font-size: 13px;
+.matrix-grid-ui {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.matrix-bar {
+    flex: 1;
+    background: rgba(226, 183, 20, 0.06);
+    border-top: 3px solid #e2b714;
+    border-radius: 4px 4px 0 0;
+    transition: 0.5s ease;
+}
+
+.accent-glow {
+    box-shadow: 0px 0px 10px rgba(226, 183, 20, 0.15);
+}
+
+.graph-text-hint {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    color: #444;
+    letter-spacing: 1px;
 }
 
-/* DETAIL METRICS BELOW */
+/* MATRIX SPECIFICATIONS BOTTOM PROFILE */
 .result-details-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 45px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 25px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: 20px;
 }
 
-.detail-box {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.d-label {
-    font-size: 12px;
-    color: #646669;
-}
-
-.d-value {
-    font-size: 20px;
-    font-weight: 500;
-    color: #d1d0c5;
-}
-
+.detail-box { display: flex; flex-direction: column; gap: 2px; }
+.d-label { font-size: 11px; color: #646669; }
+.d-value { font-size: 18px; color: #d1d0c5; }
 .red-text { color: #ca4754; }
 
-/* MINIMAL ACTION BUTTONS */
+/* DUSK INTERACTIVE BUTTONS */
 .result-action-buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+    gap: 25px;
+    margin-top: 35px;
 }
 
 .icon-action-btn {
     background: transparent;
     border: none;
-    font-size: 24px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #646669;
     cursor: pointer;
-    opacity: 0.5;
     transition: 0.2s;
 }
-
 .icon-action-btn:hover {
-    opacity: 1;
-    transform: scale(1.1);
+    color: #d1d0c5;
+    transform: scale(1.05);
+}
+
+@media(max-width:768px){
+    .topbar { flex-direction: column; height: auto; padding: 10px; gap: 10px; }
+    .result-main-row { flex-direction: column; gap: 20px; }
+    .chart-placeholder-block { width: 100%; }
+    .result-details-row { flex-wrap: wrap; gap: 15px; }
 }
