@@ -194,6 +194,13 @@ function startTimer(){
             timer--;
             secondCounter++;
             
+           function startTimer(){
+    if(!timerStarted && currentMode === "time"){
+        timerStarted = true;
+        interval = setInterval(function(){
+            timer--;
+            secondCounter++;
+            
             // लाईव्ह आलेखसाठी प्रति सेकंदाची WPM ट्रॅकिंग
             let currentMinutes = secondCounter / 60;
             let netCorrect = liveCorrectCount - liveMistakes;
@@ -253,7 +260,7 @@ function endTest(){
     }
     document.getElementById("bestWpm").innerText = bestWpm;
 
-    // डेटा फायरस्टोअरला सेव्ह करणे[cite: 6]
+    // डेटा फायरस्टोअरला सेव्ह करणे
     if(userUID) {
         const userRef = doc(db, "users", userUID);
         getDoc(userRef).then(snap => {
@@ -311,7 +318,7 @@ function endTest(){
 }
 
 /* =========================================================
-   २ चुकांवर लॉक करणारा कडक इनपुट लिसनर[cite: 6]
+   २ चुकांवर लॉक करणारा कडक इनपुट लिसनर
 ========================================================= */
 input.addEventListener("input", function(){
     let currentVal = this.value;
@@ -357,7 +364,7 @@ function processTyping(inputText) {
     liveAccuracy = accuracy;
     liveMistakes = mistakes;
 
-    // जर 'words' मोड असेल तर लाइव्ह स्टेटस बदलणे[cite: 6]
+    // जर 'words' मोड असेल तर लाइव्ह स्टेटस बदलणे
     if(currentMode === "words") {
         let currentTypedWords = inputText.trim() === "" ? 0 : inputText.trim().split(/\s+/).length;
         document.getElementById("time").innerHTML = `${currentTypedWords}/${currentTargetValue} words`;
@@ -367,7 +374,6 @@ function processTyping(inputText) {
         endTest();
     }
 }
-
 /* =========================================================
    KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)[cite: 6]
 ========================================================= */
