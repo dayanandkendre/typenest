@@ -23,6 +23,15 @@ href="https://typenest.in/profile.html">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="profile.css">
 
+    <script>
+    // जर युझर लॉगिन नसेल, तर त्याला प्रोफाईल पाहू न देता लॉगिन पेजवर पाठवा 🔐
+    const sessionUser = localStorage.getItem("userUID");
+    if (!sessionUser) {
+        alert("Please login first to access your profile! 🔐");
+        window.location.href = "login.html";
+    }
+</script>
+
 </head>
 
 <body>
