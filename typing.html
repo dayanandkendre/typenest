@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Speed Test | TypeNest</title>
+    <!-- Dynamic Chart.js Library Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="typing.css">
 </head>
 <body>
@@ -32,11 +34,12 @@
     <!-- =========================================
          WORKING MODES SUB-BAR (BELOW TOPBAR)
     ========================================= -->
-    <div class="sub-config-wrapper">
+    <div class="sub-config-wrapper" id="subConfigWrapper">
         <div class="config-bar">
             <div class="config-group" id="typeGroup">
-                <span class="cfg-btn" data-type="punctuation">@ punctuation</span>
                 <span class="cfg-btn active-cfg" data-type="normal"># normal</span>
+                <span class="cfg-btn" data-type="punctuation">@ punctuation</span>
+                <span class="cfg-btn" data-type="numbers">🔢 numbers</span>
             </div>
             <div class="config-gap">|</div>
             <div class="config-group" id="modeGroup">
@@ -48,6 +51,7 @@
                 <span class="cfg-btn" data-value="15">15</span>
                 <span class="cfg-btn active-cfg" data-value="30">30</span>
                 <span class="cfg-btn" data-value="60">60</span>
+                <span class="cfg-btn" data-value="100">100</span>
             </div>
         </div>
     </div>
@@ -77,7 +81,7 @@
     </div>
 
     <!-- =========================================
-         MONKEYTYPE STYLE DYNAMIC RESULT SCREEN
+         TYPENEST UNIQUE DYNAMIC RESULT SCREEN
     ========================================= -->
     <div class="monkey-result-container" id="resultScreen" style="display: none;">
         <div class="result-main-row">
@@ -92,22 +96,16 @@
                 </div>
             </div>
 
+            <!-- Fully Functional Real-Time Canvas Graph -->
             <div class="chart-placeholder-block">
-                <div class="matrix-grid-ui">
-                    <div class="matrix-bar accent-glow" style="height: 45%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 70%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 60%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 85%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 95%;"></div>
-                </div>
-                <span class="graph-text-hint">performance matrix grid</span>
+                <canvas id="performanceChart"></canvas>
             </div>
         </div>
 
         <div class="result-details-row">
             <div class="detail-box">
                 <span class="d-label">mode</span>
-                <span class="d-value" id="resultModeInfo">time 30</span>
+                <span class="d-value" id="resultModeInfo">time 30 (normal)</span>
             </div>
             <div class="detail-box">
                 <span class="d-label">raw wpm</span>
