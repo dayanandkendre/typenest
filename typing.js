@@ -14,7 +14,7 @@ if (userUID && loginBtnText) {
     loginBtnText.innerText = "Dashboard";
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
-            window.location.href = "dashboard.html"; 
+            window.location.href = "profile.html"; 
         };
     }
 } else if (loginBtnText) {
