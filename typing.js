@@ -3,6 +3,19 @@ import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.
 
 const userUID = localStorage.getItem("userUID");
 
+// १. डायनॅमिकली युझरचे लॉगिन इंडिकेशन टॉप बारवर मॅनेज करणे
+const loginBtnText = document.getElementById("loginBtnText");
+if (userUID && loginBtnText) {
+    loginBtnText.innerText = "Dashboard";
+    document.getElementById("loginNavBtn").onclick = function() {
+        window.location.href = "dashboard.html";
+    };
+} else if (loginBtnText) {
+    document.getElementById("loginNavBtn").onclick = function() {
+        window.location.href = "login.html";
+    };
+}
+
 async function saveResult(finalWpm, accuracy){
     if(!userUID) return;
     const userRef = doc(db, "users", userUID);
@@ -26,14 +39,13 @@ async function saveResult(finalWpm, accuracy){
 }
 
 /* =========================================
-   PARAGRAPHS
+   CORE PARAGRAPHS MATRIX
 ========================================= */
 let paragraphs = [
     "The little boy walked to the village market every morning with his grandfather. Along the way, they greeted neighbors, watched birds flying across the sky, and enjoyed the fresh morning air. These simple daily walks taught him kindness, patience, and the value of community.",
     "A young traveler decided to explore a small mountain town during his vacation. He spent his days meeting local people, tasting traditional food, and learning about the history of the region. The experience helped him understand different cultures and appreciate new perspectives.",
     "The library was one of the quietest places in the city. Students, teachers, and readers visited every day to discover new ideas and improve their knowledge. Reading books regularly opened doors to imagination, learning, and personal growth.",
-    "A farmer worked hard throughout the year to grow healthy crops for his family and community. He carefully planted seeds, watered the fields, and protected the plants from harsh weather. His dedication showed how persistence often leads to success.",
-    "The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans."
+    "A farmer worked hard throughout the year to grow healthy crops for his family and community. He carefully planted seeds, watered the fields, and protected the plants from harsh weather. His dedication showed how persistence often leads to success."
 ];
 
 let originalText = paragraphs[Math.floor(Math.random() * paragraphs.length)];
@@ -59,9 +71,6 @@ let totalTypedChars = 0;
 let timeElement = document.getElementById("time");
 if(timeElement) timeElement.innerHTML = timer;
 
-/* =========================================
-   ROBUST RENDER + HORIZONTAL SCROLL LOGIC
-========================================= */
 function renderText(value = ""){
     let html = "";
     for(let i = 0; i < originalText.length; i++){
@@ -87,7 +96,7 @@ function renderText(value = ""){
     const textDisplay = document.getElementById("textDisplay");
     textDisplay.innerHTML = html;
 
-    /* HORIZONTAL SCROLL ENGINE */
+    /* DUSK SMOOTH POSITION H-SCROLL EFFECT */
     const currentChar = document.querySelector(".current-char");
     if(currentChar){
         const container = document.getElementById("textDisplayContainer");
@@ -135,18 +144,15 @@ function startTimer(){
 }
 
 function endTest(){
-    // १. नेट स्पीड आणि अचूकता गणना
     let finalNetWpm = Math.floor(liveCorrectCount / 5);
     let timeElapsed = totalInitialTime - timer;
     if(timeElapsed <= 0) timeElapsed = 60;
     let rawWpm = Math.round((totalTypedChars / 5) / (timeElapsed / 60));
 
-    // २. मंकीटाईप फॉरमॅट नुसार लेटर्स मॅपिंग (Correct/Wrong/Extra/Missed)
     let missed = originalText.length - totalTypedChars;
     if(missed < 0) missed = 0;
     let charFormattedStr = `${liveCorrectCount}/${liveMistakes}/0/${missed}`;
 
-    // ३. रिझल्ट स्क्रीनवर व्हॅल्यूज लोड करणे
     document.getElementById("finalWpm").innerText = finalNetWpm;
     document.getElementById("finalAccuracy").innerText = liveAccuracy + "%";
     document.getElementById("finalMistakes").innerText = liveMistakes;
@@ -162,7 +168,8 @@ function endTest(){
 
     saveResult(finalNetWpm, liveAccuracy);
    
-    // ४. 🏆 मंकीटाईप प्रमाणे मूळ टायपिंग स्क्रीन लपवून थेट रिझल्ट स्क्रीन दाखवणे[cite: 8]
+    // मुख्य टायपिंग लपवून मंकीटाईप सारखे डॅशबोर्ड व्ह्यू लोड करणे[cite: 8]
+    document.getElementById("liveConfigBar").style.display = "none";
     document.getElementById("typingContainer").style.display = "none";
     document.getElementById("resultScreen").style.display = "flex";
 }
