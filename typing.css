@@ -4,18 +4,23 @@
     box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* 👈 हे महत्त्वाचे आहे */
-    overflow: hidden; /* 👈 स्क्रीनच्या बाहेर जाऊ नये म्हणून */
-    background: #f5f7ff;
-    font-family: 'Poppins', sans-serif;
+body{
+    background:#f5f7ff;
+    font-family:'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden; /* 👈 उभा स्क्रोलबार पूर्णपणे बंद[cite: 8] */
+}
+
+.typing-page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 /* TOP BAR */
 .topbar{
-    height:70px;
+    height:65px;
     background:#111827;
     color:white;
     display:flex;
@@ -27,68 +32,69 @@ body {
 .back-link{
     font-size:14px;
     cursor:pointer;
+    opacity: 0.8;
+    transition: 0.2s;
 }
+.back-link:hover{ opacity: 1; color: #3b82f6; }
 
 .level-title{
-    font-size:20px;
-    font-weight:bold;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing: 0.5px;
 }
 
-.timer-box {
-    font-size: 16px;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 6px 14px;
-    border-radius: 8px;
+/* MAIN CONTAINER (CENTERED CONTENT) */
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* LESSON HEADER */
-.lesson-header{
-    text-align:center;
-    margin:25px 0 10px 0;
+/* GIANT TIMER DISPLAY */
+.live-timer-wrapper {
+    margin-bottom: 25px;
+}
+.giant-timer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 55px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: -1px;
 }
 
-.lesson-header h1{
-    font-size:32px;
-    margin:0;
-}
-
-.lesson-header h1::first-letter{
-    color:#2563eb;
-}
-
-.lesson-header p{
-    color:#64748b;
-    margin:5px 0;
-    font-size:16px;
-}
-
-/* HORIZONTAL SINGLE LINE WORD DISPLAY */
+/* TEXT DISPLAY BOX (SINGLE LINE FLOW) */
 .text-display{
-    width:900px;
-    max-width:90%;
-    height:75px;
-    margin:20px auto;
-    padding:0 25px;
-    background:#ffffff;
-    border-radius:16px;
-    font-size:36px;
-    overflow:hidden;
-    position:relative;
-    display:flex;
-    align-items:center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width: 100%;
+    height: 90px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 0 35px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
 #textDisplay{
-    white-space:nowrap; /* एका रेषेत ठेवण्यासाठी */
-    transition: transform 0.22s ease-out;
-    will-change:transform;
+    font-family: 'Roboto Mono', monospace; /* प्रोफेशनल टायपिंग फॉन्ट */
+    font-size: 34px;
+    color: #94a3b8;
+    white-space: nowrap; /* एकाच ओळीत ठेवण्यासाठी[cite: 7] */
+    transition: transform 0.2s ease-out;
+    will-change: transform;
 }
 
-/* CHARACTER STATUSES */
+/* CHAR CHAR CHAR STATUSES */
 .correct-char{
-    color:#22c55e;
+    color:#1e293b; /* मुख्य डार्क रंग */
 }
 
 .wrong-char{
@@ -96,152 +102,106 @@ body {
 }
 
 .pending-char{
-    color:#9ca3af;
+    color:#cbd5e1;
 }
 
 .wrong-space{
-    background: rgba(239, 68, 68, 0.18);
+    background: rgba(239, 68, 68, 0.15);
     border-radius: 4px;
 }
 
 /* ACTIVE WORD HIGHLIGHT */
 .active-word{
-    background: rgba(59, 130, 246, 0.08);
-    border-radius: 4px;
+    background: rgba(59, 130, 246, 0.06);
+    border-radius: 6px;
 }
 
-/* BLINKING CURSOR LINE */
+/* SMOOTH SMOOTH CURSOR LINE */
 .current-char{
-    position:relative;
+    position: relative;
 }
-
 .current-char::before{
-    content:"";
-    position:absolute;
-    left:-2px;
-    top:4px;
-    width:2.5px;
-    height:80%;
-    background:#3b82f6;
-    animation:blinkCursor 1s infinite;
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 4px;
+    width: 3px;
+    height: 85%;
+    background: #2563eb;
+    animation: blinkCursor 0.8s infinite;
 }
-
 @keyframes blinkCursor{
     50%{ opacity:0; }
 }
 
-/* KEYBOARD DESIGN */
-.keyboard{
-    width:90%;
-    max-width:900px;
-    margin:15px auto;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:6px;
+.hidden-input-box {
+    position: absolute;
+    left: -9999px;
 }
 
-.key-row{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    margin-bottom:4px;
-}
-
-.key{
-    width:46px;
-    height:46px;
-    background:#111827;
-    color:white;
-    border-radius:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
-    font-size:15px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
-    transition: 0.1s ease;
-}
-
-/* KEYBOARD SPECIAL BUTTON WIDTHS */
-.space-key{ width:260px; height:46px; border-radius:12px; }
-.backspace-key{ width:100px !important; }
-.enter-key{ width:85px !important; }
-.shift-key{ width:80px !important; }
-.tab-key{ width:65px !important; }
-.caps-key{ width:70px !important; }
-
-/* ANIMATION HIGHLIGHTS */
-.space-active{
-    background:#2563eb !important;
-    color:white !important;
-}
-
-.key-pressed{
-    transform:scale(0.94);
-    background:#22c55e !important;
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
-}
-
-/* STATS ROW */
+/* PREMIUM COMPACT STATS ROW */
 .stats{
-    width:90%;
-    max-width:900px;
-    margin:25px auto;
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
-    gap:15px;
+    width: 100%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .stat-box{
-    background:white;
-    border-radius:12px;
-    padding:12px;
-    text-align:center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    height:85px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    background: white;
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(0,0,0,0.01);
 }
 
 .stat-label{
-    display:block;
-    color:#64748b;
-    font-size:14px;
-    margin-bottom:6px;
+    display: block;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
 .stat-value{
-    font-size:22px;
-    font-weight:bold;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .red{ color:#ef4444; }
-.green{ color:#22c55e; }
+.green{ color:#10b981; }
 .blue{ color:#2563eb; }
 
 .progress-bar{
-    width:100%;
-    height:6px;
-    background:#e5e7eb;
-    border-radius:20px;
-    margin-top:8px;
-    overflow:hidden;
+    width: 100%;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    margin-top: 6px;
+    overflow: hidden;
 }
 
 .progress-fill{
-    width:0%;
-    height:100%;
-    background:#2563eb;
-    transition:0.2s;
+    width: 0%;
+    height: 100%;
+    background: #2563eb;
+    border-radius: 10px;
+    transition: 0.2s ease-out;
 }
 
 /* POPUP MODULE */
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.55);
+    background:rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
     display:none;
     justify-content:center;
     align-items:center;
@@ -249,32 +209,26 @@ body {
 }
 
 .advanced-popup{
-    width:90%;
-    max-width:600px;
+    width:92%;
+    max-width:580px;
     background:#ffffff;
-    border-radius:24px;
-    padding:30px;
+    border-radius:28px;
+    padding:35px;
     text-align:center;
-    box-shadow: 0 20px 50px rgba(0,0,0,.15);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.12);
 }
 
 .popup-content{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:30px;
-    margin-bottom:20px;
-}
-
-.popup-left{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    gap:35px;
+    margin-bottom:25px;
 }
 
 .level-circle{
-    width:160px;
-    height:160px;
+    width:150px;
+    height:150px;
     border-radius:50%;
     border:6px solid #2563eb;
     display:flex;
@@ -282,22 +236,14 @@ body {
     align-items:center;
     justify-content:center;
     background:#fff;
-    box-shadow: 0 12px 25px rgba(37,99,241,.15);
+    box-shadow: 0 10px 25px rgba(37,99,241,0.1);
 }
 
-.popup-trophy{
-    font-size:42px;
-}
-
-.circle-title{
-    font-size:13px;
-    font-weight:800;
-    color:#1e293b;
-    margin-top:5px;
-}
+.popup-trophy{ font-size:40px; }
+.circle-title{ font-size:12px; font-weight:800; color:#1e293b; margin-top:5px; }
 
 .result-card{
-    width:280px;
+    width:260px;
     background:#f8fafc;
     border:1px solid #e2e8f0;
     border-radius:20px;
@@ -307,26 +253,24 @@ body {
 .result-row{
     display:flex;
     justify-content:space-between;
-    padding:6px 0;
+    padding:8px 0;
     border-bottom:1px solid #e5e7eb;
     font-size:15px;
 }
-
 .result-row:last-of-type{ border-bottom:none; }
-.result-row span:last-child{ font-weight:700; color:#2563eb; }
+.result-row span:last-child{ font-weight:700; color:#2563eb; font-family: 'Roboto Mono', monospace; }
 
 .popup-buttons{
     display:flex;
     gap:15px;
     justify-content:center;
-    margin-top:10px;
 }
 
 .popup-buttons button{
     border:none;
-    min-width:130px;
-    padding:12px 20px;
-    border-radius:12px;
+    min-width:140px;
+    padding:14px 24px;
+    border-radius:14px;
     cursor:pointer;
     color:white;
     font-size:15px;
@@ -336,45 +280,10 @@ body {
 
 #restartBtn{ background:#8b5cf6; }
 #backBtn{ background:#64748b; }
+.popup-buttons button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
 @media(max-width:768px){
-    .stats{ grid-template-columns: repeat(2,1fr); }
+    .stats{ grid-template-columns: repeat(2,2fr); }
     .popup-content{ flex-direction:column; }
     .popup-buttons button{ width:100%; }
 }
-
-/* २. typing-page ला पूर्ण उंची द्या */
-.typing-page {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* 👈 घटकांना समान अंतरावर विभागण्यासाठी */
-    padding: 10px;
-}
-
-/* ३. कीबोर्डची साईझ थोडी कमी करा जेणेकरून जागा वाचेल */
-.keyboard {
-    width: 90%;
-    max-width: 800px; /* थोडं कॉम्पॅक्ट करा */
-    margin: 10px auto;
-}
-
-.key {
-    width: 40px; /* किंचित साईझ कमी */
-    height: 40px;
-    font-size: 13px;
-}
-
-/* ४. Stats सेक्शनला कॉम्पॅक्ट करा */
-.stats {
-    width: 90%;
-    max-width: 900px;
-    margin: 5px auto; /* मार्जिन कमी केली */
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.stat-box {
-    height: 70px; /* उंची थोडी कमी केली */
-    padding: 5px;
