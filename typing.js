@@ -11,10 +11,10 @@ const loginNavBtn = document.getElementById("loginNavBtn");
 
 if (userUID && loginBtnText) {
     // युझर लॉगिन असेल तर थेट प्रोफाईल पेज दाखवा
-    loginBtnText.innerText = "Dashboard"; // स्क्रीनवर नाव डॅशबोर्ड किंवा प्रोफाईल काहीही ठेवू शकतोस
+    loginBtnText.innerText = "Dashboard"; 
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
-            window.location.href = "profile.html"; /* 👈 इथे बदल केला */
+            window.location.href = "profile.html"; 
         };
     }
 } else if (loginBtnText) {
@@ -194,13 +194,6 @@ function startTimer(){
             timer--;
             secondCounter++;
             
-           function startTimer(){
-    if(!timerStarted && currentMode === "time"){
-        timerStarted = true;
-        interval = setInterval(function(){
-            timer--;
-            secondCounter++;
-            
             // लाईव्ह आलेखसाठी प्रति सेकंदाची WPM ट्रॅकिंग
             let currentMinutes = secondCounter / 60;
             let netCorrect = liveCorrectCount - liveMistakes;
@@ -374,8 +367,9 @@ function processTyping(inputText) {
         endTest();
     }
 }
+
 /* =========================================================
-   KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)[cite: 6]
+   KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)
 ========================================================= */
 let keysPressed = {};
 document.addEventListener("keydown", function(event){
@@ -399,6 +393,6 @@ document.addEventListener("keyup", function(event){
     delete keysPressed[event.key.toLowerCase()];
 });
 
-// सुरुवातीला लोड करण्यासाठी[cite: 6]
+// सुरुवातीला लोड करण्यासाठी
 setupConfigListeners();
 initTest();
