@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Speed Test | TypeNest</title>
     <link rel="stylesheet" href="typing.css">
@@ -16,46 +16,47 @@
 <div class="typing-page">
     
     <!-- =========================================
-         INTEGRATED DYNAMIC TOP BAR
-        ========================================= -->
+         BRAND TOP NAVBAR
+    ========================================= -->
     <div class="topbar">
         <div class="nav-left">
-            <span class="brand-logo" onclick="window.location.href='index.html'">typenest</span>
+            <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
         </div>
-        
-        <!-- Center Custom Configurations (Monkeytype Inspired but Unique Layout) -->
-        <div class="config-bar" id="liveConfigBar">
-            <div class="config-group">
-                <span class="cfg-btn active-cfg">@ punctuation</span>
-                <span class="cfg-btn"># numbers</span>
-            </div>
-            <div class="config-gap">|</div>
-            <div class="config-group">
-                <span class="cfg-btn active-cfg">🕒 time</span>
-                <span class="cfg-btn">🔤 words</span>
-                <span class="cfg-btn">💡 custom</span>
-            </div>
-            <div class="config-gap">|</div>
-            <div class="config-group">
-                <span class="cfg-btn">15</span>
-                <span class="cfg-btn active-cfg">30</span>
-                <span class="cfg-btn">60</span>
-            </div>
-        </div>
-
         <div class="nav-right">
-            <!-- Dynamic Login Button / User Indicator -->
             <button class="login-profile-btn" id="loginNavBtn">
                 👤 <span id="loginBtnText">Sign In</span>
             </button>
         </div>
     </div>
 
-    <!-- MAIN INTERACTIVE HUB CONTAINER -->
+    <!-- =========================================
+         WORKING MODES SUB-BAR (BELOW TOPBAR)
+    ========================================= -->
+    <div class="sub-config-wrapper">
+        <div class="config-bar">
+            <div class="config-group" id="typeGroup">
+                <span class="cfg-btn" data-type="punctuation">@ punctuation</span>
+                <span class="cfg-btn active-cfg" data-type="normal"># normal</span>
+            </div>
+            <div class="config-gap">|</div>
+            <div class="config-group" id="modeGroup">
+                <span class="cfg-btn active-cfg" data-mode="time">🕒 time</span>
+                <span class="cfg-btn" data-mode="words">🔤 words</span>
+            </div>
+            <div class="config-gap">|</div>
+            <div class="config-group" id="timeGroup">
+                <span class="cfg-btn" data-value="15">15</span>
+                <span class="cfg-btn active-cfg" data-value="30">30</span>
+                <span class="cfg-btn" data-value="60">60</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN TYPING CONTEXT CONTAINER -->
     <div class="main-container" id="typingContainer">
-        <!-- LARGE MINIMAL LIVE TIMER -->
+        <!-- LARGE LIVE TIMER / WORD COUNT INDICATOR -->
         <div class="live-timer-wrapper">
-            <span id="time" class="giant-timer">60</span>
+            <span id="time" class="giant-timer">30</span>
         </div>
 
         <!-- HORIZONTAL SINGLE LINE DISPLAY -->
@@ -63,19 +64,23 @@
             <div class="text-display-inner" id="textDisplay"></div>
         </div>
 
-        <!-- HIDDEN INPUT FIELD -->
+        <!-- HIDDEN INPUT AREA -->
         <div class="hidden-input-box">
             <textarea id="input" autofocus></textarea>
         </div>
     </div>
 
+    <!-- UNIQUE LIVE SHORTCUT FOOTER BAR (COVERS BOTTOM SPACE) -->
+    <div class="bottom-shortcut-bar" id="footerShortcut">
+        <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart test</span>
+        <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
+    </div>
+
     <!-- =========================================
-         TYPENEST UNIQUE NEON INTERACTIVE DASHBOARD (RESULT SCREEN)
-        ========================================= -->
+         MONKEYTYPE STYLE DYNAMIC RESULT SCREEN
+    ========================================= -->
     <div class="monkey-result-container" id="resultScreen" style="display: none;">
         <div class="result-main-row">
-            
-            <!-- LEFT GIANT DYNAMIC METRICS -->
             <div class="giant-stats-block">
                 <div class="giant-stat">
                     <span class="g-label">wpm</span>
@@ -87,26 +92,22 @@
                 </div>
             </div>
 
-            <!-- CENTER TYPENEST HEAT-GRID MATRIX VIEW -->
             <div class="chart-placeholder-block">
                 <div class="matrix-grid-ui">
-                    <div class="matrix-bar accent-glow" style="height: 40%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 65%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 55%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 80%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 75%;"></div>
+                    <div class="matrix-bar accent-glow" style="height: 45%;"></div>
+                    <div class="matrix-bar accent-glow" style="height: 70%;"></div>
+                    <div class="matrix-bar accent-glow" style="height: 60%;"></div>
+                    <div class="matrix-bar accent-glow" style="height: 85%;"></div>
                     <div class="matrix-bar accent-glow" style="height: 95%;"></div>
-                    <div class="matrix-bar accent-glow" style="height: 90%;"></div>
                 </div>
                 <span class="graph-text-hint">performance matrix grid</span>
             </div>
         </div>
 
-        <!-- BOTTOM METRIC SPECIFICATIONS GRID -->
         <div class="result-details-row">
             <div class="detail-box">
                 <span class="d-label">mode</span>
-                <span class="d-value">paragraph/custom</span>
+                <span class="d-value" id="resultModeInfo">time 30</span>
             </div>
             <div class="detail-box">
                 <span class="d-label">raw wpm</span>
@@ -126,10 +127,9 @@
             </div>
         </div>
 
-        <!-- ACTION CONTROLS -->
         <div class="result-action-buttons">
-            <button class="icon-action-btn" onclick="location.reload()" title="Retry Test">[r] retry</button>
-            <button class="icon-action-btn" onclick="window.location.href='index.html'" title="Go Home">[h] home</button>
+            <button class="icon-action-btn" onclick="location.reload()">[r] retry</button>
+            <button class="icon-action-btn" onclick="window.location.href='index.html'">[h] home</button>
         </div>
     </div>
 
