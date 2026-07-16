@@ -3,7 +3,7 @@ import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.
 
 const userUID = localStorage.getItem("userUID");
 
-// १. डायनॅमिकली युझरचे लॉगिन इंडिकेशन टॉप बारवर मॅनेज करणे
+// १. युझर लॉगिन/डॅशबोर्ड इंडिकेटर
 const loginBtnText = document.getElementById("loginBtnText");
 if (userUID && loginBtnText) {
     loginBtnText.innerText = "Dashboard";
@@ -68,6 +68,9 @@ let liveAccuracy = 0;
 let liveMistakes = 0;
 let totalTypedChars = 0;
 
+// आधी किती अक्षरे टाईप केली होती त्याचा ट्रॅक ठेवण्यासाठी (Backspace ओळखायला)
+let lastInputValue = ""; 
+
 let timeElement = document.getElementById("time");
 if(timeElement) timeElement.innerHTML = timer;
 
@@ -96,7 +99,7 @@ function renderText(value = ""){
     const textDisplay = document.getElementById("textDisplay");
     textDisplay.innerHTML = html;
 
-    /* DUSK SMOOTH POSITION H-SCROLL EFFECT */
+    /* HORIZONTAL SCROLL EFFECT */
     const currentChar = document.querySelector(".current-char");
     if(currentChar){
         const container = document.getElementById("textDisplayContainer");
@@ -168,15 +171,58 @@ function endTest(){
 
     saveResult(finalNetWpm, liveAccuracy);
    
-    // मुख्य टायपिंग लपवून मंकीटाईप सारखे डॅशबोर्ड व्ह्यू लोड करणे[cite: 8]
     document.getElementById("liveConfigBar").style.display = "none";
     document.getElementById("typingContainer").style.display = "none";
     document.getElementById("resultScreen").style.display = "flex";
 }
 
-input.addEventListener("input", function(){
+/* =========================================
+   INTELLIGENT DYNAMIC STRICTION FILTER
+========================================= */
+input.addEventListener("input", function(e){
+    let currentVal = this.value;
+
+    // जर युझर Backspace दाबत असेल, तर त्याला थांबवायचे नाही, थेट जाऊ द्यायचे.
+    if(currentVal.length < lastInputValue.length) {
+        lastInputValue = currentVal;
+        processTyping(currentVal);
+        return;
+    }
+
+    let nextCharIndex = currentVal.length - 1;
+
+    // 🏆 नियम १: शब्दाचे पहिले अक्षर चुकले तर लॉक करणे
+    // जर आपण इंडेक्स ० वर असू किंवा मागचे अक्षर स्पेस (म्हणजे नवीन शब्दाची सुरुवात) असेल
+    if(nextCharIndex === 0 || originalText[nextCharIndex - 1] === " ") {
+        if(currentVal[nextCharIndex] !== originalText[nextCharIndex]) {
+            // चुकीचे अक्षर कट करून इनपुट रिस्टोर करणे
+            this.value = lastInputValue; 
+            return;
+        }
+    }
+
+    // 🏆 नियम २: शब्दाच्या मध्ये सलग २ चुका झाल्या तर लॉक करणे
+    if(currentVal.length >= 2) {
+        let lastIdx = currentVal.length - 1;
+        let secondLastIdx = currentVal.length - 2;
+
+        let isLastWrong = currentVal[lastIdx] !== originalText[lastIdx];
+        let isSecondLastWrong = currentVal[secondLastIdx] !== originalText[secondLastIdx];
+
+        // जर सलग दोन अक्षरे चुकीची भरली असतील तर इनपुट ब्लॉक करणे
+        if(isLastWrong && isSecondLastWrong) {
+            this.value = lastInputValue; 
+            return;
+        }
+    }
+
+    // जर वरील दोन्ही फिल्टर पास झाले, तरच इनपुट स्वीकारणे
+    lastInputValue = this.value;
+    processTyping(this.value);
+});
+
+function processTyping(inputText) {
     startTimer();
-    let inputText = this.value;
     totalTypedChars = inputText.length;
 
     let correctCount = 0;
@@ -202,7 +248,7 @@ input.addEventListener("input", function(){
         clearInterval(interval);
         endTest();
     }
-});
+}
 
 document.addEventListener("keydown", function(event){
     if(event.key.length === 1 || event.key === "Backspace" || event.key === " "){
