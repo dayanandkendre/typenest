@@ -15,9 +15,9 @@ if (userUID && loginBtnText) {
 /* =========================================
    DYNAMIC TEXT & CONFIG STATE ENGINE
 ========================================= */
-let currentType = "normal"; // normal, punctuation
+let currentType = "normal"; // normal, punctuation, numbers
 let currentMode = "time";     // time, words
-let currentTargetValue = 30;  // 15, 30, 60
+let currentTargetValue = 30;  // 15, 30, 60, 100
 
 let paragraphsNormal = [
     "The little boy walked to the village market every morning with his grandfather. Along the way, they greeted neighbors, watched birds flying across the sky, and enjoyed the fresh morning air. These simple daily walks taught him kindness, patience, and the value of community.",
@@ -33,6 +33,13 @@ let paragraphsPunctuation = [
     "The farmer's fields produced 150kg of corn, 200kg of wheat, and 50kg of rice. Wow! Hard work always results in success, doesn't it?"
 ];
 
+let paragraphsNumbers = [
+    "9845 2301 7654 8921 4560 1278 3490 6512 8743 0192 5438 2109 7651 3420 8904 5621 1029 3847 5647 2839 1928 4756",
+    "102 903 456 781 234 567 890 123 454 890 234 512 678 901 345 678 129 304 582 712 902 343 511 894 723 612 504",
+    "50 22 89 41 33 76 95 12 04 63 87 29 55 18 64 73 91 20 44 82 69 15 37 58 92 30 14 77 62 85 49 21 03 66 79 13",
+    "746 192 834 520 619 384 275 901 463 827 519 364 728 105 943 627 518 304 829 617 453 928 104 736 529 814 602"
+];
+
 let originalText = "";
 let timer = 30;
 let totalInitialTime = 30;
@@ -45,6 +52,11 @@ let totalTypedChars = 0;
 let lastInputValue = "";
 let consecutiveMistakes = 0;
 
+// Dynamic Analytics Variables
+let wpmHistory = [];
+let secondCounter = 0;
+let chartInstance = null;
+
 function initTest() {
     clearInterval(interval);
     timerStarted = false;
@@ -54,15 +66,25 @@ function initTest() {
     totalTypedChars = 0;
     lastInputValue = "";
     consecutiveMistakes = 0;
+    wpmHistory = [];
+    secondCounter = 0;
     
-    let pool = (currentType === "punctuation") ? paragraphsPunctuation : paragraphsNormal;
+    if (chartInstance) {
+        chartInstance.destroy();
+        chartInstance = null;
+    }
+    
+    let pool = paragraphsNormal;
+    if (currentType === "punctuation") pool = paragraphsPunctuation;
+    if (currentType === "numbers") pool = paragraphsNumbers;
+    
     originalText = pool[Math.floor(Math.random() * pool.length)];
 
     // जर 'words' मोड असेल, तर पॅराग्राफमधील फक्त निवडक शब्दच समोर ठेवणे
     if (currentMode === "words") {
         let wordsArr = originalText.split(" ");
         originalText = wordsArr.slice(0, currentTargetValue).join(" ");
-        document.getElementById("time").innerHTML = currentTargetValue + " words";
+        document.getElementById("time").innerHTML = "0/" + currentTargetValue + " words";
     } else {
         timer = currentTargetValue;
         totalInitialTime = currentTargetValue;
@@ -155,6 +177,15 @@ function startTimer(){
         timerStarted = true;
         interval = setInterval(function(){
             timer--;
+            secondCounter++;
+            
+            // लाईव्ह आलेखसाठी प्रति सेकंदाची WPM ट्रॅकिंग
+            let currentMinutes = secondCounter / 60;
+            let netCorrect = liveCorrectCount - liveMistakes;
+            if(netCorrect < 0) netCorrect = 0;
+            let liveWpm = Math.round((netCorrect / 5) / currentMinutes) || 0;
+            wpmHistory.push(liveWpm);
+
             document.getElementById("time").innerHTML = timer;
             if(timer <= 0){
                 clearInterval(interval);
@@ -164,7 +195,17 @@ function startTimer(){
         }, 1000);
     } else if (!timerStarted && currentMode === "words") {
         timerStarted = true;
-        totalInitialTime = Date.now(); // शब्दांच्या मोडमध्ये वेळ मोजण्यासाठी टाइमस्टॅम्प वापरणे
+        totalInitialTime = Date.now(); 
+        
+        // शब्दांच्या प्रॅक्टिससाठी बॅकग्राउंडमध्ये दर सेकंदाचा डेटा गोळा करणे
+        interval = setInterval(function(){
+            secondCounter++;
+            let currentMinutes = secondCounter / 60;
+            let netCorrect = liveCorrectCount - liveMistakes;
+            if(netCorrect < 0) netCorrect = 0;
+            let liveWpm = Math.round((netCorrect / 5) / currentMinutes) || 0;
+            wpmHistory.push(liveWpm);
+        }, 1000);
     }
 }
 
@@ -197,7 +238,7 @@ function endTest(){
     }
     document.getElementById("bestWpm").innerText = bestWpm;
 
-    // डेटा फायरस्टोअरला सेव्ह करणे
+    // डेटा फायरस्टोअरला सेव्ह करणे[cite: 6]
     if(userUID) {
         const userRef = doc(db, "users", userUID);
         getDoc(userRef).then(snap => {
@@ -216,10 +257,46 @@ function endTest(){
     document.getElementById("typingContainer").style.display = "none";
     document.getElementById("footerShortcut").style.display = "none";
     document.getElementById("resultScreen").style.display = "flex";
+
+    // 🏆 Dynamic Chart.js Rendering Logic
+    let labels = [];
+    for (let i = 1; i <= wpmHistory.length; i++) labels.push(i + "s");
+    if (wpmHistory.length === 0) {
+        wpmHistory = [finalNetWpm];
+        labels = ["Final"];
+    }
+
+    const ctx = document.getElementById('performanceChart').getContext('2d');
+    chartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'WPM',
+                data: wpmHistory,
+                borderColor: '#2563eb',
+                borderWidth: 3,
+                pointBackgroundColor: '#2563eb',
+                pointRadius: wpmHistory.length > 30 ? 0 : 2,
+                tension: 0.35,
+                fill: true,
+                backgroundColor: 'rgba(37, 99, 235, 0.04)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#646669', font: { family: 'Roboto Mono', size: 11 } } },
+                y: { grid: { color: 'rgba(255, 255, 255, 0.02)' }, ticks: { color: '#646669', font: { family: 'Roboto Mono', size: 11 } }, beginAtZero: true }
+            }
+        }
+    });
 }
 
 /* =========================================================
-   २ चुकांवर लॉक करणारा इनपुट लिसनर
+   २ चुकांवर लॉक करणारा कडक इनपुट लिसनर[cite: 6]
 ========================================================= */
 input.addEventListener("input", function(){
     let currentVal = this.value;
@@ -265,9 +342,9 @@ function processTyping(inputText) {
     liveAccuracy = accuracy;
     liveMistakes = mistakes;
 
-    // जर 'words' मोड असेल तर लाइव्ह स्टेटस बदलणे
+    // जर 'words' मोड असेल तर लाइव्ह स्टेटस बदलणे[cite: 6]
     if(currentMode === "words") {
-        let currentTypedWords = inputText.trim().split(" ").length;
+        let currentTypedWords = inputText.trim() === "" ? 0 : inputText.trim().split(/\s+/).length;
         document.getElementById("time").innerHTML = `${currentTypedWords}/${currentTargetValue} words`;
     }
 
@@ -277,7 +354,7 @@ function processTyping(inputText) {
 }
 
 /* =========================================================
-   KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)
+   KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)[cite: 6]
 ========================================================= */
 let keysPressed = {};
 document.addEventListener("keydown", function(event){
@@ -301,6 +378,6 @@ document.addEventListener("keyup", function(event){
     delete keysPressed[event.key.toLowerCase()];
 });
 
-// सुरुवातीला लोड करण्यासाठी
+// सुरुवातीला लोड करण्यासाठी[cite: 6]
 setupConfigListeners();
 initTest();
