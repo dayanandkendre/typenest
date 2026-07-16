@@ -5,10 +5,10 @@
 }
 
 body{
-    background:#1c1c1e; /* डार्क मॅट डार्क थीम[cite: 8] */
+    background:#1c1c1e;
     font-family: 'Roboto Mono', monospace;
     height: 100vh;
-    overflow: hidden; /* कडक कम्प्लायन्स स्क्रोल बार बंद[cite: 8] */
+    overflow: hidden;
     color: #646669;
 }
 
@@ -16,11 +16,11 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between; /* टॉप, मिड आणि बॉटम बॅलेन्स करण्यासाठी */
 }
 
 /* =========================================
-   INTEGRATED HEAD HEADER BAR
+   TYPENEST THEMED TOPBAR
 ========================================= */
 .topbar{
     height:70px;
@@ -28,31 +28,59 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:0 40px;
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    background: #111827;
 }
 
 .brand-logo {
-    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
     font-weight: 700;
-    color: #d1d0c5;
+    color: #ffffff;
     cursor: pointer;
-    letter-spacing: -0.5px;
+}
+.brand-logo span {
+    color: #2563eb; /* TypeNest थीम निळा रंग */
 }
 
-/* CUSTOM MODES NAVIGATION BAR (UNIQUE CENTER CONTAINER) */
+.login-profile-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.login-profile-btn:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* =========================================
+   WORKING CONFIG SUB BAR (BELOW TOPBAR)
+========================================= */
+.sub-config-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .config-bar {
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.03);
-    padding: 6px 16px;
-    border-radius: 10px;
-    gap: 12px;
+    padding: 8px 20px;
+    border-radius: 12px;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .config-group {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .cfg-btn {
@@ -60,35 +88,22 @@ body{
     cursor: pointer;
     transition: 0.2s;
     color: #646669;
+    user-select: none;
 }
-.cfg-btn:hover, .active-cfg {
-    color: #e2b714; /* पिवळा ॲक्सेंट रंग */
+.cfg-btn:hover {
+    color: #d1d0c5;
+}
+.active-cfg {
+    color: #2563eb !important; /* सक्रिय मोड निळा होईल */
+    font-weight: 500;
 }
 
 .config-gap {
-    color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.1);
     font-size: 13px;
 }
 
-/* LOGIN SYSTEM RIGHT POSITIONING */
-.login-profile-btn {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    color: #d1d0c5;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 13px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.login-profile-btn:hover {
-    background: #e2b714;
-    color: #1c1c1e;
-    border-color: #e2b714;
-}
-
-/* INTERACTIVE LIVE TYPING INTERFACE */
+/* CENTER TYPING AREA */
 .main-container {
     flex: 1;
     display: flex;
@@ -102,11 +117,11 @@ body{
 }
 
 .live-timer-wrapper {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .giant-timer {
-    font-size: 36px;
-    color: #e2b714;
+    font-size: 38px;
+    color: #2563eb;
 }
 
 .text-display{
@@ -115,7 +130,7 @@ body{
     position: relative;
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .text-display-inner {
@@ -128,12 +143,11 @@ body{
     will-change: transform;
 }
 
-/* TYPING BEHAVIOR RENDERING CHARACTERS */
 .correct-char{ color:#d1d0c5; }
 .wrong-char{ color:#ca4754; border-bottom: 2px solid #ca4754; }
 .wrong-space { background: rgba(202, 71, 84, 0.2); border-radius: 3px; }
 
-/* KINETIC CURSOR ENGINE */
+/* DYNAMIC BLUE CURSOR */
 .current-char{ position: relative; }
 .current-char::before{
     content: "";
@@ -142,7 +156,7 @@ body{
     top: 2px;
     width: 2.5px;
     height: 90%;
-    background: #e2b714;
+    background: #2563eb;
     animation: blinkCursor 0.8s infinite;
 }
 @keyframes blinkCursor{ 50%{ opacity:0; } }
@@ -150,8 +164,30 @@ body{
 .hidden-input-box { position: absolute; left: -9999px; }
 
 /* =========================================
-   TYPENEST UNIQUE DASHBOARD MATRIX VIEW CSS
+   BOTTOM SHORTCUT BAR (FILLS LOWER SPACE)
 ========================================= */
+.bottom-shortcut-bar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: rgba(0,0,0,0.1);
+    font-size: 12px;
+    color: #444649;
+    border-top: 1px solid rgba(255,255,255,0.01);
+}
+
+.shortcut-item kbd {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: #646669;
+}
+
+/* RESULT SCREEN STYLING */
 .monkey-result-container {
     flex: 1;
     width: 100%;
@@ -161,33 +197,15 @@ body{
     flex-direction: column;
     justify-content: center;
     padding: 30px 20px;
-    animation: slideUpView 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes slideUpView {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.result-main-row {
-    display: flex;
-    width: 100%;
-    gap: 50px;
-    align-items: center;
-}
-
-.giant-stats-block {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
+.result-main-row { display: flex; width: 100%; gap: 50px; align-items: center; }
+.giant-stats-block { display: flex; flex-direction: column; gap: 15px; }
 .giant-stat { display: flex; flex-direction: column; }
 .g-label { font-size: 16px; color: #646669; }
 .g-value { font-size: 58px; font-weight: 700; line-height: 1; }
-.yellow-text { color: #e2b714; }
+.yellow-text { color: #2563eb; }
 
-/* DYNAMIC MATRIX PERFORMANCE GRID VIEWPORT */
 .chart-placeholder-block {
     flex: 1;
     height: 160px;
@@ -201,76 +219,22 @@ body{
     position: relative;
 }
 
-.matrix-grid-ui {
-    display: flex;
-    width: 100%;
-    height: 100px;
-    align-items: flex-end;
-    gap: 12px;
-}
-
+.matrix-grid-ui { display: flex; width: 100%; height: 100px; align-items: flex-end; gap: 12px; }
 .matrix-bar {
     flex: 1;
-    background: rgba(226, 183, 20, 0.06);
-    border-top: 3px solid #e2b714;
+    background: rgba(37, 99, 235, 0.06);
+    border-top: 3px solid #2563eb;
     border-radius: 4px 4px 0 0;
-    transition: 0.5s ease;
 }
+.accent-glow { box-shadow: 0px 0px 10px rgba(37, 99, 235, 0.15); }
+.graph-text-hint { position: absolute; top: 15px; left: 25px; font-size: 11px; text-transform: uppercase; color: #444; }
 
-.accent-glow {
-    box-shadow: 0px 0px 10px rgba(226, 183, 20, 0.15);
-}
-
-.graph-text-hint {
-    position: absolute;
-    top: 15px;
-    left: 25px;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: #444;
-    letter-spacing: 1px;
-}
-
-/* MATRIX SPECIFICATIONS BOTTOM PROFILE */
-.result-details-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-    padding-top: 20px;
-}
-
+.result-details-row { display: flex; justify-content: space-between; width: 100%; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 20px; }
 .detail-box { display: flex; flex-direction: column; gap: 2px; }
 .d-label { font-size: 11px; color: #646669; }
 .d-value { font-size: 18px; color: #d1d0c5; }
 .red-text { color: #ca4754; }
 
-/* DUSK INTERACTIVE BUTTONS */
-.result-action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 35px;
-}
-
-.icon-action-btn {
-    background: transparent;
-    border: none;
-    font-family: inherit;
-    font-size: 14px;
-    color: #646669;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.icon-action-btn:hover {
-    color: #d1d0c5;
-    transform: scale(1.05);
-}
-
-@media(max-width:768px){
-    .topbar { flex-direction: column; height: auto; padding: 10px; gap: 10px; }
-    .result-main-row { flex-direction: column; gap: 20px; }
-    .chart-placeholder-block { width: 100%; }
-    .result-details-row { flex-wrap: wrap; gap: 15px; }
-}
+.result-action-buttons { display: flex; justify-content: center; gap: 25px; margin-top: 35px; }
+.icon-action-btn { background: transparent; border: none; font-family: inherit; font-size: 14px; color: #646669; cursor: pointer; }
+.icon-action-btn:hover { color: #d1d0c5; }
