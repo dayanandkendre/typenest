@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Speed Test | TypeNest</title>
     <link rel="stylesheet" href="typing.css">
@@ -15,91 +15,93 @@
 
 <div class="typing-page">
     
-    <!-- TOP BAR -->
+    <!-- TOP NAVBAR -->
     <div class="topbar">
-        <div class="back-link" onclick="window.history.back()">← Back</div>
-        <div class="level-title">Paragraph Speed Test</div>
+        <div class="back-link" onclick="window.history.back()">← back</div>
+        <div class="level-title">typenest test challenge</div>
         <div class="dummy-space"></div>
     </div>
 
-    <!-- MAIN DISPLAY AREA -->
-    <div class="main-container">
-        
-        <!-- LARGE TIMER -->
+    <!-- MAIN TYPING CONTAINER -->
+    <div class="main-container" id="typingContainer">
+        <!-- LARGE LIVE TIMER -->
         <div class="live-timer-wrapper">
-            <span id="time" class="giant-timer">00:00</span>
+            <span id="time" class="giant-timer">60</span>
         </div>
 
         <!-- HORIZONTAL SINGLE LINE DISPLAY -->
-        <div class="text-display">
-            <div id="textDisplay"></div>
+        <div class="text-display" id="textDisplayContainer">
+            <div class="text-display-inner" id="textDisplay"></div>
         </div>
 
         <!-- HIDDEN INPUT AREA -->
         <div class="hidden-input-box">
             <textarea id="input" autofocus></textarea>
         </div>
-
-        <!-- STATS ROW (FITS PERFECTLY AT THE BOTTOM) -->
-        <div class="stats">
-            <div class="stat-box">
-                <span class="stat-label">WPM</span>
-                <span class="stat-value blue" id="wpm">0</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-label">Accuracy</span>
-                <span class="stat-value green" id="accuracy">100%</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-label">Mistakes</span>
-                <span class="stat-value red" id="mistakes">0</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-label">Progress</span>
-                <span class="stat-value blue" id="progress">0%</span>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-            </div>
-        </div>
-
     </div>
-</div>
 
-<!-- RESULT POPUP (LIGHT MODE PREMIUM) -->
-<div id="resultPopup" class="popup">
-    <div class="popup-card advanced-popup">
-        <div class="popup-content">
-            <div class="popup-left">
-                <div class="level-circle" id="circleProgress">
-                    <div class="popup-trophy">🏆</div>
-                    <div id="popupTitle" class="circle-title">TEST COMPLETE</div>
+    <!-- =========================================
+         MONKEYTYPE STYLE INTERACTIVE RESULT SCREEN
+    ========================================= -->
+    <div class="monkey-result-container" id="resultScreen" style="display: none;">
+        <div class="result-main-row">
+            
+            <!-- LEFT GIANT STATS -->
+            <div class="giant-stats-block">
+                <div class="giant-stat">
+                    <span class="g-label">wpm</span>
+                    <span class="g-value yellow-text" id="finalWpm">0</span>
+                </div>
+                <div class="giant-stat">
+                    <span class="g-label">acc</span>
+                    <span class="g-value yellow-text" id="finalAccuracy">0%</span>
                 </div>
             </div>
-            <div class="result-card">
-                <div class="result-row">
-                    <span>🎯 Accuracy</span>
-                    <span id="finalAccuracy">100%</span>
-                </div>
-                <div class="result-row">
-                    <span>❌ Mistakes</span>
-                    <span id="finalMistakes">0</span>
-                </div>
-                <div class="result-row">
-                    <span>⚡ Net WPM</span>
-                    <span id="finalWpm">0</span>
-                </div>
-                <div class="result-row">
-                    <span>👑 Best WPM</span>
-                    <span id="bestWpm">0</span>
+
+            <!-- RIGHT DUMMY/PLACEHOLDER FOR CHART OR GRAPH FIELD -->
+            <div class="chart-placeholder-block">
+                <div class="mock-graph-lines">
+                    <!-- भविष्यात आलेख जोडण्यासाठी ही जागा मोकळी ठेवली आहे -->
+                    <span class="graph-text-hint">typing performance matrix</span>
                 </div>
             </div>
         </div>
-        <div class="popup-buttons">
-            <button id="restartBtn" onclick="location.reload()">🔄 Retry Test</button>
-            <button id="backBtn" onclick="window.history.back()">⬅ Back Home</button>
+
+        <!-- BOTTOM DETAILED MINIMAL STATS -->
+        <div class="result-details-row">
+            <div class="detail-box">
+                <span class="d-label">test type</span>
+                <span class="d-value">custom paragraph</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">raw wpm</span>
+                <span class="d-value" id="rawWpm">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">characters</span>
+                <span class="d-value" id="finalChars">0/0/0/0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">mistakes</span>
+                <span class="d-value red-text" id="finalMistakes">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">best score</span>
+                <span class="d-value" id="bestWpm">0</span>
+            </div>
+        </div>
+
+        <!-- MINIMAL CONTROL BUTTONS -->
+        <div class="result-action-buttons">
+            <button class="icon-action-btn" onclick="location.reload()" title="Restart Test">
+                🔄
+            </button>
+            <button class="icon-action-btn" onclick="window.history.back()" title="Go Back">
+                📁
+            </button>
         </div>
     </div>
+
 </div>
 
 <audio id="keySound" src="key.wav" preload="auto"></audio>
