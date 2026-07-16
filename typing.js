@@ -10,11 +10,11 @@ const loginBtnText = document.getElementById("loginBtnText");
 const loginNavBtn = document.getElementById("loginNavBtn");
 
 if (userUID && loginBtnText) {
-    // युझर लॉगिन असेल तर डॅशबोर्डचा ऑप्शन दाखवा
-    loginBtnText.innerText = "Dashboard";
+    // युझर लॉगिन असेल तर थेट प्रोफाईल पेज दाखवा
+    loginBtnText.innerText = "Dashboard"; // स्क्रीनवर नाव डॅशबोर्ड किंवा प्रोफाईल काहीही ठेवू शकतोस
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
-            window.location.href = "profile.html"; 
+            window.location.href = "profile.html"; /* 👈 इथे बदल केला */
         };
     }
 } else if (loginBtnText) {
