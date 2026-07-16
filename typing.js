@@ -1,13 +1,5 @@
 import { db } from "./firebase-config.js";
-
-import {
-doc,
-getDoc,
-updateDoc,
-collection,
-addDoc
-}
-from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const userUID = localStorage.getItem("userUID");
 
@@ -41,9 +33,7 @@ let paragraphs = [
     "A young traveler decided to explore a small mountain town during his vacation. He spent his days meeting local people, tasting traditional food, and learning about the history of the region. The experience helped him understand different cultures and appreciate new perspectives.",
     "The library was one of the quietest places in the city. Students, teachers, and readers visited every day to discover new ideas and improve their knowledge. Reading books regularly opened doors to imagination, learning, and personal growth.",
     "A farmer worked hard throughout the year to grow healthy crops for his family and community. He carefully planted seeds, watered the fields, and protected the plants from harsh weather. His dedication showed how persistence often leads to success.",
-    "The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans.",
-    "Many successful people begin their day with a simple routine. They wake up early, exercise, plan their goals, and focus on important tasks. Small daily habits often create positive changes that lead to long-term achievements.",
-    "The history of human communication has changed dramatically over time. People once relied on handwritten letters that took weeks to arrive. Today, digital technology allows messages to travel across the world within seconds."
+    "The blue whale is the largest animal on Earth. Despite its enormous size, it survives by eating tiny creatures called krill. Scientists continue to study these magnificent animals to better understand life in the world's oceans."
 ];
 
 let originalText = paragraphs[Math.floor(Math.random() * paragraphs.length)];
@@ -64,33 +54,20 @@ let interval;
 let liveCorrectCount = 0;
 let liveAccuracy = 0;
 let liveMistakes = 0;
+let totalTypedChars = 0;
 
 let timeElement = document.getElementById("time");
-if(timeElement){
-    let mins = Math.floor(timer / 60);
-    let secs = timer % 60;
-    timeElement.innerHTML = String(mins).padStart(2,"0") + ":" + String(secs).padStart(2,"0");
-}
+if(timeElement) timeElement.innerHTML = timer;
 
 /* =========================================
    ROBUST RENDER + HORIZONTAL SCROLL LOGIC
 ========================================= */
 function renderText(value = ""){
-    let currentWordIndex = 0;
-    for(let i = 0; i < value.length; i++){
-        if(originalText[i] === " ") {
-            currentWordIndex++;
-        }
-    }
-
     let html = "";
-    let tempWordIndex = 0;
-
     for(let i = 0; i < originalText.length; i++){
         let cls = "pending-char";
 
-        if(tempWordIndex === currentWordIndex) cls += " active-word";
-        if(i === value.length) cls += " current-char";
+        if(i === value.length) cls = "current-char";
 
         if(i < value.length){
             if(value[i] === originalText[i]){
@@ -102,10 +79,7 @@ function renderText(value = ""){
         }
 
         let ch = originalText[i];
-        if(ch === " "){
-            ch = "&nbsp;";
-            tempWordIndex++;
-        }
+        if(ch === " ") ch = "&nbsp;";
 
         html += `<span class="${cls}">${ch}</span>`;
     }
@@ -113,10 +87,10 @@ function renderText(value = ""){
     const textDisplay = document.getElementById("textDisplay");
     textDisplay.innerHTML = html;
 
-    /* HORIZONTAL CLAMPED SCROLL */
+    /* HORIZONTAL SCROLL ENGINE */
     const currentChar = document.querySelector(".current-char");
     if(currentChar){
-        const container = document.querySelector(".text-display");
+        const container = document.getElementById("textDisplayContainer");
         const containerWidth = container.offsetWidth;
         const textWidth = textDisplay.scrollWidth;
         const x = currentChar.offsetLeft;
@@ -141,7 +115,7 @@ let input = document.getElementById("input");
 const keySound = document.getElementById("keySound");
 
 document.body.addEventListener("click", function(){
-    input.focus();
+    if(input && !input.disabled) input.focus();
 });
 
 function startTimer(){
@@ -149,12 +123,7 @@ function startTimer(){
         timerStarted = true;
         interval = setInterval(function(){
             timer--;
-
-            let mins = Math.floor(timer / 60);
-            let secs = timer % 60;
-            if(timeElement){
-                timeElement.innerHTML = String(mins).padStart(2,"0") + ":" + String(secs).padStart(2,"0");
-            }
+            if(timeElement) timeElement.innerHTML = timer;
 
             if(timer <= 0){
                 clearInterval(interval);
@@ -166,27 +135,42 @@ function startTimer(){
 }
 
 function endTest(){
-    let finalWpm = Math.floor(liveCorrectCount / 5);
+    // १. नेट स्पीड आणि अचूकता गणना
+    let finalNetWpm = Math.floor(liveCorrectCount / 5);
+    let timeElapsed = totalInitialTime - timer;
+    if(timeElapsed <= 0) timeElapsed = 60;
+    let rawWpm = Math.round((totalTypedChars / 5) / (timeElapsed / 60));
 
-    document.getElementById("finalWpm").innerText = finalWpm;
+    // २. मंकीटाईप फॉरमॅट नुसार लेटर्स मॅपिंग (Correct/Wrong/Extra/Missed)
+    let missed = originalText.length - totalTypedChars;
+    if(missed < 0) missed = 0;
+    let charFormattedStr = `${liveCorrectCount}/${liveMistakes}/0/${missed}`;
+
+    // ३. रिझल्ट स्क्रीनवर व्हॅल्यूज लोड करणे
+    document.getElementById("finalWpm").innerText = finalNetWpm;
     document.getElementById("finalAccuracy").innerText = liveAccuracy + "%";
     document.getElementById("finalMistakes").innerText = liveMistakes;
+    document.getElementById("rawWpm").innerText = rawWpm;
+    document.getElementById("finalChars").innerText = charFormattedStr;
 
-    let bestWpm = localStorage.getItem("bestWpm");
-    if(bestWpm === null || finalWpm > Number(bestWpm)){
-        localStorage.setItem("bestWpm", finalWpm);
-        bestWpm = finalWpm;
+    let bestWpm = localStorage.getItem("bestWpm") || 0;
+    if(finalNetWpm > Number(bestWpm)){
+        localStorage.setItem("bestWpm", finalNetWpm);
+        bestWpm = finalNetWpm;
     }
     document.getElementById("bestWpm").innerText = bestWpm;
 
-    saveResult(finalWpm, liveAccuracy);
+    saveResult(finalNetWpm, liveAccuracy);
    
-    document.getElementById("resultPopup").style.display = "flex";
+    // ४. 🏆 मंकीटाईप प्रमाणे मूळ टायपिंग स्क्रीन लपवून थेट रिझल्ट स्क्रीन दाखवणे[cite: 8]
+    document.getElementById("typingContainer").style.display = "none";
+    document.getElementById("resultScreen").style.display = "flex";
 }
 
 input.addEventListener("input", function(){
     startTimer();
     let inputText = this.value;
+    totalTypedChars = inputText.length;
 
     let correctCount = 0;
     let mistakes = 0;
@@ -198,32 +182,9 @@ input.addEventListener("input", function(){
 
     renderText(inputText);
 
-    document.getElementById("mistakes").innerText = mistakes;
-    
     let accuracy = 100;
     if(inputText.length > 0){
         accuracy = Math.floor((correctCount / inputText.length) * 100);
-    }
-    document.getElementById("accuracy").innerText = accuracy + "%";
-
-    let progress = (inputText.length / originalText.length) * 100;
-    if(document.getElementById("progressFill")){
-        document.getElementById("progressFill").style.width = progress + "%";
-    }
-    if(document.getElementById("progress")){
-        document.getElementById("progress").innerText = Math.round(progress) + "%";
-    }
-
-    /* LIVE PROFESSIONAL NET WPM */
-    let timeElapsed = totalInitialTime - timer;
-    let wpmElement = document.getElementById("wpm");
-    if(timeElapsed > 0 && wpmElement){
-        let elapsedMinutes = timeElapsed / 60;
-        let correctCharacters = correctCount - mistakes;
-        if(correctCharacters < 0) correctCharacters = 0;
-        
-        let currentLiveWpm = Math.round((correctCharacters / 5) / elapsedMinutes);
-        wpmElement.innerHTML = currentLiveWpm;
     }
 
     liveCorrectCount = correctCount;
@@ -236,7 +197,6 @@ input.addEventListener("input", function(){
     }
 });
 
-/* CLEAN SOUND ANIMATION ONLY */
 document.addEventListener("keydown", function(event){
     if(event.key.length === 1 || event.key === "Backspace" || event.key === " "){
         if(keySound){
