@@ -68,8 +68,9 @@ let liveAccuracy = 0;
 let liveMistakes = 0;
 let totalTypedChars = 0;
 
-// आधी किती अक्षरे टाईप केली होती त्याचा ट्रॅक ठेवण्यासाठी (Backspace ओळखायला)
+// आधीच्या इनपुट व्हॅल्यू आणि सलग किती चुका झाल्या याचा ट्रॅक ठेवण्यासाठी
 let lastInputValue = ""; 
+let consecutiveMistakes = 0; 
 
 let timeElement = document.getElementById("time");
 if(timeElement) timeElement.innerHTML = timer;
@@ -176,47 +177,39 @@ function endTest(){
     document.getElementById("resultScreen").style.display = "flex";
 }
 
-/* =========================================
-   INTELLIGENT DYNAMIC STRICTION FILTER
-========================================= */
+/* =========================================================
+   🏆 DYNAMIC CONSECUTIVE ERROR LOCK ENGINE (२ चुकांवर लॉक लॉजिक)
+========================================================= */
 input.addEventListener("input", function(e){
     let currentVal = this.value;
 
-    // जर युझर Backspace दाबत असेल, तर त्याला थांबवायचे नाही, थेट जाऊ द्यायचे.
+    // जर युझर Backspace दाबून मागे जात असेल, तर चुकांचा काउंटर कमी करून जाऊ देणे
     if(currentVal.length < lastInputValue.length) {
         lastInputValue = currentVal;
+        if(consecutiveMistakes > 0) consecutiveMistakes--;
         processTyping(currentVal);
         return;
     }
 
-    let nextCharIndex = currentVal.length - 1;
+    let checkIndex = currentVal.length - 1;
+    let isCurrentCharCorrect = currentVal[checkIndex] === originalText[checkIndex];
 
-    // 🏆 नियम १: शब्दाचे पहिले अक्षर चुकले तर लॉक करणे
-    // जर आपण इंडेक्स ० वर असू किंवा मागचे अक्षर स्पेस (म्हणजे नवीन शब्दाची सुरुवात) असेल
-    if(nextCharIndex === 0 || originalText[nextCharIndex - 1] === " ") {
-        if(currentVal[nextCharIndex] !== originalText[nextCharIndex]) {
-            // चुकीचे अक्षर कट करून इनपुट रिस्टोर करणे
-            this.value = lastInputValue; 
+    if (isCurrentCharCorrect) {
+        // जर युझरने बरोबर अक्षर दाबले, तर सलग चुकांचा काउंटर शून्य (Reset) होईल
+        consecutiveMistakes = 0;
+    } else {
+        // जर अक्षर चुकले, तर चुकांचा काउंटर १ ने वाढवणे
+        consecutiveMistakes++;
+
+        // 🚨 मुख्य कंडिशन: जर सलग २ अक्षरे चुकीची टाईप झाली असतील, तर कर्सर लॉक करणे!
+        if (consecutiveMistakes >= 2) {
+            this.value = lastInputValue; // इनपुट जुन्या जागेवर रिस्टोर करा
+            consecutiveMistakes = 1;     // काउंटर १ वरच ठेवा जेणेकरून बॅकस्पेस किंवा बरोबर की दाबल्यावर काम करेल
             return;
         }
     }
 
-    // 🏆 नियम २: शब्दाच्या मध्ये सलग २ चुका झाल्या तर लॉक करणे
-    if(currentVal.length >= 2) {
-        let lastIdx = currentVal.length - 1;
-        let secondLastIdx = currentVal.length - 2;
-
-        let isLastWrong = currentVal[lastIdx] !== originalText[lastIdx];
-        let isSecondLastWrong = currentVal[secondLastIdx] !== originalText[secondLastIdx];
-
-        // जर सलग दोन अक्षरे चुकीची भरली असतील तर इनपुट ब्लॉक करणे
-        if(isLastWrong && isSecondLastWrong) {
-            this.value = lastInputValue; 
-            return;
-        }
-    }
-
-    // जर वरील दोन्ही फिल्टर पास झाले, तरच इनपुट स्वीकारणे
+    // इनपुट व्हॅल्यू अपडेट करून टायपिंग प्रोसेस करणे
     lastInputValue = this.value;
     processTyping(this.value);
 });
