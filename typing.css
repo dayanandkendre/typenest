@@ -5,10 +5,11 @@
 }
 
 body{
-    background:#f5f7ff;
-    font-family:'Poppins', sans-serif;
+    background:#1c1c1e; /* 👈 मंकीटाईप सारखा डार्क मॅट डार्क बॅकग्राउंड */
+    font-family: 'Roboto Mono', monospace;
     height: 100vh;
-    overflow: hidden; /* 👈 उभा स्क्रोलबार पूर्णपणे बंद[cite: 8] */
+    overflow: hidden;
+    color: #646669;
 }
 
 .typing-page{
@@ -18,117 +19,100 @@ body{
     justify-content: flex-start;
 }
 
-/* TOP BAR */
+/* TOP NAVBAR */
 .topbar{
     height:65px;
-    background:#111827;
-    color:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 30px;
+    padding:0 40px;
+    background: transparent;
 }
 
 .back-link{
-    font-size:14px;
+    font-size:15px;
     cursor:pointer;
-    opacity: 0.8;
+    color: #646669;
     transition: 0.2s;
 }
-.back-link:hover{ opacity: 1; color: #3b82f6; }
+.back-link:hover{ color: #d1d0c5; }
 
 .level-title{
-    font-size:18px;
-    font-weight:600;
-    letter-spacing: 0.5px;
+    font-size:14px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
 }
 
-/* MAIN CONTAINER (CENTERED CONTENT) */
+/* MAIN LIVE INTERFACE */
 .main-container {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    max-width: 1000px;
+    max-width: 950px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* GIANT TIMER DISPLAY */
 .live-timer-wrapper {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 .giant-timer {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 55px;
-    font-weight: 700;
-    color: #64748b;
-    letter-spacing: -1px;
+    font-size: 32px;
+    color: #e2b714; /* पिवळा मंकीटाईप टायमर */
 }
 
-/* TEXT DISPLAY BOX (SINGLE LINE FLOW) */
+/* HORIZONTAL SCROLL BOX */
 .text-display{
     width: 100%;
-    height: 90px;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 0 35px;
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-    border: 1px solid rgba(0,0,0,0.02);
+    padding: 10px 0;
 }
 
-#textDisplay{
-    font-family: 'Roboto Mono', monospace; /* प्रोफेशनल टायपिंग फॉन्ट */
-    font-size: 34px;
-    color: #94a3b8;
-    white-space: nowrap; /* एकाच ओळीत ठेवण्यासाठी[cite: 7] */
+.text-display-inner {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 32px;
+    color: #646669; /* अन-टाईप केलेली अक्षरे करड्या रंगात होतील */
+    letter-spacing: 0.5px;
     transition: transform 0.2s ease-out;
     will-change: transform;
 }
 
-/* CHAR CHAR CHAR STATUSES */
+/* TEXT CHAR CHAR CHAR STATUSES */
 .correct-char{
-    color:#1e293b; /* मुख्य डार्क रंग */
+    color:#d1d0c5; /* टाईप केलेले बरोबर अक्षरे एकदम फिकट पांढरी/क्रीम दिसतील */
 }
 
 .wrong-char{
-    color:#ef4444;
+    color:#ca4754; /* लाल रंगाची चूक */
+    border-bottom: 2px solid #ca4754;
 }
 
-.pending-char{
-    color:#cbd5e1;
+.wrong-space {
+    background: rgba(202, 71, 84, 0.2);
+    border-radius: 3px;
 }
 
-.wrong-space{
-    background: rgba(239, 68, 68, 0.15);
-    border-radius: 4px;
-}
-
-/* ACTIVE WORD HIGHLIGHT */
-.active-word{
-    background: rgba(59, 130, 246, 0.06);
-    border-radius: 6px;
-}
-
-/* SMOOTH SMOOTH CURSOR LINE */
+/* ACTIVE CURSOR LINE */
 .current-char{
     position: relative;
 }
 .current-char::before{
     content: "";
     position: absolute;
-    left: -2px;
-    top: 4px;
-    width: 3px;
-    height: 85%;
-    background: #2563eb;
-    animation: blinkCursor 0.8s infinite;
+    left: -1px;
+    top: 2px;
+    width: 2.5px;
+    height: 90%;
+    background: #e2b714;
+    animation: blinkCursor 1s infinite;
 }
 @keyframes blinkCursor{
     50%{ opacity:0; }
@@ -139,151 +123,127 @@ body{
     left: -9999px;
 }
 
-/* PREMIUM COMPACT STATS ROW */
-.stats{
+/* =========================================
+   MONKEYTYPE DYNAMIC RESULT SCREEN DESIGN
+========================================= */
+.monkey-result-container {
+    flex: 1;
     width: 100%;
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.stat-box{
-    background: white;
-    border-radius: 16px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    height: 85px;
+    max-width: 950px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid rgba(0,0,0,0.01);
+    padding: 40px 20px;
+    animation: fadeIn 0.4s ease-out;
 }
 
-.stat-label{
-    display: block;
-    color: #64748b;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 4px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.stat-value{
-    font-size: 26px;
-    font-weight: 700;
-    font-family: 'Roboto Mono', monospace;
-}
-
-.red{ color:#ef4444; }
-.green{ color:#10b981; }
-.blue{ color:#2563eb; }
-
-.progress-bar{
+.result-main-row {
+    display: flex;
     width: 100%;
-    height: 6px;
-    background: #f1f5f9;
-    border-radius: 10px;
-    margin-top: 6px;
-    overflow: hidden;
+    gap: 40px;
+    align-items: center;
 }
 
-.progress-fill{
-    width: 0%;
-    height: 100%;
-    background: #2563eb;
-    border-radius: 10px;
-    transition: 0.2s ease-out;
+/* GIANT WPM ACC STYLING */
+.giant-stats-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* POPUP MODULE */
-.popup{
-    position:fixed;
-    inset:0;
-    background:rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(8px);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
+.giant-stat {
+    display: flex;
+    flex-direction: column;
 }
 
-.advanced-popup{
-    width:92%;
-    max-width:580px;
-    background:#ffffff;
-    border-radius:28px;
-    padding:35px;
-    text-align:center;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+.g-label {
+    font-size: 18px;
+    color: #646669;
+    text-transform: lowercase;
 }
 
-.popup-content{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:35px;
-    margin-bottom:25px;
+.g-value {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
 }
 
-.level-circle{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    border:6px solid #2563eb;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background:#fff;
-    box-shadow: 0 10px 25px rgba(37,99,241,0.1);
+.yellow-text {
+    color: #e2b714; /* 👈 मंकीटाईप सिग्नेचर पिवळा ग्लो रंग */
 }
 
-.popup-trophy{ font-size:40px; }
-.circle-title{ font-size:12px; font-weight:800; color:#1e293b; margin-top:5px; }
-
-.result-card{
-    width:260px;
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:20px;
-    padding:15px;
+/* MOCK CHART BOX */
+.chart-placeholder-block {
+    flex: 1;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px dashed rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.result-row{
-    display:flex;
-    justify-content:space-between;
-    padding:8px 0;
-    border-bottom:1px solid #e5e7eb;
-    font-size:15px;
-}
-.result-row:last-of-type{ border-bottom:none; }
-.result-row span:last-child{ font-weight:700; color:#2563eb; font-family: 'Roboto Mono', monospace; }
-
-.popup-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
+.mock-graph-lines {
+    color: #444;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.popup-buttons button{
-    border:none;
-    min-width:140px;
-    padding:14px 24px;
-    border-radius:14px;
-    cursor:pointer;
-    color:white;
-    font-size:15px;
-    font-weight:700;
-    transition:.15s;
+/* DETAIL METRICS BELOW */
+.result-details-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 45px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 25px;
 }
 
-#restartBtn{ background:#8b5cf6; }
-#backBtn{ background:#64748b; }
-.popup-buttons button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.detail-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 
-@media(max-width:768px){
-    .stats{ grid-template-columns: repeat(2,2fr); }
-    .popup-content{ flex-direction:column; }
-    .popup-buttons button{ width:100%; }
+.d-label {
+    font-size: 12px;
+    color: #646669;
+}
+
+.d-value {
+    font-size: 20px;
+    font-weight: 500;
+    color: #d1d0c5;
+}
+
+.red-text { color: #ca4754; }
+
+/* MINIMAL ACTION BUTTONS */
+.result-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.icon-action-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+.icon-action-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
