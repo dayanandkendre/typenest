@@ -136,5 +136,42 @@
 <audio id="keySound" src="key.wav" preload="auto"></audio>
 <script type="module" src="typing.js"></script>
 
+<!-- =========================================
+     LOGIN MODAL (DIRECT IN TYPING PAGE)
+========================================= -->
+<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; backgroundColor: rgba(0,0,0,0.7); zIndex: 9999; justifyContent: center; alignItems: center;">
+    <div class="login-box">
+        <!-- CLOSE -->
+        <div class="close-login" onclick="closeLoginModal()" style="cursor: pointer; float: right; fontSize: 20px;">✕</div>
+
+        <!-- TITLE -->
+        <h1>Welcome Back</h1>
+        <p>Login to continue your typing journey.</p>
+
+        <!-- INPUT -->
+        <input type="email" id="email" placeholder="Email Address">
+        <input type="password" id="password" placeholder="Password">
+
+        <!-- BUTTON -->
+        <button id="modalLoginBtn">Login</button>
+
+        <!-- GOOGLE -->
+        <div class="google-login" id="googleLoginBtn">
+            Continue with Google
+        </div>
+    </div>
+</div>
+
+<script>
+function openLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) modal.style.display = "flex";
+}
+function closeLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) modal.style.display = "none";
+}
+</script>
+    
 </body>
 </html>
