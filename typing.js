@@ -183,14 +183,28 @@ function renderText(value = ""){
 let input = document.getElementById("input");
 const keySound = document.getElementById("keySound");
 
+// =========================================================
+// 🎯 FOCUS LOCK BYPASS FOR LOGIN INPUTS (FIXED)
+// =========================================================
 document.body.addEventListener("click", function(e){
-    // जर लॉगिन पॉपअप उघडा असेल किंवा युझर पॉपअपच्या आत क्लिक करत असेल, तर टायपिंग इनपुटवर फोकस करू नका 🔐
     const modal = document.getElementById("loginModal");
-    if (modal && modal.style.display === "flex" && e.target.closest("#loginModal")) {
-        return; // टायपिंग फोकस लॉक थांबवा
+    
+    // जर पॉपअप उघडा असेल (display: flex), तर खालील कोणत्याही गोष्टीवर फोकस करू नका
+    if (modal && modal.style.display === "flex") {
+        // जर युझरने ईमेल किंवा पासवर्ड इनपुट बॉक्सवर क्लिक केले असेल तर तिथेच फोकस राहू द्या
+        if (e.target.id === "email" || e.target.id === "password" || e.target.id === "modalLoginBtn" || e.target.id === "googleLoginBtn") {
+            return; 
+        }
+        // पॉपअपच्या आत कुठेही क्लिक केल्यास टायपिंग इनपुट ब्लॉक करा
+        if (e.target.closest(".login-box")) {
+            return;
+        }
     }
     
-    if(input && !input.disabled) input.focus();
+    // पॉपअप बंद असेल तरच टायपिंग इनपुटवर फोकस जाईल
+    if(input && !input.disabled) {
+        input.focus();
+    }
 });
 
 function startTimer(){
