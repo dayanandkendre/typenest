@@ -183,7 +183,13 @@ function renderText(value = ""){
 let input = document.getElementById("input");
 const keySound = document.getElementById("keySound");
 
-document.body.addEventListener("click", function(){
+document.body.addEventListener("click", function(e){
+    // जर लॉगिन पॉपअप उघडा असेल किंवा युझर पॉपअपच्या आत क्लिक करत असेल, तर टायपिंग इनपुटवर फोकस करू नका 🔐
+    const modal = document.getElementById("loginModal");
+    if (modal && modal.style.display === "flex" && e.target.closest("#loginModal")) {
+        return; // टायपिंग फोकस लॉक थांबवा
+    }
+    
     if(input && !input.disabled) input.focus();
 });
 
