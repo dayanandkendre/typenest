@@ -134,30 +134,41 @@
 </div>
 
 <audio id="keySound" src="key.wav" preload="auto"></audio>
-<script type="module" src="typing.js"></script>
 
-<!-- =========================================
-     LOGIN MODAL (DIRECT IN TYPING PAGE)
-========================================= -->
-<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; backgroundColor: rgba(0,0,0,0.7); zIndex: 9999; justifyContent: center; alignItems: center;">
-    <div class="login-box">
-        <!-- CLOSE -->
-        <div class="close-login" onclick="closeLoginModal()" style="cursor: pointer; float: right; fontSize: 20px;">✕</div>
+<!-- =========================================================
+     🎯 PREMIUM NEON LOGIN MODAL (FULLY DESIGNED WITH INLINE CSS)
+========================================================= -->
+<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
+    
+    <div class="login-box" style="background: #18191e; border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; text-align: center; box-sizing: border-box;">
+        
+        <!-- CLOSE BUTTON -->
+        <div class="close-login" onclick="closeLoginModal()" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#646669'">✕</div>
+
+        <!-- LOGO ICON -->
+        <div style="font-size: 32px; margin-bottom: 10px;">⌨️</div>
 
         <!-- TITLE -->
-        <h1>Welcome Back</h1>
-        <p>Login to continue your typing journey.</p>
+        <h1 style="color: #fff; font-size: 26px; margin: 0 0 8px 0; font-weight: 600; letter-spacing: -0.5px;">Welcome Back</h1>
+        <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to continue your typing journey.</p>
 
-        <!-- INPUT -->
-        <input type="email" id="email" placeholder="Email Address">
-        <input type="password" id="password" placeholder="Password">
+        <!-- INPUT FIELDS -->
+        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
+        
+        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
 
         <!-- BUTTON -->
-        <button id="modalLoginBtn">Login</button>
+        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Login</button>
 
-        <!-- GOOGLE -->
-        <div class="google-login" id="googleLoginBtn">
-            Continue with Google
+        <!-- OR SEPARATOR -->
+        <div style="color: #444; font-size: 12px; margin: 15px 0; position: relative;">
+            <span style="background: #18191e; padding: 0 10px; position: relative; z-index: 2;">OR</span>
+            <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05); z-index: 1;"></div>
+        </div>
+
+        <!-- GOOGLE BUTTON -->
+        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;" onmouseover="this.style.background='rgba(255,255,255,0.03)'; this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.1)'">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="G" style="width: 18px; height: 18px;"> Continue with Google
         </div>
     </div>
 </div>
@@ -165,13 +176,22 @@
 <script>
 function openLoginModal(){
     const modal = document.getElementById("loginModal");
-    if(modal) modal.style.display = "flex";
+    if(modal) {
+        modal.style.display = "flex";
+        const mainInput = document.getElementById("input");
+        if(mainInput) mainInput.blur(); // पॉपअप उघडल्यावर प्रॅक्टिस थांबवणे
+    }
 }
 function closeLoginModal(){
     const modal = document.getElementById("loginModal");
     if(modal) modal.style.display = "none";
 }
 </script>
-    
+
+<!-- REQUIRED ENGINES FOR FIREBASE & LOGIN FUNCTIONALITY -->
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="typing.js"></script>
+
 </body>
 </html>
