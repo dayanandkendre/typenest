@@ -18,11 +18,11 @@ if (userUID && loginBtnText) {
         };
     }
 } else if (loginBtnText) {
-    // युझर लॉगिन नसेल तर 'Sign In' दाखवा आणि लॉगिन पेजवर पाठवा
+    // युझर लॉगिन नसेल तर 'Sign In' दाखवा आणि याच पेजवर पॉपअप मॉडेल ओपन करा!
     loginBtnText.innerText = "Sign In";
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
-            window.location.href = "login.html"; 
+            openLoginModal(); // 👈 रिडायरेक्ट न करता थेट टायपिंग पेजवर पॉपअप उघडेल
         };
     }
 }
