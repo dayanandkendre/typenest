@@ -18,11 +18,18 @@
 <div class="typing-page">
     
     <!-- =========================================
-         BRAND TOP NAVBAR
+         BRAND TOP NAVBAR (WITH NAVIGATION LINKS)
     ========================================= -->
     <div class="topbar">
         <div class="nav-left">
             <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
+            
+            <!-- Quick Feature Links -->
+            <div class="nav-links">
+                <a href="practice.html" class="nav-item">🎯 Practice</a>
+                <a href="leaderboard.html" class="nav-item">🏆 Leaderboard</a>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+            </div>
         </div>
         <div class="nav-right">
             <button class="login-profile-btn" id="loginNavBtn">
@@ -122,6 +129,34 @@
             <div class="detail-box">
                 <span class="d-label">personal best</span>
                 <span class="d-value" id="bestWpm">0</span>
+            </div>
+        </div>
+
+        <!-- 🚀 NEW FEATURE SHOWCASE SECTION ON RESULT SCREEN -->
+        <div class="result-features-wrapper">
+            <p class="features-label">Explore TypeNest Features</p>
+            <div class="feature-cards-grid">
+                <div class="f-card" onclick="window.location.href='dashboard.html'">
+                    <span class="f-icon">📊</span>
+                    <div class="f-info">
+                        <h4>Analytics</h4>
+                        <p>Track progress & graphs</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='practice.html'">
+                    <span class="f-icon">🎯</span>
+                    <div class="f-info">
+                        <h4>Target Practice</h4>
+                        <p>Master weak keys</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='leaderboard.html'">
+                    <span class="f-icon">🏆</span>
+                    <div class="f-info">
+                        <h4>Leaderboard</h4>
+                        <p>Compete with top typists</p>
+                    </div>
+                </div>
             </div>
         </div>
 
