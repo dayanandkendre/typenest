@@ -416,3 +416,37 @@ document.addEventListener("keyup", function(event){
 // सुरुवातीला लोड करण्यासाठी
 setupConfigListeners();
 initTest();
+
+
+/* =========================================================
+   🌓 THEME SWITCHER LOGIC (DARK / LIGHT TOGGLE)
+========================================================= */
+const themeToggleBtn = document.getElementById("themeToggleBtn");
+const themeIcon = document.getElementById("themeIcon");
+const themeText = document.getElementById("themeText");
+
+// Local Storage मधून थीम चेक करा (Default: Dark)
+const savedTheme = localStorage.getItem("typeNestTheme") || "dark";
+applyTheme(savedTheme);
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        applyTheme(newTheme);
+    });
+}
+
+function applyTheme(theme) {
+    if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        if (themeIcon) themeIcon.innerText = "☀️";
+        if (themeText) themeText.innerText = "Light";
+        localStorage.setItem("typeNestTheme", "light");
+    } else {
+        document.documentElement.removeAttribute("data-theme");
+        if (themeIcon) themeIcon.innerText = "🌙";
+        if (themeText) themeText.innerText = "Dark";
+        localStorage.setItem("typeNestTheme", "dark");
+    }
+}
