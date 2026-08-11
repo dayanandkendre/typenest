@@ -3,14 +3,13 @@ import { doc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.
 
 const userUID = localStorage.getItem("userUID");
 
-// =========================================================
-// 🔐 AUTHENTICATION & NAVIGATION ROUTER LOGIC
-// =========================================================
+/* =========================================================
+   🔐 AUTHENTICATION & ROUTER LOGIC
+========================================================= */
 const loginBtnText = document.getElementById("loginBtnText");
 const loginNavBtn = document.getElementById("loginNavBtn");
 
 if (userUID && loginBtnText) {
-    // युझर लॉगिन असेल तर थेट प्रोफाईल पेज दाखवा
     loginBtnText.innerText = "Dashboard"; 
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
@@ -18,21 +17,20 @@ if (userUID && loginBtnText) {
         };
     }
 } else if (loginBtnText) {
-    // युझर लॉगिन नसेल तर 'Sign In' दाखवा आणि याच पेजवर पॉपअप मॉडेल ओपन करा!
     loginBtnText.innerText = "Sign In";
     if (loginNavBtn) {
         loginNavBtn.onclick = function() { 
-            openLoginModal(); // 👈 रिडायरेक्ट न करता थेट टायपिंग पेजवर पॉपअप उघडेल
+            openLoginModal(); 
         };
     }
 }
 
 /* =========================================
-   DYNAMIC TEXT & CONFIG STATE ENGINE
+   DYNAMIC CONFIG & STATE ENGINE
 ========================================= */
-let currentType = "normal"; // normal, punctuation, numbers
-let currentMode = "time";     // time, words
-let currentTargetValue = 30;  // 15, 30, 60, 100
+let currentType = "normal"; 
+let currentMode = "time";     
+let currentTargetValue = 30;  
 
 let paragraphsNormal = [
     "The little boy walked to the village market every morning with his grandfather. Along the way, they greeted neighbors, watched birds flying across the sky, and enjoyed the fresh morning air. These simple daily walks taught him kindness, patience, and the value of community.",
@@ -67,7 +65,6 @@ let totalTypedChars = 0;
 let lastInputValue = "";
 let consecutiveMistakes = 0;
 
-// Dynamic Analytics Variables
 let wpmHistory = [];
 let secondCounter = 0;
 let chartInstance = null;
@@ -95,7 +92,6 @@ function initTest() {
     
     originalText = pool[Math.floor(Math.random() * pool.length)];
 
-    // जर 'words' मोड असेल, तर पॅराग्राफमधील फक्त निवडक शब्दच समोर ठेवणे
     if (currentMode === "words") {
         let wordsArr = originalText.split(" ");
         originalText = wordsArr.slice(0, currentTargetValue).join(" ");
@@ -107,14 +103,14 @@ function initTest() {
     }
 
     let inputField = document.getElementById("input");
-    inputField.value = "";
-    inputField.disabled = false;
+    if(inputField) {
+        inputField.value = "";
+        inputField.disabled = false;
+        setTimeout(() => inputField.focus(), 50);
+    }
     renderText("");
 }
 
-/* =========================================
-   CLICK INTERACTION ON CONFIG SUB-BAR
-========================================= */
 function setupConfigListeners() {
     document.querySelectorAll("#typeGroup .cfg-btn").forEach(btn => {
         btn.onclick = function() {
@@ -162,7 +158,7 @@ function renderText(value = ""){
         html += `<span class="${cls}">${ch}</span>`;
     }
     const textDisplay = document.getElementById("textDisplay");
-    textDisplay.innerHTML = html;
+    if(textDisplay) textDisplay.innerHTML = html;
 
     const currentChar = document.querySelector(".current-char");
     if(currentChar){
@@ -183,25 +179,16 @@ function renderText(value = ""){
 let input = document.getElementById("input");
 const keySound = document.getElementById("keySound");
 
-// =========================================================
-// 🎯 FOCUS LOCK BYPASS FOR LOGIN INPUTS (FIXED)
-// =========================================================
+/* =========================================================
+   FOCUS LOCK CONTROL
+========================================================= */
 document.body.addEventListener("click", function(e){
     const modal = document.getElementById("loginModal");
-    
-    // जर पॉपअप उघडा असेल (display: flex), तर खालील कोणत्याही गोष्टीवर फोकस करू नका
     if (modal && modal.style.display === "flex") {
-        // जर युझरने ईमेल किंवा पासवर्ड इनपुट बॉक्सवर क्लिक केले असेल तर तिथेच फोकस राहू द्या
-        if (e.target.id === "email" || e.target.id === "password" || e.target.id === "modalLoginBtn" || e.target.id === "googleLoginBtn") {
+        if (e.target.id === "email" || e.target.id === "password" || e.target.id === "modalLoginBtn" || e.target.id === "googleLoginBtn" || e.target.closest(".login-box")) {
             return; 
         }
-        // पॉपअपच्या आत कुठेही क्लिक केल्यास टायपिंग इनपुट ब्लॉक करा
-        if (e.target.closest(".login-box")) {
-            return;
-        }
     }
-    
-    // पॉपअप बंद असेल तरच टायपिंग इनपुटवर फोकस जाईल
     if(input && !input.disabled) {
         input.focus();
     }
@@ -214,7 +201,6 @@ function startTimer(){
             timer--;
             secondCounter++;
             
-            // लाईव्ह आलेखसाठी प्रति सेकंदाची WPM ट्रॅकिंग
             let currentMinutes = secondCounter / 60;
             let netCorrect = liveCorrectCount - liveMistakes;
             if(netCorrect < 0) netCorrect = 0;
@@ -232,7 +218,6 @@ function startTimer(){
         timerStarted = true;
         totalInitialTime = Date.now(); 
         
-        // शब्दांच्या प्रॅक्टिससाठी बॅकग्राउंडमध्ये दर सेकंदाचा डेटा गोळा करणे
         interval = setInterval(function(){
             secondCounter++;
             let currentMinutes = secondCounter / 60;
@@ -273,7 +258,6 @@ function endTest(){
     }
     document.getElementById("bestWpm").innerText = bestWpm;
 
-    // डेटा फायरस्टोअरला सेव्ह करणे
     if(userUID) {
         const userRef = doc(db, "users", userUID);
         getDoc(userRef).then(snap => {
@@ -293,7 +277,6 @@ function endTest(){
     document.getElementById("footerShortcut").style.display = "none";
     document.getElementById("resultScreen").style.display = "flex";
 
-    // 🏆 Dynamic Chart.js Rendering Logic
     let labels = [];
     for (let i = 1; i <= wpmHistory.length; i++) labels.push(i + "s");
     if (wpmHistory.length === 0) {
@@ -331,33 +314,35 @@ function endTest(){
 }
 
 /* =========================================================
-   २ चुकांवर लॉक करणारा कडक इनपुट लिसनर
+   MAX 2 MISTAKES INPUT LOCKER
 ========================================================= */
-input.addEventListener("input", function(){
-    let currentVal = this.value;
+if(input) {
+    input.addEventListener("input", function(){
+        let currentVal = this.value;
 
-    if(currentVal.length < lastInputValue.length) {
-        lastInputValue = currentVal;
-        if(consecutiveMistakes > 0) consecutiveMistakes--;
-        processTyping(currentVal);
-        return;
-    }
-
-    let checkIndex = currentVal.length - 1;
-    if (currentVal[checkIndex] === originalText[checkIndex]) {
-        consecutiveMistakes = 0;
-    } else {
-        consecutiveMistakes++;
-        if (consecutiveMistakes >= 2) {
-            this.value = lastInputValue; 
-            consecutiveMistakes = 1;     
+        if(currentVal.length < lastInputValue.length) {
+            lastInputValue = currentVal;
+            if(consecutiveMistakes > 0) consecutiveMistakes--;
+            processTyping(currentVal);
             return;
         }
-    }
 
-    lastInputValue = this.value;
-    processTyping(this.value);
-});
+        let checkIndex = currentVal.length - 1;
+        if (currentVal[checkIndex] === originalText[checkIndex]) {
+            consecutiveMistakes = 0;
+        } else {
+            consecutiveMistakes++;
+            if (consecutiveMistakes >= 2) {
+                this.value = lastInputValue; 
+                consecutiveMistakes = 1;     
+                return;
+            }
+        }
+
+        lastInputValue = this.value;
+        processTyping(this.value);
+    });
+}
 
 function processTyping(inputText) {
     startTimer();
@@ -377,7 +362,6 @@ function processTyping(inputText) {
     liveAccuracy = accuracy;
     liveMistakes = mistakes;
 
-    // जर 'words' मोड असेल तर लाइव्ह स्टेटस बदलणे
     if(currentMode === "words") {
         let currentTypedWords = inputText.trim() === "" ? 0 : inputText.trim().split(/\s+/).length;
         document.getElementById("time").innerHTML = `${currentTypedWords}/${currentTargetValue} words`;
@@ -389,7 +373,7 @@ function processTyping(inputText) {
 }
 
 /* =========================================================
-   KEYBOARD SHORTCUT HANDLERS (TAB + ENTER = RESTART)
+   KEYBOARD SHORTCUTS
 ========================================================= */
 let keysPressed = {};
 document.addEventListener("keydown", function(event){
@@ -413,19 +397,16 @@ document.addEventListener("keyup", function(event){
     delete keysPressed[event.key.toLowerCase()];
 });
 
-// सुरुवातीला लोड करण्यासाठी
 setupConfigListeners();
 initTest();
 
-
 /* =========================================================
-   🌓 THEME SWITCHER LOGIC (DARK / LIGHT TOGGLE)
+   THEME TOGGLE
 ========================================================= */
 const themeToggleBtn = document.getElementById("themeToggleBtn");
 const themeIcon = document.getElementById("themeIcon");
 const themeText = document.getElementById("themeText");
 
-// Local Storage मधून थीम चेक करा (Default: Dark)
 const savedTheme = localStorage.getItem("typeNestTheme") || "dark";
 applyTheme(savedTheme);
 
