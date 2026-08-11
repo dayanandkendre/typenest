@@ -58,7 +58,7 @@ body {
 }
 
 /* =========================================
-   TYPENEST THEMED TOPBAR & PREMIUM TOGGLE
+   TOPBAR & NAVIGATION
 ========================================= */
 .topbar {
     height: 70px;
@@ -110,7 +110,7 @@ body {
     align-items: center;
 }
 
-/* 🌟 PREMIUM THEME SWITCH TAB */
+/* THEME SWITCHER */
 .theme-toggle-btn {
     display: flex;
     align-items: center;
@@ -137,10 +137,6 @@ body {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-.theme-icon {
-    font-size: 14px;
-}
-
 .login-profile-btn {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -160,7 +156,7 @@ body {
 }
 
 /* =========================================
-   WORKING CONFIG SUB BAR
+   CONFIG SUB BAR
 ========================================= */
 .sub-config-wrapper {
     width: 100%;
@@ -251,7 +247,7 @@ body {
 
 .correct-char { color: var(--text-main); }
 .wrong-char { color: #ca4754; border-bottom: 2px solid #ca4754; }
-.wrong-space { background: rgba(202, 71, 84, 0.2); border-radius: 3px; }
+.wrong-space { background: rgba(202, 71, 84, 0.25); border-radius: 3px; padding: 0 2px; }
 
 /* DYNAMIC CURSOR */
 .current-char { position: relative; }
@@ -295,7 +291,7 @@ body {
 }
 
 /* =========================================
-   MONKEYTYPE STYLE DYNAMIC RESULT SCREEN
+   RESULT SCREEN
 ========================================= */
 .monkey-result-container {
     flex: 1;
@@ -321,10 +317,9 @@ body {
 .g-value { font-size: 58px; font-weight: 700; line-height: 1; }
 .yellow-text { color: var(--primary-color); }
 
-/* DYNAMIC REAL-TIME CHART BOX */
 .chart-placeholder-block {
     flex: 1;
-    height: 180px;
+    height: 200px;
     background: var(--chart-bg);
     border-radius: 14px;
     border: 1px dashed var(--border-color);
@@ -336,7 +331,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 30px;
     border-top: 1px solid var(--border-color);
     padding-top: 20px;
 }
@@ -346,16 +341,14 @@ body {
 .d-value { font-size: 18px; color: var(--text-main); }
 .red-text { color: #ca4754; }
 
-.result-action-buttons { display: flex; justify-content: center; gap: 25px; margin-top: 35px; }
+.result-action-buttons { display: flex; justify-content: center; gap: 25px; margin-top: 25px; }
 .icon-action-btn { background: transparent; border: none; font-family: inherit; font-size: 14px; color: var(--text-muted); cursor: pointer; transition: color 0.2s; }
 .icon-action-btn:hover { color: var(--text-main); }
 
-/* =========================================
-   RESULT SCREEN FEATURE SHOWCASE
-========================================= */
+/* FEATURE CARDS */
 .result-features-wrapper {
-    margin-top: 30px;
-    padding-top: 20px;
+    margin-top: 25px;
+    padding-top: 15px;
     border-top: 1px solid var(--border-color);
     width: 100%;
 }
@@ -394,42 +387,16 @@ body {
     transform: translateY(-2px);
 }
 
-.f-icon {
-    font-size: 20px;
-}
+.f-icon { font-size: 20px; }
+.f-info h4 { margin: 0; font-size: 14px; color: var(--text-main); font-weight: 600; }
+.f-info p { margin: 2px 0 0 0; font-size: 11px; color: var(--text-muted); }
 
-.f-info h4 {
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    color: var(--text-main);
-    font-weight: 600;
-}
-
-.f-info p {
-    margin: 2px 0 0 0;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-}
-
-/* Responsive Support */
+/* Responsive Adjustments */
 @media(max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    .result-main-row {
-        flex-direction: column;
-        gap: 25px;
-    }
-    .chart-placeholder-block {
-        width: 100%;
-    }
-    .result-details-row {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-    .feature-cards-grid {
-        grid-template-columns: 1fr;
-    }
+    .topbar { padding: 0 20px; }
+    .nav-links { display: none; }
+    .result-main-row { flex-direction: column; gap: 20px; }
+    .chart-placeholder-block { width: 100%; height: 160px; }
+    .result-details-row { flex-wrap: wrap; gap: 15px; }
+    .feature-cards-grid { grid-template-columns: 1fr; }
 }
