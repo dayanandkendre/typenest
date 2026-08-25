@@ -64,7 +64,6 @@
     }
     </script>
 </head>
-
 <body class="light">
 
 <!-- =========================================
@@ -74,6 +73,7 @@
     <div class="logo">
         <a href="index.html" style="text-decoration:none; color:inherit;">TypeNest</a>
     </div>
+
     <nav class="menu" id="mobileMenu">
         <a href="index.html" class="menu-link">Home</a>
         <a href="typing.html" class="menu-link">Practice</a>
@@ -85,16 +85,18 @@
         <button type="button" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</button>
     </nav>
     
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">🌙</button>
-    <button id="menuBtn" class="menu-btn" aria-label="Toggle Navigation Menu">☰</button>
-    
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <button type="button" class="login-btn" id="loginBtn" onclick="openLoginModal()">Login</button>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <button type="button" id="logoutDropdown" class="dropdown-btn">Logout</button>
+    <!-- THEME & MENU BUTTONS -->
+    <div style="display:flex; align-items:center;">
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">🌙</button>
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">☰</button>
+        
+        <!-- LOGIN / USER DROPDOWN -->
+        <div class="user-menu">
+            <button type="button" class="login-btn" id="loginBtn" onclick="openLoginModal()">Login</button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="profile.html">My Profile</a>
+                <button type="button" id="logoutDropdown" class="dropdown-btn" style="padding:14px 18px; width:100%; text-align:left;">Logout</button>
+            </div>
         </div>
     </div>
 </header>
@@ -103,7 +105,7 @@
      HERO SECTION
 ========================================= -->
 <section class="hero">
-    <!-- LEFT -->
+    <!-- LEFT SIDE -->
     <div class="hero-left">
         <div class="tag">
             Improve Your Typing Every Day
@@ -113,27 +115,27 @@
             Think <span class="blue">Faster.</span>
         </h1>
         <p>
-            TypeNest helps you improve your typing speed, accuracy and productivity with smart practice.
+            TypeNest helps you improve your typing speed, accuracy, and productivity with smart practice.
         </p>
         <div class="btn-area">
-            <a href="typing.html">
+            <a href="typing.html" style="text-decoration:none;">
                 <button class="start-btn">Start Typing Test</button>
             </a>
-            <a href="typing.html">
-                <button class="demo-btn">⌨️ Take Typing Test</button>
+            <a href="courses.html" style="text-decoration:none;">
+                <button class="demo-btn">⌨️ View Courses</button>
             </a>
         </div>
         <div class="users">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
-            <p style="font-weight:600; margin:0;">
+            <h3 style="font-weight:600; margin:0; font-size:16px;">
                 Structured touch typing lessons for every skill level
-            </p>
+            </h3>
         </div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT SIDE (SHOWCASE CARD) -->
     <div class="hero-right">
         <div class="typing-card">
             <div class="live-badge">
@@ -147,6 +149,7 @@
             <p class="showcase-text">
                 Master touch typing with structured lessons, interactive practice, typing tests, and expert guides.
             </p>
+            
             <div class="mini-card speed-card">
                 <span>📘 LESSONS</span>
                 <h3>Structured Lessons</h3>
@@ -159,6 +162,7 @@
                 <span>📈 PROGRESS</span>
                 <h3>Track Progress</h3>
             </div>
+            
             <div class="bottom-note">
                 ✓ Beginner Friendly &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Free Practice &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Daily Learning
             </div>
@@ -175,10 +179,10 @@
             <span class="about-badge">💙 ABOUT TYPENEST</span>
             <h2>Master Touch Typing <span>With Confidence</span></h2>
             <p class="about-intro">
-                TypeNest is a modern online touch typing platform designed to help students, professionals, job seekers, and everyday computer users develop fast, accurate, and confident typing skills. Whether you're just starting with keyboard basics or working to improve your typing speed, our structured learning path makes practice simple, engaging, and effective.
+                TypeNest is a modern online touch typing platform designed to help students, professionals, job seekers, and everyday computer users develop fast, accurate, and confident typing skills.
             </p>
             <p class="about-intro">
-                From beginner-friendly lessons and interactive typing exercises to typing tests and expert learning resources, TypeNest provides everything you need in one place. Learn at your own pace, monitor your improvement, and build a valuable skill that increases productivity for school, work, coding, writing, and competitive exams.
+                From beginner-friendly lessons and interactive typing exercises to typing tests and expert learning resources, TypeNest provides everything you need in one place.
             </p>
         </div>
 
@@ -188,34 +192,33 @@
                 <div class="about-icon">📘</div>
                 <span class="card-number">01</span>
                 <h3>Structured Lessons</h3>
-                <p>Learn touch typing step by step with carefully designed lessons covering Home Row, Top Row, Bottom Row, Words, Numbers, and Advanced practice.</p>
+                <p>Learn touch typing step by step with carefully designed lessons covering Home Row, Top Row, Bottom Row, Words, and Numbers.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">⌨️</div>
                 <span class="card-number">02</span>
                 <h3>Interactive Practice</h3>
-                <p>Improve typing speed and reduce mistakes through guided practice sessions that help build confidence and consistent keyboard accuracy.</p>
+                <p>Improve typing speed and reduce mistakes through guided practice sessions that build muscle memory.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">📊</div>
                 <span class="card-number">03</span>
                 <h3>Typing Tests</h3>
-                <p>Evaluate your typing performance with dedicated typing tests designed to improve speed, rhythm, consistency, and overall keyboard skills.</p>
+                <p>Evaluate your typing performance with dedicated speed tests designed to improve WPM, rhythm, and accuracy.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">🚀</div>
                 <span class="card-number">04</span>
                 <h3>Skill Development</h3>
-                <p>Build practical typing skills for education, office work, programming, content writing, competitive exams, and everyday computer use.</p>
+                <p>Build practical typing skills for education, office work, programming, content writing, and competitive exams.</p>
             </div>
         </div>
 
-        <!-- CTA -->
         <div class="about-btn-area">
             <a href="about.html" class="about-btn">Learn More About TypeNest →</a>
         </div>
     </div>
-</section> 
+</section>
 
 <!-- =========================================
      WHY CHOOSE TYPENEST
@@ -226,7 +229,7 @@
             <span class="why-badge">⭐ WHY CHOOSE TYPENEST</span>
             <h2>Everything You Need <span>To Become a Better Typist</span></h2>
             <p>
-                TypeNest combines structured learning, practical exercises, typing tests, and expert resources into one easy-to-use platform. Whether you're learning touch typing for the first time or improving your typing speed for work, education, or competitive exams, everything is designed to help you progress with confidence.
+                TypeNest combines structured learning, practical exercises, typing tests, and expert resources into one easy-to-use platform.
             </p>
         </div>
 
@@ -254,7 +257,7 @@
             <div class="why-card">
                 <div class="why-icon">🧠</div>
                 <h3>Expert Learning Guides</h3>
-                <p>Read practical articles and guides that help you understand typing techniques and productivity.</p>
+                <p>Read practical articles and guides that help you understand typing techniques and ergonomics.</p>
             </div>
             <div class="why-card">
                 <div class="why-icon">🚀</div>
@@ -263,75 +266,77 @@
             </div>
         </div>
     </div>
-</section>     
+</section>
 
 <!-- =========================================
-     LEARN TOUCH TYPING
+     LEARN TOUCH TYPING (PATHWAY)
 ========================================= -->
-<section class="learn-section">
-    <div class="learn-left">
-        <span class="learn-badge">🎯 NEW TO TYPING?</span>
-        <h2>Learn Touch Typing</h2>
-        <h3>Beginner to Advanced</h3>
-        <p>
-            Learn typing step-by-step with structured lessons. Start with Home Row, then Top Row, Bottom Row, Words, Numbers and Advanced practice.
-        </p>
-        <button class="learn-btn" onclick="window.location.href='courses.html'">🚀 Start Learning</button>
-    </div>
+<section style="padding: 0 20px;">
+    <div class="learn-section">
+        <div class="learn-left">
+            <span class="learn-badge">🎯 NEW TO TYPING?</span>
+            <h2>Learn Touch Typing</h2>
+            <h3>Beginner to Advanced</h3>
+            <p>
+                Learn typing step-by-step with structured lessons. Start with Home Row, then Top Row, Bottom Row, Words, Numbers and Advanced practice.
+            </p>
+            <button class="learn-btn" onclick="window.location.href='courses.html'">🚀 Start Learning</button>
+        </div>
 
-    <div class="journey-grid">
-        <div class="journey-item">
-            <div class="journey-icon green">⌨️</div>
-            <h4>Home Row</h4>
-            <p>Learn the basics</p>
-        </div>
-        <div class="journey-item">
-            <div class="journey-icon blue">T</div>
-            <h4>Top Row</h4>
-            <p>Build consistency</p>
-        </div>
-        <div class="journey-item">
-            <div class="journey-icon yellow">B</div>
-            <h4>Bottom Row</h4>
-            <p>Improve control</p>
-        </div>
-        <div class="journey-item">
-            <div class="journey-icon pink">Aa</div>
-            <h4>Words</h4>
-            <p>Practice words</p>
-        </div>
-        <div class="journey-item">
-            <div class="journey-icon purple">123</div>
-            <h4>Numbers</h4>
-            <p>Master numbers</p>
-        </div>
-        <div class="journey-item">
-            <div class="journey-icon mint">★</div>
-            <h4>Advanced</h4>
-            <p>Challenge yourself</p>
+        <div class="journey-grid">
+            <a href="beginner.html" class="journey-item">
+                <div class="journey-icon green">⌨️</div>
+                <h4>Home Row</h4>
+                <p>Learn basics</p>
+            </a>
+            <a href="beginner.html" class="journey-item">
+                <div class="journey-icon blue">T</div>
+                <h4>Top Row</h4>
+                <p>Build speed</p>
+            </a>
+            <a href="beginner.html" class="journey-item">
+                <div class="journey-icon yellow">B</div>
+                <h4>Bottom Row</h4>
+                <p>Improve control</p>
+            </a>
+            <a href="speed-building.html" class="journey-item">
+                <div class="journey-icon pink">Aa</div>
+                <h4>Words</h4>
+                <p>Practice words</p>
+            </a>
+            <a href="numeric-keypad.html" class="journey-item">
+                <div class="journey-icon purple">123</div>
+                <h4>Numbers</h4>
+                <p>Master numpad</p>
+            </a>
+            <a href="accuracy-mastery.html" class="journey-item">
+                <div class="journey-icon mint">★</div>
+                <h4>Advanced</h4>
+                <p>Challenge self</p>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- =========================================
-     PRACTICE TITLE & CARDS
+     PRACTICE SELECTION
 ========================================= -->
 <section class="practice-title">
-    <h2>Practice Your Way</h2>
+    <h1>Practice Your Way</h1>
 </section>
 
-<div class="practice-cards">
-    <div class="practice-box" onclick="window.location.href='typing.html'">
+<div class="practice-cards" style="max-width: 1200px; margin: 0 auto 60px;">
+    <div class="practice-box" onclick="window.location.href='typing.html'" style="width:100%; max-width: 400px; margin: 0 auto;">
         <div class="card-arrow">↗</div>
         <div class="card-icon english-icon">A</div>
         <h2>English Typing</h2>
-        <p>Learn touch typing and improve your WPM speed online.</p>
+        <p>Learn touch typing and improve your WPM speed online with interactive drills.</p>
         <div class="card-cta">Start Practice →</div>
     </div>
 </div>
 
 <!-- =========================================
-     LATEST ARTICLES (UPDATED WITH RECENT BLOGS)
+     LATEST ARTICLES & GUIDES
 ========================================= -->
 <section class="latest-articles">
     <div class="container">
@@ -342,7 +347,7 @@
         </div>
 
         <div class="articles-grid">
-            <!-- ARTICLE 1: Exam Guide -->
+            <!-- ARTICLE 1 -->
             <article class="article-card">
                 <a href="government-typing-exam-gcc-tbc-guide.html">
                     <img src="images/blog/touch-typing-guide.webp" alt="GCC-TBC Typing Exam Guide" loading="lazy">
@@ -358,7 +363,7 @@
                 </div>
             </article>
 
-            <!-- ARTICLE 2: Keyboard Layouts -->
+            <!-- ARTICLE 2 -->
             <article class="article-card">
                 <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">
                     <img src="images/blog/increase-typing-speed-guide.webp" alt="QWERTY vs Dvorak vs Colemak" loading="lazy">
@@ -374,23 +379,7 @@
                 </div>
             </article>
 
-            <!-- ARTICLE 3: WPM & Accuracy -->
-            <article class="article-card">
-                <a href="how-wpm-and-accuracy-are-calculated.html">
-                    <img src="images/blog/typing-accuracy-guide.webp" alt="How WPM is Calculated" loading="lazy">
-                </a>
-                <div class="article-content">
-                    <span class="article-category">Metrics</span>
-                    <h3>How WPM Speed & Accuracy Are Calculated</h3>
-                    <p>Understand Net WPM, Gross WPM, and error penalties used in online typing tests and exams.</p>
-                    <div class="article-footer">
-                        <span>📖 5 min read</span>
-                        <a href="how-wpm-and-accuracy-are-calculated.html">Read Guide →</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- ARTICLE 4: Eye Strain -->
+            <!-- ARTICLE 3 -->
             <article class="article-card">
                 <a href="typing-eye-strain-prevention-dark-mode-guide.html">
                     <img src="images/blog/keyboard-shortcuts.webp" alt="Eye Strain Prevention" loading="lazy">
@@ -411,7 +400,7 @@
             <a href="blog.html" class="articles-btn">View All Articles & Guides →</a>
         </div>
     </div>
-</section>    
+</section>
 
 <!-- =========================================
      FEATURED COURSES
@@ -421,8 +410,9 @@
         <div class="featured-header">
             <span class="featured-badge">🎓 FEATURED COURSES</span>
             <h2>Learn Faster With <span>Structured Typing Courses</span></h2>
-            <p>Explore structured typing courses designed to help beginners build strong keyboard skills, improve speed, and increase accuracy.</p>
+            <p>Explore structured typing courses designed to help beginners build strong keyboard skills and increase accuracy.</p>
         </div>
+
         <div class="featured-grid">
             <!-- COURSE 1 -->
             <article class="featured-card">
@@ -436,6 +426,7 @@
                     <a href="beginner.html">Start Course →</a>
                 </div>
             </article>
+
             <!-- COURSE 2 -->
             <article class="featured-card">
                 <a href="speed-building.html">
@@ -448,6 +439,7 @@
                     <a href="speed-building.html">Start Course →</a>
                 </div>
             </article>
+
             <!-- COURSE 3 -->
             <article class="featured-card">
                 <a href="accuracy-mastery.html">
@@ -456,31 +448,33 @@
                 <div class="featured-content">
                     <span class="featured-category">Accuracy</span>
                     <h3>Accuracy Mastery</h3>
-                    <p>Build precision, reduce typing mistakes, and improve consistency.</p>
+                    <p>Build precision, reduce typing mistakes, and improve overall consistency.</p>
                     <a href="accuracy-mastery.html">Start Course →</a>
                 </div>
             </article>
+
             <!-- COURSE 4 -->
             <article class="featured-card">
-                <a href="advanced-typing.html">
-                    <img src="images/courses/advanced-course.webp" alt="Advanced Typing Course" loading="lazy">
+                <a href="numeric-keypad.html">
+                    <img src="images/courses/advanced-course.webp" alt="Numeric Keypad Course" loading="lazy">
                 </a>
                 <div class="featured-content">
-                    <span class="featured-category">Advanced</span>
-                    <h3>Advanced Typing</h3>
-                    <p>Challenge yourself with advanced typing drills and real-world practice.</p>
-                    <a href="advanced-typing.html">Start Course →</a>
+                    <span class="featured-category">Numpad</span>
+                    <h3>10-Key Numpad Training</h3>
+                    <p>Master the numeric keypad for fast data entry and accounting tasks.</p>
+                    <a href="numeric-keypad.html">Start Course →</a>
                 </div>
             </article>
         </div>
+
         <div class="articles-btn-area">
             <a href="courses.html" class="articles-btn">View All Courses →</a>
         </div>
     </div>
 </section>
-      
+
 <!-- =========================================
-     FAQ SECTION (WITH FAQ SCHEMA FRIENDLY STRUCTURE)
+     FAQ SECTION
 ========================================= -->
 <section class="faq-section">
     <div class="container">
@@ -489,19 +483,20 @@
             <h2>Everything You Need To Know <span>About TypeNest</span></h2>
             <p>Find answers to the most common questions about touch typing, practice lessons, and typing tests.</p>
         </div>
+
         <div class="faq-container">
             <div class="faq-item active">
-                <button class="faq-question">
+                <button class="faq-question" onclick="toggleFaq(this)">
                     <span>What is touch typing?</span>
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>Touch typing is a technique that allows you to type using all ten fingers without looking at the keyboard. It improves typing speed, accuracy, and typing productivity.</p>
+                    <p>Touch typing is a technique that allows you to type using all ten fingers without looking at the keyboard. It improves typing speed, accuracy, and overall productivity.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" onclick="toggleFaq(this)">
                     <span>Is TypeNest completely free to use?</span>
                     <span class="faq-icon">+</span>
                 </button>
@@ -511,7 +506,7 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" onclick="toggleFaq(this)">
                     <span>Can beginners learn touch typing with TypeNest?</span>
                     <span class="faq-icon">+</span>
                 </button>
@@ -521,7 +516,7 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" onclick="toggleFaq(this)">
                     <span>How can I improve my typing speed?</span>
                     <span class="faq-icon">+</span>
                 </button>
@@ -540,7 +535,7 @@
     <div class="cta-left">
         <div class="cta-icon">🚀</div>
         <div class="cta-content">
-            <h2>Ready to improve your typing skills?</h2>
+            <h1>Ready to improve your typing skills?</h1>
             <p>Start your daily practice and type like a pro.</p>
             <div class="cta-features">
                 <span>🔵 Improve Speed</span>
@@ -561,13 +556,13 @@
 ========================================= -->
 <footer class="footer">
     <div class="footer-logo">
-        <h2>TypeNest</h2>
+        <h1>TypeNest</h1>
         <p>Improve your typing speed, accuracy and productivity with smart online touch typing practice.</p>
         <p class="footer-trust">Structured lessons for beginners, students, and professionals.</p>
     </div>
 
     <div class="footer-links">
-        <h3>Quick Links</h3>
+        <h2>Quick Links</h2>
         <a href="index.html">› Home</a>
         <a href="typing.html">› Practice</a>
         <a href="tests.html">› Tests</a>
@@ -576,7 +571,7 @@
     </div>
 
     <div class="footer-links">
-        <h3>Resources</h3>
+        <h2>Resources</h2>
         <a href="courses.html">› Courses</a>
         <a href="blog.html">› Blog</a>
         <a href="about.html">› About</a>
@@ -597,23 +592,55 @@
 <div class="login-modal" id="loginModal">
     <div class="login-box">
         <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
+        <h1>Welcome Back</h1>
         <p>Login to continue your typing journey.</p>
 
         <input type="email" id="email" placeholder="Email Address">
         <input type="password" id="password" placeholder="Password">
-        <button type="button" id="loginBtn">Login</button>
+        <button type="button" id="loginModalBtn">Login</button>
         <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
 </div>
 
+<!-- =========================================
+     SCRIPTS FOR INTERACTION
+========================================= -->
 <script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
+    // Theme Switcher Function
+    function toggleTheme() {
+        document.body.classList.toggle("dark");
+        document.body.classList.toggle("light");
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("active");
+    }
+
+    // Login Modal Functions
+    function openLoginModal() {
+        const modal = document.getElementById("loginModal");
+        modal.style.visibility = "visible";
+        modal.style.opacity = "1";
+    }
+
+    function closeLoginModal() {
+        const modal = document.getElementById("loginModal");
+        modal.style.visibility = "hidden";
+        modal.style.opacity = "0";
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        item.classList.toggle("active");
+    }
 </script>
+
 <script src="script.js"></script>
 <script type="module" src="firebase-config.js"></script>
 <script type="module" src="login.js"></script>
+
 </body>
 </html>
