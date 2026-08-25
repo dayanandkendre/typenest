@@ -2,39 +2,56 @@
 <html lang="en">
 
 <head>
+    <!-- Google Analytics 4 (GA4) Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585"
-     crossorigin="anonymous"></script>
+      gtag('config', 'G-ZC84S6JF5T');
+    </script>
 
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Private User Profile (Google Bots पासून लपवण्यासाठी) -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- SEO Meta Tags -->
     <title>My Profile | TypeNest</title>
+    <meta name="description" content="View your TypeNest profile, track typing progress, monitor achievements, badges, certificates, WPM records, and learning statistics.">
+    <meta name="keywords" content="typing profile, typing progress, typing statistics, typing achievements, typing badges, user profile, TypeNest">
 
-    <meta name="description"
-content="View your TypeNest profile, track typing progress, monitor achievements, badges, certificates, WPM records, and learning statistics.">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://typenest.in/profile.html">
 
-<meta name="keywords"
-content="typing profile, typing progress, typing statistics, typing achievements, typing badges, user profile, TypeNest">
+    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Profile | TypeNest">
+    <meta property="og:description" content="Track your typing progress, achievements, WPM stats, and certificates on TypeNest.">
+    <meta property="og:url" content="https://typenest.in/profile.html">
+    <meta property="og:image" content="https://typenest.in/favicon.png">
 
-<link rel="canonical"
-href="https://typenest.in/profile.html">
-
+    <!-- Favicon & Stylesheets -->
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="profile.css">
 
+    <!-- Auth Session Check Script -->
     <script>
-    // जर युझर लॉगिन नसेल, तर त्याला प्रोफाईल पाहू न देता लॉगिन पेजवर पाठवा 🔐
-    const sessionUser = localStorage.getItem("userUID");
-    if (!sessionUser) {
-        alert("Please login first to access your profile! 🔐");
-        window.location.href = "login.html";
-    }
-</script>
-
+      // जर युझर लॉगिन नसेल, तर त्याला प्रोफाईल पाहू न देता लॉगिन पेजवर पाठवा 🔐
+      const sessionUser = localStorage.getItem("userUID");
+      if (!sessionUser) {
+          alert("Please login first to access your profile! 🔐");
+          window.location.href = "login.html";
+      }
+    </script>
 </head>
-
 <body>
 
 <div class="navbar">
