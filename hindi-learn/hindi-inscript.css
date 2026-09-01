@@ -1,0 +1,58 @@
+
+/* Hindi InScript presentation layer — preserves base TypeNest level.css design. */
+html[lang="hi"] body, body.hindi-learn {
+  font-family: "Noto Sans Devanagari","Nirmala UI","Mangal","Arial",sans-serif;
+}
+.hindi-inscript-keyboard{
+  width:96%;
+  max-width:1100px;
+}
+.hindi-inscript-keyboard .key-row{
+  width:100%;
+  flex-wrap:nowrap;
+}
+.hindi-inscript-keyboard .key{
+  width:56px;
+  min-width:56px;
+  height:52px;
+  font-family:"Noto Sans Devanagari","Nirmala UI","Mangal","Arial",sans-serif;
+  position:relative;
+  line-height:1;
+  overflow:hidden;
+}
+.hindi-inscript-keyboard .key-main{
+  font-size:18px;
+  font-weight:700;
+}
+.hindi-inscript-keyboard .key-shift{
+  position:absolute;
+  top:4px;
+  right:6px;
+  font-size:10px;
+  opacity:.78;
+  font-weight:600;
+}
+.hindi-inscript-keyboard .backspace-key,
+.hindi-inscript-keyboard .tab-key,
+.hindi-inscript-keyboard .caps-key,
+.hindi-inscript-keyboard .enter-key,
+.hindi-inscript-keyboard .shift-key,
+.hindi-inscript-keyboard .space-key{
+  font-size:12px;
+  white-space:nowrap;
+}
+.expected-key:not(.key-pressed){
+  outline:2px solid rgba(37,99,235,.65);
+  outline-offset:2px;
+}
+.expected-pressed{
+  transform:scale(.92);
+}
+@media(max-width:900px){
+  .hindi-inscript-keyboard{overflow-x:auto; justify-content:flex-start; padding-bottom:8px;}
+  .hindi-inscript-keyboard .key-row{width:max-content;}
+}
+
+.inscript-hint{text-align:center;margin:6px auto 14px;font-size:13px;opacity:.82;font-family:"Noto Sans Devanagari","Nirmala UI","Mangal",Arial,sans-serif;}
+
+.hindi-inscript-keyboard .key-altgr{position:absolute;bottom:3px;left:5px;font-size:8px;opacity:.65;font-weight:600;}
