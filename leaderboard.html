@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
@@ -9,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -29,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/leaderboard.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Typing Leaderboard - TypeNest">
     <meta property="og:description" content="Check live global typing rankings, top WPM scores, and compare your accuracy with users worldwide on TypeNest.">
@@ -40,228 +38,126 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="leaderboard.css">
+
+    <!-- WebPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Typing Leaderboard - TypeNest",
+      "url": "https://typenest.in/leaderboard.html",
+      "description": "View live global typing rankings, top WPM scores, and compare your typing accuracy on TypeNest."
+    }
+    </script>
 </head>
 
-<body>
+<body class="light">
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
     <!-- THEME BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <!-- LOGIN / USER BUTTON -->
-
     <div class="user-menu">
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
 
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-
-        Login
-
-    </a>
-
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-
-            My Profile
-
-        </a>
-
-        <a href="#"
-        id="logoutDropdown">
-
-            Logout
-
-        </a>
-
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
-
 </div>
 
+<!-- HERO SECTION -->
+<div class="leaderboard-hero">
+    <h1>Top Typists</h1>
+    <p>Compete with the fastest typists and climb the global leaderboard.</p>
 </div>
 
-
-    <!-- =========================================
-         HERO
-    ========================================= -->
-
-    <div class="leaderboard-hero">
-
-
-        <h1>
-
-            Top Typists
-
-        </h1>
-
-
-
-        <p>
-
-            Compete with the fastest typists
-            and climb the leaderboard.
-
-        </p>
-
-    </div>
-
-
-
-    <!-- =========================================
-         LEADERBOARD TABLE
-    ========================================= -->
-
-   <div class="leaderboard-box"
-id="leaderboardBox">
-
+<!-- LEADERBOARD TABLE CONTAINER -->
+<div class="leaderboard-box" id="leaderboardBox">
+    <!-- Rendered dynamically by leaderboard.js -->
 </div>
 
-
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
+<!-- PREMIUM FOOTER -->
 <div class="footer">
-
-    <!-- LEFT -->
-
     <div class="footer-logo">
-
         <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-
-    <!-- QUICK LINKS -->
-
     <div class="footer-links">
-
         <h2>Quick Links</h2>
-
         <a href="index.html">› Home</a>
-
         <a href="typing.html">› Practice</a>
-
         <a href="tests.html">› Tests</a>
-
         <a href="leaderboard.html">› Leaderboard</a>
-
         <a href="contact.html">› Contact Us</a>
-
         <a href="blog.html">› Blog</a>
-
     </div>
-
-
-    <!-- RESOURCES -->
 
     <div class="footer-links">
-
         <h2>Resources</h2>
-
         <a href="courses.html">› Courses</a>
-
         <a href="blog.html">› Blog</a>
-
         <a href="about.html">› About</a>
-
         <a href="faq.html">› FAQ</a>
-
         <a href="privacy.html">› Privacy Policy</a>
-
         <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
-     
 </div>
-
 
 <!-- COPYRIGHT -->
-
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
 
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
 
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
+    </div>
 </div>
+
+<!-- SCRIPTS -->
+<script>
+function closeLoginModal(){
+    document.getElementById("loginModal").style.display = "none";
+}
+</script>
+
 <script src="script.js"></script>
-<script type="module"
-src="leaderboard.js">
-</script>
-    
-<script type="module"
-src="auth-navbar.js">
-</script>
-    
-</body>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="leaderboard.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
+</body>
 </html>
