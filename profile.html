@@ -8,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -19,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Private User Profile (Google Bots पासून लपवण्यासाठी) -->
+    <!-- Private User Profile (Google Search Bots पासून लपवण्यासाठी) -->
     <meta name="robots" content="noindex, nofollow">
 
     <!-- SEO Meta Tags -->
@@ -30,7 +29,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/profile.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="My Profile | TypeNest">
     <meta property="og:description" content="Track your typing progress, achievements, WPM stats, and certificates on TypeNest.">
@@ -44,7 +43,6 @@
 
     <!-- Auth Session Check Script -->
     <script>
-      // जर युझर लॉगिन नसेल, तर त्याला प्रोफाईल पाहू न देता लॉगिन पेजवर पाठवा 🔐
       const sessionUser = localStorage.getItem("userUID");
       if (!sessionUser) {
           alert("Please login first to access your profile! 🔐");
@@ -52,498 +50,224 @@
       }
     </script>
 </head>
-<body>
 
+<body class="light">
+
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-        TypeNest
+    <div class="menu" id="mobileMenu">
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
     </div>
 
-    <div class="menu">
+    <!-- THEME BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
-        <a href="index.html">Home</a>
-        <a href="typing.html">Practice</a>
-        <a href="tests.html">Tests</a>
-        <a href="courses.html">Courses</a>
-        <a href="leaderboard.html">Leaderboard</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="menu-btn">☰</button>
 
+    <!-- USER MENU -->
+    <div class="user-menu">
+        <a href="profile.html" class="login-btn">Profile</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
-
-    <a href="profile.html" class="login-btn">
-        Profile
-    </a>
-
 </div>
 
+<!-- PROFILE DASHBOARD -->
 <div class="profile-dashboard">
 
     <!-- PROFILE HEADER -->
-
     <div class="profile-header">
-
         <div class="profile-banner"></div>
 
         <div class="profile-info">
+            <img id="profilePhoto" src="https://ui-avatars.com/api/?name=User" alt="Profile">
+            <h1 id="userName">Loading...</h1>
+            <p id="userEmail">Loading...</p>
 
-            <img
-            id="profilePhoto"
-            src="https://ui-avatars.com/api/?name=User"
-            alt="Profile">
-
-            <h1 id="userName">
-
-                Loading...
-
-            </h1>
-
-            <p id="userEmail">
-
-                Loading...
-
-            </p>
-
-            <div class="member-badge">
-
-                ⭐ TypeNest Member
-
-            </div>
-
+            <div class="member-badge">⭐ TypeNest Member</div>
         </div>
-
     </div>
 
-
-    <!-- STATS -->
-
+    <!-- STATS ROW 1 -->
     <div class="stats-row">
-
         <div class="stats-card">
-
-            <div class="stats-icon">
-                📝
-            </div>
-
+            <div class="stats-icon">📝</div>
             <div class="stats-content">
-
-               <h2 id="testsTaken">
-
-0
-
-</h2>
-
+                <h2 id="testsTaken">0</h2>
                 <p>Tests Taken</p>
-
                 <span>Keep going!</span>
-
             </div>
-
         </div>
 
-
         <div class="stats-card">
-
-            <div class="stats-icon">
-                ⚡
-            </div>
-
+            <div class="stats-icon">⚡</div>
             <div class="stats-content">
-
-                <h2 id="bestWpm">
-
-0
-
-</h2>
-
+                <h2 id="bestWpm">0</h2>
                 <p>Best WPM</p>
-
                 <span>Your best speed</span>
-
             </div>
-
         </div>
 
-
         <div class="stats-card">
-
-            <div class="stats-icon">
-                🎯
-            </div>
-
+            <div class="stats-icon">🎯</div>
             <div class="stats-content">
-
-                <h2 id="bestAccuracy">
-
-0%
-
-</h2>
-
+                <h2 id="bestAccuracy">0%</h2>
                 <p>Accuracy</p>
-
                 <span>Amazing!</span>
-
             </div>
-
         </div>
-
 
         <div class="stats-card">
-
-            <div class="stats-icon">
-                👑
-            </div>
-
+            <div class="stats-icon">👑</div>
             <div class="stats-content">
-
-                <h2 id="userRank">
-
-#--
-
-</h2>
-
-<p>Leaderboard Rank</p>
-
+                <h2 id="userRank">#--</h2>
+                <p>Leaderboard Rank</p>
                 <span>Keep climbing!</span>
-
             </div>
+        </div>
+    </div>
 
+    <!-- STATS ROW 2 -->
+    <div class="stats-row">
+        <div class="stats-card">
+            <div class="stats-icon">⭐</div>
+            <div class="stats-content">
+                <h2 id="totalStars">0</h2>
+                <p>Total Stars</p>
+                <span>Earn more stars</span>
+            </div>
         </div>
 
-    </div>
-
-<div class="stats-row">
-
-<div class="stats-card">
-
-<div class="stats-icon">
-⭐
-</div>
-
-<div class="stats-content">
-
-<h2 id="totalStars">
-0
-</h2>
-
-<p>Total Stars</p>
-
-<span>Earn more stars</span>
-
-</div>
-
-</div>
-
-
-<div class="stats-card">
-
-<div class="stats-icon">
-🏆
-</div>
-
-<div class="stats-content">
-
-<h2 id="perfectRuns">
-0
-</h2>
-
-<p>Perfect Runs</p>
-
-<span>No mistakes</span>
-
-</div>
-
-</div>
-
-
-<div class="stats-card">
-
-<div class="stats-icon">
-🔥
-</div>
-
-<div class="stats-content">
-
-<h2 id="bestStreak">
-0
-</h2>
-
-<p>Best Streak</p>
-
-<span>Highest Level</span>
-
-</div>
-
-</div>
-
-
-<div class="stats-card">
-
-<div class="stats-icon">
-📊
-</div>
-
-<div class="stats-content">
-
-<h2 id="totalScore">
-0
-</h2>
-
-<p>Total Score</p>
-
-<span>Overall Performance</span>
-
-</div>
-
-</div>
-
-</div>
-    
-<!-- OVERALL PROGRESS -->
-
-<div class="progress-card">
-
-    <h2>
-        📊 Overall Progress
-    </h2>
-
-    <div class="progress-bar">
-
-        <div
-        id="progressFill"
-        class="progress-fill">
+        <div class="stats-card">
+            <div class="stats-icon">🏆</div>
+            <div class="stats-content">
+                <h2 id="perfectRuns">0</h2>
+                <p>Perfect Runs</p>
+                <span>No mistakes</span>
+            </div>
         </div>
 
+        <div class="stats-card">
+            <div class="stats-icon">🔥</div>
+            <div class="stats-content">
+                <h2 id="bestStreak">0</h2>
+                <p>Best Streak</p>
+                <span>Highest Level</span>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-icon">📊</div>
+            <div class="stats-content">
+                <h2 id="totalScore">0</h2>
+                <p>Total Score</p>
+                <span>Overall Performance</span>
+            </div>
+        </div>
     </div>
 
-    <p id="progressText">
+    <!-- OVERALL PROGRESS -->
+    <div class="progress-card">
+        <h2>📊 Overall Progress</h2>
 
-        0% Complete
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
 
-    </p>
+        <p id="progressText">0% Complete</p>
 
-    <div class="progress-sections">
-
-        <div>🏠 Home Row: <span id="homeProgress">0/20</span></div>
-
-        <div>⬇️ Bottom Row: <span id="bottomProgress">0/20</span></div>
-
-        <div>📝 Words: <span id="wordsProgress">0/20</span></div>
-
-        <div>🔢 Numbers: <span id="numbersProgress">0/20</span></div>
-
-        <div>🚀 Advanced: <span id="advancedProgress">0/20</span></div>
-
+        <div class="progress-sections">
+            <div>🏠 Home Row: <span id="homeProgress">0/20</span></div>
+            <div>⬇️ Bottom Row: <span id="bottomProgress">0/20</span></div>
+            <div>📝 Words: <span id="wordsProgress">0/20</span></div>
+            <div>🔢 Numbers: <span id="numbersProgress">0/20</span></div>
+            <div>🚀 Advanced: <span id="advancedProgress">0/20</span></div>
+        </div>
     </div>
-
-</div>
 
     <!-- CONTENT AREA -->
-
     <div class="dashboard-grid">
-
         <!-- QUICK ACTIONS -->
-
         <div class="dashboard-card">
-
-            <h2>
-
-                ⚡ Quick Actions
-
-            </h2>
+            <h2>⚡ Quick Actions</h2>
 
             <div class="action-list">
-
-                <a href="typing.html"
-                class="action-item">
-
-                    ⌨️ Start Practice
-
-                </a>
-
-                <a href="tests.html"
-                class="action-item">
-
-                    📝 Take Test
-
-                </a>
-
-                <a href="leaderboard.html"
-                class="action-item">
-
-                    🏆 View Leaderboard
-
-                </a>
-
-                <a href="courses.html"
-                class="action-item">
-
-                    📚 Browse Courses
-
-                </a>
-
+                <a href="typing.html" class="action-item">⌨️ Start Practice</a>
+                <a href="tests.html" class="action-item">📝 Take Test</a>
+                <a href="leaderboard.html" class="action-item">🏆 View Leaderboard</a>
+                <a href="courses.html" class="action-item">📚 Browse Courses</a>
             </div>
-
         </div>
 
+        <!-- RECENT TESTS -->
+        <div class="dashboard-card">
+            <h2>📈 Recent Tests</h2>
 
-       <!-- RECENT TESTS -->
-
-<div class="dashboard-card">
-
-    <h2>
-
-        📈 Recent Tests
-
-    </h2>
-
-    <div class="recent-tests">
-
-        <div id="recentTests">
-
-            Loading tests...
-
+            <div class="recent-tests">
+                <div id="recentTests">Loading tests...</div>
+            </div>
         </div>
-
     </div>
 
-</div>
+    <!-- BADGES SECTION -->
+    <div class="badges-card">
+        <h2>🏅 My Badges</h2>
 
-</div>
+        <div class="badges-grid">
+            <div id="badgeHome" class="badge-item">🏠 Home Row Master</div>
+            <div id="badgeBottom" class="badge-item">⬇️ Bottom Row Master</div>
+            <div id="badgeWords" class="badge-item">📝 Word Warrior</div>
+            <div id="badgeNumbers" class="badge-item">🔢 Number Ninja</div>
+            <div id="badgeAdvanced" class="badge-item">🚀 Advanced Expert</div>
+            <div id="badgeChampion" class="badge-item">🏆 TypeNest Champion</div>
+        </div>
+    </div>
 
+    <!-- CERTIFICATE SECTION -->
+    <div id="certificateSection">
+        <a href="certificate.html" class="certificate-btn">🏆 View Certificate</a>
+    </div>
 
-<div class="badges-card">
-
-<h2>
-🏅 My Badges
-</h2>
-
-<div class="badges-grid">
-
-<div
-id="badgeHome"
-class="badge-item">
-
-🏠 Home Row Master
-
-</div>
-
-<div
-id="badgeBottom"
-class="badge-item">
-
-⬇️ Bottom Row Master
-
-</div>
-
-<div
-id="badgeWords"
-class="badge-item">
-
-📝 Word Warrior
-
-</div>
-
-<div
-id="badgeNumbers"
-class="badge-item">
-
-🔢 Number Ninja
-
-</div>
-
-<div
-id="badgeAdvanced"
-class="badge-item">
-
-🚀 Advanced Expert
-
-</div>
-
-<div
-id="badgeChampion"
-class="badge-item">
-
-🏆 TypeNest Champion
-
-</div>
-
-</div>
-
-</div>
-
-<div id="certificateSection">
-
-<a
-href="certificate.html"
-class="certificate-btn">
-
-🏆 View Certificate
-
-</a>
-
-</div>
-    
     <!-- BOTTOM INFO -->
-
     <div class="bottom-cards">
-
         <div class="bottom-card">
-
-            <h3>
-
-                🔥 Current Streak
-
-            </h3>
-
-            <p>
-
-                12 Days
-
-            </p>
-
+            <h3>🔥 Current Streak</h3>
+            <p>12 Days</p>
         </div>
 
         <div class="bottom-card">
-
-            <h3>
-
-                🏅 Member Since
-
-            </h3>
-
-            <p>
-
-                June 2026
-
-            </p>
-
+            <h3>🏅 Member Since</h3>
+            <p>June 2026</p>
         </div>
 
         <div class="bottom-card">
-
-            <button id="logoutBtn">
-
-                Logout
-
-            </button>
-
+            <button id="logoutBtn">Logout</button>
         </div>
-
     </div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
 
+<!-- SCRIPTS -->
+<script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
 <script type="module" src="profile.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
 </body>
 </html>
