@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
+    <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -22,7 +21,7 @@
     <!-- SEO Meta Tags -->
     <title>Free Online Typing Speed Test | TypeNest</title>
     <meta name="description" content="Test and improve your typing speed for free on TypeNest. Measure your WPM, accuracy, and track live progress with instant performance analytics and charts.">
-    <meta name="keywords" content="typing speed test, WPM test, check typing accuracy, online typing practice, TypeNest speed test">
+    <meta name="keywords" content="typing speed test, WPM test, check typing accuracy, online typing practice, TypeNest speed test, touch typing test">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/typing.html">
@@ -34,6 +33,12 @@
     <meta property="og:url" content="https://typenest.in/typing.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Typing Speed Test | TypeNest">
+    <meta name="twitter:description" content="Measure your typing WPM and accuracy instantly with real-time analytics on TypeNest.">
+    <meta name="twitter:image" content="https://typenest.in/favicon.png">
+
     <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,13 +48,29 @@
     <!-- External Scripts & Stylesheets -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="typing.css">
+
+    <!-- Structured Data / JSON-LD Schema for Google SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "TypeNest Typing Speed Test",
+      "url": "https://typenest.in/typing.html",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "Free online typing speed test tool to measure Words Per Minute (WPM) and accuracy with real-time performance analytics.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 </head>
 <body>
 
 <div class="typing-page">    
- <!-- =========================================
-         BRAND TOP NAVBAR (WITH NAVIGATION LINKS)
-    ========================================= -->
+    <!-- BRAND TOP NAVBAR -->
     <div class="topbar">
         <div class="nav-left">
             <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
@@ -60,7 +81,7 @@
             </div>
         </div>
         <div class="nav-right">
-            <!-- PREMIUM THEME SWITCHER TAB -->
+            <!-- THEME SWITCHER -->
             <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
                 <span class="theme-icon" id="themeIcon">🌙</span>
                 <span class="theme-text" id="themeText">Dark</span>
@@ -72,9 +93,7 @@
         </div>
     </div>
 
-    <!-- =========================================
-         WORKING MODES SUB-BAR (BELOW TOPBAR)
-    ========================================= -->
+    <!-- WORKING MODES SUB-BAR -->
     <div class="sub-config-wrapper" id="subConfigWrapper">
         <div class="config-bar">
             <div class="config-group" id="typeGroup">
@@ -97,9 +116,20 @@
         </div>
     </div>
 
+    <!-- TOP ADSENSE BANNER PLACEHOLDER -->
+    <div style="text-align: center; margin: 15px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8300473989533585"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <!-- MAIN TYPING CONTEXT CONTAINER -->
     <div class="main-container" id="typingContainer">
-        <!-- LARGE LIVE TIMER / WORD COUNT INDICATOR -->
+        <!-- LIVE TIMER / WORD COUNT INDICATOR -->
         <div class="live-timer-wrapper">
             <span id="time" class="giant-timer">30</span>
         </div>
@@ -115,15 +145,13 @@
         </div>
     </div>
 
-    <!-- UNIQUE LIVE SHORTCUT FOOTER BAR (COVERS BOTTOM SPACE) -->
+    <!-- LIVE SHORTCUT FOOTER BAR -->
     <div class="bottom-shortcut-bar" id="footerShortcut">
         <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart test</span>
         <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
     </div>
 
-    <!-- =========================================
-         TYPENEST UNIQUE DYNAMIC RESULT SCREEN
-    ========================================= -->
+    <!-- DYNAMIC RESULT SCREEN -->
     <div class="monkey-result-container" id="resultScreen" style="display: none;">
         <div class="result-main-row">
             <div class="giant-stats-block">
@@ -137,7 +165,7 @@
                 </div>
             </div>
 
-            <!-- Fully Functional Real-Time Canvas Graph -->
+            <!-- Performance Graph -->
             <div class="chart-placeholder-block">
                 <canvas id="performanceChart"></canvas>
             </div>
@@ -166,7 +194,18 @@
             </div>
         </div>
 
-        <!-- 🚀 NEW FEATURE SHOWCASE SECTION ON RESULT SCREEN -->
+        <!-- RESULT PAGE ADSENSE AD UNIT -->
+        <div style="text-align: center; margin: 20px 0;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8300473989533585"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- FEATURE SHOWCASE SECTION -->
         <div class="result-features-wrapper">
             <p class="features-label">Explore TypeNest Features</p>
             <div class="feature-cards-grid">
@@ -174,10 +213,10 @@
                     <span class="f-icon">📊</span>
                     <div class="f-info">
                         <h4>Analytics</h4>
-                        <p>Track progress & graphs</p>
+                        <p>Track progress &amp; graphs</p>
                     </div>
                 </div>
-                <div class="f-card" onclick="window.location.href='learn/learn.html'">
+                <div class="f-card" onclick="window.location.href='/learn/learn.html'">
                     <span class="f-icon">🎯</span>
                     <div class="f-info">
                         <h4>Target Practice</h4>
@@ -200,19 +239,41 @@
         </div>
     </div>
 
+    <!-- SEO CONTENT SECTION FOR BETTER ADSENSE & GOOGLE RANKING -->
+    <section class="seo-info-section" style="max-width: 900px; margin: 60px auto 30px auto; padding: 20px; color: #a0a0a0; font-family: 'Roboto Mono', monospace; line-height: 1.6;">
+        <h2 style="color: #fff; font-size: 20px; margin-bottom: 12px;">Test &amp; Improve Your Typing Speed Online</h2>
+        <p style="font-size: 14px; margin-bottom: 16px;">
+            TypeNest offers an advanced online typing speed test designed to measure your Words Per Minute (WPM) and typing accuracy in real-time. Whether you are preparing for professional work, government typing exams, or daily productivity, consistent practice helps build muscle memory and finger positioning.
+        </p>
+
+        <h3 style="color: #fff; font-size: 16px; margin-top: 20px; margin-bottom: 8px;">Key Features of TypeNest Speed Test:</h3>
+        <ul style="font-size: 14px; margin-left: 20px; margin-bottom: 16px;">
+            <li><strong>Multiple Practice Modes:</strong> Test your typing in 15s, 30s, 60s, or 100s time intervals.</li>
+            <li><strong>Live Performance Analytics:</strong> Get instant charts showing raw WPM, net WPM, accuracy percentage, and mistake distribution.</li>
+            <li><strong>Custom Challenges:</strong> Practice with punctuation, numbers, or standard English words.</li>
+            <li><strong>Leaderboard &amp; Progress Tracking:</strong> Save your scores, set personal records, and compete with users worldwide.</li>
+        </ul>
+
+        <h3 style="color: #fff; font-size: 16px; margin-top: 20px; margin-bottom: 8px;">How is Typing Speed (WPM) Calculated?</h3>
+        <p style="font-size: 14px;">
+            Typing speed is standardized as <strong>1 Word = 5 Characters</strong> (including spaces). Your Net WPM is calculated by subtracting uncorrected errors from total typed characters over time:
+        </p>
+        <blockquote style="background: rgba(255,255,255,0.03); border-left: 3px solid #2563eb; padding: 10px 15px; margin: 10px 0; font-size: 13px;">
+            WPM = ( (Total Correct Characters / 5) / Time in Minutes )
+        </blockquote>
+    </section>
+
 </div>
 
 <audio id="keySound" src="key.wav" preload="auto"></audio>
 
-<!-- =========================================================
-     🎯 PREMIUM NEON LOGIN MODAL (FULLY DESIGNED WITH INLINE CSS)
-========================================================= -->
+<!-- PREMIUM NEON LOGIN MODAL -->
 <div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
     
     <div class="login-box" style="background: #18191e; border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; text-align: center; box-sizing: border-box;">
         
         <!-- CLOSE BUTTON -->
-        <div class="close-login" onclick="closeLoginModal()" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#646669'">✕</div>
+        <div class="close-login" id="closeLoginModalBtn" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;">✕</div>
 
         <!-- LOGO ICON -->
         <div style="font-size: 32px; margin-bottom: 10px;">⌨️</div>
@@ -222,12 +283,12 @@
         <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to continue your typing journey.</p>
 
         <!-- INPUT FIELDS -->
-        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
+        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
         
-        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
+        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
 
         <!-- BUTTON -->
-        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Login</button>
+        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;">Login</button>
 
         <!-- OR SEPARATOR -->
         <div style="color: #444; font-size: 12px; margin: 15px 0; position: relative;">
@@ -236,25 +297,31 @@
         </div>
 
         <!-- GOOGLE BUTTON -->
-        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;" onmouseover="this.style.background='rgba(255,255,255,0.03)'; this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.1)'">
+        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;">
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="G" style="width: 18px; height: 18px;"> Continue with Google
         </div>
     </div>
 </div>
 
 <script>
-function openLoginModal(){
-    const modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-        const mainInput = document.getElementById("input");
-        if(mainInput) mainInput.blur(); // पॉपअप उघडल्यावर प्रॅक्टिस थांबवणे
+    document.addEventListener("DOMContentLoaded", () => {
+        const closeBtn = document.getElementById("closeLoginModalBtn");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                const modal = document.getElementById("loginModal");
+                if (modal) modal.style.display = "none";
+            });
+        }
+    });
+
+    function openLoginModal(){
+        const modal = document.getElementById("loginModal");
+        if(modal) {
+            modal.style.display = "flex";
+            const mainInput = document.getElementById("input");
+            if(mainInput) mainInput.blur();
+        }
     }
-}
-function closeLoginModal(){
-    const modal = document.getElementById("loginModal");
-    if(modal) modal.style.display = "none";
-}
 </script>
 
 <!-- REQUIRED ENGINES FOR FIREBASE & LOGIN FUNCTIONALITY -->
