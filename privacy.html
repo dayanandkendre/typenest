@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -7,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -27,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/privacy.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Privacy Policy - TypeNest">
     <meta property="og:description" content="Read the official TypeNest privacy policy regarding user data protection, privacy terms, and cookies.">
@@ -38,69 +38,56 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy - TypeNest",
+      "url": "https://typenest.in/privacy.html",
+      "description": "Read the TypeNest Privacy Policy to understand how we collect, use, and protect your personal data."
+    }
+    </script>
 </head>
 
-<body>
+<body class="light">
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
+<!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">
-        TypeNest
-    </div>
+    <div class="logo">TypeNest</div>
+
     <div class="menu" id="mobileMenu">
-<a href="index.html" class="menu-link">Home</a>
-<a href="typing.html" class="menu-link">Practice</a>
-<a href="tests.html" class="menu-link">Tests</a>
-<a href="courses.html" class="menu-link">Courses</a>
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-<a href="blog.html" class="menu-link">Blog</a>
-<a href="about.html" class="menu-link">About</a>
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-    Login
-</a>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
+
     <!-- THEME BUTTON -->
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-        🌙
-    </button>
-     <button
-id="menuBtn"
-class="menu-btn">
-☰
-</button>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="menu-btn">☰</button>
+
     <!-- LOGIN / USER BUTTON -->
     <div class="user-menu">
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-        Login
-    </a>
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-            My Profile
-        </a>
-        <a href="#"
-        id="logoutDropdown">
-            Logout
-        </a>
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
 </div>
-</div>
 
-<!-- =========================================
-         HERO
-========================================= -->
+<!-- HERO -->
 <div class="about-hero">
     <h1>Privacy Policy</h1>
-    <p>Last Updated: July 2026</p>
+    <p>Last Updated: September 2026</p>
 </div>
 
 <div class="about-container">
@@ -126,7 +113,7 @@ id="dropdownMenu">
     </div>
 
     <div class="about-card">
-        <h2>Authentication & Services</h2>
+        <h2>Authentication &amp; Services</h2>
         <p>
             We use <strong>Firebase Authentication</strong> to handle user sign-ins safely. Your login credentials are managed entirely through Google's secure infrastructure, and TypeNest never sees or stores your personal passwords.
         </p>
@@ -147,45 +134,36 @@ id="dropdownMenu">
     </div>
 
     <div class="about-card">
-        <h2>Google AdSense & Third-Party Ads</h2>
+        <h2>Google AdSense &amp; Third-Party Ads</h2>
         <p>
             We partner with Google AdSense to serve advertisements on our site. Google uses cookies (such as the DART cookie) to serve relevant ads based on your visits to TypeNest and other websites on the internet. You can opt out of personalized advertising by visiting Google's Ads Settings.
         </p>
     </div>
 
     <div class="about-card">
-        <h2>Data Deletion & Your Rights</h2>
+        <h2>Data Deletion &amp; Your Rights</h2>
         <p>
-            You retain full control over your information. You have the right to inspect your stored data, correct inaccuracies, or request the complete erasure of your account. If you wish to permanently delete your account and all associated typing history from our Firebase database, please contact us directly.
+            You retain full control over your information. You have the right to inspect your stored data, correct inaccuracies, or request the complete erasure of your account. If you wish to permanently delete your account and all associated typing history from our Firebase database, please contact us directly via our <a href="contact.html">Contact Us</a> page.
         </p>
     </div>
 
     <div class="about-card">
         <h2>Contact Us</h2>
         <p>
-            If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data safety, please feel free to reach out to our team through the official Contact Us page on TypeNest.
+            If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data safety, please feel free to reach out to our team through the official <a href="contact.html">Contact Us</a> page on TypeNest.
         </p>
     </div>
 
 </div>
 
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
+<!-- PREMIUM FOOTER -->
 <div class="footer">
-    <!-- LEFT -->
     <div class="footer-logo">
         <h1>TypeNest</h1>
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-    <!-- QUICK LINKS -->
     <div class="footer-links">
         <h2>Quick Links</h2>
         <a href="index.html">› Home</a>
@@ -196,7 +174,6 @@ id="dropdownMenu">
         <a href="blog.html">› Blog</a>
     </div>
 
-    <!-- RESOURCES -->
     <div class="footer-links">
         <h2>Resources</h2>
         <a href="courses.html">› Courses</a>
@@ -205,74 +182,40 @@ id="dropdownMenu">
         <a href="faq.html">› FAQ</a>
         <a href="privacy.html">› Privacy Policy</a>
         <a href="disclaimer.html">› Disclaimer</a>
-        <a href="terms.html">› Terms & Conditions</a>
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
 </div>
 
 <!-- COPYRIGHT -->
 <div class="footer-bottom">
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
 
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
-<div class="login-modal"
-id="loginModal">
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
-        <!-- CLOSE -->
-        <div class="close-login"
-        onclick="closeLoginModal()">
-            ✕
-        </div>
-
-        <!-- TITLE -->
-        <h1>Welcome Back</h1>
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
         <p>Login to continue your typing journey.</p>
 
-        <!-- INPUT -->
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-        <!-- BUTTON -->
-        <button id="loginBtn">Login</button>
-
-        <!-- GOOGLE -->
-        <div
-class="google-login"
-id="googleLoginBtn">
-    Continue with Google
-</div>
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
 </div>
 
+<!-- SCRIPTS -->
 <script>
 function closeLoginModal(){
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-}   
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
+
 <script src="script.js"></script>
-<script
-type="module"
-src="firebase-config.js">
-</script>
-<script
-type="module"
-src="login.js">
-</script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="auth-navbar.js"></script>
+
 </body>
 </html>
