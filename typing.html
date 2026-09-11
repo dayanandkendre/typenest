@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -20,34 +19,132 @@
     <meta name="robots" content="index, follow">
     
     <!-- SEO Meta Tags -->
-    <title>Free Online Typing Speed Test | TypeNest</title>
-    <meta name="description" content="Test and improve your typing speed for free on TypeNest. Measure your WPM, accuracy, and track live progress with instant performance analytics and charts.">
-    <meta name="keywords" content="typing speed test, WPM test, check typing accuracy, online typing practice, TypeNest speed test">
+    <title>Free Online Typing Speed Test | Check WPM & Accuracy - TypeNest</title>
+    <meta name="description" content="Take a free online typing speed test on TypeNest. Calculate your WPM (Words Per Minute), accuracy, and track live performance analytics with dynamic charts. Practice 15s, 30s, and 60s typing tests now.">
+    <meta name="keywords" content="typing speed test, free WPM test, check typing accuracy, online typing practice, TypeNest speed test, touch typing test, typing chart, 1 minute typing test">
+    <meta name="author" content="TypeNest">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/typing.html">
 
     <!-- Open Graph Meta Tags (Social Media Sharing) -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TypeNest">
     <meta property="og:title" content="Free Online Typing Speed Test | TypeNest">
-    <meta property="og:description" content="Measure your typing WPM and accuracy instantly with real-time analytics on TypeNest.">
+    <meta property="og:description" content="Measure your typing WPM and accuracy instantly with real-time analytics and dynamic charts on TypeNest.">
     <meta property="og:url" content="https://typenest.in/typing.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Online Typing Speed Test | TypeNest">
+    <meta name="twitter:description" content="Check your WPM and accuracy instantly on TypeNest with real-time progress charts.">
+    <meta name="twitter:image" content="https://typenest.in/favicon.png">
+
+    <!-- Structured Data (Schema.org) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "TypeNest Typing Speed Test",
+      "url": "https://typenest.in/typing.html",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "An interactive free online application to test, measure, and improve typing speed (WPM) and accuracy.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- External Scripts & Stylesheets -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="typing.css">
+
+    <!-- Custom CSS Fixes for Shortcut Visibility -->
+    <style>
+        .bottom-shortcut-bar {
+            opacity: 1 !important;
+            color: #d1d5db !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 25px 0 10px 0;
+        }
+        .shortcut-item {
+            color: #e2e8f0 !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .shortcut-item kbd {
+            background: #2d3139 !important;
+            color: #e2b714 !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            padding: 3px 8px !important;
+            border-radius: 5px !important;
+            font-family: 'Roboto Mono', monospace !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+        }
+        .adsense-wrapper {
+            max-width: 900px;
+            margin: 25px auto;
+            text-align: center;
+            min-height: 90px;
+            overflow: hidden;
+        }
+        .seo-content-section {
+            max-width: 950px;
+            margin: 50px auto 30px auto;
+            padding: 30px;
+            background: rgba(24, 25, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: #a0a5b5;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+        }
+        .seo-content-section h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .seo-content-section h3 {
+            color: #e2e8f0;
+            font-size: 17px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        .seo-content-section p, .seo-content-section ul {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .seo-content-section ul {
+            padding-left: 20px;
+        }
+        .seo-content-section li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 <body>
 
 <div class="typing-page">    
- <!-- =========================================
+    <!-- =========================================
          BRAND TOP NAVBAR (WITH NAVIGATION LINKS)
     ========================================= -->
     <div class="topbar">
@@ -111,14 +208,27 @@
 
         <!-- HIDDEN INPUT AREA -->
         <div class="hidden-input-box">
-            <textarea id="input" autofocus></textarea>
+            <textarea id="input" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
         </div>
     </div>
 
-    <!-- UNIQUE LIVE SHORTCUT FOOTER BAR (COVERS BOTTOM SPACE) -->
+    <!-- UNIQUE LIVE SHORTCUT FOOTER BAR (HIGH VISIBILITY ENABLED) -->
     <div class="bottom-shortcut-bar" id="footerShortcut">
         <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart test</span>
         <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
+    </div>
+
+    <!-- ADSENSE HIGH-CPM AD SLOT (TYPING AREA BELOW) -->
+    <div class="adsense-wrapper">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8300473989533585"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <!-- =========================================
@@ -166,7 +276,7 @@
             </div>
         </div>
 
-        <!-- 🚀 NEW FEATURE SHOWCASE SECTION ON RESULT SCREEN -->
+        <!-- 🚀 FEATURE SHOWCASE SECTION ON RESULT SCREEN -->
         <div class="result-features-wrapper">
             <p class="features-label">Explore TypeNest Features</p>
             <div class="feature-cards-grid">
@@ -174,7 +284,7 @@
                     <span class="f-icon">📊</span>
                     <div class="f-info">
                         <h4>Analytics</h4>
-                        <p>Track progress & graphs</p>
+                        <p>Track progress &amp; graphs</p>
                     </div>
                 </div>
                 <div class="f-card" onclick="window.location.href='learn/learn.html'">
@@ -200,12 +310,32 @@
         </div>
     </div>
 
+    <!-- =========================================
+         SEO INFORMATION & FAQ SECTION (AdSense & Search Engine Essential)
+    ========================================= -->
+    <section class="seo-content-section">
+        <h2>How to Measure Your Typing Speed Online</h2>
+        <p>TypeNest provides a free, fast, and highly accurate online typing speed test designed to help students, programmers, and professionals measure their words per minute (WPM) and accuracy. Whether you want to prepare for a job assessment or improve daily productivity, our live analytics track your performance in real-time.</p>
+
+        <h3>How WPM (Words Per Minute) is Calculated</h3>
+        <p>Your typing speed is measured in <strong>WPM</strong>. Standard industry practice defines one "word" as 5 characters (including spaces and punctuation). The basic formula used is:</p>
+        <p style="background: rgba(0,0,0,0.3); padding: 10px; border-left: 3px solid #e2b714; font-family: 'Roboto Mono', monospace;">WPM = (Total Characters Typed / 5) / Time Elapsed in Minutes</p>
+
+        <h3>Key Features of TypeNest Speed Test</h3>
+        <ul>
+            <li><strong>Multiple Test Modes:</strong> Practice with 15s, 30s, 60s, or custom word-count tests.</li>
+            <li><strong>Custom Challenges:</strong> Toggle numbers and punctuation for advanced industrial and coding drills.</li>
+            <li><strong>Real-Time Analytics:</strong> Interactive WPM graphs showing your consistency and raw speed.</li>
+            <li><strong>Global Leaderboard:</strong> Sign in with Google to save your records and compete globally.</li>
+        </ul>
+    </section>
+
 </div>
 
 <audio id="keySound" src="key.wav" preload="auto"></audio>
 
 <!-- =========================================================
-     🎯 PREMIUM NEON LOGIN MODAL (FULLY DESIGNED WITH INLINE CSS)
+     🎯 PREMIUM NEON LOGIN MODAL (FULLY SECURED)
 ========================================================= -->
 <div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
     
@@ -222,9 +352,9 @@
         <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to continue your typing journey.</p>
 
         <!-- INPUT FIELDS -->
-        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
+        <input type="email" id="modalEmail" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
         
-        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
+        <input type="password" id="modalPassword" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;" onfocus="this.style.borderColor='#2563eb'; this.style.background='#22242c'">
 
         <!-- BUTTON -->
         <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Login</button>
@@ -248,7 +378,7 @@ function openLoginModal(){
     if(modal) {
         modal.style.display = "flex";
         const mainInput = document.getElementById("input");
-        if(mainInput) mainInput.blur(); // पॉपअप उघडल्यावर प्रॅक्टिस थांबवणे
+        if(mainInput) mainInput.blur();
     }
 }
 function closeLoginModal(){
