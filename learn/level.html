@@ -1,158 +1,82 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
 
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585"
-     crossorigin="anonymous"></script>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow"> <!-- प्रॅक्टिस अ‍ॅप पेजेस इंडेक्स करण्याची गरज नसते -->
 
-<meta charset="UTF-8">
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../favicon.png">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <title>Home Row Typing Practice | TypeNest</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="../favicon.png">
-<title>
-
-Home Row Practice | TypeNest
-
-</title>
-
-<link rel="stylesheet"
-href="level.css">
-
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="level.css">
 </head>
 
 <body>
 
-<!-- =========================================
-     TOP BAR
-========================================= -->
-
+<!-- TOP BAR -->
 <div class="topbar">
-
-    <div class="back-link"
-    onclick="window.location.href='learn.html'">
-
+    <div class="back-link" onclick="window.location.href='learn.html'">
         ← Home Row
-
     </div>
-
-    <div class="level-title" id="levelNumber">
-
-        Level 1
-
-    </div>
-
-    <div class="stars" id="topStars">
-
-        ☆☆☆
-
-    </div>
-
+    <div class="level-title" id="levelNumber">Level 1</div>
+    <div class="stars" id="topStars">☆☆☆</div>
 </div>
 
-
-
-
-<!-- =========================================
-     LESSON HEADER
-========================================= -->
-
+<!-- LESSON HEADER -->
 <div class="lesson-header">
-
-    <h1 id="lessonTitle">
-
-    F J Introduction
-
-</h1>
-
-<p id="lessonSubtitle">
-
-    Let's learn the two most important keys — F and J.
-
-</p>
-
+    <h1 id="lessonTitle">F J Introduction</h1>
+    <p id="lessonSubtitle">Let's learn the two most important keys — F and J.</p>
 </div>
 
-<!-- =========================================
-     LETTER BOXES
-========================================= -->
-
+<!-- LETTER BOXES DISPLAY -->
 <div class="letters-row" id="lettersRow">
-
-    <div class="letter active" id="l0">
-
-    f
-
-</div>
-
+    <div class="letter active" id="l0">f</div>
     <div class="letter" id="l1">j</div>
-<div class="letter" id="l2">f</div>
-<div class="letter" id="l3">j</div>
-<div class="letter" id="l4">f</div>
-<div class="letter" id="l5">j</div>
-<div class="letter" id="l6">f</div>
-<div class="letter" id="l7">j</div>
-
+    <div class="letter" id="l2">f</div>
+    <div class="letter" id="l3">j</div>
+    <div class="letter" id="l4">f</div>
+    <div class="letter" id="l5">j</div>
+    <div class="letter" id="l6">f</div>
+    <div class="letter" id="l7">j</div>
 </div>
 
-<!-- TYPING AREA -->
-
+<!-- TYPING INPUT AREA -->
 <div class="typing-box">
-
-<textarea id="typingInput" placeholder="Start typing here..."></textarea>    
-
+    <textarea id="typingInput" placeholder="Start typing here..." autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>    
 </div>
 
-<div id="capsWarning"
-style="
-display:none;
-color:#ef4444;
-font-weight:bold;
-text-align:center;
-margin-top:-20px;
-margin-bottom:20px;
-">
-⚠️ Caps Lock is ON
+<!-- CAPS LOCK WARNING -->
+<div id="capsWarning" style="display:none; color:#ef4444; font-weight:bold; text-align:center; margin-top:-20px; margin-bottom:20px;">
+    ⚠️ Caps Lock is ON
 </div>
 
-<!-- KEYBOARD -->
-
+<!-- ON-SCREEN KEYBOARD -->
 <div class="keyboard">
-
-    <div class="key">A</div>
-
-    <div class="key">S</div>
-
-    <div class="key">D</div>
-
-    <div class="key active-key">F</div>
-
-    <div class="key">G</div>
-
-    <div class="key">H</div>
-
-    <div class="key active-key-j">J</div>
-
-    <div class="key">K</div>
-
-    <div class="key">L</div>
-
-    <div class="key">;</div>
-
+    <div class="key" data-key="a">A</div>
+    <div class="key" data-key="s">S</div>
+    <div class="key" data-key="d">D</div>
+    <div class="key active-key" data-key="f">F</div>
+    <div class="key" data-key="g">G</div>
+    <div class="key" data-key="h">H</div>
+    <div class="key active-key-j" data-key="j">J</div>
+    <div class="key" data-key="k">K</div>
+    <div class="key" data-key="l">L</div>
+    <div class="key" data-key=";">;</div>
 </div>
 
-<!-- STATS -->
-
+<!-- LIVE STATS BAR -->
 <div class="stats">
-
     <div class="stat-box">
         <span class="stat-label">Mistakes</span>
         <span class="stat-value red" id="mistakes">0</span>
@@ -176,122 +100,68 @@ margin-bottom:20px;
     <div class="stat-box">
         <span class="stat-label">Progress</span>
         <span class="stat-value blue" id="progress">0%</span>
-
         <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
         </div>
-
     </div>
-
 </div>
 
 <!-- TIP BOX -->
-
 <div class="tip-box">
-
-    <div class="tip-title">
-
-        💡 Tip
-
+    <div class="tip-title">💡 Tip</div>
+    <div class="tip-text" id="tipText">
+        Keep your fingers on F and J. These are your home keys.
     </div>
-
-    <div class="tip-text">
-
-        Keep your fingers on F and J.
-        These are your home keys.
-
-    </div>
-
 </div>
 
-<!-- Popup box -->
-
-<div id="popup" class="popup">
-
-<div class="popup-card advanced-popup">
-
-    <div class="popup-content">
-
-        <div class="popup-left">
-
-            <div class="level-circle">
-
-                <div class="popup-trophy">
-                    🏆
+<!-- RESULT POPUP MODAL -->
+<div id="popup" class="popup" style="display:none;">
+    <div class="popup-card advanced-popup">
+        <div class="popup-content">
+            <div class="popup-left">
+                <div class="level-circle">
+                    <div class="popup-trophy">🏆</div>
+                    <div id="popupTitle" class="circle-title">LEVEL COMPLETE</div>
+                    <div id="starRating">⭐⭐⭐</div>
                 </div>
-
-                <div id="popupTitle" class="circle-title">
-                    LEVEL COMPLETE
+                <div id="performanceBadge" class="performance-badge">
+                    ✅ Excellent Work
                 </div>
-
-                <div id="starRating">
-                    ⭐⭐⭐
-                </div>
-
             </div>
 
-            <div id="performanceBadge"
-            class="performance-badge">
-
-                ✅ Excellent Work
-
+            <div class="result-card">
+                <div class="result-row">
+                    <span>🎯 Accuracy</span>
+                    <span id="resultAccuracy">100%</span>
+                </div>
+                <div class="result-row">
+                    <span>❌ Mistakes</span>
+                    <span id="resultMistakes">0</span>
+                </div>
+                <div class="result-row">
+                    <span>⚡ WPM</span>
+                    <span id="resultWpm">0</span>
+                </div>
+                <div class="result-row">
+                    <span>⏱ Time Taken</span>
+                    <span id="resultTime">00:00</span>
+                </div>
             </div>
-
         </div>
 
-<div class="result-card">
-
-    <div class="result-row">
-        <span>🎯 Accuracy</span>
-        <span id="resultAccuracy">100%</span>
+        <div class="popup-buttons">
+            <button id="restartBtn">🔄 Restart</button>
+            <button id="backBtn">⬅ Back</button>
+            <button id="nextBtn">Next Level →</button>
+        </div>
     </div>
-
-    <div class="result-row">
-        <span>❌ Mistakes</span>
-        <span id="resultMistakes">0</span>
-    </div>
-
-    <div class="result-row">
-        <span>⚡ WPM</span>
-        <span id="resultWpm">0</span>
-    </div>
-
-    <div class="result-row">
-        <span>⏱ Time Taken</span>
-        <span id="resultTime">00:00</span>
-    </div>
-
 </div>
 
-</div>
+<!-- AUDIO PLAYER -->
+<audio id="keySound" src="../key.wav" preload="auto"></audio>
 
-<div class="popup-buttons">
-
-    <button id="restartBtn">
-        🔄 Restart
-    </button>
-
-    <button id="backBtn">
-        ⬅ Back
-    </button>
-
-    <button id="nextBtn">
-        Next Level →
-    </button>
-
-</div>
-
-</div>
-
-</div>
-               
-<audio
-id="keySound"
-src="../key.wav"
-preload="auto">
-</audio>
+<!-- MAIN MODULE SCRIPT -->
 <script type="module" src="level.js"></script>
 
 </body>
-
 </html>
