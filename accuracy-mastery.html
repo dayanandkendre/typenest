@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
@@ -9,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -29,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/accuracy-mastery.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Accuracy Mastery Course | TypeNest">
     <meta property="og:description" content="Reduce typing mistakes and improve consistency with targeted practical exercises on TypeNest.">
@@ -40,1022 +38,316 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="beginner.css">
+
+    <!-- Course Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Accuracy Mastery Course",
+      "description": "Reduce typing mistakes, improve consistency, and achieve professional-level accuracy while typing.",
+      "provider": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "sameAs": "https://typenest.in"
+      }
+    }
+    </script>
 </head>
 
 <body>
 
-   <!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
-    <!-- THEME BUTTON -->
-
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
-
-    <!-- LOGIN / USER BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <div class="user-menu">
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
+    </div>
+</div>
 
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
+<!-- HERO -->
+<div class="about-hero">
+    <h1>Accuracy Mastery Course</h1>
+    <p>Learn how to reduce typing errors, improve consistency, and achieve professional-level accuracy while typing.</p>
+</div>
 
-        Login
+<!-- COURSE CONTENT -->
+<section class="course-content">
 
-    </a>
-
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-
-            My Profile
-
-        </a>
-
-        <a href="#"
-        id="logoutDropdown">
-
-            Logout
-
-        </a>
-
+    <div class="content-card">
+        <h2>Introduction to Typing Accuracy</h2>
+        <p>Typing accuracy is one of the most important aspects of becoming an efficient typist. While many learners focus entirely on increasing typing speed, accuracy is what determines the quality of your typing performance. Fast typing with frequent mistakes often results in wasted time because errors must be corrected later.</p>
+        <p>Professional typists understand that accuracy forms the foundation of speed. When your fingers consistently press the correct keys, your confidence increases, your rhythm improves, and your typing speed naturally grows over time.</p>
+        <p>This course will teach you how to minimize mistakes, improve concentration, develop better typing habits, and achieve professional-level accuracy through structured practice on <a href="typing.html">TypeNest Practice Drills</a>.</p>
     </div>
 
-</div>
-
-</div>
-
-    <!-- =========================================
-         HERO
-    ========================================= -->
-
-    <div class="about-hero">
-
-        <h1>
-
-            Accuracy Mastery Course
-
-        </h1>
-
-        <p>
-
-            Learn how to reduce typing errors,
-            improve consistency, and achieve
-            professional-level accuracy while typing.
-
-        </p>
-
+    <div class="content-card">
+        <h2>Why Accuracy Matters More Than Speed</h2>
+        <p>Many beginners believe that typing faster automatically makes them better typists. However, speed without accuracy often creates frustration and reduces productivity.</p>
+        <p>Consider the following comparison:</p>
+        <pre>50 WPM with 75% Accuracy  vs  35 WPM with 98% Accuracy</pre>
+        <p>The second typist is usually more productive because fewer mistakes mean less time spent correcting errors. Accuracy improves efficiency, reduces stress, and builds a stronger typing foundation.</p>
     </div>
 
-
-
-    <!-- =========================================
-         COURSE CONTENT
-    ========================================= -->
-
-    <section class="course-content">
-
-        <div class="content-card">
-
-    <h2>Introduction to Typing Accuracy</h2>
-
-    <p>
-        Typing accuracy is one of the most important aspects of becoming an efficient typist. While many learners focus entirely on increasing typing speed, accuracy is what determines the quality of your typing performance. Fast typing with frequent mistakes often results in wasted time because errors must be corrected later.
-    </p>
-
-    <p>
-        Professional typists understand that accuracy forms the foundation of speed. When your fingers consistently press the correct keys, your confidence increases, your rhythm improves, and your typing speed naturally grows over time.
-    </p>
-
-    <p>
-        This course will teach you how to minimize mistakes, improve concentration, develop better typing habits, and achieve professional-level accuracy through structured practice.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Why Accuracy Matters More Than Speed</h2>
-
-    <p>
-        Many beginners believe that typing faster automatically makes them better typists. However, speed without accuracy often creates frustration and reduces productivity.
-    </p>
-
-    <p>
-        Consider the following examples:
-    </p>
-
-    <pre>
-50 WPM with 75% Accuracy
-
-vs
-
-35 WPM with 98% Accuracy
-    </pre>
-
-    <p>
-        The second typist is usually more productive because fewer mistakes mean less time spent correcting errors. Accuracy improves efficiency, reduces stress, and builds a stronger typing foundation.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Understanding Accuracy Percentage</h2>
-
-    <p>
-        Accuracy percentage measures how many characters you type correctly compared to the total number of characters typed.
-    </p>
-
-    <p>
-        Most typing platforms calculate accuracy using a simple formula:
-    </p>
-
-    <pre>
-Correct Characters
------------------- × 100
-Total Typed Characters
-    </pre>
-
-    <p>
-        Professional typists generally maintain accuracy levels above 95 percent. Competitive typists often achieve accuracy rates between 97 and 99 percent.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Common Causes of Typing Mistakes</h2>
-
-    <p>
-        Understanding why mistakes occur is the first step toward eliminating them. Most typing errors result from habits rather than lack of ability.
-    </p>
-
-    <ul>
-
-        <li>Typing too quickly before mastering accuracy.</li>
-
-        <li>Looking at the keyboard frequently.</li>
-
-        <li>Incorrect finger placement.</li>
-
-        <li>Lack of concentration.</li>
-
-        <li>Poor posture and hand positioning.</li>
-
-        <li>Insufficient typing practice.</li>
-
-        <li>Fatigue during long typing sessions.</li>
-
-    </ul>
-
-    <p>
-        Identifying these causes allows learners to focus on correcting the habits that produce errors.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>The Importance of Finger Placement</h2>
-
-    <p>
-        Proper finger placement plays a major role in typing accuracy. When fingers consistently return to their assigned positions, mistakes become less frequent and typing becomes more predictable.
-    </p>
-
-    <p>
-        Home row positioning should always remain your starting point:
-    </p>
-
-    <pre>
-A S D F     J K L ;
-    </pre>
-
-    <p>
-        Returning to these keys after every movement improves control and reduces accidental key presses.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Building Concentration While Typing</h2>
-
-    <p>
-        Accuracy depends heavily on concentration. Distractions reduce focus and increase the likelihood of mistakes. Many typists perform well during short sessions but struggle when attention decreases.
-    </p>
-
-    <p>
-        To improve concentration:
-    </p>
-
-    <ul>
-
-        <li>Practice in a quiet environment.</li>
-
-        <li>Keep your eyes focused on the screen.</li>
-
-        <li>Avoid multitasking during practice.</li>
-
-        <li>Use short, focused sessions.</li>
-
-        <li>Take breaks when needed.</li>
-
-    </ul>
-
-    <p>
-        Improved concentration directly improves typing accuracy.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>How Muscle Memory Improves Accuracy</h2>
-
-    <p>
-        Muscle memory is the ability of your fingers to remember movement patterns through repetition. As muscle memory develops, typing becomes more automatic and accurate.
-    </p>
-
-    <p>
-        Every correctly typed word strengthens these movement patterns. Over time, your fingers learn where keys are located without requiring conscious thought.
-    </p>
-
-    <p>
-        Consistent daily practice is the fastest way to build strong muscle memory.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Avoiding the Backspace Habit</h2>
-
-    <p>
-        Many learners press the Backspace key excessively. While correcting mistakes is important, constantly using Backspace interrupts typing flow and reduces confidence.
-    </p>
-
-    <p>
-        Instead of focusing on corrections, focus on preventing mistakes before they happen. Slow down slightly if necessary and prioritize precision over speed.
-    </p>
-
-    <p>
-        As accuracy improves, the need for corrections naturally decreases.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Accuracy Practice Exercises</h2>
-
-    <p>
-        Structured exercises help improve typing precision. Start with simple words and gradually move to longer sentences.
-    </p>
-
-    <pre>
-book
-water
-school
-typing
-computer
-accuracy
-practice
-success
-    </pre>
-
-    <p>
-        Type these words slowly and focus on pressing every key correctly. Accuracy drills are most effective when performed regularly.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Creating a Strong Accuracy Foundation</h2>
-
-    <p>
-        Every great typist builds their speed upon a foundation of accuracy. Without accuracy, speed becomes inconsistent and difficult to maintain.
-    </p>
-
-    <p>
-        By practicing proper finger placement, improving concentration, reducing unnecessary corrections, and developing muscle memory, learners can dramatically improve typing performance.
-    </p>
-
-    <p>
-        In the next section, you will learn advanced accuracy drills, daily training routines, error reduction strategies, and a complete roadmap for achieving professional-level typing accuracy.
-    </p>
-
-</div>
-
-
-
-        <div class="content-card">
-
-    <h2>Error Reduction Techniques</h2>
-
-    <p>
-        Reducing typing errors requires awareness, discipline, and consistent practice. Many mistakes occur because typists rush through words without fully focusing on accuracy. The key is to identify recurring errors and deliberately work on correcting them.
-    </p>
-
-    <ul>
-
-        <li>Slow down when accuracy drops.</li>
-
-        <li>Practice difficult words repeatedly.</li>
-
-        <li>Use proper finger placement.</li>
-
-        <li>Avoid looking at the keyboard.</li>
-
-        <li>Focus on smooth and controlled typing.</li>
-
-    </ul>
-
-    <p>
-        Small improvements in error reduction can significantly improve overall typing performance.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Learning from Mistakes</h2>
-
-    <p>
-        Every typing mistake provides valuable information. Instead of becoming frustrated, use errors as opportunities to identify weaknesses and improve performance.
-    </p>
-
-    <p>
-        Keep track of frequently mistyped words and key combinations. Practice these areas regularly until they become comfortable and natural.
-    </p>
-
-    <p>
-        Successful typists treat mistakes as part of the learning process rather than signs of failure.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Daily Accuracy Training Routine</h2>
-
-    <p>
-        A structured daily routine helps improve accuracy faster than random practice sessions.
-    </p>
-
-    <h3>First 5 Minutes</h3>
-
-    <p>
-        Practice home row exercises and finger placement drills.
-    </p>
-
-    <h3>Next 10 Minutes</h3>
-
-    <p>
-        Type common words slowly and accurately.
-    </p>
-
-    <h3>Next 10 Minutes</h3>
-
-    <p>
-        Practice full sentences and short paragraphs.
-    </p>
-
-    <h3>Final 5 Minutes</h3>
-
-    <p>
-        Complete a timed typing test while focusing on minimizing errors.
-    </p>
-
-    <p>
-        Following this routine daily can dramatically improve typing precision.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Improving Focus During Typing Tests</h2>
-
-    <p>
-        Many typists perform well during practice but make mistakes during timed tests because of pressure. Learning to remain calm and focused is essential for maintaining accuracy.
-    </p>
-
-    <ul>
-
-        <li>Take a deep breath before starting.</li>
-
-        <li>Focus on one word at a time.</li>
-
-        <li>Do not panic after mistakes.</li>
-
-        <li>Maintain a steady rhythm.</li>
-
-        <li>Avoid rushing near the end of the test.</li>
-
-    </ul>
-
-    <p>
-        Confidence and concentration often have a greater impact on accuracy than typing speed itself.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Achieving 95 Percent Accuracy</h2>
-
-    <p>
-        Reaching 95 percent accuracy is an important milestone for intermediate typists. At this level, mistakes become less frequent and typing flow improves significantly.
-    </p>
-
-    <p>
-        To achieve this goal:
-    </p>
-
-    <ul>
-
-        <li>Practice daily.</li>
-
-        <li>Prioritize accuracy over speed.</li>
-
-        <li>Review mistakes regularly.</li>
-
-        <li>Strengthen muscle memory.</li>
-
-        <li>Use proper posture and finger placement.</li>
-
-    </ul>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Achieving 99 Percent Accuracy</h2>
-
-    <p>
-        Professional typists often maintain accuracy levels between 97 and 99 percent. Reaching this level requires attention to detail and consistent practice over a long period.
-    </p>
-
-    <p>
-        At this stage, improvements become smaller but more meaningful. Focus on eliminating recurring errors and maintaining concentration throughout the entire typing session.
-    </p>
-
-    <p>
-        Consistency becomes more important than raw speed when pursuing near-perfect accuracy.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>30-Day Accuracy Improvement Plan</h2>
-
-    <h3>Week 1</h3>
-
-    <p>
-        Focus on proper finger placement and home row positioning.
-    </p>
-
-    <h3>Week 2</h3>
-
-    <p>
-        Practice common words and short sentences while minimizing mistakes.
-    </p>
-
-    <h3>Week 3</h3>
-
-    <p>
-        Increase paragraph length and improve concentration.
-    </p>
-
-    <h3>Week 4</h3>
-
-    <p>
-        Complete daily typing tests while targeting 95 percent or higher accuracy.
-    </p>
-
-    <p>
-        This structured roadmap helps learners build reliable typing habits and measurable progress.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Accuracy for Competitive Exams</h2>
-
-    <p>
-        Many government and recruitment examinations include typing assessments where both speed and accuracy are evaluated. Even a small number of mistakes can affect final scores.
-    </p>
-
-    <p>
-        Candidates should:
-    </p>
-
-    <ul>
-
-        <li>Practice under timed conditions.</li>
-
-        <li>Track accuracy percentage regularly.</li>
-
-        <li>Focus on consistency rather than speed alone.</li>
-
-        <li>Build confidence through repetition.</li>
-
-        <li>Develop exam-day concentration skills.</li>
-
-    </ul>
-
-    <p>
-        Strong accuracy habits can provide a significant advantage during competitive examinations.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Professional Typing Habits</h2>
-
-    <p>
-        Professional typists maintain habits that support long-term performance and consistency.
-    </p>
-
-    <ul>
-
-        <li>Keep eyes focused on the screen.</li>
-
-        <li>Maintain proper posture.</li>
-
-        <li>Use all fingers correctly.</li>
-
-        <li>Take short breaks during long sessions.</li>
-
-        <li>Practice regularly.</li>
-
-        <li>Monitor performance and progress.</li>
-
-    </ul>
-
-    <p>
-        These habits help maintain both speed and accuracy over extended periods.
-    </p>
-
-</div>
-
-
-
-<div class="content-card">
-
-    <h2>Final Thoughts</h2>
-
-    <p>
-        Accuracy is the foundation upon which all great typing skills are built. Without accuracy, speed becomes unreliable and difficult to maintain. By focusing on proper technique, concentration, muscle memory, and consistent practice, anyone can significantly improve typing precision.
-    </p>
-
-    <p>
-        Remember that progress takes time. Small improvements each day eventually lead to professional-level performance. Stay patient, remain consistent, and continue practicing with purpose.
-    </p>
-
-    <p>
-        Mastering accuracy will not only improve your typing tests but also enhance your productivity, confidence, and efficiency in every area of computer use.
-    </p>
-
-</div>
-    </section>
-
-<!-- =========================================
-     RELATED TYPING GUIDES
-========================================= -->
-
-<section class="related-guides">
-
-    <div class="container">
-
-        <div class="related-header">
-
-            <span class="related-badge">
-
-                📚 RELATED GUIDES
-
-            </span>
-
-            <h2>
-
-                Master Accuracy With
-                <span>Expert Typing Guides</span>
-
-            </h2>
-
-            <p>
-
-                Explore practical typing guides to improve typing accuracy, reduce typing mistakes, strengthen finger control, and build consistent typing performance.
-
-            </p>
-
-        </div>
-
-        <div class="related-grid">
-
-            <!-- GUIDE 1 -->
-
-            <div class="related-card">
-
-                <h3>
-
-                    Complete Typing Accuracy Guide
-
-                </h3>
-
-                <p>
-
-                    Learn proven techniques to improve typing accuracy, reduce errors, and develop reliable muscle memory.
-
-                </p>
-
-                <a href="typing-accuracy-guide.html">
-
-                    Read Guide →
-
-                </a>
-
-            </div>
-
-            <!-- GUIDE 2 -->
-
-            <div class="related-card">
-
-                <h3>
-
-                    Common Typing Mistakes Guide
-
-                </h3>
-
-                <p>
-
-                    Discover the most common typing mistakes beginners make and learn practical ways to avoid them.
-
-                </p>
-
-                <a href="typing-mistakes-guide.html">
-
-                    Read Guide →
-
-                </a>
-
-            </div>
-
-            <!-- GUIDE 3 -->
-
-            <div class="related-card">
-
-                <h3>
-
-                    What Is Touch Typing?
-
-                </h3>
-
-                <p>
-
-                    Build stronger finger placement, improve keyboard confidence, and increase long-term typing accuracy.
-
-                </p>
-
-                <a href="touch-typing-guide.html">
-
-                    Read Guide →
-
-                </a>
-
-            </div>
-
-            <!-- GUIDE 4 -->
-
-            <div class="related-card">
-
-                <h3>
-
-                    Government Typing Test Guide
-
-                </h3>
-
-                <p>
-
-                    Prepare for government typing exams by improving accuracy, consistency, and real-time typing performance.
-
-                </p>
-
-                <a href="government-typing-test-guide.html">
-
-                    Read Guide →
-
-                </a>
-
-            </div>
-
-        </div>
-
+    <div class="content-card">
+        <h2>Understanding Accuracy Percentage</h2>
+        <p>Accuracy percentage measures how many characters you type correctly compared to the total number of characters typed.</p>
+        <p>Most typing platforms calculate accuracy using a simple formula:</p>
+        <pre>Accuracy (%) = (Correct Characters ÷ Total Typed Characters) × 100</pre>
+        <p>Professional typists generally maintain accuracy levels above 95 percent. Competitive typists often achieve accuracy rates between 97 and 99 percent during <a href="tests.html">Timed Typing Tests</a>.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Common Causes of Typing Mistakes</h2>
+        <p>Understanding why mistakes occur is the first step toward eliminating them. Most typing errors result from habits rather than lack of ability.</p>
+        <ul>
+            <li>Typing too quickly before mastering accuracy.</li>
+            <li>Looking at the keyboard frequently.</li>
+            <li>Incorrect finger placement.</li>
+            <li>Lack of concentration.</li>
+            <li>Poor posture and hand positioning.</li>
+            <li>Insufficient typing practice.</li>
+            <li>Fatigue during long typing sessions.</li>
+        </ul>
+        <p>Identifying these causes allows learners to focus on correcting the habits that produce errors.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>The Importance of Finger Placement</h2>
+        <p>Proper finger placement plays a major role in typing accuracy. When fingers consistently return to their assigned positions, mistakes become less frequent and typing becomes more predictable.</p>
+        <p>Home row positioning should always remain your starting point:</p>
+        <pre>A S D F     J K L ;</pre>
+        <p>Returning to these keys after every movement improves control and reduces accidental key presses.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Building Concentration While Typing</h2>
+        <p>Accuracy depends heavily on concentration. Distractions reduce focus and increase the likelihood of mistakes. Many typists perform well during short sessions but struggle when attention decreases.</p>
+        <p>To improve concentration:</p>
+        <ul>
+            <li>Practice in a quiet environment.</li>
+            <li>Keep your eyes focused on the screen.</li>
+            <li>Avoid multitasking during practice.</li>
+            <li>Use short, focused sessions.</li>
+            <li>Take breaks when needed.</li>
+        </ul>
+        <p>Improved concentration directly improves typing accuracy.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>How Muscle Memory Improves Accuracy</h2>
+        <p>Muscle memory is the ability of your fingers to remember movement patterns through repetition. As muscle memory develops, typing becomes more automatic and accurate.</p>
+        <p>Every correctly typed word strengthens these movement patterns. Over time, your fingers learn where keys are located without requiring conscious thought.</p>
+        <p>Consistent daily practice is the fastest way to build strong muscle memory.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Avoiding the Backspace Habit</h2>
+        <p>Many learners press the Backspace key excessively. While correcting mistakes is important, constantly using Backspace interrupts typing flow and reduces confidence.</p>
+        <p>Instead of focusing on corrections, focus on preventing mistakes before they happen. Slow down slightly if necessary and prioritize precision over speed.</p>
+        <p>As accuracy improves, the need for corrections naturally decreases.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Accuracy Practice Exercises</h2>
+        <p>Structured exercises help improve typing precision. Start with simple words and gradually move to longer sentences.</p>
+        <pre>book   water   school   typing   computer   accuracy   practice   success</pre>
+        <p>Type these words slowly and focus on pressing every key correctly. Accuracy drills are most effective when performed regularly.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Creating a Strong Accuracy Foundation</h2>
+        <p>Every great typist builds their speed upon a foundation of accuracy. Without accuracy, speed becomes inconsistent and difficult to maintain.</p>
+        <p>By practicing proper finger placement, improving concentration, reducing unnecessary corrections, and developing muscle memory, learners can dramatically improve typing performance.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Error Reduction Techniques</h2>
+        <p>Reducing typing errors requires awareness, discipline, and consistent practice. The key is to identify recurring errors and deliberately work on correcting them.</p>
+        <ul>
+            <li>Slow down when accuracy drops.</li>
+            <li>Practice difficult words repeatedly.</li>
+            <li>Use proper finger placement.</li>
+            <li>Avoid looking at the keyboard.</li>
+            <li>Focus on smooth and controlled typing.</li>
+        </ul>
+    </div>
+
+    <div class="content-card">
+        <h2>Learning from Mistakes</h2>
+        <p>Every typing mistake provides valuable information. Use errors as opportunities to identify weaknesses and improve performance by keeping track of frequently mistyped words.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Daily Accuracy Training Routine</h2>
+        <p>A structured daily routine helps improve accuracy faster than random practice sessions.</p>
+        <h3>First 5 Minutes</h3>
+        <p>Practice home row exercises and finger placement drills.</p>
+        <h3>Next 10 Minutes</h3>
+        <p>Type common words slowly and accurately.</p>
+        <h3>Next 10 Minutes</h3>
+        <p>Practice full sentences and short paragraphs.</p>
+        <h3>Final 5 Minutes</h3>
+        <p>Complete a timed typing test while focusing on minimizing errors.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Improving Focus During Typing Tests</h2>
+        <p>Learning to remain calm and focused is essential for maintaining accuracy during timed conditions.</p>
+        <ul>
+            <li>Take a deep breath before starting.</li>
+            <li>Focus on one word at a time.</li>
+            <li>Do not panic after mistakes.</li>
+            <li>Maintain a steady rhythm.</li>
+            <li>Avoid rushing near the end of the test.</li>
+        </ul>
+    </div>
+
+    <div class="content-card">
+        <h2>Achieving 95 to 99 Percent Accuracy</h2>
+        <p>Reaching 95% to 99% accuracy requires attention to detail and consistent practice over a long period. At this stage, consistency becomes more important than raw speed.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>30-Day Accuracy Improvement Plan</h2>
+        <h3>Week 1</h3><p>Focus on proper finger placement and home row positioning.</p>
+        <h3>Week 2</h3><p>Practice common words and short sentences while minimizing mistakes.</p>
+        <h3>Week 3</h3><p>Increase paragraph length and improve concentration.</p>
+        <h3>Week 4</h3><p>Complete daily typing tests while targeting 95 percent or higher accuracy.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Accuracy for Competitive Exams</h2>
+        <p>Many government and recruitment examinations include typing assessments where both speed and accuracy are evaluated. Practice under timed conditions and track your accuracy percentage regularly.</p>
+    </div>
+
+    <div class="content-card">
+        <h2>Professional Typing Habits & Final Thoughts</h2>
+        <p>Professional typists keep their eyes on the screen, maintain good posture, and take short breaks. Accuracy is the foundation upon which all great typing skills are built. Stay patient, remain consistent, and continue practicing with purpose.</p>
     </div>
 
 </section>
 
-    <!-- =========================================
-         CTA
-    ========================================= -->
-
-    <div class="course-cta">
-
-        <h2>
-
-            Ready To Improve Accuracy?
-
-        </h2>
-
-        <p>
-
-            Practice regularly and build
-            the habits required for
-            accurate and professional typing.
-
-        </p>
-
-        <a href="typing.html"
-        class="course-btn">
-
-            Start Accuracy Practice
-
-        </a>
-
-    </div>
-
-    <!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
-<div class="footer">
-
-    <!-- LEFT -->
-
-    <div class="footer-logo">
-
-        <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
-    </div>
-
-
-    <!-- QUICK LINKS -->
-
-    <div class="footer-links">
-
-        <h2>Quick Links</h2>
-
-        <a href="index.html">› Home</a>
-
-        <a href="typing.html">› Practice</a>
-
-        <a href="tests.html">› Tests</a>
-
-        <a href="leaderboard.html">› Leaderboard</a>
-
-        <a href="contact.html">› Contact Us</a>
-
-        <a href="blog.html">› Blog</a>
-
-    </div>
-
-
-    <!-- RESOURCES -->
-
-    <div class="footer-links">
-
-        <h2>Resources</h2>
-
-        <a href="courses.html">› Courses</a>
-
-        <a href="blog.html">› Blog</a>
-
-        <a href="about.html">› About</a>
-
-        <a href="faq.html">› FAQ</a>
-
-        <a href="privacy.html">› Privacy Policy</a>
-
-        <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
-    </div>
-     
-</div>
-
-
-<!-- COPYRIGHT -->
-
-<div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
-</div>
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
-
-<div class="login-modal"
-id="loginModal">
-
-
-    <div class="login-box">
-
-
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
+<!-- RELATED TYPING GUIDES -->
+<section class="related-guides">
+    <div class="container">
+        <div class="related-header">
+            <span class="related-badge">📚 RELATED GUIDES</span>
+            <h2>Master Accuracy With <span>Expert Typing Guides</span></h2>
+            <p>Explore practical typing guides to improve typing accuracy, reduce typing mistakes, strengthen finger control, and build consistent typing performance.</p>
         </div>
 
+        <div class="related-grid">
+            <div class="related-card">
+                <h3>Complete Typing Accuracy Guide</h3>
+                <p>Learn proven techniques to improve typing accuracy, reduce errors, and develop reliable muscle memory.</p>
+                <a href="typing-accuracy-guide.html">Read Guide →</a>
+            </div>
 
+            <div class="related-card">
+                <h3>Common Typing Mistakes Guide</h3>
+                <p>Discover the most common typing mistakes beginners make and learn practical ways to avoid them.</p>
+                <a href="typing-mistakes-guide.html">Read Guide →</a>
+            </div>
 
-        <!-- TITLE -->
+            <div class="related-card">
+                <h3>What Is Touch Typing?</h3>
+                <p>Build stronger finger placement, improve keyboard confidence, and increase long-term typing accuracy.</p>
+                <a href="touch-typing-guide.html">Read Guide →</a>
+            </div>
 
-        <h1>
+            <div class="related-card">
+                <h3>Government Typing Test Guide</h3>
+                <p>Prepare for government typing exams by improving accuracy, consistency, and real-time typing performance.</p>
+                <a href="government-typing-test-guide.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            Welcome Back
-
-        </h1>
-
-
-        <p>
-
-            Login to continue your typing journey.
-
-        </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
+<!-- CTA -->
+<div class="course-cta">
+    <h2>Ready To Improve Accuracy?</h2>
+    <p>Practice regularly and build the habits required for accurate and professional typing.</p>
+    <a href="typing.html" class="course-btn">Start Accuracy Practice</a>
 </div>
 
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-logo">
+        <h1>TypeNest</h1>
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
+    <div class="footer-links">
+        <h2>Quick Links</h2>
+        <a href="index.html">› Home</a>
+        <a href="typing.html">› Practice</a>
+        <a href="tests.html">› Tests</a>
+        <a href="leaderboard.html">› Leaderboard</a>
+        <a href="contact.html">› Contact Us</a>
+        <a href="blog.html">› Blog</a>
+    </div>
+
+    <div class="footer-links">
+        <h2>Resources</h2>
+        <a href="courses.html">› Courses</a>
+        <a href="blog.html">› Blog</a>
+        <a href="about.html">› About</a>
+        <a href="faq.html">› FAQ</a>
+        <a href="privacy.html">› Privacy Policy</a>
+        <a href="disclaimer.html">› Disclaimer</a>
+        <a href="terms.html">› Terms & Conditions</a>
+    </div>
 </div>
+
+<div class="footer-bottom">
+    <p>© 2026 TypeNest. All rights reserved.</p>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
+
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
+    </div>
+</div>
+
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
 
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
 </body>
-
 </html>
