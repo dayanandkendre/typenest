@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
@@ -9,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -29,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/blog.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Typing Guides, Speed Tips & Articles | TypeNest Blog">
     <meta property="og:description" content="Discover useful articles, expert advice, and step-by-step guides to master touch typing and boost your WPM on TypeNest.">
@@ -40,1137 +38,528 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="blog.css">
+
+    <!-- Blog Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "TypeNest Blog",
+      "description": "Expert guides on touch typing, typing speed, accuracy, keyboard shortcuts, and ergonomics.",
+      "url": "https://typenest.in/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://typenest.in/favicon.png"
+        }
+      }
+    }
+    </script>
 </head>
+
 <body>
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
-    <!-- THEME BUTTON -->
-
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
-
-    <!-- LOGIN / USER BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <div class="user-menu">
-
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-
-        Login
-
-    </a>
-
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-
-            My Profile
-
-        </a>
-
-        <a href="#"
-        id="logoutDropdown">
-
-            Logout
-
-        </a>
-
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
-
 </div>
 
-</div>
-
-<!-- =========================================
-     BLOG HERO
-========================================= -->
-
+<!-- BLOG HERO -->
 <section class="blog-hero">
-
     <div class="container">
-
-        <span class="blog-badge">
-
-            📚 TYPING & TECHNOLOGY BLOG
-
-        </span>
-
-        <h1>
-
-            Expert Guides to Improve
-            <span>Your Typing Skills</span>
-
-        </h1>
-
-        <p>
-
-            Explore expert-written guides on touch typing, typing speed, accuracy, keyboard shortcuts, productivity, web development, and technology. Learn practical skills with beginner-friendly tutorials designed to help you type faster, work smarter, and build confidence.
-
-        </p>
-
+        <span class="blog-badge">📚 TYPING &amp; TECHNOLOGY BLOG</span>
+        <h1>Expert Guides to Improve <span>Your Typing Skills</span></h1>
+        <p>Explore expert-written guides on touch typing, typing speed, accuracy, keyboard shortcuts, productivity, web development, and technology. Learn practical skills with beginner-friendly tutorials designed to help you type faster, work smarter, and build confidence.</p>
     </div>
-
 </section>
 
-<!-- =========================================
-     BLOG GRID
-========================================= -->
-
+<!-- BLOG GRID -->
 <div class="blog-grid">
 
-<!-- =========================================
-     BLOG 1
-========================================= -->
-
-<div class="blog-card">
-
-    <a href="increase-typing-speed-guide.html" class="blog-image">
-
-        <img
-        src="images/blog/increase-typing-speed-guide.webp"
-        alt="Complete Guide to Increase Typing Speed"
-        loading="lazy">
-
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">
-
-            Typing Speed
-
-        </span>
-
-        <h2>
-
-            Complete Guide to Increase Typing Speed
-
-        </h2>
-
-        <p>
-
-            Learn proven techniques, daily practice routines, and expert tips to increase your typing speed while maintaining excellent accuracy and long-term consistency.
-
-        </p>
-
-        <div class="blog-footer">
-
-            <span>📖 6 min read</span>
-
-            <a href="increase-typing-speed-guide.html">
-
-                Read Guide →
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================
-     BLOG 2
-========================================= -->
-
-<div class="blog-card">
-
-    <a href="typing-speed-benchmarks-guide.html" class="blog-image">
-
-        <img
-        src="images/blog/typing-speed-benchmarks-guide.webp"
-        alt="Typing Speed Benchmarks Guide"
-        loading="lazy">
-
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">
-
-            Speed Guide
-
-        </span>
-
-        <h2>
-
-            Typing Speed Benchmarks Guide
-
-        </h2>
-
-        <p>
-
-            Find out what is considered a good typing speed, compare WPM by age and profession, and set realistic typing goals.
-
-        </p>
-
-        <div class="blog-footer">
-
-            <span>📖 5 min read</span>
-
-            <a href="typing-speed-benchmarks-guide.html">
-
-                Read Guide →
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================
-     BLOG 3
-========================================= -->
-
-<div class="blog-card">
-
-    <a href="typing-accuracy-guide.html" class="blog-image">
-
-        <img
-        src="images/blog/typing-accuracy-guide.webp"
-        alt="Typing Accuracy Guide"
-        loading="lazy">
-
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">
-
-            Accuracy
-
-        </span>
-
-        <h2>
-
-            Complete Typing Accuracy Guide
-
-        </h2>
-
-        <p>
-
-            Discover how to improve typing accuracy, reduce mistakes, and develop reliable keyboard skills through structured practice.
-
-        </p>
-
-        <div class="blog-footer">
-
-            <span>📖 5 min read</span>
-
-            <a href="typing-accuracy-guide.html">
-
-                Read Guide →
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================
-     BLOG 4
-========================================= -->
-
-<div class="blog-card">
-
-    <a href="touch-typing-guide.html" class="blog-image">
-
-        <img
-        src="images/blog/touch-typing-guide.webp"
-        alt="Touch Typing Guide"
-        loading="lazy">
-
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">
-
-            Touch Typing
-
-        </span>
-
-        <h2>
-
-            Complete Beginner's Guide to Touch Typing
-
-        </h2>
-
-        <p>
-
-            Master touch typing with proper finger placement, home row keys, and practical exercises to type confidently.
-
-        </p>
-
-        <div class="blog-footer">
-
-            <span>📖 7 min read</span>
-
-            <a href="touch-typing-guide.html">
-
-                Read Guide →
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================
-     BLOG 5
-========================================= -->
-
-<div class="blog-card">
-
-    <a href="typing-mistakes-guide.html" class="blog-image">
-
-        <img
-        src="images/blog/typing-mistakes-guide.webp"
-        alt="Typing Mistakes Guide"
-        loading="lazy">
-
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">
-
-            Typing Tips
-
-        </span>
-
-        <h2>
-
-            Typing Mistakes Guide: Common Errors & Fixes
-
-        </h2>
-
-        <p>
-
-            Learn why typing mistakes happen, how to fix common errors, and build better typing habits for long-term improvement.
-
-        </p>
-
-        <div class="blog-footer">
-
-            <span>📖 6 min read</span>
-
-            <a href="typing-mistakes-guide.html">
-
-                Read Guide →
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- =======================================================
-BLOG 6
-======================================================= -->
-
-<div class="blog-card">
-
-<a href="government-typing-test-guide.html" class="blog-image">
-<img src="images/blog/government-typing-test-guide.webp"
-alt="Government Typing Test Guide">
-</a>
-
-<div class="blog-content">
-
-<span class="blog-category">Government Exams</span>
-
-<h2>Government Typing Test Guide</h2>
-
-<p>
-Prepare for government typing exams with official speed requirements, practice strategies, qualification rules, and exam-day preparation tips.
-</p>
-
-<div class="blog-footer">
-
-<span>📖 6 min read</span>
-
-<a href="government-typing-test-guide.html">
-Read Guide →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =======================================================
-BLOG 7
-======================================================= -->
-
-<div class="blog-card">
-
-<a href="typing-speed-test-guide.html" class="blog-image">
-<img src="images/blog/typing-speed-test-guide.webp"
-alt="Typing Speed Test Guide">
-</a>
-
-<div class="blog-content">
-
-<span class="blog-category">Typing Tests</span>
-
-<h2>Typing Speed Test: Complete Guide</h2>
-
-<p>
-Learn how typing speed tests work, understand WPM and accuracy scores, and discover practical ways to measure and improve your typing performance.
-</p>
-
-<div class="blog-footer">
-
-<span>📖 5 min read</span>
-
-<a href="typing-speed-test-guide.html">
-Read Guide →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =======================================================
-BLOG 8
-======================================================= -->
-
-<div class="blog-card">
-
-<a href="keyboard-shortcuts.html" class="blog-image">
-<img src="images/blog/keyboard-shortcuts.webp"
-alt="Keyboard Shortcuts Guide">
-</a>
-
-<div class="blog-content">
-
-<span class="blog-category">Productivity</span>
-
-<h2>Keyboard Shortcuts Every User Should Know</h2>
-
-<p>
-Save time with essential Windows keyboard shortcuts for editing, navigation, productivity, and everyday computer tasks.
-</p>
-
-<div class="blog-footer">
-
-<span>📖 6 min read</span>
-
-<a href="keyboard-shortcuts.html">
-Read Guide →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =======================================================
-BLOG 9
-======================================================= -->
-
-<div class="blog-card">
-
-<a href="best-free-typing-websites.html" class="blog-image">
-<img src="images/blog/best-free-typing-websites.webp"
-alt="Best Free Typing Websites">
-</a>
-
-<div class="blog-content">
-
-<span class="blog-category">Resources</span>
-
-<h2>Best Free Typing Websites Compared</h2>
-
-<p>
-Compare the best free typing websites, their features, lessons, typing tests, and practice tools to choose the perfect learning platform.
-</p>
-
-<div class="blog-footer">
-
-<span>📖 7 min read</span>
-
-<a href="best-free-typing-websites.html">
-Read Guide →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =======================================================
-BLOG 10
-======================================================= -->
-
-<div class="blog-card">
-
-<a href="typing-ergonomics-guide.html" class="blog-image">
-<img src="images/blog/typing-ergonomics-guide.webp"
-alt="Typing Ergonomics Guide">
-</a>
-
-<div class="blog-content">
-
-<span class="blog-category">Ergonomics & Health</span>
-
-<h2>Typing Ergonomics Guide: How to Type Without Wrist Pain</h2>
-
-<p>
-Discover essential typing ergonomics to eliminate hand fatigue, prevent wrist pain, and design a comfortable workspace for typing health.
-</p>
-
-<div class="blog-footer">
-
-<span>📖 20 min read</span>
-
-<a href="typing-ergonomics-guide.html">
-Read Guide →
-</a>
-
-</div>
-
-</div>
-
-</div>    
-
-<!-- =======================================================
-     BLOG 11 (NEW HARDWARE GUIDE)
-======================================================= -->
-<div class="blog-card">
-    <a href="mechanical-vs-membrane-keyboards.html" class="blog-image">
-        <img src="images/blog/mechanical-vs-membrane-keyboards.webp" 
-             alt="Mechanical vs. Membrane Keyboards: Which is Best for Typing?" 
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Keyboard Hardware</span>
-        <h2>Mechanical vs. Membrane Keyboards: Which is Best for Typing?</h2>
-        <p>
-            An in-depth showdown between mechanical switches and classic membrane domes. Find out how your hardware impacts your speed, accuracy, and muscle memory.
-        </p>
-        <div class="blog-footer">
-            <span>📖 15 min read</span>
-            <a href="mechanical-vs-membrane-keyboards.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 1 -->
+    <div class="blog-card">
+        <a href="increase-typing-speed-guide.html" class="blog-image">
+            <img src="images/blog/increase-typing-speed-guide.webp" alt="Complete Guide to Increase Typing Speed" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Typing Speed</span>
+            <h2>Complete Guide to Increase Typing Speed</h2>
+            <p>Learn proven techniques, daily practice routines, and expert tips to increase your typing speed while maintaining excellent accuracy and long-term consistency.</p>
+            <div class="blog-footer">
+                <span>📖 6 min read</span>
+                <a href="increase-typing-speed-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =======================================================
-     BLOG 12 (EDUCATION GUIDE)
-======================================================= -->
-<div class="blog-card">
-    <a href="kids-students-touch-typing-guide.html" class="blog-image">
-        <img src="images/blog/kids-touch-typing-guide.webp"
-             alt="How Kids and Students Can Learn Touch Typing at an Early Age"
-             loading="lazy">
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">Education &amp; Students</span>
-
-        <h2>How Kids and Students Can Learn Touch Typing at an Early Age</h2>
-
-        <p>
-            Discover why children should learn touch typing early, fun ways to practice, proper finger placement, and how this essential digital skill improves academic performance, confidence, and future career success.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 18 min read</span>
-
-            <a href="kids-students-touch-typing-guide.html">
-                Read Guide →
-            </a>
-        </div>
-
-    </div>
-</div>
-
-<!-- =======================================================
-     BLOG 13 (PROGRAMMING GUIDE)
-======================================================= -->
-<div class="blog-card">
-    <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="blog-image">
-        <img src="images/blog/typing-for-programmers.webp"
-             alt="Typing for Programmers: How Fast Typing Boosts Coding Productivity"
-             loading="lazy">
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">Programming &amp; Productivity</span>
-
-        <h2>Typing for Programmers: How Fast Typing Boosts Coding Productivity</h2>
-
-        <p>
-            Discover how fast typing and touch typing skills boost coding productivity, reduce cognitive load, preserve the flow state, and accelerate software development workflows for developers.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 15 min read</span>
-
-            <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">
-                Read Guide →
-            </a>
-        </div>
-
-    </div>
-</div>
-
-<!-- =======================================================
-     BLOG 14 (PSYCHOLOGY & MUSCLE MEMORY GUIDE)
-======================================================= -->
-<div class="blog-card">
-    <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="blog-image">
-        <img src="images/blog/psychology-of-typing.webp"
-             alt="The Psychology of Typing: How to Train Your Brain for Blind Typing"
-             loading="lazy">
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">Muscle Memory &amp; Focus</span>
-
-        <h2>The Psychology of Typing: How to Train Your Brain for Blind Typing</h2>
-
-        <p>
-            Uncover the neuroscience behind touch typing. Learn how your brain builds muscle memory, sends subconscious motor signals to your fingers, and enhances mental focus to minimize typing errors.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 16 min read</span>
-
-            <a href="psychology-of-typing-train-brain-for-blind-typing.html">
-                Read Guide →
-            </a>
-        </div>
-
-    </div>
-</div>
-
-<!-- =======================================================
-     BLOG 15 (10-KEY NUMERIC KEYPAD TRAINING GUIDE)
-======================================================= -->
-<div class="blog-card">
-    <a href="10-key-numeric-keypad-training.html" class="blog-image">
-        <img src="images/blog/numeric-keypad-training.webp"
-             alt="10-Key Numeric Keypad Training: Master the Numpad Fast"
-             loading="lazy">
-    </a>
-
-    <div class="blog-content">
-
-        <span class="blog-category">Data Entry &amp; Accounting</span>
-
-        <h2>10-Key Numeric Keypad Training: Master the Numpad Fast</h2>
-
-        <p>
-            Master 10-key numeric keypad touch typing for data entry, accounting, and banking jobs. Learn home row finger positioning, blind typing techniques, and accuracy tips.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 10 min read</span>
-
-            <a href="10-key-numeric-keypad-training.html">
-                Read Guide →
-            </a>
-        </div>
-
-    </div>
-</div>    
-
-<!-- =========================================     BLOG 16 (GCC-TBC & COURT EXAM GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="government-typing-exam-gcc-tbc-guide.html" class="blog-image">
-        <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp"
-             alt="How to Pass Court and GCC-TBC Typing Exams Guide"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Government Exams</span>
-        <h2>How to Pass Court & GCC-TBC Typing Exams: 30 WPM & 40 WPM Guide</h2>
-        <p>
-            Master Marathi and English GCC-TBC speed requirements, Bombay High Court exam formats, accuracy evaluation rules, and passage practice techniques.
-        </p>
-        <div class="blog-footer">
-            <span>📖 12 min read</span>
-            <a href="government-typing-exam-gcc-tbc-guide.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 2 -->
+    <div class="blog-card">
+        <a href="typing-speed-benchmarks-guide.html" class="blog-image">
+            <img src="images/blog/typing-speed-benchmarks-guide.webp" alt="Typing Speed Benchmarks Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Speed Guide</span>
+            <h2>Typing Speed Benchmarks Guide</h2>
+            <p>Find out what is considered a good typing speed, compare WPM by age and profession, and set realistic typing goals.</p>
+            <div class="blog-footer">
+                <span>📖 5 min read</span>
+                <a href="typing-speed-benchmarks-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 17 (KEYBOARD LAYOUTS GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="blog-image">
-        <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp"
-             alt="Qwerty vs Dvorak vs Colemak Keyboard Layout Comparison"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Keyboard Layouts</span>
-        <h2>Qwerty vs. Dvorak vs. Colemak: Is It Worth Switching Keyboard Layouts?</h2>
-        <p>
-            Tired of QWERTY finger strain? Explore how Dvorak and Colemak redesign typing ergonomics, boost speed potential, and whether making the switch is right for you.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 11 min read</span>
-            <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 3 -->
+    <div class="blog-card">
+        <a href="typing-accuracy-guide.html" class="blog-image">
+            <img src="images/blog/typing-accuracy-guide.webp" alt="Typing Accuracy Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Accuracy</span>
+            <h2>Complete Typing Accuracy Guide</h2>
+            <p>Discover how to improve typing accuracy, reduce mistakes, and develop reliable keyboard skills through structured practice.</p>
+            <div class="blog-footer">
+                <span>📖 5 min read</span>
+                <a href="typing-accuracy-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 18 (REMOTE JOBS TYPING SPEED)========================================= -->
-<div class="blog-card">
-    <a href="typing-speed-requirements-for-remote-jobs.html" class="blog-image">
-        <img src="images/blog/typing-speed-requirements-for-remote-jobs.webp"
-             alt="Typing Speed Requirements for Remote Jobs Guide"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Career & Remote Work</span>
-        <h2>How Fast Do You Need to Type for Remote Jobs? (WPM by Career)</h2>
-        <p>
-            Wondering what WPM speed remote employers actually expect? Discover benchmark typing requirements for Data Entry, Virtual Assistants, Customer Support, and Software Engineering.
-        </p>
-        <div class="blog-footer">
-            <span>📖 10 min read</span>
-            <a href="typing-speed-requirements-for-remote-jobs.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 4 -->
+    <div class="blog-card">
+        <a href="touch-typing-guide.html" class="blog-image">
+            <img src="images/blog/touch-typing-guide.webp" alt="Touch Typing Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Touch Typing</span>
+            <h2>Complete Beginner's Guide to Touch Typing</h2>
+            <p>Master touch typing with proper finger placement, home row keys, and practical exercises to type confidently.</p>
+            <div class="blog-footer">
+                <span>📖 7 min read</span>
+                <a href="touch-typing-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 19 (TYPING GAMES VS TRADITIONAL PRACTICE)========================================= -->
-<div class="blog-card">
-    <a href="typing-games-vs-traditional-practice.html" class="blog-image">
-        <img src="images/blog/typing-games-vs-traditional-practice.webp"
-             alt="Typing Games vs Traditional Practice Comparison"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Gamification & Learning</span>
-        <h2>Typing Games vs. Traditional Practice: What Actually Works Better?</h2>
-        <p>
-            Can arcade typing games really make you faster, or are classic drills still king? Discover the science of gamified typing and how to combine both for maximum speed gains.
-        </p>
-        <div class="blog-footer">
-            <span>📖 9 min read</span>
-            <a href="typing-games-vs-traditional-practice.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 5 -->
+    <div class="blog-card">
+        <a href="typing-mistakes-guide.html" class="blog-image">
+            <img src="images/blog/typing-mistakes-guide.webp" alt="Typing Mistakes Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Typing Tips</span>
+            <h2>Typing Mistakes Guide: Common Errors &amp; Fixes</h2>
+            <p>Learn why typing mistakes happen, how to fix common errors, and build better typing habits for long-term improvement.</p>
+            <div class="blog-footer">
+                <span>📖 6 min read</span>
+                <a href="typing-mistakes-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 20 (WPM CALCULATION SCIENCE)========================================= -->
-<div class="blog-card">
-    <a href="how-wpm-and-accuracy-are-calculated.html" class="blog-image">
-        <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp"
-             alt="How WPM and Accuracy Are Calculated Guide"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Technical & Methodology</span>
-        <h2>The Science of WPM: How Words Per Minute and Accuracy Are Calculated</h2>
-        <p>
-            Ever wondered how typing software measures your speed? Uncover the math behind Standard Words, Gross vs Net WPM, Keystrokes Per Hour (KPH), and accuracy formulas.
-        </p>
-        <div class="blog-footer">
-            <span>📖 10 min read</span>
-            <a href="how-wpm-and-accuracy-are-calculated.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 6 -->
+    <div class="blog-card">
+        <a href="government-typing-test-guide.html" class="blog-image">
+            <img src="images/blog/government-typing-test-guide.webp" alt="Government Typing Test Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Government Exams</span>
+            <h2>Government Typing Test Guide</h2>
+            <p>Prepare for government typing exams with official speed requirements, practice strategies, qualification rules, and exam-day preparation tips.</p>
+            <div class="blog-footer">
+                <span>📖 6 min read</span>
+                <a href="government-typing-test-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 21 (CUSTOM MECHANICAL KEYBOARDS GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="top-custom-mechanical-keyboards-switches-guide.html" class="blog-image">
-        <img src="images/blog/top-custom-mechanical-keyboards-switches-guide.webp"
-             alt="Top Custom Mechanical Keyboards and Switches Guide"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Hardware & Gear</span>
-        <h2>Top Custom Mechanical Keyboards & Switches for Fast Typing Enthusiasts</h2>
-        <p>
-            Looking to upgrade your typing gear? Discover the best mechanical key switches (Linear vs Tactile vs Clicky), hot-swappable boards, and keycap profiles for ultimate typing speed and ergonomics.
-        </p>
-        <div class="blog-footer">
-            <span>📖 11 min read</span>
-            <a href="top-custom-mechanical-keyboards-switches-guide.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 7 -->
+    <div class="blog-card">
+        <a href="typing-speed-test-guide.html" class="blog-image">
+            <img src="images/blog/typing-speed-test-guide.webp" alt="Typing Speed Test Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Typing Tests</span>
+            <h2>Typing Speed Test: Complete Guide</h2>
+            <p>Learn how typing speed tests work, understand WPM and accuracy scores, and discover practical ways to measure and improve your typing performance.</p>
+            <div class="blog-footer">
+                <span>📖 5 min read</span>
+                <a href="typing-speed-test-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
- <!-- =========================================     BLOG 22 (TYPING SPEED PLATEAU GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="how-to-overcome-typing-speed-plateau.html" class="blog-image">
-        <img src="images/blog/how-to-overcome-typing-speed-plateau.webp"
-             alt="How to Overcome Typing Speed Plateau Guide"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Advanced Practice Strategies</span>
-        <h2>How to Overcome the 'Speed Plateau' in Typing (Stuck at 50-60 WPM?)</h2>
-        <p>
-            Stuck at 50 or 60 WPM no matter how much you practice? Learn proven cognitive techniques, finger hesitation fixes, and burst drills to break your plateau and hit 80+ WPM.
-        </p>
-        <div class="blog-footer">
-            <span>📖 10 min read</span>
-            <a href="how-to-overcome-typing-speed-plateau.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 8 -->
+    <div class="blog-card">
+        <a href="keyboard-shortcuts.html" class="blog-image">
+            <img src="images/blog/keyboard-shortcuts.webp" alt="Keyboard Shortcuts Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Productivity</span>
+            <h2>Keyboard Shortcuts Every User Should Know</h2>
+            <p>Save time with essential Windows keyboard shortcuts for editing, navigation, productivity, and everyday computer tasks.</p>
+            <div class="blog-footer">
+                <span>📖 6 min read</span>
+                <a href="keyboard-shortcuts.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 23 (NON-NATIVE ENGLISH TYPING GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="typing-guide-for-non-native-english-speakers.html" class="blog-image">
-        <img src="images/blog/typing-guide-for-non-native-english-speakers.webp"
-             alt="Typing Guide for Non Native English Speakers"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Language & Skill Building</span>
-        <h2>Typing for Non-Native English Speakers: Improve Speed & Spelling</h2>
-        <p>
-            Struggling with English typing speed due to spelling hesitation? Discover tailored muscle memory techniques, vocabulary chunking, and error fixes designed specifically for non-native English typists.
-        </p>
-        <div class="blog-footer">
-            <span>📖 10 min read</span>
-            <a href="typing-guide-for-non-native-english-speakers.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 9 -->
+    <div class="blog-card">
+        <a href="best-free-typing-websites.html" class="blog-image">
+            <img src="images/blog/best-free-typing-websites.webp" alt="Best Free Typing Websites" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Resources</span>
+            <h2>Best Free Typing Websites Compared</h2>
+            <p>Compare the best free typing websites, their features, lessons, typing tests, and practice tools to choose the perfect learning platform.</p>
+            <div class="blog-footer">
+                <span>📖 7 min read</span>
+                <a href="best-free-typing-websites.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 24 (EYE STRAIN & DARK MODE GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="blog-image">
-        <img src="images/blog/typing-eye-strain-prevention-dark-mode-guide.webp"
-             alt="Prevent Eye Strain and Screen Fatigue While Typing"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Health & Wellness</span>
-        <h2>Digital Detox & Eye Strain: Practice Typing Without Harming Your Eyes</h2>
-        <p>
-            Spending long hours typing in front of a monitor? Discover the 20-20-20 rule, dark mode benefits, proper display contrast settings, and eye strain prevention tips for typists.
-        </p>
-        <div class="blog-footer">
-            <span>📖 9 min read</span>
-            <a href="typing-eye-strain-prevention-dark-mode-guide.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 10 -->
+    <div class="blog-card">
+        <a href="typing-ergonomics-guide.html" class="blog-image">
+            <img src="images/blog/typing-ergonomics-guide.webp" alt="Typing Ergonomics Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Ergonomics &amp; Health</span>
+            <h2>Typing Ergonomics Guide: How to Type Without Wrist Pain</h2>
+            <p>Discover essential typing ergonomics to eliminate hand fatigue, prevent wrist pain, and design a comfortable workspace for typing health.</p>
+            <div class="blog-footer">
+                <span>📖 20 min read</span>
+                <a href="typing-ergonomics-guide.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- =========================================     BLOG 25 (MOBILE VS PHYSICAL KEYBOARD GUIDE)========================================= -->
-<div class="blog-card">
-    <a href="mobile-vs-physical-pc-keyboard-typing.html" class="blog-image">
-        <img src="images/blog/mobile-vs-physical-pc-keyboard-typing.webp"
-             alt="Mobile Keyboard vs Physical PC Keyboard Comparison"
-             loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Tech Trends & Comparison</span>
-        <h2>Mobile Keyboard vs. Physical PC Keyboard: Why Fast Phone Typing Doesn't Translate</h2>
-        <p>
-            Can type 80 WPM with your thumbs on a smartphone but struggle on a desktop keyboard? Discover the neuroscience, thumb vs. ten-finger muscle memory, and how to bridge the speed gap.
-        </p>
-
-        <div class="blog-footer">
-            <span>📖 9 min read</span>
-            <a href="mobile-vs-physical-pc-keyboard-typing.html">
-                Read Guide →
-            </a>
+    <!-- BLOG 11 -->
+    <div class="blog-card">
+        <a href="mechanical-vs-membrane-keyboards.html" class="blog-image">
+            <img src="images/blog/mechanical-vs-membrane-keyboards.webp" alt="Mechanical vs Membrane Keyboards" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Keyboard Hardware</span>
+            <h2>Mechanical vs. Membrane Keyboards: Which is Best for Typing?</h2>
+            <p>An in-depth showdown between mechanical switches and classic membrane domes. Find out how your hardware impacts your speed, accuracy, and muscle memory.</p>
+            <div class="blog-footer">
+                <span>📖 15 min read</span>
+                <a href="mechanical-vs-membrane-keyboards.html">Read Guide →</a>
+            </div>
         </div>
     </div>
-</div>
-    
+
+    <!-- BLOG 12 -->
+    <div class="blog-card">
+        <a href="kids-students-touch-typing-guide.html" class="blog-image">
+            <img src="images/blog/kids-touch-typing-guide.webp" alt="Kids Touch Typing Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Education &amp; Students</span>
+            <h2>How Kids and Students Can Learn Touch Typing at an Early Age</h2>
+            <p>Discover why children should learn touch typing early, fun ways to practice, proper finger placement, and how this essential digital skill improves academic performance.</p>
+            <div class="blog-footer">
+                <span>📖 18 min read</span>
+                <a href="kids-students-touch-typing-guide.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 13 -->
+    <div class="blog-card">
+        <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="blog-image">
+            <img src="images/blog/typing-for-programmers.webp" alt="Typing for Programmers" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Programming &amp; Productivity</span>
+            <h2>Typing for Programmers: How Fast Typing Boosts Coding Productivity</h2>
+            <p>Discover how fast typing and touch typing skills boost coding productivity, reduce cognitive load, preserve the flow state, and accelerate software development workflows.</p>
+            <div class="blog-footer">
+                <span>📖 15 min read</span>
+                <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 14 -->
+    <div class="blog-card">
+        <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="blog-image">
+            <img src="images/blog/psychology-of-typing.webp" alt="The Psychology of Typing" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Muscle Memory &amp; Focus</span>
+            <h2>The Psychology of Typing: How to Train Your Brain for Blind Typing</h2>
+            <p>Uncover the neuroscience behind touch typing. Learn how your brain builds muscle memory, sends subconscious motor signals to your fingers, and enhances mental focus.</p>
+            <div class="blog-footer">
+                <span>📖 16 min read</span>
+                <a href="psychology-of-typing-train-brain-for-blind-typing.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 15 -->
+    <div class="blog-card">
+        <a href="10-key-numeric-keypad-training.html" class="blog-image">
+            <img src="images/blog/numeric-keypad-training.webp" alt="10-Key Numeric Keypad Training" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Data Entry &amp; Accounting</span>
+            <h2>10-Key Numeric Keypad Training: Master the Numpad Fast</h2>
+            <p>Master 10-key numeric keypad touch typing for data entry, accounting, and banking jobs. Learn home row finger positioning, blind typing techniques, and accuracy tips.</p>
+            <div class="blog-footer">
+                <span>📖 10 min read</span>
+                <a href="10-key-numeric-keypad-training.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 16 -->
+    <div class="blog-card">
+        <a href="government-typing-exam-gcc-tbc-guide.html" class="blog-image">
+            <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp" alt="Government Typing Exam GCC-TBC Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Government Exams</span>
+            <h2>How to Pass Court &amp; GCC-TBC Typing Exams: 30 WPM &amp; 40 WPM Guide</h2>
+            <p>Master Marathi and English GCC-TBC speed requirements, Bombay High Court exam formats, accuracy evaluation rules, and passage practice techniques.</p>
+            <div class="blog-footer">
+                <span>📖 12 min read</span>
+                <a href="government-typing-exam-gcc-tbc-guide.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 17 -->
+    <div class="blog-card">
+        <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="blog-image">
+            <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp" alt="Keyboard Layout Comparison" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Keyboard Layouts</span>
+            <h2>Qwerty vs. Dvorak vs. Colemak: Is It Worth Switching Keyboard Layouts?</h2>
+            <p>Tired of QWERTY finger strain? Explore how Dvorak and Colemak redesign typing ergonomics, boost speed potential, and whether making the switch is right for you.</p>
+            <div class="blog-footer">
+                <span>📖 11 min read</span>
+                <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 18 -->
+    <div class="blog-card">
+        <a href="typing-speed-requirements-for-remote-jobs.html" class="blog-image">
+            <img src="images/blog/typing-speed-requirements-for-remote-jobs.webp" alt="Typing Speed Requirements for Remote Jobs" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Career &amp; Remote Work</span>
+            <h2>How Fast Do You Need to Type for Remote Jobs? (WPM by Career)</h2>
+            <p>Wondering what WPM speed remote employers actually expect? Discover benchmark typing requirements for Data Entry, Virtual Assistants, Customer Support, and Software Engineering.</p>
+            <div class="blog-footer">
+                <span>📖 10 min read</span>
+                <a href="typing-speed-requirements-for-remote-jobs.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 19 -->
+    <div class="blog-card">
+        <a href="typing-games-vs-traditional-practice.html" class="blog-image">
+            <img src="images/blog/typing-games-vs-traditional-practice.webp" alt="Typing Games vs Traditional Practice" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Gamification &amp; Learning</span>
+            <h2>Typing Games vs. Traditional Practice: What Actually Works Better?</h2>
+            <p>Can arcade typing games really make you faster, or are classic drills still king? Discover the science of gamified typing and how to combine both for maximum speed gains.</p>
+            <div class="blog-footer">
+                <span>📖 9 min read</span>
+                <a href="typing-games-vs-traditional-practice.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 20 -->
+    <div class="blog-card">
+        <a href="how-wpm-and-accuracy-are-calculated.html" class="blog-image">
+            <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp" alt="How WPM and Accuracy Are Calculated" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Technical &amp; Methodology</span>
+            <h2>The Science of WPM: How Words Per Minute and Accuracy Are Calculated</h2>
+            <p>Ever wondered how typing software measures your speed? Uncover the math behind Standard Words, Gross vs Net WPM, Keystrokes Per Hour (KPH), and accuracy formulas.</p>
+            <div class="blog-footer">
+                <span>📖 10 min read</span>
+                <a href="how-wpm-and-accuracy-are-calculated.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 21 -->
+    <div class="blog-card">
+        <a href="top-custom-mechanical-keyboards-switches-guide.html" class="blog-image">
+            <img src="images/blog/top-custom-mechanical-keyboards-switches-guide.webp" alt="Top Custom Mechanical Keyboards Guide" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Hardware &amp; Gear</span>
+            <h2>Top Custom Mechanical Keyboards &amp; Switches for Fast Typing Enthusiasts</h2>
+            <p>Looking to upgrade your typing gear? Discover the best mechanical key switches (Linear vs Tactile vs Clicky), hot-swappable boards, and keycap profiles for ultimate typing speed.</p>
+            <div class="blog-footer">
+                <span>📖 11 min read</span>
+                <a href="top-custom-mechanical-keyboards-switches-guide.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 22 -->
+    <div class="blog-card">
+        <a href="how-to-overcome-typing-speed-plateau.html" class="blog-image">
+            <img src="images/blog/how-to-overcome-typing-speed-plateau.webp" alt="How to Overcome Typing Speed Plateau" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Advanced Practice Strategies</span>
+            <h2>How to Overcome the 'Speed Plateau' in Typing (Stuck at 50-60 WPM?)</h2>
+            <p>Stuck at 50 or 60 WPM no matter how much you practice? Learn proven cognitive techniques, finger hesitation fixes, and burst drills to break your plateau and hit 80+ WPM.</p>
+            <div class="blog-footer">
+                <span>📖 10 min read</span>
+                <a href="how-to-overcome-typing-speed-plateau.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 23 -->
+    <div class="blog-card">
+        <a href="typing-guide-for-non-native-english-speakers.html" class="blog-image">
+            <img src="images/blog/typing-guide-for-non-native-english-speakers.webp" alt="Typing Guide for Non Native English Speakers" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Language &amp; Skill Building</span>
+            <h2>Typing for Non-Native English Speakers: Improve Speed &amp; Spelling</h2>
+            <p>Struggling with English typing speed due to spelling hesitation? Discover tailored muscle memory techniques, vocabulary chunking, and error fixes designed specifically for non-native typists.</p>
+            <div class="blog-footer">
+                <span>📖 10 min read</span>
+                <a href="typing-guide-for-non-native-english-speakers.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 24 -->
+    <div class="blog-card">
+        <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="blog-image">
+            <img src="images/blog/typing-eye-strain-prevention-dark-mode-guide.webp" alt="Prevent Eye Strain and Screen Fatigue While Typing" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Health &amp; Wellness</span>
+            <h2>Digital Detox &amp; Eye Strain: Practice Typing Without Harming Your Eyes</h2>
+            <p>Spending long hours typing in front of a monitor? Discover the 20-20-20 rule, dark mode benefits, proper display contrast settings, and eye strain prevention tips for typists.</p>
+            <div class="blog-footer">
+                <span>📖 9 min read</span>
+                <a href="typing-eye-strain-prevention-dark-mode-guide.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG 25 -->
+    <div class="blog-card">
+        <a href="mobile-vs-physical-pc-keyboard-typing.html" class="blog-image">
+            <img src="images/blog/mobile-vs-physical-pc-keyboard-typing.webp" alt="Mobile Keyboard vs Physical PC Keyboard Comparison" loading="lazy">
+        </a>
+        <div class="blog-content">
+            <span class="blog-category">Tech Trends &amp; Comparison</span>
+            <h2>Mobile Keyboard vs. Physical PC Keyboard: Why Fast Phone Typing Doesn't Translate</h2>
+            <p>Can type 80 WPM with your thumbs on a smartphone but struggle on a desktop keyboard? Discover the neuroscience, thumb vs. ten-finger muscle memory, and how to bridge the speed gap.</p>
+            <div class="blog-footer">
+                <span>📖 9 min read</span>
+                <a href="mobile-vs-physical-pc-keyboard-typing.html">Read Guide →</a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
+<!-- FOOTER -->
 <div class="footer">
-
-    <!-- LEFT -->
-
     <div class="footer-logo">
-
         <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-
-    <!-- QUICK LINKS -->
-
     <div class="footer-links">
-
         <h2>Quick Links</h2>
-
         <a href="index.html">› Home</a>
-
         <a href="typing.html">› Practice</a>
-
         <a href="tests.html">› Tests</a>
-
         <a href="leaderboard.html">› Leaderboard</a>
-
         <a href="contact.html">› Contact Us</a>
-
         <a href="blog.html">› Blog</a>
-
     </div>
-
-
-    <!-- RESOURCES -->
 
     <div class="footer-links">
-
         <h2>Resources</h2>
-
         <a href="courses.html">› Courses</a>
-
         <a href="blog.html">› Blog</a>
-
         <a href="about.html">› About</a>
-
         <a href="faq.html">› FAQ</a>
-
         <a href="privacy.html">› Privacy Policy</a>
-
         <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
-     
 </div>
-
-
-<!-- COPYRIGHT -->
 
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
-    
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
 
-<div class="login-modal"
-id="loginModal">
-
-
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
 
-
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
-        </div>
-
-
-
-        <!-- TITLE -->
-
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-
-        <p>
-
-            Login to continue your typing journey.
-
-        </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
-</div>
-
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
-
 </div>
+
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
 </body>
-
 </html>
