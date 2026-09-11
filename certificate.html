@@ -8,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -30,7 +29,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/certificate.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Typing Certificate | TypeNest">
     <meta property="og:description" content="View and download your typing performance certificate on TypeNest.">
@@ -45,64 +44,26 @@
 <body>
 
 <div class="certificate-container">
+    <div class="certificate">
+        <h1>🏆 TypeNest</h1>
+        <h2>CERTIFICATE OF ACHIEVEMENT</h2>
 
-<div class="certificate">
+        <p>This certifies that</p>
+        <h3 id="certificateName">Loading...</h3>
 
-<h1>
-🏆 TypeNest
-</h1>
+        <p>has successfully completed all TypeNest typing levels.</p>
 
-<h2>
-CERTIFICATE OF ACHIEVEMENT
-</h2>
+        <p>Completion Date: <span id="completionDate">--/--/----</span></p>
 
-<p>
-This certifies that
-</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
 
-<h3 id="certificateName">
+        <h4>TypeNest Team</h4>
 
-Loading...
-
-</h3>
-
-<p>
-has successfully completed
-all TypeNest typing levels.
-</p>
-
-<p>
-Completion Date:
-<span id="completionDate"></span>
-</p>
-
-<div class="stars">
-
-⭐⭐⭐⭐⭐
-
+        <button id="printBtn" onclick="window.print()">🖨️ Print Certificate</button>
+    </div>
 </div>
 
-<h4>
-
-TypeNest Team
-
-</h4>
-
-<button
-id="printBtn">
-
-🖨️ Print Certificate
-
-</button>
-  
-</div>
-
-</div>
-
-<script type="module"
-src="certificate.js">
-</script>
+<script type="module" src="certificate.js"></script>
 
 </body>
-
 </html>
