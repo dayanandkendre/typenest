@@ -8,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -28,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/terms.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Terms and Conditions - TypeNest">
     <meta property="og:description" content="Read the official TypeNest Terms and Conditions governing website usage, practice tools, and user agreements.">
@@ -39,393 +38,164 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms and Conditions - TypeNest",
+      "url": "https://typenest.in/terms.html",
+      "description": "Read the TypeNest Terms and Conditions governing website usage and services."
+    }
+    </script>
 </head>
 
-<body>
+<body class="light">
 
-    <!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
     <!-- THEME BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
+    <!-- MOBILE MENU BUTTON -->
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <!-- LOGIN / USER BUTTON -->
-
     <div class="user-menu">
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
+    </div>
+</div>
 
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
+<!-- HERO -->
+<div class="about-hero">
+    <h1>Terms &amp; Conditions</h1>
+    <p>Last Updated: September 2026</p>
+</div>
 
-        Login
+<!-- CONTAINER -->
+<div class="about-container">
 
-    </a>
+    <div class="about-card">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing and using TypeNest, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, please discontinue use of the website.</p>
+    </div>
 
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
+    <div class="about-card">
+        <h2>2. Use of Website</h2>
+        <p>TypeNest is provided for educational and informational purposes. Users may access typing lessons, tests, blogs, and learning resources for personal use.</p>
+    </div>
 
-            My Profile
+    <div class="about-card">
+        <h2>3. User Responsibilities</h2>
+        <p>Users are expected to use the website responsibly and refrain from activities that may disrupt services, damage content, or violate applicable laws.</p>
+    </div>
 
-        </a>
+    <div class="about-card">
+        <h2>4. Intellectual Property</h2>
+        <p>All website content, including text, graphics, branding, and educational materials, is the property of TypeNest unless otherwise stated. Unauthorized copying or redistribution is prohibited.</p>
+    </div>
 
-        <a href="#"
-        id="logoutDropdown">
+    <div class="about-card">
+        <h2>5. Limitation of Liability</h2>
+        <p>TypeNest shall not be held responsible for any direct or indirect damages resulting from the use or inability to use the website and its services.</p>
+    </div>
 
-            Logout
+    <div class="about-card">
+        <h2>6. External Links</h2>
+        <p>The website may contain links to external resources. We are not responsible for the content, policies, or practices of third-party websites.</p>
+    </div>
 
-        </a>
+    <div class="about-card">
+        <h2>7. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms and Conditions at any time. Updated versions will be posted on this page.</p>
+    </div>
 
+    <div class="about-card">
+        <h2>8. Contact Information</h2>
+        <p>If you have questions regarding these Terms and Conditions, please contact us through the <a href="contact.html">Contact Us</a> page.</p>
     </div>
 
 </div>
 
-</div>
-
-
-    <!-- HERO -->
-
-    <div class="about-hero">
-
-        <h1>Terms & Conditions</h1>
-
-        <p>
-
-            Last Updated: May 2026
-
-        </p>
-
-    </div>
-
-
-    <div class="about-container">
-
-        <div class="about-card">
-
-            <h2>1. Acceptance of Terms</h2>
-
-            <p>
-                By accessing and using TypeNest, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, please discontinue use of the website.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>2. Use of Website</h2>
-
-            <p>
-                TypeNest is provided for educational and informational purposes. Users may access typing lessons, tests, blogs, and learning resources for personal use.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>3. User Responsibilities</h2>
-
-            <p>
-                Users are expected to use the website responsibly and refrain from activities that may disrupt services, damage content, or violate applicable laws.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>4. Intellectual Property</h2>
-
-            <p>
-                All website content, including text, graphics, branding, and educational materials, is the property of TypeNest unless otherwise stated. Unauthorized copying or redistribution is prohibited.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>5. Limitation of Liability</h2>
-
-            <p>
-                TypeNest shall not be held responsible for any direct or indirect damages resulting from the use or inability to use the website and its services.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>6. External Links</h2>
-
-            <p>
-                The website may contain links to external resources. We are not responsible for the content, policies, or practices of third-party websites.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>7. Changes to Terms</h2>
-
-            <p>
-                We reserve the right to modify these Terms and Conditions at any time. Updated versions will be posted on this page.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>8. Contact Information</h2>
-
-            <p>
-                If you have questions regarding these Terms and Conditions, please contact us through the Contact page.
-            </p>
-
-        </div>
-
-    </div>
-
-
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
+<!-- FOOTER -->
 <div class="footer">
-
-    <!-- LEFT -->
-
     <div class="footer-logo">
-
         <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-
-    <!-- QUICK LINKS -->
-
     <div class="footer-links">
-
         <h2>Quick Links</h2>
-
         <a href="index.html">› Home</a>
-
         <a href="typing.html">› Practice</a>
-
         <a href="tests.html">› Tests</a>
-
         <a href="leaderboard.html">› Leaderboard</a>
-
         <a href="contact.html">› Contact Us</a>
-
         <a href="blog.html">› Blog</a>
-
     </div>
-
-
-    <!-- RESOURCES -->
 
     <div class="footer-links">
-
         <h2>Resources</h2>
-
         <a href="courses.html">› Courses</a>
-
         <a href="blog.html">› Blog</a>
-
         <a href="about.html">› About</a>
-
         <a href="faq.html">› FAQ</a>
-
         <a href="privacy.html">› Privacy Policy</a>
-
         <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
-     
 </div>
-
 
 <!-- COPYRIGHT -->
-
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
-    
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
 
-<div class="login-modal"
-id="loginModal">
-
-
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
 
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
 
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
-        </div>
-
-
-
-        <!-- TITLE -->
-
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-
-        <p>
-
-            Login to continue your typing journey.
-
-        </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
-</div>
-
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
-
 </div>
+
+<!-- SCRIPTS -->
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
 </body>
-
 </html>
