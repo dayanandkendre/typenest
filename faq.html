@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
@@ -9,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -29,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/faq.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="FAQ - Frequently Asked Questions | TypeNest">
     <meta property="og:description" content="Find answers to common questions about typing speed, tests, courses, and certificates on TypeNest.">
@@ -41,557 +39,238 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="faq.css">
 
-    <!-- FAQ Page Schema Markup (Google Search Rich Results साठी) -->
+    <!-- Expanded FAQ Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How is WPM calculated on TypeNest?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "WPM (Words Per Minute) is calculated by counting the total number of correct characters typed divided by 5, and then dividing that by the total time taken in minutes."
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is WPM calculated on TypeNest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WPM (Words Per Minute) is calculated by counting the total number of correct characters typed divided by 5, and then dividing that by the total time taken in minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are TypeNest typing courses free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all typing courses, speed tests, and practice modules on TypeNest are 100% free to use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Touch Typing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Touch typing is a method of typing without looking at the keyboard, relying on muscle memory to locate keys."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TypeNest provide certificates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, learners who complete 100% course progress can earn and print an official TypeNest Typing Certificate."
+          }
         }
-      },
-      {
-        "@type": "Question",
-        "name": "Are TypeNest typing courses free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, all typing courses, speed tests, and practice modules on TypeNest are 100% free to use."
-        }
-      }]
+      ]
     }
     </script>
 </head>
+
 <body>
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
-    <!-- THEME BUTTON -->
-
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
-
-    <!-- LOGIN / USER BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <div class="user-menu">
-
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-
-        Login
-
-    </a>
-
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-
-            My Profile
-
-        </a>
-
-        <a href="#"
-        id="logoutDropdown">
-
-            Logout
-
-        </a>
-
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
-
 </div>
 
-</div>
-
-
-
-   <!-- =========================================
-     HERO
-========================================= -->
-
+<!-- HERO -->
 <div class="about-hero">
-
-    <div class="about-tag">
-
-        ❓ Frequently Asked Questions
-
-    </div>
-
-    <h1>
-
-        TypeNest <span class="blue-text">FAQ</span>
-
-    </h1>
-
-    <p>
-
-        Answers to common questions about typing practice,
-        typing speed, accuracy, courses and certificates.
-
-    </p>
+    <div class="about-tag">❓ Frequently Asked Questions</div>
+    <h1>TypeNest <span class="blue-text">FAQ</span></h1>
+    <p>Answers to common questions about typing practice, typing speed, accuracy, courses and certificates.</p>
 
     <div class="about-stats">
-
         <div>
             <h3>20+</h3>
             <span>Questions</span>
         </div>
-
         <div>
             <h3>40+</h3>
             <span>Blogs</span>
         </div>
-
         <div>
             <h3>10K+</h3>
             <span>Users</span>
         </div>
-
     </div>
-
 </div>
 
-
-    <!-- =========================================
-         ABOUT CARDS
-    ========================================= -->
-
-   <div class="about-grid">
+<!-- ABOUT CARDS / FAQ GRID -->
+<div class="about-grid">
 
     <div class="about-card">
+        <h2>⌨️ What is TypeNest?</h2>
+        <p>TypeNest is a free online platform designed to help users improve typing speed, accuracy and keyboard skills through lessons, tests and practice exercises.</p>
+    </div>
 
-    <h2>⌨️ What is TypeNest?</h2>
+    <div class="about-card">
+        <h2>🚀 Is TypeNest Free?</h2>
+        <p>Yes. TypeNest offers free typing lessons, typing tests, educational blogs and learning resources for all users.</p>
+    </div>
 
-    <p>
+    <div class="about-card">
+        <h2>⚡ What Is a Good Typing Speed?</h2>
+        <p>A typing speed of 40–60 WPM is considered good for most users. Professional typists often achieve speeds above 80 WPM.</p>
+    </div>
 
-        TypeNest is a free online platform designed to help users improve typing speed, accuracy and keyboard skills through lessons, tests and practice exercises.
+    <div class="about-card">
+        <h2>🎯 How Can I Improve Typing Speed?</h2>
+        <p>Practice daily, focus on accuracy first, learn proper finger placement and gradually increase speed through regular exercises on <a href="typing.html">TypeNest Practice</a>.</p>
+    </div>
 
-    </p>
+    <div class="about-card">
+        <h2>👨‍💻 What is Touch Typing?</h2>
+        <p>Touch typing is a typing method where you type without looking at the keyboard. It helps improve typing speed, accuracy, and productivity.</p>
+    </div>
 
-</div>
+    <div class="about-card">
+        <h2>📈 How Many WPM Is Considered Good?</h2>
+        <p>Most people type between 40 and 60 WPM. Speeds above 70 WPM are considered excellent, while professional typists often exceed 100 WPM.</p>
+    </div>
 
+    <div class="about-card">
+        <h2>🏆 Does TypeNest Provide Certificates?</h2>
+        <p>Yes. TypeNest provides an official completion certificate once a user finishes all structured lessons in the course curriculum.</p>
+    </div>
 
-<div class="about-card">
+    <div class="about-card">
+        <h2>📅 How Often Should I Practice Typing?</h2>
+        <p>Practicing for 15–30 minutes daily is usually enough to improve typing speed and accuracy consistently over time.</p>
+    </div>
 
-    <h2>🚀 Is TypeNest Free?</h2>
+    <div class="about-card">
+        <h2>🎓 Is TypeNest Suitable for Beginners?</h2>
+        <p>Yes. TypeNest offers beginner-friendly lessons, guided practice, and step-by-step learning paths starting with our <a href="beginner.html">Beginner Course</a>.</p>
+    </div>
 
-    <p>
+    <div class="about-card">
+        <h2>🎯 How Can I Improve Typing Accuracy?</h2>
+        <p>Focus on typing correctly rather than quickly. Consistent practice and proper finger placement can significantly improve accuracy.</p>
+    </div>
 
-        Yes. TypeNest offers free typing lessons, typing tests, educational blogs and learning resources for all users.
+    <div class="about-card">
+        <h2>⌨️ Do I Need a Special Keyboard?</h2>
+        <p>No. You can improve typing skills using any standard desktop, laptop, or external keyboard.</p>
+    </div>
 
-    </p>
+    <div class="about-card">
+        <h2>⏳ How Long Does It Take to Learn Touch Typing?</h2>
+        <p>Most beginners can learn the basics of touch typing within a few weeks of regular practice, while mastery may take several months.</p>
+    </div>
 
-</div>
+    <div class="about-card">
+        <h2>📱 Can I Practice Typing on Mobile Devices?</h2>
+        <p>While mobile typing practice is possible, a physical keyboard provides the best experience for improving typing speed and accuracy.</p>
+    </div>
 
+    <div class="about-card">
+        <h2>💯 Are TypeNest Typing Tests Free?</h2>
+        <p>Yes. TypeNest offers free <a href="tests.html">Timed Typing Tests</a> that allow users to measure their typing speed, accuracy, and overall performance.</p>
+    </div>
 
-<div class="about-card">
-
-    <h2>⚡ What Is a Good Typing Speed?</h2>
-
-    <p>
-
-        A typing speed of 40–60 WPM is considered good for most users. Professional typists often achieve speeds above 80 WPM.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>🎯 How Can I Improve Typing Speed?</h2>
-
-    <p>
-
-        Practice daily, focus on accuracy first, learn proper finger placement and gradually increase speed through regular exercises.
-
-    </p>
-
-</div>
-
-<div class="about-card">
-
-    <h2>👨‍💻 What is Touch Typing?</h2>
-
-    <p>
-
-        Touch typing is a typing method where you type without looking at the keyboard. It helps improve typing speed, accuracy, and productivity.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>📈 How Many WPM Is Considered Good?</h2>
-
-    <p>
-
-        Most people type between 40 and 60 WPM. Speeds above 70 WPM are considered excellent, while professional typists often exceed 100 WPM.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>🏆 Does TypeNest Provide Certificates?</h2>
-
-    <p>
-
-        TypeNest plans to introduce typing certificates in the future. Certificates will help users showcase their typing achievements and skills.
-
-    </p>
+    <div class="about-card">
+        <h2>📊 What Does WPM Mean?</h2>
+        <p>WPM stands for Words Per Minute. It is the standard measurement used to determine typing speed (calculated as 5 characters = 1 word).</p>
+    </div>
 
 </div>
 
-
-<div class="about-card">
-
-    <h2>📅 How Often Should I Practice Typing?</h2>
-
-    <p>
-
-        Practicing for 15–30 minutes daily is usually enough to improve typing speed and accuracy consistently over time.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>🎓 Is TypeNest Suitable for Beginners?</h2>
-
-    <p>
-
-        Yes. TypeNest offers beginner-friendly lessons, guided practice, and step-by-step learning paths designed for new typists.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>🎯 How Can I Improve Typing Accuracy?</h2>
-
-    <p>
-
-        Focus on typing correctly rather than quickly. Consistent practice and proper finger placement can significantly improve accuracy.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>⌨️ Do I Need a Special Keyboard?</h2>
-
-    <p>
-
-        No. You can improve typing skills using any standard desktop, laptop, or external keyboard.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>⏳ How Long Does It Take to Learn Touch Typing?</h2>
-
-    <p>
-
-        Most beginners can learn the basics of touch typing within a few weeks of regular practice, while mastery may take several months.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>📱 Can I Practice Typing on Mobile Devices?</h2>
-
-    <p>
-
-        While mobile typing practice is possible, a physical keyboard provides the best experience for improving typing speed and accuracy.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>💯 Are TypeNest Typing Tests Free?</h2>
-
-    <p>
-
-        Yes. TypeNest offers free typing tests that allow users to measure their typing speed, accuracy, and overall performance.
-
-    </p>
-
-</div>
-
-
-<div class="about-card">
-
-    <h2>📊 What Does WPM Mean?</h2>
-
-    <p>
-
-        WPM stands for Words Per Minute. It is the standard measurement used to determine typing speed.
-
-    </p>
-
-</div>
-       
-</div>
-
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
+<!-- FOOTER -->
 <div class="footer">
-
-    <!-- LEFT -->
-
     <div class="footer-logo">
-
         <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-
-    <!-- QUICK LINKS -->
-
     <div class="footer-links">
-
         <h2>Quick Links</h2>
-
         <a href="index.html">› Home</a>
-
         <a href="typing.html">› Practice</a>
-
         <a href="tests.html">› Tests</a>
-
         <a href="leaderboard.html">› Leaderboard</a>
-
         <a href="contact.html">› Contact Us</a>
-
         <a href="blog.html">› Blog</a>
-
     </div>
-
-
-    <!-- RESOURCES -->
 
     <div class="footer-links">
-
         <h2>Resources</h2>
-
         <a href="courses.html">› Courses</a>
-
         <a href="blog.html">› Blog</a>
-
         <a href="about.html">› About</a>
-
         <a href="faq.html">› FAQ</a>
-
         <a href="privacy.html">› Privacy Policy</a>
-
         <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
-     
 </div>
-
-
-<!-- COPYRIGHT -->
 
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
 
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
-
-<div class="login-modal"
-id="loginModal">
-
-
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
 
-
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
-        </div>
-
-
-
-        <!-- TITLE -->
-
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-
-        <p>
-
-            Login to continue your typing journey.
-
-        </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
-</div>
-
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
-
 </div>
+
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
 </body>
-
 </html>
