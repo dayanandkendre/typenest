@@ -8,7 +8,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -28,7 +27,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/disclaimer.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Disclaimer - TypeNest">
     <meta property="og:description" content="Read the official TypeNest disclaimer regarding website content, typing lessons, and educational information.">
@@ -39,390 +38,165 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+
+    <!-- WebPage Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Disclaimer",
+      "description": "Official Disclaimer for TypeNest regarding educational content, advertising, external links, and limitations of liability.",
+      "url": "https://typenest.in/disclaimer.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://typenest.in/favicon.png"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
 
-    <!-- =========================================
-     NAVBAR
-========================================= -->
-
+<!-- NAVBAR -->
 <div class="navbar">
+    <div class="logo">TypeNest</div>
 
-    <div class="logo">
-
-        TypeNest
-
-    </div>
-  
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
-    <!-- THEME BUTTON -->
-
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
-
-    <!-- LOGIN / USER BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <div class="user-menu">
+        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
+    </div>
+</div>
 
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
+<!-- HERO -->
+<div class="about-hero">
+    <h1>Disclaimer</h1>
+    <p>Last Updated: September 2026</p>
+</div>
 
-        Login
+<!-- DISCLAIMER CONTENT -->
+<div class="about-container">
 
-    </a>
+    <div class="about-card">
+        <h2>General Information</h2>
+        <p>The information provided on TypeNest is for general educational and informational purposes only. While we strive to keep content accurate and up to date, we make no guarantees regarding completeness, reliability, or accuracy.</p>
+    </div>
 
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
+    <div class="about-card">
+        <h2>Educational Purpose</h2>
+        <p>TypeNest provides typing lessons, tests, guides, blogs, and learning resources intended to help users improve typing speed and accuracy. Results may vary from person to person depending on individual effort and practice consistency.</p>
+    </div>
 
-            My Profile
+    <div class="about-card">
+        <h2>No Professional Advice</h2>
+        <p>The content available on this website should not be considered professional, legal, financial, medical, or career advice. Users should seek professional guidance when necessary.</p>
+    </div>
 
-        </a>
+    <div class="about-card">
+        <h2>External Links Disclaimer</h2>
+        <p>TypeNest may contain links to third-party websites. We do not control or endorse the content, services, or privacy practices of external websites.</p>
+    </div>
 
-        <a href="#"
-        id="logoutDropdown">
+    <div class="about-card">
+        <h2>Advertisement Disclaimer</h2>
+        <p>This website may display advertisements provided by third-party advertising networks such as Google AdSense. We are not responsible for the products, services, or claims made by advertisers.</p>
+    </div>
 
-            Logout
+    <div class="about-card">
+        <h2>Limitation of Liability</h2>
+        <p>Under no circumstances shall TypeNest be liable for any loss or damage arising from the use of this website or reliance on the information provided.</p>
+    </div>
 
-        </a>
+    <div class="about-card">
+        <h2>Content Updates</h2>
+        <p>We reserve the right to modify, update, or remove website content at any time without prior notice.</p>
+    </div>
 
+    <div class="about-card">
+        <h2>Contact Us</h2>
+        <p>If you have any questions regarding this Disclaimer, please contact us through the <a href="contact.html">Contact page</a> available on TypeNest.</p>
     </div>
 
 </div>
 
-</div>
-    <!-- HERO -->
-
-    <div class="about-hero">
-
-        <h1>Disclaimer</h1>
-
-        <p>
-
-            Last Updated: May 2026
-
-        </p>
-
-    </div>
-
-
-    <div class="about-container">
-
-        <div class="about-card">
-
-            <h2>General Information</h2>
-
-            <p>
-                The information provided on TypeNest is for general educational and informational purposes only. While we strive to keep content accurate and up to date, we make no guarantees regarding completeness, reliability, or accuracy.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>Educational Purpose</h2>
-
-            <p>
-                TypeNest provides typing lessons, tests, guides, blogs, and learning resources intended to help users improve typing speed and accuracy. Results may vary from person to person.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>No Professional Advice</h2>
-
-            <p>
-                The content available on this website should not be considered professional, legal, financial, medical, or career advice. Users should seek professional guidance when necessary.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>External Links Disclaimer</h2>
-
-            <p>
-                TypeNest may contain links to third-party websites. We do not control or endorse the content, services, or privacy practices of external websites.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>Advertisement Disclaimer</h2>
-
-            <p>
-                This website may display advertisements provided by third-party advertising networks such as Google AdSense. We are not responsible for the products, services, or claims made by advertisers.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>Limitation of Liability</h2>
-
-            <p>
-                Under no circumstances shall TypeNest be liable for any loss or damage arising from the use of this website or reliance on the information provided.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>Content Updates</h2>
-
-            <p>
-                We reserve the right to modify, update, or remove website content at any time without prior notice.
-            </p>
-
-        </div>
-
-
-        <div class="about-card">
-
-            <h2>Contact Us</h2>
-
-            <p>
-                If you have any questions regarding this Disclaimer, please contact us through the Contact page available on TypeNest.
-            </p>
-
-        </div>
-
-    </div>
-
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
-
+<!-- FOOTER -->
 <div class="footer">
-
-    <!-- LEFT -->
-
     <div class="footer-logo">
-
         <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
     </div>
 
-
-    <!-- QUICK LINKS -->
-
     <div class="footer-links">
-
         <h2>Quick Links</h2>
-
         <a href="index.html">› Home</a>
-
         <a href="typing.html">› Practice</a>
-
         <a href="tests.html">› Tests</a>
-
         <a href="leaderboard.html">› Leaderboard</a>
-
         <a href="contact.html">› Contact Us</a>
-
         <a href="blog.html">› Blog</a>
-
     </div>
-
-
-    <!-- RESOURCES -->
 
     <div class="footer-links">
-
         <h2>Resources</h2>
-
         <a href="courses.html">› Courses</a>
-
         <a href="blog.html">› Blog</a>
-
         <a href="about.html">› About</a>
-
         <a href="faq.html">› FAQ</a>
-
         <a href="privacy.html">› Privacy Policy</a>
-
         <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
+        <a href="terms.html">› Terms &amp; Conditions</a>
     </div>
-     
 </div>
-
-
-<!-- COPYRIGHT -->
 
 <div class="footer-bottom">
-
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
-
+    <p>© 2026 TypeNest. All rights reserved.</p>
 </div>
-  
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
 
-<div class="login-modal"
-id="loginModal">
-
-
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h2>Welcome Back</h2>
+        <p>Login to continue your typing journey.</p>
 
-
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
-        </div>
-
-
-
-        <!-- TITLE -->
-
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-
-        <p>
-
-            Login to continue your typing journey.
-
-        </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
-</div>
-
+        <input type="email" id="modalEmail" placeholder="Email Address">
+        <input type="password" id="modalPassword" placeholder="Password">
+        <button id="modalLoginBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
-
 </div>
+
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 <script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="auth-navbar.js"></script>
 
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
 </body>
-
 </html>
