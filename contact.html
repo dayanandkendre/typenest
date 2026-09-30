@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -9,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -22,17 +19,17 @@
     <meta name="robots" content="index, follow">
 
     <!-- SEO Meta Tags -->
-    <title>Contact Us | TypeNest</title>
-    <meta name="description" content="Have questions, feedback, or support queries? Contact the TypeNest team directly. We are here to help you improve your typing experience.">
-    <meta name="keywords" content="contact TypeNest, TypeNest support, typing website support, contact us, feedback">
+    <title>Contact Us | TypeNest - Support & Developer Inquiry</title>
+    <meta name="description" content="Get in touch with TypeNest founder Dayanand Dinkar Kendre. Contact us for platform support, technical bug reports, feature suggestions, and educational inquiries.">
+    <meta name="keywords" content="contact TypeNest, Dayanand Dinkar Kendre, TypeNest support, typing platform contact Pune, feedback">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/contact.html">
 
     <!-- Open Graph Meta Tags (Social Media Sharing) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact Us | TypeNest">
-    <meta property="og:description" content="Get in touch with the TypeNest team for support, feedback, or general inquiries.">
+    <meta property="og:title" content="Contact Us | TypeNest - Get in Touch with Support">
+    <meta property="og:description" content="Reach out to the TypeNest team for typing test inquiries, bug reports, and educational collaboration.">
     <meta property="og:url" content="https://typenest.in/contact.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
@@ -40,349 +37,222 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
+
+    <!-- Structured Data (JSON-LD) for E-E-A-T and Contact Verification -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact TypeNest",
+      "url": "https://typenest.in/contact.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "url": "https://typenest.in",
+        "founder": {
+          "@type": "Person",
+          "name": "Dayanand Dinkar Kendre"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "typenest.in@gmail.com",
+          "contactType": "customer support",
+          "areaServed": "IN",
+          "availableLanguage": ["English", "Marathi", "Hindi"]
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "At. Moshi",
+          "addressLocality": "Khed",
+          "addressRegion": "Pune, Maharashtra",
+          "addressCountry": "IN"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
 
-    <!-- =========================================
+<!-- =========================================
      NAVBAR
 ========================================= -->
-
 <div class="navbar">
-
     <div class="logo">
-
         TypeNest
-
     </div>
   
     <div class="menu" id="mobileMenu">
-         
-<a href="index.html" class="menu-link">Home</a>
-
-<a href="typing.html" class="menu-link">Practice</a>
-
-<a href="tests.html" class="menu-link">Tests</a>
-
-<a href="courses.html" class="menu-link">Courses</a>
-
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-
-<a href="blog.html" class="menu-link">Blog</a>
-
-<a href="about.html" class="menu-link">About</a>
-
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-
-    Login
-
-</a>
-         
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
 
     <!-- THEME BUTTON -->
-
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-
-        🌙
-
-    </button>
-
-     <button
-id="menuBtn"
-class="menu-btn">
-
-☰
-
-</button>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
 
     <!-- LOGIN / USER BUTTON -->
-
     <div class="user-menu">
-
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-
-        Login
-
-    </a>
-
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-
-            My Profile
-
-        </a>
-
-        <a href="#"
-        id="logoutDropdown">
-
-            Logout
-
-        </a>
-
+        <a href="#" class="login-btn" id="loginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
-
 </div>
-
-</div>
-
-    <!-- HERO -->
-
-    <div class="contact-hero">
-
-        <h1>Contact Us</h1>
-
-        <p>
-
-            Have questions, suggestions, or feedback?
-            We'd love to hear from you.
-
-        </p>
-
-    </div>
-
-
-    <!-- CONTACT CARD -->
-
-    <div class="contact-card">
-
-        <h2>Email Support</h2>
-
-        <p>
-
-            typenest.in@gmail.com
-
-        </p>
-
-        <h2>Feedback</h2>
-
-        <p>
-
-            Help us improve TypeNest by sharing your ideas and suggestions.
-
-        </p>
-
-
-<input
-type="text"
-id="name"
-placeholder="Your Name">
-
-<input
-type="email"
-id="email"
-placeholder="Your Email">
-
-<textarea
-id="message"
-placeholder="Write your message here..."
-rows="6"></textarea>
-
-<button id="sendBtn">
-
-    Send Message
-
-</button>
-
-    </div>
 
 <!-- =========================================
-     PREMIUM FOOTER
+     HERO
 ========================================= -->
-
-<div class="footer">
-
-    <!-- LEFT -->
-
-    <div class="footer-logo">
-
-        <h1>TypeNest</h1>
-
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
-         
-    </div>
-
-
-    <!-- QUICK LINKS -->
-
-    <div class="footer-links">
-
-        <h2>Quick Links</h2>
-
-        <a href="index.html">› Home</a>
-
-        <a href="typing.html">› Practice</a>
-
-        <a href="tests.html">› Tests</a>
-
-        <a href="leaderboard.html">› Leaderboard</a>
-
-        <a href="contact.html">› Contact Us</a>
-
-        <a href="blog.html">› Blog</a>
-
-    </div>
-
-
-    <!-- RESOURCES -->
-
-    <div class="footer-links">
-
-        <h2>Resources</h2>
-
-        <a href="courses.html">› Courses</a>
-
-        <a href="blog.html">› Blog</a>
-
-        <a href="about.html">› About</a>
-
-        <a href="faq.html">› FAQ</a>
-
-        <a href="privacy.html">› Privacy Policy</a>
-
-        <a href="disclaimer.html">› Disclaimer</a>
-
-        <a href="terms.html">› Terms & Conditions</a>
-
-    </div>
-     
+<div class="contact-hero">
+    <h1>Contact <span class="blue-text">TypeNest</span></h1>
+    <p>
+        Have questions, suggestions, or technical feedback? 
+        We are committed to helping you build faster, more accurate typing habits.
+    </p>
 </div>
 
+<!-- =========================================
+     CONTACT WRAPPER & CARDS
+========================================= -->
+<div class="contact-card">
 
-<!-- COPYRIGHT -->
+    <!-- VERIFIED CONTACT CREDENTIALS -->
+    <div class="contact-info-block" style="text-align: left; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 12px; color: #1e293b;">Direct Communication Details</h2>
+        
+        <p style="margin: 8px 0; color: #475569; font-size: 0.95rem;">
+            <strong>Founder & Platform Lead:</strong> Dayanand Dinkar Kendre
+        </p>
+        
+        <p style="margin: 8px 0; color: #475569; font-size: 0.95rem;">
+            <strong>Official Support Email:</strong> 
+            <a href="mailto:typenest.in@gmail.com" style="color: #0284c7; text-decoration: none; font-weight: 500;">typenest.in@gmail.com</a>
+        </p>
 
-<div class="footer-bottom">
+        <p style="margin: 8px 0; color: #475569; font-size: 0.95rem;">
+            <strong>Operational Address:</strong> At. Moshi, Taluka Khed, District Pune, Maharashtra, India.
+        </p>
 
-    <p>
-        © 2026 TypeNest. All rights reserved.
+        <p style="margin: 8px 0; color: #475569; font-size: 0.95rem;">
+            <strong>Response Time:</strong> We review and respond to inquiries within 24 to 48 business hours.
+        </p>
+    </div>
+
+    <!-- FEEDBACK FORM SECTION -->
+    <h2 style="font-size: 1.3rem; margin-bottom: 8px; color: #1e293b;">Send Us a Message</h2>
+    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 20px;">
+        Share your ideas, report algorithm issues, or suggest new keyboard lessons to help us improve TypeNest.
+    </p>
+
+    <!-- INPUt FIELDS PRESERVING YOUR ORIGINAL IDs -->
+    <input
+        type="text"
+        id="name"
+        placeholder="Your Full Name"
+        style="width: 100%; box-sizing: border-box; margin-bottom: 12px;">
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Your Email Address"
+        style="width: 100%; box-sizing: border-box; margin-bottom: 12px;">
+
+    <textarea
+        id="message"
+        placeholder="Write your message, feedback, or bug details here..."
+        rows="6"
+        style="width: 100%; box-sizing: border-box; margin-bottom: 15px;"></textarea>
+
+    <button id="sendBtn" style="cursor: pointer;">
+        Send Message
+    </button>
+
+    <p style="font-size: 0.82rem; color: #94a3b8; margin-top: 15px;">
+        Your email is strictly used to reply to your inquiry. We never share user contact information with third parties.
     </p>
 
 </div>
 
 <!-- =========================================
-     LOGIN MODAL
+     PREMIUM FOOTER
 ========================================= -->
-
-<div class="login-modal"
-id="loginModal">
-
-
-    <div class="login-box">
-
-
-        <!-- CLOSE -->
-
-        <div class="close-login"
-        onclick="closeLoginModal()">
-
-            ✕
-
-        </div>
-
-
-
-        <!-- TITLE -->
-
-        <h1>
-
-            Welcome Back
-
-        </h1>
-
-
+<div class="footer">
+    <div class="footer-logo">
+        <h1>TypeNest</h1>
         <p>
-
-            Login to continue your typing journey.
-
+            Improve your typing speed, accuracy and productivity with smart practice.
         </p>
-
-
-
-        <!-- INPUT -->
-
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-
-
-        <!-- BUTTON -->
-
-        <button id="loginBtn">
-
-    Login
-
-</button>
-
-
-
-        <!-- GOOGLE -->
-
-        <div
-class="google-login"
-id="googleLoginBtn">
-
-    Continue with Google
-
-</div>
-
+        <p class="footer-trust">
+            Founded by Dayanand Dinkar Kendre • Moshi, Pune, Maharashtra.
+        </p>
     </div>
 
+    <div class="footer-links">
+        <h2>Quick Links</h2>
+        <a href="index.html">› Home</a>
+        <a href="typing.html">› Practice</a>
+        <a href="tests.html">› Tests</a>
+        <a href="leaderboard.html">› Leaderboard</a>
+        <a href="contact.html">› Contact Us</a>
+        <a href="blog.html">› Blog</a>
+    </div>
+
+    <div class="footer-links">
+        <h2>Resources</h2>
+        <a href="courses.html">› Courses</a>
+        <a href="blog.html">› Blog</a>
+        <a href="about.html">› About</a>
+        <a href="faq.html">› FAQ</a>
+        <a href="privacy.html">› Privacy Policy</a>
+        <a href="disclaimer.html">› Disclaimer</a>
+        <a href="terms.html">› Terms & Conditions</a>
+    </div>
 </div>
+
+<!-- COPYRIGHT -->
+<div class="footer-bottom">
+    <p>
+        © 2026 TypeNest. All rights reserved. Founded by Dayanand Dinkar Kendre.
+    </p>
+</div>
+
+<!-- =========================================
+     LOGIN MODAL
+========================================= -->
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h1>Welcome Back</h1>
+        <p>Login to continue your typing journey.</p>
+        <input type="email" id="emailLogin" placeholder="Email Address">
+        <input type="password" id="passwordLogin" placeholder="Password">
+        <button id="loginBtnModal">Login</button>
+        <div class="google-login" id="googleLoginBtn">
+            Continue with Google
+        </div>
+    </div>
+</div>
+
 <script>
-
 function closeLoginModal(){
-
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
-
-}   
-    
+    document.getElementById("loginModal").style.display = "none";
+}
+function openLoginModal(){
+    document.getElementById("loginModal").style.display = "flex";
+}
 </script>
 
 <script src="script.js"></script>
-
-<script
-type="module"
-src="firebase-config.js">
-</script>
-
-<script
-type="module"
-src="login.js">
-</script>
-    
-<script type="module"
-src="contact.js">
-</script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="contact.js"></script>
     
 </body>
-
 </html>
