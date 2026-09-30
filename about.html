@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -20,17 +19,17 @@
     <meta name="robots" content="index, follow">
     
     <!-- SEO Meta Tags -->
-    <title>About Us | TypeNest - Free Online Typing Platform</title>
-    <meta name="description" content="Learn about TypeNest, our mission to improve typing speed, accuracy, and efficiency for students, professionals, and job aspirants with free practice tools.">
-    <meta name="keywords" content="About TypeNest, typing practice platform, touch typing tools, improve WPM online, typing test mission">
+    <title>About Us | TypeNest - Touch Typing Platform Founded by Dayanand Kendre</title>
+    <meta name="description" content="Discover TypeNest, a free touch typing platform developed by Dayanand Dinkar Kendre in Pune, Maharashtra. Built to help students and professionals master typing speed and accuracy.">
+    <meta name="keywords" content="About TypeNest, Dayanand Dinkar Kendre, touch typing practice, Pune Maharashtra typing platform, typing test mission">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/about.html">
 
-    <!-- Open Graph Meta Tags (Social Media Sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Us | TypeNest - Free Online Typing Platform">
-    <meta property="og:description" content="Discover the mission behind TypeNest and how we help users master touch typing with instant performance analytics.">
+    <meta property="og:description" content="Learn about the mission, engineering, and editorial principles behind TypeNest by founder Dayanand Kendre.">
     <meta property="og:url" content="https://typenest.in/about.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
@@ -38,154 +37,141 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
+
+    <!-- Structured Data (JSON-LD) for E-E-A-T Verification -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About TypeNest",
+      "url": "https://typenest.in/about.html",
+      "description": "Educational touch typing platform dedicated to speed building, ergonomic keyboarding, and competitive exam preparation.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Dayanand Dinkar Kendre",
+        "jobTitle": "Founder & Lead Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "TypeNest",
+          "url": "https://typenest.in"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Moshi, Khed",
+          "addressRegion": "Pune, Maharashtra",
+          "addressCountry": "IN"
+        }
+      }
+    }
+    </script>
 </head>
 
 <body>
 
-   <!-- =========================================
-     NAVBAR
-========================================= -->
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">
         TypeNest
     </div>
     <div class="menu" id="mobileMenu">
-<a href="index.html" class="menu-link">Home</a>
-<a href="typing.html" class="menu-link">Practice</a>
-<a href="tests.html" class="menu-link">Tests</a>
-<a href="courses.html" class="menu-link">Courses</a>
-<a href="leaderboard.html" class="menu-link">Leaderboard</a>
-<a href="blog.html" class="menu-link">Blog</a>
-<a href="about.html" class="menu-link">About</a>
-<a href="#"
-class="mobile-login"
-id="mobileLoginBtn"
-onclick="openLoginModal()">
-    Login
-</a>
+        <a href="index.html" class="menu-link">Home</a>
+        <a href="typing.html" class="menu-link">Practice</a>
+        <a href="tests.html" class="menu-link">Tests</a>
+        <a href="courses.html" class="menu-link">Courses</a>
+        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
+        <a href="blog.html" class="menu-link">Blog</a>
+        <a href="about.html" class="menu-link">About</a>
+        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
     </div>
-    <!-- THEME BUTTON -->
-    <button class="theme-btn"
-    onclick="toggleTheme()">
-        🌙
-    </button>
-     <button
-id="menuBtn"
-class="menu-btn">
-☰
-</button>
-    <!-- LOGIN / USER BUTTON -->
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
     <div class="user-menu">
-    <a href="#"
-    class="login-btn"
-    id="loginBtn"
-    onclick="openLoginModal()">
-        Login
-    </a>
-   <div class="dropdown-menu"
-id="dropdownMenu">
-        <a href="profile.html">
-            My Profile
-        </a>
-        <a href="#"
-        id="logoutDropdown">
-            Logout
-        </a>
+        <a href="#" class="login-btn" id="loginBtn" onclick="openLoginModal()">Login</a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="profile.html">My Profile</a>
+            <a href="#" id="logoutDropdown">Logout</a>
+        </div>
     </div>
 </div>
-</div>
 
-   <!-- =========================================
-     HERO
-========================================= -->
+<!-- HERO -->
 <div class="about-hero">
-    <div class="about-tag">
-        🚀 About TypeNest
-    </div>
-    <h1>
-        About <span class="blue-text">TypeNest</span>
-    </h1>
-    <p>
-        Helping people type faster,
-        smarter and more accurately.
-    </p>
-      <div class="about-stats">
-    <div>
-        <h3>10K+</h3>
-        <span>Users</span>
-    </div>
-    <div>
-        <h3>2K+</h3>
-        <span>Tests</span>
-    </div>
-    <div>
-        <h3>96%</h3>
-        <span>Accuracy</span>
-    </div>
-</div>
+    <div class="about-tag">🚀 Transparent & Free Education</div>
+    <h1>About <span class="blue-text">TypeNest</span></h1>
+    <p>Scientifically structured touch-typing lessons, performance analytics, and ergonomic guides for productive typists.</p>
+    <div class="about-stats">
+        <div>
+            <h3>10K+</h3>
+            <span>Practice Sessions</span>
+        </div>
+        <div>
+            <h3>100%</h3>
+            <span>Free Access</span>
+        </div>
+        <div>
+            <h3>WPM & Net</h3>
+            <span>Standard Analytics</span>
+        </div>
     </div>
 </div>
 
-    <!-- =========================================
-         ABOUT CARDS
-    ========================================= -->
-    <div class="about-grid">
+<!-- ABOUT CONTENT GRID -->
+<div class="about-grid">
 
-        <div class="about-card">
-            <h2>🚀 Our Mission</h2>
-           <p>
-    At TypeNest, our mission is to help people improve their typing speed, accuracy, and productivity through simple, effective, and engaging typing practice. We believe that typing is an essential skill in today's digital world, and everyone should have access to high-quality learning resources free of cost.
-</p>
-        </div>
-
-        <div class="about-card">
-           <h2>⭐ Why TypeNest</h2>
-            <p>
-    TypeNest is designed for students, professionals, programmers, office workers, and anyone who wants to become a faster and more confident typist. Our platform combines typing practice, speed tests, learning resources, and performance tracking in one simple and user-friendly experience.
-</p>
-        </div>
-
-        <div class="about-card">
-            <h2>⚡ Features</h2>
-           <p>
-    Real-Time Typing Tests, WPM Tracking, Accuracy Monitoring, Practice Lessons, Beginner to Advanced Courses, Educational Blogs, Performance Analytics, and a Responsive Design that works across devices.
-</p>
-        </div>
-
-        <!-- NEWLY ADDED E-E-A-T SECTION -->
-        <div class="about-card">
-            <h2>👥 Behind the Platform</h2>
-           <p>
-    TypeNest was founded by a dedicated team of software developers and certified typing professionals. With years of experience in computer applications and digital literacy, our team recognized the need for a modern, distraction-free, and highly accurate touch typing tool. We combine technical expertise with pedagogical insights to design structured lessons that help learners build long-term muscle memory.
-</p>
-        </div>
-
-        <div class="about-card">
-            <h2>🎯 Future Vision</h2>
-           <p>
-    Our vision is to make TypeNest one of the most trusted typing education platforms online. We aim to introduce personalized progress tracking, achievements, certifications, multiplayer competitions, and advanced learning tools for typists worldwide.
-</p>
-        </div>
-
+    <!-- OUR MISSION -->
+    <div class="about-card">
+        <h2>🚀 Our Mission</h2>
+        <p>
+            At TypeNest, our mission is to eliminate typing friction for students, competitive exam aspirants (such as GCC-TBC candidates), programmers, and working professionals. We believe that typing is a baseline cognitive multiplier: the faster and more accurately you translate thought into keystrokes, the more productive you become. TypeNest delivers high-precision, distraction-free touch typing tools completely free of charge.
+        </p>
     </div>
 
-<!-- =========================================
-     PREMIUM FOOTER
-========================================= -->
+    <!-- FOUNDER & E-E-A-T IDENTITY -->
+    <div class="about-card">
+        <h2>👤 Founder & Technical Lead</h2>
+        <p>
+            TypeNest was founded and architected by <strong>Dayanand Dinkar Kendre</strong>, a web application developer and quality engineering professional based in Moshi (Khed, Pune), Maharashtra. Having worked extensively with software interfaces, technical workflows, and data accuracy, Dayanand identified the need for a modern, responsive typing platform tailored to students and professionals striving to cross the 60+ WPM benchmark without ergonomic fatigue.
+        </p>
+    </div>
+
+    <!-- PEDAGOGY & METHODOLOGY -->
+    <div class="about-card">
+        <h2>🧠 Pedagogical Approach & Muscle Memory</h2>
+        <p>
+            Unlike basic typing tests that generate arbitrary random words, TypeNest organizes practice routines around neuromuscular motor control. Lessons isolate the Home Row, Top Row, Bottom Row, and Number rows before introducing compound sentences. We apply international stenography calculation standards: 5 keystrokes count as one standard word, distinguishing clearly between Gross WPM, Net WPM, and accuracy penalties.
+        </p>
+    </div>
+
+    <!-- EDITORIAL INTEGRITY -->
+    <div class="about-card">
+        <h2>📚 Editorial Standards & Original Content</h2>
+        <p>
+            Every tutorial, layout guide (QWERTY, Dvorak, Colemak), and ergonomic post published on TypeNest is independently authored or vetted by our team. We do not host auto-generated thin summaries. Our resources cover real-world biomechanics—such as carpal tunnel prevention, correct wrist alignment, and tactile keyboard actuation—to promote safe, long-term typing habits.
+        </p>
+    </div>
+
+    <!-- OPERATIONAL LOCATION & TRUST -->
+    <div class="about-card">
+        <h2>📍 Base of Operations & Transparency</h2>
+        <p>
+            TypeNest operates independently out of Pune, Maharashtra, India. We are committed to complete user transparency: we do not sell keystroke data, practice logs are stored securely using Google Firebase infrastructure, and all platform features remain open and accessible without paywalls.
+        </p>
+        <p style="margin-top: 10px;">
+            <strong>Official Contact:</strong> <a href="mailto:typenest.in@gmail.com" style="color: #0284c7; text-decoration: none;">typenest.in@gmail.com</a><br>
+            <strong>Location:</strong> Moshi, Tal. Khed, Dist. Pune, Maharashtra, India.
+        </p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
-    <!-- LEFT -->
     <div class="footer-logo">
         <h1>TypeNest</h1>
-        <p>
-            Improve your typing speed, accuracy and productivity
-            with smart practice.
-        </p>
-        <p class="footer-trust">
-            Structured lessons for beginners and advanced learners.
-        </p>
+        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
+        <p class="footer-trust">Founded by Dayanand Dinkar Kendre • Moshi, Pune, Maharashtra.</p>
     </div>
 
-    <!-- QUICK LINKS -->
     <div class="footer-links">
         <h2>Quick Links</h2>
         <a href="index.html">› Home</a>
@@ -196,7 +182,6 @@ id="dropdownMenu">
         <a href="blog.html">› Blog</a>
     </div>
 
-    <!-- RESOURCES -->
     <div class="footer-links">
         <h2>Resources</h2>
         <a href="courses.html">› Courses</a>
@@ -209,76 +194,33 @@ id="dropdownMenu">
     </div>
 </div>
 
-<!-- COPYRIGHT -->
 <div class="footer-bottom">
-    <p>
-        © 2026 TypeNest. All rights reserved.
-    </p>
+    <p>© 2026 TypeNest. All rights reserved. Developed by Dayanand Dinkar Kendre.</p>
 </div>
-    
-<!-- =========================================
-     LOGIN MODAL
-========================================= -->
-<div class="login-modal"
-id="loginModal">
+
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
     <div class="login-box">
-        <!-- CLOSE -->
-        <div class="close-login"
-        onclick="closeLoginModal()">
-            ✕
-        </div>
-
-        <!-- TITLE -->
-        <h1>
-            Welcome Back
-        </h1>
-        <p>
-            Login to continue your typing journey.
-        </p>
-
-        <!-- INPUT -->
-        <input
-type="email"
-id="email"
-placeholder="Email Address">
-
-        <input
-type="password"
-id="password"
-placeholder="Password">
-
-        <!-- BUTTON -->
-        <button id="loginBtn">
-    Login
-</button>
-
-        <!-- GOOGLE -->
-        <div
-class="google-login"
-id="googleLoginBtn">
-    Continue with Google
-</div>
+        <div class="close-login" onclick="closeLoginModal()">✕</div>
+        <h1>Welcome Back</h1>
+        <p>Login to continue your typing journey.</p>
+        <input type="email" id="email" placeholder="Email Address">
+        <input type="password" id="password" placeholder="Password">
+        <button id="loginSubmitBtn">Login</button>
+        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
 </div>
 
 <script>
 function closeLoginModal(){
-document
-.getElementById(
-"loginModal"
-)
-.style.display =
-"none";
+    document.getElementById("loginModal").style.display = "none";
 }   
+function openLoginModal(){
+    document.getElementById("loginModal").style.display = "flex";
+}
 </script>
 <script src="script.js"></script>
-<script
-type="module"
-src="firebase-config.js">
-</script>
-<script
-type="module"
-src="login.js">
-</script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
 </body>
 </html>
