@@ -5181,3 +5181,82 @@ gap:22px;
 }
 
 }
+
+
+/* =========================================
+   PRACTICE DROPDOWN (DESKTOP & HOVER)
+========================================= */
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-menu-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #18191e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+/* माऊस नेल्यावर मेनू उघडणे */
+.nav-dropdown:hover .dropdown-menu-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #64748b;
+    padding: 8px 18px 4px 18px;
+    display: block;
+}
+
+.dropdown-sublink {
+    font-size: 13px;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 8px 18px;
+    display: block;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.dropdown-sublink:hover {
+    background: rgba(37, 99, 235, 0.15);
+    color: #38bdf8;
+    padding-left: 22px;
+}
+
+/* =========================================
+   MOBILE MENU SUPPORT (मोबाईलसाठी)
+========================================= */
+@media (max-width: 768px) {
+    .nav-dropdown {
+        display: block;
+        width: 100%;
+    }
+    .dropdown-menu-list {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding-left: 15px;
+    }
+    .dropdown-category {
+        padding-top: 10px;
+        color: #94a3b8;
+    }
+}
