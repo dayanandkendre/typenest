@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics 4 (GA4) Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZC84S6JF5T');
+    </script>
+
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Dedicated SEO Meta Tags for Number Typing Practice -->
+    <title>Number Row Typing Practice & Test - Master Keyboard Numbers Online | TypeNest</title>
+    <meta name="description" content="Practice number row typing online for free on TypeNest. Improve your numerical data entry speed, finger reach accuracy, and touch typing muscle memory for numbers 0-9.">
+    <meta name="keywords" content="number typing practice, number row typing test, numeric keypad practice, data entry typing test, touch typing numbers, TypeNest numbers">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://typenest.in/number-typing-practice.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Number Row Typing Practice & Test | TypeNest">
+    <meta property="og:description" content="Master numbers 0 to 9 without glancing at your keyboard. Take the interactive number typing drill on TypeNest.">
+    <meta property="og:url" content="https://typenest.in/number-typing-practice.html">
+    <meta property="og:image" content="https://typenest.in/favicon.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Number Row Typing Practice | TypeNest">
+    <meta name="twitter:description" content="Strengthen your finger memory for top number row keys and numerical data entry.">
+    <meta name="twitter:image" content="https://typenest.in/favicon.png">
+
+    <!-- Structured Data (JSON-LD WebApplication Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "TypeNest Number Row Typing Practice",
+      "url": "https://typenest.in/number-typing-practice.html",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "An interactive numeric keyboard training utility for developers, accountants, and data-entry specialists to master top-row touch typing numbers.",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "creator": {
+        "@type": "Person",
+        "name": "Dayanand Dinkar Kendre"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- External Scripts & Stylesheets -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="typing.css">
+
+    <!-- Inline Styles for Guide Section -->
+    <style>
+        .guide-article-wrapper {
+            max-width: 950px;
+            margin: 40px auto 60px auto;
+            padding: 30px;
+            background: #18191e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            color: #d1d5db;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+        }
+        .guide-article-wrapper h2 {
+            color: #f3f4f6;
+            font-size: 1.6rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 8px;
+        }
+        .guide-article-wrapper h3 {
+            color: #60a5fa;
+            font-size: 1.2rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+        .guide-article-wrapper p {
+            font-size: 0.96rem;
+            color: #9ca3af;
+            margin-bottom: 14px;
+        }
+        .guide-article-wrapper ul {
+            padding-left: 24px;
+            margin-bottom: 15px;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+        .guide-article-wrapper li {
+            margin-bottom: 6px;
+        }
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        .benchmark-table th, .benchmark-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .benchmark-table th {
+            background: rgba(255, 255, 255, 0.04);
+            color: #60a5fa;
+        }
+        .practice-switcher-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .practice-pill-link {
+            padding: 8px 16px;
+            background: #202128;
+            color: #9ca3af;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+        .practice-pill-link.active, .practice-pill-link:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+        .finger-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .finger-card {
+            background: #202128;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #60a5fa;
+        }
+        .finger-card strong {
+            color: #f3f4f6;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="typing-page">    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="nav-left">
+            <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
+            <div class="nav-links">
+                <a href="/learn/learn.html" class="nav-item">🎯 Practice</a>
+                <a href="leaderboard.html" class="nav-item">🏆 Leaderboard</a>
+                <a href="blog.html" class="nav-item">📚 Blog</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                <span class="theme-icon" id="themeIcon">🌙</span>
+                <span class="theme-text" id="themeText">Dark</span>
+            </button>
+            <button class="login-profile-btn" id="loginNavBtn">
+                👤 <span id="loginBtnText">Sign In</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- SUB CONFIGURATION BAR (PRE-CONFIGURED FOR NUMBERS) -->
+    <div class="sub-config-wrapper" id="subConfigWrapper">
+        <div class="config-bar">
+            <div class="config-group" id="typeGroup">
+                <a href="typing.html" class="cfg-btn" style="text-decoration:none; color:inherit;"># normal</a>
+                <a href="punctuation-typing-practice.html" class="cfg-btn" style="text-decoration:none; color:inherit;">@ punctuation</a>
+                <span class="cfg-btn active-cfg" data-type="numbers">🔢 numbers</span>
+            </div>
+            <div class="config-gap">|</div>
+            <div class="config-group" id="modeGroup">
+                <span class="cfg-btn active-cfg" data-mode="time">🕒 time</span>
+                <span class="cfg-btn" data-mode="words">🔤 words</span>
+            </div>
+            <div class="config-gap">|</div>
+            <div class="config-group" id="timeGroup">
+                <span class="cfg-btn" data-value="15">15</span>
+                <span class="cfg-btn" data-value="30">30</span>
+                <span class="cfg-btn active-cfg" data-value="60">60</span>
+                <span class="cfg-btn" data-value="100">100</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN TYPING CONTAINER -->
+    <div class="main-container" id="typingContainer">
+        <div class="live-timer-wrapper">
+            <span id="time" class="giant-timer">60</span>
+        </div>
+
+        <div class="text-display" id="textDisplayContainer">
+            <div class="text-display-inner" id="textDisplay"></div>
+        </div>
+
+        <div class="hidden-input-box">
+            <textarea id="input" autofocus></textarea>
+        </div>
+    </div>
+
+    <!-- SHORTCUT BAR -->
+    <div class="bottom-shortcut-bar" id="footerShortcut">
+        <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart drill</span>
+        <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div class="monkey-result-container" id="resultScreen" style="display: none;">
+        <div class="result-main-row">
+            <div class="giant-stats-block">
+                <div class="giant-stat">
+                    <span class="g-label">wpm</span>
+                    <span class="g-value yellow-text" id="finalWpm">0</span>
+                </div>
+                <div class="giant-stat">
+                    <span class="g-label">acc</span>
+                    <span class="g-value yellow-text" id="finalAccuracy">0%</span>
+                </div>
+            </div>
+
+            <div class="chart-placeholder-block">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="result-details-row">
+            <div class="detail-box">
+                <span class="d-label">mode</span>
+                <span class="d-value" id="resultModeInfo">numbers 60</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">raw wpm</span>
+                <span class="d-value" id="rawWpm">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">characters</span>
+                <span class="d-value" id="finalChars">0/0/0/0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">mistakes</span>
+                <span class="d-value red-text" id="finalMistakes">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">personal best</span>
+                <span class="d-value" id="bestWpm">0</span>
+            </div>
+        </div>
+
+        <div class="result-features-wrapper">
+            <p class="features-label">Explore TypeNest Practice Modules</p>
+            <div class="feature-cards-grid">
+                <div class="f-card" onclick="window.location.href='difficult-words-typing-practice.html'">
+                    <span class="f-icon">⚡</span>
+                    <div class="f-info">
+                        <h4>Difficult Words</h4>
+                        <p>Overcome tricky key combos</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='punctuation-typing-practice.html'">
+                    <span class="f-icon">@</span>
+                    <div class="f-info">
+                        <h4>Punctuation</h4>
+                        <p>Symbols &amp; syntax drills</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='typing-test-60-seconds.html'">
+                    <span class="f-icon">⏱️</span>
+                    <div class="f-info">
+                        <h4>Standard Test</h4>
+                        <p>1-Minute WPM benchmark</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-action-buttons">
+            <button class="icon-action-btn" onclick="location.reload()">[r] retry</button>
+            <button class="icon-action-btn" onclick="window.location.href='index.html'">[h] home</button>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         🔥 DEDICATED NUMBER ROW EDITORIAL GUIDE (ELIMINATES LOW VALUE CONTENT)
+    ==================================================================== -->
+    <div class="guide-article-wrapper">
+        <div class="practice-switcher-links">
+            <span style="color:#64748b; font-size:0.88rem; align-self:center;">Mode Switcher:</span>
+            <a href="number-typing-practice.html" class="practice-pill-link active">Number Row Drill</a>
+            <a href="difficult-words-typing-practice.html" class="practice-pill-link">Tricky &amp; Hard Words</a>
+            <a href="punctuation-typing-practice.html" class="practice-pill-link">Punctuation &amp; Code Symbols</a>
+        </div>
+
+        <h2>Mastering Number Row Touch Typing: The Ultimate Guide for Typists</h2>
+        <p>
+            The <strong>Number Row (1, 2, 3, 4, 5, 6, 7, 8, 9, 0)</strong> located above the QWERTY letter row is universally recognized as the most challenging sector of the standard computer keyboard. While most intermediate typists easily memorize letter locations on the Home, Top, and Bottom rows, over <strong>85% of computer users still glance down at their hands</strong> as soon as a telephone number, date, financial figure, or postal code appears.
+        </p>
+
+        <h3>Why is the Number Row So Difficult to Master?</h3>
+        <p>
+            The difficulty in numeric touch typing is rooted in biomechanical finger extension. The number keys sit two full rows above your resting position on the Home Row (A-S-D-F and J-K-L-;). 
+        </p>
+        <ul>
+            <li><strong>Longer Finger Travel Distance:</strong> Your fingers must extend diagonally upward by more than 1.5 inches, requiring careful wrist anchoring.</li>
+            <li><strong>Lack of Tactile Anchors:</strong> Unlike the <code>F</code> and <code>J</code> keys (which feature raised physical ridges), number keys lack tactile indicators. You must trust pure muscular memory.</li>
+            <li><strong>Staggered Key Offsets:</strong> The horizontal stagger between the number row and the QWERTY row varies between keyboard models, making muscle calibration sensitive.</li>
+        </ul>
+
+        <h3>Standard Finger Allocation for the Top Number Row</h3>
+        <p>
+            To type numbers at 50+ WPM without errors, your fingers must follow strict touch typing zones. Never use a single index finger to hunt numbers:
+        </p>
+
+        <div class="finger-box">
+            <div class="finger-card">
+                <strong>Left Hand Fingers</strong>
+                • Pinky (Little): <code>` (Tilde)</code> and <code>1</code><br>
+                • Ring Finger: <code>2</code><br>
+                • Middle Finger: <code>3</code><br>
+                • Index Finger: <code>4</code> and <code>5</code>
+            </div>
+            <div class="finger-card">
+                <strong>Right Hand Fingers</strong>
+                • Index Finger: <code>6</code> and <code>7</code><br>
+                • Middle Finger: <code>8</code><br>
+                • Ring Finger: <code>9</code><br>
+                • Pinky (Little): <code>0</code> and <code>- (Minus)</code>
+            </div>
+        </div>
+
+        <h3>Top Number Row vs. Dedicated Numpad (10-Key)</h3>
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Top Number Row (Above Letters)</th>
+                    <th>Numeric Keypad (10-Key Numpad)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>Mixed alphanumeric typing (passwords, code, addresses).</td>
+                    <td>Pure numerical data entry (accounting, spreadsheets).</td>
+                </tr>
+                <tr>
+                    <td><strong>Hand Repositioning</strong></td>
+                    <td>Minimal — hands remain anchored over the main keyboard.</td>
+                    <td>Requires lifting right hand away from letters to the numpad.</td>
+                </tr>
+                <tr>
+                    <td><strong>Laptop Compatibility</strong></td>
+                    <td>Present on 100% of laptops and compact 60%/75% keyboards.</td>
+                    <td>Frequently omitted on 13-inch and 14-inch compact laptops.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3 Actionable Drills to Build Numeric Muscle Memory</h3>
+        <ul>
+            <li><strong>The "Anchor Return" Technique:</strong> After striking any number (e.g., reaching with your right middle finger to hit <code>8</code>), immediately return your finger back to the Home Row resting key (<code>K</code>). This prevents your hand from drifting into empty space.</li>
+            <li><strong>Practice Number Clusters:</strong> Drill common 2-digit and 3-digit combinations such as years (<em>1990, 2024, 2026</em>), phone prefixes, and decimal amounts.</li>
+            <li><strong>Do Not Look Down — Accept Initial Mistakes:</strong> When you miss a number, do not look down to correct it. Feel the distance with your finger, tap Backspace, and try the reach again purely by spatial awareness.</li>
+        </ul>
+    </div>
+
+</div>
+
+<audio id="keySound" src="key.wav" preload="auto"></audio>
+
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
+    <div class="login-box" style="background: #18191e; border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; text-align: center; box-sizing: border-box;">
+        <div class="close-login" onclick="closeLoginModal()" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#646669'">✕</div>
+        <div style="font-size: 32px; margin-bottom: 10px;">🔢</div>
+        <h1 style="color: #fff; font-size: 26px; margin: 0 0 8px 0; font-weight: 600; letter-spacing: -0.5px;">Welcome Back</h1>
+        <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to track your numeric typing progress.</p>
+        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
+        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
+        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;">Login</button>
+        <div style="color: #444; font-size: 12px; margin: 15px 0; position: relative;">
+            <span style="background: #18191e; padding: 0 10px; position: relative; z-index: 2;">OR</span>
+            <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05); z-index: 1;"></div>
+        </div>
+        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="G" style="width: 18px; height: 18px;"> Continue with Google
+        </div>
+    </div>
+</div>
+
+<script>
+function openLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) {
+        modal.style.display = "flex";
+        const mainInput = document.getElementById("input");
+        if(mainInput) mainInput.blur();
+    }
+}
+function closeLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) modal.style.display = "none";
+}
+
+// Automatically triggers "numbers" mode in typing.js on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const numBtn = document.querySelector('[data-type="numbers"]');
+    if (numBtn) numBtn.click();
+});
+</script>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="typing.js"></script>
+
+</body>
+</html>
