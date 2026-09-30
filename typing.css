@@ -52,10 +52,11 @@ body {
 }
 
 .typing-page {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 /* =========================================
