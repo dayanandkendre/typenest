@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-ZC84S6JF5T');
     </script>
 
@@ -22,7 +21,7 @@
     <!-- SEO Meta Tags -->
     <title>TypeNest - Learn Touch Typing Online | Free Typing Lessons, Tests & Courses</title>
     <meta name="description" content="Learn touch typing with free lessons, practice exercises, speed tests, and courses. Improve your typing speed and accuracy with TypeNest.">
-    <meta name="keywords" content="learn touch typing, typing practice, typing test, typing speed test, typing lessons, typing course, typing accuracy, touch typing online, free typing lessons, TypeNest">
+    <meta name="keywords" content="learn touch typing, typing practice, typing test, typing speed test, typing lessons, typing course, typing accuracy, touch typing online, free typing lessons, TypeNest, Dayanand Kendre">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/">
@@ -56,6 +55,20 @@
       "name": "TypeNest",
       "url": "https://typenest.in/",
       "description": "Free online touch typing platform providing structured lessons, typing tests, accuracy drills, and speed building courses.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "founder": {
+          "@type": "Person",
+          "name": "Dayanand Dinkar Kendre"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Moshi, Khed",
+          "addressRegion": "Pune, Maharashtra",
+          "addressCountry": "IN"
+        }
+      },
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://typenest.in/blog.html?q={search_term_string}",
@@ -63,6 +76,82 @@
       }
     }
     </script>
+
+    <!-- Compact Footer Styling (Overrides Excessive Footer Height) -->
+    <style>
+        .footer-compact {
+            background: var(--topbar-bg, #111827);
+            border-top: 1px solid var(--border-color, rgba(255,255,255,0.06));
+            padding: 40px 20px 20px 20px;
+            color: var(--text-muted, #9ca3af);
+            font-family: inherit;
+        }
+        .footer-grid-4 {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        @media(max-width: 900px){
+            .footer-grid-4 { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width: 550px){
+            .footer-grid-4 { grid-template-columns: 1fr; }
+        }
+        .footer-brand h2 {
+            font-size: 1.4rem;
+            color: var(--text-main, #f3f4f6);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--text-muted, #9ca3af);
+        }
+        .footer-col h3 {
+            color: var(--text-main, #f3f4f6);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .footer-col a {
+            display: block;
+            color: var(--text-muted, #9ca3af);
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .footer-col a:hover {
+            color: var(--primary-color, #2563eb);
+            padding-left: 3px;
+        }
+        .footer-bottom-compact {
+            max-width: 1140px;
+            margin: 30px auto 0 auto;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color, rgba(255,255,255,0.06));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: var(--text-dim, #64748b);
+        }
+        .footer-bottom-compact a {
+            color: var(--text-dim, #64748b);
+            text-decoration: none;
+        }
+        .footer-bottom-compact a:hover {
+            color: var(--primary-color, #2563eb);
+        }
+    </style>
 </head>
 
 <body class="light">
@@ -76,21 +165,23 @@
     </div>
     <nav class="menu" id="mobileMenu">
         <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
         
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
+        <!-- Practice Dropdown Menu -->
+        <div class="nav-dropdown">
+            <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
+            <div class="dropdown-menu-list">
+                <span class="dropdown-category">⏱️ Timed Tests</span>
+                <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
+                <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
+                <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
+                
+                <span class="dropdown-category">🎯 Skill Drills</span>
+                <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
+                <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
+                <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
+            </div>
+        </div>
+
         <a href="tests.html" class="menu-link">Tests</a>
         <a href="courses.html" class="menu-link">Courses</a>
         <a href="leaderboard.html" class="menu-link">Leaderboard</a>
@@ -117,7 +208,6 @@
      HERO SECTION
 ========================================= -->
 <section class="hero">
-    <!-- LEFT -->
     <div class="hero-left">
         <div class="tag">
             Improve Your Typing Every Day
@@ -133,8 +223,8 @@
             <a href="typing.html">
                 <button class="start-btn">Start Typing Test</button>
             </a>
-            <a href="typing.html">
-                <button class="demo-btn">⌨️ Take Typing Test</button>
+            <a href="typing-test-60-seconds.html">
+                <button class="demo-btn">⌨️ 1-Min Speed Test</button>
             </a>
         </div>
         <div class="users">
@@ -147,7 +237,6 @@
         </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="hero-right">
         <div class="typing-card">
             <div class="live-badge">
@@ -196,7 +285,6 @@
             </p>
         </div>
 
-        <!-- FEATURE CARDS -->
         <div class="about-grid">
             <div class="about-card">
                 <div class="about-icon">📘</div>
@@ -224,7 +312,6 @@
             </div>
         </div>
 
-        <!-- CTA -->
         <div class="about-btn-area">
             <a href="about.html" class="about-btn">Learn More About TypeNest →</a>
         </div>
@@ -345,7 +432,7 @@
 </div>
 
 <!-- =========================================
-     LATEST ARTICLES (UPDATED WITH RECENT BLOGS)
+     LATEST ARTICLES & GUIDES
 ========================================= -->
 <section class="latest-articles">
     <div class="container">
@@ -356,7 +443,6 @@
         </div>
 
         <div class="articles-grid">
-            <!-- ARTICLE 1: Exam Guide -->
             <article class="article-card">
                 <a href="government-typing-exam-gcc-tbc-guide.html">
                     <img src="images/blog/touch-typing-guide.webp" alt="GCC-TBC Typing Exam Guide" loading="lazy">
@@ -372,7 +458,6 @@
                 </div>
             </article>
 
-            <!-- ARTICLE 2: Keyboard Layouts -->
             <article class="article-card">
                 <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">
                     <img src="images/blog/increase-typing-speed-guide.webp" alt="QWERTY vs Dvorak vs Colemak" loading="lazy">
@@ -388,7 +473,6 @@
                 </div>
             </article>
 
-            <!-- ARTICLE 3: WPM & Accuracy -->
             <article class="article-card">
                 <a href="how-wpm-and-accuracy-are-calculated.html">
                     <img src="images/blog/typing-accuracy-guide.webp" alt="How WPM is Calculated" loading="lazy">
@@ -404,7 +488,6 @@
                 </div>
             </article>
 
-            <!-- ARTICLE 4: Eye Strain -->
             <article class="article-card">
                 <a href="typing-eye-strain-prevention-dark-mode-guide.html">
                     <img src="images/blog/keyboard-shortcuts.webp" alt="Eye Strain Prevention" loading="lazy">
@@ -438,7 +521,6 @@
             <p>Explore structured typing courses designed to help beginners build strong keyboard skills, improve speed, and increase accuracy.</p>
         </div>
         <div class="featured-grid">
-            <!-- COURSE 1 -->
             <article class="featured-card">
                 <a href="beginner.html">
                     <img src="images/courses/beginner-course.webp" alt="Beginner Touch Typing Course" loading="lazy">
@@ -450,7 +532,6 @@
                     <a href="beginner.html">Start Course →</a>
                 </div>
             </article>
-            <!-- COURSE 2 -->
             <article class="featured-card">
                 <a href="speed-building.html">
                     <img src="images/courses/intermediate-course.webp" alt="Typing Speed Building Course" loading="lazy">
@@ -462,7 +543,6 @@
                     <a href="speed-building.html">Start Course →</a>
                 </div>
             </article>
-            <!-- COURSE 3 -->
             <article class="featured-card">
                 <a href="accuracy-mastery.html">
                     <img src="images/courses/accuracy-course.webp" alt="Typing Accuracy Mastery" loading="lazy">
@@ -474,7 +554,6 @@
                     <a href="accuracy-mastery.html">Start Course →</a>
                 </div>
             </article>
-            <!-- COURSE 4 -->
             <article class="featured-card">
                 <a href="advanced-typing.html">
                     <img src="images/courses/advanced-course.webp" alt="Advanced Typing Course" loading="lazy">
@@ -494,7 +573,7 @@
 </section>
       
 <!-- =========================================
-     FAQ SECTION (WITH FAQ SCHEMA FRIENDLY STRUCTURE)
+     FAQ SECTION
 ========================================= -->
 <section class="faq-section">
     <div class="container">
@@ -571,39 +650,58 @@
 </section>
 
 <!-- =========================================
-     FOOTER
+     COMPACT & ORGANIZED 4-COLUMN FOOTER
 ========================================= -->
-<footer class="footer">
-    <div class="footer-logo">
-        <h2>TypeNest</h2>
-        <p>Improve your typing speed, accuracy and productivity with smart online touch typing practice.</p>
-        <p class="footer-trust">Structured lessons for beginners, students, and professionals.</p>
+<footer class="footer-compact">
+    <div class="footer-grid-4">
+        <!-- COL 1: BRAND & MISSION -->
+        <div class="footer-brand">
+            <h2>TypeNest</h2>
+            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
+            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
+                Operated from Moshi, Pune, Maharashtra.<br>
+                Founder: <strong>Dayanand Dinkar Kendre</strong>
+            </p>
+        </div>
+
+        <!-- COL 2: TIMED TESTS -->
+        <div class="footer-col">
+            <h3>Timed Tests</h3>
+            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
+            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
+            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
+            <a href="typing.html">› All Typing Tests</a>
+            <a href="leaderboard.html">› Global Leaderboard</a>
+        </div>
+
+        <!-- COL 3: SKILL DRILLS -->
+        <div class="footer-col">
+            <h3>Skill Drills</h3>
+            <a href="number-typing-practice.html">› Number Row Practice</a>
+            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
+            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
+            <a href="courses.html">› Typing Courses</a>
+            <a href="beginner.html">› Beginner Course</a>
+        </div>
+
+        <!-- COL 4: LEGAL & E-E-A-T TRUST -->
+        <div class="footer-col">
+            <h3>Trust &amp; Legal</h3>
+            <a href="about.html">› About Us</a>
+            <a href="contact.html">› Contact Support</a>
+            <a href="faq.html">› FAQ &amp; Guides</a>
+            <a href="privacy.html">› Privacy Policy</a>
+            <a href="terms.html">› Terms &amp; Conditions</a>
+            <a href="disclaimer.html">› Legal Disclaimer</a>
+        </div>
     </div>
 
-    <div class="footer-links">
-        <h3>Quick Links</h3>
-        <a href="index.html">› Home</a>
-        <a href="typing.html">› Practice</a>
-        <a href="tests.html">› Tests</a>
-        <a href="leaderboard.html">› Leaderboard</a>
-        <a href="contact.html">› Contact Us</a>
-    </div>
-
-    <div class="footer-links">
-        <h3>Resources</h3>
-        <a href="courses.html">› Courses</a>
-        <a href="blog.html">› Blog</a>
-        <a href="about.html">› About</a>
-        <a href="faq.html">› FAQ</a>
-        <a href="privacy.html">› Privacy Policy</a>
-        <a href="disclaimer.html">› Disclaimer</a>
-        <a href="terms.html">› Terms & Conditions</a>
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom-compact">
+        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
+        <span>Dedicated to Free Typing Education.</span>
     </div>
 </footer>
-
-<div class="footer-bottom">
-    <p>© 2026 TypeNest. All rights reserved.</p>
-</div>
 
 <!-- =========================================
      LOGIN MODAL
@@ -616,7 +714,7 @@
 
         <input type="email" id="email" placeholder="Email Address">
         <input type="password" id="password" placeholder="Password">
-        <button type="button" id="loginBtn">Login</button>
+        <button type="button" id="loginBtnModal">Login</button>
         <div class="google-login" id="googleLoginBtn">Continue with Google</div>
     </div>
 </div>
@@ -624,6 +722,9 @@
 <script>
 function closeLoginModal(){
     document.getElementById("loginModal").style.display = "none";
+}
+function openLoginModal(){
+    document.getElementById("loginModal").style.display = "flex";
 }
 </script>
 <script src="script.js"></script>
