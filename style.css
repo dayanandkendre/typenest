@@ -5183,84 +5183,90 @@ gap:22px;
 }
 
 
-/* =========================================
-   PRACTICE DROPDOWN (DYNAMIC LIGHT & DARK THEME)
-========================================= */
+/* =========================================================
+   PRACTICE NAVBAR DROPDOWN FIX (SOLID BACKGROUND & Z-INDEX)
+========================================================= */
 .nav-dropdown {
     position: relative;
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
 }
 
+/* ड्रॉपडाउन लिस्ट - सॉलिड रंग व प्रॉपर शॅडो */
 .dropdown-menu-list {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 230px;
-    background: var(--card-bg); /* थीमप्रमाणे डार्क किंवा व्हाईट आपोआप होईल */
-    border: 1px solid var(--border-color);
+    min-width: 220px;
+    background-color: #ffffff !important; /* पारदर्शक काढले, सॉलिड पांढरा रंग दिला */
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); /* स्पष्ट उठाव दिसण्यासाठी */
     padding: 10px 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 9999;
+    z-index: 999999 !important; /* हेडिंगच्या वर दिसण्यासाठी हायएस्ट प्रायोरिटी */
 }
 
-/* माऊस नेल्यावर मेनू उघडणे */
+/* हॉव्हर केल्यावर दिसणे */
 .nav-dropdown:hover .dropdown-menu-list {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
 
+/* ड्रॉपडाउन मधील कॅटेगरी हेडिंग (TIMED TESTS / SKILL DRILLS) */
 .dropdown-category {
+    display: block;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--text-muted); /* थीमप्रमाणे ॲडजस्ट होईल */
-    padding: 8px 18px 4px 18px;
-    display: block;
+    color: #64748b;
+    padding: 8px 16px 4px 16px;
+    letter-spacing: 0.5px;
+    background: transparent;
 }
 
+/* लिंक्सची रचना */
 .dropdown-sublink {
-    font-size: 13px;
-    color: var(--text-main); /* Light मध्ये काळा/डार्क आणि Dark मध्ये पांढरा */
-    text-decoration: none;
-    padding: 8px 18px;
     display: block;
+    padding: 9px 18px;
+    color: #1e293b !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
     transition: all 0.2s ease;
-    font-family: inherit;
+    background-color: transparent;
 }
 
+/* लिंकवर माउस नेल्यावर छान निळा इफेक्ट */
 .dropdown-sublink:hover {
-    background: var(--card-hover);
-    color: var(--primary-color);
+    background-color: #f1f5f9 !important;
+    color: #2563eb !important;
     padding-left: 22px;
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
-@media (max-width: 768px) {
-    .nav-dropdown {
-        display: block;
-        width: 100%;
-    }
-    .dropdown-menu-list {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding-left: 15px;
-    }
-    .dropdown-category {
-        padding-top: 10px;
-        color: var(--text-muted);
-    }
+/* =========================================================
+   DARK THEME सपोर्ट (जेव्हा साईट डार्क मोडमध्ये असेल)
+========================================================= */
+body.dark .dropdown-menu-list,
+.dark-theme .dropdown-menu-list {
+    background-color: #18191e !important;
+    border-color: #2e3039;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
 }
 
+body.dark .dropdown-category,
+.dark-theme .dropdown-category {
+    color: #94a3b8;
+}
+
+body.dark .dropdown-sublink,
+.dark-theme .dropdown-sublink {
+    color: #e2e8f0 !important;
+}
+
+body.dark .dropdown-sublink:hover,
+.dark-theme .dropdown-sublink:hover {
+    background-color: #242630 !important;
+    color: #60a5fa !important;
+}
 
 /* =========================================
    UNIVERSAL COMPACT 4-COLUMN FOOTER
