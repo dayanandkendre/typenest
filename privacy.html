@@ -20,17 +20,17 @@
     <meta name="robots" content="index, follow">
 
     <!-- SEO Meta Tags -->
-    <title>Privacy Policy - TypeNest</title>
-    <meta name="description" content="Read the TypeNest Privacy Policy to understand how we collect, use, and protect your personal information while using our typing platform.">
-    <meta name="keywords" content="privacy policy, TypeNest privacy, user data protection, website privacy policy, typing platform privacy">
+    <title>Privacy Policy - TypeNest | Data Protection & AdSense Compliance</title>
+    <meta name="description" content="TypeNest Privacy Policy. Learn how we handle authentication, typing performance telemetry, Google AdSense cookies, GDPR, and CCPA user rights.">
+    <meta name="keywords" content="privacy policy, TypeNest privacy, Google AdSense privacy, GDPR typing test, CCPA rights, Dayanand Kendre, data protection">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://typenest.in/privacy.html">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Privacy Policy - TypeNest">
-    <meta property="og:description" content="Read the official TypeNest privacy policy regarding user data protection, privacy terms, and cookies.">
+    <meta property="og:title" content="Privacy Policy - TypeNest | Data Protection & AdSense Compliance">
+    <meta property="og:description" content="Official Privacy Policy for TypeNest regarding user records, cookies, third-party advertising, and data safety.">
     <meta property="og:url" content="https://typenest.in/privacy.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
@@ -39,14 +39,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
 
-    <!-- Schema Markup -->
+    <!-- Structured Data Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Privacy Policy - TypeNest",
       "url": "https://typenest.in/privacy.html",
-      "description": "Read the TypeNest Privacy Policy to understand how we collect, use, and protect your personal data."
+      "description": "Comprehensive Privacy Policy of TypeNest covering data processing, authentication, cookies, and Google AdSense integration.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "TypeNest",
+        "founder": {
+          "@type": "Person",
+          "name": "Dayanand Dinkar Kendre"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "At. Moshi",
+          "addressLocality": "Khed",
+          "addressRegion": "Pune, Maharashtra",
+          "addressCountry": "IN"
+        }
+      }
     }
     </script>
 </head>
@@ -86,71 +101,116 @@
 
 <!-- HERO -->
 <div class="about-hero">
-    <h1>Privacy Policy</h1>
-    <p>Last Updated: September 2026</p>
+    <h1>Privacy <span class="blue-text">Policy</span></h1>
+    <p>Last Revised: September 2026 • Official Data Governance Document</p>
 </div>
 
 <div class="about-container">
 
+    <!-- SECTION 1 -->
     <div class="about-card">
-        <h2>Introduction</h2>
+        <h2>1. Introduction & Data Controller</h2>
         <p>
-            Welcome to TypeNest. We highly value your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we collect, use, manage, and safeguard your information when you practice and learn touch typing on our platform.
+            Welcome to <strong>TypeNest</strong> (<a href="https://typenest.in">https://typenest.in</a>), an online touch-typing education portal operated and developed by <strong>Dayanand Dinkar Kendre</strong>, located in Moshi, Pune, Maharashtra, India.
+        </p>
+        <p style="margin-top: 10px;">
+            We respect your privacy and are committed to safeguarding your personal data in accordance with applicable global privacy standards, including India's Digital Personal Data Protection Act (DPDP), the European General Data Protection Regulation (GDPR), and the California Consumer Privacy Act (CCPA/CPRA). This Privacy Policy explains our practices regarding the collection, processing, and storage of your information.
         </p>
     </div>
 
+    <!-- SECTION 2 -->
     <div class="about-card">
-        <h2>Information We Collect</h2>
+        <h2>2. Information We Collect</h2>
         <p>
-            We collect minimal information to help you track your typing progress. This includes:
+            We strictly limit data collection to what is necessary for delivering a functional, responsive typing platform:
         </p>
+        <ul style="padding-left: 20px; margin-top: 8px; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <li><strong>Account & Profile Information:</strong> When signing in via Google Single Sign-On (SSO), we receive your verified email address, display name, and avatar picture provided by Google.</li>
+            <li><strong>Typing Performance Analytics:</strong> We store aggregated speed metrics (Words Per Minute - WPM, Net WPM, accuracy percentages, lesson completion status, and optional public leaderboard ranks).</li>
+            <li><strong>Client Keystroke Isolation:</strong> Real-time keystroke tracking during typing practice occurs purely on the client-side (inside your web browser's DOM memory). TypeNest does <strong>not</strong> record, log, or transmit raw keylogger inputs to any remote database.</li>
+            <li><strong>Device & Log Telemetry:</strong> Standard non-identifying telemetry including browser engine type, screen resolution, operating system, and IP address for diagnostic and load-balancing purposes.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="about-card">
+        <h2>3. Cloud Infrastructure & Authentication</h2>
         <p>
-            <strong>Account Data:</strong> When you log in via Google Sign-In, we securely receive your basic profile details, including your full name, email address, and profile picture.
-        </p>
-        <p>
-            <strong>Performance Data:</strong> We save your typing test scores, Words Per Minute (WPM), accuracy percentages, and course progress to display on your personal profile and leaderboard.
+            Authentication and database hosting are provided through <strong>Google Firebase</strong> (Firebase Authentication and Cloud Firestore). User records and scores are stored within Google's enterprise-grade cloud centers adhering to strict ISO/IEC 27001 and SOC 2 security compliances. TypeNest never accesses, stores, or processes plain-text account passwords.
         </p>
     </div>
 
+    <!-- SECTION 4 -->
     <div class="about-card">
-        <h2>Authentication &amp; Services</h2>
+        <h2>4. Google AdSense & Third-Party Advertising (Mandatory Policy)</h2>
         <p>
-            We use <strong>Firebase Authentication</strong> to handle user sign-ins safely. Your login credentials are managed entirely through Google's secure infrastructure, and TypeNest never sees or stores your personal passwords.
+            TypeNest participates in the <strong>Google AdSense</strong> publisher network. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other sites across the internet:
+        </p>
+        <ul style="padding-left: 20px; margin-top: 8px; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <li>Google's use of advertising cookies (including the DoubleClick / DART cookie) enables Google and its authorized partners to serve tailored ads to our visitors.</li>
+            <li>Users may opt out of personalized advertising at any time by configuring their preferences in <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">Google Ads Settings</a>.</li>
+            <li>Alternatively, you can opt out of third-party vendor cookies across various ad networks by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">www.aboutads.info</a> or <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">Your Online Choices (EU)</a>.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="about-card">
+        <h2>5. Cookies & Consent Management (CMP)</h2>
+        <p>
+            Cookies are compact text files stored on your local machine to enhance navigation. TypeNest utilizes cookies for:
+        </p>
+        <ul style="padding-left: 20px; margin-top: 8px; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <li><strong>Essential Functionality:</strong> Storing interface preferences (such as light/dark mode switch states and login sessions).</li>
+            <li><strong>Analytics:</strong> Google Analytics 4 (GA4) collects anonymized traffic metrics to evaluate page loading speeds and lesson usage trends.</li>
+            <li><strong>Consent Mode v2:</strong> We respect Google Consent Mode v2 configurations, meaning analytical and advertising tags dynamically adjust based on your consent preferences.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="about-card">
+        <h2>6. Your Rights Under GDPR (For European Union Visitors)</h2>
+        <p>
+            If you are a resident of the European Economic Area (EEA), you are entitled to statutory rights under the General Data Protection Regulation (GDPR):
+        </p>
+        <ul style="padding-left: 20px; margin-top: 8px; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <li><strong>Right of Access:</strong> Request a complete export of your personal performance metrics.</li>
+            <li><strong>Right to Rectification:</strong> Request correction of inaccurate profile data.</li>
+            <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> Request the complete deletion of your Firebase user record and typing history.</li>
+            <li><strong>Right to Withdraw Consent:</strong> Revoke authorization for cookie tracking or profile indexing at any time.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="about-card">
+        <h2>7. Your Rights Under CCPA / CPRA (For California Residents)</h2>
+        <p>
+            Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents hold distinct privacy protections:
+        </p>
+        <ul style="padding-left: 20px; margin-top: 8px; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <li><strong>No Sale of Personal Information:</strong> TypeNest does not sell, rent, or trade personal data or practice records to data brokers or commercial marketers for monetary consideration.</li>
+            <li><strong>Non-Discrimination:</strong> Exercising your privacy rights will never result in degraded test accuracy, locked courses, or denied platform access.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="about-card">
+        <h2>8. Children's Online Privacy Protection (COPPA)</h2>
+        <p>
+            Protecting the safety of children online is a paramount responsibility. TypeNest is an educational tool accessible to all ages; however, we do not knowingly solicit or collect personally identifiable information from children under 13 without verified parental consent. If you believe your child has registered an account without consent, please contact us immediately to purge the record from our databases.
         </p>
     </div>
 
+    <!-- SECTION 9 -->
     <div class="about-card">
-        <h2>How We Use Your Information</h2>
+        <h2>9. Data Erasure Requests & Contact Details</h2>
         <p>
-            Your information is used strictly to provide a functional typing experience. This includes maintaining your account, updating the global leaderboard, saving your practice history, analyzing overall site performance, and ensuring platform security. We do not sell or lease your personal data to third parties.
+            To request total account erasure, inspect your stored typing statistics, or ask questions regarding our privacy mechanisms, reach out directly to our Data Controller:
         </p>
-    </div>
-
-    <div class="about-card">
-        <h2>Cookies and Analytics</h2>
-        <p>
-            TypeNest uses basic cookies to remember your display preferences (like dark mode) and keep you logged into your profile. We also utilize third-party services like Google Analytics to understand website traffic trends and optimize usability.
-        </p>
-    </div>
-
-    <div class="about-card">
-        <h2>Google AdSense &amp; Third-Party Ads</h2>
-        <p>
-            We partner with Google AdSense to serve advertisements on our site. Google uses cookies (such as the DART cookie) to serve relevant ads based on your visits to TypeNest and other websites on the internet. You can opt out of personalized advertising by visiting Google's Ads Settings.
-        </p>
-    </div>
-
-    <div class="about-card">
-        <h2>Data Deletion &amp; Your Rights</h2>
-        <p>
-            You retain full control over your information. You have the right to inspect your stored data, correct inaccuracies, or request the complete erasure of your account. If you wish to permanently delete your account and all associated typing history from our Firebase database, please contact us directly via our <a href="contact.html">Contact Us</a> page.
-        </p>
-    </div>
-
-    <div class="about-card">
-        <h2>Contact Us</h2>
-        <p>
-            If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data safety, please feel free to reach out to our team through the official <a href="contact.html">Contact Us</a> page on TypeNest.
+        <p style="margin-top: 8px; font-weight: 500; color: #334155;">
+            • <strong>Data Controller:</strong> Dayanand Dinkar Kendre<br>
+            • <strong>Official Email:</strong> <a href="mailto:typenest.in@gmail.com" style="color: #0284c7; text-decoration: none;">typenest.in@gmail.com</a><br>
+            • <strong>Postal Address:</strong> At. Moshi, Taluka Khed, District Pune, Maharashtra, India - 412105<br>
+            • <strong>Direct Support:</strong> <a href="contact.html">TypeNest Contact Form</a>
         </p>
     </div>
 
@@ -161,7 +221,7 @@
     <div class="footer-logo">
         <h1>TypeNest</h1>
         <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
-        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
+        <p class="footer-trust">Operated by Dayanand Dinkar Kendre • Moshi, Pune, Maharashtra.</p>
     </div>
 
     <div class="footer-links">
@@ -188,7 +248,7 @@
 
 <!-- COPYRIGHT -->
 <div class="footer-bottom">
-    <p>© 2026 TypeNest. All rights reserved.</p>
+    <p>© 2026 TypeNest. All rights reserved. Founded by Dayanand Dinkar Kendre.</p>
 </div>
 
 <!-- LOGIN MODAL -->
@@ -209,6 +269,9 @@
 <script>
 function closeLoginModal(){
     document.getElementById("loginModal").style.display = "none";
+}
+function openLoginModal(){
+    document.getElementById("loginModal").style.display = "flex";
 }
 </script>
 
