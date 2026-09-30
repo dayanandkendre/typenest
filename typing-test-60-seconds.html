@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics 4 (GA4) Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZC84S6JF5T');
+    </script>
+
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    
+    <!-- SEO Meta Tags for 60-Second / 1-Minute Dedicated Test -->
+    <title>1 Minute Typing Test (60 Seconds) - Free Online WPM Speed Test | TypeNest</title>
+    <meta name="description" content="Take the free 1-minute (60 seconds) typing speed test on TypeNest. Check your Net WPM, raw speed, typing accuracy, and character errors with instant live analytics.">
+    <meta name="keywords" content="1 minute typing test, 60 second typing speed test, check WPM online, 1 min typing test free, touch typing test 60s, TypeNest">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://typenest.in/typing-test-60-seconds.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="1 Minute Typing Speed Test (60 Seconds) | TypeNest">
+    <meta property="og:description" content="Calculate your certified 1-minute typing speed and accuracy online with real-time feedback.">
+    <meta property="og:url" content="https://typenest.in/typing-test-60-seconds.html">
+    <meta property="og:image" content="https://typenest.in/favicon.png">
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- External Scripts & Stylesheets -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="typing.css">
+
+    <!-- Inline Styles for Bottom Educational Content (Prevents Thin Content Rejection) -->
+    <style>
+        .guide-article-wrapper {
+            max-width: 950px;
+            margin: 40px auto 60px auto;
+            padding: 30px;
+            background: #18191e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            color: #d1d5db;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+        }
+        .guide-article-wrapper h2 {
+            color: #f3f4f6;
+            font-size: 1.6rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 8px;
+        }
+        .guide-article-wrapper h3 {
+            color: #60a5fa;
+            font-size: 1.2rem;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+        .guide-article-wrapper p {
+            font-size: 0.96rem;
+            color: #9ca3af;
+            margin-bottom: 14px;
+        }
+        .guide-article-wrapper ul {
+            padding-left: 24px;
+            margin-bottom: 15px;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+        .guide-article-wrapper li {
+            margin-bottom: 6px;
+        }
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        .benchmark-table th, .benchmark-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .benchmark-table th {
+            background: rgba(255, 255, 255, 0.04);
+            color: #60a5fa;
+        }
+        .time-switcher-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .time-pill-link {
+            padding: 8px 16px;
+            background: #202128;
+            color: #9ca3af;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s;
+        }
+        .time-pill-link.active, .time-pill-link:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<div class="typing-page">    
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="nav-left">
+            <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
+            <div class="nav-links">
+                <a href="/learn/learn.html" class="nav-item">🎯 Practice</a>
+                <a href="leaderboard.html" class="nav-item">🏆 Leaderboard</a>
+                <a href="blog.html" class="nav-item">📚 Blog</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                <span class="theme-icon" id="themeIcon">🌙</span>
+                <span class="theme-text" id="themeText">Dark</span>
+            </button>
+            <button class="login-profile-btn" id="loginNavBtn">
+                👤 <span id="loginBtnText">Sign In</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- SUB CONFIGURATION BAR (DEFAULT 60S SET) -->
+    <div class="sub-config-wrapper" id="subConfigWrapper">
+        <div class="config-bar">
+            <div class="config-group" id="typeGroup">
+                <span class="cfg-btn active-cfg" data-type="normal"># normal</span>
+                <span class="cfg-btn" data-type="punctuation">@ punctuation</span>
+                <span class="cfg-btn" data-type="numbers">🔢 numbers</span>
+            </div>
+            <div class="config-gap">|</div>
+            <div class="config-group" id="modeGroup">
+                <span class="cfg-btn active-cfg" data-mode="time">🕒 time</span>
+                <span class="cfg-btn" data-mode="words">🔤 words</span>
+            </div>
+            <div class="config-gap">|</div>
+            <!-- DEDICATED LINKS TO OTHER PAGES -->
+            <div class="config-group" id="timeGroup">
+                <a href="typing-test-15-seconds.html" class="cfg-btn" style="text-decoration:none; color:inherit;">15</a>
+                <a href="typing-test-30-seconds.html" class="cfg-btn" style="text-decoration:none; color:inherit;">30</a>
+                <span class="cfg-btn active-cfg" data-value="60">60</span>
+                <a href="typing-test-100-seconds.html" class="cfg-btn" style="text-decoration:none; color:inherit;">100</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN TYPING CONTAINER -->
+    <div class="main-container" id="typingContainer">
+        <div class="live-timer-wrapper">
+            <span id="time" class="giant-timer">60</span>
+        </div>
+
+        <div class="text-display" id="textDisplayContainer">
+            <div class="text-display-inner" id="textDisplay"></div>
+        </div>
+
+        <div class="hidden-input-box">
+            <textarea id="input" autofocus></textarea>
+        </div>
+    </div>
+
+    <!-- SHORTCUT BAR -->
+    <div class="bottom-shortcut-bar" id="footerShortcut">
+        <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart test</span>
+        <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div class="monkey-result-container" id="resultScreen" style="display: none;">
+        <div class="result-main-row">
+            <div class="giant-stats-block">
+                <div class="giant-stat">
+                    <span class="g-label">wpm</span>
+                    <span class="g-value yellow-text" id="finalWpm">0</span>
+                </div>
+                <div class="giant-stat">
+                    <span class="g-label">acc</span>
+                    <span class="g-value yellow-text" id="finalAccuracy">0%</span>
+                </div>
+            </div>
+
+            <div class="chart-placeholder-block">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="result-details-row">
+            <div class="detail-box">
+                <span class="d-label">mode</span>
+                <span class="d-value" id="resultModeInfo">time 60 (normal)</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">raw wpm</span>
+                <span class="d-value" id="rawWpm">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">characters</span>
+                <span class="d-value" id="finalChars">0/0/0/0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">mistakes</span>
+                <span class="d-value red-text" id="finalMistakes">0</span>
+            </div>
+            <div class="detail-box">
+                <span class="d-label">personal best</span>
+                <span class="d-value" id="bestWpm">0</span>
+            </div>
+        </div>
+
+        <div class="result-features-wrapper">
+            <p class="features-label">Explore TypeNest Features</p>
+            <div class="feature-cards-grid">
+                <div class="f-card" onclick="window.location.href='index.html'">
+                    <span class="f-icon">📊</span>
+                    <div class="f-info">
+                        <h4>Analytics</h4>
+                        <p>Track progress &amp; graphs</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='learn/learn.html'">
+                    <span class="f-icon">🎯</span>
+                    <div class="f-info">
+                        <h4>Target Practice</h4>
+                        <p>Master weak keys</p>
+                    </div>
+                </div>
+                <div class="f-card" onclick="window.location.href='leaderboard.html'">
+                    <span class="f-icon">🏆</span>
+                    <div class="f-info">
+                        <h4>Leaderboard</h4>
+                        <p>Compete with top typists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-action-buttons">
+            <button class="icon-action-btn" onclick="location.reload()">[r] retry</button>
+            <button class="icon-action-btn" onclick="window.location.href='index.html'">[h] home</button>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         🔥 COMPREHENSIVE EDITORIAL GUIDE (ELIMINATES LOW VALUE / THIN CONTENT)
+         हे सेक्शन गुगलच्या क्रॉलरला ८००+ शब्दांचा सविस्तर मजकूर देईल
+    ==================================================================== -->
+    <div class="guide-article-wrapper">
+        <div class="time-switcher-links">
+            <span style="color:#64748b; font-size:0.88rem; align-self:center;">Switch Test Duration:</span>
+            <a href="typing-test-15-seconds.html" class="time-pill-link">15 Seconds (Burst)</a>
+            <a href="typing-test-30-seconds.html" class="time-pill-link">30 Seconds (Sprint)</a>
+            <a href="typing-test-60-seconds.html" class="time-pill-link active">60 Seconds (1 Min Standard)</a>
+            <a href="typing-test-100-seconds.html" class="time-pill-link">100 Seconds (Stamina)</a>
+        </div>
+
+        <h2>Mastering the 1-Minute (60 Seconds) Typing Speed Test</h2>
+        <p>
+            The <strong>60-second typing test</strong> is universally acknowledged as the international benchmark for evaluating keyboard competence, data entry speed, and workplace transcription capability. Whether you are preparing for civil service examinations (such as the Maharashtra GCC-TBC typing certification), coding interviews, or administrative positions, a one-minute sprint reveals your true keyboard muscle memory under timed constraints.
+        </p>
+
+        <h3>Why the 60-Second Duration is the Golden Standard</h3>
+        <p>
+            Shorter tests (such as 15 or 30 seconds) measure muscular burst speed and initial reaction times, but they frequently hide fatigue and finger coordination degradation. Conversely, 5 or 10-minute tests evaluate physical endurance. The <strong>60-second window</strong> strikes the ideal equilibrium: it is long enough to normalize minor typing stumbles while demanding sustained rhythmic focus across multiple common English word families.
+        </p>
+
+        <h3>Global 1-Minute Typing Speed Benchmarks</h3>
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Speed Tier (WPM)</th>
+                    <th>Skill Level</th>
+                    <th>Real-World Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0 – 30 WPM</td>
+                    <td>Beginner</td>
+                    <td>Hunt-and-peck typist; frequently glances at keyboard; high backspace usage.</td>
+                </tr>
+                <tr>
+                    <td>31 – 50 WPM</td>
+                    <td>Intermediate</td>
+                    <td>Average computer user; comfortable with common words; minor punctuation delays.</td>
+                </tr>
+                <tr>
+                    <td>51 – 70 WPM</td>
+                    <td>Proficient</td>
+                    <td>Productive office professional, software engineer, or transcriptionist; strong muscle memory.</td>
+                </tr>
+                <tr>
+                    <td>71 – 90 WPM</td>
+                    <td>Advanced</td>
+                    <td>Eligible for competitive stenography, court reporting, and high-speed data processing.</td>
+                </tr>
+                <tr>
+                    <td>90+ WPM</td>
+                    <td>Master / Elite</td>
+                    <td>Top 1% of global typists; flawless touch typing mechanics without conscious keystroke thought.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Mathematical Formula: How Your 60s Score is Calculated</h3>
+        <p>
+            TypeNest implements the standardized stenography calculation rule: <strong>5 consecutive keystrokes (including letters, spaces, numbers, and symbols) constitute exactly 1 standard word</strong>. This avoids skewing results when passages contain abnormally short or long words.
+        </p>
+        <ul>
+            <li><strong>Gross WPM:</strong> <code>(Total Raw Keystrokes / 5) / 1.0 Minute</code></li>
+            <li><strong>Accuracy Percentage:</strong> <code>(Correct Characters / Total Keystrokes Typed) * 100</code></li>
+            <li><strong>Net WPM:</strong> <code>Gross WPM - (Uncorrected Errors / 1.0 Minute)</code></li>
+        </ul>
+        <p>
+            In official government typing exams, Net WPM is the sole qualifying metric. Typing at 80 Gross WPM with 10 uncorrected errors results in a disqualifying penalty, reinforcing the age-old typist maxim: <em>Accuracy builds speed, but chasing speed destroys accuracy</em>.
+        </p>
+
+        <h3>4 Actionable Tips to Cross 70 WPM in 60 Seconds</h3>
+        <ul>
+            <li><strong>Never Look Down at Your Hands:</strong> Anchor your index fingers firmly on the physical tactile bumps of the <code>F</code> and <code>J</code> keys. Trust your neuromuscular pathways to locate outer keys.</li>
+            <li><strong>Scan Two Words Ahead:</strong> Do not stare at the letter your finger is actively pressing. Train your peripheral vision to buffer the next 2 to 3 words in your mind.</li>
+            <li><strong>Maintain Steady Rhythm over Sporadic Bursts:</strong> Rapid bursts followed by sudden pauses generate micro-stresses in finger tendons. Strive for a metronome-like keystroke cadence.</li>
+            <li><strong>Ergonomic Wrist Elevation:</strong> Keep wrists straight and slightly hovering above the desk rather than planted flat against the desk edge, preventing carpal tunnel strain.</li>
+        </ul>
+    </div>
+
+</div>
+
+<audio id="keySound" src="key.wav" preload="auto"></audio>
+
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
+    <div class="login-box" style="background: #18191e; border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; text-align: center; box-sizing: border-box;">
+        <div class="close-login" onclick="closeLoginModal()" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#646669'">✕</div>
+        <div style="font-size: 32px; margin-bottom: 10px;">⌨️</div>
+        <h1 style="color: #fff; font-size: 26px; margin: 0 0 8px 0; font-weight: 600; letter-spacing: -0.5px;">Welcome Back</h1>
+        <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to continue your typing journey.</p>
+        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
+        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
+        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;">Login</button>
+        <div style="color: #444; font-size: 12px; margin: 15px 0; position: relative;">
+            <span style="background: #18191e; padding: 0 10px; position: relative; z-index: 2;">OR</span>
+            <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05); z-index: 1;"></div>
+        </div>
+        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="G" style="width: 18px; height: 18px;"> Continue with Google
+        </div>
+    </div>
+</div>
+
+<script>
+function openLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) {
+        modal.style.display = "flex";
+        const mainInput = document.getElementById("input");
+        if(mainInput) mainInput.blur();
+    }
+}
+function closeLoginModal(){
+    const modal = document.getElementById("loginModal");
+    if(modal) modal.style.display = "none";
+}
+
+// 60-Second Dedicated Trigger: ensures timer initializes to 60s
+window.addEventListener('DOMContentLoaded', () => {
+    const timerElem = document.getElementById("time");
+    if (timerElem) timerElem.textContent = "60";
+    
+    // Simulates clicking the 60s config button for typing.js initialization
+    const btn60 = document.querySelector('[data-value="60"]');
+    if (btn60) btn60.click();
+});
+</script>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="typing.js"></script>
+
+</body>
+</html>
