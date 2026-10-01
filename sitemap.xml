@@ -12,12 +12,6 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://typenest.in/typing.html</loc>
-    <lastmod>2026-09-11T16:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
     <loc>https://typenest.in/tests.html</loc>
     <lastmod>2026-09-11T16:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -321,49 +315,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/blind-typing-mastery-without-looking.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/data-entry-operator-typing-speed-secrets.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/transcription-and-subtitling-typing-jobs-guide.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/how-to-fix-backspace-addiction-in-typing.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/best-ergonomic-mouse-keyboard-setup-for-typists.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/qwerty-home-row-deep-dive-asdf-jkl.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/typing-speed-for-writers-bloggers-authors.html</loc>
     <lastmod>2026-09-11</lastmod>
@@ -377,12 +364,70 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
   <url>
     <loc>https://typenest.in/keyboard-maintenance-and-cleaning-guide.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-
+  <url>
+    <loc>https://typenest.in/ssc-cgl-chsl-dest-typing-test-guide.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/marathi-typing-inscript-mangal-font-guide.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/how-to-type-120-wpm-advanced-guide.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/how-long-to-learn-touch-typing-timeline.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/how-to-get-typing-test-certificate-online.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/best-ergonomic-keyboards-for-long-typing-hours.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/best-mechanical-switches-for-typing-speed.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/how-to-unlearn-bad-typing-habits.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/why-typing-skills-matter-in-ai-world.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://typenest.in/touch-typing-cheat-sheet-finger-chart-pdf.html</loc>
+    <lastmod>2026-10-01T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
