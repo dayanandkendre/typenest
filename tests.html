@@ -1,213 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeNest Academy | Speed Tests</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-
-    <!-- SEO Meta Tags -->
-    <title>Typing Speed Test - TypeNest</title>
-    <meta name="description" content="Take a free typing speed test to measure your words per minute (WPM), accuracy, and overall typing performance with TypeNest.">
-    <meta name="keywords" content="typing test, typing speed test, WPM test, typing accuracy test, online typing test, free typing test, typing challenge, TypeNest">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/tests.html">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Typing Speed Test - TypeNest">
-    <meta property="og:description" content="Test your typing speed and accuracy online with TypeNest's free WPM typing test.">
-    <meta property="og:url" content="https://typenest.in/tests.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
-
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tests.css">
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Typing Speed Test - TypeNest",
-      "url": "https://typenest.in/tests.html",
-      "description": "Take timed typing tests (1 min, 3 min, 5 min) to test your typing speed and accuracy on TypeNest."
+    @keyframes blinkCursor {
+      0%, 100% { border-color: #6366f1; }
+      50% { border-color: transparent; }
     }
-    </script>
+    .typing-cursor {
+      border-left: 2.5px solid #6366f1;
+      animation: blinkCursor 0.9s infinite ease-in-out;
+      margin-left: -1px;
+    }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body class="light">
+ 
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
+    <!-- Header Banner -->
+    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center gap-3">
+          <i class="fa-solid fa-stopwatch text-indigo-400"></i> Standard Timed Typing Tests
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Official time constraints to evaluate real words-per-minute speed and accuracy.</p>
+      </div>
+
+      <!-- Test Length Buttons -->
+      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
+        <button onclick="setTestDuration(60)" id="btn-60" class="time-tab px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white transition">1 Minute</button>
+        <button onclick="setTestDuration(180)" id="btn-180" class="time-tab px-4 py-2 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">3 Minutes</button>
+        <button onclick="setTestDuration(300)" id="btn-300" class="time-tab px-4 py-2 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">5 Minutes</button>
+      </div>
     </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
+    <!-- Live Performance Stats Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Speed (WPM)</div>
+          <div id="statWPM" class="text-3xl font-extrabold text-indigo-400 font-mono mt-0.5">0</div>
         </div>
-    </div>
-</div>
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
+      </div>
 
-<!-- HERO -->
-<div class="tests-hero">
-    <h1>Typing Tests</h1>
-    <p>Challenge your speed, accuracy, and consistency with timed tests.</p>
-</div>
-
-<!-- TEST CARDS GRID -->
-<div class="tests-grid">
-    <!-- 1 MIN TEST -->
-    <div class="test-card">
-        <h2>1 Minute Test</h2>
-        <p>Quick typing speed challenge.</p>
-        <button onclick="window.location.href='typing.html?time=1'">Start Test</button>
-    </div>
-
-    <!-- 3 MIN TEST -->
-    <div class="test-card">
-        <h2>3 Minute Test</h2>
-        <p>Improve consistency and focus.</p>
-        <button onclick="window.location.href='typing.html?time=3'">Start Test</button>
-    </div>
-
-    <!-- 5 MIN TEST -->
-    <div class="test-card">
-        <h2>5 Minute Test</h2>
-        <p>Endurance mode for professionals.</p>
-        <button onclick="window.location.href='typing.html?time=5'">Start Test</button>
-    </div>
-</div>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
+          <div id="statAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">100<span class="text-lg font-normal">%</span></div>
         </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
+      </div>
 
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Time Remaining</div>
+          <div id="statTimer" class="text-3xl font-extrabold text-amber-400 font-mono mt-0.5">01:00</div>
         </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-hourglass-half"></i></div>
+      </div>
 
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
+          <div id="statErrors" class="text-3xl font-extrabold text-rose-400 font-mono mt-0.5">0</div>
         </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      </div>
     </div>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
+    <!-- Active Test Box -->
+    <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+        <span id="testHeading" class="font-medium text-slate-300 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 1-Minute Official Evaluation Test
+        </span>
+        <button onclick="resetTest()" class="hover:text-indigo-400 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-rotate-right"></i> Restart Test (Esc)
+        </button>
+      </div>
+
+      <input type="text" id="sinkInput" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off">
+
+      <div id="arenaBox" onclick="focusSink()" class="cursor-text relative min-h-[160px] max-h-[260px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-4 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+        <div id="testTextDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
+      </div>
     </div>
-</footer>
 
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
+    <!-- Quick Cards Below -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4">
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-5 hover:border-indigo-500/40 transition">
+        <i class="fa-solid fa-certificate text-indigo-400 text-2xl mb-3"></i>
+        <h3 class="text-base font-bold text-white">Unlock Certification</h3>
+        <p class="text-xs text-slate-400 mt-1">Complete any 3-minute or 5-minute test above 60 WPM to generate a verified credential.</p>
+        <a href="certificate.html" class="inline-block text-xs font-semibold text-indigo-400 hover:underline mt-3">View Certificates &rarr;</a>
+      </div>
 
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-5 hover:border-indigo-500/40 transition">
+        <i class="fa-solid fa-ranking-star text-amber-400 text-2xl mb-3"></i>
+        <h3 class="text-base font-bold text-white">Compare On Leaderboard</h3>
+        <p class="text-xs text-slate-400 mt-1">Check how your 1-minute sprint speeds rank against top typists worldwide.</p>
+        <a href="leaderboard.html" class="inline-block text-xs font-semibold text-indigo-400 hover:underline mt-3">Open Leaderboard &rarr;</a>
+      </div>
 
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-5 hover:border-indigo-500/40 transition">
+        <i class="fa-solid fa-graduation-cap text-emerald-400 text-2xl mb-3"></i>
+        <h3 class="text-base font-bold text-white">Structured Drills</h3>
+        <p class="text-xs text-slate-400 mt-1">Struggling with accuracy? Master the home row and top row fingers in our curriculum.</p>
+        <a href="learn/learn.html" class="inline-block text-xs font-semibold text-indigo-400 hover:underline mt-3">Go to Lessons &rarr;</a>
+      </div>
     </div>
-</div>
 
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
+  </main>
 
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+  <!-- Results Modal -->
+  <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#111827] border border-slate-800 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl">
+      <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-indigo-500/30">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-1">Test Completed!</h3>
+      <p class="text-slate-400 text-xs">Official test score recorded successfully:</p>
 
+      <div class="grid grid-cols-2 gap-3 my-5">
+        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800">
+          <span class="text-xs uppercase text-slate-400 font-bold">Speed</span>
+          <div id="resWPM" class="text-3xl font-extrabold text-indigo-400 font-mono mt-1">0 <span class="text-xs font-normal">WPM</span></div>
+        </div>
+        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800">
+          <span class="text-xs uppercase text-slate-400 font-bold">Accuracy</span>
+          <div id="resAcc" class="text-3xl font-extrabold text-emerald-400 font-mono mt-1">0%</div>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <a href="certificate.html" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-indigo-600/30">
+          <i class="fa-solid fa-award"></i> Certificate
+        </a>
+        <button onclick="resetTest(); document.getElementById('resultsModal').classList.add('hidden');" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition">
+          Retake Test
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Engine Script -->
+  <script>
+    let audioCtx = null;
+    let isSoundEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playKeyClickSound() {
+      if (!isSoundEnabled) return;
+      initAudio();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(450 + Math.random() * 80, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.05);
+      } catch (e) {}
+    }
+
+    function playErrorSound() {
+      if (!isSoundEnabled) return;
+      initAudio();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.07, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.1);
+      } catch (e) {}
+    }
+
+    function toggleSound() {
+      isSoundEnabled = !isSoundEnabled;
+      document.getElementById('soundIcon').className = isSoundEnabled ? 'fa-solid fa-volume-high text-sm' : 'fa-solid fa-volume-xmark text-sm text-slate-500';
+    }
+
+    const TEST_PASSAGES = {
+      60: "Speed tests are designed to measure raw mechanical velocity and neuromuscular efficiency. When you type without looking at the keyboard, your brain converts thought directly into finger movements, bypassing hesitation and unlocking your true cognitive potential.",
+      180: "Architectural excellence in typing comes from persistent daily habit and correct finger anchorage on the home row keys. When typing for several continuous minutes, fatigue will often expose weaknesses in finger independence. Maintain upright posture, float your wrists lightly above the desk, and let cadence guide each character without forcing undue tension into your forearms.",
+      300: "Standardized keyboard testing protocols have long served as a vital metric for administrative, programming, and clerical professions across the globe. True mastery does not simply mean firing rapid bursts of speed on easy words; it requires navigating complex punctuation, numerical figures, and unexpected terminology with unwavering discipline. Keep breathing evenly, eliminate errors as early as possible, and let consistency become your greatest competitive advantage."
+    };
+
+    let durationSeconds = 60;
+    let timeRemaining = 60;
+    let timerInterval = null;
+    let isTestActive = false;
+    let isTestCompleted = false;
+
+    let targetText = "";
+    let currentIndex = 0;
+    let correctCount = 0;
+    let errorCount = 0;
+    let totalTypedCount = 0;
+    let startTime = null;
+
+    function initTest() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      isTestActive = false;
+      isTestCompleted = false;
+      currentIndex = 0;
+      correctCount = 0;
+      errorCount = 0;
+      totalTypedCount = 0;
+      startTime = null;
+      timeRemaining = durationSeconds;
+
+      targetText = TEST_PASSAGES[durationSeconds] || TEST_PASSAGES[60];
+
+      const display = document.getElementById('testTextDisplay');
+      display.innerHTML = '';
+      for (let i = 0; i < targetText.length; i++) {
+        const span = document.createElement('span');
+        span.id = `char-${i}`;
+        span.textContent = targetText[i];
+        if (i === 0) span.className = 'typing-cursor text-slate-300 font-semibold';
+        display.appendChild(span);
+      }
+
+      updateHUD();
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' || e.key === 'Alt' || e.key === 'Control' || e.key === 'Meta') return;
+      if (e.key === 'Escape') { resetTest(); return; }
+      if (isTestCompleted) return;
+
+      if (!isTestActive) startTimer();
+
+      const expectedChar = targetText[currentIndex];
+      const charSpan = document.getElementById(`char-${currentIndex}`);
+
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        if (currentIndex > 0) {
+          charSpan.className = '';
+          currentIndex--;
+          const prevSpan = document.getElementById(`char-${currentIndex}`);
+          prevSpan.className = 'typing-cursor text-slate-300';
+        }
+        return;
+      }
+
+      if (e.key.length > 1 && e.key !== 'Enter') return;
+
+      totalTypedCount++;
+      if (e.key === expectedChar) {
+        playKeyClickSound();
+        correctCount++;
+        charSpan.className = 'text-emerald-400 font-medium';
+      } else {
+        playErrorSound();
+        errorCount++;
+        charSpan.className = 'text-rose-400 bg-rose-500/20 underline decoration-rose-500';
+      }
+
+      currentIndex++;
+      if (currentIndex < targetText.length) {
+        document.getElementById(`char-${currentIndex}`).classList.add('typing-cursor');
+      } else {
+        finishTest();
+      }
+      updateHUD();
+    });
+
+    function startTimer() {
+      isTestActive = true;
+      startTime = Date.now();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateHUD();
+        if (timeRemaining <= 0) finishTest();
+      }, 1000);
+    }
+
+    function updateHUD() {
+      let elapsedMins = startTime ? (Date.now() - startTime) / 60000 : 0;
+      let wpm = elapsedMins > 0.03 ? Math.round((correctCount / 5) / elapsedMins) : 0;
+      let accuracy = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
+
+      document.getElementById('statWPM').innerText = wpm;
+      document.getElementById('statAccuracy').innerHTML = `${accuracy}<span class="text-lg font-normal">%</span>`;
+      document.getElementById('statErrors').innerText = errorCount;
+
+      const mins = Math.floor(timeRemaining / 60);
+      const secs = timeRemaining % 60;
+      document.getElementById('statTimer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function finishTest() {
+      clearInterval(timerInterval);
+      isTestActive = false;
+      isTestCompleted = true;
+
+      let elapsedMins = (Date.now() - (startTime || Date.now())) / 60000;
+      if (elapsedMins < 0.05) elapsedMins = 0.05;
+      const finalWPM = Math.round((correctCount / 5) / elapsedMins);
+      const finalAcc = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
+
+      // Persist results
+      localStorage.setItem('tn_last_wpm', finalWPM);
+      localStorage.setItem('tn_last_acc', finalAcc);
+
+      if (typeof confetti === 'function' && finalAcc >= 90) confetti({ particleCount: 80, spread: 70 });
+
+      document.getElementById('resWPM').innerHTML = `${finalWPM} <span class="text-xs font-normal">WPM</span>`;
+      document.getElementById('resAcc').innerText = `${finalAcc}%`;
+      document.getElementById('resultsModal').classList.remove('hidden');
+    }
+
+    function resetTest() { initTest(); }
+    function focusSink() { document.getElementById('sinkInput').focus(); }
+
+    function setTestDuration(sec) {
+      durationSeconds = sec;
+      document.querySelectorAll('.time-tab').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white');
+        btn.classList.add('bg-transparent', 'text-slate-400');
+      });
+      document.getElementById(`btn-${sec}`).classList.add('bg-indigo-600', 'text-white');
+      document.getElementById(`btn-${sec}`).classList.remove('text-slate-400');
+
+      document.getElementById('testHeading').innerText = `${sec / 60}-Minute Official Evaluation Test`;
+      initTest();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initTest();
+      window.addEventListener('click', initAudio, { once: true });
+    });
+  </script>
+  
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
+  
 </body>
 </html>

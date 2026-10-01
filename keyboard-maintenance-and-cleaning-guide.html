@@ -39,10 +39,28 @@
     <meta name="twitter:description" content="Discover how dirty keyboards slow down your typing speed and learn how to clean mechanical and membrane boards properly.">
     <meta name="twitter:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Structured Data / Article Schema -->
     <script type="application/ld+json">
@@ -74,322 +92,366 @@
     }
     </script>
 </head>
-<body class="light">
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans antialiased min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- Dynamic Header Mount Point -->
+    <div id="header-container"></div>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-        <div class="nav-dropdown">
-            <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-            <div class="dropdown-menu-list">
-                <span class="dropdown-category">⏱️ Timed Tests</span>
-                <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-                <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-                <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
+    <main class="flex-grow">
+        <!-- Blog Hero Section -->
+        <header class="relative pt-8 pb-10 md:pt-10 md:pb-14 border-b border-slate-800/80 bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-transparent overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-left">
                 
-                <span class="dropdown-category">🎯 Skill Drills</span>
-                <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-                <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-                <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
+                <!-- Breadcrumbs -->
+                <nav class="flex items-center justify-start gap-2 text-xs md:text-sm font-medium text-slate-400 mb-6" aria-label="Breadcrumb">
+                    <a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <span class="text-indigo-400">Keyboard Cleaning Guide</span>
+                </nav>
+
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Hardware Maintenance &amp; Performance
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight md:leading-tight mb-6">
+                    Keyboard Cleaning &amp; Maintenance Guide: <span class="bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent">How Sticky Keys Affect Your Typing Speed</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-sm sm:text-base text-slate-400 max-w-3xl font-normal leading-relaxed mb-8">
+                    Your keyboard accumulates dust, crumbs, and oils that compromise switch actuation. Discover how regular cleaning prevents chattering, sticky keys, and typing errors.
+                </p>
+
+                <!-- Post Meta -->
+                <div class="flex flex-wrap items-center justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400 pt-2 border-t border-slate-800/80 max-w-xl">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-clock text-indigo-400"></i> 6 min read
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-user text-indigo-400"></i> Dayanand Dinkar Kendre
+                    </span>
+                </div>
             </div>
+        </header>
+
+        <!-- Article Container -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+            <article class="prose prose-invert prose-slate max-w-none text-slate-300 leading-relaxed text-base sm:text-lg">
+                
+                <!-- Table of Contents -->
+                <div class="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 md:p-8 mb-12 shadow-lg backdrop-blur-sm">
+                    <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-800">
+                        <i class="fa-solid fa-list-check text-indigo-400 text-xl"></i>
+                        <div>
+                            <h2 class="text-lg md:text-xl font-bold text-white m-0">Table of Contents</h2>
+                            <p class="text-xs sm:text-sm text-slate-400 m-0">Navigate the complete keyboard maintenance routine:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-medium">
+                        <a href="#how-dirt-affects-wpm" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">01</span>
+                            <span>How Dirt Affects Speed</span>
+                        </a>
+                        <a href="#essential-tools" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">02</span>
+                            <span>Cleaning Toolkit</span>
+                        </a>
+                        <a href="#step-by-step-cleaning" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">03</span>
+                            <span>Deep Cleaning Process</span>
+                        </a>
+                        <a href="#membrane-vs-mechanical" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">04</span>
+                            <span>Mechanical vs Membrane</span>
+                        </a>
+                        <a href="#maintenance-schedule" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group sm:col-span-2">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">05</span>
+                            <span>Maintenance Schedule</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lead Paragraph -->
+                <p class="text-base sm:text-lg font-normal text-slate-300 leading-relaxed mb-6">
+                    Your keyboard is your primary instrument for productivity, coding, and speed testing. Yet, it is also one of the dirtiest surfaces in your workspace, accumulating dust, food crumbs, hair, and sticky liquid residue over time.
+                </p>
+
+                <p class="mb-10">
+                    When debris blocks key travel or causes switch chatter and sticky actuation, your typing speed (WPM) and accuracy drop noticeably. Implementing a regular cleaning and maintenance routine restores crisp tactile feedback and protects your hardware investment.
+                </p>
+
+                <!-- Section 1 -->
+                <h2 id="how-dirt-affects-wpm" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    1. How Dirty Keyboards Damage Typing Speed &amp; Accuracy
+                </h2>
+                <p class="mb-4">
+                    Accumulated grime impacts key performance in three distinct ways:
+                </p>
+                <ul class="space-y-3 mb-10 pl-2 list-none">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Key Chattering &amp; Missed Strokes:</strong> Dust inside mechanical switches prevents consistent electrical contact, causing double-typing or missed letters.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-droplet text-rose-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Sticky Actuation:</strong> Spilled soda or sugar residue causes keys like Spacebar, Backspace, and Enter to drag or stick, ruining rhythm.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-hand text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Uneven Resistance:</strong> Trapped debris beneath keycaps alters actuation force, fatiguing fingers prematurely during speed tests.</span>
+                    </li>
+                </ul>
+
+                <!-- Section 2 -->
+                <h2 id="essential-tools" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    2. Essential Keyboard Cleaning Tools
+                </h2>
+                <div class="rounded-2xl border border-indigo-500/30 bg-indigo-950/20 p-6 md:p-8 mb-10 shadow-lg relative overflow-hidden">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 text-indigo-400 text-lg">
+                            <i class="fa-solid fa-toolbox"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-white mb-3">Recommended Cleaning Toolkit</h3>
+                            <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 pl-0 list-none mb-0">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Keycap Puller:</strong> Wire tool to safely remove mechanical keycaps without scratching.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Compressed Air Canister:</strong> Clears loose dust and crumbs from switch housings.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Isopropyl Alcohol (99%):</strong> Disinfects surfaces and dissolves sticky residue safely.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Microfiber Cloth:</strong> Lint-free cloth for wiping down top plates and case bezels.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Cotton Swabs:</strong> Perfect for cleaning tight crevices around stabilizer bars and switch stems.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <h2 id="step-by-step-cleaning" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    3. Step-by-Step Deep Cleaning Process
+                </h2>
+                <p class="mb-6">
+                    Follow these steps to clean a mechanical or high-end desktop keyboard thoroughly:
+                </p>
+
+                <div class="space-y-4 mb-10">
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">1</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Unplug &amp; Power Off</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Disconnect the USB cable or switch off Bluetooth to prevent electrical shorts.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">2</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Take a Reference Photo</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Snap a quick picture of your layout so you remember exact key placements (especially for modifier keys).</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">3</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Remove Keycaps</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Use a wire keycap puller to gently lift caps straight up without torquing the stems.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">4</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Wash Keycaps</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Soak plastic keycaps in warm water with mild dish soap for 15 minutes, rinse, and dry completely overnight.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">5</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Blow &amp; Wipe Plate</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Use compressed air and alcohol swabs to clean dust and grime from the switch plate.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Mechanical vs Membrane -->
+                <h2 id="membrane-vs-mechanical" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-6 border-b border-slate-800">
+                    4. Mechanical vs. Membrane Maintenance Differences
+                </h2>
+                <div class="overflow-x-auto mb-10 rounded-2xl border border-slate-800 bg-slate-900/60 shadow-xl">
+                    <table class="w-full text-left border-collapse text-sm sm:text-base">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-800/60 text-slate-200">
+                                <th class="p-4 sm:px-6 font-semibold">Keyboard Type</th>
+                                <th class="p-4 sm:px-6 font-semibold text-sky-400">Key Removal</th>
+                                <th class="p-4 sm:px-6 font-semibold text-amber-400">Cleaning Caution</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Mechanical Keyboard</td>
+                                <td class="p-4 sm:px-6 text-emerald-400">Fully removable individual keycaps</td>
+                                <td class="p-4 sm:px-6 text-slate-300">Avoid soaking PCB / electronic switches</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Membrane Keyboard</td>
+                                <td class="p-4 sm:px-6 text-rose-300">Risky (Fragile scissor/rubber domes)</td>
+                                <td class="p-4 sm:px-6 text-slate-300">Surface wipe &amp; compressed air only</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 5 -->
+                <h2 id="maintenance-schedule" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    5. Recommended Maintenance Schedule
+                </h2>
+                <p class="mb-4">
+                    To maintain peak typing performance year-round, adopt a consistent maintenance schedule:
+                </p>
+                <ul class="space-y-3 mb-10 pl-2 list-none">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-calendar-week text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Weekly:</strong> Surface wipe down with microfiber cloth and compressed air spray.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-calendar-days text-sky-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Monthly:</strong> Check stabilizer lubrication and remove surface dust beneath modifier keys.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-sparkles text-emerald-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Bi-Annually:</strong> Full deep clean (keycap removal, washing, and switch plate sanitization).</span>
+                    </li>
+                </ul>
+
+                <!-- Further Reading -->
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    Further Reading &amp; Hardware Guides
+                </h2>
+                <p class="mb-4">
+                    Learn more about optimizing your typing hardware and posture:
+                </p>
+                <ul class="space-y-2 mb-10 pl-2 list-none">
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Complete Desk Ergonomics Setup for Typists</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Why ASDF and JKL; Are the Gold Standard: Home Row Science</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="typing-warmup-exercises-before-speed-tests.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">5-Minute Typing Warmup Exercises Before Speed Tests</a>
+                    </li>
+                </ul>
+
+                <hr class="border-slate-800 my-8">
+
+                <div class="text-xs sm:text-sm text-slate-400 space-y-1">
+                    <p class="m-0"><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p class="m-0"><strong class="text-slate-300">Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)</p>
+                </div>
+            </article>
         </div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <!-- Related Articles -->
+        <section class="py-16 border-t border-slate-800/80 bg-slate-900/30">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">📚 Continue Learning</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Optimize your computer setup, maintain keyboard health, and build typing stamina.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">🧘 Ergonomics</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Workstation Ergonomics</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Prevent posture strain and forearm fatigue with optimal chair, monitor, and desk heights.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
+                    <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⌨️ Home Row</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Home Row Science</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Explore the physiological and historical design behind ASDF and JKL; anchors.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Keyboard Cleaning Guide</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">🛠️ Hardware Maintenance &amp; Performance</span>
-
-        <!-- Title -->
-        <h1>Keyboard Cleaning &amp; Maintenance Guide: How Sticky Keys Affect Your Typing Speed</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Your keyboard accumulates dust, crumbs, and oils that compromise switch actuation. Discover how regular cleaning prevents chattering, sticky keys, and typing errors.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 6 min read</span>
-            <span>•</span>
-            <span>👤 Dayanand Dinkar Kendre</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <article class="article-content">
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Navigate the complete keyboard maintenance routine:</p>
+                    <a href="index.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⏱️ Assessment</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">1-Minute Standard Test</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Benchmark your newly cleaned keyboard on our standardized one-minute speed assessment.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Take Test <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="toc-grid">
-                <a href="#how-dirt-affects-wpm" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">How Dirt Affects Speed</span></a>
-                <a href="#essential-tools" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Cleaning Toolkit</span></a>
-                <a href="#step-by-step-cleaning" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Deep Cleaning Process</span></a>
-                <a href="#membrane-vs-mechanical" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Mechanical vs Membrane</span></a>
-                <a href="#maintenance-schedule" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Maintenance Schedule</span></a>
+        </section>
+
+        <!-- Universal CTA Banner -->
+        <section class="py-16 md:py-20 border-t border-slate-800/80 relative overflow-hidden bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-[#0b0f19]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-2xl mb-6 shadow-inner">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Test Your Clean Keyboard Performance
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal">
+                    Experience crisp actuation and benchmark your real-time Net WPM speed on TypeNest.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="index.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-sm"></i> Take 1-Minute Test
+                    </a>
+                    <a href=index.html class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 text-slate-200 font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-keyboard text-sm"></i> General Practice Mode
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <p class="lead">
-            Your keyboard is your primary instrument for productivity, coding, and speed testing. Yet, it is also one of the dirtiest surfaces in your workspace, accumulating dust, food crumbs, hair, and sticky liquid residue over time.
-        </p>
+    <!-- Dynamic Footer Mount Point -->
+    <div id="footer-container"></div>
 
-        <p>
-            When debris blocks key travel or causes switch chatter and sticky actuation, your typing speed (WPM) and accuracy drop noticeably. Implementing a regular cleaning and maintenance routine restores crisp tactile feedback and protects your hardware investment.
-        </p>
-
-        <h2 id="how-dirt-affects-wpm">1. How Dirty Keyboards Damage Typing Speed &amp; Accuracy</h2>
-        <p>Accumulated grime impacts key performance in three distinct ways:</p>
-        <ul>
-            <li><strong>Key Chattering &amp; Missed Strokes:</strong> Dust inside mechanical switches prevents consistent electrical contact, causing double-typing or missed letters.</li>
-            <li><strong>Sticky Actuation:</strong> Spilled soda or sugar residue causes keys like Spacebar, Backspace, and Enter to drag or stick, ruining rhythm.</li>
-            <li><strong>Uneven Resistance:</strong> Trapped debris beneath keycaps alters actuation force, fatiguing fingers prematurely during speed tests.</li>
-        </ul>
-
-        <h2 id="essential-tools">2. Essential Keyboard Cleaning Tools</h2>
-        <div class="tip-box">
-            <h3>💡 Recommended Cleaning Toolkit:</h3>
-            <ul>
-                <li><strong>Keycap Puller:</strong> Wire tool to safely remove mechanical keycaps without scratching.</li>
-                <li><strong>Compressed Air Canister:</strong> Clears loose dust and crumbs from switch housings.</li>
-                <li><strong>Isopropyl Alcohol (99%):</strong> Disinfects surfaces and dissolves sticky residue safely.</li>
-                <li><strong>Microfiber Cloth:</strong> Lint-free cloth for wiping down top plates and case bezels.</li>
-                <li><strong>Cotton Swabs:</strong> Perfect for cleaning tight crevices around stabilizer bars and switch stems.</li>
-            </ul>
-        </div>
-
-        <h2 id="step-by-step-cleaning">3. Step-by-Step Deep Cleaning Process</h2>
-        <p>Follow these steps to clean a mechanical or high-end desktop keyboard thoroughly:</p>
-        <ol>
-            <li><strong>Unplug &amp; Power Off:</strong> Disconnect the USB cable or switch off Bluetooth to prevent electrical shorts.</li>
-            <li><strong>Take a Photo:</strong> Snap a quick picture of your layout so you remember exact key placements (especially for modifier keys).</li>
-            <li><strong>Remove Keycaps:</strong> Use a wire keycap puller to gently lift caps straight up.</li>
-            <li><strong>Wash Keycaps:</strong> Soak plastic keycaps in warm water with mild dish soap for 15 minutes, rinse, and dry completely overnight.</li>
-            <li><strong>Blow &amp; Wipe Plate:</strong> Use compressed air and alcohol swabs to clean dust and grime from the switch plate.</li>
-        </ol>
-
-        <h2 id="membrane-vs-mechanical">4. Mechanical vs. Membrane Maintenance Differences</h2>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Keyboard Type</th>
-                    <th>Key Removal</th>
-                    <th>Cleaning Caution</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Mechanical Keyboard</strong></td>
-                    <td>Fully removable individual keycaps</td>
-                    <td>Avoid soaking PCB / electronic switches</td>
-                </tr>
-                <tr>
-                    <td><strong>Membrane Keyboard</strong></td>
-                    <td>Risky (Fragile scissor/rubber domes)</td>
-                    <td>Surface wipe &amp; compressed air only</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="maintenance-schedule">5. Recommended Maintenance Schedule</h2>
-        <p>
-            To maintain peak typing performance year-round, adopt a consistent maintenance schedule:
-        </p>
-        <ul>
-            <li><strong>Weekly:</strong> Surface wipe down with microfiber cloth and compressed air spray.</li>
-            <li><strong>Monthly:</strong> Check stabilizer lubrication and remove surface dust beneath modifier keys.</li>
-            <li><strong>Bi-Annually:</strong> Full deep clean (keycap removal, washing, and switch plate sanitization).</li>
-        </ul>
-
-        <h2>Further Reading &amp; Hardware Guides</h2>
-        <p>
-            Learn more about optimizing your typing hardware and posture:
-        </p>
-        <ul>
-            <li><a href="best-ergonomic-mouse-keyboard-setup-for-typists.html">Complete Desk Ergonomics Setup for Typists</a></li>
-            <li><a href="qwerty-home-row-deep-dive-asdf-jkl.html">Why ASDF and JKL; Are the Gold Standard: Home Row Science</a></li>
-            <li><a href="typing-warmup-exercises-before-speed-tests.html">5-Minute Typing Warmup Exercises Before Speed Tests</a></li>
-        </ul>
-
-        <hr>
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)
-        </p>
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>
-            Optimize your computer setup, maintain keyboard health, and build typing stamina.
-        </p>
-        <div class="related-grid">
-            <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="related-card">
-                <span>🧘 Ergonomics</span>
-                <h3>Workstation Ergonomics</h3>
-                <p>Prevent posture strain and forearm fatigue with optimal chair, monitor, and desk heights.</p>
-            </a>
-            <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="related-card">
-                <span>⌨️ Home Row</span>
-                <h3>Home Row Science</h3>
-                <p>Explore the physiological and historical design behind ASDF and JKL; anchors.</p>
-            </a>
-            <a href="typing-test-60-seconds.html" class="related-card">
-                <span>⏱️ Assessment</span>
-                <h3>1-Minute Standard Test</h3>
-                <p>Benchmark your newly cleaned keyboard on our standardized one-minute speed assessment.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Test Your Clean Keyboard Performance</h2>
-        <p>
-            Experience crisp actuation and benchmark your real-time Net WPM speed on TypeNest.
-        </p>
-        <div class="cta-buttons">
-            <a href="typing-test-60-seconds.html" class="cta-btn-primary">⏱️ Take 1-Minute Test</a>
-            <a href="typing.html" class="cta-btn-outline">⌨️ General Practice Mode</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- LOGIN MODAL SCRIPT -->
-<script>
-function openLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-    }
-}
-function closeLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-<!-- MAIN SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+    <!-- Scripts Integration -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

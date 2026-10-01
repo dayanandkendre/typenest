@@ -1,758 +1,1009 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Title, Description & Keywords -->
+  <title>Typing Guides, Speed Tips & Ergonomics Articles | TypeNest</title>
+  <meta name="description" content="Explore expert touch typing guides, ergonomics protocols, GCC-TBC exam tips, keyboard hardware reviews, and productivity techniques on TypeNest.">
+  <meta name="keywords" content="typing guides, increase typing speed, typing ergonomics, mechanical keyboard reviews, touch typing guide, typenest blog">
+  <meta name="robots" content="index, follow">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/blog.html">
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/blog.html">
+  <meta property="og:title" content="Typing Guides, Speed Tips & Ergonomics Articles | TypeNest">
+  <meta property="og:description" content="Master typing speed, posture, hardware, and techniques with comprehensive guides from TypeNest.">
+  <meta property="og:image" content="https://typenest.in/images/blog/increase-typing-speed-guide.webp">
 
-    <!-- SEO Meta Tags -->
-    <title>Typing Guides, Speed Tips & Articles | TypeNest Blog</title>
-    <meta name="description" content="Explore expert typing guides, touch typing tutorials, speed improvement techniques, and practical tips on the official TypeNest blog.">
-    <meta name="keywords" content="typing blog, touch typing guides, typing speed tips, typing test articles, WPM improvement, TypeNest blog">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/blog.html">
+  <meta name="twitter:title" content="Typing Guides & Speed Tips | TypeNest">
+  <meta name="twitter:description" content="Master typing speed, posture, hardware, and techniques with TypeNest.">
+  <meta name="twitter:image" content="https://typenest.in/images/blog/increase-typing-speed-guide.webp">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/blog.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Typing Guides, Speed Tips & Articles | TypeNest Blog">
-    <meta property="og:description" content="Discover useful articles, expert advice, and step-by-step guides to master touch typing and boost your WPM on TypeNest.">
-    <meta property="og:url" content="https://typenest.in/blog.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog.css">
-
-    <!-- Blog Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "TypeNest Blog",
-      "description": "Expert guides on touch typing, typing speed, accuracy, keyboard shortcuts, and ergonomics.",
-      "url": "https://typenest.in/blog.html",
-      "publisher": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://typenest.in/favicon.png"
-        }
-      }
-    }
-    </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body>
+  
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    <!-- Hero Header with Search Bar -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        LEARNING HUB & ARTICLES
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        Typing Guides, Speed Tips & <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400">Ergonomics</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Science-backed typing techniques, keyboard hardware benchmarks, competitive exam roadmaps, and ergonomic workspace health.
+      </p>
 
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
+      <!-- Interactive Search Box -->
+      <div class="pt-2 max-w-xl mx-auto">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+          <input type="text" id="blogSearchInput" onkeyup="filterArticles()" placeholder="Search from 35+ guides (e.g., speed, ergonomics, GCC-TBC)..." class="w-full bg-[#111827] border border-slate-800 rounded-2xl pl-11 pr-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-indigo-500/80 transition shadow-xl">
         </div>
+      </div>
     </div>
-</div>
 
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <span class="blog-badge">📚 TYPING &amp; TECHNOLOGY BLOG</span>
-        <h1>Expert Guides to Improve <span>Your Typing Skills</span></h1>
-        <p>Explore expert-written guides on touch typing, typing speed, accuracy, keyboard shortcuts, productivity, web development, and technology. Learn practical skills with beginner-friendly tutorials designed to help you type faster, work smarter, and build confidence.</p>
-    </div>
-</section>
+    <!-- 35 BLOG ARTICLES GRID -->
+    <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<!-- BLOG GRID -->
-<div class="blog-grid">
-
-    <!-- BLOG 1 -->
-    <div class="blog-card">
-        <a href="increase-typing-speed-guide.html" class="blog-image">
-            <img src="images/blog/increase-typing-speed-guide.webp" alt="Complete Guide to Increase Typing Speed" loading="lazy">
+      <!-- BLOG 1 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="increase-typing-speed-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/increase-typing-speed-guide.webp" alt="Complete Guide to Increase Typing Speed" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
         </a>
-        <div class="blog-content">
-            <span class="blog-category">Typing Speed</span>
-            <h2>Complete Guide to Increase Typing Speed</h2>
-            <p>Learn proven techniques, daily practice routines, and expert tips to increase your typing speed while maintaining excellent accuracy and long-term consistency.</p>
-            <div class="blog-footer">
-                <span>📖 6 min read</span>
-                <a href="increase-typing-speed-guide.html">Read Guide →</a>
-            </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Typing Speed</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Learn proven techniques, daily practice routines, and expert tips to increase your typing speed while maintaining excellent accuracy and long-term consistency.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="increase-typing-speed-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
         </div>
-    </div>
+      </article>
 
-    <!-- BLOG 2 -->
-    <div class="blog-card">
-        <a href="typing-speed-benchmarks-guide.html" class="blog-image">
-            <img src="images/blog/typing-speed-benchmarks-guide.webp" alt="Typing Speed Benchmarks Guide" loading="lazy">
+      <!-- BLOG 2 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-speed-benchmarks-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-speed-benchmarks-guide.webp" alt="Typing Speed Benchmarks Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
         </a>
-        <div class="blog-content">
-            <span class="blog-category">Speed Guide</span>
-            <h2>Typing Speed Benchmarks Guide</h2>
-            <p>Find out what is considered a good typing speed, compare WPM by age and profession, and set realistic typing goals.</p>
-            <div class="blog-footer">
-                <span>📖 5 min read</span>
-                <a href="typing-speed-benchmarks-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 3 -->
-    <div class="blog-card">
-        <a href="typing-accuracy-guide.html" class="blog-image">
-            <img src="images/blog/typing-accuracy-guide.webp" alt="Typing Accuracy Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Accuracy</span>
-            <h2>Complete Typing Accuracy Guide</h2>
-            <p>Discover how to improve typing accuracy, reduce mistakes, and develop reliable keyboard skills through structured practice.</p>
-            <div class="blog-footer">
-                <span>📖 5 min read</span>
-                <a href="typing-accuracy-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 4 -->
-    <div class="blog-card">
-        <a href="touch-typing-guide.html" class="blog-image">
-            <img src="images/blog/touch-typing-guide.webp" alt="Touch Typing Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Touch Typing</span>
-            <h2>Complete Beginner's Guide to Touch Typing</h2>
-            <p>Master touch typing with proper finger placement, home row keys, and practical exercises to type confidently.</p>
-            <div class="blog-footer">
-                <span>📖 7 min read</span>
-                <a href="touch-typing-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 5 -->
-    <div class="blog-card">
-        <a href="typing-mistakes-guide.html" class="blog-image">
-            <img src="images/blog/typing-mistakes-guide.webp" alt="Typing Mistakes Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Typing Tips</span>
-            <h2>Typing Mistakes Guide: Common Errors &amp; Fixes</h2>
-            <p>Learn why typing mistakes happen, how to fix common errors, and build better typing habits for long-term improvement.</p>
-            <div class="blog-footer">
-                <span>📖 6 min read</span>
-                <a href="typing-mistakes-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 6 -->
-    <div class="blog-card">
-        <a href="government-typing-test-guide.html" class="blog-image">
-            <img src="images/blog/government-typing-test-guide.webp" alt="Government Typing Test Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Government Exams</span>
-            <h2>Government Typing Test Guide</h2>
-            <p>Prepare for government typing exams with official speed requirements, practice strategies, qualification rules, and exam-day preparation tips.</p>
-            <div class="blog-footer">
-                <span>📖 6 min read</span>
-                <a href="government-typing-test-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 7 -->
-    <div class="blog-card">
-        <a href="typing-speed-test-guide.html" class="blog-image">
-            <img src="images/blog/typing-speed-test-guide.webp" alt="Typing Speed Test Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Typing Tests</span>
-            <h2>Typing Speed Test: Complete Guide</h2>
-            <p>Learn how typing speed tests work, understand WPM and accuracy scores, and discover practical ways to measure and improve your typing performance.</p>
-            <div class="blog-footer">
-                <span>📖 5 min read</span>
-                <a href="typing-speed-test-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 8 -->
-    <div class="blog-card">
-        <a href="keyboard-shortcuts.html" class="blog-image">
-            <img src="images/blog/keyboard-shortcuts.webp" alt="Keyboard Shortcuts Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Productivity</span>
-            <h2>Keyboard Shortcuts Every User Should Know</h2>
-            <p>Save time with essential Windows keyboard shortcuts for editing, navigation, productivity, and everyday computer tasks.</p>
-            <div class="blog-footer">
-                <span>📖 6 min read</span>
-                <a href="keyboard-shortcuts.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 9 -->
-    <div class="blog-card">
-        <a href="best-free-typing-websites.html" class="blog-image">
-            <img src="images/blog/best-free-typing-websites.webp" alt="Best Free Typing Websites" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Resources</span>
-            <h2>Best Free Typing Websites Compared</h2>
-            <p>Compare the best free typing websites, their features, lessons, typing tests, and practice tools to choose the perfect learning platform.</p>
-            <div class="blog-footer">
-                <span>📖 7 min read</span>
-                <a href="best-free-typing-websites.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 10 -->
-    <div class="blog-card">
-        <a href="typing-ergonomics-guide.html" class="blog-image">
-            <img src="images/blog/typing-ergonomics-guide.webp" alt="Typing Ergonomics Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Ergonomics &amp; Health</span>
-            <h2>Typing Ergonomics Guide: How to Type Without Wrist Pain</h2>
-            <p>Discover essential typing ergonomics to eliminate hand fatigue, prevent wrist pain, and design a comfortable workspace for typing health.</p>
-            <div class="blog-footer">
-                <span>📖 20 min read</span>
-                <a href="typing-ergonomics-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 11 -->
-    <div class="blog-card">
-        <a href="mechanical-vs-membrane-keyboards.html" class="blog-image">
-            <img src="images/blog/mechanical-vs-membrane-keyboards.webp" alt="Mechanical vs Membrane Keyboards" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Keyboard Hardware</span>
-            <h2>Mechanical vs. Membrane Keyboards: Which is Best for Typing?</h2>
-            <p>An in-depth showdown between mechanical switches and classic membrane domes. Find out how your hardware impacts your speed, accuracy, and muscle memory.</p>
-            <div class="blog-footer">
-                <span>📖 15 min read</span>
-                <a href="mechanical-vs-membrane-keyboards.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 12 -->
-    <div class="blog-card">
-        <a href="kids-students-touch-typing-guide.html" class="blog-image">
-            <img src="images/blog/kids-touch-typing-guide.webp" alt="Kids Touch Typing Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Education &amp; Students</span>
-            <h2>How Kids and Students Can Learn Touch Typing at an Early Age</h2>
-            <p>Discover why children should learn touch typing early, fun ways to practice, proper finger placement, and how this essential digital skill improves academic performance.</p>
-            <div class="blog-footer">
-                <span>📖 18 min read</span>
-                <a href="kids-students-touch-typing-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 13 -->
-    <div class="blog-card">
-        <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="blog-image">
-            <img src="images/blog/typing-for-programmers.webp" alt="Typing for Programmers" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Programming &amp; Productivity</span>
-            <h2>Typing for Programmers: How Fast Typing Boosts Coding Productivity</h2>
-            <p>Discover how fast typing and touch typing skills boost coding productivity, reduce cognitive load, preserve the flow state, and accelerate software development workflows.</p>
-            <div class="blog-footer">
-                <span>📖 15 min read</span>
-                <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 14 -->
-    <div class="blog-card">
-        <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="blog-image">
-            <img src="images/blog/psychology-of-typing.webp" alt="The Psychology of Typing" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Muscle Memory &amp; Focus</span>
-            <h2>The Psychology of Typing: How to Train Your Brain for Blind Typing</h2>
-            <p>Uncover the neuroscience behind touch typing. Learn how your brain builds muscle memory, sends subconscious motor signals to your fingers, and enhances mental focus.</p>
-            <div class="blog-footer">
-                <span>📖 16 min read</span>
-                <a href="psychology-of-typing-train-brain-for-blind-typing.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 15 -->
-    <div class="blog-card">
-        <a href="10-key-numeric-keypad-training.html" class="blog-image">
-            <img src="images/blog/numeric-keypad-training.webp" alt="10-Key Numeric Keypad Training" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Data Entry &amp; Accounting</span>
-            <h2>10-Key Numeric Keypad Training: Master the Numpad Fast</h2>
-            <p>Master 10-key numeric keypad touch typing for data entry, accounting, and banking jobs. Learn home row finger positioning, blind typing techniques, and accuracy tips.</p>
-            <div class="blog-footer">
-                <span>📖 10 min read</span>
-                <a href="10-key-numeric-keypad-training.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 16 -->
-    <div class="blog-card">
-        <a href="government-typing-exam-gcc-tbc-guide.html" class="blog-image">
-            <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp" alt="Government Typing Exam GCC-TBC Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Government Exams</span>
-            <h2>How to Pass Court &amp; GCC-TBC Typing Exams: 30 WPM &amp; 40 WPM Guide</h2>
-            <p>Master Marathi and English GCC-TBC speed requirements, Bombay High Court exam formats, accuracy evaluation rules, and passage practice techniques.</p>
-            <div class="blog-footer">
-                <span>📖 12 min read</span>
-                <a href="government-typing-exam-gcc-tbc-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 17 -->
-    <div class="blog-card">
-        <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="blog-image">
-            <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp" alt="Keyboard Layout Comparison" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Keyboard Layouts</span>
-            <h2>Qwerty vs. Dvorak vs. Colemak: Is It Worth Switching Keyboard Layouts?</h2>
-            <p>Tired of QWERTY finger strain? Explore how Dvorak and Colemak redesign typing ergonomics, boost speed potential, and whether making the switch is right for you.</p>
-            <div class="blog-footer">
-                <span>📖 11 min read</span>
-                <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 18 -->
-    <div class="blog-card">
-        <a href="typing-speed-requirements-for-remote-jobs.html" class="blog-image">
-            <img src="images/blog/typing-speed-requirements-for-remote-jobs.webp" alt="Typing Speed Requirements for Remote Jobs" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Career &amp; Remote Work</span>
-            <h2>How Fast Do You Need to Type for Remote Jobs? (WPM by Career)</h2>
-            <p>Wondering what WPM speed remote employers actually expect? Discover benchmark typing requirements for Data Entry, Virtual Assistants, Customer Support, and Software Engineering.</p>
-            <div class="blog-footer">
-                <span>📖 10 min read</span>
-                <a href="typing-speed-requirements-for-remote-jobs.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 19 -->
-    <div class="blog-card">
-        <a href="typing-games-vs-traditional-practice.html" class="blog-image">
-            <img src="images/blog/typing-games-vs-traditional-practice.webp" alt="Typing Games vs Traditional Practice" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Gamification &amp; Learning</span>
-            <h2>Typing Games vs. Traditional Practice: What Actually Works Better?</h2>
-            <p>Can arcade typing games really make you faster, or are classic drills still king? Discover the science of gamified typing and how to combine both for maximum speed gains.</p>
-            <div class="blog-footer">
-                <span>📖 9 min read</span>
-                <a href="typing-games-vs-traditional-practice.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 20 -->
-    <div class="blog-card">
-        <a href="how-wpm-and-accuracy-are-calculated.html" class="blog-image">
-            <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp" alt="How WPM and Accuracy Are Calculated" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Technical &amp; Methodology</span>
-            <h2>The Science of WPM: How Words Per Minute and Accuracy Are Calculated</h2>
-            <p>Ever wondered how typing software measures your speed? Uncover the math behind Standard Words, Gross vs Net WPM, Keystrokes Per Hour (KPH), and accuracy formulas.</p>
-            <div class="blog-footer">
-                <span>📖 10 min read</span>
-                <a href="how-wpm-and-accuracy-are-calculated.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 21 -->
-    <div class="blog-card">
-        <a href="top-custom-mechanical-keyboards-switches-guide.html" class="blog-image">
-            <img src="images/blog/top-custom-mechanical-keyboards-switches-guide.webp" alt="Top Custom Mechanical Keyboards Guide" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Hardware &amp; Gear</span>
-            <h2>Top Custom Mechanical Keyboards &amp; Switches for Fast Typing Enthusiasts</h2>
-            <p>Looking to upgrade your typing gear? Discover the best mechanical key switches (Linear vs Tactile vs Clicky), hot-swappable boards, and keycap profiles for ultimate typing speed.</p>
-            <div class="blog-footer">
-                <span>📖 11 min read</span>
-                <a href="top-custom-mechanical-keyboards-switches-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 22 -->
-    <div class="blog-card">
-        <a href="how-to-overcome-typing-speed-plateau.html" class="blog-image">
-            <img src="images/blog/how-to-overcome-typing-speed-plateau.webp" alt="How to Overcome Typing Speed Plateau" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Advanced Practice Strategies</span>
-            <h2>How to Overcome the 'Speed Plateau' in Typing (Stuck at 50-60 WPM?)</h2>
-            <p>Stuck at 50 or 60 WPM no matter how much you practice? Learn proven cognitive techniques, finger hesitation fixes, and burst drills to break your plateau and hit 80+ WPM.</p>
-            <div class="blog-footer">
-                <span>📖 10 min read</span>
-                <a href="how-to-overcome-typing-speed-plateau.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 23 -->
-    <div class="blog-card">
-        <a href="typing-guide-for-non-native-english-speakers.html" class="blog-image">
-            <img src="images/blog/typing-guide-for-non-native-english-speakers.webp" alt="Typing Guide for Non Native English Speakers" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Language &amp; Skill Building</span>
-            <h2>Typing for Non-Native English Speakers: Improve Speed &amp; Spelling</h2>
-            <p>Struggling with English typing speed due to spelling hesitation? Discover tailored muscle memory techniques, vocabulary chunking, and error fixes designed specifically for non-native typists.</p>
-            <div class="blog-footer">
-                <span>📖 10 min read</span>
-                <a href="typing-guide-for-non-native-english-speakers.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 24 -->
-    <div class="blog-card">
-        <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="blog-image">
-            <img src="images/blog/typing-eye-strain-prevention-dark-mode-guide.webp" alt="Prevent Eye Strain and Screen Fatigue While Typing" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Health &amp; Wellness</span>
-            <h2>Digital Detox &amp; Eye Strain: Practice Typing Without Harming Your Eyes</h2>
-            <p>Spending long hours typing in front of a monitor? Discover the 20-20-20 rule, dark mode benefits, proper display contrast settings, and eye strain prevention tips for typists.</p>
-            <div class="blog-footer">
-                <span>📖 9 min read</span>
-                <a href="typing-eye-strain-prevention-dark-mode-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 25 -->
-    <div class="blog-card">
-        <a href="mobile-vs-physical-pc-keyboard-typing.html" class="blog-image">
-            <img src="images/blog/mobile-vs-physical-pc-keyboard-typing.webp" alt="Mobile Keyboard vs Physical PC Keyboard Comparison" loading="lazy">
-        </a>
-        <div class="blog-content">
-            <span class="blog-category">Tech Trends &amp; Comparison</span>
-            <h2>Mobile Keyboard vs. Physical PC Keyboard: Why Fast Phone Typing Doesn't Translate</h2>
-            <p>Can type 80 WPM with your thumbs on a smartphone but struggle on a desktop keyboard? Discover the neuroscience, thumb vs. ten-finger muscle memory, and how to bridge the speed gap.</p>
-            <div class="blog-footer">
-                <span>📖 9 min read</span>
-                <a href="mobile-vs-physical-pc-keyboard-typing.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BLOG 26 -->
-<div class="blog-card">
-    <a href="typing-warmup-exercises-before-speed-tests.html" class="blog-image">
-        <img src="images/blog/typing-warmup-exercises-before-speed-tests.webp" alt="5-Minute Typing Warmup Exercises" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Typing Guides &amp; Ergonomics</span>
-        <h2>5-Minute Typing Warmup Exercises Before Speed Tests</h2>
-        <p>Prevent finger cramps, fatigue, and stiff joints before taking WPM tests. Explore essential physical stretches and digital finger drills to boost initial accuracy.</p>
-        <div class="blog-footer">
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Speed Guide</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Find out what is considered a good typing speed, compare WPM by age and profession, and set realistic typing goals.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
             <span>📖 5 min read</span>
-            <a href="typing-warmup-exercises-before-speed-tests.html">Read Guide →</a>
+            <a href="typing-speed-benchmarks-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
         </div>
-    </div>
-</div>
+      </article>
 
-<!-- BLOG 27 -->
-<div class="blog-card">
-    <a href="blind-typing-mastery-without-looking.html" class="blog-image">
-        <img src="images/blog/blind-typing-mastery-without-looking.webp" alt="Master Blind Touch Typing Without Looking" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Touch Typing &amp; Skill Building</span>
-        <h2>How to Master Blind Typing Without Looking at the Keyboard</h2>
-        <p>Stop peeking at your keycaps and develop true subconscious muscle memory. Master F &amp; J homing bumps, zone control, and blind error recovery strategies.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="blind-typing-mastery-without-looking.html">Read Guide →</a>
+      <!-- BLOG 3 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-accuracy-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-accuracy-guide.webp" alt="Typing Accuracy Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Accuracy</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover how to improve typing accuracy, reduce mistakes, and develop reliable keyboard skills through structured practice.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 5 min read</span>
+            <a href="typing-accuracy-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
         </div>
-    </div>
-</div>
+      </article>
 
-<!-- BLOG 28 -->
-<div class="blog-card">
-    <a href="data-entry-operator-typing-speed-secrets.html" class="blog-image">
-        <img src="images/blog/data-entry-operator-typing-speed-secrets.webp" alt="Data Entry Operator Typing Speed Secrets" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Professional Typing &amp; Productivity</span>
-        <h2>Data Entry Typing Secrets: How Professionals Type 80+ WPM with 99% Accuracy</h2>
-        <p>Discover professional data entry standards, 10-key numeric keypad touch techniques, KPH vs WPM metrics, and cadence pacing to eliminate mistakes.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="data-entry-operator-typing-speed-secrets.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 29 -->
-<div class="blog-card">
-    <a href="transcription-and-subtitling-typing-jobs-guide.html" class="blog-image">
-        <img src="images/blog/transcription-and-subtitling-typing-jobs-guide.webp" alt="Earn Money with Freelance Transcription Jobs" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Remote Work &amp; Career Opportunities</span>
-        <h2>How to Earn Money with Fast Typing: Freelance Transcription and Subtitling Guide</h2>
-        <p>Monetize your touch typing speed through freelance audio transcription and video captioning. Learn required WPM benchmarks, essential gear, and top platforms.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="transcription-and-subtitling-typing-jobs-guide.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 30 -->
-<div class="blog-card">
-    <a href="how-to-fix-backspace-addiction-in-typing.html" class="blog-image">
-        <img src="images/blog/how-to-fix-backspace-addiction-in-typing.webp" alt="Fix Backspace Addiction and Boost Net WPM" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Typing Mastery &amp; Accuracy</span>
-        <h2>How to Fix Backspace Addiction in Typing &amp; Double Your Net WPM</h2>
-        <p>Break free from constant correction loops. Learn how overusing the backspace key lowers your net speed and discover precision drills to build 98%+ accuracy.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="how-to-fix-backspace-addiction-in-typing.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 31 -->
-<div class="blog-card">
-    <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="blog-image">
-        <img src="images/blog/best-ergonomic-mouse-keyboard-setup-for-typists.webp" alt="Complete Desk Ergonomics Setup for Typists" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Ergonomics &amp; Health</span>
-        <h2>Complete Desk Ergonomics: Ideal Chair, Keyboard &amp; Mouse Setup for Typists</h2>
-        <p>Prevent wrist extension and shoulder fatigue. Explore negative keyboard tilt, vertical handshake mice, monitor distance, and the 90-degree seating rule.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 32 -->
-<div class="blog-card">
-    <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="blog-image">
-        <img src="images/blog/qwerty-home-row-deep-dive-asdf-jkl.webp" alt="Science Behind ASDF JKL Home Row" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Touch Typing Fundamentals</span>
-        <h2>Why ASDF and JKL; Are the Gold Standard: The Science Behind the Home Row</h2>
-        <p>Uncover the anatomical and spatial reasoning behind QWERTY home row anchors. Learn how minimal finger travel distance maximizes cadence across key rows.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="qwerty-home-row-deep-dive-asdf-jkl.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 33 -->
-<div class="blog-card">
-    <a href="typing-speed-for-writers-bloggers-authors.html" class="blog-image">
-        <img src="images/blog/typing-speed-for-writers-bloggers-authors.webp" alt="Fast Typing for Writers Bloggers Authors" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Productivity &amp; Creative Writing</span>
-        <h2>How Fast Typing Helps Writers, Bloggers &amp; Authors Finish Content 2x Faster</h2>
-        <p>Preserve creative flow state and capture ideas at the speed of thought. Discover how 70+ WPM touch typing helps authors defeat writer's block during fast drafting.</p>
-        <div class="blog-footer">
-            <span>📖 6 min read</span>
-            <a href="typing-speed-for-writers-bloggers-authors.html">Read Guide →</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG 34 -->
-<div class="blog-card">
-    <a href="court-reporter-and-stenography-vs-touch-typing.html" class="blog-image">
-        <img src="images/blog/court-reporter-and-stenography-vs-touch-typing.webp" alt="Court Stenography vs Touch Typing Comparison" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Professional Typing &amp; Career Comparison</span>
-        <h2>Stenography vs. Touch Typing: Differences, Speeds &amp; Career Guide</h2>
-        <p>Ever wondered how court reporters type 225+ WPM? Compare sequential QWERTY touch typing with phonetic chorded steno machines, learning curves, and salaries.</p>
-        <div class="blog-footer">
+      <!-- BLOG 4 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="touch-typing-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/touch-typing-guide.webp" alt="Touch Typing Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">Touch Typing</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Master touch typing with proper finger placement, home row keys, and practical exercises to type confidently.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
             <span>📖 7 min read</span>
-            <a href="court-reporter-and-stenography-vs-touch-typing.html">Read Guide →</a>
+            <a href="touch-typing-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
         </div>
-    </div>
-</div>
+      </article>
 
-<!-- BLOG 35 -->
-<div class="blog-card">
-    <a href="keyboard-maintenance-and-cleaning-guide.html" class="blog-image">
-        <img src="images/blog/keyboard-maintenance-and-cleaning-guide.webp" alt="Keyboard Maintenance and Cleaning Guide" loading="lazy">
-    </a>
-    <div class="blog-content">
-        <span class="blog-category">Hardware Maintenance &amp; Performance</span>
-        <h2>Keyboard Cleaning &amp; Maintenance Guide: How Sticky Keys Affect Your Typing Speed</h2>
-        <p>Dust, crumbs, and sticky switches wreck typing consistency. Master mechanical and membrane keyboard deep cleaning using keycap pullers, compressed air, and isopropyl alcohol.</p>
-        <div class="blog-footer">
+      <!-- BLOG 5 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-mistakes-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-mistakes-guide.webp" alt="Typing Mistakes Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Typing Tips</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-mistakes-guide.html">Typing Mistakes Guide: Common Errors & Fixes</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Learn why typing mistakes happen, how to fix common errors, and build better typing habits for long-term improvement.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
             <span>📖 6 min read</span>
-            <a href="keyboard-maintenance-and-cleaning-guide.html">Read Guide →</a>
+            <a href="typing-mistakes-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
         </div>
+      </article>
+
+      <!-- BLOG 6 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="government-typing-test-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/government-typing-test-guide.webp" alt="Government Typing Test Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Government Exams</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="government-typing-test-guide.html">Government Typing Test Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Prepare for government typing exams with official speed requirements, practice strategies, qualification rules, and exam-day preparation tips.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="government-typing-test-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 7 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-speed-test-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-speed-test-guide.webp" alt="Typing Speed Test Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Typing Tests</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-speed-test-guide.html">Typing Speed Test: Complete Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Learn how typing speed tests work, understand WPM and accuracy scores, and discover practical ways to measure and improve your performance.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 5 min read</span>
+            <a href="typing-speed-test-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 8 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="keyboard-shortcuts.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/keyboard-shortcuts.webp" alt="Keyboard Shortcuts Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Productivity</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="keyboard-shortcuts.html">Keyboard Shortcuts Every User Should Know</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Save time with essential Windows keyboard shortcuts for editing, navigation, productivity, and everyday computer tasks.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="keyboard-shortcuts.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 9 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="best-free-typing-websites.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/best-free-typing-websites.webp" alt="Best Free Typing Websites" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Resources</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="best-free-typing-websites.html">Best Free Typing Websites Compared</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Compare the best free typing websites, their features, lessons, tests, and practice tools to choose the perfect learning platform.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 7 min read</span>
+            <a href="best-free-typing-websites.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 10 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-ergonomics-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-ergonomics-guide.webp" alt="Typing Ergonomics Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Ergonomics & Health</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide: How to Type Without Wrist Pain</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover essential typing ergonomics to eliminate hand fatigue, prevent wrist pain, and design a comfortable workspace for typing health.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 20 min read</span>
+            <a href="typing-ergonomics-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 11 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="mechanical-vs-membrane-keyboards.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/mechanical-vs-membrane-keyboards.webp" alt="Mechanical vs Membrane Keyboards" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Keyboard Hardware</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="mechanical-vs-membrane-keyboards.html">Mechanical vs. Membrane Keyboards: Which is Best for Typing?</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">An in-depth showdown between mechanical switches and classic membrane domes. Find out how hardware impacts speed and accuracy.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 15 min read</span>
+            <a href="mechanical-vs-membrane-keyboards.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 12 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="kids-students-touch-typing-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/kids-touch-typing-guide.webp" alt="Kids Touch Typing Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Education & Students</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="kids-students-touch-typing-guide.html">How Kids and Students Can Learn Touch Typing at an Early Age</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover why children should learn touch typing early, fun ways to practice, proper finger placement, and academic benefits.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 18 min read</span>
+            <a href="kids-students-touch-typing-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 13 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-for-programmers.webp" alt="Typing for Programmers" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Programming & Productivity</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Typing for Programmers: How Fast Typing Boosts Coding Productivity</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover how fast typing skills boost coding productivity, preserve flow state, and accelerate software engineering workflows.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 15 min read</span>
+            <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 14 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/psychology-of-typing.webp" alt="The Psychology of Typing" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">Muscle Memory & Focus</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="psychology-of-typing-train-brain-for-blind-typing.html">The Psychology of Typing: How to Train Your Brain for Blind Typing</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Uncover the neuroscience behind touch typing. Learn how your brain builds subconscious motor signals and enhances mental focus.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 16 min read</span>
+            <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 15 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="10-key-numeric-keypad-training.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/numeric-keypad-training.webp" alt="10-Key Numeric Keypad Training" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Data Entry & Accounting</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="10-key-numeric-keypad-training.html">10-Key Numeric Keypad Training: Master the Numpad Fast</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Master 10-key numeric keypad touch typing for data entry, banking, and accounting jobs. Learn home row finger positioning.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 10 min read</span>
+            <a href="10-key-numeric-keypad-training.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 16 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="government-typing-exam-gcc-tbc-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp" alt="Government Typing Exam GCC-TBC Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Government Exams</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="government-typing-exam-gcc-tbc-guide.html">How to Pass Court & GCC-TBC Typing Exams: 30 WPM & 40 WPM Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Master Marathi and English GCC-TBC speed requirements, Bombay High Court exam formats, and passage practice techniques.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 12 min read</span>
+            <a href="government-typing-exam-gcc-tbc-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 17 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp" alt="Keyboard Layout Comparison" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Keyboard Layouts</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">Qwerty vs. Dvorak vs. Colemak: Is It Worth Switching Keyboard Layouts?</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Tired of QWERTY finger strain? Explore how Dvorak and Colemak redesign typing ergonomics and speed potential.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 11 min read</span>
+            <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 18 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-speed-requirements-for-remote-jobs.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-speed-requirements-for-remote-jobs.webp" alt="Typing Speed Requirements for Remote Jobs" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Career & Remote Work</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-speed-requirements-for-remote-jobs.html">How Fast Do You Need to Type for Remote Jobs? (WPM by Career)</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover benchmark typing requirements for Data Entry, Virtual Assistants, Customer Support, and Software Engineering.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 10 min read</span>
+            <a href="typing-speed-requirements-for-remote-jobs.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 19 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-games-vs-traditional-practice.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-games-vs-traditional-practice.webp" alt="Typing Games vs Traditional Practice" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-400 bg-pink-500/10 px-2 py-0.5 rounded-full border border-pink-500/20">Gamification & Learning</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-games-vs-traditional-practice.html">Typing Games vs. Traditional Practice: What Actually Works Better?</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Can arcade typing games really make you faster, or are classic drills still king? Discover the science of gamified typing.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 9 min read</span>
+            <a href="typing-games-vs-traditional-practice.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 20 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-wpm-and-accuracy-are-calculated.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp" alt="How WPM and Accuracy Are Calculated" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Technical & Methodology</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-wpm-and-accuracy-are-calculated.html">The Science of WPM: How Words Per Minute and Accuracy Are Calculated</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Uncover the math behind Standard Words, Gross vs Net WPM, Keystrokes Per Hour (KPH), and accuracy formulas.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 10 min read</span>
+            <a href="how-wpm-and-accuracy-are-calculated.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 21 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="top-custom-mechanical-keyboards-switches-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/top-custom-mechanical-keyboards-switches-guide.webp" alt="Top Custom Mechanical Keyboards Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Hardware & Gear</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="top-custom-mechanical-keyboards-switches-guide.html">Top Custom Mechanical Keyboards & Switches for Fast Typists</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover the best mechanical key switches (Linear vs Tactile vs Clicky), hot-swappable boards, and keycap profiles.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 11 min read</span>
+            <a href="top-custom-mechanical-keyboards-switches-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 22 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-to-overcome-typing-speed-plateau.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-to-overcome-typing-speed-plateau.webp" alt="How to Overcome Typing Speed Plateau" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Advanced Practice</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-to-overcome-typing-speed-plateau.html">How to Overcome the 'Speed Plateau' in Typing (Stuck at 50-60 WPM?)</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Stuck at 50 or 60 WPM? Learn cognitive techniques, hesitation fixes, and burst drills to break through to 80+ WPM.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 10 min read</span>
+            <a href="how-to-overcome-typing-speed-plateau.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 23 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-guide-for-non-native-english-speakers.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-guide-for-non-native-english-speakers.webp" alt="Typing Guide for Non Native English Speakers" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">Language & Skill</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-guide-for-non-native-english-speakers.html">Typing for Non-Native English Speakers: Improve Speed & Spelling</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover tailored muscle memory techniques, vocabulary chunking, and error fixes designed specifically for non-native typists.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 10 min read</span>
+            <a href="typing-guide-for-non-native-english-speakers.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 24 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-eye-strain-prevention-dark-mode-guide.webp" alt="Prevent Eye Strain and Screen Fatigue While Typing" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Health & Wellness</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-eye-strain-prevention-dark-mode-guide.html">Digital Detox & Eye Strain: Practice Typing Without Harming Your Eyes</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover the 20-20-20 rule, dark mode benefits, proper display contrast settings, and eye strain prevention tips for typists.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 9 min read</span>
+            <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 25 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="mobile-vs-physical-pc-keyboard-typing.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/mobile-vs-physical-pc-keyboard-typing.webp" alt="Mobile Keyboard vs Physical PC Keyboard Comparison" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Tech Trends</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="mobile-vs-physical-pc-keyboard-typing.html">Mobile Keyboard vs. Physical PC Keyboard: Why Phone Typing Doesn't Translate</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover the neuroscience, thumb vs ten-finger muscle memory, and how to bridge the desktop typing speed gap.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 9 min read</span>
+            <a href="mobile-vs-physical-pc-keyboard-typing.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 26 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-warmup-exercises-before-speed-tests.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-warmup-exercises-before-speed-tests.webp" alt="5-Minute Typing Warmup Exercises" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Warmup & Health</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-warmup-exercises-before-speed-tests.html">5-Minute Typing Warmup Exercises Before Speed Tests</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Prevent finger cramps, fatigue, and stiff joints before taking WPM tests. Explore essential stretches and digital drills.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 5 min read</span>
+            <a href="typing-warmup-exercises-before-speed-tests.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 27 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="blind-typing-mastery-without-looking.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/blind-typing-mastery-without-looking.webp" alt="Master Blind Touch Typing Without Looking" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Skill Building</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="blind-typing-mastery-without-looking.html">How to Master Blind Typing Without Looking at the Keyboard</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Stop peeking at keycaps and develop true subconscious muscle memory. Master F & J homing bumps and blind recovery.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="blind-typing-mastery-without-looking.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 28 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="data-entry-operator-typing-speed-secrets.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/data-entry-operator-typing-speed-secrets.webp" alt="Data Entry Operator Typing Speed Secrets" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Data Entry Secrets</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="data-entry-operator-typing-speed-secrets.html">Data Entry Typing Secrets: How Pros Type 80+ WPM with 99% Accuracy</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover professional data entry standards, 10-key numeric keypad touch techniques, KPH vs WPM metrics, and pacing.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="data-entry-operator-typing-speed-secrets.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 29 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="transcription-and-subtitling-typing-jobs-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/transcription-and-subtitling-typing-jobs-guide.webp" alt="Earn Money with Freelance Transcription Jobs" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full border border-sky-500/20">Remote Work & Jobs</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="transcription-and-subtitling-typing-jobs-guide.html">Earn Money with Fast Typing: Freelance Transcription & Subtitling</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Monetize your touch typing speed through freelance audio transcription and captioning. Learn WPM benchmarks and platforms.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="transcription-and-subtitling-typing-jobs-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 30 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-to-fix-backspace-addiction-in-typing.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-to-fix-backspace-addiction-in-typing.webp" alt="Fix Backspace Addiction and Boost Net WPM" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Typing Mastery</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-to-fix-backspace-addiction-in-typing.html">How to Fix Backspace Addiction in Typing & Double Your Net WPM</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Break free from constant correction loops. Learn how overusing backspace lowers net speed and build 98%+ accuracy.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="how-to-fix-backspace-addiction-in-typing.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 31 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/best-ergonomic-mouse-keyboard-setup-for-typists.webp" alt="Complete Desk Ergonomics Setup for Typists" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Ergonomics & Gear</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html">Complete Desk Ergonomics: Ideal Chair, Keyboard & Mouse Setup</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Prevent wrist extension and shoulder fatigue. Explore negative keyboard tilt, vertical mice, and 90-degree seating rules.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 32 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/qwerty-home-row-deep-dive-asdf-jkl.webp" alt="Science Behind ASDF JKL Home Row" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Fundamentals</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="qwerty-home-row-deep-dive-asdf-jkl.html">Why ASDF and JKL; Are the Gold Standard: Home Row Science</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Uncover the anatomical reasoning behind QWERTY home row anchors and how minimal travel distance maximizes cadence.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="qwerty-home-row-deep-dive-asdf-jkl.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 33 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="typing-speed-for-writers-bloggers-authors.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/typing-speed-for-writers-bloggers-authors.webp" alt="Fast Typing for Writers Bloggers Authors" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Writing & Creativity</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="typing-speed-for-writers-bloggers-authors.html">How Fast Typing Helps Writers & Authors Finish Content 2x Faster</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Preserve creative flow state and capture ideas at thought speed. Defeat writer's block during fast drafting sprints.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="typing-speed-for-writers-bloggers-authors.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 34 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="court-reporter-and-stenography-vs-touch-typing.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/court-reporter-and-stenography-vs-touch-typing.webp" alt="Court Stenography vs Touch Typing Comparison" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Career Comparison</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="court-reporter-and-stenography-vs-touch-typing.html">Stenography vs. Touch Typing: Differences, Speeds & Career Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Ever wondered how court reporters type 225+ WPM? Compare sequential QWERTY touch typing with phonetic steno machines.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 7 min read</span>
+            <a href="court-reporter-and-stenography-vs-touch-typing.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 35 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="keyboard-maintenance-and-cleaning-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/keyboard-maintenance-and-cleaning-guide.webp" alt="Keyboard Maintenance and Cleaning Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Hardware Maintenance</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="keyboard-maintenance-and-cleaning-guide.html">Keyboard Cleaning Guide: How Sticky Keys Affect Your Typing Speed</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Dust and sticky switches wreck typing consistency. Master deep cleaning using keycap pullers and isopropyl alcohol.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 6 min read</span>
+            <a href="keyboard-maintenance-and-cleaning-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+      
+      <!-- BLOG 36 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="ssc-cgl-chsl-dest-typing-test-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/ssc-cgl-chsl-dest-typing-test-guide.webp" alt="SSC CGL & CHSL DEST Typing Test Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">Government Exams</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="ssc-cgl-chsl-dest-typing-test-guide.html">SSC CGL & CHSL DEST Typing Test: The Complete Qualifying Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Master 2000 KDPH requirements, 15-minute exam software mechanics, and official full vs half mistake guidelines.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 14 min read</span>
+            <a href="ssc-cgl-chsl-dest-typing-test-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 37 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="marathi-typing-inscript-mangal-font-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/marathi-typing-inscript-mangal-font-guide.webp" alt="Marathi Typing Guide for GCC-TBC" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Regional Exams</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="marathi-typing-inscript-mangal-font-guide.html">Marathi Typing in GCC-TBC: Inscript vs. Kruti Dev Guide</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Master Marathi touch typing, Mangal font layout, complex conjuncts (जोडाक्षरे), and state court exam rules.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 16 min read</span>
+            <a href="marathi-typing-inscript-mangal-font-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 38 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-to-type-120-wpm-advanced-guide.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-to-type-120-wpm-advanced-guide.webp" alt="How to Type 120 WPM Advanced Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Speed Mastery</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-to-type-120-wpm-advanced-guide.html">How to Hit 120+ WPM: The Advanced Speed-Typist Blueprint</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Break past 100 WPM using visual lookahead buffers, n-gram chording, and elite burst typing mechanics.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 14 min read</span>
+            <a href="how-to-type-120-wpm-advanced-guide.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 39 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-long-to-learn-touch-typing-timeline.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-long-to-learn-touch-typing-timeline.webp" alt="Touch Typing Learning Timeline" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">Beginner Basics</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-long-to-learn-touch-typing-timeline.html">How Long Does It Take to Learn Touch Typing? Realistic 30-Day Timeline</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Explore realistic neuroplastic progress milestones from Day 1 to Day 30 and optimal daily practice times.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 13 min read</span>
+            <a href="how-long-to-learn-touch-typing-timeline.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 40 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-to-get-typing-test-certificate-online.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-to-get-typing-test-certificate-online.webp" alt="Typing Test Certificate Online Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Certificates & Jobs</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-to-get-typing-test-certificate-online.html">Typing Test Certificate: How to Get Verified Online Certification</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Learn how to earn, verify, and present official digital typing certificates for remote job applications and resumes.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 12 min read</span>
+            <a href="how-to-get-typing-test-certificate-online.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 41 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="best-ergonomic-keyboards-for-long-typing-hours.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/best-ergonomic-keyboards-for-long-typing-hours.webp" alt="Best Ergonomic Keyboards Guide" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Hardware & Gear</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="best-ergonomic-keyboards-for-long-typing-hours.html">Top 7 Ergonomic Keyboards for Long Typing Sessions & RSI Prevention</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover split keyboards, Alice curves, and tented mechanical boards to eliminate wrist pronation and pain.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 15 min read</span>
+            <a href="best-ergonomic-keyboards-for-long-typing-hours.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 42 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="best-mechanical-switches-for-typing-speed.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/best-mechanical-switches-for-typing-speed.webp" alt="Mechanical Switches for Typing Speed" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Switch Technology</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="best-mechanical-switches-for-typing-speed.html">Linear vs. Tactile vs. Clicky: Which Switch is Best for Typing Speed?</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Compare actuation force curves, tactile bumps, and sound profiles to find your ideal mechanical switch.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 13 min read</span>
+            <a href="best-mechanical-switches-for-typing-speed.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 43 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="how-to-unlearn-bad-typing-habits.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/how-to-unlearn-bad-typing-habits.webp" alt="How to Retrain Bad Typing Habits" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Muscle Memory</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="how-to-unlearn-bad-typing-habits.html">How to Retrain Bad Typing Habits: Breaking Hunt & Peck Forever</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Overwrite years of two-finger typing habits and transition seamlessly into proper 10-finger touch typing.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 13 min read</span>
+            <a href="how-to-unlearn-bad-typing-habits.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 44 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="why-typing-skills-matter-in-ai-world.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/why-typing-skills-matter-in-ai-world.webp" alt="Why Typing Skills Matter in AI Era" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">Future of Work</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="why-typing-skills-matter-in-ai-world.html">Why Typing Skills Still Matter in the Age of AI (2026 Analysis)</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Discover why high keyboard bandwidth, prompt iteration speed, and tactile focus remain crucial in the AI era.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 14 min read</span>
+            <a href="why-typing-skills-matter-in-ai-world.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOG 45 -->
+      <article class="blog-card bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl hover:border-indigo-500/50 transition flex flex-col group">
+        <a href="touch-typing-cheat-sheet-finger-chart-pdf.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/blog/touch-typing-cheat-sheet-finger-chart-pdf.webp" alt="Touch Typing Finger Chart Cheat Sheet" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">Cheat Sheets</span>
+            <h2 class="text-lg font-bold text-white mt-2 group-hover:text-indigo-400 transition leading-snug">
+              <a href="touch-typing-cheat-sheet-finger-chart-pdf.html">The Ultimate Touch Typing Cheat Sheet: Fingering Chart & Drills</a>
+            </h2>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Complete QWERTY finger placement reference matrix, home row anchor rules, and 5-minute calibration drills.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>📖 11 min read</span>
+            <a href="touch-typing-cheat-sheet-finger-chart-pdf.html" class="text-indigo-400 font-semibold hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </article>
+
     </div>
-</div>
-</div>
 
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
+  </main>
 
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
+  <!-- Instant Search Script -->
+  <script>
+    function filterArticles() {
+      const query = document.getElementById('blogSearchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.blog-card');
 
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
+      cards.forEach(card => {
+        const title = card.querySelector('h2').innerText.toLowerCase();
+        const snippet = card.querySelector('p').innerText.toLowerCase();
+        const category = card.querySelector('span').innerText.toLowerCase();
 
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+        if (title.includes(query) || snippet.includes(query) || category.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
+  
 </body>
 </html>

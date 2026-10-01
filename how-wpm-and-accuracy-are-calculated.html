@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -34,10 +33,52 @@
     <meta property="og:url" content="https://typenest.in/how-wpm-and-accuracy-are-calculated.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Configuration & Font Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -61,375 +102,493 @@
     }
     </script>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col antialiased">
 
-<body class="light">
+    <!-- DYNAMIC HEADER NAVBAR CONTAINER -->
+    <div id="header-container"></div>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow pt-24 pb-16">
+        <!-- HERO SECTION -->
+        <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Home</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-300 truncate">The Science of WPM Calculation</span>
+            </nav>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
-
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>The Science of WPM Calculation</span>
-        </div>
-
-        <span class="blog-category">📐 Technical &amp; Methodology</span>
-        <h1>The Science of WPM: How Words Per Minute and Accuracy Are Actually Calculated</h1>
-        <p class="blog-subtitle">Curious about the math driving your online typing tests? Learn how typing algorithms standardize word length, calculate Gross vs. Net WPM, and evaluate accuracy under official exam standards.</p>
-
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 10 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <div class="featured-image">
-        <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp" alt="How WPM and Accuracy Are Calculated Guide">
-    </div>
-
-    <article class="article-content">
-
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Explore the math behind typing metrics.</p>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-5">
+                <i class="fa-solid fa-ruler-combined"></i>
+                <span>Technical &amp; Methodology</span>
             </div>
-            <div class="toc-grid">
-                <a href="#standard-word-rule" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">The Standard Word Rule</span></a>
-                <a href="#gross-vs-net" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Gross WPM vs. Net WPM</span></a>
-                <a href="#accuracy-calculation" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Accuracy Percentage Formulas</span></a>
-                <a href="#kph-metric" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">KPH Data Entry Metric</span></a>
-                <a href="#exam-variations" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Exam Penalty Variations</span></a>
-                <a href="#hardware-influence" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Hardware &amp; Ergonomics Impact</span></a>
-                <a href="#faq-section" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">Frequently Asked Questions</span></a>
-            </div>
-        </div>
 
-        <p class="lead">Whenever you finish a timed test on TypeNest or another typing platform, you are instantly greeted with performance metrics: <strong>65 WPM, 98% Accuracy, 320 CPM</strong>. Most typists take these numbers at face value, celebrating speed surges or lamenting sudden drops. But have you ever wondered how typing software actually calculates these scores behind the scenes?</p>
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                The Science of WPM: How Words Per Minute and Accuracy Are Actually Calculated
+            </h1>
 
-        <p>Is a short word like <em>"cat"</em> counted the same as a complex technical term like <em>"internationalization"</em>? Why does a single typo sometimes cause your score to plunge unexpectedly?</p>
-
-        <p>Understanding the mathematical formulas behind typing metrics is crucial—especially if you are preparing for job screenings, remote data entry assessments, or strict civil service tests. In this guide, we demystify the science of typing metrics, breaking down <strong>Standard Word Standardization, Gross WPM vs. Net WPM, Accuracy Formulas, and KPH conversions</strong>.</p>
-
-        <h2 id="standard-word-rule">1. The "Standard Word" Rule: Why 1 Word = 5 Keystrokes</h2>
-        <p>If typing tests simply counted space-separated words, someone typing short words (e.g., <em>"it is in on at"</em>) would register an artificially inflated speed compared to someone typing complex prose (e.g., <em>"extraordinary psychological phenomena"</em>).</p>
-
-        <p>To ensure standardized evaluation across all passage types, the global typing standard defines <strong>1 Word as exactly 5 Keystrokes</strong> (including letters, numbers, punctuation, and spaces).</p>
-
-        <div class="info-box">
-            <h3>💡 Standard Word Formula</h3>
-            <p><code>Total Standard Words = Total Keystrokes ÷ 5</code></p>
-            <p>For example, if you press 1,250 keys during a 5-minute typing test, you have typed exactly <strong>250 Standard Words</strong> (1,250 ÷ 5 = 250), regardless of how many actual dictionary words appeared in the text.</p>
-        </div>
-
-        <h2 id="gross-vs-net">2. Gross WPM vs. Net WPM: What Employers Look At</h2>
-        <p>Not all Words Per Minute scores are created equal. Software evaluations split your raw key output into two major metrics: <strong>Gross WPM</strong> and <strong>Net WPM</strong>.</p>
-
-        <h3>Gross WPM (Raw Speed)</h3>
-        <p>Gross WPM measures your unadjusted typing speed without deducting points for mistakes. It simply calculates how many standard words you typed per minute.</p>
-
-        <p><code>Gross WPM = (Total Keystrokes ÷ 5) ÷ Time in Minutes</code></p>
-
-        <h3>Net WPM (True Accuracy-Adjusted Speed)</h3>
-        <p>Net WPM is the gold standard used by employers and certification bodies. It penalizes uncorrected errors to reflect actual usable workplace output.</p>
-
-        <p><code>Net WPM = Gross WPM - (Uncorrected Errors ÷ Time in Minutes)</code></p>
-
-        <p><strong>Practical Example:</strong> Suppose you type 300 standard words in 5 minutes with 5 uncorrected errors:</p>
-        <ul>
-            <li><strong>Gross WPM:</strong> 300 ÷ 5 = <strong>60 WPM</strong></li>
-            <li><strong>Error Penalty:</strong> 5 ÷ 5 = <strong>1 WPM deduction</strong></li>
-            <li><strong>Net WPM:</strong> 60 - 1 = <strong>59 Net WPM</strong></li>
-        </ul>
-
-        <p>If you want to compare how these benchmarks apply across industries, read our detailed report on <a href="typing-speed-requirements-for-remote-jobs.html">Typing Speed Requirements for Remote Jobs</a> or check <a href="typing-speed-benchmarks-guide.html">General Typing Speed Benchmarks</a>.</p>
-
-        <h2 id="accuracy-calculation">3. How Accuracy Percentage Is Calculated</h2>
-        <p>Accuracy measures your precision during a test session. Software calculates accuracy using character-level inputs or full word matches.</p>
-
-        <h3>Character-Based Accuracy Formula</h3>
-        <p><code>Accuracy (%) = [(Total Correct Keystrokes ÷ Total Keystrokes Pressed) × 100]</code></p>
-
-        <p>For instance, if you pressed 1,000 keys and made 20 typos, your accuracy is <code>(980 ÷ 1,000) × 100 = 98%</code>.</p>
-
-        <p>Maintaining high accuracy prevents mental distraction and preserves flow state. To train your brain to catch typos before they happen, review our <a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a> and explore the <a href="psychology-of-typing-train-brain-for-blind-typing.html">Psychology of Typing &amp; Muscle Memory</a>.</p>
-
-        <h2 id="kph-metric">4. KPH (Keystrokes Per Hour): The Data Entry Metric</h2>
-        <p>While general typists measure performance in WPM, accounting, banking, and data entry recruiters rely heavily on <strong>KPH (Keystrokes Per Hour)</strong>.</p>
-
-        <p>KPH measures total numeric and alphanumeric entries across an hour. You can easily convert WPM to KPH using the 5-keystroke rule:</p>
-
-        <p><code>KPH = WPM × 5 × 60 = WPM × 300</code></p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Typing Speed (WPM)</th>
-                    <th>Equivalent KPH</th>
-                    <th>Skill Level / Target Job</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>20 WPM</td>
-                    <td>6,000 KPH</td>
-                    <td>Beginner / Casual User</td>
-                </tr>
-                <tr>
-                    <td>30 WPM</td>
-                    <td>9,000 KPH</td>
-                    <td><a href="government-typing-exam-gcc-tbc-guide.html">GCC-TBC 30 WPM Qualification</a></td>
-                </tr>
-                <tr>
-                    <td>40 WPM</td>
-                    <td>12,000 KPH</td>
-                    <td>Standard Data Entry &amp; Office Admin</td>
-                </tr>
-                <tr>
-                    <td>60 WPM</td>
-                    <td>18,000 KPH</td>
-                    <td>Advanced Remote Assistant &amp; Transcription</td>
-                </tr>
-                <tr>
-                    <td>80+ WPM</td>
-                    <td>24,000+ KPH</td>
-                    <td>Elite Typist / Power User</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>If your goal is mastering numeric data entry on spreadsheets, practice with our dedicated <a href="10-key-numeric-keypad-training.html">10-Key Numeric Keypad Training Guide</a>.</p>
-
-        <h2 id="exam-variations">5. Official Exam Variations: Backspace &amp; Penalty Variations</h2>
-        <p>Different testing authorities apply custom scoring modifications to the standard Net WPM formula:</p>
-
-        <ul>
-            <li><strong>Disabled Backspace Mode:</strong> Many court clerk exams block the <code>Backspace</code> key completely. Every typo remains in the final text, severely reducing Net WPM. Read more in our <a href="government-typing-test-guide.html">Government Typing Test Guide</a>.</li>
-            <li><strong>Fixed Deduction Penalty:</strong> Some certification tests deduct 5 full words (25 keystrokes) for every omitted or substituted word, making accuracy far more critical than raw speed.</li>
-            <li><strong>Game-Based Scoring:</strong> Arcade typing platforms often award bonus points for speed streaks while penalizing missed words. See how games compare to traditional practice in our analysis of <a href="typing-games-vs-traditional-practice.html">Typing Games vs. Traditional Practice</a>.</li>
-        </ul>
-
-        <div class="info-box">
-            <h3>💡 Pro-Tip: How Backspacing Destroys Your Net WPM</h3>
-            <p>When you hit <code>Backspace</code> to fix a mistake, you press at least 3 extra keys: <strong>1 to backspace + 1 to type the correct key + 1 to move forward</strong>. In a 1-minute test, hitting backspace 20 times wastes 60 keystrokes—costing you 12 Full WPM!</p>
-            <p>Learn how to fix excessive backspacing habits in our <a href="typing-mistakes-guide.html">Typing Mistakes &amp; Common Errors Guide</a>.</p>
-        </div>
-
-        <h2 id="hardware-influence">How Ergonomics and Hardware Influence Your Metrics</h2>
-        <p>Even with perfect mathematical understanding, physical friction can handicap your scores. Stiff key switches, poor posture, or an inefficient layout alter your timing metrics.</p>
-
-        <ul>
-            <li><strong>Layout Optimization:</strong> Modern layouts like Colemak increase home-row efficiency, lowering finger travel distance. Compare layouts in <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">Qwerty vs. Dvorak vs. Colemak</a>.</li>
-            <li><strong>Keyboard Hardware:</strong> Responsive mechanical switches reduce actuation pressure, leading to faster CPM (Characters Per Minute). Explore switch types in our <a href="mechanical-vs-membrane-keyboards.html">Mechanical vs. Membrane Keyboard Breakdown</a>.</li>
-            <li><strong>Posture Alignment:</strong> Maintain wrist health during timed tests by following our <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide</a>.</li>
-        </ul>
-
-        <h2 id="faq-section">Frequently Asked Questions (FAQs)</h2>
-
-        <h3>Q1. Is CPM (Characters Per Minute) the same as WPM?</h3>
-        <p>No. CPM measures individual character inputs per minute. To convert CPM to WPM, simply divide your CPM by 5 (e.g., 300 CPM ÷ 5 = 60 WPM).</p>
-
-        <h3>Q2. Why does my WPM score vary between different websites?</h3>
-        <p>Different platforms use varying word difficulties, punctuation densities, and scoring algorithms. Simple word-list tests produce higher scores than full prose passages containing punctuation and numbers.</p>
-
-        <h3>Q3. What is considered a good accuracy score?</h3>
-        <p>A professional baseline is <strong>95% accuracy</strong>, while elite data entry and court typing roles require <strong>98% to 100% net accuracy</strong>.</p>
-
-        <h2>Conclusion</h2>
-        <p>Typing speed is a precise mathematical science. By understanding how standard word standardization, Gross vs. Net WPM, and error penalties function, you can tailor your practice sessions to focus on what truly improves your score: <strong>consistent rhythm and high net accuracy</strong>.</p>
-
-        <p>Ready to see your exact Net WPM and Accuracy breakdown? Take a free standardized test on <a href="tests.html">TypeNest's Speed Test Tool</a> today!</p>
-
-        <h2>Continue Learning</h2>
-        <p>Deepen your knowledge of typing mechanics and performance improvement with these guides:</p>
-        <ul>
-            <li><a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a></li>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="best-free-typing-websites.html">Top Free Typing Websites Compared</a></li>
-            <li><a href="keyboard-shortcuts.html">Essential Keyboard Shortcuts Every User Should Know</a></li>
-        </ul>
-
-        <h2>Track Your Real Metrics on TypeNest</h2>
-        <p>TypeNest uses standardized algorithms to calculate your exact Net WPM, Gross WPM, KPH, and real-time accuracy percentage. Start practicing on <a href="typing.html">TypeNest Practice</a> today!</p>
-
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
-
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
-
-        <div class="related-grid">
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision &amp; Focus</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how mental concentration and muscle memory drastically reduce typos.</p>
-            </a>
-
-            <a href="typing-speed-requirements-for-remote-jobs.html" class="related-card">
-                <span>💼 Remote Careers</span>
-                <h3>Typing Speed for Remote Jobs</h3>
-                <p>Discover real-world WPM benchmarks required across remote work roles.</p>
-            </a>
-
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics &amp; Health</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Calculate Your True Net WPM on TypeNest</h2>
-        <p>Test your typing speed with precise standardized algorithms, error heatmaps, and real-time KPH metrics on TypeNest.</p>
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="tests.html" class="cta-btn-primary">📊 Calculate My WPM</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                Curious about the math driving your online typing tests? Learn how typing algorithms standardize word length, calculate Gross vs. Net WPM, and evaluate accuracy under official exam standards.
             </p>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-400 border-y border-slate-800/80 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-indigo-400"></i>
+                    <span>Updated: September 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-indigo-400"></i>
+                    <span>10 min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-user text-indigo-400"></i>
+                    <span>TypeNest Team</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ARTICLE CONTAINER -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl relative">
+                <img src="images/blog/how-wpm-and-accuracy-are-calculated.webp" alt="How WPM and Accuracy Are Calculated Guide" class="w-full h-auto object-cover max-h-[460px]">
+            </div>
+
+            <article class="prose prose-invert prose-indigo max-w-none space-y-8 text-slate-300 leading-relaxed text-base sm:text-lg">
+                <!-- TABLE OF CONTENTS -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl not-prose mb-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400 text-lg"></i>
+                        <h2 class="text-xl font-bold text-white tracking-wide">Table of Contents</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Explore the math behind typing metrics.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="#standard-word-rule" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">01</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">The Standard Word Rule</span>
+                        </a>
+                        <a href="#gross-vs-net" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">02</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Gross WPM vs. Net WPM</span>
+                        </a>
+                        <a href="#accuracy-calculation" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">03</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Accuracy Percentage Formulas</span>
+                        </a>
+                        <a href="#kph-metric" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">04</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">KPH Data Entry Metric</span>
+                        </a>
+                        <a href="#exam-variations" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">05</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Exam Penalty Variations</span>
+                        </a>
+                        <a href="#hardware-influence" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">06</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Hardware &amp; Ergonomics Impact</span>
+                        </a>
+                        <a href="#faq-section" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">07</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Frequently Asked Questions</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed">
+                    Whenever you finish a timed test on TypeNest or another typing platform, you are instantly greeted with performance metrics: <strong class="text-white">65 WPM, 98% Accuracy, 320 CPM</strong>. Most typists take these numbers at face value, celebrating speed surges or lamenting sudden drops. But have you ever wondered how typing software actually calculates these scores behind the scenes?
+                </p>
+
+                <p>
+                    Is a short word like <em class="text-slate-200">"cat"</em> counted the same as a complex technical term like <em class="text-slate-200">"internationalization"</em>? Why does a single typo sometimes cause your score to plunge unexpectedly?
+                </p>
+
+                <p>
+                    Understanding the mathematical formulas behind typing metrics is crucial—especially if you are preparing for job screenings, remote data entry assessments, or strict civil service tests. In this guide, we demystify the science of typing metrics, breaking down <strong class="text-white">Standard Word Standardization, Gross WPM vs. Net WPM, Accuracy Formulas, and KPH conversions</strong>.
+                </p>
+
+                <!-- SECTION 1 -->
+                <section id="standard-word-rule" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">01.</span>
+                        <span>The "Standard Word" Rule: Why 1 Word = 5 Keystrokes</span>
+                    </h2>
+                    <p>
+                        If typing tests simply counted space-separated words, someone typing short words (e.g., <em class="text-slate-200">"it is in on at"</em>) would register an artificially inflated speed compared to someone typing complex prose (e.g., <em class="text-slate-200">"extraordinary psychological phenomena"</em>).
+                    </p>
+                    <p>
+                        To ensure standardized evaluation across all passage types, the global typing standard defines <strong class="text-white">1 Word as exactly 5 Keystrokes</strong> (including letters, numbers, punctuation, and spaces).
+                    </p>
+
+                    <!-- Formula Box -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-square-root-variable"></i>
+                            <span>Standard Word Formula</span>
+                        </h3>
+                        <p class="font-mono text-indigo-300 text-sm sm:text-base bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 mb-3">
+                            Total Standard Words = Total Keystrokes ÷ 5
+                        </p>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            For example, if you press 1,250 keys during a 5-minute typing test, you have typed exactly <strong class="text-white">250 Standard Words</strong> (1,250 ÷ 5 = 250), regardless of how many actual dictionary words appeared in the text.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 2 -->
+                <section id="gross-vs-net" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">02.</span>
+                        <span>Gross WPM vs. Net WPM: What Employers Look At</span>
+                    </h2>
+                    <p>
+                        Not all Words Per Minute scores are created equal. Software evaluations split your raw key output into two major metrics: <strong class="text-white">Gross WPM</strong> and <strong class="text-white">Net WPM</strong>.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-2">Gross WPM (Raw Speed)</h3>
+                    <p>
+                        Gross WPM measures your unadjusted typing speed without deducting points for mistakes. It simply calculates how many standard words you typed per minute.
+                    </p>
+                    <div class="p-3 my-3 bg-slate-800/60 rounded-xl border border-slate-700/60 font-mono text-indigo-300 text-sm">
+                        Gross WPM = (Total Keystrokes ÷ 5) ÷ Time in Minutes
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-2">Net WPM (True Accuracy-Adjusted Speed)</h3>
+                    <p>
+                        Net WPM is the gold standard used by employers and certification bodies. It penalizes uncorrected errors to reflect actual usable workplace output.
+                    </p>
+                    <div class="p-3 my-3 bg-slate-800/60 rounded-xl border border-slate-700/60 font-mono text-indigo-300 text-sm">
+                        Net WPM = Gross WPM - (Uncorrected Errors ÷ Time in Minutes)
+                    </div>
+
+                    <!-- Practical Example Callout -->
+                    <div class="my-6 p-6 rounded-2xl bg-indigo-950/20 border-l-4 border-indigo-500 text-slate-200">
+                        <p class="font-semibold text-white mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-indigo-400"></i>
+                            <span>Practical Example</span>
+                        </p>
+                        <p class="text-slate-300 mb-3">Suppose you type 300 standard words in 5 minutes with 5 uncorrected errors:</p>
+                        <ul class="list-disc pl-5 space-y-1.5 text-sm sm:text-base text-slate-300">
+                            <li><strong class="text-white">Gross WPM:</strong> 300 ÷ 5 = <strong class="text-indigo-300">60 WPM</strong></li>
+                            <li><strong class="text-white">Error Penalty:</strong> 5 ÷ 5 = <strong class="text-rose-400">1 WPM deduction</strong></li>
+                            <li><strong class="text-white">Net WPM:</strong> 60 - 1 = <strong class="text-emerald-400">59 Net WPM</strong></li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        If you want to compare how these benchmarks apply across industries, read our detailed report on <a href="typing-speed-requirements-for-remote-jobs.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Speed Requirements for Remote Jobs</a> or check <a href="typing-speed-benchmarks-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">General Typing Speed Benchmarks</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 3 -->
+                <section id="accuracy-calculation" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">03.</span>
+                        <span>How Accuracy Percentage Is Calculated</span>
+                    </h2>
+                    <p>
+                        Accuracy measures your precision during a test session. Software calculates accuracy using character-level inputs or full word matches.
+                    </p>
+                    <h3 class="text-xl font-bold text-white mt-6 mb-2">Character-Based Accuracy Formula</h3>
+                    <div class="p-3 my-3 bg-slate-800/60 rounded-xl border border-slate-700/60 font-mono text-indigo-300 text-sm">
+                        Accuracy (%) = [(Total Correct Keystrokes ÷ Total Keystrokes Pressed) × 100]
+                    </div>
+                    <p>
+                        For instance, if you pressed 1,000 keys and made 20 typos, your accuracy is <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">(980 ÷ 1,000) × 100 = 98%</code>.
+                    </p>
+                    <p>
+                        Maintaining high accuracy prevents mental distraction and preserves flow state. To train your brain to catch typos before they happen, review our <a href="typing-accuracy-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Typing Accuracy Guide</a> and explore the <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Psychology of Typing &amp; Muscle Memory</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 4 -->
+                <section id="kph-metric" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">04.</span>
+                        <span>KPH (Keystrokes Per Hour): The Data Entry Metric</span>
+                    </h2>
+                    <p>
+                        While general typists measure performance in WPM, accounting, banking, and data entry recruiters rely heavily on <strong class="text-white">KPH (Keystrokes Per Hour)</strong>.
+                    </p>
+                    <p>
+                        KPH measures total numeric and alphanumeric entries across an hour. You can easily convert WPM to KPH using the 5-keystroke rule:
+                    </p>
+                    <div class="p-3 my-3 bg-slate-800/60 rounded-xl border border-slate-700/60 font-mono text-indigo-300 text-sm">
+                        KPH = WPM × 5 × 60 = WPM × 300
+                    </div>
+
+                    <!-- Responsive KPH Table -->
+                    <div class="my-6 overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-slate-800/80 text-white font-semibold border-b border-slate-700/80">
+                                <tr>
+                                    <th class="p-4 sm:p-5">Typing Speed (WPM)</th>
+                                    <th class="p-4 sm:p-5">Equivalent KPH</th>
+                                    <th class="p-4 sm:p-5">Skill Level / Target Job</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300 font-bold whitespace-nowrap">20 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300">6,000 KPH</td>
+                                    <td class="p-4 sm:p-5">Beginner / Casual User</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300 font-bold whitespace-nowrap">30 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300">9,000 KPH</td>
+                                    <td class="p-4 sm:p-5"><a href="government-typing-exam-gcc-tbc-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">GCC-TBC 30 WPM Qualification</a></td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300 font-bold whitespace-nowrap">40 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300">12,000 KPH</td>
+                                    <td class="p-4 sm:p-5">Standard Data Entry &amp; Office Admin</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300 font-bold whitespace-nowrap">60 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300">18,000 KPH</td>
+                                    <td class="p-4 sm:p-5">Advanced Remote Assistant &amp; Transcription</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300 font-bold whitespace-nowrap">80+ WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-emerald-400 font-bold">24,000+ KPH</td>
+                                    <td class="p-4 sm:p-5 text-emerald-300 font-semibold">Elite Typist / Power User</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        If your goal is mastering numeric data entry on spreadsheets, practice with our dedicated <a href="10-key-numeric-keypad-training.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">10-Key Numeric Keypad Training Guide</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 5 -->
+                <section id="exam-variations" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">05.</span>
+                        <span>Official Exam Variations: Backspace &amp; Penalty Variations</span>
+                    </h2>
+                    <p>
+                        Different testing authorities apply custom scoring modifications to the standard Net WPM formula:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Disabled Backspace Mode:</strong> Many court clerk exams block the <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Backspace</code> key completely. Every typo remains in the final text, severely reducing Net WPM. Read more in our <a href="government-typing-test-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Government Typing Test Guide</a>.</li>
+                        <li><strong class="text-white">Fixed Deduction Penalty:</strong> Some certification tests deduct 5 full words (25 keystrokes) for every omitted or substituted word, making accuracy far more critical than raw speed.</li>
+                        <li><strong class="text-white">Game-Based Scoring:</strong> Arcade typing platforms often award bonus points for speed streaks while penalizing missed words. See how games compare to traditional practice in our analysis of <a href="typing-games-vs-traditional-practice.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Games vs. Traditional Practice</a>.</li>
+                    </ul>
+
+                    <!-- Tip Box: Backspacing -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Pro-Tip: How Backspacing Destroys Your Net WPM</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-3">
+                            When you hit <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Backspace</code> to fix a mistake, you press at least 3 extra keys: <strong class="text-white">1 to backspace + 1 to type the correct key + 1 to move forward</strong>. In a 1-minute test, hitting backspace 20 times wastes 60 keystrokes—costing you 12 Full WPM!
+                        </p>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Learn how to fix excessive backspacing habits in our <a href="typing-mistakes-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Mistakes &amp; Common Errors Guide</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 6 -->
+                <section id="hardware-influence" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">06.</span>
+                        <span>How Ergonomics and Hardware Influence Your Metrics</span>
+                    </h2>
+                    <p>
+                        Even with perfect mathematical understanding, physical friction can handicap your scores. Stiff key switches, poor posture, or an inefficient layout alter your timing metrics.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Layout Optimization:</strong> Modern layouts like Colemak increase home-row efficiency, lowering finger travel distance. Compare layouts in <a href="qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Qwerty vs. Dvorak vs. Colemak</a>.</li>
+                        <li><strong class="text-white">Keyboard Hardware:</strong> Responsive mechanical switches reduce actuation pressure, leading to faster CPM (Characters Per Minute). Explore switch types in our <a href="mechanical-vs-membrane-keyboards.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Mechanical vs. Membrane Keyboard Breakdown</a>.</li>
+                        <li><strong class="text-white">Posture Alignment:</strong> Maintain wrist health during timed tests by following our <a href="typing-ergonomics-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Ergonomics Guide</a>.</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION 7 -->
+                <section id="faq-section" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-6">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">07.</span>
+                        <span>Frequently Asked Questions (FAQs)</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q1. Is CPM (Characters Per Minute) the same as WPM?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                No. CPM measures individual character inputs per minute. To convert CPM to WPM, simply divide your CPM by 5 (e.g., 300 CPM ÷ 5 = 60 WPM).
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q2. Why does my WPM score vary between different websites?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Different platforms use varying word difficulties, punctuation densities, and scoring algorithms. Simple word-list tests produce higher scores than full prose passages containing punctuation and numbers.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q3. What is considered a good accuracy score?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A professional baseline is <strong class="text-white">95% accuracy</strong>, while elite data entry and court typing roles require <strong class="text-white">98% to 100% net accuracy</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONCLUSION -->
+                <section class="pt-8 border-t border-slate-800">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Conclusion</h2>
+                    <p>
+                        Typing speed is a precise mathematical science. By understanding how standard word standardization, Gross vs. Net WPM, and error penalties function, you can tailor your practice sessions to focus on what truly improves your score: <strong class="text-white">consistent rhythm and high net accuracy</strong>.
+                    </p>
+                    <p>
+                        Ready to see your exact Net WPM and Accuracy breakdown? Take a free standardized test on <a href="tests.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">TypeNest's Speed Test Tool</a> today!
+                    </p>
+                </section>
+
+                <!-- CONTINUE LEARNING SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Continue Learning</h2>
+                    <p class="text-slate-300 mb-4">
+                        Deepen your knowledge of typing mechanics and performance improvement with these guides:
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 not-prose">
+                        <li>
+                            <a href="touch-typing-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Beginner's Guide to Touch Typing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="increase-typing-speed-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Guide to Increase Typing Speed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="best-free-typing-websites.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Top Free Typing Websites Compared</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="keyboard-shortcuts.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Essential Keyboard Shortcuts Every User Should Know</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- CALL TO ACTION SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Track Your Real Metrics on TypeNest</h2>
+                    <p class="text-slate-300">
+                        TypeNest uses standardized algorithms to calculate your exact Net WPM, Gross WPM, KPH, and real-time accuracy percentage. Start practicing on <a href=index.html class="text-indigo-400 hover:text-indigo-300 underline font-medium">TypeNest Practice</a> today!
+                    </p>
+                </section>
+
+                <!-- Meta Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-400">
+                    <p><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p><strong class="text-slate-300">Author:</strong> TypeNest Editorial Team</p>
+                </div>
+            </article>
         </div>
 
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
+        <!-- RELATED ARTICLES -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-slate-800">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400 text-xl"></i>
+                    <span>Continue Learning</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
+            </div>
 
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Precision &amp; Focus</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Learn how mental concentration and muscle memory drastically reduce typos.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
+                <a href="typing-speed-requirements-for-remote-jobs.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>Remote Careers</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Typing Speed for Remote Jobs</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Discover real-world WPM benchmarks required across remote work roles.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
+                <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Ergonomics &amp; Health</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+            </div>
+        </section>
 
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
+        <!-- UNIVERSAL CTA -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900/80 border border-indigo-500/30 p-8 sm:p-12 text-center shadow-2xl">
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                        Calculate Your True Net WPM on TypeNest
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mb-8">
+                        Test your typing speed with precise standardized algorithms, error heatmaps, and real-time KPH metrics on TypeNest.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="tests.html" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Calculate My WPM</span>
+                        </a>
+                        <a href="blog.html" class="px-6 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Explore More Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
+    <!-- DYNAMIC FOOTER CONTAINER -->
+    <div id="footer-container"></div>
 
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+    <!-- SCRIPTS -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

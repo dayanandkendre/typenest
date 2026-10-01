@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -34,10 +33,52 @@
     <meta property="og:url" content="https://typenest.in/government-typing-exam-gcc-tbc-guide.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Configuration & Font Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -61,382 +102,509 @@
     }
     </script>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col antialiased">
 
-<body class="light">
+    <!-- DYNAMIC HEADER NAVBAR CONTAINER -->
+    <div id="header-container"></div>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow pt-24 pb-16">
+        <!-- HERO SECTION -->
+        <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Home</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-300 truncate">How to Pass Court &amp; GCC-TBC Typing Exams</span>
+            </nav>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
-
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>How to Pass Court &amp; GCC-TBC Typing Exams</span>
-        </div>
-
-        <span class="blog-category">🏛️ Government Exams</span>
-        <h1>How to Pass Court &amp; GCC-TBC Typing Exams: 30 WPM &amp; 40 WPM Practice Guide</h1>
-        <p class="blog-subtitle">A complete roadmap for clearing GCC-TBC (Government Commercial Certificate) and District / High Court Clerk typing exams with high accuracy, speed control, and error-free formatting.</p>
-
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 12 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <div class="featured-image">
-        <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp" alt="How to Pass Court and GCC-TBC Typing Exams Guide">
-    </div>
-
-    <article class="article-content">
-
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Quick navigation for court &amp; GCC-TBC preparation.</p>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-5">
+                <i class="fa-solid fa-landmark"></i>
+                <span>Government Exams</span>
             </div>
-            <div class="toc-grid">
-                <a href="#what-is-gcc-tbc" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">What is GCC-TBC Exam?</span></a>
-                <a href="#court-exam-pattern" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Court Typing Exam Patterns</span></a>
-                <a href="#touch-typing-mechanics" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Core Touch Typing Mechanics</span></a>
-                <a href="#common-exam-errors" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Common Exam Errors &amp; Rules</span></a>
-                <a href="#5-step-practice-plan" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">5-Step Practice Plan</span></a>
-                <a href="#exam-day-strategies" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Exam Day Strategies</span></a>
-                <a href="#faq-section" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">Frequently Asked Questions</span></a>
-            </div>
-        </div>
 
-        <p class="lead">Clearing government typing qualification tests like <strong>GCC-TBC (Government Commercial Certificate in Typewriting Basic Course)</strong> and District or Bombay High Court typing exams is an essential prerequisite for securing Clerk-Typist, Junior Assistant, and Stenographer positions across state departments. Thousands of candidates practice daily for 30 WPM and 40 WPM certifications, yet many fail on exam day due to strict evaluation rules, time pressure, and formatting mistakes.</p>
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                How to Pass Court &amp; GCC-TBC Typing Exams: 30 WPM &amp; 40 WPM Practice Guide
+            </h1>
 
-        <p>Government typing tests differ significantly from casual online typing practice. In official government exams, raw typing speed alone is insufficient; examiners evaluate your <strong>net accuracy, passage formatting, punctuation precision, line spacing, and handling of restricted keys</strong>. In this ultimate guide, we break down the official GCC-TBC exam structure, court typing test guidelines, error calculation rules, and practical practice strategies to help you pass on your first attempt.</p>
-
-        <h2 id="what-is-gcc-tbc">What is the GCC-TBC Typing Exam?</h2>
-        <p>Conducted by the Maharashtra State Council of Examination (MSCE, Pune), the GCC-TBC exam is the official certification verifying computer typing proficiency. Replacing traditional manual typewriter examinations, the GCC-TBC is conducted entirely on computer systems using standardized software modules.</p>
-
-        <p>GCC-TBC certification is available in <strong>English, Marathi, and Hindi</strong> at two core speed benchmarks: 30 WPM and 40 WPM. The examination evaluates more than raw passage typing; it tests comprehensive workplace skills including <strong>Business Letter Formatting, Statement / Balance Sheet Alignment, and Objective Multiple Choice Questions (MCQs)</strong> on computer basics and MS Office.</p>
-
-        <div class="info-box">
-            <h3>💡 Official GCC-TBC Exam Structure &amp; Marks Breakdown</h3>
-            <p>The practical skill test carries 50 marks, while the objective theory exam carries another 50 marks (Total: 100 Marks):</p>
-            <ul>
-                <li><strong>Speed Passage Test (20 Marks):</strong> Type 300 words (30 WPM) or 400 words (40 WPM) in exactly 10 minutes.</li>
-                <li><strong>Business Letter Formatting (15 Marks):</strong> Format and type a formal business letter according to official layout guidelines within word processors.</li>
-                <li><strong>Statement / Table Formatting (15 Marks):</strong> Create aligned tables, numeric figures, and accounting statements in spreadsheet formats.</li>
-            </ul>
-        </div>
-
-        <h2 id="court-exam-pattern">Understanding District Court &amp; High Court Typing Exam Patterns</h2>
-        <p>Court recruitment examinations (such as Bombay High Court and District Court Clerk tests) follow an even stricter evaluation protocol than standard state certifications. Because judicial work involves typing legal judgments, petitions, and notices, court authorities prioritize <strong>flawless accuracy over raw velocity</strong>.</p>
-
-        <p>Court typing tests usually consist of a 5 to 10-minute passage test presented on screen (Screen-to-Screen) or as printed physical sheets (Paper-to-Screen). As outlined in our comprehensive <a href="government-typing-test-guide.html">Government Typing Test Guide</a>, court examinations frequently disable or severely restrict the use of the <code>Backspace</code> key.</p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Exam Category</th>
-                    <th>Required Speed</th>
-                    <th>Duration</th>
-                    <th>Accuracy Requirement</th>
-                    <th>Backspace Policy</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>GCC-TBC 30 WPM</strong></td>
-                    <td>30 WPM (1500 Keystrokes)</td>
-                    <td>10 Mins</td>
-                    <td>90%+ Net Accuracy</td>
-                    <td>Allowed (Penalty applicable)</td>
-                </tr>
-                <tr>
-                    <td><strong>GCC-TBC 40 WPM</strong></td>
-                    <td>40 WPM (2000 Keystrokes)</td>
-                    <td>10 Mins</td>
-                    <td>90%+ Net Accuracy</td>
-                    <td>Allowed (Penalty applicable)</td>
-                </tr>
-                <tr>
-                    <td><strong>District Court Clerk</strong></td>
-                    <td>30 / 40 WPM</td>
-                    <td>5 to 10 Mins</td>
-                    <td>95%+ Net Accuracy</td>
-                    <td>Often Disabled or Restricted</td>
-                </tr>
-                <tr>
-                    <td><strong>Bombay High Court</strong></td>
-                    <td>40 WPM (Eng) / 30 WPM (Mar)</td>
-                    <td>10 Mins</td>
-                    <td>95% to 98% Net Accuracy</td>
-                    <td>Strict Key Penalty</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="touch-typing-mechanics">Core Touch Typing Mechanics for 30 WPM and 40 WPM Success</h2>
-        <p>Transitioning from a hesitant 20 WPM to a consistent 40 WPM requires abandoning the visual hunt-and-peck method. If you still look down at your keyboard while typing, study our foundational <a href="touch-typing-guide.html">Beginner's Guide to Touch Typing</a> to anchor your finger placements correctly.</p>
-
-        <p>Your fingers must remain relaxed and anchored above the <strong>Home Row (<code>A-S-D-F</code> and <code>J-K-L-;</code>)</strong>. Moving from 30 WPM to 40 WPM is not about aggressively moving your fingers faster; it is about minimizing finger travel distance and building fluid muscle memory.</p>
-
-        <blockquote class="quote">
-            <strong>Pro Tip:</strong> To comfortably sustain 40 WPM during exam conditions, utilize the "Look-Ahead" reading technique. Read 2 to 3 words ahead of what your fingers are currently typing. This eliminates micro-pauses between words and keeps your cadence steady.
-        </blockquote>
-
-        <h2 id="common-exam-errors">Common Exam Errors and Evaluation Penalties</h2>
-        <p>In official evaluation schemes, deductions occur when candidates commit mechanical or cognitive errors. Official marking criteria generally categorize mistakes into major groups:</p>
-
-        <ol>
-            <li><strong>Full Mistakes:</strong> Omitting entire words, substituting words with incorrect terms, adding extra non-existent words, or spelling a word incorrectly. Each full mistake deducts significant marks or keystroke counts.</li>
-            <li><strong>Half Mistakes:</strong> Incorrect capitalization (e.g., typing lower-case instead of upper-case), punctuation errors, or omitting essential spaces after commas (<code>,</code>) and full stops (<code>.</code>).</li>
-            <li><strong>Paragraph &amp; Alignment Errors:</strong> Failing to indent paragraphs using <code>Tab</code>, or skipping an entire line during reading.</li>
-            <li><strong>Excessive Spacing:</strong> Hitting the Spacebar multiple times between words. Refer to our <a href="typing-mistakes-guide.html">Typing Mistakes &amp; Fixes Guide</a> to eliminate these muscle memory flaws.</li>
-            <li><strong>Incomplete Passages:</strong> Failing to reach the designated word count within the 10-minute timer. Leaving passages unfinished leads to heavy automatic penalties.</li>
-        </ol>
-
-        <h2 id="5-step-practice-plan">5-Step Practice Plan to Master GCC-TBC and Court Typing Tests</h2>
-        <p>Passing state exams requires a structured training plan rather than random typing sessions. Follow this proven 5-step methodology to maximize your performance:</p>
-
-        <h3>1. Prioritize Accuracy Before Increasing Velocity</h3>
-        <p>Maintain a strict target of <strong>98%+ accuracy</strong> before attempting to push your speed past 30 WPM. Speed naturally builds upon a foundation of mistake-free execution. Learn more about error prevention strategies in our <a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a>.</p>
-
-        <h3>2. Practice Without Using the Backspace Key</h3>
-        <p>Because court exams routinely restrict or ban backspacing, train yourself to type without relying on <code>Backspace</code>. This sharpens your mental focus and forces your hands to slow down slightly to hit the correct key on the first attempt.</p>
-
-        <h3>3. Master Punctuation and Numeric Rows</h3>
-        <p>Legal documents and GCC-TBC letter formats contain complex numbers, dates, section references, and symbols (e.g., <code>()</code>, <code>{}</code>, <code>%</code>, <code>#</code>). Build speed on number keys and master the <a href="10-key-numeric-keypad-training.html">10-Key Numeric Keypad</a> for accounting statements.</p>
-
-        <h3>4. Conduct Timed 10-Minute Mock Tests</h3>
-        <p>Simulate real exam conditions by taking full 10-minute timed tests daily. Analyze your performance metrics using guidelines from our <a href="typing-speed-test-guide.html">Typing Speed Test Guide</a> to track net WPM improvements.</p>
-
-        <h3>5. Simulate Exam Hall Noise and Equipment</h3>
-        <p>Official test centers seat 50 to 100 candidates typing simultaneously, creating significant ambient keyboard noise. Practice in environments with loud mechanical keyboard clicks or ambient audio clips to build concentration. Understanding how different switch types operate in our <a href="mechanical-vs-membrane-keyboards.html">Mechanical vs. Membrane Keyboards Guide</a> can also help you adapt to stiff exam center key switches.</p>
-
-        <div class="info-box">
-            <h3>📊 30 WPM vs. 40 WPM: Recommended Daily Training Routine</h3>
-            <ul>
-                <li><strong>15 Mins:</strong> Warm-up drills and finger flexibility exercises (<a href="increase-typing-speed-guide.html">Speed Boosting Drills</a>).</li>
-                <li><strong>20 Mins:</strong> Backspace-disabled passage typing using official court templates.</li>
-                <li><strong>15 Mins:</strong> Business letter formatting and statement alignment in MS Word/Excel.</li>
-                <li><strong>10 Mins:</strong> Essential hotkey practice (<a href="keyboard-shortcuts.html">Productivity Keyboard Shortcuts</a>).</li>
-            </ul>
-        </div>
-
-        <h2 id="exam-day-strategies">Essential Strategies for Exam Day</h2>
-        <ul>
-            <li><strong>Inspect Key Hardware:</strong> During the warm-up period, verify that every key on your assigned test keyboard moves smoothly—especially <code>Spacebar</code>, <code>Shift</code>, and <code>Enter</code>.</li>
-            <li><strong>Maintain Proper Ergonomics:</strong> Adjust your chair height so your elbows form a 90-degree angle. Follow principles from our <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide</a> to prevent wrist strain during high-stress tests.</li>
-            <li><strong>Start the First Minute Calmly:</strong> Do not rush the first 60 seconds. Establish a comfortable, rhythmic pace to settle your nerves before increasing your speed.</li>
-            <li><strong>Finish the Entire Passage:</strong> If you commit a minor typo, keep going. Completing the passage ensures you secure all available base completion marks.</li>
-        </ul>
-
-        <h2 id="faq-section">Frequently Asked Questions (FAQs)</h2>
-
-        <h3>Q1. Can I appear for the GCC-TBC 40 WPM exam directly without passing 30 WPM?</h3>
-        <p>Yes, current examination regulations permit eligible candidates to directly register for the GCC-TBC 40 WPM exam. However, mastering 30 WPM fundamentals first ensures a much higher success rate.</p>
-
-        <h3>Q2. Which fonts and keyboard layouts are used for regional Marathi typing exams?</h3>
-        <p>Government examinations in Maharashtra predominantly utilize the <strong>Mangal Font</strong> with either the <strong>Inscript Keyboard Layout</strong> or the <strong>Remington GAIL</strong> layout.</p>
-
-        <h3>Q3. How long does it take to advance from 25 WPM to a qualifying 40 WPM?</h3>
-        <p>With dedicated, structured daily practice for 60 to 90 minutes, most learners comfortably progress from 25 WPM to a qualified 40 WPM within <strong>30 to 45 days</strong>.</p>
-
-        <h3>Q4. How should I prepare for the GCC-TBC Objective (MCQ) exam?</h3>
-        <p>Study core computer fundamentals, Windows OS navigation, MS Office suite features (Word, Excel, PowerPoint), internet basics, and online resources reviewed in our <a href="best-free-typing-websites.html">Best Free Typing Websites Comparison</a>.</p>
-
-        <h2>Conclusion</h2>
-        <p>Passing state government typing certifications like GCC-TBC and District Court skill tests is entirely achievable with structured preparation, disciplined backspace control, and relentless focus on net accuracy. Qualifying open government typing tests opens doors to stable civil service careers.</p>
-
-        <p>Evaluate your current baseline speed and accuracy today by taking a free test on <strong>TypeNest</strong>!</p>
-
-        <h2>Continue Learning</h2>
-        <p>Mastering government typing exams requires all-round keyboard control and consistency. Explore these related guides to strengthen your skills:</p>
-        <ul>
-            <li><a href="government-typing-test-guide.html">Government Typing Test Guide: Official Speed &amp; Rules</a></li>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide: Reduce Errors Fast</a></li>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks: What is a Good Speed?</a></li>
-            <li><a href="psychology-of-typing-train-brain-for-blind-typing.html">Psychology of Typing: Train Your Brain for Blind Typing</a></li>
-        </ul>
-
-        <h2>Ace Your Government Typing Exam with TypeNest</h2>
-        <p>Prepare for GCC-TBC, District Court, and High Court typing exams with real exam-like software environments. Practice timed passages, track net WPM, and minimize mistakes with TypeNest's specialized government exam practice modules on <a href="tests.html">TypeNest Speed Tests</a>.</p>
-
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
-
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
-
-        <div class="related-grid">
-            <a href="government-typing-test-guide.html" class="related-card">
-                <span>🏛️ Exam Rules</span>
-                <h3>Government Typing Test Guide</h3>
-                <p>Understand official marking criteria, qualification rules, and exam strategies.</p>
-            </a>
-
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision &amp; Focus</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how mental concentration and muscle memory drastically reduce typos.</p>
-            </a>
-
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics &amp; Health</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Master Court &amp; GCC-TBC Exams. Secure Your Career.</h2>
-        <p>Train your fingers with interactive timed drills, court passage tests, and real-time accuracy feedback on TypeNest.</p>
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="tests.html" class="cta-btn-primary">📊 Start Exam Practice</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                A complete roadmap for clearing GCC-TBC (Government Commercial Certificate) and District / High Court Clerk typing exams with high accuracy, speed control, and error-free formatting.
             </p>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-400 border-y border-slate-800/80 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-indigo-400"></i>
+                    <span>Updated: September 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-indigo-400"></i>
+                    <span>12 min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-user text-indigo-400"></i>
+                    <span>TypeNest Team</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ARTICLE CONTAINER -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl relative">
+                <img src="images/blog/government-typing-exam-gcc-tbc-guide.webp" alt="How to Pass Court and GCC-TBC Typing Exams Guide" class="w-full h-auto object-cover max-h-[460px]">
+            </div>
+
+            <article class="prose prose-invert prose-indigo max-w-none space-y-8 text-slate-300 leading-relaxed text-base sm:text-lg">
+                <!-- TABLE OF CONTENTS -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl not-prose mb-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400 text-lg"></i>
+                        <h2 class="text-xl font-bold text-white tracking-wide">Table of Contents</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Quick navigation for court &amp; GCC-TBC preparation.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="#what-is-gcc-tbc" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">01</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">What is GCC-TBC Exam?</span>
+                        </a>
+                        <a href="#court-exam-pattern" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">02</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Court Typing Exam Patterns</span>
+                        </a>
+                        <a href="#touch-typing-mechanics" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">03</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Core Touch Typing Mechanics</span>
+                        </a>
+                        <a href="#common-exam-errors" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">04</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Common Exam Errors &amp; Rules</span>
+                        </a>
+                        <a href="#5-step-practice-plan" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">05</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">5-Step Practice Plan</span>
+                        </a>
+                        <a href="#exam-day-strategies" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">06</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Exam Day Strategies</span>
+                        </a>
+                        <a href="#faq-section" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">07</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Frequently Asked Questions</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed">
+                    Clearing government typing qualification tests like <strong class="text-white">GCC-TBC (Government Commercial Certificate in Typewriting Basic Course)</strong> and District or Bombay High Court typing exams is an essential prerequisite for securing Clerk-Typist, Junior Assistant, and Stenographer positions across state departments. Thousands of candidates practice daily for 30 WPM and 40 WPM certifications, yet many fail on exam day due to strict evaluation rules, time pressure, and formatting mistakes.
+                </p>
+
+                <p>
+                    Government typing tests differ significantly from casual online typing practice. In official government exams, raw typing speed alone is insufficient; examiners evaluate your <strong class="text-white">net accuracy, passage formatting, punctuation precision, line spacing, and handling of restricted keys</strong>. In this ultimate guide, we break down the official GCC-TBC exam structure, court typing test guidelines, error calculation rules, and practical practice strategies to help you pass on your first attempt.
+                </p>
+
+                <!-- SECTION 1 -->
+                <section id="what-is-gcc-tbc" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">01.</span>
+                        <span>What is the GCC-TBC Typing Exam?</span>
+                    </h2>
+                    <p>
+                        Conducted by the Maharashtra State Council of Examination (MSCE, Pune), the GCC-TBC exam is the official certification verifying computer typing proficiency. Replacing traditional manual typewriter examinations, the GCC-TBC is conducted entirely on computer systems using standardized software modules.
+                    </p>
+                    <p>
+                        GCC-TBC certification is available in <strong class="text-white">English, Marathi, and Hindi</strong> at two core speed benchmarks: 30 WPM and 40 WPM. The examination evaluates more than raw passage typing; it tests comprehensive workplace skills including <strong class="text-white">Business Letter Formatting, Statement / Balance Sheet Alignment, and Objective Multiple Choice Questions (MCQs)</strong> on computer basics and MS Office.
+                    </p>
+
+                    <!-- Info Box -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Official GCC-TBC Exam Structure &amp; Marks Breakdown</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            The practical skill test carries 50 marks, while the objective theory exam carries another 50 marks (Total: 100 Marks):
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-slate-300 text-sm sm:text-base">
+                            <li><strong class="text-white">Speed Passage Test (20 Marks):</strong> Type 300 words (30 WPM) or 400 words (40 WPM) in exactly 10 minutes.</li>
+                            <li><strong class="text-white">Business Letter Formatting (15 Marks):</strong> Format and type a formal business letter according to official layout guidelines within word processors.</li>
+                            <li><strong class="text-white">Statement / Table Formatting (15 Marks):</strong> Create aligned tables, numeric figures, and accounting statements in spreadsheet formats.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 2 -->
+                <section id="court-exam-pattern" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">02.</span>
+                        <span>Understanding District Court &amp; High Court Typing Exam Patterns</span>
+                    </h2>
+                    <p>
+                        Court recruitment examinations (such as Bombay High Court and District Court Clerk tests) follow an even stricter evaluation protocol than standard state certifications. Because judicial work involves typing legal judgments, petitions, and notices, court authorities prioritize <strong class="text-white">flawless accuracy over raw velocity</strong>.
+                    </p>
+                    <p>
+                        Court typing tests usually consist of a 5 to 10-minute passage test presented on screen (Screen-to-Screen) or as printed physical sheets (Paper-to-Screen). As outlined in our comprehensive <a href="government-typing-test-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Government Typing Test Guide</a>, court examinations frequently disable or severely restrict the use of the <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Backspace</code> key.
+                    </p>
+
+                    <!-- Responsive Table -->
+                    <div class="my-6 overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-slate-800/80 text-white font-semibold border-b border-slate-700/80">
+                                <tr>
+                                    <th class="p-4 sm:p-5">Exam Category</th>
+                                    <th class="p-4 sm:p-5">Required Speed</th>
+                                    <th class="p-4 sm:p-5">Duration</th>
+                                    <th class="p-4 sm:p-5">Accuracy Requirement</th>
+                                    <th class="p-4 sm:p-5">Backspace Policy</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">GCC-TBC 30 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300">30 WPM (1500 Keystrokes)</td>
+                                    <td class="p-4 sm:p-5">10 Mins</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-semibold">90%+ Net Accuracy</td>
+                                    <td class="p-4 sm:p-5 text-slate-300">Allowed (Penalty applicable)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">GCC-TBC 40 WPM</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300">40 WPM (2000 Keystrokes)</td>
+                                    <td class="p-4 sm:p-5">10 Mins</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-semibold">90%+ Net Accuracy</td>
+                                    <td class="p-4 sm:p-5 text-slate-300">Allowed (Penalty applicable)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">District Court Clerk</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300">30 / 40 WPM</td>
+                                    <td class="p-4 sm:p-5">5 to 10 Mins</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-semibold">95%+ Net Accuracy</td>
+                                    <td class="p-4 sm:p-5 text-amber-400 font-medium">Often Disabled or Restricted</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Bombay High Court</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300">40 WPM (Eng) / 30 WPM (Mar)</td>
+                                    <td class="p-4 sm:p-5">10 Mins</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-semibold">95% to 98% Net Accuracy</td>
+                                    <td class="p-4 sm:p-5 text-amber-400 font-medium">Strict Key Penalty</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- SECTION 3 -->
+                <section id="touch-typing-mechanics" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">03.</span>
+                        <span>Core Touch Typing Mechanics for 30 WPM and 40 WPM Success</span>
+                    </h2>
+                    <p>
+                        Transitioning from a hesitant 20 WPM to a consistent 40 WPM requires abandoning the visual hunt-and-peck method. If you still look down at your keyboard while typing, study our foundational <a href="touch-typing-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Beginner's Guide to Touch Typing</a> to anchor your finger placements correctly.
+                    </p>
+                    <p>
+                        Your fingers must remain relaxed and anchored above the <strong class="text-white">Home Row (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">A-S-D-F</code> and <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">J-K-L-;</code>)</strong>. Moving from 30 WPM to 40 WPM is not about aggressively moving your fingers faster; it is about minimizing finger travel distance and building fluid muscle memory.
+                    </p>
+
+                    <!-- Quote Block -->
+                    <div class="my-6 p-6 rounded-2xl bg-indigo-950/20 border-l-4 border-indigo-500 text-slate-200">
+                        <p class="font-semibold text-white mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-indigo-400"></i>
+                            <span>Pro Tip</span>
+                        </p>
+                        <p class="italic text-slate-300">
+                            To comfortably sustain 40 WPM during exam conditions, utilize the "Look-Ahead" reading technique. Read 2 to 3 words ahead of what your fingers are currently typing. This eliminates micro-pauses between words and keeps your cadence steady.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 4 -->
+                <section id="common-exam-errors" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">04.</span>
+                        <span>Common Exam Errors and Evaluation Penalties</span>
+                    </h2>
+                    <p>
+                        In official evaluation schemes, deductions occur when candidates commit mechanical or cognitive errors. Official marking criteria generally categorize mistakes into major groups:
+                    </p>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Full Mistakes:</strong> Omitting entire words, substituting words with incorrect terms, adding extra non-existent words, or spelling a word incorrectly. Each full mistake deducts significant marks or keystroke counts.</li>
+                        <li><strong class="text-white">Half Mistakes:</strong> Incorrect capitalization (e.g., typing lower-case instead of upper-case), punctuation errors, or omitting essential spaces after commas (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">,</code>) and full stops (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">.</code>).</li>
+                        <li><strong class="text-white">Paragraph &amp; Alignment Errors:</strong> Failing to indent paragraphs using <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Tab</code>, or skipping an entire line during reading.</li>
+                        <li><strong class="text-white">Excessive Spacing:</strong> Hitting the Spacebar multiple times between words. Refer to our <a href="typing-mistakes-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Mistakes &amp; Fixes Guide</a> to eliminate these muscle memory flaws.</li>
+                        <li><strong class="text-white">Incomplete Passages:</strong> Failing to reach the designated word count within the 10-minute timer. Leaving passages unfinished leads to heavy automatic penalties.</li>
+                    </ol>
+                </section>
+
+                <!-- SECTION 5 -->
+                <section id="5-step-practice-plan" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">05.</span>
+                        <span>5-Step Practice Plan to Master GCC-TBC and Court Typing Tests</span>
+                    </h2>
+                    <p>
+                        Passing state exams requires a structured training plan rather than random typing sessions. Follow this proven 5-step methodology to maximize your performance:
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">1. Prioritize Accuracy Before Increasing Velocity</h3>
+                    <p>
+                        Maintain a strict target of <strong class="text-white">98%+ accuracy</strong> before attempting to push your speed past 30 WPM. Speed naturally builds upon a foundation of mistake-free execution. Learn more about error prevention strategies in our <a href="typing-accuracy-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Typing Accuracy Guide</a>.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">2. Practice Without Using the Backspace Key</h3>
+                    <p>
+                        Because court exams routinely restrict or ban backspacing, train yourself to type without relying on <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Backspace</code>. This sharpens your mental focus and forces your hands to slow down slightly to hit the correct key on the first attempt.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">3. Master Punctuation and Numeric Rows</h3>
+                    <p>
+                        Legal documents and GCC-TBC letter formats contain complex numbers, dates, section references, and symbols (e.g., <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">()</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">{}</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">%</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">#</code>). Build speed on number keys and master the <a href="10-key-numeric-keypad-training.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">10-Key Numeric Keypad</a> for accounting statements.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">4. Conduct Timed 10-Minute Mock Tests</h3>
+                    <p>
+                        Simulate real exam conditions by taking full 10-minute timed tests daily. Analyze your performance metrics using guidelines from our <a href="typing-speed-test-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Speed Test Guide</a> to track net WPM improvements.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">5. Simulate Exam Hall Noise and Equipment</h3>
+                    <p>
+                        Official test centers seat 50 to 100 candidates typing simultaneously, creating significant ambient keyboard noise. Practice in environments with loud mechanical keyboard clicks or ambient audio clips to build concentration. Understanding how different switch types operate in our <a href="mechanical-vs-membrane-keyboards.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Mechanical vs. Membrane Keyboards Guide</a> can also help you adapt to stiff exam center key switches.
+                    </p>
+
+                    <!-- Info Box Routine -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>30 WPM vs. 40 WPM: Recommended Daily Training Routine</span>
+                        </h3>
+                        <ul class="space-y-2.5 text-slate-300 text-sm sm:text-base">
+                            <li class="flex items-start gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold mt-0.5">15 Mins</span>
+                                <div>Warm-up drills and finger flexibility exercises (<a href="increase-typing-speed-guide.html" class="text-indigo-400 hover:text-indigo-300 underline">Speed Boosting Drills</a>).</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold mt-0.5">20 Mins</span>
+                                <div>Backspace-disabled passage typing using official court templates.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold mt-0.5">15 Mins</span>
+                                <div>Business letter formatting and statement alignment in MS Word/Excel.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold mt-0.5">10 Mins</span>
+                                <div>Essential hotkey practice (<a href="keyboard-shortcuts.html" class="text-indigo-400 hover:text-indigo-300 underline">Productivity Keyboard Shortcuts</a>).</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 6 -->
+                <section id="exam-day-strategies" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">06.</span>
+                        <span>Essential Strategies for Exam Day</span>
+                    </h2>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Inspect Key Hardware:</strong> During the warm-up period, verify that every key on your assigned test keyboard moves smoothly—especially <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Spacebar</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Shift</code>, and <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Enter</code>.</li>
+                        <li><strong class="text-white">Maintain Proper Ergonomics:</strong> Adjust your chair height so your elbows form a 90-degree angle. Follow principles from our <a href="typing-ergonomics-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Ergonomics Guide</a> to prevent wrist strain during high-stress tests.</li>
+                        <li><strong class="text-white">Start the First Minute Calmly:</strong> Do not rush the first 60 seconds. Establish a comfortable, rhythmic pace to settle your nerves before increasing your speed.</li>
+                        <li><strong class="text-white">Finish the Entire Passage:</strong> If you commit a minor typo, keep going. Completing the passage ensures you secure all available base completion marks.</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION 7 -->
+                <section id="faq-section" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-6">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">07.</span>
+                        <span>Frequently Asked Questions (FAQs)</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q1. Can I appear for the GCC-TBC 40 WPM exam directly without passing 30 WPM?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Yes, current examination regulations permit eligible candidates to directly register for the GCC-TBC 40 WPM exam. However, mastering 30 WPM fundamentals first ensures a much higher success rate.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q2. Which fonts and keyboard layouts are used for regional Marathi typing exams?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Government examinations in Maharashtra predominantly utilize the <strong class="text-white">Mangal Font</strong> with either the <strong class="text-white">Inscript Keyboard Layout</strong> or the <strong class="text-white">Remington GAIL</strong> layout.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q3. How long does it take to advance from 25 WPM to a qualifying 40 WPM?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                With dedicated, structured daily practice for 60 to 90 minutes, most learners comfortably progress from 25 WPM to a qualified 40 WPM within <strong class="text-white">30 to 45 days</strong>.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q4. How should I prepare for the GCC-TBC Objective (MCQ) exam?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Study core computer fundamentals, Windows OS navigation, MS Office suite features (Word, Excel, PowerPoint), internet basics, and online resources reviewed in our <a href="best-free-typing-websites.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Best Free Typing Websites Comparison</a>.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONCLUSION -->
+                <section class="pt-8 border-t border-slate-800">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Conclusion</h2>
+                    <p>
+                        Passing state government typing certifications like GCC-TBC and District Court skill tests is entirely achievable with structured preparation, disciplined backspace control, and relentless focus on net accuracy. Qualifying open government typing tests opens doors to stable civil service careers.
+                    </p>
+                    <p>
+                        Evaluate your current baseline speed and accuracy today by taking a free test on <strong class="text-white">TypeNest</strong>!
+                    </p>
+                </section>
+
+                <!-- CONTINUE LEARNING SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Continue Learning</h2>
+                    <p class="text-slate-300 mb-4">
+                        Mastering government typing exams requires all-round keyboard control and consistency. Explore these related guides to strengthen your skills:
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 not-prose">
+                        <li>
+                            <a href="government-typing-test-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Government Typing Test Guide: Official Speed &amp; Rules</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-accuracy-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Typing Accuracy Guide: Reduce Errors Fast</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="increase-typing-speed-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Guide to Increase Typing Speed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-speed-benchmarks-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing Speed Benchmarks: What is a Good Speed?</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Psychology of Typing: Train Your Brain for Blind Typing</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- CALL TO ACTION SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Ace Your Government Typing Exam with TypeNest</h2>
+                    <p class="text-slate-300">
+                        Prepare for GCC-TBC, District Court, and High Court typing exams with real exam-like software environments. Practice timed passages, track net WPM, and minimize mistakes with TypeNest's specialized government exam practice modules on <a href="tests.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">TypeNest Speed Tests</a>.
+                    </p>
+                </section>
+
+                <!-- Meta Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-400">
+                    <p><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p><strong class="text-slate-300">Author:</strong> TypeNest Editorial Team</p>
+                </div>
+            </article>
         </div>
 
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
+        <!-- RELATED ARTICLES -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-slate-800">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400 text-xl"></i>
+                    <span>Continue Learning</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
+            </div>
 
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="government-typing-test-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-landmark"></i>
+                            <span>Exam Rules</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Government Typing Test Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Understand official marking criteria, qualification rules, and exam strategies.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
+                <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Precision &amp; Focus</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Learn how mental concentration and muscle memory drastically reduce typos.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
+                <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Ergonomics &amp; Health</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+            </div>
+        </section>
 
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
+        <!-- UNIVERSAL CTA -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900/80 border border-indigo-500/30 p-8 sm:p-12 text-center shadow-2xl">
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                        Master Court &amp; GCC-TBC Exams. Secure Your Career.
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mb-8">
+                        Train your fingers with interactive timed drills, court passage tests, and real-time accuracy feedback on TypeNest.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="tests.html" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span>Start Exam Practice</span>
+                        </a>
+                        <a href="blog.html" class="px-6 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Explore More Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
+    <!-- DYNAMIC FOOTER CONTAINER -->
+    <div id="footer-container"></div>
 
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+    <!-- SCRIPTS -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

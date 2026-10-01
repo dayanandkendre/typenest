@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -34,10 +33,52 @@
     <meta property="og:url" content="https://typenest.in/typing-guide-for-non-native-english-speakers.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Configuration & Font Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -61,413 +102,437 @@
     }
     </script>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col antialiased">
 
-<body class="light">
+    <!-- DYNAMIC HEADER NAVBAR CONTAINER -->
+    <div id="header-container"></div>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow pt-24 pb-16">
+        <!-- HERO SECTION -->
+        <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Home</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-300 truncate">Typing for Non-Native English Speakers</span>
+            </nav>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-5">
+                <i class="fa-solid fa-globe"></i>
+                <span>Language &amp; Skill Building</span>
+            </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Typing for Non-Native English Speakers: How to Improve Speed &amp; Spelling Accuracy
+            </h1>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Typing for Non-Native English Speakers</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">🌐 Language &amp; Skill Building</span>
-
-        <!-- Title -->
-        <h1>Typing for Non-Native English Speakers: How to Improve Speed &amp; Spelling Accuracy</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Typing in a second language presents unique cognitive challenges. Learn how to eliminate spelling micro-hesitations, train your motor cortex on English vocabulary patterns, and boost your WPM score.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 10 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-
-    <!-- Featured Image -->
-    <div class="featured-image">
-        <img src="images/blog/typing-guide-for-non-native-english-speakers.webp" alt="Typing Guide for Non Native English Speakers">
-    </div>
-
-    <!-- TABLE OF CONTENTS -->
-    <div class="table-of-contents">
-        <div class="toc-header">
-            <h2>📑 Table of Contents</h2>
-            <p>Navigate through our English typing guide for non-native speakers.</p>
-        </div>
-        <div class="toc-grid">
-            <a href="#cognitive-wall" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">The Cognitive Wall Explained</span></a>
-            <a href="#ngrams-practice" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Mastering English N-Grams</span></a>
-            <a href="#spelling-mistakes" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Eliminating Spelling Errors</span></a>
-            <a href="#touch-mechanics" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Touch Typing Mechanics</span></a>
-            <a href="#hardware-setup" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Hardware &amp; Setup Optimization</span></a>
-            <a href="#faq" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Frequently Asked Questions</span></a>
-        </div>
-    </div>
-
-    <article class="article-content">
-
-        <p class="lead">
-            In today's global economy, English is the primary language for remote jobs, software engineering, international business, and academic research. Millions of professionals and students around the world type in English every day, even though it is not their native language.
-        </p>
-
-        <p>
-            If English is your second or third language, you may have noticed that your typing speed drops significantly when typing English passages compared to typing in your native tongue. This slowdown isn't necessarily due to poor finger mechanics—it is often caused by <strong>cognitive spelling hesitation</strong>. When your mind pauses to double-check irregular English spellings (like <em>"receive"</em> vs. <em>"believe"</em> or <em>"necessary"</em>), your fingers freeze for micro-seconds, disrupting your flow.
-        </p>
-
-        <p>
-            The good news is that you can bridge this gap with targeted vocabulary practice and muscle memory training. In this guide, we explore the cognitive mechanics of non-native typing and share practical strategies to build English typing speed and accuracy.
-        </p>
-
-        <h2 id="cognitive-wall">1. The Cognitive Wall: Why Non-Native Typing Feels Slower</h2>
-        <p>
-            When a native English speaker types, their brain executes "word-chunking"—translating an entire word into a single automatic gesture. For non-native speakers, the mental process often involves three extra steps:
-        </p>
-
-        <ol>
-            <li><strong>Reading &amp; Translating:</strong> Mentally converting visual words into phonetic sounds.</li>
-            <li><strong>Spelling Verification:</strong> Pausing to recall tricky silent letters or vowel pairings (<code>ie</code> vs <code>ei</code>, <code>ough</code>, <code>tion</code>).</li>
-            <li><strong>Key Execution:</strong> Searching for physical key positions on the QWERTY board.</li>
-        </ol>
-
-        <p>
-            These micro-delays add up quickly. Eliminating mental hesitation requires moving from character-by-character processing to subconscious motor execution.
-        </p>
-
-        <h2 id="ngrams-practice">2. Strategy 1: Master Common English Word N-Grams</h2>
-        <p>
-            English vocabulary relies heavily on repeating letter combinations known as <strong>N-Grams</strong> (2-letter, 3-letter, or 4-letter clusters). By training your fingers on these common patterns, you can type thousands of English words effortlessly without consciously thinking about individual letters.
-        </p>
-
-        <h3>Top English Clusters to Practice Daily:</h3>
-        <ul>
-            <li><strong>Common Prefixes:</strong> <code>un-</code>, <code>re-</code>, <code>in-</code>, <code>dis-</code>, <code>pro-</code>, <code>pre-</code>, <code>con-</code></li>
-            <li><strong>Common Suffixes:</strong> <code>-tion</code>, <code>-ing</code>, <code>-ment</code>, <code>-ness</code>, <code>-able</code>, <code>-ous</code>, <code>-ly</code></li>
-            <li><strong>Frequent Bigrams:</strong> <code>th</code>, <code>he</code>, <code>in</code>, <code>er</code>, <code>an</code>, <code>re</code>, <code>on</code>, <code>at</code>, <code>en</code>, <code>nd</code></li>
-        </ul>
-
-        <p>
-            Dedicating 5 minutes a day to practicing these specific clusters allows your motor cortex to group them into single fluid motions. Learn more baseline acceleration techniques in our <a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a>.
-        </p>
-
-        <h2 id="spelling-mistakes">3. Strategy 2: Eliminate Common English Spelling Mistakes</h2>
-        <p>
-            Unforced spelling mistakes force you to hit the <code>Backspace</code> key, which severely degrades your net WPM score and overall efficiency.
-        </p>
-
-        <p>
-            Pay close attention to these frequently misspelled English words during typing practice:
-        </p>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Tricky English Word</th>
-                    <th>Common Non-Native Error</th>
-                    <th>Typing Tip / Rule</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Accommodation</strong></td>
-                    <td>Acomodation (Single c/m)</td>
-                    <td>Remember: 2 <strong>c</strong>'s and 2 <strong>m</strong>'s</td>
-                </tr>
-                <tr>
-                    <td><strong>Necessary</strong></td>
-                    <td>Neccessary (Double c)</td>
-                    <td>Remember: 1 <strong>c</strong>ollar, 2 <strong>s</strong>ocks</td>
-                </tr>
-                <tr>
-                    <td><strong>Receive / Achieve</strong></td>
-                    <td>Recieve / Acheive</td>
-                    <td>Rule: <strong>I</strong> before <strong>E</strong> except after <strong>C</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Separate</strong></td>
-                    <td>Seperate</td>
-                    <td>Remember: There is <strong>"a rat"</strong> in sep<strong>arat</strong>e</td>
-                </tr>
-                <tr>
-                    <td><strong>Environment</strong></td>
-                    <td>Enviroment (Missing n)</td>
-                    <td>Remember the silent <strong>n</strong>: enviro<strong>n</strong>-ment</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            To fix persistent typos and build finger control, work through our step-by-step solutions in the <a href="typing-mistakes-guide.html">Typing Mistakes &amp; Common Errors Guide</a> and prioritize precision using our <a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a>.
-        </p>
-
-        <h2 id="touch-mechanics">4. Strategy 3: Build Proper Touch Typing Mechanics</h2>
-        <p>
-            If you are looking down at your keyboard while trying to spell unfamiliar English words, your speed will remain capped under 30 WPM. Touch typing—typing without looking at the keycaps—allows your eyes to remain anchored on screen text or source documents.
-        </p>
-
-        <p>
-            Anchor your hands on the <strong>Home Row (<code>A-S-D-F J-K-L-;</code>)</strong> and ensure each finger covers its designated keys. Start with fundamental positioning using our <a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a>.
-        </p>
-
-        <div class="tip-box">
-            <h3>💡 Why English Speed Matters for Global Careers</h3>
-            <p>
-                Whether you are preparing for international exams or applying for remote work, demonstrating strong English Net WPM opens key career paths:
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                Typing in a second language presents unique cognitive challenges. Learn how to eliminate spelling micro-hesitations, train your motor cortex on English vocabulary patterns, and boost your WPM score.
             </p>
-            <ul>
-                <li><strong>Remote Work Readiness:</strong> Virtual Assistants and Customer Support agents need 50+ WPM in English.</li>
-                <li><strong>Software Engineering:</strong> Programmers who type English documentation and code syntax save hours daily. Read <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Typing for Programmers &amp; Coding Speed</a>.</li>
-            </ul>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-400 border-y border-slate-800/80 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-indigo-400"></i>
+                    <span>Updated: September 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-indigo-400"></i>
+                    <span>10 min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-user text-indigo-400"></i>
+                    <span>TypeNest Team</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ARTICLE CONTAINER -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl relative">
+                <img src="images/blog/typing-guide-for-non-native-english-speakers.webp" alt="Typing Guide for Non Native English Speakers" class="w-full h-auto object-cover max-h-[460px]">
+            </div>
+
+            <article class="prose prose-invert prose-indigo max-w-none space-y-8 text-slate-300 leading-relaxed text-base sm:text-lg">
+                <!-- TABLE OF CONTENTS -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl not-prose mb-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400 text-lg"></i>
+                        <h2 class="text-xl font-bold text-white tracking-wide">Table of Contents</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Navigate through our English typing guide for non-native speakers.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="#cognitive-wall" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">01</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">The Cognitive Wall Explained</span>
+                        </a>
+                        <a href="#ngrams-practice" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">02</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Mastering English N-Grams</span>
+                        </a>
+                        <a href="#spelling-mistakes" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">03</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Eliminating Spelling Errors</span>
+                        </a>
+                        <a href="#touch-mechanics" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">04</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Touch Typing Mechanics</span>
+                        </a>
+                        <a href="#hardware-setup" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">05</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Hardware &amp; Setup Optimization</span>
+                        </a>
+                        <a href="#faq" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">06</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Frequently Asked Questions</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed">
+                    In today's global economy, English is the primary language for remote jobs, software engineering, international business, and academic research. Millions of professionals and students around the world type in English every day, even though it is not their native language.
+                </p>
+
+                <p>
+                    If English is your second or third language, you may have noticed that your typing speed drops significantly when typing English passages compared to typing in your native tongue. This slowdown isn't necessarily due to poor finger mechanics—it is often caused by <strong class="text-white">cognitive spelling hesitation</strong>. When your mind pauses to double-check irregular English spellings (like <em class="text-slate-200">"receive"</em> vs. <em class="text-slate-200">"believe"</em> or <em class="text-slate-200">"necessary"</em>), your fingers freeze for micro-seconds, disrupting your flow.
+                </p>
+
+                <p>
+                    The good news is that you can bridge this gap with targeted vocabulary practice and muscle memory training. In this guide, we explore the cognitive mechanics of non-native typing and share practical strategies to build English typing speed and accuracy.
+                </p>
+
+                <!-- SECTION 1 -->
+                <section id="cognitive-wall" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">01.</span>
+                        <span>The Cognitive Wall: Why Non-Native Typing Feels Slower</span>
+                    </h2>
+                    <p>
+                        When a native English speaker types, their brain executes "word-chunking"—translating an entire word into a single automatic gesture. For non-native speakers, the mental process often involves three extra steps:
+                    </p>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Reading &amp; Translating:</strong> Mentally converting visual words into phonetic sounds.</li>
+                        <li><strong class="text-white">Spelling Verification:</strong> Pausing to recall tricky silent letters or vowel pairings (<code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">ie</code> vs <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">ei</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">ough</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">tion</code>).</li>
+                        <li><strong class="text-white">Key Execution:</strong> Searching for physical key positions on the QWERTY board.</li>
+                    </ol>
+                    <p class="mt-4">
+                        These micro-delays add up quickly. Eliminating mental hesitation requires moving from character-by-character processing to subconscious motor execution.
+                    </p>
+                </section>
+
+                <!-- SECTION 2 -->
+                <section id="ngrams-practice" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">02.</span>
+                        <span>Strategy 1: Master Common English Word N-Grams</span>
+                    </h2>
+                    <p>
+                        English vocabulary relies heavily on repeating letter combinations known as <strong class="text-white">N-Grams</strong> (2-letter, 3-letter, or 4-letter clusters). By training your fingers on these common patterns, you can type thousands of English words effortlessly without consciously thinking about individual letters.
+                    </p>
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">Top English Clusters to Practice Daily:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li><strong class="text-white">Common Prefixes:</strong> <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">un-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">re-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">in-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">dis-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">pro-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">pre-</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">con-</code></li>
+                        <li><strong class="text-white">Common Suffixes:</strong> <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-tion</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-ing</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-ment</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-ness</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-able</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-ous</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">-ly</code></li>
+                        <li><strong class="text-white">Frequent Bigrams:</strong> <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">th</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">he</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">in</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">er</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">an</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">re</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">on</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">at</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">en</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">nd</code></li>
+                    </ul>
+                    <p class="mt-4">
+                        Dedicating 5 minutes a day to practicing these specific clusters allows your motor cortex to group them into single fluid motions. Learn more baseline acceleration techniques in our <a href="increase-typing-speed-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Guide to Increase Typing Speed</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 3 -->
+                <section id="spelling-mistakes" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">03.</span>
+                        <span>Strategy 2: Eliminate Common English Spelling Mistakes</span>
+                    </h2>
+                    <p>
+                        Unforced spelling mistakes force you to hit the <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Backspace</code> key, which severely degrades your net WPM score and overall efficiency.
+                    </p>
+                    <p>
+                        Pay close attention to these frequently misspelled English words during typing practice:
+                    </p>
+
+                    <!-- Responsive Spelling Table -->
+                    <div class="my-6 overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-slate-800/80 text-white font-semibold border-b border-slate-700/80">
+                                <tr>
+                                    <th class="p-4 sm:p-5">Tricky English Word</th>
+                                    <th class="p-4 sm:p-5">Common Non-Native Error</th>
+                                    <th class="p-4 sm:p-5">Typing Tip / Rule</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Accommodation</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Acomodation (Single c/m)</td>
+                                    <td class="p-4 sm:p-5">Remember: 2 <strong class="text-white">c</strong>'s and 2 <strong class="text-white">m</strong>'s</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Necessary</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Neccessary (Double c)</td>
+                                    <td class="p-4 sm:p-5">Remember: 1 <strong class="text-white">c</strong>ollar, 2 <strong class="text-white">s</strong>ocks</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Receive / Achieve</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Recieve / Acheive</td>
+                                    <td class="p-4 sm:p-5">Rule: <strong class="text-white">I</strong> before <strong class="text-white">E</strong> except after <strong class="text-white">C</strong></td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Separate</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Seperate</td>
+                                    <td class="p-4 sm:p-5">Remember: There is <strong class="text-white">"a rat"</strong> in sep<strong class="text-indigo-300">arat</strong>e</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Environment</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Enviroment (Missing n)</td>
+                                    <td class="p-4 sm:p-5">Remember the silent <strong class="text-white">n</strong>: enviro<strong class="text-indigo-300">n</strong>-ment</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        To fix persistent typos and build finger control, work through our step-by-step solutions in the <a href="typing-mistakes-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Mistakes &amp; Common Errors Guide</a> and prioritize precision using our <a href="typing-accuracy-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Typing Accuracy Guide</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 4 -->
+                <section id="touch-mechanics" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">04.</span>
+                        <span>Strategy 3: Build Proper Touch Typing Mechanics</span>
+                    </h2>
+                    <p>
+                        If you are looking down at your keyboard while trying to spell unfamiliar English words, your speed will remain capped under 30 WPM. Touch typing—typing without looking at the keycaps—allows your eyes to remain anchored on screen text or source documents.
+                    </p>
+                    <p>
+                        Anchor your hands on the <strong class="text-white">Home Row (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">A-S-D-F J-K-L-;</code>)</strong> and ensure each finger covers its designated keys. Start with fundamental positioning using our <a href="touch-typing-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Beginner's Guide to Touch Typing</a>.
+                    </p>
+
+                    <!-- Tip Box: Global Careers -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Why English Speed Matters for Global Careers</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-3">
+                            Whether you are preparing for international exams or applying for remote work, demonstrating strong English Net WPM opens key career paths:
+                        </p>
+                        <ul class="space-y-2 text-slate-300 text-sm sm:text-base">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Remote Work Readiness:</strong> Virtual Assistants and Customer Support agents need 50+ WPM in English. Check benchmarks in our <a href="typing-speed-requirements-for-remote-jobs.html" class="text-indigo-400 hover:text-indigo-300 underline">Remote Job Typing Speed Requirements</a>.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Software Engineering:</strong> Programmers who type English documentation and code syntax save hours daily. Read <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="text-indigo-400 hover:text-indigo-300 underline">Typing for Programmers &amp; Coding Speed</a>.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 5 -->
+                <section id="hardware-setup" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">05.</span>
+                        <span>Hardware and Practice Environment Optimization</span>
+                    </h2>
+                    <p>
+                        Having comfortable equipment reduces physical friction so your mind can focus on language processing:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Tactile Switches for Error Reduction:</strong> Tactile mechanical switches provide physical feedback upon key actuation, helping non-native typists confirm key presses without looking down. Explore switch mechanics in our <a href="top-custom-mechanical-keyboards-switches-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Custom Keyboards &amp; Switches Guide</a>.</li>
+                        <li><strong class="text-white">Practice Fun &amp; Interactive Drills:</strong> Gamified typing games help lower language anxiety by turning vocabulary building into a fun challenge. See our comparison in <a href="typing-games-vs-traditional-practice.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Games vs. Traditional Practice</a>.</li>
+                        <li><strong class="text-white">Workstation Posture:</strong> Maintain healthy wrist positioning during long study sessions by following our <a href="typing-ergonomics-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Ergonomics Guide</a>.</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION 6 -->
+                <section id="faq" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-6">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">06.</span>
+                        <span>Frequently Asked Questions (FAQs)</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">1. How long does it take for a non-native speaker to reach 50 WPM in English?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                With 15 to 20 minutes of daily structured touch typing practice, most non-native speakers reach a consistent 50 Net WPM in English within <strong class="text-white">30 to 45 days</strong>.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">2. Should I practice typing in my native language or English first?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Master basic home-row touch typing mechanics in whichever language feels most comfortable first. Once finger-key mapping becomes automatic, transferring those physical skills to English text becomes much easier.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">3. How do I test my baseline English typing speed accurately?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Take a standardized 3-minute or 5-minute English paragraph test on TypeNest's speed test tools to get an exact breakdown of your Gross WPM, Net WPM, and accuracy percentage.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONCLUSION -->
+                <section class="pt-8 border-t border-slate-800">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Conclusion</h2>
+                    <p>
+                        Typing rapidly in English as a non-native speaker is entirely achievable. By targeting common English letter clusters, eliminating spelling hesitation, and training your muscle memory on TypeNest, you can build fluent typing skills that support your career and academic goals.
+                    </p>
+                </section>
+
+                <!-- CONTINUE LEARNING SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Continue Learning</h2>
+                    <p class="text-slate-300 mb-4">
+                        Explore more ways to improve your typing proficiency with these related guides on TypeNest:
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 not-prose">
+                        <li>
+                            <a href="touch-typing-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Beginner's Guide to Touch Typing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="increase-typing-speed-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Guide to Increase Typing Speed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-accuracy-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Typing Accuracy Guide</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-ergonomics-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing Ergonomics Guide: How to Type Without Wrist Pain</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing for Programmers &amp; Coding Speed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-games-vs-traditional-practice.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing Games vs. Traditional Practice</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Meta Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-400">
+                    <p><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p><strong class="text-slate-300">Author:</strong> TypeNest Editorial Team</p>
+                </div>
+            </article>
         </div>
 
-        <h2 id="hardware-setup">5. Hardware and Practice Environment Optimization</h2>
-        <p>
-            Having comfortable equipment reduces physical friction so your mind can focus on language processing:
-        </p>
+        <!-- RELATED ARTICLES -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-slate-800">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400 text-xl"></i>
+                    <span>Continue Learning</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
+            </div>
 
-        <ul>
-            <li><strong>Tactile Switches for Error Reduction:</strong> Tactile mechanical switches provide physical feedback upon key actuation, helping non-native typists confirm key presses without looking down.</li>
-            <li><strong>Practice Fun &amp; Interactive Drills:</strong> Gamified typing games help lower language anxiety by turning vocabulary building into a fun challenge. See our comparison in <a href="typing-games-vs-traditional-practice.html">Typing Games vs. Traditional Practice</a>.</li>
-            <li><strong>Workstation Posture:</strong> Maintain healthy wrist positioning during long study sessions by following our <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide</a>.</li>
-        </ul>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Precision &amp; Focus</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Learn how mental concentration and muscle memory drastically reduce typos.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <h2 id="faq">6. Frequently Asked Questions (FAQs)</h2>
+                <a href="increase-typing-speed-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Speed Breakthrough</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Complete Guide to Increase Speed</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Discover practical techniques to build speed while maintaining peak typing precision.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <h3>1. How long does it take for a non-native speaker to reach 50 WPM in English?</h3>
-        <p>
-            With 15 to 20 minutes of daily structured touch typing practice, most non-native speakers reach a consistent 50 Net WPM in English within <strong>30 to 45 days</strong>.
-        </p>
+                <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Ergonomics &amp; Health</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+            </div>
+        </section>
 
-        <h3>2. Should I practice typing in my native language or English first?</h3>
-        <p>
-            Master basic home-row touch typing mechanics in whichever language feels most comfortable first. Once finger-key mapping becomes automatic, transferring those physical skills to English text becomes much easier.
-        </p>
+        <!-- UNIVERSAL CTA -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900/80 border border-indigo-500/30 p-8 sm:p-12 text-center shadow-2xl">
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                        Master English Typing Fluency on TypeNest
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mb-8">
+                        Train your fingers with interactive drills, paragraph speed tests, and real-time accuracy feedback on TypeNest.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href=index.html class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-keyboard"></i>
+                            <span>Start English Practice</span>
+                        </a>
+                        <a href="blog.html" class="px-6 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Explore More Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <h3>3. How do I test my baseline English typing speed accurately?</h3>
-        <p>
-            Take a standardized 3-minute or 5-minute English paragraph test on TypeNest's speed test tools to get an exact breakdown of your Gross WPM, Net WPM, and accuracy percentage.
-        </p>
+    <!-- DYNAMIC FOOTER CONTAINER -->
+    <div id="footer-container"></div>
 
-        <h2>Conclusion</h2>
-        <p>
-            Typing rapidly in English as a non-native speaker is entirely achievable. By targeting common English letter clusters, eliminating spelling hesitation, and training your muscle memory on TypeNest, you can build fluent typing skills that support your career and academic goals.
-        </p>
-
-        <h2>Continue Learning</h2>
-        <p>
-            Explore more ways to improve your typing proficiency with these related guides on TypeNest:
-        </p>
-
-        <ul>
-            <li><a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a></li>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a></li>
-            <li><a href="typing-ergonomics-guide.html">Typing Ergonomics Guide: How to Type Without Wrist Pain</a></li>
-            <li><a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Typing for Programmers &amp; Coding Speed</a></li>
-            <li><a href="typing-games-vs-traditional-practice.html">Typing Games vs. Traditional Practice</a></li>
-        </ul>
-
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
-
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-
-        <p>
-            Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.
-        </p>
-
-        <div class="related-grid">
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision &amp; Focus</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how mental concentration and muscle memory drastically reduce typos.</p>
-            </a>
-
-            <a href="increase-typing-speed-guide.html" class="related-card">
-                <span>🚀 Speed Breakthrough</span>
-                <h3>Complete Guide to Increase Speed</h3>
-                <p>Discover practical techniques to build speed while maintaining peak typing precision.</p>
-            </a>
-
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics &amp; Health</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Master English Typing Fluency on TypeNest</h2>
-
-        <p>
-            Train your fingers with interactive drills, paragraph speed tests, and real-time accuracy feedback on TypeNest.
-        </p>
-
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="typing.html" class="cta-btn-primary">📊 Start English Practice</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-
-        <button id="modalLoginBtn">Login</button>
-
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+    <!-- SCRIPTS -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

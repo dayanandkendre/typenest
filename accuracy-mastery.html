@@ -1,387 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Accuracy Mastery Course | TypeNest</title>
+  <meta name="description" content="Improve typing precision, eliminate mistakes, and master steady keyboard rhythm with TypeNest Accuracy Mastery drills.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://typenest.in/accuracy-mastery.html">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
 
-    <!-- SEO Meta Tags -->
-    <title>Accuracy Mastery Course | TypeNest</title>
-    <meta name="description" content="Reduce typing mistakes and improve consistency with practical exercises focused on typing accuracy. Master error-free touch typing on TypeNest.">
-    <meta name="keywords" content="typing accuracy course, reduce typing mistakes, error free typing practice, touch typing accuracy, TypeNest mastery">
+    @keyframes blinkCursor {
+      0%, 100% { border-color: #06b6d4; }
+      50% { border-color: transparent; }
+    }
+    .typing-cursor {
+      border-left: 2.5px solid #06b6d4;
+      animation: blinkCursor 0.9s infinite ease-in-out;
+      margin-left: -1px;
+    }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/accuracy-mastery.html">
+    .key-active {
+      transform: translateY(2px) scale(0.96) !important;
+      background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
+      color: #ffffff !important;
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.85) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-cyan-500 selection:text-white">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Accuracy Mastery Course | TypeNest">
-    <meta property="og:description" content="Reduce typing mistakes and improve consistency with targeted practical exercises on TypeNest.">
-    <meta property="og:url" content="https://typenest.in/accuracy-mastery.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Header is automatically injected by assets/js/layout.js -->
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="beginner.css">
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
-    <!-- Course Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Accuracy Mastery Course",
-      "description": "Reduce typing mistakes, improve consistency, and achieve professional-level accuracy while typing.",
-      "provider": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "sameAs": "https://typenest.in"
+    <!-- Top Banner -->
+    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">Course 03</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Accuracy Mastery Drills</h1>
+        </div>
+        <p class="text-slate-400 text-sm mt-1">Speed is a byproduct of precision. Focus on 100% correct keystrokes without rushing.</p>
+      </div>
+
+      <!-- Precision Drill Selector -->
+      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
+        <button onclick="setAccDrill(0, this)" id="abtn-0" class="abtn px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 text-white transition">Drill 1: Calm Rhythm</button>
+        <button onclick="setAccDrill(1, this)" id="abtn-1" class="abtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 2: Tricky Spellings</button>
+        <button onclick="setAccDrill(2, this)" id="abtn-2" class="abtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 3: Punctuation Rules</button>
+      </div>
+    </div>
+
+    <!-- Live Performance Stats Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Speed (WPM)</div>
+          <div id="statWPM" class="text-3xl font-extrabold text-cyan-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
+          <div id="statAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">100<span class="text-lg font-normal">%</span></div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
+          <div id="statErrors" class="text-3xl font-extrabold text-rose-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-circle-exclamation"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Precision Goal</div>
+          <div class="text-2xl font-extrabold text-amber-400 font-mono mt-0.5">99%+ Target</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-medal"></i></div>
+      </div>
+    </div>
+
+    <!-- Active Accuracy Arena -->
+    <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+        <span id="accTitle" class="font-medium text-slate-300 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Drill 1: Calm Rhythm & Zero Hesitation
+        </span>
+        <button onclick="resetAccDrill(this)" class="hover:text-cyan-400 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+        </button>
+      </div>
+
+      <!-- Hidden input for focus -->
+      <input type="text" id="mobileInputSink" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+      <div id="typingArea" onclick="focusAccuracyEngine()" class="cursor-text relative min-h-[140px] max-h-[220px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-3 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+        <div id="textDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
+      </div>
+    </div>
+
+    <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
+    <div id="keyboardWrapper"></div>
+
+  </main>
+
+  <!-- Page Logic Controller -->
+  <script>
+    const ACC_DRILLS = [
+      { title: "Drill 1: Calm Rhythm & Zero Hesitation", text: "Precision precedes velocity. Do not rush any stroke until you are certain of finger reach. A steady, calm typing tempo eliminates backspacing and produces genuine velocity over extended periods." },
+      { title: "Drill 2: Tricky Double Letters & Awkward Reaches", text: "Accommodate embarrassingly bizarre bureaucracy with conscientious precision. Millennium questionnaires supersede quintessential idiosyncrasies without unnecessary rhythm hesitations." },
+      { title: "Drill 3: Punctuation Rules & Controlled Pacing", text: "Can you maintain 100% precision? Always pause briefly after periods, commas, and semicolons: 'Practice makes permanent; only accurate practice makes perfect!'" }
+    ];
+
+    let currentDrillIdx = 0;
+
+    function initAccSession() {
+      const drill = ACC_DRILLS[currentDrillIdx];
+      const titleEl = document.getElementById('accTitle');
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> ${drill.title}`;
+      }
+
+      // Master typing engine call (Zen Mode - unlimited time for accuracy practice)
+      if (window.startTypingSession) {
+        window.startTypingSession(drill.text, 0);
       }
     }
-    </script>
-</head>
 
-<body>
+    // Global reset hook for Escape key
+    window.resetCurrentTest = function() {
+      initAccSession();
+    };
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    function resetAccDrill(btn) {
+      if (btn) btn.blur(); // Blur button so Spacebar never triggers button reset
+      initAccSession();
+    }
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    function focusAccuracyEngine() {
+      const sink = document.getElementById('mobileInputSink');
+      if (sink) sink.focus();
+    }
 
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
+    function setAccDrill(idx, btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = idx;
+      document.querySelectorAll('.abtn').forEach(b => {
+        b.classList.remove('bg-cyan-600', 'text-white');
+        b.classList.add('bg-transparent', 'text-slate-400');
+      });
+      const targetBtn = document.getElementById(`abtn-${idx}`);
+      if (targetBtn) {
+        targetBtn.classList.add('bg-cyan-600', 'text-white');
+        targetBtn.classList.remove('text-slate-400');
+      }
+      initAccSession();
+    }
 
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
+    window.addEventListener('DOMContentLoaded', () => {
+      initAccSession();
+    });
+  </script>
 
-<!-- HERO -->
-<div class="about-hero">
-    <h1>Accuracy Mastery Course</h1>
-    <p>Learn how to reduce typing errors, improve consistency, and achieve professional-level accuracy while typing.</p>
-</div>
-
-<!-- COURSE CONTENT -->
-<section class="course-content">
-
-    <div class="content-card">
-        <h2>Introduction to Typing Accuracy</h2>
-        <p>Typing accuracy is one of the most important aspects of becoming an efficient typist. While many learners focus entirely on increasing typing speed, accuracy is what determines the quality of your typing performance. Fast typing with frequent mistakes often results in wasted time because errors must be corrected later.</p>
-        <p>Professional typists understand that accuracy forms the foundation of speed. When your fingers consistently press the correct keys, your confidence increases, your rhythm improves, and your typing speed naturally grows over time.</p>
-        <p>This course will teach you how to minimize mistakes, improve concentration, develop better typing habits, and achieve professional-level accuracy through structured practice on <a href="typing.html">TypeNest Practice Drills</a>.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Why Accuracy Matters More Than Speed</h2>
-        <p>Many beginners believe that typing faster automatically makes them better typists. However, speed without accuracy often creates frustration and reduces productivity.</p>
-        <p>Consider the following comparison:</p>
-        <pre>50 WPM with 75% Accuracy  vs  35 WPM with 98% Accuracy</pre>
-        <p>The second typist is usually more productive because fewer mistakes mean less time spent correcting errors. Accuracy improves efficiency, reduces stress, and builds a stronger typing foundation.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Understanding Accuracy Percentage</h2>
-        <p>Accuracy percentage measures how many characters you type correctly compared to the total number of characters typed.</p>
-        <p>Most typing platforms calculate accuracy using a simple formula:</p>
-        <pre>Accuracy (%) = (Correct Characters ÷ Total Typed Characters) × 100</pre>
-        <p>Professional typists generally maintain accuracy levels above 95 percent. Competitive typists often achieve accuracy rates between 97 and 99 percent during <a href="tests.html">Timed Typing Tests</a>.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Common Causes of Typing Mistakes</h2>
-        <p>Understanding why mistakes occur is the first step toward eliminating them. Most typing errors result from habits rather than lack of ability.</p>
-        <ul>
-            <li>Typing too quickly before mastering accuracy.</li>
-            <li>Looking at the keyboard frequently.</li>
-            <li>Incorrect finger placement.</li>
-            <li>Lack of concentration.</li>
-            <li>Poor posture and hand positioning.</li>
-            <li>Insufficient typing practice.</li>
-            <li>Fatigue during long typing sessions.</li>
-        </ul>
-        <p>Identifying these causes allows learners to focus on correcting the habits that produce errors.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>The Importance of Finger Placement</h2>
-        <p>Proper finger placement plays a major role in typing accuracy. When fingers consistently return to their assigned positions, mistakes become less frequent and typing becomes more predictable.</p>
-        <p>Home row positioning should always remain your starting point:</p>
-        <pre>A S D F     J K L ;</pre>
-        <p>Returning to these keys after every movement improves control and reduces accidental key presses.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Building Concentration While Typing</h2>
-        <p>Accuracy depends heavily on concentration. Distractions reduce focus and increase the likelihood of mistakes. Many typists perform well during short sessions but struggle when attention decreases.</p>
-        <p>To improve concentration:</p>
-        <ul>
-            <li>Practice in a quiet environment.</li>
-            <li>Keep your eyes focused on the screen.</li>
-            <li>Avoid multitasking during practice.</li>
-            <li>Use short, focused sessions.</li>
-            <li>Take breaks when needed.</li>
-        </ul>
-        <p>Improved concentration directly improves typing accuracy.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>How Muscle Memory Improves Accuracy</h2>
-        <p>Muscle memory is the ability of your fingers to remember movement patterns through repetition. As muscle memory develops, typing becomes more automatic and accurate.</p>
-        <p>Every correctly typed word strengthens these movement patterns. Over time, your fingers learn where keys are located without requiring conscious thought.</p>
-        <p>Consistent daily practice is the fastest way to build strong muscle memory.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Avoiding the Backspace Habit</h2>
-        <p>Many learners press the Backspace key excessively. While correcting mistakes is important, constantly using Backspace interrupts typing flow and reduces confidence.</p>
-        <p>Instead of focusing on corrections, focus on preventing mistakes before they happen. Slow down slightly if necessary and prioritize precision over speed.</p>
-        <p>As accuracy improves, the need for corrections naturally decreases.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Accuracy Practice Exercises</h2>
-        <p>Structured exercises help improve typing precision. Start with simple words and gradually move to longer sentences.</p>
-        <pre>book   water   school   typing   computer   accuracy   practice   success</pre>
-        <p>Type these words slowly and focus on pressing every key correctly. Accuracy drills are most effective when performed regularly.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Creating a Strong Accuracy Foundation</h2>
-        <p>Every great typist builds their speed upon a foundation of accuracy. Without accuracy, speed becomes inconsistent and difficult to maintain.</p>
-        <p>By practicing proper finger placement, improving concentration, reducing unnecessary corrections, and developing muscle memory, learners can dramatically improve typing performance.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Error Reduction Techniques</h2>
-        <p>Reducing typing errors requires awareness, discipline, and consistent practice. The key is to identify recurring errors and deliberately work on correcting them.</p>
-        <ul>
-            <li>Slow down when accuracy drops.</li>
-            <li>Practice difficult words repeatedly.</li>
-            <li>Use proper finger placement.</li>
-            <li>Avoid looking at the keyboard.</li>
-            <li>Focus on smooth and controlled typing.</li>
-        </ul>
-    </div>
-
-    <div class="content-card">
-        <h2>Learning from Mistakes</h2>
-        <p>Every typing mistake provides valuable information. Use errors as opportunities to identify weaknesses and improve performance by keeping track of frequently mistyped words.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Daily Accuracy Training Routine</h2>
-        <p>A structured daily routine helps improve accuracy faster than random practice sessions.</p>
-        <h3>First 5 Minutes</h3>
-        <p>Practice home row exercises and finger placement drills.</p>
-        <h3>Next 10 Minutes</h3>
-        <p>Type common words slowly and accurately.</p>
-        <h3>Next 10 Minutes</h3>
-        <p>Practice full sentences and short paragraphs.</p>
-        <h3>Final 5 Minutes</h3>
-        <p>Complete a timed typing test while focusing on minimizing errors.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Improving Focus During Typing Tests</h2>
-        <p>Learning to remain calm and focused is essential for maintaining accuracy during timed conditions.</p>
-        <ul>
-            <li>Take a deep breath before starting.</li>
-            <li>Focus on one word at a time.</li>
-            <li>Do not panic after mistakes.</li>
-            <li>Maintain a steady rhythm.</li>
-            <li>Avoid rushing near the end of the test.</li>
-        </ul>
-    </div>
-
-    <div class="content-card">
-        <h2>Achieving 95 to 99 Percent Accuracy</h2>
-        <p>Reaching 95% to 99% accuracy requires attention to detail and consistent practice over a long period. At this stage, consistency becomes more important than raw speed.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>30-Day Accuracy Improvement Plan</h2>
-        <h3>Week 1</h3><p>Focus on proper finger placement and home row positioning.</p>
-        <h3>Week 2</h3><p>Practice common words and short sentences while minimizing mistakes.</p>
-        <h3>Week 3</h3><p>Increase paragraph length and improve concentration.</p>
-        <h3>Week 4</h3><p>Complete daily typing tests while targeting 95 percent or higher accuracy.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Accuracy for Competitive Exams</h2>
-        <p>Many government and recruitment examinations include typing assessments where both speed and accuracy are evaluated. Practice under timed conditions and track your accuracy percentage regularly.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Professional Typing Habits & Final Thoughts</h2>
-        <p>Professional typists keep their eyes on the screen, maintain good posture, and take short breaks. Accuracy is the foundation upon which all great typing skills are built. Stay patient, remain consistent, and continue practicing with purpose.</p>
-    </div>
-
-</section>
-
-<!-- RELATED TYPING GUIDES -->
-<section class="related-guides">
-    <div class="container">
-        <div class="related-header">
-            <span class="related-badge">📚 RELATED GUIDES</span>
-            <h2>Master Accuracy With <span>Expert Typing Guides</span></h2>
-            <p>Explore practical typing guides to improve typing accuracy, reduce typing mistakes, strengthen finger control, and build consistent typing performance.</p>
-        </div>
-
-        <div class="related-grid">
-            <div class="related-card">
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn proven techniques to improve typing accuracy, reduce errors, and develop reliable muscle memory.</p>
-                <a href="typing-accuracy-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Common Typing Mistakes Guide</h3>
-                <p>Discover the most common typing mistakes beginners make and learn practical ways to avoid them.</p>
-                <a href="typing-mistakes-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>What Is Touch Typing?</h3>
-                <p>Build stronger finger placement, improve keyboard confidence, and increase long-term typing accuracy.</p>
-                <a href="touch-typing-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Government Typing Test Guide</h3>
-                <p>Prepare for government typing exams by improving accuracy, consistency, and real-time typing performance.</p>
-                <a href="government-typing-test-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<div class="course-cta">
-    <h2>Ready To Improve Accuracy?</h2>
-    <p>Practice regularly and build the habits required for accurate and professional typing.</p>
-    <a href="typing.html" class="course-btn">Start Accuracy Practice</a>
-</div>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -34,10 +33,52 @@
     <meta property="og:url" content="https://typenest.in/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Configuration & Font Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -61,432 +102,471 @@
     }
     </script>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col antialiased">
 
-<body class="light">
+    <!-- DYNAMIC HEADER NAVBAR CONTAINER -->
+    <div id="header-container"></div>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow pt-24 pb-16">
+        <!-- HERO SECTION -->
+        <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Home</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-300 truncate">Qwerty vs. Dvorak vs. Colemak</span>
+            </nav>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
-
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Qwerty vs. Dvorak vs. Colemak</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">⌨️ Keyboard Layouts</span>
-
-        <!-- Title -->
-        <h1>Qwerty vs. Dvorak vs. Colemak: Is It Really Worth Switching Layouts?</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Most of us use QWERTY simply because it came pre-installed on our devices. But is it actually the best layout for fast, comfortable typing, or should you switch to Dvorak or Colemak?
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 11 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-
-    <!-- Featured Image -->
-    <div class="featured-image">
-        <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp" alt="Qwerty vs Dvorak vs Colemak Keyboard Layout Comparison">
-    </div>
-
-    <article class="article-content">
-
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Navigate through the keyboard layout comparison.</p>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-5">
+                <i class="fa-regular fa-keyboard"></i>
+                <span>Keyboard Layouts</span>
             </div>
-            <div class="toc-grid">
-                <a href="#qwerty-layout" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">QWERTY Layout</span></a>
-                <a href="#dvorak-layout" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Dvorak Simplified Layout</span></a>
-                <a href="#colemak-layout" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Colemak Layout</span></a>
-                <a href="#head-to-head" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Head-to-Head Comparison</span></a>
-                <a href="#speed-impact" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Impact on Typing Speed</span></a>
-                <a href="#switching-guide" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">How to Switch Layouts</span></a>
-                <a href="#hardware-switches" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">Hardware &amp; Switches</span></a>
-                <a href="#faq" class="toc-item"><span class="toc-number">08</span><span class="toc-line"></span><span class="toc-title">FAQs</span></a>
+
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Qwerty vs. Dvorak vs. Colemak: Is It Really Worth Switching Layouts?
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                Most of us use QWERTY simply because it came pre-installed on our devices. But is it actually the best layout for fast, comfortable typing, or should you switch to Dvorak or Colemak?
+            </p>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-400 border-y border-slate-800/80 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-indigo-400"></i>
+                    <span>Updated: September 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-indigo-400"></i>
+                    <span>11 min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-user text-indigo-400"></i>
+                    <span>TypeNest Team</span>
+                </div>
             </div>
+        </header>
+
+        <!-- ARTICLE CONTAINER -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl relative">
+                <img src="images/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts.webp" alt="Qwerty vs Dvorak vs Colemak Keyboard Layout Comparison" class="w-full h-auto object-cover max-h-[460px]">
+            </div>
+
+            <article class="prose prose-invert prose-indigo max-w-none space-y-8 text-slate-300 leading-relaxed text-base sm:text-lg">
+                <!-- TABLE OF CONTENTS -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl not-prose mb-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400 text-lg"></i>
+                        <h2 class="text-xl font-bold text-white tracking-wide">Table of Contents</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Navigate through the keyboard layout comparison.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="#qwerty-layout" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">01</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">QWERTY Layout</span>
+                        </a>
+                        <a href="#dvorak-layout" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">02</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Dvorak Simplified Layout</span>
+                        </a>
+                        <a href="#colemak-layout" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">03</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Colemak Layout</span>
+                        </a>
+                        <a href="#head-to-head" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">04</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Head-to-Head Comparison</span>
+                        </a>
+                        <a href="#speed-impact" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">05</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Impact on Typing Speed</span>
+                        </a>
+                        <a href="#switching-guide" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">06</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">How to Switch Layouts</span>
+                        </a>
+                        <a href="#hardware-switches" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">07</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Hardware &amp; Switches</span>
+                        </a>
+                        <a href="#faq" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">08</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">FAQs</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed">
+                    Have you ever finished a long typing session and felt a dull ache in your wrists or fingers? If so, you are not alone. Almost every standard laptop and mechanical keyboard sold today comes printed with the classic <strong class="text-white">QWERTY</strong> layout. We rarely pause to ask why the keys are placed where they are—we just learn them and move on.
+                </p>
+
+                <p>
+                    Surprisingly, QWERTY was never designed for speed or comfort. It was created in the 1870s for mechanical typewriters to keep frequently paired letters far apart, preventing physical typebars from jamming. Fast forward over a century: mechanical typebars are long gone, yet we are still using a layout designed for Victorian-era mechanical limits.
+                </p>
+
+                <p>
+                    This realization has led thousands of typists, programmers, and writers to explore ergonomic alternatives like <strong class="text-white">Dvorak</strong> and <strong class="text-white">Colemak</strong>. But changing the layout you have used your entire life is no small decision. Is the transition worth weeks of temporary slowdown, or are you better off sticking with QWERTY? Let's take a practical look at all three.
+                </p>
+
+                <!-- SECTION 1 -->
+                <section id="qwerty-layout" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">01.</span>
+                        <span>The QWERTY Layout: Universal, But Ergonomically Flawed</span>
+                    </h2>
+                    <p>
+                        QWERTY is the undisputed global standard. Its primary advantage isn't ergonomics—it's <strong class="text-white">ubiquity</strong>. Walk up to any computer anywhere in the world, and you can start typing immediately without configuring software settings or carrying a custom keyboard.
+                    </p>
+                    <p>
+                        However, from an efficiency perspective, QWERTY leaves a lot to be desired:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Low Home Row Usage:</strong> On QWERTY, only about <strong class="text-white">32%</strong> of all typing occurs on the home row (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">A-S-D-F J-K-L-;</code>). Your fingers spend most of their time reaching up to the top row or jumping down to the bottom row.</li>
+                        <li><strong class="text-white">Left-Hand Bias:</strong> QWERTY forces your left hand to do roughly 57% of the work, despite most people being right-handed.</li>
+                        <li><strong class="text-white">Awkward Finger Hurdles:</strong> Common words like <em class="text-slate-200">"minimum"</em> force a single finger to hurdle across multiple rows repeatedly.</li>
+                    </ul>
+                    <p>
+                        Despite these flaws, millions of people achieve impressive speeds on QWERTY. If you want to optimize your current setup before jumping ship, review our <a href="increase-typing-speed-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Complete Guide to Increase Typing Speed</a> or explore our <a href="touch-typing-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Beginner's Guide to Touch Typing</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 2 -->
+                <section id="dvorak-layout" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">02.</span>
+                        <span>The Dvorak Simplified Layout: Built for Maximum Efficiency</span>
+                    </h2>
+                    <p>
+                        Patented in 1936 by Dr. August Dvorak, the <strong class="text-white">Dvorak Simplified Keyboard</strong> was engineered specifically to fix QWERTY’s ergonomic weaknesses. Dr. Dvorak studied hand physiology and English letter frequencies to create a layout built for natural hand motion.
+                    </p>
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">How Dvorak Works:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li><strong class="text-white">Vowels on the Left, Consonants on the Right:</strong> All major vowels (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">A</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">O</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">E</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">U</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">I</code>) sit on the left home row, while the most common consonants (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">D</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">H</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">T</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">N</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">S</code>) sit on the right home row.</li>
+                        <li><strong class="text-white">Massive Home Row Focus:</strong> Around <strong class="text-white">70%</strong> of all typing happens directly on the home row. This dramatically reduces finger travel distance.</li>
+                        <li><strong class="text-white">Alternating Hand Rhythm:</strong> Dvorak promotes a natural left-right-left-right typing cadence, similar to tapping your fingers rhythmically on a table.</li>
+                    </ul>
+                    <p>
+                        While Dvorak drastically reduces finger distance, it has a steep learning curve. Because almost every key is relocated, switching feels like learning to type all over again. Additionally, hotkeys like <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + C</code> (Copy) and <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + V</code> (Paste) are scattered across the board, making shortcuts awkward for designers and programmers who rely on essential <a href="keyboard-shortcuts.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Productivity Keyboard Shortcuts</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 3 -->
+                <section id="colemak-layout" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">03.</span>
+                        <span>The Colemak Layout: The Modern Ergonomic Middle Ground</span>
+                    </h2>
+                    <p>
+                        Released in 2006 by Shai Coleman, <strong class="text-white">Colemak</strong> has quickly become the preferred alternative layout for modern computer users. It was designed using computer algorithms to optimize finger movement while remaining easy to learn for QWERTY users.
+                    </p>
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">Why Many Typists Prefer Colemak:</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li><strong class="text-white">Changes Only 17 Keys:</strong> Colemak keeps 14 QWERTY keys in their original positions, meaning your muscle memory doesn't completely collapse during the transition.</li>
+                        <li><strong class="text-white">Preserves Essential Shortcuts:</strong> Crucial shortcut keys like <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + Z</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + X</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + C</code>, and <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Ctrl + V</code> remain in their exact QWERTY locations.</li>
+                        <li><strong class="text-white">Ergonomic Superiority:</strong> Colemak achieves <strong class="text-white">74% home row usage</strong>—even higher than Dvorak—and heavily utilizes your strongest index and middle fingers.</li>
+                        <li><strong class="text-white">Backspace Placement:</strong> Colemak replaces the underused <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Caps Lock</code> key with a second <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Backspace</code> key right under your left pinky, eliminating awkward reaches to the top-right corner.</li>
+                    </ul>
+                    <p>
+                        If you are interested in how hand movement impacts focus and reduces mental strain, check out our article on the <a href="psychology-of-typing-train-brain-for-blind-typing.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Psychology of Typing &amp; Brain Training</a>.
+                    </p>
+                </section>
+
+                <!-- SECTION 4 -->
+                <section id="head-to-head" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">04.</span>
+                        <span>Head-to-Head Comparison: QWERTY vs. Dvorak vs. Colemak</span>
+                    </h2>
+
+                    <!-- Responsive Comparison Table -->
+                    <div class="my-6 overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-slate-800/80 text-white font-semibold border-b border-slate-700/80">
+                                <tr>
+                                    <th class="p-4 sm:p-5">Feature</th>
+                                    <th class="p-4 sm:p-5">QWERTY</th>
+                                    <th class="p-4 sm:p-5">Dvorak</th>
+                                    <th class="p-4 sm:p-5">Colemak</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Primary Goal</td>
+                                    <td class="p-4 sm:p-5">Prevent typewriter jams</td>
+                                    <td class="p-4 sm:p-5">Maximize hand alternation &amp; speed</td>
+                                    <td class="p-4 sm:p-5 text-indigo-300">Ergonomics &amp; easy learning curve</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Home Row Usage</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-400">~32%</td>
+                                    <td class="p-4 sm:p-5 font-mono text-emerald-400">~70%</td>
+                                    <td class="p-4 sm:p-5 font-mono text-emerald-400 font-bold">~74%</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Finger Travel (Relative)</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-semibold">Highest (100%)</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400">Very Low (~38% of QWERTY)</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-bold">Lowest (~35% of QWERTY)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Common Shortcuts (<code class="text-xs bg-slate-800 px-1 py-0.5 rounded border border-slate-700">Ctrl+C/V</code>)</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400">Standard</td>
+                                    <td class="p-4 sm:p-5 text-rose-400">Scattered</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400 font-semibold">Preserved</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Learning Curve</td>
+                                    <td class="p-4 sm:p-5 text-slate-400">Baseline</td>
+                                    <td class="p-4 sm:p-5 text-rose-400 font-medium">Hard (3-6 weeks)</td>
+                                    <td class="p-4 sm:p-5 text-amber-400 font-medium">Moderate (2-4 weeks)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Native OS Support</td>
+                                    <td class="p-4 sm:p-5 text-emerald-400">Universal</td>
+                                    <td class="p-4 sm:p-5">Pre-installed on Win/Mac/Linux</td>
+                                    <td class="p-4 sm:p-5">Pre-installed on Mac/Linux (Easy on Win)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- SECTION 5 -->
+                <section id="speed-impact" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">05.</span>
+                        <span>Does Changing Layouts Actually Increase Typing Speed?</span>
+                    </h2>
+                    <p>
+                        Here is an honest truth that many layout advocates gloss over: <strong class="text-white">switching to Dvorak or Colemak will not automatically make you a 120 WPM typist</strong>.
+                    </p>
+                    <p>
+                        Typing speed is primarily driven by muscle memory, finger agility, and reading ahead—not just key arrangement. High-speed typists reach 100+ WPM on QWERTY every day. What alternative layouts <em class="text-indigo-300">do</em> provide is <strong class="text-white">unmatched ergonomic comfort</strong>. If finger travel is reduced by 60%, your hands experience far less physical fatigue over an 8-hour workday.
+                    </p>
+                    <p>
+                        If wrist health and posture are your main concerns, switching layouts is best paired with solid workstation habits. Read our <a href="typing-ergonomics-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Ergonomics Guide</a> to ensure your desk and wrist positions are aligned properly.
+                    </p>
+
+                    <!-- Tip Box -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Who Should Consider Switching?</span>
+                        </h3>
+                        <ul class="space-y-2 text-slate-300 text-sm sm:text-base">
+                            <li><strong class="text-white">Switch to Colemak or Dvorak if:</strong> You suffer from repetitive strain injury (RSI), wrist fatigue, or spend 6+ hours daily typing code or prose.</li>
+                            <li><strong class="text-white">Stick with QWERTY if:</strong> You frequently use shared public computers, take timed state exams like those covered in our <a href="government-typing-test-guide.html" class="text-indigo-400 hover:text-indigo-300 underline">Government Typing Exam Guide</a>, or do not want to invest weeks rebuilding muscle memory.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 6 -->
+                <section id="switching-guide" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">06.</span>
+                        <span>How to Switch Layouts Without Losing Your Mind</span>
+                    </h2>
+                    <p>
+                        If you decide to try Colemak or Dvorak, follow this practical approach to avoid frustration:
+                    </p>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Do Not Peel Off Your Keycaps:</strong> Looking down at a rearranged physical keyboard slows down learning. Keep your eyes on the screen and rely entirely on touch feedback.</li>
+                        <li><strong class="text-white">Use Tarmak (For Colemak):</strong> Tarmak is a transitional system that changes QWERTY to Colemak across 5 gradual steps, switching just 3 to 4 keys at a time.</li>
+                        <li><strong class="text-white">Practice 20 Minutes Daily:</strong> Spend 20 minutes every morning on basic drills before starting your normal day. Track your progress with accurate tools like our <a href="typing-speed-test-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing Speed Test Guide</a>.</li>
+                        <li><strong class="text-white">Be Patient with the "Speed Dip":</strong> Your speed will drop to 10-15 WPM initially. It usually takes about 3 to 4 weeks of consistent practice to regain your baseline QWERTY speed.</li>
+                    </ol>
+                </section>
+
+                <!-- SECTION 7 -->
+                <section id="hardware-switches" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">07.</span>
+                        <span>Hardware Considerations: Mechanical Keyboards &amp; Switches</span>
+                    </h2>
+                    <p>
+                        Hardware plays a significant role in your typing experience. Tactile mechanical switches or light linear switches pair exceptionally well with alternative layouts by providing immediate physical feedback without requiring heavy finger pressure.
+                    </p>
+                    <p>
+                        Whether you stick with QWERTY or adopt Colemak, upgrading your hardware can improve comfort. Check out our detailed comparison on <a href="mechanical-vs-membrane-keyboards.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Mechanical vs. Membrane Keyboards</a> to find the right switch setup for your hands.
+                    </p>
+                </section>
+
+                <!-- SECTION 8 -->
+                <section id="faq" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-6">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">08.</span>
+                        <span>Frequently Asked Questions (FAQs)</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">1. Can I stay bilingual in both QWERTY and Colemak?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Yes! Many typists retain "dual muscle memory." Think of it like driving both an automatic and a manual car. With practice, your brain automatically switches modes based on the keyboard layout you are using.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">2. Is Colemak better than Dvorak for programmers?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Most developers prefer Colemak because it preserves QWERTY's shortcuts (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Ctrl + C</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Ctrl + V</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Ctrl + Z</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Ctrl + X</code>) and keeps common coding symbols like brackets and semicolons easily accessible. For more developer-specific tips, read <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Typing for Programmers &amp; Productivity</a>.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">3. Are alternative layouts suitable for children and students?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                While children learn new layouts quickly, QWERTY remains essential for school computer labs and standardized tests. Review our <a href="kids-students-touch-typing-guide.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">Touch Typing Guide for Kids &amp; Students</a> for balanced learning strategies.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FINAL VERDICT -->
+                <section class="pt-8 border-t border-slate-800">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">Final Verdict</h2>
+                    <p>
+                        QWERTY isn't going anywhere anytime soon, and for most casual users, it gets the job done. But if you spend your days at a keyboard and want a smoother, more comfortable typing experience, <strong class="text-white">Colemak</strong> offers the best balance of modern ergonomics, shortcut preservation, and ease of adoption.
+                    </p>
+                    <p>
+                        Ready to test your current setup? Benchmark your speed and accuracy on <strong class="text-white">TypeNest</strong> today!
+                    </p>
+                </section>
+
+                <!-- CONTINUE LEARNING SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Continue Learning</h2>
+                    <p class="text-slate-300 mb-4">
+                        Improving your keyboard experience involves more than just selecting a layout. Explore these related guides to elevate your typing performance:
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 not-prose">
+                        <li>
+                            <a href="typing-accuracy-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Typing Accuracy Guide: Eliminate Mistakes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-speed-benchmarks-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing Speed Benchmarks: What Speed Should You Aim For?</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-mistakes-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Common Typing Mistakes and How to Fix Them</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="best-free-typing-websites.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Top Free Typing Platforms Compared</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Meta Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-400">
+                    <p><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p><strong class="text-slate-300">Author:</strong> TypeNest Editorial Team</p>
+                </div>
+            </article>
         </div>
 
-        <p class="lead">
-            Have you ever finished a long typing session and felt a dull ache in your wrists or fingers? If so, you are not alone. Almost every standard laptop and mechanical keyboard sold today comes printed with the classic <strong>QWERTY</strong> layout. We rarely pause to ask why the keys are placed where they are—we just learn them and move on.
-        </p>
+        <!-- RELATED ARTICLES -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-slate-800">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400 text-xl"></i>
+                    <span>Continue Learning</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
+            </div>
 
-        <p>
-            Surprisingly, QWERTY was never designed for speed or comfort. It was created in the 1870s for mechanical typewriters to keep frequently paired letters far apart, preventing physical typebars from jamming. Fast forward over a century: mechanical typebars are long gone, yet we are still using a layout designed for Victorian-era mechanical limits.
-        </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="touch-typing-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-regular fa-keyboard"></i>
+                            <span>Touch Typing</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Complete Beginner's Guide to Touch Typing</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Master home row muscle memory and proper finger placement step by step.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <p>
-            This realization has led thousands of typists, programmers, and writers to explore ergonomic alternatives like <strong>Dvorak</strong> and <strong>Colemak</strong>. But changing the layout you have used your entire life is no small decision. Is the transition worth weeks of temporary slowdown, or are you better off sticking with QWERTY? Let's take a practical look at all three.
-        </p>
+                <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Precision &amp; Focus</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Learn how mental concentration and muscle memory drastically reduce typos.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
 
-        <h2 id="qwerty-layout">1. The QWERTY Layout: Universal, But Ergonomically Flawed</h2>
-        <p>
-            QWERTY is the undisputed global standard. Its primary advantage isn't ergonomics—it's <strong>ubiquity</strong>. Walk up to any computer anywhere in the world, and you can start typing immediately without configuring software settings or carrying a custom keyboard.
-        </p>
+                <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Ergonomics &amp; Health</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+            </div>
+        </section>
 
-        <p>
-            However, from an efficiency perspective, QWERTY leaves a lot to be desired:
-        </p>
+        <!-- UNIVERSAL CTA -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900/80 border border-indigo-500/30 p-8 sm:p-12 text-center shadow-2xl">
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                        Elevate Your Typing Comfort with TypeNest
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mb-8">
+                        Train your fingers with interactive drills, custom layout tests, and real-time accuracy feedback on TypeNest.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href=index.html class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-regular fa-keyboard"></i>
+                            <span>Start Layout Practice</span>
+                        </a>
+                        <a href="blog.html" class="px-6 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Explore More Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <ul>
-            <li><strong>Low Home Row Usage:</strong> On QWERTY, only about <strong>32%</strong> of all typing occurs on the home row (<code>A-S-D-F J-K-L-;</code>). Your fingers spend most of their time reaching up to the top row or jumping down to the bottom row.</li>
-            <li><strong>Left-Hand Bias:</strong> QWERTY forces your left hand to do roughly 57% of the work, despite most people being right-handed.</li>
-            <li><strong>Awkward Finger Hurdles:</strong> Common words like <em>"minimum"</em> force a single finger to hurdle across multiple rows repeatedly.</li>
-        </ul>
+    <!-- DYNAMIC FOOTER CONTAINER -->
+    <div id="footer-container"></div>
 
-        <p>
-            Despite these flaws, millions of people achieve impressive speeds on QWERTY. If you want to optimize your current setup before jumping ship, review our <a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a> or explore our <a href="touch-typing-guide.html">Beginner's Guide to Touch Typing</a>.
-        </p>
-
-        <h2 id="dvorak-layout">2. The Dvorak Simplified Layout: Built for Maximum Efficiency</h2>
-        <p>
-            Patented in 1936 by Dr. August Dvorak, the <strong>Dvorak Simplified Keyboard</strong> was engineered specifically to fix QWERTY’s ergonomic weaknesses. Dr. Dvorak studied hand physiology and English letter frequencies to create a layout built for natural hand motion.
-        </p>
-
-        <h3>How Dvorak Works:</h3>
-        <ul>
-            <li><strong>Vowels on the Left, Consonants on the Right:</strong> All major vowels (<code>A</code>, <code>O</code>, <code>E</code>, <code>U</code>, <code>I</code>) sit on the left home row, while the most common consonants (<code>D</code>, <code>H</code>, <code>T</code>, <code>N</code>, <code>S</code>) sit on the right home row.</li>
-            <li><strong>Massive Home Row Focus:</strong> Around <strong>70%</strong> of all typing happens directly on the home row. This dramatically reduces finger travel distance.</li>
-            <li><strong>Alternating Hand Rhythm:</strong> Dvorak promotes a natural left-right-left-right typing cadence, similar to tapping your fingers rhythmically on a table.</li>
-        </ul>
-
-        <p>
-            While Dvorak drastically reduces finger distance, it has a steep learning curve. Because almost every key is relocated, switching feels like learning to type all over again. Additionally, hotkeys like <code>Ctrl + C</code> (Copy) and <code>Ctrl + V</code> (Paste) are scattered across the board, making shortcuts awkward for designers and programmers who rely on essential <a href="keyboard-shortcuts.html">Productivity Keyboard Shortcuts</a>.
-        </p>
-
-        <h2 id="colemak-layout">3. The Colemak Layout: The Modern Ergonomic Middle Ground</h2>
-        <p>
-            Released in 2006 by Shai Coleman, <strong>Colemak</strong> has quickly become the preferred alternative layout for modern computer users. It was designed using computer algorithms to optimize finger movement while remaining easy to learn for QWERTY users.
-        </p>
-
-        <h3>Why Many Typists Prefer Colemak:</h3>
-        <ul>
-            <li><strong>Changes Only 17 Keys:</strong> Colemak keeps 14 QWERTY keys in their original positions, meaning your muscle memory doesn't completely collapse during the transition.</li>
-            <li><strong>Preserves Essential Shortcuts:</strong> Crucial shortcut keys like <code>Ctrl + Z</code>, <code>Ctrl + X</code>, <code>Ctrl + C</code>, and <code>Ctrl + V</code> remain in their exact QWERTY locations.</li>
-            <li><strong>Ergonomic Superiority:</strong> Colemak achieves <strong>74% home row usage</strong>—even higher than Dvorak—and heavily utilizes your strongest index and middle fingers.</li>
-            <li><strong>Backspace Placement:</strong> Colemak replaces the underused <code>Caps Lock</code> key with a second <code>Backspace</code> key right under your left pinky, eliminating awkward reaches to the top-right corner.</li>
-        </ul>
-
-        <p>
-            If you are interested in how hand movement impacts focus and reduces mental strain, check out our article on the <a href="psychology-of-typing-train-brain-for-blind-typing.html">Psychology of Typing &amp; Brain Training</a>.
-        </p>
-
-        <h2 id="head-to-head">Head-to-Head Comparison: QWERTY vs. Dvorak vs. Colemak</h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>QWERTY</th>
-                    <th>Dvorak</th>
-                    <th>Colemak</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Primary Goal</strong></td>
-                    <td>Prevent typewriter jams</td>
-                    <td>Maximize hand alternation &amp; speed</td>
-                    <td>Ergonomics &amp; easy learning curve</td>
-                </tr>
-                <tr>
-                    <td><strong>Home Row Usage</strong></td>
-                    <td>~32%</td>
-                    <td>~70%</td>
-                    <td>~74%</td>
-                </tr>
-                <tr>
-                    <td><strong>Finger Travel (Relative)</strong></td>
-                    <td>Highest (100%)</td>
-                    <td>Very Low (~38% of QWERTY)</td>
-                    <td>Lowest (~35% of QWERTY)</td>
-                </tr>
-                <tr>
-                    <td><strong>Common Shortcuts (<code>Ctrl+C/V</code>)</strong></td>
-                    <td>Standard</td>
-                    <td>Scattered</td>
-                    <td>Preserved</td>
-                </tr>
-                <tr>
-                    <td><strong>Learning Curve</strong></td>
-                    <td>Baseline</td>
-                    <td>Hard (3-6 weeks)</td>
-                    <td>Moderate (2-4 weeks)</td>
-                </tr>
-                <tr>
-                    <td><strong>Native OS Support</strong></td>
-                    <td>Universal</td>
-                    <td>Pre-installed on Windows/Mac/Linux</td>
-                    <td>Pre-installed on Mac/Linux (Easy install on Win)</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="speed-impact">Does Changing Layouts Actually Increase Typing Speed?</h2>
-        <p>
-            Here is an honest truth that many layout advocates gloss over: <strong>switching to Dvorak or Colemak will not automatically make you a 120 WPM typist</strong>.
-        </p>
-
-        <p>
-            Typing speed is primarily driven by muscle memory, finger agility, and reading ahead—not just key arrangement. High-speed typists reach 100+ WPM on QWERTY every day. What alternative layouts <em>do</em> provide is <strong>unmatched ergonomic comfort</strong>. If finger travel is reduced by 60%, your hands experience far less physical fatigue over an 8-hour workday.
-        </p>
-
-        <p>
-            If wrist health and posture are your main concerns, switching layouts is best paired with solid workstation habits. Read our <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide</a> to ensure your desk and wrist positions are aligned properly.
-        </p>
-
-        <div class="tip-box">
-            <h3>💡 Who Should Consider Switching?</h3>
-            <ul>
-                <li><strong>Switch to Colemak or Dvorak if:</strong> You suffer from repetitive strain injury (RSI), wrist fatigue, or spend 6+ hours daily typing code or prose.</li>
-                <li><strong>Stick with QWERTY if:</strong> You frequently use shared public computers, take timed state exams like those covered in our <a href="government-typing-test-guide.html">Government Typing Exam Guide</a>, or do not want to invest weeks rebuilding muscle memory.</li>
-            </ul>
-        </div>
-
-        <h2 id="switching-guide">How to Switch Layouts Without Losing Your Mind</h2>
-        <p>
-            If you decide to try Colemak or Dvorak, follow this practical approach to avoid frustration:
-        </p>
-
-        <ol>
-            <li><strong>Do Not Peel Off Your Keycaps:</strong> Looking down at a rearranged physical keyboard slows down learning. Keep your eyes on the screen and rely entirely on touch feedback.</li>
-            <li><strong>Use Tarmak (For Colemak):</strong> Tarmak is a transitional system that changes QWERTY to Colemak across 5 gradual steps, switching just 3 to 4 keys at a time.</li>
-            <li><strong>Practice 20 Minutes Daily:</strong> Spend 20 minutes every morning on basic drills before starting your normal day. Track your progress with accurate tools like our <a href="typing-speed-test-guide.html">Typing Speed Test Guide</a>.</li>
-            <li><strong>Be Patient with the "Speed Dip":</strong> Your speed will drop to 10-15 WPM initially. It usually takes about 3 to 4 weeks of consistent practice to regain your baseline QWERTY speed.</li>
-        </ol>
-
-        <h2 id="hardware-switches">Hardware Considerations: Mechanical Keyboards &amp; Switches</h2>
-        <p>
-            Hardware plays a significant role in your typing experience. Tactile mechanical switches or light linear switches pair exceptionally well with alternative layouts by providing immediate physical feedback without requiring heavy finger pressure.
-        </p>
-
-        <p>
-            Whether you stick with QWERTY or adopt Colemak, upgrading your hardware can improve comfort. Check out our detailed comparison on <a href="mechanical-vs-membrane-keyboards.html">Mechanical vs. Membrane Keyboards</a> to find the right switch setup for your hands.
-        </p>
-
-        <h2 id="faq">Frequently Asked Questions (FAQs)</h2>
-
-        <h3>1. Can I stay bilingual in both QWERTY and Colemak?</h3>
-        <p>
-            Yes! Many typists retain "dual muscle memory." Think of it like driving both an automatic and a manual car. With practice, your brain automatically switches modes based on the keyboard layout you are using.
-        </p>
-
-        <h3>2. Is Colemak better than Dvorak for programmers?</h3>
-        <p>
-            Most developers prefer Colemak because it preserves QWERTY's shortcuts (<code>Ctrl + C</code>, <code>Ctrl + V</code>, <code>Ctrl + Z</code>, <code>Ctrl + X</code>) and keeps common coding symbols like brackets and semicolons easily accessible. For more developer-specific tips, read <a href="typing-for-programmers-how-fast-typing-boosts-coding-productivity.html">Typing for Programmers &amp; Productivity</a>.
-        </p>
-
-        <h3>3. Are alternative layouts suitable for children and students?</h3>
-        <p>
-            While children learn new layouts quickly, QWERTY remains essential for school computer labs and standardized tests. Review our <a href="kids-students-touch-typing-guide.html">Touch Typing Guide for Kids &amp; Students</a> for balanced learning strategies.
-        </p>
-
-        <h2>Final Verdict</h2>
-        <p>
-            QWERTY isn't going anywhere anytime soon, and for most casual users, it gets the job done. But if you spend your days at a keyboard and want a smoother, more comfortable typing experience, <strong>Colemak</strong> offers the best balance of modern ergonomics, shortcut preservation, and ease of adoption.
-        </p>
-
-        <p>
-            Ready to test your current setup? Benchmark your speed and accuracy on <strong>TypeNest</strong> today!
-        </p>
-
-        <h2>Continue Learning</h2>
-        <p>
-            Improving your keyboard experience involves more than just selecting a layout. Explore these related guides to elevate your typing performance:
-        </p>
-
-        <ul>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide: Eliminate Mistakes</a></li>
-            <li><a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks: What Speed Should You Aim For?</a></li>
-            <li><a href="typing-mistakes-guide.html">Common Typing Mistakes and How to Fix Them</a></li>
-            <li><a href="best-free-typing-websites.html">Top Free Typing Platforms Compared</a></li>
-        </ul>
-
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
-
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-
-        <p>
-            Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.
-        </p>
-
-        <div class="related-grid">
-            <a href="touch-typing-guide.html" class="related-card">
-                <span>⌨️ Touch Typing</span>
-                <h3>Complete Beginner's Guide to Touch Typing</h3>
-                <p>Master home row muscle memory and proper finger placement step by step.</p>
-            </a>
-
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision &amp; Focus</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how mental concentration and muscle memory drastically reduce typos.</p>
-            </a>
-
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics &amp; Health</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Elevate Your Typing Comfort with TypeNest</h2>
-
-        <p>
-            Train your fingers with interactive drills, custom layout tests, and real-time accuracy feedback on TypeNest.
-        </p>
-
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="typing.html" class="cta-btn-primary">📊 Start Layout Practice</a>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-    <div class="footer-logo">
-        <h1>TypeNest</h1>
-        <p>Improve your typing speed, accuracy and productivity with smart practice.</p>
-        <p class="footer-trust">Structured lessons for beginners and advanced learners.</p>
-    </div>
-
-    <div class="footer-links">
-        <h2>Quick Links</h2>
-        <a href="index.html">› Home</a>
-        <a href="typing.html">› Practice</a>
-        <a href="tests.html">› Tests</a>
-        <a href="leaderboard.html">› Leaderboard</a>
-        <a href="contact.html">› Contact Us</a>
-        <a href="blog.html">› Blog</a>
-    </div>
-
-    <div class="footer-links">
-        <h2>Resources</h2>
-        <a href="courses.html">› Courses</a>
-        <a href="blog.html">› Blog</a>
-        <a href="about.html">› About</a>
-        <a href="faq.html">› FAQ</a>
-        <a href="privacy.html">› Privacy Policy</a>
-        <a href="disclaimer.html">› Disclaimer</a>
-        <a href="terms.html">› Terms &amp; Conditions</a>
-    </div>
-</div>
-
-<!-- COPYRIGHT -->
-<div class="footer-bottom">
-    <p>© 2026 TypeNest. All rights reserved.</p>
-</div>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-
-        <button id="modalLoginBtn">Login</button>
-
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+    <!-- SCRIPTS -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

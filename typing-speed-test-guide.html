@@ -1,430 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <!-- Google Analytics 4 (GA4) Integration -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZC84S6JF5T');
+  </script>
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- Google AdSense Code -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
 
-    <!-- SEO Meta Tags -->
-    <title>Typing Speed Test: Everything You Need to Know | TypeNest</title>
-    <meta name="description" content="Learn how typing speed tests work, understand WPM, accuracy, scoring methods, and discover practical tips to improve your typing test performance.">
-    <meta name="keywords" content="typing speed test, typing test, WPM test, typing accuracy test, typing score, words per minute, typing practice, TypeNest">
+  <!-- SEO Meta Tags -->
+  <title>Typing Speed Test: Everything You Need to Know | TypeNest</title>
+  <meta name="description" content="Learn how typing speed tests work, understand WPM, accuracy, scoring methods, and discover practical tips to improve your typing test performance.">
+  <meta name="keywords" content="typing speed test, typing test, WPM test, typing accuracy test, typing score, words per minute, typing practice, TypeNest">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/typing-speed-test-guide.html">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/typing-speed-test-guide.html">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Typing Speed Test: Everything You Need to Know | TypeNest">
-    <meta property="og:description" content="Understand WPM scoring, typing test mechanics, accuracy calculations, and strategies to improve your performance.">
-    <meta property="og:url" content="https://typenest.in/typing-speed-test-guide.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Typing Speed Test: Everything You Need to Know | TypeNest">
+  <meta property="og:description" content="Understand WPM scoring, typing test mechanics, accuracy calculations, and strategies to improve your performance.">
+  <meta property="og:url" content="https://typenest.in/typing-speed-test-guide.html">
+  <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Article Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Typing Speed Test: Everything You Need to Know",
-      "description": "Learn how typing speed tests work, understand WPM, accuracy, scoring methods, and discover practical tips to improve your typing test performance.",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://typenest.in/typing-speed-test-guide.html"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://typenest.in/favicon.png"
-        }
+  <!-- Modern Frameworks & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Typing Speed Test: Everything You Need to Know",
+    "description": "Learn how typing speed tests work, understand WPM, accuracy, scoring methods, and discover practical tips to improve your typing test performance.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://typenest.in/typing-speed-test-guide.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TypeNest",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://typenest.in/favicon.png"
       }
     }
-    </script>
+  }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body class="light">
+  <!-- Header is automatically injected by assets/js/layout.js -->
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="index.html" class="hover:text-indigo-400 transition">Home</a>
+      <span>›</span>
+      <a href="blog.html" class="hover:text-indigo-400 transition">Blog</a>
+      <span>›</span>
+      <span class="text-slate-200">Typing Speed Test Guide</span>
+    </nav>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <!-- Header Section -->
+    <header class="space-y-4 border-b border-slate-800 pb-8">
+      <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        📊 Typing Test Guide
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+        Typing Speed Test: Everything You Need to Know
+      </h1>
+      <p class="text-slate-400 text-base leading-relaxed">
+        Learn how typing speed tests work, understand WPM, typing accuracy, scoring methods, test duration, and practical strategies to achieve better typing test results.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-2">
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-indigo-400"></i> 18 min read</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-user text-indigo-400"></i> TypeNest Team</span>
+      </div>
+    </header>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Typing Speed Test Guide</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">📊 Typing Test Guide</span>
-
-        <!-- Title -->
-        <h1>Typing Speed Test: Everything You Need to Know</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Learn how typing speed tests work, understand WPM, typing accuracy, scoring methods, test duration, and practical strategies to achieve better typing test results.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 18 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-
-    <!-- FEATURED IMAGE -->
-    <div class="featured-image">
-        <img src="images/blog/typing-speed-test-guide.webp" alt="Typing Speed Test: Everything You Need to Know">
+    <!-- Featured Image -->
+    <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
+      <img src="images/blog/typing-speed-test-guide.webp" alt="Typing Speed Test: Everything You Need to Know" class="w-full h-auto object-cover" onerror="this.style.display='none'">
     </div>
 
-    <!-- TABLE OF CONTENTS -->
-    <div class="table-of-contents">
-        <div class="toc-header">
-            <h2>📑 Table of Contents</h2>
-            <p>Jump to any section of this complete typing speed test guide.</p>
-        </div>
-        <div class="toc-grid">
-            <a href="#what-is-test" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">What Is a Typing Speed Test?</span></a>
-            <a href="#why-tests-matter" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Why Typing Speed Tests Matter</span></a>
-            <a href="#what-is-wpm" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">What Does WPM Mean?</span></a>
-            <a href="#how-calculated" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">How Speed Is Calculated</span></a>
-            <a href="#how-accuracy-measured" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">How Accuracy Is Measured</span></a>
-            <a href="#test-types" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Different Types of Tests</span></a>
-            <a href="#durations" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">1 vs 3 vs 5 Minute Tests</span></a>
-            <a href="#good-speed" class="toc-item"><span class="toc-number">08</span><span class="toc-line"></span><span class="toc-title">What Is a Good Typing Speed?</span></a>
-            <a href="#common-mistakes" class="toc-item"><span class="toc-number">09</span><span class="toc-line"></span><span class="toc-title">Common Test Mistakes</span></a>
-            <a href="#improve-score" class="toc-item"><span class="toc-number">10</span><span class="toc-line"></span><span class="toc-title">How to Improve Your Score</span></a>
-            <a href="#benefits" class="toc-item"><span class="toc-number">11</span><span class="toc-line"></span><span class="toc-title">Benefits of Regular Testing</span></a>
-            <a href="#job-requirements" class="toc-item"><span class="toc-number">12</span><span class="toc-line"></span><span class="toc-title">Typing Requirements for Jobs</span></a>
-            <a href="#typenest" class="toc-item"><span class="toc-number">13</span><span class="toc-line"></span><span class="toc-title">How TypeNest Helps</span></a>
-            <a href="#conclusion" class="toc-item"><span class="toc-number">14</span><span class="toc-line"></span><span class="toc-title">Conclusion</span></a>
-        </div>
-    </div>
+    <!-- Table of Contents -->
+    <section class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
+      <div class="border-b border-slate-800 pb-3">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-list-ul text-indigo-400"></i> Table of Contents
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">Jump to any section of this complete typing speed test guide.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium">
+        <a href="#what-is-test" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">01.</span> What Is a Typing Speed Test?</a>
+        <a href="#why-tests-matter" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">02.</span> Why Typing Speed Tests Matter</a>
+        <a href="#what-is-wpm" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">03.</span> What Does WPM Mean?</a>
+        <a href="#how-calculated" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">04.</span> How Speed Is Calculated</a>
+        <a href="#how-accuracy-measured" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">05.</span> How Accuracy Is Measured</a>
+        <a href="#test-types" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">06.</span> Different Types of Tests</a>
+        <a href="#durations" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">07.</span> 1 vs 3 vs 5 Minute Tests</a>
+        <a href="#good-speed" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">08.</span> What Is a Good Typing Speed?</a>
+        <a href="#common-mistakes" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">09.</span> Common Test Mistakes</a>
+        <a href="#improve-score" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">10.</span> How to Improve Your Score</a>
+        <a href="#benefits" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">11.</span> Benefits of Regular Testing</a>
+        <a href="#job-requirements" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">12.</span> Typing Requirements for Jobs</a>
+        <a href="#typenest" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">13.</span> How TypeNest Helps</a>
+        <a href="#conclusion" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">14.</span> Conclusion</a>
+      </div>
+    </section>
 
-    <!-- ARTICLE START -->
-    <article class="article-content">
+    <!-- Main Content Area -->
+    <article class="space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
 
-        <!-- INTRODUCTION -->
-        <h2>Introduction</h2>
-        <p>
-            Typing has become an essential skill in today's digital world. Whether you are a student, office worker, programmer, writer, data entry operator, or government job aspirant, your ability to type quickly and accurately can significantly impact your productivity and performance.
-        </p>
-        <p>
-            As computers continue to dominate education, business, and communication, typing speed tests have become increasingly popular. Millions of people take typing tests every year to measure their keyboard skills, prepare for job applications, improve productivity, or simply challenge themselves.
-        </p>
-        <p>
-            A typing speed test is more than just a game or online activity. It provides valuable information about your typing speed, accuracy, strengths, and areas for improvement. Understanding how typing tests work can help you achieve better results and develop stronger keyboard skills.
-        </p>
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Introduction</h2>
+        <p>Typing has become an essential skill in today's digital world. Whether you are a student, office worker, programmer, writer, data entry operator, or government job aspirant, your ability to type quickly and accurately can significantly impact your productivity and performance.</p>
+        <p>As computers continue to dominate education, business, and communication, typing speed tests have become increasingly popular. Millions of people take typing tests every year to measure their keyboard skills, prepare for job applications, improve productivity, or simply challenge themselves.</p>
+        <p>A typing speed test is more than just a game or online activity. It provides valuable information about your typing speed, accuracy, strengths, and areas for improvement. Understanding how typing tests work can help you achieve better results and develop stronger keyboard skills.</p>
+      </section>
 
-        <!-- WHAT IS A TYPING SPEED TEST -->
-        <h2 id="what-is-test">What Is a Typing Speed Test?</h2>
-        <p>
-            A typing speed test is an assessment designed to measure how quickly and accurately a person can type using a keyboard. During the test, users are asked to type words, sentences, or paragraphs displayed on the screen within a specific time limit.
-        </p>
+      <section id="what-is-test" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">What Is a Typing Speed Test?</h2>
+        <p>A typing speed test is an assessment designed to measure how quickly and accurately a person can type using a keyboard. During the test, users are asked to type words, sentences, or paragraphs displayed on the screen within a specific time limit.</p>
+      </section>
 
-        <!-- WHY TYPING SPEED TESTS MATTER -->
-        <h2 id="why-tests-matter">Why Typing Speed Tests Matter</h2>
-        <p>
-            Typing tests help measure a skill that directly affects productivity. Regular testing helps identify weaknesses and creates clear improvement goals. For job seekers, review our guide on <a href="typing-speed-requirements-for-remote-jobs.html">Typing Speed Requirements for Remote Jobs</a> to see what employers look for.
-        </p>
+      <section id="why-tests-matter" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Why Typing Speed Tests Matter</h2>
+        <p>Typing tests help measure a skill that directly affects productivity. Regular testing helps identify weaknesses and creates clear improvement goals. For job seekers, review our guide on <a href="typing-speed-requirements-for-remote-jobs.html" class="text-indigo-400 underline">Typing Speed Requirements for Remote Jobs</a> to see what employers look for.</p>
+      </section>
 
-        <!-- WHAT DOES WPM MEAN -->
-        <h2 id="what-is-wpm">What Does WPM Mean?</h2>
-        <p>
-            WPM stands for <strong>Words Per Minute</strong>. To ensure consistency across platforms, a standard word is defined as <strong>five characters</strong> (including letters, spaces, numbers, and punctuation).
-        </p>
+      <section id="what-is-wpm" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">What Does WPM Mean?</h2>
+        <p>WPM stands for <strong class="text-white">Words Per Minute</strong>. To ensure consistency across platforms, a standard word is defined as <strong class="text-white">five characters</strong> (including letters, spaces, numbers, and punctuation).</p>
+      </section>
 
-        <!-- HOW TYPING SPEED IS CALCULATED -->
-        <h2 id="how-calculated">How Typing Speed Is Calculated</h2>
-        <p>
-            The basic formula is: <code>Total Characters Typed ÷ 5 ÷ Time in Minutes</code>. Gross WPM calculates raw keystrokes, whereas Net WPM deducts errors to show real productivity.
-        </p>
+      <section id="how-calculated" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How Typing Speed Is Calculated</h2>
+        <p>The basic formula is: <code class="bg-slate-900 border border-slate-800 text-indigo-300 px-2 py-1 rounded font-mono text-xs sm:text-sm">Total Characters Typed ÷ 5 ÷ Time in Minutes</code>. Gross WPM calculates raw keystrokes, whereas Net WPM deducts errors to show real productivity.</p>
+      </section>
 
-        <!-- HOW TYPING ACCURACY IS MEASURED -->
-        <h2 id="how-accuracy-measured">How Typing Accuracy Is Measured</h2>
-        <p>
-            The accuracy formula is: <code>(Correct Characters ÷ Total Characters Typed) × 100</code>. Learn how to maintain high accuracy without sacrificing rhythm in our <a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a>.
-        </p>
+      <section id="how-accuracy-measured" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How Typing Accuracy Is Measured</h2>
+        <p>The accuracy formula is: <code class="bg-slate-900 border border-slate-800 text-indigo-300 px-2 py-1 rounded font-mono text-xs sm:text-sm">(Correct Characters ÷ Total Characters Typed) × 100</code>. Learn how to maintain high accuracy without sacrificing rhythm in our <a href="typing-accuracy-guide.html" class="text-indigo-400 underline">Complete Typing Accuracy Guide</a>.</p>
+      </section>
 
-        <!-- DIFFERENT TYPES OF TYPING TESTS -->
-        <h2 id="test-types">Different Types of Typing Tests</h2>
-        <p>
-            Tests range from isolated word-based drills to full paragraph simulations with realistic punctuation, numbers, and technical symbols.
-        </p>
+      <section id="test-types" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Different Types of Typing Tests</h2>
+        <p>Tests range from isolated word-based drills to full paragraph simulations with realistic punctuation, numbers, and technical symbols.</p>
+      </section>
 
-        <!-- 1 MINUTE VS 3 MINUTE VS 5 MINUTE TESTS -->
-        <h2 id="durations">1 Minute vs 3 Minute vs 5 Minute Tests</h2>
-        <ul>
-            <li><strong>1 Minute:</strong> Quick baseline check.</li>
-            <li><strong>3 Minutes:</strong> Balanced evaluation of speed and rhythm.</li>
-            <li><strong>5 Minutes:</strong> Comprehensive test measuring sustained focus and stamina.</li>
+      <section id="durations" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">1 Minute vs 3 Minute vs 5 Minute Tests</h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+          <li><strong>1 Minute:</strong> Quick baseline check.</li>
+          <li><strong>3 Minutes:</strong> Balanced evaluation of speed and rhythm.</li>
+          <li><strong>5 Minutes:</strong> Comprehensive test measuring sustained focus and stamina.</li>
         </ul>
+      </section>
 
-        <!-- WHAT IS A GOOD TYPING SPEED -->
-        <h2 id="good-speed">What Is a Good Typing Speed?</h2>
-        <p>
-            An average typist scores between 40 and 60 WPM. To see detailed benchmark tables categorized by age and job role, check our <a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks Guide</a>.
-        </p>
+      <section id="good-speed" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">What Is a Good Typing Speed?</h2>
+        <p>An average typist scores between 40 and 60 WPM. To see detailed benchmark tables categorized by age and job role, check our <a href="typing-speed-benchmarks-guide.html" class="text-indigo-400 underline">Typing Speed Benchmarks Guide</a>.</p>
+      </section>
 
-        <!-- COMMON MISTAKES DURING TYPING TESTS -->
-        <h2 id="common-mistakes">Common Mistakes During Typing Tests</h2>
-        <p>
-            Rushing, backspacing excessively, and looking down at the keyboard drastically lower test performance. Explore solutions in our <a href="typing-mistakes-guide.html">Common Typing Mistakes &amp; Error Fixes Guide</a>.
-        </p>
+      <section id="common-mistakes" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Common Mistakes During Typing Tests</h2>
+        <p>Rushing, backspacing excessively, and looking down at the keyboard drastically lower test performance. Explore solutions in our <a href="typing-mistakes-guide.html" class="text-indigo-400 underline">Common Typing Mistakes &amp; Error Fixes Guide</a>.</p>
+      </section>
 
-        <!-- HOW TO IMPROVE YOUR TYPING TEST SCORE -->
-        <h2 id="improve-score">How to Improve Your Typing Test Score</h2>
-        <p>
-            The single most effective long-term strategy is adopting touch typing. Master finger placement and home-row rules with our <a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a> and implement routines from our <a href="increase-typing-speed-guide.html">Guide to Increasing Typing Speed</a>.
-        </p>
+      <section id="improve-score" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How to Improve Your Typing Test Score</h2>
+        <p>The single most effective long-term strategy is adopting touch typing. Master finger placement and home-row rules with our <a href="touch-typing-guide.html" class="text-indigo-400 underline">Complete Beginner's Guide to Touch Typing</a> and implement routines from our <a href="increase-typing-speed-guide.html" class="text-indigo-400 underline">Guide to Increasing Typing Speed</a>.</p>
+      </section>
 
-        <!-- BENEFITS OF REGULAR TYPING TESTS -->
-        <h2 id="benefits">Benefits of Regular Typing Tests</h2>
-        <p>
-            Testing weekly helps track progress, improves focus, builds muscle memory, and reduces test anxiety under time limits.
-        </p>
+      <section id="benefits" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Benefits of Regular Typing Tests</h2>
+        <p>Testing weekly helps track progress, improves focus, builds muscle memory, and reduces test anxiety under time limits.</p>
+      </section>
 
-        <!-- TYPING SPEED REQUIREMENTS FOR JOBS -->
-        <h2 id="job-requirements">Typing Speed Requirements for Jobs</h2>
-        <p>
-            Data entry operators typically need 60–80 WPM with 99% accuracy, while general office workers need around 50 WPM.
-        </p>
+      <section id="job-requirements" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Typing Speed Requirements for Jobs</h2>
+        <p>Data entry operators typically need 60–80 WPM with 99% accuracy, while general office workers need around 50 WPM.</p>
+      </section>
 
-        <!-- HOW TYPENEST HELPS YOU IMPROVE -->
-        <h2 id="typenest">How TypeNest Helps You Improve</h2>
-        <p>
-            TypeNest provides structured drills, instant WPM tracking, error analysis, and customizable practice modules tailored to every skill level.
-        </p>
+      <section id="typenest" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How TypeNest Helps You Improve</h2>
+        <p>TypeNest provides structured drills, instant WPM tracking, error analysis, and customizable practice modules tailored to every skill level.</p>
+      </section>
 
-        <!-- CONCLUSION -->
-        <h2 id="conclusion">Conclusion</h2>
-        <p>
-            Regular typing tests provide the metrics you need to refine your mechanical speed and accuracy. Focus on steady daily practice, and your WPM will steadily climb over time.
-        </p>
+      <section id="conclusion" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Conclusion</h2>
+        <p>Regular typing tests provide the metrics you need to refine your mechanical speed and accuracy. Focus on steady daily practice, and your WPM will steadily climb over time.</p>
+      </section>
 
-        <h2>Continue Learning</h2>
-        <p>
-            Deepen your keyboard mastery with these detailed resources on TypeNest:
-        </p>
-
-        <ul>
-            <li><a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a></li>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a></li>
-            <li><a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks by Age &amp; Profession</a></li>
-            <li><a href="typing-speed-requirements-for-remote-jobs.html">WPM Requirements for Remote Jobs</a></li>
-            <li><a href="typing-mistakes-guide.html">Common Typing Mistakes &amp; Fixes</a></li>
+      <section class="space-y-3 pt-4 border-t border-slate-800">
+        <h2 class="text-lg font-bold text-white">Continue Learning</h2>
+        <p class="text-slate-400 text-sm">Deepen your keyboard mastery with these detailed resources on TypeNest:</p>
+        <ul class="list-disc pl-5 space-y-1.5 text-indigo-400 text-sm">
+          <li><a href="touch-typing-guide.html" class="hover:underline">Complete Beginner's Guide to Touch Typing</a></li>
+          <li><a href="increase-typing-speed-guide.html" class="hover:underline">Complete Guide to Increase Typing Speed</a></li>
+          <li><a href="typing-accuracy-guide.html" class="hover:underline">Complete Typing Accuracy Guide</a></li>
+          <li><a href="typing-speed-benchmarks-guide.html" class="hover:underline">Typing Speed Benchmarks by Age &amp; Profession</a></li>
+          <li><a href="typing-speed-requirements-for-remote-jobs.html" class="hover:underline">WPM Requirements for Remote Jobs</a></li>
+          <li><a href="typing-mistakes-guide.html" class="hover:underline">Common Typing Mistakes &amp; Fixes</a></li>
         </ul>
+      </section>
 
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
+      <div class="text-xs text-slate-500 pt-4 border-t border-slate-800/60">
+        <p><strong>Last Updated:</strong> September 2026</p>
+        <p><strong>Author:</strong> TypeNest Editorial Team</p>
+      </div>
 
     </article>
-</div>
 
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>Explore these expert guides to improve every aspect of your typing skills.</p>
+    <!-- Related Articles Grid -->
+    <section class="border-t border-slate-800 pt-8 space-y-4">
+      <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <i class="fa-solid fa-book-bookmark text-indigo-400"></i> Continue Learning
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="increase-typing-speed-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">🚀 Speed Guide</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-rose-300 transition">Complete Guide to Increase Speed</h3>
+          <p class="text-slate-400 text-xs">Discover practical methods to increase your WPM while maintaining excellent typing accuracy.</p>
+        </a>
+        <a href="touch-typing-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">⌨️ Touch Typing</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition">Complete Beginner's Guide to Touch Typing</h3>
+          <p class="text-slate-400 text-xs">Master home row keys, finger placement, and touch typing techniques for faster typing.</p>
+        </a>
+        <a href="typing-accuracy-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400">🎯 Accuracy Guide</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-indigo-300 transition">Complete Typing Accuracy Guide</h3>
+          <p class="text-slate-400 text-xs">Learn how to increase typing accuracy, reduce errors, and build consistent keyboard habits.</p>
+        </a>
+      </div>
+    </section>
 
-        <div class="related-grid">
-            <a href="increase-typing-speed-guide.html" class="related-card">
-                <span>🚀 Speed Guide</span>
-                <h3>Complete Guide to Increase Speed</h3>
-                <p>Discover practical methods to increase your WPM while maintaining excellent typing accuracy.</p>
-            </a>
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-indigo-900/40 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl">
+      <h2 class="text-2xl font-extrabold text-white">🚀 Ready to Test Your WPM?</h2>
+      <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+        Take a timed test, track your accuracy, and compare your score on the TypeNest leaderboard!
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition">
+          ⌨️ Start Practice
+        </a>
+        <a href="tests.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition">
+          📊 Take Speed Test
+        </a>
+      </div>
+    </section>
 
-            <a href="touch-typing-guide.html" class="related-card">
-                <span>⌨️ Touch Typing</span>
-                <h3>Complete Beginner's Guide to Touch Typing</h3>
-                <p>Master home row keys, finger placement, and touch typing techniques for faster typing.</p>
-            </a>
+  </main>
 
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Accuracy Guide</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how to increase typing accuracy, reduce errors, and build consistent keyboard habits.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Ready to Test Your WPM?</h2>
-        <p>
-            Take a timed test, track your accuracy, and compare your score on the TypeNest leaderboard!
-        </p>
-
-        <div class="cta-buttons">
-            <a href="typing.html" class="cta-btn-outline">⌨️ Start Practice</a>
-            <a href="tests.html" class="cta-btn-primary">📊 Take Speed Test</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-
-        <button id="modalLoginBtn">Login</button>
-
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+  <!-- Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

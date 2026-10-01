@@ -39,10 +39,28 @@
     <meta name="twitter:description" content="Boost your typing speed and protect your hands with these essential 5-minute pre-test warmup routines.">
     <meta name="twitter:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -74,339 +92,379 @@
     }
     </script>
 </head>
-<body class="light">
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans antialiased min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- Dynamic Header Mount Point -->
+    <div id="header-container"></div>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-        <div class="nav-dropdown">
-            <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-            <div class="dropdown-menu-list">
-                <span class="dropdown-category">⏱️ Timed Tests</span>
-                <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-                <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-                <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
+    <main class="flex-grow">
+        <!-- Blog Hero Section -->
+        <header class="relative pt-8 pb-10 md:pt-10 md:pb-14 border-b border-slate-800/80 bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-transparent overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-left">
                 
-                <span class="dropdown-category">🎯 Skill Drills</span>
-                <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-                <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-                <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
+                <!-- Breadcrumbs -->
+                <nav class="flex items-center justify-start gap-2 text-xs md:text-sm font-medium text-slate-400 mb-6" aria-label="Breadcrumb">
+                    <a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <span class="text-indigo-400">Typing Warmup Exercises</span>
+                </nav>
+
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-spa"></i> Health, Posture &amp; Ergonomics
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight md:leading-tight mb-6">
+                    5-Minute Typing Warmup Exercises <span class="bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent">Before Speed Tests</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-sm sm:text-base text-slate-400 max-w-3xl font-normal leading-relaxed mb-8">
+                    Just as athletes stretch before a sprint, typists need to prepare their hands, fingers, and wrists before timed assessments. Discover physical stretches and digital warmup routines to boost WPM and prevent fatigue.
+                </p>
+
+                <!-- Post Meta -->
+                <div class="flex flex-wrap items-center justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400 pt-2 border-t border-slate-800/80 max-w-xl">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-clock text-indigo-400"></i> 5 min read
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-user text-indigo-400"></i> Dayanand Dinkar Kendre
+                    </span>
+                </div>
             </div>
+        </header>
+
+        <!-- Article Container -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+            <article class="prose prose-invert prose-slate max-w-none text-slate-300 leading-relaxed text-base sm:text-lg">
+                
+                <!-- Table of Contents -->
+                <div class="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 md:p-8 mb-12 shadow-lg backdrop-blur-sm">
+                    <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-800">
+                        <i class="fa-solid fa-list-check text-indigo-400 text-xl"></i>
+                        <div>
+                            <h2 class="text-lg md:text-xl font-bold text-white m-0">Table of Contents</h2>
+                            <p class="text-xs sm:text-sm text-slate-400 m-0">Quick navigation for your 5-minute pre-test routine:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-medium">
+                        <a href="#physical-stretches" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">01</span>
+                            <span>Physical Hand Stretches</span>
+                        </a>
+                        <a href="#finger-independence" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">02</span>
+                            <span>Finger Independence Drills</span>
+                        </a>
+                        <a href="#digital-warmups" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">03</span>
+                            <span>On-Keyboard Finger Drills</span>
+                        </a>
+                        <a href="#key-benefits" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">04</span>
+                            <span>Benefits of Pre-Test Warmups</span>
+                        </a>
+                        <a href="#final-tips" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group sm:col-span-2">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">05</span>
+                            <span>Next Steps for Peak Speed</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lead Paragraph -->
+                <p class="text-base sm:text-lg font-normal text-slate-300 leading-relaxed mb-6">
+                    Just as sprinters stretch their calves and hamstrings before an athletic race, high-speed typists and programmers must loosen their hands, fingers, and wrists before attempting timed speed tests. Jumping straight into a fast-paced assessment with cold hands creates stiff joints, increases early typos, and leads to forearm tension.
+                </p>
+
+                <p class="mb-10">
+                    Integrating a simple 5-minute pre-test warmup routine stimulates blood circulation, primes motor pathways, and safeguards your hands against Repetitive Strain Injuries (RSI) like Carpal Tunnel Syndrome.
+                </p>
+
+                <!-- Section 1 -->
+                <h2 id="physical-stretches" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    1. Physical Hand &amp; Wrist Stretches (2 Minutes)
+                </h2>
+                <p class="mb-6">
+                    Before touching your keyboard, take two minutes away from the keys to execute these physical mobility exercises:
+                </p>
+
+                <div class="space-y-6 mb-10">
+                    <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-2 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-sm font-semibold border border-indigo-500/30">A</span>
+                            Wrist Flexor and Extensor Stretch
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base m-0 leading-relaxed">
+                            Extend your right arm forward with your palm facing outward (like a "stop" hand gesture). Use your left hand to gently pull your fingertips backward toward your forearm until you feel a comfortable tension release. Hold for 15 seconds. Then point your fingers downward with the palm facing you, gently pressing the back of your hand. Repeat the cycle with your left arm.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-2 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-sm font-semibold border border-indigo-500/30">B</span>
+                            Finger Fans
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base m-0 leading-relaxed">
+                            Clench both hands into firm fists for 3 seconds, then suddenly open your palms and spread all ten fingers as widely apart as possible for 3 seconds. Repeat this rhythmic open-close fan cycle 10 times to stimulate tendon mobility.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-2 flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-sm font-semibold border border-indigo-500/30">C</span>
+                            Wrist Circles
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base m-0 leading-relaxed">
+                            Clasp your hands together with interlocking fingers and smoothly roll your wrists in circles 10 times clockwise, then 10 times counter-clockwise. This lubricates the wrist joints for fast lateral movements across keyboard rows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <h2 id="finger-independence" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    2. Finger Independence &amp; Flexibility Drills (1 Minute)
+                </h2>
+                <p class="mb-4">
+                    Your pinky and ring fingers are naturally weaker and less independent than your index and middle fingers. Isolate and awaken them with this quick drill:
+                </p>
+                <ul class="space-y-3 mb-10 pl-2 list-none">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-hand text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span>Place both palms completely flat against your desk or table surface.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-arrow-up text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span>Individually lift and tap each finger against the desk starting from thumb to pinky, keeping your other fingers planted.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-bullseye text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span>Pay special attention to lifting your ring finger independently without lifting your middle finger alongside it.</span>
+                    </li>
+                </ul>
+
+                <!-- Section 3 -->
+                <h2 id="digital-warmups" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    3. On-Keyboard Finger Drills (2 Minutes)
+                </h2>
+                <p class="mb-6">
+                    Now place your fingers on the keyboard home row and open a practice drill on <a href=index.html class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/40">TypeNest's Practice Tool</a>. Type these warmup patterns smoothly without rushing for speed:
+                </p>
+
+                <!-- Code / Drill Callout Box -->
+                <div class="rounded-2xl border border-indigo-500/30 bg-slate-900/90 p-6 md:p-8 mb-6 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center gap-3 mb-4 text-indigo-400">
+                        <i class="fa-solid fa-keyboard text-xl"></i>
+                        <h3 class="text-lg md:text-xl font-bold text-white m-0">Recommended Warmup Drill Lines</h3>
+                    </div>
+                    <div class="space-y-4 font-mono text-sm sm:text-base">
+                        <div>
+                            <span class="text-xs uppercase font-sans tracking-wider text-slate-400 block mb-1 font-semibold">Warmup Pattern 1: Home Row Rolling</span>
+                            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 text-indigo-300 select-all overflow-x-auto">
+                                asdf jkl; asdf jkl; a s d f j k l ;
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-sans tracking-wider text-slate-400 block mb-1 font-semibold">Warmup Pattern 2: Comprehensive Pangrams</span>
+                            <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 text-sky-300 space-y-1 select-all overflow-x-auto">
+                                <div>The quick brown fox jumps over the lazy dog.</div>
+                                <div>Pack my box with five dozen liquor jugs.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mb-10">
+                    Type each pangram 3 to 4 times consecutively. Focus 100% on smooth keystroke rhythm and zero Backspace usage rather than high WPM.
+                </p>
+
+                <!-- Section 4: Benefits Comparison -->
+                <h2 id="key-benefits" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-6 border-b border-slate-800">
+                    4. Benefits of Pre-Test Warmups
+                </h2>
+                <div class="overflow-x-auto mb-10 rounded-2xl border border-slate-800 bg-slate-900/60 shadow-xl">
+                    <table class="w-full text-left border-collapse text-sm sm:text-base">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-800/60 text-slate-200">
+                                <th class="p-4 sm:px-6 font-semibold">Performance Metric</th>
+                                <th class="p-4 sm:px-6 font-semibold text-rose-400">Cold Hands (No Warmup)</th>
+                                <th class="p-4 sm:px-6 font-semibold text-emerald-400">Warmed-Up Hands (5 Mins)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Initial Accuracy</td>
+                                <td class="p-4 sm:px-6 text-rose-300">88% – 92% (High early typos)</td>
+                                <td class="p-4 sm:px-6 text-emerald-400 font-medium">97% – 100% (Accurate first keystrokes)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Initial Burst Speed</td>
+                                <td class="p-4 sm:px-6 text-slate-400">Stiff, hesitant starting pace</td>
+                                <td class="p-4 sm:px-6 text-emerald-400 font-medium">Fluid, peak WPM right from second 1</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Finger Stamina</td>
+                                <td class="p-4 sm:px-6 text-slate-400">Muscle fatigue around 2–3 minutes</td>
+                                <td class="p-4 sm:px-6 text-emerald-400 font-medium">Sustained cadence without cramp</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Long-Term Health</td>
+                                <td class="p-4 sm:px-6 text-rose-300">Higher risk of tendonitis &amp; RSI</td>
+                                <td class="p-4 sm:px-6 text-emerald-400 font-medium">Protects joints, tendons, and nerves</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 5: Progression -->
+                <h2 id="final-tips" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    5. Next Steps for Peak Speed
+                </h2>
+                <p class="mb-6">
+                    Now that your blood is flowing and your finger independence is activated, you are ready to set new personal speed records. Test your warmup results directly on our dedicated timed tests:
+                </p>
+
+                <div class="rounded-2xl border border-indigo-500/30 bg-indigo-950/20 p-6 md:p-8 mb-10 shadow-lg relative overflow-hidden">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 text-indigo-400 text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-white mb-2">Recommended Warmup Progression</h3>
+                            <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 pl-0 list-none mb-0">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-arrow-right text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>Warm up your burst cadence with the <a href="index.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">30-Second Sprint Test</a>.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-arrow-right text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>Establish your baseline net speed with the <a href="index.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">1-Minute Standard Test</a>.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-circle-arrow-right text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>Challenge your muscular endurance with the <a href="index.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">100-Second Stamina Test</a>.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Further Reading -->
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    Further Reading &amp; Ergonomics Guides
+                </h2>
+                <p class="mb-4">
+                    Build healthy computer workstation habits with our recommended companion guides:
+                </p>
+                <ul class="space-y-2 mb-10 pl-2 list-none">
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="typing-ergonomics-guide.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Complete Typing Ergonomics &amp; Posture Guide</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="typing-accuracy-guide.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Typing Accuracy Guide: How to Stop Typos</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="typing-eye-strain-prevention-dark-mode-guide.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Eye Strain Prevention &amp; Dark Mode Setup</a>
+                    </li>
+                </ul>
+
+                <hr class="border-slate-800 my-8">
+
+                <div class="text-xs sm:text-sm text-slate-400 space-y-1">
+                    <p class="m-0"><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p class="m-0"><strong class="text-slate-300">Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)</p>
+                </div>
+            </article>
         </div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <!-- Related Articles -->
+        <section class="py-16 border-t border-slate-800/80 bg-slate-900/30">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">📚 Continue Learning</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Enhance your ergonomic setup, reduce typing fatigue, and build sustainable keyboard endurance.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">🧘 Ergonomics</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Prevent strain, carpal tunnel, and wrist fatigue with proper chair and desk setup.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
+                    <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">🎯 Precision</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Master rhythmic focus and minimize backspace usage for a higher Net WPM.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Typing Warmup Exercises</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">🧘 Health, Posture &amp; Ergonomics</span>
-
-        <!-- Title -->
-        <h1>5-Minute Typing Warmup Exercises Before Speed Tests</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Just as athletes stretch before a sprint, typists need to prepare their hands, fingers, and wrists before timed assessments. Discover physical stretches and digital warmup routines to boost WPM and prevent fatigue.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 5 min read</span>
-            <span>•</span>
-            <span>👤 Dayanand Dinkar Kendre</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <article class="article-content">
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Quick navigation for your 5-minute pre-test routine:</p>
+                    <a href="index.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⏱️ Assessment</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">1-Minute Standard Typing Test</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Test your warmed-up fingers on our standardized sixty-second typing evaluation.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Take Test <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="toc-grid">
-                <a href="#physical-stretches" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">Physical Hand Stretches</span></a>
-                <a href="#finger-independence" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Finger Independence Drills</span></a>
-                <a href="#digital-warmups" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">On-Keyboard Finger Drills</span></a>
-                <a href="#key-benefits" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Benefits of Pre-Test Warmups</span></a>
-                <a href="#final-tips" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Next Steps for Peak Speed</span></a>
+        </section>
+
+        <!-- Universal CTA Banner -->
+        <section class="py-16 md:py-20 border-t border-slate-800/80 relative overflow-hidden bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-[#0b0f19]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-2xl mb-6 shadow-inner">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Test Your Warmed-Up Fingers Now
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal">
+                    Put your freshly stretched hands to the test with real-time feedback and dynamic paragraph drills.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="index.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-sm"></i> Take 1-Minute Test
+                    </a>
+                    <a href=index.html class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 text-slate-200 font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-keyboard text-sm"></i> Free Practice Mode
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <p class="lead">
-            Just as sprinters stretch their calves and hamstrings before an athletic race, high-speed typists and programmers must loosen their hands, fingers, and wrists before attempting timed speed tests. Jumping straight into a fast-paced assessment with cold hands creates stiff joints, increases early typos, and leads to forearm tension.
-        </p>
+    <!-- Dynamic Footer Mount Point -->
+    <div id="footer-container"></div>
 
-        <p>
-            Integrating a simple 5-minute pre-test warmup routine stimulates blood circulation, primes motor pathways, and safeguards your hands against Repetitive Strain Injuries (RSI) like Carpal Tunnel Syndrome.
-        </p>
-
-        <h2 id="physical-stretches">1. Physical Hand &amp; Wrist Stretches (2 Minutes)</h2>
-        <p>Before touching your keyboard, take two minutes away from the keys to execute these physical mobility exercises:</p>
-
-        <h3>A. Wrist Flexor and Extensor Stretch</h3>
-        <p>Extend your right arm forward with your palm facing outward (like a "stop" hand gesture). Use your left hand to gently pull your fingertips backward toward your forearm until you feel a comfortable tension release. Hold for 15 seconds. Then point your fingers downward with the palm facing you, gently pressing the back of your hand. Repeat the cycle with your left arm.</p>
-
-        <h3>B. Finger Fans</h3>
-        <p>Clench both hands into firm fists for 3 seconds, then suddenly open your palms and spread all ten fingers as widely apart as possible for 3 seconds. Repeat this rhythmic open-close fan cycle 10 times to stimulate tendon mobility.</p>
-
-        <h3>C. Wrist Circles</h3>
-        <p>Clasp your hands together with interlocking fingers and smoothly roll your wrists in circles 10 times clockwise, then 10 times counter-clockwise. This lubricates the wrist joints for fast lateral movements across keyboard rows.</p>
-
-        <h2 id="finger-independence">2. Finger Independence &amp; Flexibility Drills (1 Minute)</h2>
-        <p>Your pinky and ring fingers are naturally weaker and less independent than your index and middle fingers. Isolate and awaken them with this quick drill:</p>
-        <ul>
-            <li>Place both palms completely flat against your desk or table surface.</li>
-            <li>Individually lift and tap each finger against the desk starting from thumb to pinky, keeping your other fingers planted.</li>
-            <li>Pay special attention to lifting your ring finger independently without lifting your middle finger alongside it.</li>
-        </ul>
-
-        <h2 id="digital-warmups">3. On-Keyboard Finger Drills (2 Minutes)</h2>
-        <p>Now place your fingers on the keyboard home row and open a practice drill on <a href="typing.html">TypeNest's Practice Tool</a>. Type these warmup patterns smoothly without rushing for speed:</p>
-
-        <div class="tip-box">
-            <h3>Warmup Pattern 1: Home Row Rolling</h3>
-            <code>asdf jkl; asdf jkl; a s d f j k l ;</code>
-            <br><br>
-            <h3>Warmup Pattern 2: Comprehensive Pangrams</h3>
-            <code>The quick brown fox jumps over the lazy dog.</code><br>
-            <code>Pack my box with five dozen liquor jugs.</code>
-        </div>
-        <p>Type each pangram 3 to 4 times consecutively. Focus 100% on smooth keystroke rhythm and zero Backspace usage rather than high WPM.</p>
-
-        <h2 id="key-benefits">4. Benefits of Pre-Test Warmups</h2>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Performance Metric</th>
-                    <th>Cold Hands (No Warmup)</th>
-                    <th>Warmed-Up Hands (5 Mins)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Initial Accuracy</strong></td>
-                    <td>88% – 92% (High early typos)</td>
-                    <td>97% – 100% (Accurate first keystrokes)</td>
-                </tr>
-                <tr>
-                    <td><strong>Initial Burst Speed</strong></td>
-                    <td>Stiff, hesitant starting pace</td>
-                    <td>Fluid, peak WPM right from second 1</td>
-                </tr>
-                <tr>
-                    <td><strong>Finger Stamina</strong></td>
-                    <td>Muscle fatigue around 2–3 minutes</td>
-                    <td>Sustained cadence without cramp</td>
-                </tr>
-                <tr>
-                    <td><strong>Long-Term Health</strong></td>
-                    <td>Higher risk of tendonitis &amp; RSI</td>
-                    <td>Protects joints, tendons, and nerves</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="final-tips">5. Next Steps for Peak Speed</h2>
-        <p>
-            Now that your blood is flowing and your finger independence is activated, you are ready to set new personal speed records. Test your warmup results directly on our dedicated timed tests:
-        </p>
-
-        <div class="tip-box">
-            <h3>⚡ Recommended Warmup Progression</h3>
-            <ul>
-                <li>Warm up your burst cadence with the <a href="typing-test-30-seconds.html">30-Second Sprint Test</a>.</li>
-                <li>Establish your baseline net speed with the <a href="typing-test-60-seconds.html">1-Minute Standard Test</a>.</li>
-                <li>Challenge your muscular endurance with the <a href="typing-test-100-seconds.html">100-Second Stamina Test</a>.</li>
-            </ul>
-        </div>
-
-        <h2>Further Reading &amp; Ergonomics Guides</h2>
-        <p>
-            Build healthy computer workstation habits with our recommended companion guides:
-        </p>
-        <ul>
-            <li><a href="typing-ergonomics-guide.html">Complete Typing Ergonomics &amp; Posture Guide</a></li>
-            <li><a href="typing-accuracy-guide.html">Typing Accuracy Guide: How to Stop Typos</a></li>
-            <li><a href="typing-eye-strain-prevention-dark-mode-guide.html">Eye Strain Prevention &amp; Dark Mode Setup</a></li>
-        </ul>
-
-        <hr>
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)
-        </p>
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>
-            Enhance your ergonomic setup, reduce typing fatigue, and build sustainable keyboard endurance.
-        </p>
-        <div class="related-grid">
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Prevent strain, carpal tunnel, and wrist fatigue with proper chair and desk setup.</p>
-            </a>
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Master rhythmic focus and minimize backspace usage for a higher Net WPM.</p>
-            </a>
-            <a href="typing-test-60-seconds.html" class="related-card">
-                <span>⏱️ Assessment</span>
-                <h3>1-Minute Standard Typing Test</h3>
-                <p>Test your warmed-up fingers on our standardized sixty-second typing evaluation.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Test Your Warmed-Up Fingers Now</h2>
-        <p>
-            Put your freshly stretched hands to the test with real-time feedback and dynamic paragraph drills.
-        </p>
-        <div class="cta-buttons">
-            <a href="typing-test-60-seconds.html" class="cta-btn-primary">⏱️ Take 1-Minute Test</a>
-            <a href="typing.html" class="cta-btn-outline">⌨️ Free Practice Mode</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- LOGIN MODAL SCRIPT -->
-<script>
-function openLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-    }
-}
-function closeLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-<!-- MAIN SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+    <!-- Scripts Integration -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

@@ -1,346 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Title, Description & Keywords -->
+  <title>Structured Typing Courses & Training Paths | TypeNest</title>
+  <meta name="description" content="Master touch typing with TypeNest's structured courses: Beginner Typing, Speed Building, Accuracy Mastery, and Advanced Typing. 100% free self-paced paths.">
+  <meta name="keywords" content="typing courses, touch typing training, beginner typing course, speed building, accuracy mastery, advanced typing, typenest">
+  <meta name="robots" content="index, follow">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/courses.html">
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/courses.html">
+  <meta property="og:title" content="Structured Typing Courses & Training Paths | TypeNest">
+  <meta property="og:description" content="Step-by-step interactive typing curricula for students and working professionals.">
+  <meta property="og:image" content="https://typenest.in/images/courses/beginner-course.webp">
 
-    <!-- SEO Meta Tags -->
-    <title>Free Touch Typing Courses | TypeNest</title>
-    <meta name="description" content="Explore TypeNest typing courses including Beginner Typing, Speed Building, Accuracy Mastery, and Advanced Typing. Learn step-by-step and improve your typing skills.">
-    <meta name="keywords" content="typing courses, typing lessons, touch typing course, beginner typing, speed building, typing accuracy, advanced typing, online typing training, TypeNest">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/courses.html">
+  <meta name="twitter:title" content="Structured Typing Courses | TypeNest">
+  <meta name="twitter:description" content="Step-by-step interactive curricula designed to build keyboard muscle memory.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/beginner-course.webp">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/courses.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Free Touch Typing Courses | TypeNest">
-    <meta property="og:description" content="Explore structured touch typing courses from beginner to advanced levels on TypeNest and master touch typing step-by-step.">
-    <meta property="og:url" content="https://typenest.in/courses.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="courses.css">
-
-    <!-- Course Catalog Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "TypeNest Touch Typing Courses",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beginner Typing Course",
-          "url": "https://typenest.in/beginner.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Speed Building Course",
-          "url": "https://typenest.in/speed-building.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Accuracy Mastery Course",
-          "url": "https://typenest.in/accuracy-mastery.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Advanced Typing Course",
-          "url": "https://typenest.in/advanced-typing.html"
-        }
-      ]
-    }
-    </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body>
+  
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
+    <!-- Top Banner -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        PROFESSIONAL PATHWAYS
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Master Touch Typing With <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400">Structured Courses</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Step-by-step interactive curricula designed to build muscle memory, boost velocity, and eliminate typing errors.
+      </p>
     </div>
 
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
+    <!-- 4 MAIN COURSES GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- HERO -->
-<section class="courses-hero">
-    <div class="hero-container">
-        <span class="hero-badge">📚 TYPING LEARNING PATH</span>
-        <h1>Master Touch Typing <span>One Course at a Time</span></h1>
-        <p>Whether you're just starting or aiming for professional typing speed, our structured learning path helps you improve accuracy, speed, and confidence through step-by-step lessons.</p>
-    </div>
-</section>
-
-<!-- COURSES GRID -->
-<div class="courses-grid">
-
-    <!-- COURSE 1 -->
-    <div class="course-card">
-        <a href="beginner.html" class="course-image">
-            <img src="images/courses/beginner-course.webp" alt="Beginner Typing Course" loading="lazy">
+      <!-- COURSE 1: Beginner -->
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col hover:border-indigo-500/50 transition group">
+        <a href="beginner.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/courses/beginner-course.webp" alt="Beginner Typing Course" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80'">
+          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-emerald-500/90 text-slate-950 backdrop-blur-md">
+            Beginner
+          </span>
         </a>
-        <div class="course-content">
-            <span class="course-badge">Beginner</span>
-            <h2>Beginner Typing</h2>
-            <p>Start your typing journey with proper finger placement, home row keys, keyboard basics, and beginner-friendly practice lessons.</p>
-            <div class="course-info">📚 12 Lessons • ⏱️ 2 Hours</div>
-            <a href="beginner.html" class="course-btn">Start Course →</a>
-        </div>
-    </div>
-
-    <!-- COURSE 2 -->
-    <div class="course-card">
-        <a href="speed-building.html" class="course-image">
-            <img src="images/courses/intermediate-course.webp" alt="Speed Building Course" loading="lazy">
-        </a>
-        <div class="course-content">
-            <span class="course-badge intermediate">Intermediate</span>
-            <h2>Speed Building</h2>
-            <p>Build faster typing speed with structured drills, timed exercises, rhythm practice, and real-world typing challenges.</p>
-            <div class="course-info">📚 18 Lessons • ⏱️ 3 Hours</div>
-            <a href="speed-building.html" class="course-btn">Start Course →</a>
-        </div>
-    </div>
-
-    <!-- COURSE 3 -->
-    <div class="course-card">
-        <a href="accuracy-mastery.html" class="course-image">
-            <img src="images/courses/accuracy-course.webp" alt="Accuracy Mastery Course" loading="lazy">
-        </a>
-        <div class="course-content">
-            <span class="course-badge intermediate">Intermediate</span>
-            <h2>Accuracy Mastery</h2>
-            <p>Improve typing precision, reduce mistakes, build consistency, and develop reliable keyboard skills through smart practice and feedback.</p>
-            <div class="course-info">📚 15 Lessons • ⏱️ 2.5 Hours</div>
-            <a href="accuracy-mastery.html" class="course-btn">Start Course →</a>
-        </div>
-    </div>
-
-    <!-- COURSE 4 -->
-    <div class="course-card">
-        <a href="advanced-typing.html" class="course-image">
-            <img src="images/courses/advanced-course.webp" alt="Advanced Typing Course" loading="lazy">
-        </a>
-        <div class="course-content">
-            <span class="course-badge advanced">Advanced</span>
-            <h2>Advanced Typing</h2>
-            <p>Master professional typing techniques, increase your WPM, improve endurance, and prepare for competitive exams and workplace productivity.</p>
-            <div class="course-info">📚 24 Lessons • ⏱️ 5 Hours</div>
-            <a href="advanced-typing.html" class="course-btn">Start Course →</a>
-        </div>
-    </div>
-
-</div>
-
-<!-- WHY LEARN WITH TYPENEST -->
-<section class="learning-section">
-    <div class="container">
-        <div class="learning-header">
-            <span class="learning-badge">WHY CHOOSE TYPENEST</span>
-            <h2>Learn Smarter With <span>Structured Typing Courses</span></h2>
-            <p>Every course follows a step-by-step learning path designed to improve your typing speed, build accuracy, and develop long-term keyboard confidence through practical lessons.</p>
-        </div>
-
-        <div class="learning-grid">
-            <div class="learning-card">
-                <div class="learning-icon">🎯</div>
-                <h3>Step-by-Step Lessons</h3>
-                <p>Learn in a structured order from beginner concepts to advanced typing techniques.</p>
-            </div>
-
-            <div class="learning-card">
-                <div class="learning-icon">⚡</div>
-                <h3>Improve Speed</h3>
-                <p>Build faster typing speed with carefully designed practice sessions and drills.</p>
-            </div>
-
-            <div class="learning-card">
-                <div class="learning-icon">✅</div>
-                <h3>Better Accuracy</h3>
-                <p>Reduce typing mistakes and develop consistent keyboard habits for daily work.</p>
-            </div>
-
-            <div class="learning-card">
-                <div class="learning-icon">📈</div>
-                <h3>Track Progress</h3>
-                <p>Measure your improvement as you complete each course and typing exercise.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="courses-cta">
-    <div class="container">
-        <h2>Ready to Become a Faster Typist?</h2>
-        <p>Start learning today with beginner-friendly lessons, practical exercises, and structured typing courses designed for students and professionals.</p>
-        <a href="typing.html" class="cta-btn">Start Practicing →</a>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-    <div class="container">
-        <div class="faq-header">
-            <h2>Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Which course should beginners start with?</button>
-            <div class="faq-answer">
-                <p>Beginners should start with the Beginner Typing course to learn finger placement, home row keys, and typing fundamentals.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">Are TypeNest courses free?</button>
-            <div class="faq-answer">
-                <p>Yes. Most TypeNest typing lessons and practice exercises are available free to help users improve their typing skills.</p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">How long does it take to improve typing speed?</button>
-            <div class="faq-answer">
-                <p>With regular daily practice, most learners notice measurable improvements within a few weeks.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h2 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Beginner Typing</h2>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Start your typing journey with proper finger placement, home row keys, keyboard basics, and beginner practice.
             </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <div class="text-[11px] font-semibold text-slate-400 flex items-center justify-between">
+              <span><i class="fa-solid fa-book-open text-indigo-400 mr-1.5"></i> 12 Lessons</span>
+              <span><i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> 2 Hours</span>
+            </div>
+            <a href="beginner.html" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+              Start Course <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
+      <!-- COURSE 2: Speed Building -->
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col hover:border-indigo-500/50 transition group">
+        <a href="speed-building.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/courses/intermediate-course.webp" alt="Speed Building Course" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80'">
+          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-amber-500/90 text-slate-950 backdrop-blur-md">
+            Intermediate
+          </span>
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h2 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Speed Building</h2>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Build faster typing speed with structured drills, timed exercises, cadence practice, and velocity challenges.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <div class="text-[11px] font-semibold text-slate-400 flex items-center justify-between">
+              <span><i class="fa-solid fa-book-open text-indigo-400 mr-1.5"></i> 18 Lessons</span>
+              <span><i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> 3 Hours</span>
+            </div>
+            <a href="speed-building.html" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+              Start Course <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
+      <!-- COURSE 3: Accuracy Mastery -->
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col hover:border-indigo-500/50 transition group">
+        <a href="accuracy-mastery.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/courses/accuracy-course.webp" alt="Accuracy Mastery Course" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80'">
+          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-cyan-500/90 text-slate-950 backdrop-blur-md">
+            Intermediate
+          </span>
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h2 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Accuracy Mastery</h2>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Improve typing precision, reduce mistakes, build consistency, and develop zero-error typing muscle memory.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <div class="text-[11px] font-semibold text-slate-400 flex items-center justify-between">
+              <span><i class="fa-solid fa-book-open text-indigo-400 mr-1.5"></i> 15 Lessons</span>
+              <span><i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> 2.5 Hours</span>
+            </div>
+            <a href="accuracy-mastery.html" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+              Start Course <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
+      <!-- COURSE 4: Advanced Typing -->
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col hover:border-indigo-500/50 transition group">
+        <a href="advanced-typing.html" class="block aspect-video overflow-hidden bg-slate-900 relative">
+          <img src="images/courses/advanced-course.webp" alt="Advanced Typing Course" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80'">
+          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-rose-500/90 text-white backdrop-blur-md">
+            Advanced
+          </span>
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h2 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Advanced Typing</h2>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Master professional prose, reach 80+ WPM, improve endurance, and prepare for competitive exams.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-800/80">
+            <div class="text-[11px] font-semibold text-slate-400 flex items-center justify-between">
+              <span><i class="fa-solid fa-book-open text-indigo-400 mr-1.5"></i> 24 Lessons</span>
+              <span><i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> 5 Hours</span>
+            </div>
+            <a href="advanced-typing.html" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
+              Start Course <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
         </div>
+      </div>
+
     </div>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
+    <!-- SPECIALIZED PRACTICE SECTION (इथे सर्व प्रॅक्टिस ड्रिल्स समाविष्ट केल्या आहेत) -->
+    <section class="space-y-6 pt-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
+            <i class="fa-solid fa-bullseye text-indigo-400"></i> Targeted Skill Drills
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400">Specific drills to sharpen weak spots: numbers, tricky spellings, and punctuation marks.</p>
+        </div>
+        <span class="text-xs text-slate-500 font-mono">Independent Modules</span>
+      </div>
 
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
+        <!-- Drill 1: Numbers -->
+        <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-6 hover:border-amber-500/40 transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Number Row Practice</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Master the top number keys (1 to 0), phone numbers, dates, and accounting statistics without looking down.
+            </p>
+          </div>
+          <a href="number-typing-practice.html" class="inline-flex items-center justify-between text-xs font-bold text-amber-400 hover:underline pt-2 border-t border-slate-800/80">
+            Practice Numbers &rarr;
+          </a>
+        </div>
 
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+        <!-- Drill 2: Difficult Words -->
+        <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-6 hover:border-rose-500/40 transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Difficult Words Practice</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Conquer awkward key reaches, double consonants, silent letters, and commonly misspelled vocabulary.
+            </p>
+          </div>
+          <a href="difficult-words-typing-practice.html" class="inline-flex items-center justify-between text-xs font-bold text-rose-400 hover:underline pt-2 border-t border-slate-800/80">
+            Practice Tricky Words &rarr;
+          </a>
+        </div>
 
+        <!-- Drill 3: Punctuation -->
+        <div class="bg-[#111827]/70 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Punctuation Practice</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Gain flow on quotes, semicolons, hyphens, brackets, and dialogue grammar without breaking keystroke rhythm.
+            </p>
+          </div>
+          <a href="punctuation-typing-practice.html" class="inline-flex items-center justify-between text-xs font-bold text-emerald-400 hover:underline pt-2 border-t border-slate-800/80">
+            Practice Punctuation &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-6">
+      <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-2xl font-extrabold text-white">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-3">
+        <details class="group bg-[#0b0f19] border border-slate-800 rounded-2xl p-4 cursor-pointer transition open:border-indigo-500/40">
+          <summary class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-200 group-hover:text-indigo-400 list-none">
+            <span>Which course should beginners start with?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-500 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800/80 leading-relaxed">
+            Beginners should start with the Beginner Typing course to learn finger placement, home row keys, and typing fundamentals.
+          </p>
+        </details>
+
+        <details class="group bg-[#0b0f19] border border-slate-800 rounded-2xl p-4 cursor-pointer transition open:border-indigo-500/40">
+          <summary class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-200 group-hover:text-indigo-400 list-none">
+            <span>Are TypeNest courses free?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-500 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800/80 leading-relaxed">
+            Yes. All TypeNest typing lessons, speed building drills, and practice modules are 100% free with no subscription required.
+          </p>
+        </details>
+
+        <details class="group bg-[#0b0f19] border border-slate-800 rounded-2xl p-4 cursor-pointer transition open:border-indigo-500/40">
+          <summary class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-200 group-hover:text-indigo-400 list-none">
+            <span>How long does it take to improve typing speed?</span>
+            <i class="fa-solid fa-chevron-down text-xs text-slate-500 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-xs text-slate-400 mt-3 pt-3 border-t border-slate-800/80 leading-relaxed">
+            With regular daily 15-minute practice, most typists experience a 20-40% increase in speed within two to three weeks.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
+  
 </body>
 </html>

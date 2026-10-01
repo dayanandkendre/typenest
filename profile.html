@@ -1,287 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile & Performance Stats | TypeNest</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
-
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Private User Profile (Google Search Bots पासून लपवण्यासाठी) -->
-    <meta name="robots" content="noindex, nofollow">
-
-    <!-- SEO Meta Tags -->
-    <title>My Profile | TypeNest</title>
-    <meta name="description" content="View your TypeNest profile, track typing progress, monitor achievements, badges, certificates, WPM records, and learning statistics.">
-    <meta name="keywords" content="typing profile, typing progress, typing statistics, typing achievements, typing badges, user profile, TypeNest">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/profile.html">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="My Profile | TypeNest">
-    <meta property="og:description" content="Track your typing progress, achievements, WPM stats, and certificates on TypeNest.">
-    <meta property="og:url" content="https://typenest.in/profile.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
-
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="profile.css">
-
-    <!-- Auth Session Check Script -->
-    <script>
-      const sessionUser = localStorage.getItem("userUID");
-      if (!sessionUser) {
-          alert("Please login first to access your profile! 🔐");
-          window.location.href = "login.html";
-      }
-    </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body class="light">
+  
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <!-- Main Profile Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-    </div>
-
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- USER MENU -->
-    <div class="user-menu">
-        <a href="profile.html" class="login-btn">Profile</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
+    <!-- Profile Hero Card -->
+    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-5">
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-emerald-400 p-1 flex items-center justify-center shadow-lg shadow-indigo-600/30">
+          <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-2xl font-extrabold text-white" id="profileBigAvatar">
+            AL
+          </div>
         </div>
-    </div>
-</div>
-
-<!-- PROFILE DASHBOARD -->
-<div class="profile-dashboard">
-
-    <!-- PROFILE HEADER -->
-    <div class="profile-header">
-        <div class="profile-banner"></div>
-
-        <div class="profile-info">
-            <img id="profilePhoto" src="https://ui-avatars.com/api/?name=User" alt="Profile">
-            <h1 id="userName">Loading...</h1>
-            <p id="userEmail">Loading...</p>
-
-            <div class="member-badge">⭐ TypeNest Member</div>
+        <div>
+          <div class="flex items-center gap-3">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="profileNameDisplay">Alex</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Active Typist</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1 flex items-center gap-2">
+            <span><i class="fa-solid fa-bolt text-indigo-400"></i> Level: <strong class="text-slate-200">Tier 1 Master</strong></span>
+            <span>•</span>
+            <span><i class="fa-solid fa-calendar-check text-amber-400"></i> 14 Day Streak</span>
+          </p>
         </div>
+      </div>
+
+      <!-- Quick Edit Name -->
+      <div class="flex items-center gap-2 bg-[#0b0f19] p-1.5 rounded-2xl border border-slate-800 w-full sm:w-auto">
+        <i class="fa-solid fa-user-pen text-indigo-400 text-xs pl-2"></i>
+        <input type="text" id="usernameInput" value="Alex" class="bg-transparent text-xs text-white px-2 py-1.5 focus:outline-none w-36 sm:w-44 font-semibold" placeholder="Display Name">
+        <button onclick="saveProfileName()" class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-md">
+          Save
+        </button>
+      </div>
+
     </div>
 
-    <!-- STATS ROW 1 -->
-    <div class="stats-row">
-        <div class="stats-card">
-            <div class="stats-icon">📝</div>
-            <div class="stats-content">
-                <h2 id="testsTaken">0</h2>
-                <p>Tests Taken</p>
-                <span>Keep going!</span>
-            </div>
+    <!-- 3 Big Metric Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      
+      <!-- Top Speed Card -->
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Personal Best (WPM)</span>
+          <div id="statTopWPM" class="text-4xl font-extrabold text-indigo-400 font-mono">78</div>
+          <span class="text-[11px] text-slate-500 mt-1 block">Standard 1m Sprint</span>
         </div>
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-gauge-high"></i>
+        </div>
+      </div>
 
-        <div class="stats-card">
-            <div class="stats-icon">⚡</div>
-            <div class="stats-content">
-                <h2 id="bestWpm">0</h2>
-                <p>Best WPM</p>
-                <span>Your best speed</span>
-            </div>
+      <!-- Accuracy Card -->
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Average Accuracy</span>
+          <div id="statAvgAcc" class="text-4xl font-extrabold text-emerald-400 font-mono">98%</div>
+          <span class="text-[11px] text-slate-500 mt-1 block">Calculated over tests</span>
         </div>
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+      </div>
 
-        <div class="stats-card">
-            <div class="stats-icon">🎯</div>
-            <div class="stats-content">
-                <h2 id="bestAccuracy">0%</h2>
-                <p>Accuracy</p>
-                <span>Amazing!</span>
-            </div>
+      <!-- Tests Taken Card -->
+      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Tests Completed</span>
+          <div class="text-4xl font-extrabold text-amber-400 font-mono">42</div>
+          <span class="text-[11px] text-slate-500 mt-1 block">3.2 hours typing practice</span>
         </div>
+        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-keyboard"></i>
+        </div>
+      </div>
 
-        <div class="stats-card">
-            <div class="stats-icon">👑</div>
-            <div class="stats-content">
-                <h2 id="userRank">#--</h2>
-                <p>Leaderboard Rank</p>
-                <span>Keep climbing!</span>
-            </div>
-        </div>
     </div>
 
-    <!-- STATS ROW 2 -->
-    <div class="stats-row">
-        <div class="stats-card">
-            <div class="stats-icon">⭐</div>
-            <div class="stats-content">
-                <h2 id="totalStars">0</h2>
-                <p>Total Stars</p>
-                <span>Earn more stars</span>
-            </div>
+    <!-- Certificate Badges & Milestone Rewards -->
+    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-award text-amber-400"></i> Certificate Badges & Achievements
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Badges unlocked by speed tiers and verified tests.</p>
+        </div>
+        <a href="certificate.html" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5">
+          View Certificate &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-amber-800/40 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-900/30 text-amber-400 flex items-center justify-center text-2xl">🥉</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-200">Bronze Typist</h3>
+            <span class="text-xs text-slate-500 font-mono">Completed 40+ WPM</span>
+          </div>
         </div>
 
-        <div class="stats-card">
-            <div class="stats-icon">🏆</div>
-            <div class="stats-content">
-                <h2 id="perfectRuns">0</h2>
-                <p>Perfect Runs</p>
-                <span>No mistakes</span>
-            </div>
+        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-700/60 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl">🥈</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-200">Silver Competency</h3>
+            <span class="text-xs text-slate-500 font-mono">Completed 60+ WPM</span>
+          </div>
         </div>
 
-        <div class="stats-card">
-            <div class="stats-icon">🔥</div>
-            <div class="stats-content">
-                <h2 id="bestStreak">0</h2>
-                <p>Best Streak</p>
-                <span>Highest Level</span>
-            </div>
+        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-yellow-600/40 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-2xl">🥇</div>
+          <div>
+            <h3 class="text-sm font-bold text-slate-200">Gold Master</h3>
+            <span class="text-xs text-emerald-400 font-mono font-semibold">Active: 78+ WPM</span>
+          </div>
         </div>
-
-        <div class="stats-card">
-            <div class="stats-icon">📊</div>
-            <div class="stats-content">
-                <h2 id="totalScore">0</h2>
-                <p>Total Score</p>
-                <span>Overall Performance</span>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <!-- OVERALL PROGRESS -->
-    <div class="progress-card">
-        <h2>📊 Overall Progress</h2>
-
-        <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
+    <!-- Recent Session Activity Log -->
+    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+      <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-clock-rotate-left text-indigo-400"></i> Recent Typing Sessions
+      </h2>
+      <div class="divide-y divide-slate-800/80 font-mono text-xs" id="sessionList">
+        <div class="py-3 flex items-center justify-between">
+          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>Today • 1-Minute Classic Test</span>
+          <span class="text-indigo-400 font-bold text-sm">78 WPM <span class="text-emerald-400 text-xs font-normal">(98% Accuracy)</span></span>
         </div>
-
-        <p id="progressText">0% Complete</p>
-
-        <div class="progress-sections">
-            <div>🏠 Home Row: <span id="homeProgress">0/20</span></div>
-            <div>⬇️ Bottom Row: <span id="bottomProgress">0/20</span></div>
-            <div>📝 Words: <span id="wordsProgress">0/20</span></div>
-            <div>🔢 Numbers: <span id="numbersProgress">0/20</span></div>
-            <div>🚀 Advanced: <span id="advancedProgress">0/20</span></div>
+        <div class="py-3 flex items-center justify-between">
+          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>Yesterday • Numbers & Symbols</span>
+          <span class="text-indigo-400 font-bold text-sm">65 WPM <span class="text-emerald-400 text-xs font-normal">(96% Accuracy)</span></span>
         </div>
+        <div class="py-3 flex items-center justify-between">
+          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>2 days ago • Advanced Prose</span>
+          <span class="text-indigo-400 font-bold text-sm">71 WPM <span class="text-emerald-400 text-xs font-normal">(99% Accuracy)</span></span>
+        </div>
+      </div>
     </div>
 
-    <!-- CONTENT AREA -->
-    <div class="dashboard-grid">
-        <!-- QUICK ACTIONS -->
-        <div class="dashboard-card">
-            <h2>⚡ Quick Actions</h2>
+  </main>
 
-            <div class="action-list">
-                <a href="typing.html" class="action-item">⌨️ Start Practice</a>
-                <a href="tests.html" class="action-item">📝 Take Test</a>
-                <a href="leaderboard.html" class="action-item">🏆 View Leaderboard</a>
-                <a href="courses.html" class="action-item">📚 Browse Courses</a>
-            </div>
-        </div>
+  <script>
+    function saveProfileName() {
+      const name = document.getElementById('usernameInput').value.trim() || 'Alex';
+      localStorage.setItem('tn_username', name);
 
-        <!-- RECENT TESTS -->
-        <div class="dashboard-card">
-            <h2>📈 Recent Tests</h2>
+      document.getElementById('profileNameDisplay').innerText = name;
+      document.getElementById('navUserLabel').innerText = name;
+      
+      const initials = name.substring(0, 2).toUpperCase();
+      document.getElementById('profileBigAvatar').innerText = initials;
+      document.getElementById('navAvatar').innerText = initials;
+    }
 
-            <div class="recent-tests">
-                <div id="recentTests">Loading tests...</div>
-            </div>
-        </div>
-    </div>
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedName = localStorage.getItem('tn_username') || 'Alex';
+      document.getElementById('usernameInput').value = savedName;
+      document.getElementById('profileNameDisplay').innerText = savedName;
+      document.getElementById('navUserLabel').innerText = savedName;
 
-    <!-- BADGES SECTION -->
-    <div class="badges-card">
-        <h2>🏅 My Badges</h2>
+      const initials = savedName.substring(0, 2).toUpperCase();
+      document.getElementById('profileBigAvatar').innerText = initials;
+      document.getElementById('navAvatar').innerText = initials;
 
-        <div class="badges-grid">
-            <div id="badgeHome" class="badge-item">🏠 Home Row Master</div>
-            <div id="badgeBottom" class="badge-item">⬇️ Bottom Row Master</div>
-            <div id="badgeWords" class="badge-item">📝 Word Warrior</div>
-            <div id="badgeNumbers" class="badge-item">🔢 Number Ninja</div>
-            <div id="badgeAdvanced" class="badge-item">🚀 Advanced Expert</div>
-            <div id="badgeChampion" class="badge-item">🏆 TypeNest Champion</div>
-        </div>
-    </div>
+      const savedWPM = localStorage.getItem('tn_last_wpm');
+      const savedAcc = localStorage.getItem('tn_last_acc');
 
-    <!-- CERTIFICATE SECTION -->
-    <div id="certificateSection">
-        <a href="certificate.html" class="certificate-btn">🏆 View Certificate</a>
-    </div>
-
-    <!-- BOTTOM INFO -->
-    <div class="bottom-cards">
-        <div class="bottom-card">
-            <h3>🔥 Current Streak</h3>
-            <p>12 Days</p>
-        </div>
-
-        <div class="bottom-card">
-            <h3>🏅 Member Since</h3>
-            <p>June 2026</p>
-        </div>
-
-        <div class="bottom-card">
-            <button id="logoutBtn">Logout</button>
-        </div>
-    </div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer-bottom">
-    <p>© 2026 TypeNest. All rights reserved.</p>
-</div>
-
-<!-- SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="profile.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+      if (savedWPM) document.getElementById('statTopWPM').innerText = savedWPM;
+      if (savedAcc) document.getElementById('statAvgAcc').innerText = `${savedAcc}%`;
+    });
+  </script>
+  
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
+  
 </body>
 </html>

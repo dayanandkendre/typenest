@@ -1,465 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Title, Description & Keywords -->
+  <title>Speed Building Course & Rhythm Drills | TypeNest</title>
+  <meta name="description" content="Boost typing speed from 40 WPM to 80+ WPM with structured rhythm drills, fast bigrams, and high-frequency word bursts on TypeNest.">
+  <meta name="keywords" content="speed building typing, typing speed drills, fast bigrams, typing cadence, high frequency words typing, typenest">
+  <meta name="robots" content="index, follow">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Canonical Tag for Google Indexing -->
+  <link rel="canonical" href="https://typenest.in/speed-building.html">
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/speed-building.html">
+  <meta property="og:title" content="Speed Building Course & Rhythm Drills | TypeNest">
+  <meta property="og:description" content="Train typing cadence, eliminate hesitations, and build high-speed muscle bursts.">
+  <meta property="og:image" content="https://typenest.in/images/courses/intermediate-course.webp">
 
-    <!-- SEO Meta Tags -->
-    <title>Speed Building Course | TypeNest</title>
-    <meta name="description" content="Improve your typing speed with focused exercises, drills, and structured lessons designed to increase WPM on TypeNest.">
-    <meta name="keywords" content="speed building course, increase typing WPM, fast typing practice, typing speed drills, TypeNest speed course">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/speed-building.html">
+  <meta name="twitter:title" content="Speed Building Course | TypeNest">
+  <meta name="twitter:description" content="Master typing speed bursts and continuous flow on TypeNest.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/intermediate-course.webp">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/speed-building.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Speed Building Course | TypeNest">
-    <meta property="og:description" content="Boost your typing speed with high-speed drills and practice lessons on TypeNest.">
-    <meta property="og:url" content="https://typenest.in/speed-building.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="beginner.css">
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 
-    <!-- Course Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Speed Building Course",
-      "description": "Learn proven techniques to increase typing speed, improve rhythm, and reach higher WPM levels without sacrificing accuracy.",
-      "provider": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "sameAs": "https://typenest.in"
+    @keyframes blinkCursor {
+      0%, 100% { border-color: #6366f1; }
+      50% { border-color: transparent; }
+    }
+    .typing-cursor {
+      border-left: 2.5px solid #6366f1;
+      animation: blinkCursor 0.9s infinite ease-in-out;
+      margin-left: -1px;
+    }
+
+    .key-cap {
+      transition: all 0.08s ease;
+      user-select: none;
+      box-shadow: 0 3px 0 0 #0f172a, 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+    .key-active {
+      transform: translateY(2px) scale(0.96) !important;
+      background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+      color: #ffffff !important;
+      border-color: #818cf8 !important;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.85) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header is automatically injected by assets/js/layout.js -->
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- Top Banner -->
+    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-amber-500/10 text-amber-400 border border-amber-500/30">Course 02</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Speed Building Drills</h1>
+        </div>
+        <p class="text-slate-400 text-sm mt-1">Train finger cadence and eliminate hesitation between high-frequency n-grams.</p>
+      </div>
+
+      <!-- Drill Steps Selector -->
+      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
+        <button onclick="setDrill(0, this)" id="dbtn-0" class="dbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white transition">Drill 1: Frequent Words</button>
+        <button onclick="setDrill(1, this)" id="dbtn-1" class="dbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 2: Fast Bigrams</button>
+        <button onclick="setDrill(2, this)" id="dbtn-2" class="dbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 3: Flow Cadence</button>
+      </div>
+    </div>
+
+    <!-- Live Performance Stats Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Speed (WPM)</div>
+          <div id="statWPM" class="text-3xl font-extrabold text-indigo-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
+          <div id="statAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">100<span class="text-lg font-normal">%</span></div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
+          <div id="statErrors" class="text-3xl font-extrabold text-rose-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Cadence Target</div>
+          <div class="text-2xl font-extrabold text-amber-400 font-mono mt-0.5">Fluid Rhythm</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-gauge-simple-high"></i></div>
+      </div>
+    </div>
+
+    <!-- Active Drill Arena -->
+    <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+        <span id="drillTitle" class="font-medium text-slate-300 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Drill 1: High Frequency Word Bursts
+        </span>
+        <button onclick="resetDrill(this)" class="hover:text-indigo-400 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+        </button>
+      </div>
+
+      <!-- Hidden input for mobile keyboard touch focus -->
+      <input type="text" id="mobileInputSink" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+      <div id="typingArea" onclick="focusSpeedEngine()" class="cursor-text relative min-h-[140px] max-h-[220px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-3 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+        <div id="textDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
+      </div>
+    </div>
+
+    <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
+    <div id="keyboardWrapper"></div>
+
+  </main>
+
+  <!-- Page Logic Controller -->
+  <script>
+    const DRILLS = [
+      { title: "Drill 1: High Frequency Word Bursts", text: "the and that have with this will your from they know want good some time could them other than then now look only come its over think also back after use two how our work first well way even new want because any these give day most us" },
+      { title: "Drill 2: Fast Bigram Muscle Memory", text: "th he in er an re nd at on nt ha es st en ed to it ou ea hi is or ti as te et ng of al de se le sa si ar me ra ma li ch no" },
+      { title: "Drill 3: Flow Cadence & Rhythm", text: "speed comes naturally when you focus on smooth continuous keystrokes rather than rushed bursts. keep your breathing relaxed and let words form fluid chords." }
+    ];
+
+    let currentDrillIdx = 0;
+
+    function initSpeedSession() {
+      const drill = DRILLS[currentDrillIdx];
+      const titleEl = document.getElementById('drillTitle');
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> ${drill.title}`;
+      }
+
+      // Master typing engine call (0 = Zen Mode / untimed cadence flow)
+      if (window.startTypingSession) {
+        window.startTypingSession(drill.text, 0);
       }
     }
-    </script>
-</head>
 
-<body class="light">
+    // Global reset hook for Escape key
+    window.resetCurrentTest = function() {
+      initSpeedSession();
+    };
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    function resetDrill(btn) {
+      if (btn) btn.blur(); // Blur button so Spacebar never triggers button reset
+      initSpeedSession();
+    }
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    function focusSpeedEngine() {
+      const sink = document.getElementById('mobileInputSink');
+      if (sink) sink.focus();
+    }
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    function setDrill(idx, btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = idx;
+      document.querySelectorAll('.dbtn').forEach(b => {
+        b.classList.remove('bg-indigo-600', 'text-white');
+        b.classList.add('bg-transparent', 'text-slate-400');
+      });
+      const targetBtn = document.getElementById(`dbtn-${idx}`);
+      if (targetBtn) {
+        targetBtn.classList.add('bg-indigo-600', 'text-white');
+        targetBtn.classList.remove('text-slate-400');
+      }
+      initSpeedSession();
+    }
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
+    window.addEventListener('DOMContentLoaded', () => {
+      initSpeedSession();
+    });
+  </script>
 
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- HERO -->
-<div class="about-hero">
-    <h1>Speed Building Course</h1>
-    <p>Learn proven techniques to increase typing speed, improve rhythm, and reach higher WPM levels without sacrificing accuracy.</p>
-</div>
-
-<!-- COURSE CONTENT -->
-<section class="course-content">
-
-    <div class="content-card">
-        <h2>Introduction to Typing Speed</h2>
-        <p>Typing speed is one of the most valuable skills in today's digital world. Whether you are writing emails, preparing reports, coding software, creating content, or participating in online examinations, faster typing helps you complete tasks more efficiently. While beginners often focus on learning the keyboard layout, the next stage of improvement involves developing speed without sacrificing accuracy.</p>
-        <p>Many people believe that fast typing is a natural talent. In reality, professional typists achieve high speeds through consistent practice, proper finger placement, muscle memory development, and effective typing techniques. Speed is not achieved overnight. It is the result of thousands of correct keystrokes repeated over time.</p>
-        <p>This course is designed to help learners understand how typing speed develops and how they can gradually increase their Words Per Minute (WPM) through structured practice.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Why Typing Speed Matters</h2>
-        <p>Faster typing allows individuals to work more efficiently and communicate ideas more quickly. In many professions, typing speed directly affects productivity. Employees who type faster can complete reports, respond to emails, and enter data more efficiently than those with slower typing speeds.</p>
-        <ul>
-            <li>Improves workplace productivity.</li>
-            <li>Reduces time spent on repetitive tasks.</li>
-            <li>Increases efficiency during examinations.</li>
-            <li>Improves communication speed.</li>
-            <li>Supports academic and professional success.</li>
-            <li>Builds confidence while using computers.</li>
-        </ul>
-        <p>Even a small increase in typing speed can save hours of work over weeks and months.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Understanding Words Per Minute (WPM)</h2>
-        <p>Words Per Minute, commonly known as WPM, is the standard measurement used to evaluate typing speed. A higher WPM indicates a faster typing speed.</p>
-        <p>General typing categories include:</p>
-        <ul>
-            <li>20–30 WPM – Beginner</li>
-            <li>30–50 WPM – Average Typist</li>
-            <li>50–70 WPM – Good Typist</li>
-            <li>70–90 WPM – Advanced Typist</li>
-            <li>90+ WPM – Professional Typist</li>
-        </ul>
-        <p>Beginners should not worry about reaching high WPM immediately. Building a strong foundation with accuracy is more important than chasing speed too early.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>The Science Behind Fast Typing</h2>
-        <p>Fast typing is closely related to muscle memory. When fingers repeatedly perform the same movements, the brain gradually stores those movement patterns. Over time, fingers begin to move automatically without conscious effort.</p>
-        <p>This process reduces the amount of mental energy required to locate keys. Instead of thinking about individual letters, experienced typists focus on words, phrases, and ideas while their fingers handle the physical typing.</p>
-        <p>The stronger your muscle memory becomes, the faster and more accurate your typing performance will be.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Developing Finger Rhythm</h2>
-        <p>One of the biggest differences between slow typists and fast typists is rhythm. Professional typists maintain a steady typing flow instead of stopping frequently to think about key locations.</p>
-        <p>Rhythm creates smooth transitions between letters and words. Instead of typing in short bursts, experienced typists maintain a consistent pace throughout the entire paragraph.</p>
-        <p>To improve rhythm:</p>
-        <ul>
-            <li>Practice common word combinations.</li>
-            <li>Avoid unnecessary pauses.</li>
-            <li>Keep your eyes on the screen.</li>
-            <li>Focus on smooth movement rather than speed.</li>
-            <li>Use all fingers correctly.</li>
-        </ul>
-    </div>
-
-    <div class="content-card">
-        <h2>Reducing Hesitation While Typing</h2>
-        <p>Hesitation is one of the biggest obstacles to speed improvement. Many typists pause briefly before pressing unfamiliar keys or words. These small pauses may seem insignificant, but they greatly reduce overall typing speed.</p>
-        <p>Common causes of hesitation include:</p>
-        <ul>
-            <li>Poor finger placement.</li>
-            <li>Looking at the keyboard.</li>
-            <li>Lack of muscle memory.</li>
-            <li>Insufficient practice.</li>
-            <li>Fear of making mistakes.</li>
-        </ul>
-        <p>The solution is regular practice. The more familiar your fingers become with the keyboard layout, the less hesitation you will experience.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Accuracy and Speed Relationship</h2>
-        <p>Many learners attempt to type as quickly as possible from the beginning. Unfortunately, this often leads to mistakes, frustration, and poor habits. Accuracy and speed are closely connected. High accuracy eventually produces higher speed.</p>
-        <p>Consider these examples:</p>
-        <pre>40 WPM with 70% Accuracy
-vs
-30 WPM with 98% Accuracy</pre>
-        <p>The second typist is generally more effective because fewer mistakes mean less time spent correcting errors. Always focus on accuracy first and allow speed to increase naturally.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Common Barriers to Speed Improvement</h2>
-        <p>Many typists reach a point where their progress slows down. This stage is often called a speed plateau. Several factors can prevent learners from increasing their WPM.</p>
-        <ul>
-            <li>Practicing inconsistently.</li>
-            <li>Using incorrect finger placement.</li>
-            <li>Looking at the keyboard frequently.</li>
-            <li>Typing too fast before mastering accuracy.</li>
-            <li>Repeating the same mistakes.</li>
-            <li>Lack of challenging practice material.</li>
-        </ul>
-        <p>Recognizing these barriers allows learners to make adjustments and continue improving their performance.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Building a Strong Speed Foundation</h2>
-        <p>Before aiming for advanced typing speeds, learners should focus on building a strong foundation. Good posture, proper finger placement, consistent practice, and accurate typing create the conditions necessary for long-term success.</p>
-        <p>Speed should be viewed as a by-product of correct technique rather than the primary goal. Typists who build strong habits early often achieve higher speeds with fewer mistakes later.</p>
-        <p>In the next section, you will learn practical speed drills, advanced practice methods, daily training plans, and proven techniques used by professional typists to increase WPM efficiently.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Effective Speed Drills</h2>
-        <p>Speed drills are one of the most effective methods for increasing typing speed. These exercises train your fingers to move faster while maintaining control and accuracy. The goal of speed drills is not to rush blindly but to develop smooth and efficient finger movement.</p>
-        <p>Start by practicing common word patterns repeatedly. Repetition strengthens muscle memory and helps reduce hesitation during typing.</p>
-        <pre>the
-and
-that
-with
-from
-have
-were
-there
-their
-which</pre>
-        <p>Practice these words daily for a few minutes. As your fingers become more familiar with these patterns, your overall typing speed will improve.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Sentence Flow Training</h2>
-        <p>Fast typists do not think about individual letters. Instead, they think in words and sentences. Sentence flow training helps develop this ability by encouraging continuous typing without unnecessary pauses.</p>
-        <pre>Practice makes progress every day.
-Typing becomes easier with consistency.
-Small improvements create long-term success.
-Focus on accuracy before increasing speed.</pre>
-        <p>Read the sentence once, then type it smoothly while maintaining rhythm and concentration.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Improving Word Recognition Speed</h2>
-        <p>One reason experienced typists achieve high speeds is their ability to recognize entire words instantly. Instead of processing each letter separately, they recognize complete patterns.</p>
-        <p>Improve word recognition by reading and typing frequently used words. This helps your brain predict upcoming letter sequences and reduces reaction time.</p>
-        <ul>
-            <li>Practice common English words.</li>
-            <li>Read while typing.</li>
-            <li>Increase paragraph difficulty gradually.</li>
-            <li>Avoid stopping after every word.</li>
-        </ul>
-    </div>
-
-    <div class="content-card">
-        <h2>How to Reach 40 WPM</h2>
-        <p>Reaching 40 WPM is an excellent milestone for beginners. At this level, typing becomes comfortable for most daily activities.</p>
-        <p>To reach 40 WPM:</p>
-        <ul>
-            <li>Practice at least 20 minutes daily.</li>
-            <li>Maintain proper finger placement.</li>
-            <li>Avoid looking at the keyboard.</li>
-            <li>Focus on rhythm and consistency.</li>
-            <li>Take regular typing tests.</li>
-        </ul>
-        <p>Most learners can achieve 40 WPM within a few weeks of consistent practice.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>How to Reach 60 WPM</h2>
-        <p>Moving from 40 WPM to 60 WPM requires more focused training. At this stage, accuracy becomes even more important because frequent mistakes can slow overall performance.</p>
-        <p>Key strategies include:</p>
-        <ul>
-            <li>Practice longer paragraphs.</li>
-            <li>Reduce backspace usage.</li>
-            <li>Improve finger coordination.</li>
-            <li>Develop consistent typing rhythm.</li>
-            <li>Challenge yourself with timed tests.</li>
-        </ul>
-        <p>Consistency remains the most important factor in achieving higher speeds.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Daily Speed Building Routine</h2>
-        <p>A structured daily routine can significantly improve typing performance.</p>
-        <h3>5 Minutes</h3>
-        <p>Warm-up exercises using home row keys.</p>
-        <h3>10 Minutes</h3>
-        <p>Common word drills and sentence practice.</p>
-        <h3>10 Minutes</h3>
-        <p>Timed typing tests.</p>
-        <h3>5 Minutes</h3>
-        <p>Accuracy-focused typing exercises.</p>
-        <p>Following this routine consistently can produce noticeable improvements within a month.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>30-Day Speed Building Plan</h2>
-        <h3>Week 1</h3>
-        <p>Focus on accuracy, finger placement, and proper posture.</p>
-        <h3>Week 2</h3>
-        <p>Introduce speed drills and short timed tests.</p>
-        <h3>Week 3</h3>
-        <p>Practice longer paragraphs and reduce hesitation.</p>
-        <h3>Week 4</h3>
-        <p>Increase typing speed while maintaining at least 95 percent accuracy.</p>
-        <p>This structured plan helps learners improve speed steadily without sacrificing typing quality.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Professional Typing Habits</h2>
-        <p>Professional typists follow habits that allow them to maintain speed and accuracy over long periods.</p>
-        <ul>
-            <li>Maintain proper posture.</li>
-            <li>Keep eyes on the screen.</li>
-            <li>Use all fingers correctly.</li>
-            <li>Take short breaks during long sessions.</li>
-            <li>Practice consistently every day.</li>
-            <li>Monitor progress regularly.</li>
-        </ul>
-        <p>These habits not only improve performance but also reduce physical strain and fatigue.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Tracking Your Progress</h2>
-        <p>Measuring progress is essential for motivation and improvement. Record your WPM, accuracy percentage, and mistakes after each practice session.</p>
-        <p>Tracking progress helps identify strengths, weaknesses, and areas that require additional attention.</p>
-        <p>Small improvements each week eventually result in significant long-term gains.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Final Thoughts</h2>
-        <p>Typing speed is not developed overnight. It is the result of consistent practice, proper technique, and patience. Every fast typist started as a beginner and gradually improved through dedication and repetition.</p>
-        <p>Focus on building strong habits, maintaining high accuracy, and practicing regularly. As your muscle memory strengthens, your typing speed will naturally increase.</p>
-        <p>Continue challenging yourself with longer texts, higher speed goals, and timed typing tests. With persistence and discipline, achieving professional-level typing speeds is entirely possible.</p>
-    </div>
-
-</section>
-
-<!-- RELATED TYPING GUIDES -->
-<section class="related-guides">
-    <div class="container">
-        <div class="related-header">
-            <span class="related-badge">📚 RELATED GUIDES</span>
-            <h2>Improve Your Speed With <span>Expert Typing Guides</span></h2>
-            <p>Explore expert-written typing guides to increase typing speed, improve accuracy, avoid common mistakes, and achieve higher words per minute with confidence.</p>
-        </div>
-
-        <div class="related-grid">
-            <div class="related-card">
-                <h3>Complete Guide to Increase Typing Speed</h3>
-                <p>Learn practical techniques, daily practice routines, and proven methods to increase your typing speed efficiently.</p>
-                <a href="increase-typing-speed-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Typing Speed Test Guide</h3>
-                <p>Understand how typing speed tests work, improve your WPM score, and measure your progress effectively.</p>
-                <a href="typing-speed-test-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Typing Speed Benchmarks Guide</h3>
-                <p>Discover standard typing speed benchmarks for beginners, students, professionals, and competitive exams.</p>
-                <a href="typing-speed-benchmarks-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Common Typing Mistakes Guide</h3>
-                <p>Identify common typing mistakes that slow you down and learn practical strategies to improve speed and accuracy.</p>
-                <a href="typing-mistakes-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<div class="course-cta">
-    <h2>Ready To Test Your Speed?</h2>
-    <p>Apply these techniques and challenge yourself with real-time typing tests.</p>
-    <a href="typing.html" class="course-btn">Start Typing Test</a>
-</div>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
 </body>
 </html>

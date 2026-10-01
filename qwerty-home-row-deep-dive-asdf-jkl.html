@@ -39,10 +39,28 @@
     <meta name="twitter:description" content="Explore the historical evolution and physiological science behind QWERTY Home Row finger anchors.">
     <meta name="twitter:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Structured Data / Article Schema -->
     <script type="application/ld+json">
@@ -74,336 +92,342 @@
     }
     </script>
 </head>
-<body class="light">
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans antialiased min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- Dynamic Header Mount Point -->
+    <div id="header-container"></div>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-        <div class="nav-dropdown">
-            <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-            <div class="dropdown-menu-list">
-                <span class="dropdown-category">⏱️ Timed Tests</span>
-                <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-                <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-                <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
+    <main class="flex-grow">
+        <!-- Blog Hero Section -->
+        <header class="relative pt-8 pb-10 md:pt-10 md:pb-14 border-b border-slate-800/80 bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-transparent overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-left">
                 
-                <span class="dropdown-category">🎯 Skill Drills</span>
-                <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-                <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-                <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
+                <!-- Breadcrumbs -->
+                <nav class="flex items-center justify-start gap-2 text-xs md:text-sm font-medium text-slate-400 mb-6" aria-label="Breadcrumb">
+                    <a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <span class="text-indigo-400">Home Row Science</span>
+                </nav>
+
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-keyboard"></i> Touch Typing Fundamentals
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight md:leading-tight mb-6">
+                    Why ASDF and JKL; Are the Gold Standard: <span class="bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent">The Science Behind the Home Row</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-sm sm:text-base text-slate-400 max-w-3xl font-normal leading-relaxed mb-8">
+                    Why has this specific eight-key placement survived over a century of technological change? Explore the biomechanics, spatial geometry, and tactile feedback principles behind the QWERTY Home Row.
+                </p>
+
+                <!-- Post Meta -->
+                <div class="flex flex-wrap items-center justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400 pt-2 border-t border-slate-800/80 max-w-xl">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-clock text-indigo-400"></i> 6 min read
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-user text-indigo-400"></i> Dayanand Dinkar Kendre
+                    </span>
+                </div>
             </div>
+        </header>
+
+        <!-- Article Container -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+            <article class="prose prose-invert prose-slate max-w-none text-slate-300 leading-relaxed text-base sm:text-lg">
+                
+                <!-- Table of Contents -->
+                <div class="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 md:p-8 mb-12 shadow-lg backdrop-blur-sm">
+                    <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-800">
+                        <i class="fa-solid fa-list-check text-indigo-400 text-xl"></i>
+                        <div>
+                            <h2 class="text-lg md:text-xl font-bold text-white m-0">Table of Contents</h2>
+                            <p class="text-xs sm:text-sm text-slate-400 m-0">Navigate the science behind keyboard home row positions:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-medium">
+                        <a href="#anatomical-balance" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">01</span>
+                            <span>Anatomical Balance</span>
+                        </a>
+                        <a href="#tactile-homing" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">02</span>
+                            <span>F &amp; J Homing Bumps</span>
+                        </a>
+                        <a href="#minimal-travel" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">03</span>
+                            <span>Minimizing Travel Distance</span>
+                        </a>
+                        <a href="#finger-mapping-table" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">04</span>
+                            <span>Home Row Mapping</span>
+                        </a>
+                        <a href="#home-row-drills" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group sm:col-span-2">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">05</span>
+                            <span>Home Row Drills</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lead Paragraph -->
+                <p class="text-base sm:text-lg font-normal text-slate-300 leading-relaxed mb-6">
+                    If you have ever taken a touch typing course or looked closely at your computer keyboard, you know the central keys—<strong class="text-white font-semibold">A, S, D, F</strong> for the left hand and <strong class="text-white font-semibold">J, K, L, ;</strong> for the right hand—form the foundational base called the <strong class="text-white font-semibold">Home Row</strong>.
+                </p>
+
+                <p class="mb-10">
+                    Why has this specific eight-key placement survived well over a century of technological shifts, from mechanical typewriters to modern mechanical keyboards? The answer lies in human hand anatomy, spatial geometry, and tactile feedback mechanisms.
+                </p>
+
+                <!-- Section 1 -->
+                <h2 id="anatomical-balance" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    1. Anatomical Balance &amp; Neutral Resting Position
+                </h2>
+                <p class="mb-4">
+                    When you rest your hands naturally on a flat desk without tensing your forearms, your fingers naturally curl into a soft, relaxed arc. The middle row of a QWERTY matrix perfectly intersects this natural resting curve.
+                </p>
+                <p class="mb-10">
+                    By anchoring your four left fingers on <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">A-S-D-F</code> and four right fingers on <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">J-K-L-;</code>, your wrists remain straight, preventing unnatural twisting (ulnar or radial deviation) that leads to wrist strain over extended typing sessions.
+                </p>
+
+                <!-- Section 2 -->
+                <h2 id="tactile-homing" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    2. The Role of F &amp; J Tactile Homing Bumps
+                </h2>
+                <p class="mb-6">
+                    Standard keycaps feature small raised horizontal lines or bumps on the <strong class="text-white font-semibold">F</strong> and <strong class="text-white font-semibold">J</strong> keys. Introduced by Frank Edward Heath in 1988, these homing nubs serve a vital sensory function:
+                </p>
+
+                <!-- Tip Box -->
+                <div class="rounded-2xl border border-indigo-500/30 bg-indigo-950/20 p-6 md:p-8 mb-10 shadow-lg relative overflow-hidden">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 text-indigo-400 text-lg">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-white mb-3">How Homing Bumps Power Blind Typing</h3>
+                            <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 pl-0 list-none mb-0">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>They provide instant tactile confirmation without requiring visual confirmation.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>They act as the spatial origin (0,0 coordinate) for all finger reach calculations.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span>Whenever fingers stretch to the top or bottom row, they spring back to feel these bumps before the next stroke.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <h2 id="minimal-travel" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    3. Minimizing Finger Travel Distance across Rows
+                </h2>
+                <p class="mb-4">
+                    In English prose, high-frequency vowels and consonants are distributed across the layout. Anchoring on the middle row minimizes the total physical distance your fingers must travel per sentence.
+                </p>
+                <p class="mb-10">
+                    Reaching up to the Top Row (Q, W, E, R, T...) or down to the Bottom Row (Z, X, C, V, B...) requires a movement of less than 0.75 inches from the Home Row center, allowing maximum keypress cadence with minimal physical exertion.
+                </p>
+
+                <!-- Section 4: Finger Mapping Table -->
+                <h2 id="finger-mapping-table" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-6 border-b border-slate-800">
+                    4. Home Row Anchor &amp; Reach Mapping
+                </h2>
+                <div class="overflow-x-auto mb-10 rounded-2xl border border-slate-800 bg-slate-900/60 shadow-xl">
+                    <table class="w-full text-left border-collapse text-sm sm:text-base">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-800/60 text-slate-200">
+                                <th class="p-4 sm:px-6 font-semibold">Hand</th>
+                                <th class="p-4 sm:px-6 font-semibold">Finger</th>
+                                <th class="p-4 sm:px-6 font-semibold text-sky-400">Home Key Anchor</th>
+                                <th class="p-4 sm:px-6 font-semibold text-indigo-400">Extended Reach Keys</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Left Hand</td>
+                                <td class="p-4 sm:px-6">Pinky</td>
+                                <td class="p-4 sm:px-6 font-mono text-sky-300 font-bold">A</td>
+                                <td class="p-4 sm:px-6 font-mono text-slate-300">Q, Z, 1, Tab, Caps Lock</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Left Hand</td>
+                                <td class="p-4 sm:px-6">Index</td>
+                                <td class="p-4 sm:px-6 font-mono text-sky-300 font-bold">F (Bump)</td>
+                                <td class="p-4 sm:px-6 font-mono text-slate-300">R, T, G, V, B, 4, 5</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Right Hand</td>
+                                <td class="p-4 sm:px-6">Index</td>
+                                <td class="p-4 sm:px-6 font-mono text-sky-300 font-bold">J (Bump)</td>
+                                <td class="p-4 sm:px-6 font-mono text-slate-300">U, Y, H, N, M, 6, 7</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Right Hand</td>
+                                <td class="p-4 sm:px-6">Pinky</td>
+                                <td class="p-4 sm:px-6 font-mono text-sky-300 font-bold">; (Semicolon)</td>
+                                <td class="p-4 sm:px-6 font-mono text-slate-300">P, /, ', Enter, Shift</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 5 -->
+                <h2 id="home-row-drills" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    5. Mastering Home Row Drills on TypeNest
+                </h2>
+                <p class="mb-6">
+                    Building flawless home row muscle memory is the foundational first step on TypeNest:
+                </p>
+
+                <div class="space-y-4 mb-10">
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">1</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Top-Row Reach Conditioning</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Master top-row number reach from home row anchors with our <a href="number-typing-practice.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Number Row Practice Drill</a>.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">2</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Peripheral Punctuation Reaches</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Train tricky non-alphabetic reaches using the <a href="punctuation-typing-practice.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Punctuation &amp; Code Practice</a>.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">3</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Anchor Muscle Memory Benchmark</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Benchmark your home row typing speed and accuracy on the <a href="index.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">1-Minute Standard Typing Test</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Further Reading -->
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    Further Reading &amp; Fundamentals Guides
+                </h2>
+                <p class="mb-4">
+                    Continue mastering your keyboard fundamentals with these companion guides:
+                </p>
+                <ul class="space-y-2 mb-10 pl-2 list-none">
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="blind-typing-mastery-without-looking.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">How to Master Blind Typing Without Looking at the Keyboard</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="how-to-fix-backspace-addiction-in-typing.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">How to Fix Backspace Addiction in Typing</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="best-ergonomic-mouse-keyboard-setup-for-typists.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Complete Desk Ergonomics Setup for Typists</a>
+                    </li>
+                </ul>
+
+                <hr class="border-slate-800 my-8">
+
+                <div class="text-xs sm:text-sm text-slate-400 space-y-1">
+                    <p class="m-0"><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p class="m-0"><strong class="text-slate-300">Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)</p>
+                </div>
+            </article>
         </div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <!-- Related Articles -->
+        <section class="py-16 border-t border-slate-800/80 bg-slate-900/30">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">📚 Continue Learning</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Master core keyboard foundations, eliminate visual peeking, and build sustained muscle memory.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="blind-typing-mastery-without-looking.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⌨️ Blind Typing</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Master Blind Typing</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Learn how tactile homing on F and J enables typing with pure muscle memory.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
+                    <a href="how-to-fix-backspace-addiction-in-typing.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">🎯 Precision</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Fix Backspace Addiction</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Break the habit of constant corrections and double your net typing speed.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Home Row Science</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">⌨️ Touch Typing Fundamentals</span>
-
-        <!-- Title -->
-        <h1>Why ASDF and JKL; Are the Gold Standard: The Science Behind the Home Row</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Why has this specific eight-key placement survived over a century of technological change? Explore the biomechanics, spatial geometry, and tactile feedback principles behind the QWERTY Home Row.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 6 min read</span>
-            <span>•</span>
-            <span>👤 Dayanand Dinkar Kendre</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <article class="article-content">
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Navigate the science behind keyboard home row positions:</p>
+                    <a href="index.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⏱️ Assessment</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">1-Minute Standard Test</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Benchmark your home row muscle memory with live speed and accuracy tracking.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Take Test <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="toc-grid">
-                <a href="#anatomical-balance" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">Anatomical Balance</span></a>
-                <a href="#tactile-homing" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">F &amp; J Homing Bumps</span></a>
-                <a href="#minimal-travel" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Minimizing Travel Distance</span></a>
-                <a href="#finger-mapping-table" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Home Row Mapping</span></a>
-                <a href="#home-row-drills" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Home Row Drills</span></a>
+        </section>
+
+        <!-- Universal CTA Banner -->
+        <section class="py-16 md:py-20 border-t border-slate-800/80 relative overflow-hidden bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-[#0b0f19]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-2xl mb-6 shadow-inner">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Ready to Master the Home Row?
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal">
+                    Practice finger placement, muscle memory drills, and timed tests on TypeNest.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="index.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-sm"></i> Take 1-Minute Test
+                    </a>
+                    <a href=index.html class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 text-slate-200 font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-keyboard text-sm"></i> General Practice Mode
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <p class="lead">
-            If you have ever taken a touch typing course or looked closely at your computer keyboard, you know the central keys—<strong>A, S, D, F</strong> for the left hand and <strong>J, K, L, ;</strong> for the right hand—form the foundational base called the <strong>Home Row</strong>.
-        </p>
+    <!-- Dynamic Footer Mount Point -->
+    <div id="footer-container"></div>
 
-        <p>
-            Why has this specific eight-key placement survived well over a century of technological shifts, from mechanical typewriters to modern mechanical keyboards? The answer lies in human hand anatomy, spatial geometry, and tactile feedback mechanisms.
-        </p>
-
-        <h2 id="anatomical-balance">1. Anatomical Balance &amp; Neutral Resting Position</h2>
-        <p>
-            When you rest your hands naturally on a flat desk without tensing your forearms, your fingers naturally curl into a soft, relaxed arc. The middle row of a QWERTY matrix perfectly intersects this natural resting curve.
-        </p>
-        <p>
-            By anchoring your four left fingers on <strong>A-S-D-F</strong> and four right fingers on <strong>J-K-L-;</strong>, your wrists remain straight, preventing unnatural twisting (ulnar or radial deviation) that leads to wrist strain over extended typing sessions.
-        </p>
-
-        <h2 id="tactile-homing">2. The Role of F &amp; J Tactile Homing Bumps</h2>
-        <p>
-            Standard keycaps feature small raised horizontal lines or bumps on the <strong>F</strong> and <strong>J</strong> keys. Introduced by Frank Edward Heath in 1988, these homing nubs serve a vital sensory function:
-        </p>
-        <div class="tip-box">
-            <h3>💡 How Homing Bumps Power Blind Typing:</h3>
-            <ul>
-                <li>They provide instant tactile confirmation without requiring visual confirmation.</li>
-                <li>They act as the spatial origin (0,0 coordinate) for all finger reach calculations.</li>
-                <li>Whenever fingers stretch to the top or bottom row, they spring back to feel these bumps before the next stroke.</li>
-            </ul>
-        </div>
-
-        <h2 id="minimal-travel">3. Minimizing Finger Travel Distance across Rows</h2>
-        <p>
-            In English prose, high-frequency vowels and consonants are distributed across the layout. Anchoring on the middle row minimizes the total physical distance your fingers must travel per sentence.
-        </p>
-        <p>
-            Reaching up to the Top Row (Q, W, E, R, T...) or down to the Bottom Row (Z, X, C, V, B...) requires a movement of less than 0.75 inches from the Home Row center, allowing maximum keypress cadence with minimal physical exertion.
-        </p>
-
-        <h2 id="finger-mapping-table">4. Home Row Anchor &amp; Reach Mapping</h2>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Hand</th>
-                    <th>Finger</th>
-                    <th>Home Key Anchor</th>
-                    <th>Extended Reach Keys</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Left Hand</td>
-                    <td>Pinky</td>
-                    <td><strong>A</strong></td>
-                    <td>Q, Z, 1, Tab, Caps Lock</td>
-                </tr>
-                <tr>
-                    <td>Left Hand</td>
-                    <td>Index</td>
-                    <td><strong>F (Bump)</strong></td>
-                    <td>R, T, G, V, B, 4, 5</td>
-                </tr>
-                <tr>
-                    <td>Right Hand</td>
-                    <td>Index</td>
-                    <td><strong>J (Bump)</strong></td>
-                    <td>U, Y, H, N, M, 6, 7</td>
-                </tr>
-                <tr>
-                    <td>Right Hand</td>
-                    <td>Pinky</td>
-                    <td><strong>; (Semicolon)</strong></td>
-                    <td>P, /, ', Enter, Shift</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="home-row-drills">5. Mastering Home Row Drills on TypeNest</h2>
-        <p>
-            Building flawless home row muscle memory is the foundational first step on TypeNest:
-        </p>
-        <ol>
-            <li>Master top-row number reach from home row anchors with our <a href="number-typing-practice.html">Number Row Practice Drill</a>.</li>
-            <li>Train tricky non-alphabetic reaches using the <a href="punctuation-typing-practice.html">Punctuation &amp; Code Practice</a>.</li>
-            <li>Benchmark your home row typing speed and accuracy on the <a href="typing-test-60-seconds.html">1-Minute Standard Typing Test</a>.</li>
-        </ol>
-
-        <h2>Further Reading &amp; Fundamentals Guides</h2>
-        <p>
-            Continue mastering your keyboard fundamentals with these companion guides:
-        </p>
-        <ul>
-            <li><a href="blind-typing-mastery-without-looking.html">How to Master Blind Typing Without Looking at the Keyboard</a></li>
-            <li><a href="how-to-fix-backspace-addiction-in-typing.html">How to Fix Backspace Addiction in Typing</a></li>
-            <li><a href="best-ergonomic-mouse-keyboard-setup-for-typists.html">Complete Desk Ergonomics Setup for Typists</a></li>
-        </ul>
-
-        <hr>
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)
-        </p>
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>
-            Master core keyboard foundations, eliminate visual peeking, and build sustained muscle memory.
-        </p>
-        <div class="related-grid">
-            <a href="blind-typing-mastery-without-looking.html" class="related-card">
-                <span>⌨️ Blind Typing</span>
-                <h3>Master Blind Typing</h3>
-                <p>Learn how tactile homing on F and J enables typing with pure muscle memory.</p>
-            </a>
-            <a href="how-to-fix-backspace-addiction-in-typing.html" class="related-card">
-                <span>🎯 Precision</span>
-                <h3>Fix Backspace Addiction</h3>
-                <p>Break the habit of constant corrections and double your net typing speed.</p>
-            </a>
-            <a href="typing-test-60-seconds.html" class="related-card">
-                <span>⏱️ Assessment</span>
-                <h3>1-Minute Standard Test</h3>
-                <p>Benchmark your home row muscle memory with live speed and accuracy tracking.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Ready to Master the Home Row?</h2>
-        <p>
-            Practice finger placement, muscle memory drills, and timed tests on TypeNest.
-        </p>
-        <div class="cta-buttons">
-            <a href="typing-test-60-seconds.html" class="cta-btn-primary">⏱️ Take 1-Minute Test</a>
-            <a href="typing.html" class="cta-btn-outline">⌨️ General Practice Mode</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- LOGIN MODAL SCRIPT -->
-<script>
-function openLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-    }
-}
-function closeLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-<!-- MAIN SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+    <!-- Scripts Integration -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

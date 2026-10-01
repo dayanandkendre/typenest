@@ -1,533 +1,413 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZC84S6JF5T');
+  </script>
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
 
-    <!-- SEO Meta Tags -->
-    <title>Complete Beginner's Guide to Touch Typing | TypeNest</title>
-    <meta name="description" content="Learn touch typing step by step with proper finger placement, home row keys, typing exercises, and practical tips to type faster and more accurately.">
-    <meta name="keywords" content="touch typing, touch typing guide, learn touch typing, touch typing lessons, home row keys, finger placement, typing exercises, type without looking, TypeNest">
+  <!-- SEO Meta Tags -->
+  <title>Complete Beginner's Guide to Touch Typing | TypeNest</title>
+  <meta name="description" content="Learn touch typing step by step with proper finger placement, home row keys, typing exercises, and practical tips to type faster and more accurately.">
+  <meta name="keywords" content="touch typing, touch typing guide, learn touch typing, touch typing lessons, home row keys, finger placement, typing exercises, type without looking, TypeNest">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/touch-typing-guide.html">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/touch-typing-guide.html">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Complete Beginner's Guide to Touch Typing | TypeNest">
-    <meta property="og:description" content="Master touch typing step by step. Learn proper finger placement, home row basics, and exercises to type without looking at the keyboard.">
-    <meta property="og:url" content="https://typenest.in/touch-typing-guide.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Complete Beginner's Guide to Touch Typing | TypeNest">
+  <meta property="og:description" content="Master touch typing step by step. Learn proper finger placement, home row basics, and exercises to type without looking at the keyboard.">
+  <meta property="og:url" content="https://typenest.in/touch-typing-guide.html">
+  <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Article Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Complete Beginner's Guide to Touch Typing",
-      "description": "Learn touch typing step by step with proper finger placement, home row keys, typing exercises, and practical tips to type faster and more accurately.",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://typenest.in/touch-typing-guide.html"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://typenest.in/favicon.png"
-        }
+  <!-- Modern Frameworks & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Article Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Complete Beginner's Guide to Touch Typing",
+    "description": "Learn touch typing step by step with proper finger placement, home row keys, typing exercises, and practical tips to type faster and more accurately.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://typenest.in/touch-typing-guide.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TypeNest",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://typenest.in/favicon.png"
       }
     }
-    </script>
+  }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-<body class="light">
+  <!-- Header is automatically injected by assets/js/layout.js -->
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400">
+      <a href="index.html" class="hover:text-indigo-400 transition">Home</a>
+      <span>›</span>
+      <a href="blog.html" class="hover:text-indigo-400 transition">Blog</a>
+      <span>›</span>
+      <span class="text-slate-200">Complete Beginner's Guide to Touch Typing</span>
+    </nav>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Complete Beginner's Guide to Touch Typing</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">⌨️ Complete Touch Typing Guide</span>
-
-        <!-- Title -->
-        <h1>Complete Beginner's Guide to Touch Typing: Learn Faster, Type Without Looking &amp; Improve Accuracy</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            Learn touch typing step by step with proper finger placement, home row keys, practical exercises, and proven techniques to build muscle memory, improve accuracy, and type confidently without looking at the keyboard.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 22 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
+    <!-- Header Section -->
+    <header class="space-y-4 border-b border-slate-800 pb-8">
+      <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        ⌨️️ Complete Touch Typing Guide
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+        Complete Beginner's Guide to Touch Typing: Learn Faster, Type Without Looking &amp; Improve Accuracy
+      </h1>
+      <p class="text-slate-400 text-base leading-relaxed">
+        Learn touch typing step by step with proper finger placement, home row keys, practical exercises, and proven techniques to build muscle memory, improve accuracy, and type confidently without looking at the keyboard.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-2">
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-indigo-400"></i> 22 min read</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-user text-indigo-400"></i> TypeNest Team</span>
+      </div>
+    </header>
 
     <!-- Featured Image -->
-    <div class="featured-image">
-        <img src="images/blog/touch-typing-guide.webp" alt="Complete Beginner's Guide to Touch Typing">
+    <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
+      <img src="images/blog/touch-typing-guide.webp" alt="Complete Beginner's Guide to Touch Typing" class="w-full h-auto object-cover" onerror="this.style.display='none'">
     </div>
 
-    <!-- TABLE OF CONTENTS -->
-    <div class="table-of-contents">
-        <div class="toc-header">
-            <h2>📑 Table of Contents</h2>
-            <p>Jump to any section of this complete touch typing guide.</p>
+    <!-- Table of Contents -->
+    <section class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4">
+      <div class="border-b border-slate-800 pb-3">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-list-ul text-indigo-400"></i> Table of Contents
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">Jump to any section of this complete touch typing guide.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-medium">
+        <a href="#introduction" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">01.</span> Introduction</a>
+        <a href="#what-is-touch-typing" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">02.</span> What Is Touch Typing?</a>
+        <a href="#benefits" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">03.</span> Benefits of Touch Typing</a>
+        <a href="#home-row" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">04.</span> Home Row Keys</a>
+        <a href="#finger-placement" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">05.</span> Proper Finger Placement</a>
+        <a href="#touch-vs-hunt-peck" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">06.</span> Touch Typing vs Hunt &amp; Peck</a>
+        <a href="#type-without-looking" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">07.</span> Type Without Looking</a>
+        <a href="#typing-exercises" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">08.</span> Best Typing Exercises</a>
+        <a href="#common-mistakes" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">09.</span> Common Beginner Mistakes</a>
+        <a href="#daily-practice" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">10.</span> Daily Practice Plan</a>
+        <a href="#typenest" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">11.</span> How TypeNest Helps</a>
+        <a href="#faq" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">12.</span> Frequently Asked Questions</a>
+        <a href="#conclusion" class="text-slate-300 hover:text-indigo-400 transition py-1 flex items-center gap-2"><span class="text-indigo-400 font-mono">13.</span> Conclusion</a>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <article class="space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
+
+      <section id="introduction" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Introduction</h2>
+        <p>Have you ever watched someone type without looking at the keyboard and wondered how they do it so effortlessly? Their fingers move smoothly across the keys while their eyes stay focused on the screen, allowing them to write quickly with very few mistakes. This skill is known as <strong class="text-white">touch typing</strong>, and it has become one of the most valuable digital skills for students, professionals, programmers, writers, and anyone who uses a computer regularly.</p>
+        <p>Many beginners believe that fast keyboard skills come from natural talent. In reality, most experienced typists developed their ability through proper technique, regular practice, and muscle memory. Learning the correct finger placement and building consistent habits are far more important than trying to type as quickly as possible during the first few weeks.</p>
+        <p>Unlike the traditional "hunt and peck" method, where users constantly look down to locate individual keys, touch typing allows you to type while keeping your attention on the screen. This improves speed, increases accuracy, reduces distractions, and makes long typing sessions much more comfortable.</p>
+      </section>
+
+      <section id="what-is-touch-typing" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">What Is Touch Typing?</h2>
+        <p>Touch typing is a method of using a keyboard without looking at the keys. Instead of searching for each letter visually, your fingers learn where every key is located through repeated practice and muscle memory. As this habit develops, your hands move automatically while your eyes remain focused on the screen.</p>
+        
+        <h3 class="text-lg font-semibold text-white">Why Is It Called "Touch Typing"?</h3>
+        <p>The name comes from the idea that your fingers learn to recognize the position of every key through touch rather than sight. Instead of looking down at the keyboard before every keystroke, your hands gradually memorize the layout through repetition.</p>
+
+        <h3 class="text-lg font-semibold text-white">How Touch Typing Works</h3>
+        <p>The entire system is built around proper finger placement. Each finger is responsible for a specific group of keys, while both hands return to the home row after every keystroke. This reduces unnecessary movement and creates a consistent typing rhythm.</p>
+
+        <div class="bg-indigo-950/30 border border-indigo-500/30 rounded-2xl p-4 text-indigo-300 text-sm flex items-center gap-3">
+          <i class="fa-solid fa-lightbulb text-lg"></i>
+          <span><strong>Quick Tip:</strong> Do not worry about typing quickly during your first few practice sessions. Building correct finger habits from the beginning makes long-term improvement much easier.</span>
         </div>
-        <div class="toc-grid">
-            <a href="#introduction" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">Introduction</span></a>
-            <a href="#what-is-touch-typing" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">What Is Touch Typing?</span></a>
-            <a href="#benefits" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Benefits of Touch Typing</span></a>
-            <a href="#home-row" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Home Row Keys</span></a>
-            <a href="#finger-placement" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Proper Finger Placement</span></a>
-            <a href="#touch-vs-hunt-peck" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Touch Typing vs Hunt &amp; Peck</span></a>
-            <a href="#type-without-looking" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">Type Without Looking</span></a>
-            <a href="#typing-exercises" class="toc-item"><span class="toc-number">08</span><span class="toc-line"></span><span class="toc-title">Best Typing Exercises</span></a>
-            <a href="#common-mistakes" class="toc-item"><span class="toc-number">09</span><span class="toc-line"></span><span class="toc-title">Common Beginner Mistakes</span></a>
-            <a href="#daily-practice" class="toc-item"><span class="toc-number">10</span><span class="toc-line"></span><span class="toc-title">Daily Practice Plan</span></a>
-            <a href="#typenest" class="toc-item"><span class="toc-number">11</span><span class="toc-line"></span><span class="toc-title">How TypeNest Helps</span></a>
-            <a href="#faq" class="toc-item"><span class="toc-number">12</span><span class="toc-line"></span><span class="toc-title">Frequently Asked Questions</span></a>
-            <a href="#conclusion" class="toc-item"><span class="toc-number">13</span><span class="toc-line"></span><span class="toc-title">Conclusion</span></a>
-        </div>
-    </div>
+      </section>
 
-    <article class="article-content">
+      <section id="benefits" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Benefits of Touch Typing</h2>
+        <p>Learning touch typing is about much more than increasing the number of words you can type each minute. It changes the way you interact with a computer by making keyboard use smoother, more accurate, and less mentally demanding.</p>
 
-        <!-- INTRODUCTION -->
-        <h2 id="introduction">Introduction</h2>
-        <p>
-            Have you ever watched someone type without looking at the keyboard and wondered how they do it so effortlessly? Their fingers move smoothly across the keys while their eyes stay focused on the screen, allowing them to write quickly with very few mistakes. This skill is known as <strong>touch typing</strong>, and it has become one of the most valuable digital skills for students, professionals, programmers, writers, and anyone who uses a computer regularly.
-        </p>
-        <p>
-            Many beginners believe that fast keyboard skills come from natural talent. In reality, most experienced typists developed their ability through proper technique, regular practice, and muscle memory. Learning the correct finger placement and building consistent habits are far more important than trying to type as quickly as possible during the first few weeks.
-        </p>
-        <p>
-            Unlike the traditional "hunt and peck" method, where users constantly look down to locate individual keys, touch typing allows you to type while keeping your attention on the screen. This improves speed, increases accuracy, reduces distractions, and makes long typing sessions much more comfortable.
-        </p>
+        <div class="space-y-3">
+          <h3 class="text-lg font-semibold text-white">1. Faster Text Entry</h3>
+          <p>As muscle memory develops, the number of unnecessary pauses decreases. Instead of thinking about where each letter is located, your attention stays focused on the ideas you want to express.</p>
 
-        <!-- WHAT IS TOUCH TYPING -->
-        <h2 id="what-is-touch-typing">What Is Touch Typing?</h2>
-        <p>
-            Touch typing is a method of using a keyboard without looking at the keys. Instead of searching for each letter visually, your fingers learn where every key is located through repeated practice and muscle memory. As this habit develops, your hands move automatically while your eyes remain focused on the screen.
-        </p>
-
-        <h3>Why Is It Called "Touch Typing"?</h3>
-        <p>
-            The name comes from the idea that your fingers learn to recognize the position of every key through touch rather than sight. Instead of looking down at the keyboard before every keystroke, your hands gradually memorize the layout through repetition.
-        </p>
-
-        <h3>How Touch Typing Works</h3>
-        <p>
-            The entire system is built around proper finger placement. Each finger is responsible for a specific group of keys, while both hands return to the home row after every keystroke. This reduces unnecessary movement and creates a consistent typing rhythm.
-        </p>
-
-        <div class="tip-box">
-            <strong>Quick Tip:</strong> Do not worry about typing quickly during your first few practice sessions. Building correct finger habits from the beginning makes long-term improvement much easier.
+          <h3 class="text-lg font-semibold text-white">2. Better Accuracy</h3>
+          <p>Using the correct fingers for each key creates consistent hand movement, reducing accidental key presses. Over time, your fingers follow familiar patterns, producing cleaner documents with fewer corrections.</p>
         </div>
 
-        <!-- BENEFITS -->
-        <h2 id="benefits">Benefits of Touch Typing</h2>
-        <p>
-            Learning touch typing is about much more than increasing the number of words you can type each minute. It changes the way you interact with a computer by making keyboard use smoother, more accurate, and less mentally demanding.
-        </p>
-
-        <h3>1. Faster Text Entry</h3>
-        <p>As muscle memory develops, the number of unnecessary pauses decreases. Instead of thinking about where each letter is located, your attention stays focused on the ideas you want to express.</p>
-
-        <h3>2. Better Accuracy</h3>
-        <p>Using the correct fingers for each key creates consistent hand movement, reducing accidental key presses. Over time, your fingers follow familiar patterns, producing cleaner documents with fewer corrections.</p>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Without Proper Technique</th>
-                    <th>With Proper Technique</th>
-                </tr>
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900/80 text-slate-200 border-b border-slate-800">
+              <tr>
+                <th class="p-3 sm:p-4 font-bold">Without Proper Technique</th>
+                <th class="p-3 sm:p-4 font-bold">With Proper Technique</th>
+              </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Frequent typing mistakes</td>
-                    <td>More consistent accuracy</td>
-                </tr>
-                <tr>
-                    <td>Constant corrections</td>
-                    <td>Fewer interruptions</td>
-                </tr>
-                <tr>
-                    <td>Slower workflow</td>
-                    <td>Smoother writing process</td>
-                </tr>
+            <tbody class="divide-y divide-slate-800/60">
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-rose-400 font-medium">Frequent typing mistakes</td><td class="p-3 sm:p-4 text-emerald-400 font-medium">More consistent accuracy</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-rose-400 font-medium">Constant corrections</td><td class="p-3 sm:p-4 text-emerald-400 font-medium">Fewer interruptions</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-rose-400 font-medium">Slower workflow</td><td class="p-3 sm:p-4 text-emerald-400 font-medium">Smoother writing process</td></tr>
             </tbody>
-        </table>
+          </table>
+        </div>
+      </section>
 
-        <!-- HOME ROW -->
-        <h2 id="home-row">Home Row Keys – The Foundation of Touch Typing</h2>
-        <p>
-            Every successful touch typist begins with one simple concept—the <strong>Home Row</strong>. Before learning numbers, symbols, or advanced typing exercises, it is essential to understand these keys because they serve as the starting position for nearly every keystroke.
-        </p>
+      <section id="home-row" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Home Row Keys – The Foundation of Touch Typing</h2>
+        <p>Every successful touch typist begins with one simple concept—the <strong class="text-white">Home Row</strong>. Before learning numbers, symbols, or advanced typing exercises, it is essential to understand these keys because they serve as the starting position for nearly every keystroke.</p>
 
-        <h3>What Are the Home Row Keys?</h3>
+        <h3 class="text-lg font-semibold text-white">What Are the Home Row Keys?</h3>
         <p>On a standard English QWERTY keyboard, the home row consists of eight primary keys:</p>
 
-        <div class="tip-box">
-            <strong>Left Hand:</strong> A S D F &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Right Hand:</strong> J K L ;
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 text-sm text-slate-300 flex flex-wrap items-center justify-between gap-4 font-mono">
+          <div><span class="text-slate-400 font-sans text-xs uppercase font-bold tracking-wider mr-2">Left Hand:</span><strong class="text-indigo-400 text-base">A &nbsp; S &nbsp; D &nbsp; F</strong></div>
+          <div class="hidden sm:block text-slate-700">|</div>
+          <div><span class="text-slate-400 font-sans text-xs uppercase font-bold tracking-wider mr-2">Right Hand:</span><strong class="text-emerald-400 text-base">J &nbsp; K &nbsp; L &nbsp; ;</strong></div>
         </div>
 
-        <h3 id="finger-placement">Correct Finger Placement</h3>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Finger</th>
-                    <th>Home Row Key</th>
-                </tr>
+        <h3 id="finger-placement" class="text-lg font-semibold text-white pt-2">Correct Finger Placement</h3>
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900/80 text-slate-200 border-b border-slate-800">
+              <tr>
+                <th class="p-3 sm:p-4 font-bold">Finger</th>
+                <th class="p-3 sm:p-4 font-bold">Home Row Key</th>
+              </tr>
             </thead>
-            <tbody>
-                <tr><td>Left Little Finger</td><td>A</td></tr>
-                <tr><td>Left Ring Finger</td><td>S</td></tr>
-                <tr><td>Left Middle Finger</td><td>D</td></tr>
-                <tr><td>Left Index Finger</td><td>F</td></tr>
-                <tr><td>Right Index Finger</td><td>J</td></tr>
-                <tr><td>Right Middle Finger</td><td>K</td></tr>
-                <tr><td>Right Ring Finger</td><td>L</td></tr>
-                <tr><td>Right Little Finger</td><td>;</td></tr>
-                <tr><td>Both Thumbs</td><td>Space Bar</td></tr>
+            <tbody class="divide-y divide-slate-800/60 font-mono">
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Left Little Finger</td><td class="p-3 sm:p-4 font-bold text-indigo-400">A</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Left Ring Finger</td><td class="p-3 sm:p-4 font-bold text-indigo-400">S</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Left Middle Finger</td><td class="p-3 sm:p-4 font-bold text-indigo-400">D</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Left Index Finger</td><td class="p-3 sm:p-4 font-bold text-indigo-400">F</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Right Index Finger</td><td class="p-3 sm:p-4 font-bold text-emerald-400">J</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Right Middle Finger</td><td class="p-3 sm:p-4 font-bold text-emerald-400">K</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Right Ring Finger</td><td class="p-3 sm:p-4 font-bold text-emerald-400">L</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Right Little Finger</td><td class="p-3 sm:p-4 font-bold text-emerald-400">;</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-sans text-slate-300">Both Thumbs</td><td class="p-3 sm:p-4 font-sans font-bold text-slate-200">Space Bar</td></tr>
             </tbody>
-        </table>
-
-        <h3>Why Are the F and J Keys Special?</h3>
-        <p>
-            Small raised bumps on the <strong>F</strong> and <strong>J</strong> keys help your fingers locate the correct starting position without looking down. Simply place your left index finger on the bump of the F key and your right index finger on the bump of the J key.
-        </p>
-
-        <!-- TOUCH VS HUNT PECK -->
-        <h2 id="touch-vs-hunt-peck">Touch Typing vs Hunt and Peck Typing</h2>
-        <p>
-            Most people begin using a keyboard with <strong>Hunt and Peck</strong>. They look down at the keyboard, search for each key, and press it using only two or three fingers. Touch typing uses all ten fingers with eyes staying on the screen, relying completely on procedural memory.
-        </p>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Touch Typing</th>
-                    <th>Hunt and Peck</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Uses all ten fingers.</td><td>Usually uses two or three fingers.</td></tr>
-                <tr><td>Eyes stay on the screen.</td><td>Eyes frequently look at the keyboard.</td></tr>
-                <tr><td>Relies on muscle memory.</td><td>Relies on visual searching.</td></tr>
-                <tr><td>Higher long-term speed.</td><td>Speed improves slowly.</td></tr>
-                <tr><td>Better typing accuracy.</td><td>More frequent mistakes.</td></tr>
-            </tbody>
-        </table>
-
-        <!-- TYPE WITHOUT LOOKING -->
-        <h2 id="type-without-looking">How to Type Without Looking at the Keyboard</h2>
-        <p>
-            Typing without looking allows your eyes to remain focused on the screen while your fingers move automatically across the keyboard. This improves concentration, increases accuracy, and creates a much smoother writing experience.
-        </p>
-
-        <h3>Key Strategies to Stop Looking Down:</h3>
-        <ul>
-            <li><strong>Always anchor on F &amp; J:</strong> Feel for the raised ridges before starting to type.</li>
-            <li><strong>Slow down intentionally:</strong> Trust tactile sense rather than visual confirmation.</li>
-            <li><strong>Cover your hands:</strong> Use a lightweight cloth or blank keycaps if temptation persists.</li>
-        </ul>
-
-        <!-- TYPING EXERCISES -->
-        <h2 id="typing-exercises">Best Touch Typing Exercises</h2>
-        <p>
-            The most effective practice routine starts with simple finger movements, gradually introduces new keys, and finally progresses to words, sentences, and full paragraphs.
-        </p>
-
-        <h3>Exercise 1 – Home Row Practice</h3>
-        <div class="tip-box">
-            <code>asdf asdf asdf</code><br>
-            <code>jkl; jkl; jkl;</code><br>
-            <code>asdf jkl; fj fj fj</code>
+          </table>
         </div>
 
-        <h3>Exercise 2 – Common Word Drills</h3>
-        <div class="tip-box">
-            <code>the and that with from have were there their which</code>
-        </div>
+        <h3 class="text-lg font-semibold text-white pt-2">Why Are the F and J Keys Special?</h3>
+        <p>Small raised bumps on the <strong class="text-white">F</strong> and <strong class="text-white">J</strong> keys help your fingers locate the correct starting position without looking down. Simply place your left index finger on the bump of the F key and your right index finger on the bump of the J key.</p>
+      </section>
 
-        <!-- COMMON MISTAKES -->
-        <h2 id="common-mistakes">Common Touch Typing Mistakes to Avoid</h2>
-        <ul>
-            <li><strong>Looking at the keyboard too often:</strong> Interrupts neural map formation.</li>
-            <li><strong>Rushing speed before accuracy:</strong> Reinforces bad muscle memory.</li>
-            <li><strong>Ignoring finger assignments:</strong> Stretches hands awkwardly and causes wrist fatigue.</li>
-            <li><strong>Poor posture:</strong> Slouching causes back pain and reduces wrist mobility. Read our <a href="typing-ergonomics-guide.html">Typing Ergonomics Guide</a> for optimal setup.</li>
-        </ul>
+      <section id="touch-vs-hunt-peck" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Touch Typing vs Hunt and Peck Typing</h2>
+        <p>Most people begin using a keyboard with <strong class="text-white">Hunt and Peck</strong>. They look down at the keyboard, search for each key, and press it using only two or three fingers. Touch typing uses all ten fingers with eyes staying on the screen, relying completely on procedural memory.</p>
 
-        <!-- DAILY PRACTICE PLAN -->
-        <h2 id="daily-practice">Daily Touch Typing Practice Plan</h2>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Activity</th>
-                </tr>
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900/80 text-slate-200 border-b border-slate-800">
+              <tr>
+                <th class="p-3 sm:p-4 font-bold">Touch Typing</th>
+                <th class="p-3 sm:p-4 font-bold">Hunt and Peck</th>
+              </tr>
             </thead>
-            <tbody>
-                <tr><td>5 Minutes</td><td>Home row warm-up exercises</td></tr>
-                <tr><td>5 Minutes</td><td>Top and bottom row key drills</td></tr>
-                <tr><td>10 Minutes</td><td>Common words and sentence flow practice</td></tr>
-                <tr><td>5 Minutes</td><td>Timed typing test and accuracy review</td></tr>
+            <tbody class="divide-y divide-slate-800/60">
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-emerald-400 font-medium">Uses all ten fingers.</td><td class="p-3 sm:p-4 text-slate-400">Usually uses two or three fingers.</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-emerald-400 font-medium">Eyes stay on the screen.</td><td class="p-3 sm:p-4 text-slate-400">Eyes frequently look at the keyboard.</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-emerald-400 font-medium">Relies on muscle memory.</td><td class="p-3 sm:p-4 text-slate-400">Relies on visual searching.</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-emerald-400 font-medium">Higher long-term speed.</td><td class="p-3 sm:p-4 text-slate-400">Speed improves slowly.</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 text-emerald-400 font-medium">Better typing accuracy.</td><td class="p-3 sm:p-4 text-slate-400">More frequent mistakes.</td></tr>
             </tbody>
-        </table>
+          </table>
+        </div>
+      </section>
 
-        <!-- HOW TYPENEST HELPS -->
-        <h2 id="typenest">How TypeNest Helps You Learn Touch Typing</h2>
-        <p>
-            TypeNest organizes lessons in a logical sequence, beginning with home row keys before gradually introducing the remaining keys and numbers. With real-time accuracy analytics and interactive lessons, learning touch typing becomes engaging and efficient.
-        </p>
+      <section id="type-without-looking" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How to Type Without Looking at the Keyboard</h2>
+        <p>Typing without looking allows your eyes to remain focused on the screen while your fingers move automatically across the keyboard. This improves concentration, increases accuracy, and creates a much smoother writing experience.</p>
 
-        <!-- FAQ -->
-        <h2 id="faq">Frequently Asked Questions (FAQs)</h2>
-
-        <h3>1. What is touch typing?</h3>
-        <p>Touch typing is a method that enables you to type without looking at the keyboard, relying entirely on muscle memory and finger positioning.</p>
-
-        <h3>2. How long does it take to learn touch typing?</h3>
-        <p>Most learners become comfortable with basic finger placement within 2 to 3 weeks of daily 20-minute practice sessions.</p>
-
-        <h3>3. Should I focus on speed or accuracy first?</h3>
-        <p>Always focus on accuracy first. High speed is naturally produced as a byproduct of accurate, automated muscle memory.</p>
-
-        <!-- CONCLUSION -->
-        <h2 id="conclusion">Conclusion</h2>
-        <p>
-            Touch typing is more than a way to type faster—it is a practical skill that makes every minute spent at the keyboard more comfortable and productive. By learning proper finger placement, using the home row correctly, and building muscle memory, you can type naturally without depending on visual checks.
-        </p>
-
-        <h2>Continue Learning</h2>
-        <p>Explore more expert guides on TypeNest to elevate your productivity and technical skills:</p>
-
-        <ul>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a></li>
-            <li><a href="typing-mistakes-guide.html">Typing Mistakes &amp; Common Errors Guide</a></li>
-            <li><a href="typing-speed-benchmarks-guide.html">Typing Speed Benchmarks Across Career Tracks</a></li>
-            <li><a href="typing-speed-test-guide.html">Typing Speed Test: Complete Guide</a></li>
-            <li><a href="keyboard-shortcuts.html">Essential Keyboard Shortcuts Every User Should Know</a></li>
+        <h3 class="text-lg font-semibold text-white">Key Strategies to Stop Looking Down:</h3>
+        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+          <li><strong>Always anchor on F &amp; J:</strong> Feel for the raised ridges before starting to type.</li>
+          <li><strong>Slow down intentionally:</strong> Trust tactile sense rather than visual confirmation.</li>
+          <li><strong>Cover your hands:</strong> Use a lightweight cloth or blank keycaps if temptation persists.</li>
         </ul>
+      </section>
 
-        <hr>
+      <section id="typing-exercises" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Best Touch Typing Exercises</h2>
+        <p>The most effective practice routine starts with simple finger movements, gradually introduces new keys, and finally progresses to words, sentences, and full paragraphs.</p>
 
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Exercise 1 – Home Row Practice</h3>
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 font-mono text-sm text-indigo-300 space-y-1">
+              <div>asdf asdf asdf</div>
+              <div>jkl; jkl; jkl;</div>
+              <div>asdf jkl; fj fj fj</div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">Exercise 2 – Common Word Drills</h3>
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 font-mono text-sm text-emerald-300">
+              the and that with from have were there their which
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="common-mistakes" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Common Touch Typing Mistakes to Avoid</h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+          <li><strong>Looking at the keyboard too often:</strong> Interrupts neural map formation.</li>
+          <li><strong>Rushing speed before accuracy:</strong> Reinforces bad muscle memory.</li>
+          <li><strong>Ignoring finger assignments:</strong> Stretches hands awkwardly and causes wrist fatigue.</li>
+          <li><strong>Poor posture:</strong> Slouching causes back pain and reduces wrist mobility. Read our <a href="typing-ergonomics-guide.html" class="text-indigo-400 underline">Typing Ergonomics Guide</a> for optimal setup.</li>
+        </ul>
+      </section>
+
+      <section id="daily-practice" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Daily Touch Typing Practice Plan</h2>
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900/80 text-slate-200 border-b border-slate-800">
+              <tr>
+                <th class="p-3 sm:p-4 font-bold">Time</th>
+                <th class="p-3 sm:p-4 font-bold">Activity</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60">
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-mono text-indigo-400 font-semibold">5 Minutes</td><td class="p-3 sm:p-4 text-slate-300">Home row warm-up exercises</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-mono text-indigo-400 font-semibold">5 Minutes</td><td class="p-3 sm:p-4 text-slate-300">Top and bottom row key drills</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-mono text-indigo-400 font-semibold">10 Minutes</td><td class="p-3 sm:p-4 text-slate-300">Common words and sentence flow practice</td></tr>
+              <tr class="hover:bg-slate-900/40"><td class="p-3 sm:p-4 font-mono text-indigo-400 font-semibold">5 Minutes</td><td class="p-3 sm:p-4 text-slate-300">Timed typing test and accuracy review</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="typenest" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">How TypeNest Helps You Learn Touch Typing</h2>
+        <p>TypeNest organizes lessons in a logical sequence, beginning with home row keys before gradually introducing the remaining keys and numbers. With real-time accuracy analytics and interactive lessons, learning touch typing becomes engaging and efficient.</p>
+      </section>
+
+      <section id="faq" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Frequently Asked Questions (FAQs)</h2>
+        <div class="space-y-3">
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 space-y-1">
+            <h3 class="font-bold text-white text-sm sm:text-base">1. What is touch typing?</h3>
+            <p class="text-slate-400 text-xs sm:text-sm">Touch typing is a method that enables you to type without looking at the keyboard, relying entirely on muscle memory and finger positioning.</p>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 space-y-1">
+            <h3 class="font-bold text-white text-sm sm:text-base">2. How long does it take to learn touch typing?</h3>
+            <p class="text-slate-400 text-xs sm:text-sm">Most learners become comfortable with basic finger placement within 2 to 3 weeks of daily 20-minute practice sessions.</p>
+          </div>
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 space-y-1">
+            <h3 class="font-bold text-white text-sm sm:text-base">3. Should I focus on speed or accuracy first?</h3>
+            <p class="text-slate-400 text-xs sm:text-sm">Always focus on accuracy first. High speed is naturally produced as a byproduct of accurate, automated muscle memory.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusion" class="space-y-4">
+        <h2 class="text-2xl font-bold text-white">Conclusion</h2>
+        <p>Touch typing is more than a way to type faster—it is a practical skill that makes every minute spent at the keyboard more comfortable and productive. By learning proper finger placement, using the home row correctly, and building muscle memory, you can type naturally without depending on visual checks.</p>
+      </section>
+
+      <section class="space-y-3 pt-4 border-t border-slate-800">
+        <h2 class="text-lg font-bold text-white">Continue Learning</h2>
+        <p class="text-slate-400 text-sm">Explore more expert guides on TypeNest to elevate your productivity and technical skills:</p>
+        <ul class="list-disc pl-5 space-y-1.5 text-indigo-400 text-sm">
+          <li><a href="increase-typing-speed-guide.html" class="hover:underline">Complete Guide to Increase Typing Speed</a></li>
+          <li><a href="typing-accuracy-guide.html" class="hover:underline">Complete Typing Accuracy Guide</a></li>
+          <li><a href="typing-mistakes-guide.html" class="hover:underline">Typing Mistakes &amp; Common Errors Guide</a></li>
+          <li><a href="typing-speed-benchmarks-guide.html" class="hover:underline">Typing Speed Benchmarks Across Career Tracks</a></li>
+          <li><a href="typing-speed-test-guide.html" class="hover:underline">Typing Speed Test: Complete Guide</a></li>
+          <li><a href="keyboard-shortcuts.html" class="hover:underline">Essential Keyboard Shortcuts Every User Should Know</a></li>
+        </ul>
+      </section>
 
     </article>
-</div>
 
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>Build stronger keyboard skills with these expert TypeNest guides.</p>
+    <!-- Related Articles Grid -->
+    <section class="border-t border-slate-800 pt-8 space-y-4">
+      <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <i class="fa-solid fa-book-bookmark text-indigo-400"></i> Related Articles
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="increase-typing-speed-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400">🚀 Speed Guide</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-indigo-300 transition">Complete Guide to Increase Typing Speed</h3>
+          <p class="text-slate-400 text-xs">Learn practical methods to increase your WPM while maintaining smooth typing.</p>
+        </a>
+        <a href="typing-accuracy-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">🎯 Accuracy Guide</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition">Complete Typing Accuracy Guide</h3>
+          <p class="text-slate-400 text-xs">Reduce typing errors and build consistent keyboard accuracy with proven techniques.</p>
+        </a>
+        <a href="typing-mistakes-guide.html" class="bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 p-4 rounded-2xl space-y-2 transition group">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-rose-400">⌨️ Typing Mistakes</span>
+          <h3 class="text-sm font-bold text-white group-hover:text-rose-300 transition">Typing Mistakes Guide</h3>
+          <p class="text-slate-400 text-xs">Understand common typing mistakes, why they happen, and how to fix them.</p>
+        </a>
+      </div>
+    </section>
 
-        <div class="related-grid">
-            <a href="increase-typing-speed-guide.html" class="related-card">
-                <span>🚀 Speed Guide</span>
-                <h3>Complete Guide to Increase Typing Speed</h3>
-                <p>Learn practical methods to increase your WPM while maintaining smooth and accurate typing.</p>
-            </a>
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-indigo-900/40 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 text-center space-y-4 shadow-xl">
+      <h2 class="text-2xl font-extrabold text-white">🚀 Master Touch Typing with TypeNest</h2>
+      <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+        Practice step by step with structured touch typing lessons, guided exercises, typing tests, and interactive learning tools.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="blog.html" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition">
+          📚 Explore More Guides
+        </a>
+        <a href="index.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition">
+          ⌨️ Start Touch Typing
+        </a>
+      </div>
+    </section>
 
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Accuracy Guide</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Reduce typing errors and build consistent keyboard accuracy with proven techniques.</p>
-            </a>
+  </main>
 
-            <a href="typing-mistakes-guide.html" class="related-card">
-                <span>⌨️ Typing Mistakes</span>
-                <h3>Typing Mistakes Guide</h3>
-                <p>Understand common typing mistakes, why they happen, and how to fix them effectively.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Master Touch Typing with TypeNest</h2>
-        <p>Practice step by step with structured touch typing lessons, guided exercises, typing tests, and interactive learning tools.</p>
-
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="typing.html" class="cta-btn-primary">⌨️ Start Touch Typing</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- SCRIPTS -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+  <!-- Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script type="module" src="assets/js/firebase-config.js"></script>
+  <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

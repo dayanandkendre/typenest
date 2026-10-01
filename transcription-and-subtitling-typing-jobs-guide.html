@@ -39,10 +39,28 @@
     <meta name="twitter:description" content="Turn your typing speed into online income with freelance audio transcription and subtitling jobs.">
     <meta name="twitter:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Structured Data / Article Schema -->
     <script type="application/ld+json">
@@ -74,330 +92,362 @@
     }
     </script>
 </head>
-<body class="light">
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white font-sans antialiased min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- Dynamic Header Mount Point -->
+    <div id="header-container"></div>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-        <div class="nav-dropdown">
-            <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-            <div class="dropdown-menu-list">
-                <span class="dropdown-category">⏱️ Timed Tests</span>
-                <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-                <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-                <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
+    <main class="flex-grow">
+        <!-- Blog Hero Section -->
+        <header class="relative pt-8 pb-10 md:pt-10 md:pb-14 border-b border-slate-800/80 bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-transparent overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-left">
                 
-                <span class="dropdown-category">🎯 Skill Drills</span>
-                <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-                <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-                <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
+                <!-- Breadcrumbs -->
+                <nav class="flex items-center justify-start gap-2 text-xs md:text-sm font-medium text-slate-400 mb-6" aria-label="Breadcrumb">
+                    <a href="index.html" class="hover:text-indigo-400 transition-colors">Home</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                    <span class="text-slate-600"><i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    <span class="text-indigo-400">Transcription &amp; Subtitling Jobs</span>
+                </nav>
+
+                <!-- Category Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-briefcase"></i> Remote Work &amp; Career Opportunities
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight md:leading-tight mb-6">
+                    How to Earn Money with Fast Typing: <span class="bg-gradient-to-r from-indigo-400 to-sky-400 bg-clip-text text-transparent">Freelance Transcription &amp; Subtitling Guide</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-sm sm:text-base text-slate-400 max-w-3xl font-normal leading-relaxed mb-8">
+                    High-speed touch typing is a direct avenue for remote income. Learn how to convert spoken audio and video into accurate text for global clients with proper speed, punctuation, and workflow tools.
+                </p>
+
+                <!-- Post Meta -->
+                <div class="flex flex-wrap items-center justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400 pt-2 border-t border-slate-800/80 max-w-xl">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-calendar text-indigo-400"></i> Updated: September 2026
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-clock text-indigo-400"></i> 6 min read
+                    </span>
+                    <span class="text-slate-700">•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-regular fa-user text-indigo-400"></i> Dayanand Dinkar Kendre
+                    </span>
+                </div>
             </div>
+        </header>
+
+        <!-- Article Container -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+            <article class="prose prose-invert prose-slate max-w-none text-slate-300 leading-relaxed text-base sm:text-lg">
+                
+                <!-- Table of Contents -->
+                <div class="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 md:p-8 mb-12 shadow-lg backdrop-blur-sm">
+                    <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-800">
+                        <i class="fa-solid fa-list-check text-indigo-400 text-xl"></i>
+                        <div>
+                            <h2 class="text-lg md:text-xl font-bold text-white m-0">Table of Contents</h2>
+                            <p class="text-xs sm:text-sm text-slate-400 m-0">Navigate the guide to remote typing careers:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-medium">
+                        <a href="#what-is-transcription" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">01</span>
+                            <span>What is Transcription?</span>
+                        </a>
+                        <a href="#speed-accuracy-requirements" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">02</span>
+                            <span>Speed &amp; Accuracy Standards</span>
+                        </a>
+                        <a href="#essential-tools" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">03</span>
+                            <span>Essential Software &amp; Tools</span>
+                        </a>
+                        <a href="#top-platforms" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">04</span>
+                            <span>Top Freelance Platforms</span>
+                        </a>
+                        <a href="#prep-on-typenest" class="flex items-center gap-3 p-2.5 rounded-lg bg-slate-800/40 hover:bg-indigo-600/10 hover:text-indigo-300 border border-slate-800 hover:border-indigo-500/30 text-slate-300 transition-all text-sm no-underline group sm:col-span-2">
+                            <span class="font-mono text-indigo-400 text-xs px-2 py-0.5 rounded bg-indigo-500/10 group-hover:bg-indigo-500/20">05</span>
+                            <span>Preparing on TypeNest</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lead Paragraph -->
+                <p class="text-base sm:text-lg font-normal text-slate-300 leading-relaxed mb-6">
+                    High-speed touch typing is not just an office efficiency skill — it is a direct avenue for generating remote income. With the continuous explosion of digital video media, podcasts, interviews, and online courses, businesses worldwide require human transcriptionists and video subtitlers to convert spoken audio into precise written text.
+                </p>
+
+                <p class="mb-10">
+                    If you can comfortably type over 60 Words Per Minute (WPM) with exceptional listening skills, you possess the core requirement to start freelancing in audio transcription and video captioning.
+                </p>
+
+                <!-- Section 1 -->
+                <h2 id="what-is-transcription" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    1. What is Transcription &amp; Subtitling?
+                </h2>
+                <p class="mb-4">
+                    While both roles center around converting speech into text, they serve slightly different functions in the freelance market:
+                </p>
+                <ul class="space-y-3 mb-10 pl-2 list-none">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-headphones text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Audio Transcription:</strong> Listening to raw audio files (interviews, legal recordings, medical notes, or podcasts) and producing a clean, formatted text transcript.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-closed-captioning text-sky-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Video Subtitling &amp; Captioning:</strong> Creating time-synced subtitle lines (SRT files) for video content on YouTube, streaming networks, or educational portals.</span>
+                    </li>
+                </ul>
+
+                <!-- Section 2 -->
+                <h2 id="speed-accuracy-requirements" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-6 border-b border-slate-800">
+                    2. Required WPM Speed &amp; Accuracy Standards
+                </h2>
+                <p class="mb-6">
+                    Because transcriptionists are paid per audio-minute or per video-hour, your typing speed directly dictates your hourly earning rate:
+                </p>
+
+                <!-- Comparison Table -->
+                <div class="overflow-x-auto mb-10 rounded-2xl border border-slate-800 bg-slate-900/60 shadow-xl">
+                    <table class="w-full text-left border-collapse text-sm sm:text-base">
+                        <thead>
+                            <tr class="border-b border-slate-800 bg-slate-800/60 text-slate-200">
+                                <th class="p-4 sm:px-6 font-semibold">Level</th>
+                                <th class="p-4 sm:px-6 font-semibold text-indigo-400">Target WPM</th>
+                                <th class="p-4 sm:px-6 font-semibold text-sky-400">Accuracy Requirement</th>
+                                <th class="p-4 sm:px-6 font-semibold text-emerald-400">Earning Potential</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Beginner</td>
+                                <td class="p-4 sm:px-6">45 – 55 WPM</td>
+                                <td class="p-4 sm:px-6">98%</td>
+                                <td class="p-4 sm:px-6 text-slate-300">Entry Level ($10 – $15/hr)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Intermediate</td>
+                                <td class="p-4 sm:px-6">65 – 75 WPM</td>
+                                <td class="p-4 sm:px-6">99%</td>
+                                <td class="p-4 sm:px-6 text-slate-200 font-medium">Pro Level ($18 – $25/hr)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-4 sm:px-6 font-semibold text-white">Expert / Specialized</td>
+                                <td class="p-4 sm:px-6 text-indigo-300 font-semibold">85+ WPM</td>
+                                <td class="p-4 sm:px-6 text-sky-300 font-semibold">99.5%+</td>
+                                <td class="p-4 sm:px-6 text-emerald-400 font-semibold">Legal/Medical ($30 – $45/hr)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 3 -->
+                <h2 id="essential-tools" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    3. Essential Software &amp; Hardware Tools
+                </h2>
+                <div class="rounded-2xl border border-indigo-500/30 bg-indigo-950/20 p-6 md:p-8 mb-10 shadow-lg relative overflow-hidden">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 text-indigo-400 text-lg">
+                            <i class="fa-solid fa-toolbox"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-white mb-3">Starter Kit for Remote Transcription</h3>
+                            <ul class="space-y-2.5 text-sm sm:text-base text-slate-300 pl-0 list-none mb-0">
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Over-Ear Headphones:</strong> Clear audio gear isolates background noise and overlapping dialogue.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">USB Foot Pedal:</strong> Allows you to play, pause, or rewind audio using your foot without taking your hands off the home row.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Text Expanders:</strong> Custom macro tools that expand short abbreviations into full industry terms instantly.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-check text-indigo-400 mt-1 flex-shrink-0"></i>
+                                    <span><strong class="text-white font-medium">Fast Mechanical Keyboard:</strong> Responsive switches reduce finger strain during multi-hour transcription runs.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <h2 id="top-platforms" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    4. Top Freelance Platforms for Beginners
+                </h2>
+                <p class="mb-4">
+                    Several global platforms hire remote transcriptionists and subtitle creators based on initial grammar and typing entry tests:
+                </p>
+                <ul class="space-y-3 mb-10 pl-2 list-none">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Rev:</strong> Popular platform offering captioning and transcription tasks with flexible payout schedules.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">TranscribeMe:</strong> Great entry point for beginners with short 2-to-4 minute audio clips.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">GoTranscript:</strong> Global service offering international audio files and localized subtitling projects.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 mt-1.5 flex-shrink-0"></i>
+                        <span><strong class="text-white font-semibold">Upwork &amp; Fiverr:</strong> Direct client freelancing where you can set your own custom rates once you build a portfolio.</span>
+                    </li>
+                </ul>
+
+                <!-- Section 5 -->
+                <h2 id="prep-on-typenest" class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    5. Preparing Your Typing Skills on TypeNest
+                </h2>
+                <p class="mb-6">
+                    Passing onboarding grammar and speed tests on transcription platforms requires high stamina and flawless punctuation handling:
+                </p>
+
+                <div class="space-y-4 mb-10">
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">1</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Punctuation &amp; Symbol Precision</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Master quotation marks, hyphens, and brackets in our <a href="punctuation-typing-practice.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Punctuation &amp; Code Drill</a>.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">2</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Complex Vocabulary Fluency</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Eliminate hesitations on rare vocabulary using the <a href="difficult-words-typing-practice.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">Difficult Words Drill</a>.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50 flex gap-4 items-start">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold flex items-center justify-center border border-indigo-500/30 text-sm">3</span>
+                        <div>
+                            <strong class="text-white block font-semibold mb-1">Timed Sustained Stamina</strong>
+                            <p class="text-slate-300 text-sm sm:text-base m-0">Test your sustained speed and accuracy under timed pressure on the <a href="index.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">100-Second Stamina Test</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Further Reading -->
+                <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight pt-6 pb-2 mb-4 border-b border-slate-800">
+                    Further Reading &amp; Career Guides
+                </h2>
+                <p class="mb-4">
+                    Boost your professional keyboard fluency with these companion guides:
+                </p>
+                <ul class="space-y-2 mb-10 pl-2 list-none">
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="data-entry-operator-typing-speed-secrets.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">Data Entry Typing Secrets: 80+ WPM at 99% Accuracy</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="blind-typing-mastery-without-looking.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">How to Master Blind Typing Without Looking at the Keyboard</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-arrow-right text-indigo-400 text-xs"></i>
+                        <a href="typing-warmup-exercises-before-speed-tests.html" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30">5-Minute Typing Warmup Exercises Before Speed Tests</a>
+                    </li>
+                </ul>
+
+                <hr class="border-slate-800 my-8">
+
+                <div class="text-xs sm:text-sm text-slate-400 space-y-1">
+                    <p class="m-0"><strong class="text-slate-300">Last Updated:</strong> September 2026</p>
+                    <p class="m-0"><strong class="text-slate-300">Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)</p>
+                </div>
+            </article>
         </div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
 
-    <!-- THEME BUTTON -->
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <!-- Related Articles -->
+        <section class="py-16 border-t border-slate-800/80 bg-slate-900/30">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">📚 Continue Learning</h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Build workplace typing speed, master specialized drills, and unlock remote freelance opportunities.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="punctuation-typing-practice.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">🔣 Punctuation</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Punctuation &amp; Symbols Drill</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Master quotes, apostrophes, and commas essential for verbatim audio transcription.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Practice Punctuation <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- MOBILE MENU BUTTON -->
-    <button id="menuBtn" class="menu-btn">☰</button>
+                    <a href="data-entry-operator-typing-speed-secrets.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">💼 Data Entry</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Data Entry Speed Secrets</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Discover numeric keypad habits and pacing methods used by professional operators.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Read Guide <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
 
-    <!-- LOGIN / USER BUTTON -->
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>Transcription &amp; Subtitling Jobs</span>
-        </div>
-
-        <!-- Category -->
-        <span class="blog-category">💼 Remote Work &amp; Career Opportunities</span>
-
-        <!-- Title -->
-        <h1>How to Earn Money with Fast Typing: Freelance Transcription and Subtitling Guide</h1>
-
-        <!-- Subtitle -->
-        <p class="blog-subtitle">
-            High-speed touch typing is a direct avenue for remote income. Learn how to convert spoken audio and video into accurate text for global clients with proper speed, punctuation, and workflow tools.
-        </p>
-
-        <!-- Meta -->
-        <div class="blog-meta">
-            <span>📅 Updated: September 2026</span>
-            <span>•</span>
-            <span>⏱️ 6 min read</span>
-            <span>•</span>
-            <span>👤 Dayanand Dinkar Kendre</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <article class="article-content">
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Navigate the guide to remote typing careers:</p>
+                    <a href="index.html" class="group p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-800/40 transition-all duration-300 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 mb-3 border border-indigo-500/20">⏱️ Stamina</span>
+                            <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">100-Second Stamina Test</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-4">Simulate long transcription runs and evaluate sustained speed over extended durations.</p>
+                        </div>
+                        <div class="text-xs font-semibold text-indigo-400 flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                            Take Test <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="toc-grid">
-                <a href="#what-is-transcription" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">What is Transcription?</span></a>
-                <a href="#speed-accuracy-requirements" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Speed &amp; Accuracy Standards</span></a>
-                <a href="#essential-tools" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Essential Software &amp; Tools</span></a>
-                <a href="#top-platforms" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Top Freelance Platforms</span></a>
-                <a href="#prep-on-typenest" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Preparing on TypeNest</span></a>
+        </section>
+
+        <!-- Universal CTA Banner -->
+        <section class="py-16 md:py-20 border-t border-slate-800/80 relative overflow-hidden bg-gradient-to-b from-indigo-950/20 via-slate-900/40 to-[#0b0f19]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+                <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-2xl mb-6 shadow-inner">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Ready to Qualify for Transcription Jobs?
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal">
+                    Build the required 60+ WPM speed and 98%+ accuracy with TypeNest's dedicated practice tools.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="punctuation-typing-practice.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-keyboard text-sm"></i> Practice Punctuation
+                    </a>
+                    <a href="index.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 text-slate-200 font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-sm"></i> Take 1-Minute Test
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <p class="lead">
-            High-speed touch typing is not just an office efficiency skill — it is a direct avenue for generating remote income. With the continuous explosion of digital video media, podcasts, interviews, and online courses, businesses worldwide require human transcriptionists and video subtitlers to convert spoken audio into precise written text.
-        </p>
+    <!-- Dynamic Footer Mount Point -->
+    <div id="footer-container"></div>
 
-        <p>
-            If you can comfortably type over 60 Words Per Minute (WPM) with exceptional listening skills, you possess the core requirement to start freelancing in audio transcription and video captioning.
-        </p>
-
-        <h2 id="what-is-transcription">1. What is Transcription &amp; Subtitling?</h2>
-        <p>While both roles center around converting speech into text, they serve slightly different functions in the freelance market:</p>
-        <ul>
-            <li><strong>Audio Transcription:</strong> Listening to raw audio files (interviews, legal recordings, medical notes, or podcasts) and producing a clean, formatted text transcript.</li>
-            <li><strong>Video Subtitling &amp; Captioning:</strong> Creating time-synced subtitle lines (SRT files) for video content on YouTube, streaming networks, or educational portals.</li>
-        </ul>
-
-        <h2 id="speed-accuracy-requirements">2. Required WPM Speed &amp; Accuracy Standards</h2>
-        <p>Because transcriptionists are paid per audio-minute or per video-hour, your typing speed directly dictates your hourly earning rate:</p>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Level</th>
-                    <th>Target WPM</th>
-                    <th>Accuracy Requirement</th>
-                    <th>Earning Potential</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Beginner</strong></td>
-                    <td>45 – 55 WPM</td>
-                    <td>98%</td>
-                    <td>Entry Level ($10 – $15/hr)</td>
-                </tr>
-                <tr>
-                    <td><strong>Intermediate</strong></td>
-                    <td>65 – 75 WPM</td>
-                    <td>99%</td>
-                    <td>Pro Level ($18 – $25/hr)</td>
-                </tr>
-                <tr>
-                    <td><strong>Expert / Specialized</strong></td>
-                    <td>85+ WPM</td>
-                    <td>99.5%+</td>
-                    <td>Legal/Medical ($30 – $45/hr)</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="essential-tools">3. Essential Software &amp; Hardware Tools</h2>
-        <div class="tip-box">
-            <h3>💡 Starter Kit for Remote Transcription:</h3>
-            <ul>
-                <li><strong>Over-Ear Headphones:</strong> Clear audio gear isolates background noise and overlapping dialogue.</li>
-                <li><strong>USB Foot Pedal:</strong> Allows you to play, pause, or rewind audio using your foot without taking your hands off the home row.</li>
-                <li><strong>Text Expanders:</strong> Custom macro tools that expand short abbreviations into full industry terms instantly.</li>
-                <li><strong>Fast Mechanical Keyboard:</strong> Responsive switches reduce finger strain during multi-hour transcription runs.</li>
-            </ul>
-        </div>
-
-        <h2 id="top-platforms">4. Top Freelance Platforms for Beginners</h2>
-        <p>Several global platforms hire remote transcriptionists and subtitle creators based on initial grammar and typing entry tests:</p>
-        <ul>
-            <li><strong>Rev:</strong> Popular platform offering captioning and transcription tasks with flexible payout schedules.</li>
-            <li><strong>TranscribeMe:</strong> Great entry point for beginners with short 2-to-4 minute audio clips.</li>
-            <li><strong>GoTranscript:</strong> Global service offering international audio files and localized subtitling projects.</li>
-            <li><strong>Upwork &amp; Fiverr:</strong> Direct client freelancing where you can set your own custom rates once you build a portfolio.</li>
-        </ul>
-
-        <h2 id="prep-on-typenest">5. Preparing Your Typing Skills on TypeNest</h2>
-        <p>
-            Passing onboarding grammar and speed tests on transcription platforms requires high stamina and flawless punctuation handling:
-        </p>
-        <ol>
-            <li>Master quotation marks, hyphens, and brackets in our <a href="punctuation-typing-practice.html">Punctuation &amp; Code Drill</a>.</li>
-            <li>Eliminate hesitations on rare vocabulary using the <a href="difficult-words-typing-practice.html">Difficult Words Drill</a>.</li>
-            <li>Test your sustained speed and accuracy under timed pressure on the <a href="typing-test-100-seconds.html">100-Second Stamina Test</a>.</li>
-        </ol>
-
-        <h2>Further Reading &amp; Career Guides</h2>
-        <p>
-            Boost your professional keyboard fluency with these companion guides:
-        </p>
-        <ul>
-            <li><a href="data-entry-operator-typing-speed-secrets.html">Data Entry Typing Secrets: 80+ WPM at 99% Accuracy</a></li>
-            <li><a href="blind-typing-mastery-without-looking.html">How to Master Blind Typing Without Looking at the Keyboard</a></li>
-            <li><a href="typing-warmup-exercises-before-speed-tests.html">5-Minute Typing Warmup Exercises Before Speed Tests</a></li>
-        </ul>
-
-        <hr>
-        <p>
-            <strong>Last Updated:</strong> September 2026<br>
-            <strong>Author:</strong> Dayanand Dinkar Kendre (Founder, TypeNest)
-        </p>
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>
-            Build workplace typing speed, master specialized drills, and unlock remote freelance opportunities.
-        </p>
-        <div class="related-grid">
-            <a href="punctuation-typing-practice.html" class="related-card">
-                <span>🔣 Punctuation</span>
-                <h3>Punctuation &amp; Symbols Drill</h3>
-                <p>Master quotes, apostrophes, and commas essential for verbatim audio transcription.</p>
-            </a>
-            <a href="data-entry-operator-typing-speed-secrets.html" class="related-card">
-                <span>💼 Data Entry</span>
-                <h3>Data Entry Speed Secrets</h3>
-                <p>Discover numeric keypad habits and pacing methods used by professional operators.</p>
-            </a>
-            <a href="typing-test-100-seconds.html" class="related-card">
-                <span>⏱️ Stamina</span>
-                <h3>100-Second Stamina Test</h3>
-                <p>Simulate long transcription runs and evaluate sustained speed over extended durations.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Ready to Qualify for Transcription Jobs?</h2>
-        <p>
-            Build the required 60+ WPM speed and 98%+ accuracy with TypeNest's dedicated practice tools.
-        </p>
-        <div class="cta-buttons">
-            <a href="punctuation-typing-practice.html" class="cta-btn-primary">🔣 Practice Punctuation</a>
-            <a href="typing-test-60-seconds.html" class="cta-btn-outline">⏱️ Take 1-Minute Test</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- LOGIN MODAL SCRIPT -->
-<script>
-function openLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-    }
-}
-function closeLoginModal(){
-    var modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-<!-- MAIN SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
+    <!-- Scripts Integration -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

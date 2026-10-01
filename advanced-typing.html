@@ -1,340 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Title, Description & Keywords -->
+  <title>Advanced Typing Course & Professional Drills | TypeNest</title>
+  <meta name="description" content="Master advanced touch typing with complex prose, code syntax, and long endurance tests. Prepare for government typing exams and competitive typing on TypeNest.">
+  <meta name="keywords" content="advanced typing course, professional typing practice, 80 wpm typing, competitive typing test, typenest">
+  <meta name="robots" content="index, follow">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Canonical Tag for Google Indexing -->
+  <link rel="canonical" href="https://typenest.in/advanced-typing.html">
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/advanced-typing.html">
+  <meta property="og:title" content="Advanced Typing Course & Professional Drills | TypeNest">
+  <meta property="og:description" content="Master advanced typing endurance, vocabulary, and reach 80+ WPM with structured professional drills.">
+  <meta property="og:image" content="https://typenest.in/images/courses/advanced-course.webp">
 
-    <!-- SEO Meta Tags -->
-    <title>Advanced Typing Course | TypeNest</title>
-    <meta name="description" content="Master advanced typing techniques, improve productivity, and achieve professional-level typing performance. Practice high-speed drills on TypeNest.">
-    <meta name="keywords" content="advanced typing course, high WPM typing practice, professional typing speed, speed drills online, TypeNest advanced course">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/advanced-typing.html">
+  <meta name="twitter:title" content="Advanced Typing Course | TypeNest">
+  <meta name="twitter:description" content="Master advanced touch typing techniques on TypeNest.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/advanced-course.webp">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/advanced-typing.html">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Advanced Typing Course | TypeNest">
-    <meta property="og:description" content="Master advanced typing techniques and achieve professional-level speed and accuracy on TypeNest.">
-    <meta property="og:url" content="https://typenest.in/advanced-typing.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- Favicon & Stylesheets -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="beginner.css">
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a855f7; }
 
-    <!-- Course Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Advanced Typing Course",
-      "description": "Master high-speed typing, advanced finger control, professional typing techniques, and achieve elite-level typing performance.",
-      "provider": {
-        "@type": "Organization",
-        "name": "TypeNest",
-        "sameAs": "https://typenest.in"
+    @keyframes blinkCursor {
+      0%, 100% { border-color: #a855f7; }
+      50% { border-color: transparent; }
+    }
+    .typing-cursor {
+      border-left: 2.5px solid #a855f7;
+      animation: blinkCursor 0.9s infinite ease-in-out;
+      margin-left: -1px;
+    }
+
+    .key-active {
+      transform: translateY(2px) scale(0.96) !important;
+      background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+      color: #ffffff !important;
+      border-color: #c084fc !important;
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.85) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-purple-500 selection:text-white">
+
+  <!-- Header is automatically injected by assets/js/layout.js -->
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- Top Banner -->
+    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-purple-500/10 text-purple-400 border border-purple-500/30">Course 04</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Advanced Typing Mastery</h1>
+        </div>
+        <p class="text-slate-400 text-sm mt-1">Push past 80+ WPM with complex technical prose, vocabulary, and endurance challenges.</p>
+      </div>
+
+      <!-- Advanced Step Selector -->
+      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
+        <button onclick="setAdvDrill(0, this)" id="advbtn-0" class="advbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-purple-600 text-white transition">Drill 1: Complex Prose</button>
+        <button onclick="setAdvDrill(1, this)" id="advbtn-1" class="advbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 2: Tech & Code</button>
+        <button onclick="setAdvDrill(2, this)" id="advbtn-2" class="advbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 3: Exam Assessment</button>
+      </div>
+    </div>
+
+    <!-- Live Performance Stats Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Speed (WPM)</div>
+          <div id="statWPM" class="text-3xl font-extrabold text-purple-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
+          <div id="statAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">100<span class="text-lg font-normal">%</span></div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
+          <div id="statErrors" class="text-3xl font-extrabold text-rose-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Target Level</div>
+          <div class="text-2xl font-extrabold text-amber-400 font-mono mt-0.5">80+ WPM Pro</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-award"></i></div>
+      </div>
+    </div>
+
+    <!-- Active Arena Box -->
+    <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+        <span id="advTitle" class="font-medium text-slate-300 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span> Drill 1: Advanced Vocabulary & Complex Prose
+        </span>
+        <button onclick="resetAdvDrill(this)" class="hover:text-purple-400 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+        </button>
+      </div>
+
+      <!-- Hidden input for focus -->
+      <input type="text" id="mobileInputSink" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+      <div id="typingArea" onclick="focusAdvancedEngine()" class="cursor-text relative min-h-[140px] max-h-[220px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-3 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+        <div id="textDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
+      </div>
+    </div>
+
+    <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
+    <div id="keyboardWrapper"></div>
+
+  </main>
+
+  <!-- Page Logic Controller -->
+  <script>
+    const ADV_DRILLS = [
+      { title: "Drill 1: Advanced Vocabulary & Complex Prose", text: "Architectural excellence in software design requires both intuitive understanding of data flow and strict adherence to decoupled abstractions that survive unexpected complexity. The fundamental law of human productivity dictates that reducing cognitive friction during expression liberates deep creative thought." },
+      { title: "Drill 2: Tech, Code & Syntax Punctuation", text: "const calculateThroughput = (buffer, rate = 1.05) => { if (!buffer || buffer.length === 0) return null; return buffer.map(item => item.val * rate).filter(x => x > 0); };" },
+      { title: "Drill 3: Professional Typing Exam Simulation", text: "Government typing examinations and commercial speed benchmarks require uninterrupted concentration under strict time constraints. Cultivate an unwavering cadence, keep your elbows relaxed at right angles, and glide seamlessly through numbers, quotes, and punctuation." }
+    ];
+
+    let currentDrillIdx = 0;
+
+    function initAdvSession() {
+      const drill = ADV_DRILLS[currentDrillIdx];
+      const titleEl = document.getElementById('advTitle');
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span> ${drill.title}`;
+      }
+
+      // Master typing engine call (0 = Zen Mode / untimed accuracy focus)
+      if (window.startTypingSession) {
+        window.startTypingSession(drill.text, 0);
       }
     }
-    </script>
-</head>
 
-<body>
+    // Global reset hook for Escape key
+    window.resetCurrentTest = function() {
+      initAdvSession();
+    };
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    function resetAdvDrill(btn) {
+      if (btn) btn.blur(); // Blur button so Spacebar never triggers a reset
+      initAdvSession();
+    }
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
+    function focusAdvancedEngine() {
+      const sink = document.getElementById('mobileInputSink');
+      if (sink) sink.focus();
+    }
 
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
+    function setAdvDrill(idx, btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = idx;
+      document.querySelectorAll('.advbtn').forEach(b => {
+        b.classList.remove('bg-purple-600', 'text-white');
+        b.classList.add('bg-transparent', 'text-slate-400');
+      });
+      const targetBtn = document.getElementById(`advbtn-${idx}`);
+      if (targetBtn) {
+        targetBtn.classList.add('bg-purple-600', 'text-white');
+        targetBtn.classList.remove('text-slate-400');
+      }
+      initAdvSession();
+    }
 
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
+    window.addEventListener('DOMContentLoaded', () => {
+      initAdvSession();
+    });
+  </script>
 
-<!-- HERO -->
-<div class="about-hero">
-    <h1>Advanced Typing Course</h1>
-    <p>Master high-speed typing, advanced finger control, professional typing techniques, and achieve elite-level typing performance.</p>
-</div>
-
-<!-- COURSE CONTENT -->
-<section class="course-content">
-
-    <div class="content-card">
-        <h2>Introduction to Advanced Typing</h2>
-        <p>Advanced typing represents the stage where a typist moves beyond basic speed and accuracy goals and begins focusing on professional-level performance. At this level, typing is no longer simply about finding keys quickly. Instead, it becomes a combination of speed, accuracy, rhythm, endurance, concentration, and consistency.</p>
-        <p>Many typists reach speeds of 40 to 60 words per minute and then struggle to improve further. This happens because advanced typing requires different techniques than beginner and intermediate typing. Small inefficiencies that were previously unnoticed become major obstacles when attempting to reach higher speeds.</p>
-        <p>This course is designed to help serious learners understand the habits, techniques, and training methods used by professional typists. By applying these principles consistently on <a href="typing.html">TypeNest Practice Drills</a>, learners can achieve significant improvements in both speed and accuracy.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Professional Typing Standards</h2>
-        <p>Professional typists are expected to maintain both speed and accuracy. High speed alone is not enough if frequent errors reduce productivity. Most professional environments value consistent performance over occasional bursts of speed.</p>
-        <ul>
-            <li><strong>60+ WPM</strong> – Strong Professional Level</li>
-            <li><strong>80+ WPM</strong> – Advanced Professional Level</li>
-            <li><strong>100+ WPM</strong> – Elite Typist Level</li>
-            <li><strong>95%+ Accuracy</strong> – Professional Standard</li>
-            <li><strong>98%+ Accuracy</strong> – Elite Standard</li>
-        </ul>
-        <p>The goal of advanced training is to consistently perform at these levels during <a href="tests.html">Timed Speed Tests</a> under real-world conditions.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>The Difference Between Fast and Advanced Typing</h2>
-        <p>Many people assume that advanced typing simply means typing faster. However, advanced typing involves much more than raw speed. Professional typists maintain high speed while remaining accurate, relaxed, and efficient.</p>
-        <p>Fast typists often experience sudden speed fluctuations, fatigue, and inconsistent performance. Advanced typists maintain a steady pace regardless of paragraph length or difficulty.</p>
-        <p>The key difference lies in control. Advanced typists have developed strong muscle memory and refined finger movements that allow them to type efficiently for long periods.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Advanced Finger Control</h2>
-        <p>At higher typing speeds, finger control becomes increasingly important. Even small unnecessary movements can reduce overall performance and create errors.</p>
-        <p>Advanced typists focus on minimizing finger travel distance and maintaining smooth transitions between keys. Every movement should feel natural and efficient.</p>
-        <ul>
-            <li>Return fingers to home row consistently.</li>
-            <li>Avoid excessive hand movement.</li>
-            <li>Maintain relaxed wrists.</li>
-            <li>Use all fingers according to proper placement rules.</li>
-            <li>Develop precise finger coordination.</li>
-        </ul>
-        <p>Improved finger control directly contributes to higher speed and better accuracy.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Eliminating Micro Delays</h2>
-        <p>One of the biggest barriers to advanced typing is the presence of micro delays. These are tiny pauses that occur between letters, words, or sentences.</p>
-        <p>Although these delays may last only fractions of a second, they can significantly reduce overall typing speed when repeated hundreds of times throughout a document.</p>
-        <p>Common causes of micro delays include:</p>
-        <ul>
-            <li>Hesitation before difficult words.</li>
-            <li>Weak muscle memory.</li>
-            <li>Looking at the keyboard.</li>
-            <li>Lack of confidence.</li>
-            <li>Inconsistent typing rhythm.</li>
-        </ul>
-        <p>Eliminating these delays is essential for reaching professional-level typing speeds.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Building Typing Endurance</h2>
-        <p>Advanced typists must maintain performance over long periods. Typing quickly for thirty seconds is very different from maintaining high performance for thirty minutes.</p>
-        <p>Endurance training helps improve stamina and reduces fatigue during extended typing sessions. The goal is to maintain speed and accuracy consistently from beginning to end.</p>
-        <p>Effective endurance training includes long paragraph practice, extended typing sessions, and gradual increases in training duration.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Advanced Accuracy Techniques</h2>
-        <p>As typing speed increases, maintaining accuracy becomes more challenging. Advanced typists develop strategies that allow them to type quickly while minimizing mistakes.</p>
-        <ul>
-            <li>Reading ahead while typing.</li>
-            <li>Maintaining visual focus on the screen.</li>
-            <li>Using consistent finger placement.</li>
-            <li>Developing strong muscle memory.</li>
-            <li>Practicing difficult word combinations.</li>
-        </ul>
-        <p>Advanced accuracy training ensures that speed improvements do not come at the expense of quality.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>The Importance of Rhythm &amp; Mental Focus</h2>
-        <p>Rhythm is one of the defining characteristics of advanced typists. Rather than typing in bursts, professional typists maintain a smooth and consistent flow. Mental focus plays a major role in performance—concentration helps typists maintain accuracy, recognize word patterns quickly, and reduce hesitation.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Advanced Speed Drills</h2>
-        <p>Advanced speed drills are designed to push typing performance beyond ordinary practice levels. These exercises help develop finger coordination, rhythm, and rapid word recognition.</p>
-        <pre>technology   development   professional   performance   communication   opportunity   productivity   information   experience   consistency</pre>
-        <p>Practice these words repeatedly while maintaining a steady rhythm and avoiding unnecessary pauses.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Reading Ahead Technique &amp; Breaking Speed Plateaus</h2>
-        <p>One of the most effective techniques used by advanced typists is reading ahead—processing upcoming words early so the brain prepares finger movements in advance.</p>
-        <p>When facing a speed plateau, challenge yourself with unfamiliar content, practice longer paragraphs, and increase test duration to continue building speed.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>How to Reach 80 WPM and 100 WPM</h2>
-        <p>Achieving 80 to 100 WPM places a typist among top performers. Reaching this milestone requires high-quality practice, maintaining 95%+ accuracy, minimizing hand movements, and building disciplined daily habits.</p>
-    </div>
-
-    <div class="content-card">
-        <h2>Professional Training Routine &amp; Final Thoughts</h2>
-        <p>Spend 5 minutes warming up, 10 minutes on speed drills, 10 minutes on long paragraph typing, and 5 minutes on error review. Advanced typing is the result of years of refinement, practice, and dedication. Stay patient, remain consistent, and continue practicing with purpose.</p>
-    </div>
-
-</section>
-
-<!-- RELATED TYPING GUIDES -->
-<section class="related-guides">
-    <div class="container">
-        <div class="related-header">
-            <span class="related-badge">📚 RELATED GUIDES</span>
-            <h2>Advance Your Skills With <span>Expert Typing Guides</span></h2>
-            <p>Explore advanced typing guides designed to improve speed, boost productivity, master keyboard shortcuts, and develop professional-level typing skills.</p>
-        </div>
-
-        <div class="related-grid">
-            <div class="related-card">
-                <h3>Keyboard Shortcuts Guide</h3>
-                <p>Learn essential keyboard shortcuts that improve productivity, reduce mouse usage, and help you work faster every day.</p>
-                <a href="keyboard-shortcuts.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Best Free Typing Websites</h3>
-                <p>Discover the best free typing websites for advanced practice, typing games, speed improvement, and daily training.</p>
-                <a href="best-free-typing-websites.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Typing Speed Benchmarks Guide</h3>
-                <p>Compare your typing speed with global benchmarks and learn how to achieve professional-level typing performance.</p>
-                <a href="typing-speed-benchmarks-guide.html">Read Guide →</a>
-            </div>
-
-            <div class="related-card">
-                <h3>Complete Guide to Increase Typing Speed</h3>
-                <p>Apply advanced speed-building techniques, optimize finger movement, and increase your words per minute with confidence.</p>
-                <a href="increase-typing-speed-guide.html">Read Guide →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<div class="course-cta">
-    <h2>Ready To Become A Professional Typist?</h2>
-    <p>Challenge yourself with advanced typing exercises and reach your highest typing potential.</p>
-    <a href="typing.html" class="course-btn">Start Advanced Practice</a>
-</div>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
 </body>
 </html>

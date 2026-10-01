@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google Analytics 4 (GA4) Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
@@ -34,10 +33,52 @@
     <meta property="og:url" content="https://typenest.in/10-key-numeric-keypad-training.html">
     <meta property="og:image" content="https://typenest.in/favicon.png">
 
-    <!-- Favicon & Stylesheets -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="blog-article.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Configuration & Font Setup -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        code, pre {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 
     <!-- Article Schema Markup -->
     <script type="application/ld+json">
@@ -61,551 +102,718 @@
     }
     </script>
 </head>
+<body class="bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col antialiased">
 
-<body class="light">
+    <!-- DYNAMIC HEADER NAVBAR CONTAINER -->
+    <div id="header-container"></div>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">TypeNest</div>
+    <!-- MAIN ARTICLE CONTENT -->
+    <main class="flex-grow pt-24 pb-16">
+        <!-- HERO SECTION -->
+        <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-medium">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Home</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <a href="blog.html" class="hover:text-indigo-400 transition-colors">Blog</a>
+                <span class="text-slate-600">/</span>
+                <span class="text-slate-300 truncate">10-Key Numeric Keypad Training</span>
+            </nav>
 
-    <div class="menu" id="mobileMenu">
-        <a href="index.html" class="menu-link">Home</a>
-        <!-- Practice Dropdown Menu -->
-<div class="nav-dropdown">
-    <a href="typing.html" class="menu-link dropdown-toggle">Practice ▾</a>
-    <div class="dropdown-menu-list">
-        <span class="dropdown-category">⏱️ Timed Tests</span>
-        <a href="typing-test-30-seconds.html" class="dropdown-sublink">30-Second Sprint</a>
-        <a href="typing-test-60-seconds.html" class="dropdown-sublink">1-Minute Standard</a>
-        <a href="typing-test-100-seconds.html" class="dropdown-sublink">100-Second Stamina</a>
-        
-        <span class="dropdown-category">🎯 Skill Drills</span>
-        <a href="number-typing-practice.html" class="dropdown-sublink">Number Row Drill</a>
-        <a href="difficult-words-typing-practice.html" class="dropdown-sublink">Difficult Words</a>
-        <a href="punctuation-typing-practice.html" class="dropdown-sublink">Punctuation &amp; Code</a>
-    </div>
-</div>
-        <a href="tests.html" class="menu-link">Tests</a>
-        <a href="courses.html" class="menu-link">Courses</a>
-        <a href="leaderboard.html" class="menu-link">Leaderboard</a>
-        <a href="blog.html" class="menu-link">Blog</a>
-        <a href="about.html" class="menu-link">About</a>
-        <a href="#" class="mobile-login" id="mobileLoginBtn" onclick="openLoginModal()">Login</a>
-    </div>
-
-    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-    <button id="menuBtn" class="menu-btn">☰</button>
-
-    <div class="user-menu">
-        <a href="#" class="login-btn" id="navLoginBtn" onclick="openLoginModal()">Login</a>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="profile.html">My Profile</a>
-            <a href="#" id="logoutDropdown">Logout</a>
-        </div>
-    </div>
-</div>
-
-<!-- BLOG HERO -->
-<section class="blog-hero">
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a>
-            <span>›</span>
-            <a href="blog.html">Blog</a>
-            <span>›</span>
-            <span>10-Key Numeric Keypad Training: Master the Numpad Fast</span>
-        </div>
-        <span class="blog-category">📊 Data Entry &amp; Accounting</span>
-        <h1>10-Key Numeric Keypad Training: Master the Numpad Fast</h1>
-        <p class="blog-subtitle">Learn how to type numbers rapidly without looking at the keyboard. Master finger placement, blind entry techniques, and boost your data entry speed for professional careers.</p>
-        <div class="blog-meta">
-            <span>📅 Updated: August 2026</span>
-            <span>•</span>
-            <span>⏱️ 10 min read</span>
-            <span>•</span>
-            <span>👤 TypeNest Team</span>
-        </div>
-    </div>
-</section>
-
-<!-- ARTICLE CONTAINER -->
-<div class="article-container">
-    <div class="featured-image">
-        <img src="images/blog/numeric-keypad-training.webp" alt="10-Key Numeric Keypad Training: Master the Numpad Fast">
-    </div>
-
-    <article class="article-content">
-
-        <!-- TABLE OF CONTENTS -->
-        <div class="table-of-contents">
-            <div class="toc-header">
-                <h2>📑 Table of Contents</h2>
-                <p>Navigate to any section of this complete 10-key numpad training guide.</p>
+            <!-- Category Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-5">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Data Entry &amp; Accounting</span>
             </div>
-            <div class="toc-grid">
-                <a href="#what-is-numpad" class="toc-item"><span class="toc-number">01</span><span class="toc-line"></span><span class="toc-title">What is 10-Key Numpad?</span></a>
-                <a href="#importance" class="toc-item"><span class="toc-number">02</span><span class="toc-line"></span><span class="toc-title">Importance in Accounting & Banking</span></a>
-                <a href="#finger-placement" class="toc-item"><span class="toc-number">03</span><span class="toc-line"></span><span class="toc-title">Numpad Home Row & Finger Placement</span></a>
-                <a href="#key-mapping" class="toc-item"><span class="toc-number">04</span><span class="toc-line"></span><span class="toc-title">Numpad Key Mapping Table</span></a>
-                <a href="#blind-typing" class="toc-item"><span class="toc-number">05</span><span class="toc-line"></span><span class="toc-title">Blind Numeric Typing & Muscle Memory</span></a>
-                <a href="#special-keys" class="toc-item"><span class="toc-number">06</span><span class="toc-line"></span><span class="toc-title">Special Keys & Usage</span></a>
-                <a href="#kph-benchmark" class="toc-item"><span class="toc-number">07</span><span class="toc-line"></span><span class="toc-title">Understanding KPH Metrics</span></a>
-                <a href="#step-by-step" class="toc-item"><span class="toc-number">08</span><span class="toc-line"></span><span class="toc-title">Step-by-Step Training Plan</span></a>
-                <a href="#common-mistakes" class="toc-item"><span class="toc-number">09</span><span class="toc-line"></span><span class="toc-title">5 Common Mistakes to Avoid</span></a>
-                <a href="#ergonomics" class="toc-item"><span class="toc-number">10</span><span class="toc-line"></span><span class="toc-title">Ergonomics & Posture</span></a>
-                <a href="#shortcuts-excel" class="toc-item"><span class="toc-number">11</span><span class="toc-line"></span><span class="toc-title">Excel & Tally Prime Shortcuts</span></a>
-                <a href="#faq" class="toc-item"><span class="toc-number">12</span><span class="toc-line"></span><span class="toc-title">Frequently Asked Questions</span></a>
+
+            <!-- Title -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                10-Key Numeric Keypad Training: Master the Numpad Fast
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
+                Learn how to type numbers rapidly without looking at the keyboard. Master finger placement, blind entry techniques, and boost your data entry speed for professional careers.
+            </p>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-slate-400 border-y border-slate-800/80 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar text-indigo-400"></i>
+                    <span>Updated: August 2026</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-indigo-400"></i>
+                    <span>10 min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-user text-indigo-400"></i>
+                    <span>TypeNest Team</span>
+                </div>
             </div>
+        </header>
+
+        <!-- ARTICLE CONTAINER -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl relative">
+                <img src="images/blog/numeric-keypad-training.webp" alt="10-Key Numeric Keypad Training: Master the Numpad Fast" class="w-full h-auto object-cover max-h-[460px]">
+            </div>
+
+            <article class="prose prose-invert prose-indigo max-w-none space-y-8 text-slate-300 leading-relaxed text-base sm:text-lg">
+                <!-- TABLE OF CONTENTS -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl not-prose mb-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-list-ul text-indigo-400 text-lg"></i>
+                        <h2 class="text-xl font-bold text-white tracking-wide">Table of Contents</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Navigate to any section of this complete 10-key numpad training guide.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="#what-is-numpad" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">01</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">What is 10-Key Numpad?</span>
+                        </a>
+                        <a href="#importance" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">02</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Importance in Accounting &amp; Banking</span>
+                        </a>
+                        <a href="#finger-placement" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">03</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Numpad Home Row &amp; Finger Placement</span>
+                        </a>
+                        <a href="#key-mapping" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">04</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Numpad Key Mapping Table</span>
+                        </a>
+                        <a href="#blind-typing" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">05</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Blind Numeric Typing &amp; Muscle Memory</span>
+                        </a>
+                        <a href="#special-keys" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">06</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Special Keys &amp; Usage</span>
+                        </a>
+                        <a href="#kph-benchmark" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">07</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Understanding KPH Metrics</span>
+                        </a>
+                        <a href="#step-by-step" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">08</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Step-by-Step Training Plan</span>
+                        </a>
+                        <a href="#common-mistakes" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">09</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">5 Common Mistakes to Avoid</span>
+                        </a>
+                        <a href="#ergonomics" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">10</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Ergonomics &amp; Posture</span>
+                        </a>
+                        <a href="#shortcuts-excel" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">11</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Excel &amp; Tally Prime Shortcuts</span>
+                        </a>
+                        <a href="#faq" class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-indigo-600/10 border border-slate-700/40 hover:border-indigo-500/40 text-slate-300 hover:text-indigo-300 transition-all text-sm font-medium group">
+                            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">12</span>
+                            <span class="group-hover:translate-x-0.5 transition-transform">Frequently Asked Questions</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed">
+                    आजच्या डिजिटल युगात Accounting, Banking, Data Entry, Order Processing आणि Billing यांसारख्या क्षेत्रांमध्ये जलद आणि बिनचूक काम करण्यासाठी फक्त अक्षरे (Alphabets) टायपिंग करून चालत नाही. तर त्यासाठी <strong class="text-white">Numeric Keypad (Numpad)</strong> वर जबरदस्त स्पीड असणे अत्यंत आवश्यक आहे. अनेक जण अल्फाबेट्स टायपिंगमध्ये ५० WPM चा स्पीड मिळवतात, परंतु जेव्हा आकडेमोड किंवा नंबर एंट्रीची वेळ येते, तेव्हा ते कीबोर्डकडे बघून एका हाताच्या एकाच बोटाने नंबर प्रेस करताना दिसतात.
+                </p>
+
+                <p>
+                    कीबोर्डच्या उजव्या बाजूला दिलेला <strong class="text-white">10-Key Numeric Keypad</strong> हा विशेषतः जलद गतीने डेटा एंट्री करण्यासाठी डिझाइन केलेला आहे. जर तुम्ही कीबोर्डकडे न बघता (Blind Typing) उजव्या हाताच्या बोटांनी Numpad वर टायपिंग करायला शिकलात, तर तुमचा डेटा एंट्रीचा स्पीड तब्बल तिप्पट होऊ शकतो. या मार्गदर्शकामध्ये आपण 10-Key Numpad टायपिंगचे बेसिक नियम, बोटांची अचूक पोझिशन, स्पीड वाढवण्याच्या ट्रिक्स आणि प्रोफेशनल्स वापरत असलेले सिक्रेट्स सविस्तर शिकणार आहोत.
+                </p>
+
+                <!-- SECTION 1 -->
+                <section id="what-is-numpad" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">01.</span>
+                        <span>10-Key Numeric Keypad म्हणजे काय? (What is 10-Key Numpad?)</span>
+                    </h2>
+                    <p>
+                        स्टँडर्ड कम्प्युटर कीबोर्डच्या उजव्या बाजूला असलेल्या ३x४ च्या ग्रिडमधील नंबरच्या सेक्शनला <strong class="text-white">10-Key Numeric Keypad</strong> किंवा <strong class="text-white">Numpad</strong> म्हटले जाते. यात ० ते ९ हे आकडे, बेसिक गणितीय चिन्हे (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">+</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">-</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">*</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">/</code>), <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> की आणि <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Decimal Point (.)</code> यांचा समावेश असतो.
+                    </p>
+                    <p>
+                        जरी कीबोर्डवर वरच्या बाजूला (Function Keys च्या खाली) नंबर रो (Number Row) उपलब्ध असली, तरी मोठ्या प्रमाणात नंबर टायपिंग करताना ही वरची लाईन अत्यंत संथ आणि थकवणारी ठरते. Numpad चे डिझाइन कॅल्क्युलेटरसारखे असल्यामुळे एकाच हाताच्या ५ बोटांचा वापर करून अत्यंत वेगाने आकडेमोड करणे शक्य होते.
+                    </p>
+
+                    <!-- Info Box -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Numpad चा इतिहास आणि डिझाईन</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Numpad ची रचना १९५० च्या दशकात 10-key ॲडिंग मशीन्सवरून प्रेरित होऊन करण्यात आली आहे. यात <strong class="text-white">'5'</strong> या की वर एक छोटा टेकलेला भाग (Tactile Bump) दिलेला असतो. हा Bump तुमच्या बोटांना न बघता होम रो ओळखण्यास मदत करतो.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 2 -->
+                <section id="importance" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">02.</span>
+                        <span>Data Entry, Accounting आणि Banking मध्ये Numpad चे महत्त्व</span>
+                    </h2>
+                    <p>
+                        तुम्ही जर कॉरपोरेट क्षेत्रात किंवा सरकारी नोकरीत डेटा एंट्रीशी संबंधित काम करत असाल, तर तुमचा <strong class="text-white">KPH (Keystrokes Per Hour)</strong> मोजला जातो. टायपिंग स्पीड हा WPM (Words Per Minute) मध्ये मोजला जातो, तर नंबर टायपिंगचा वेग KPH मध्ये मोजला जातो.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">Accounting &amp; Tally Users:</strong> सीए (CA) फर्म्स, फायनान्स आणि अकाउंटिंगमध्ये दिवसभर इन्व्हॉइस, डेबिट/क्रेडिट नोट आणि व्हाउचर्स बनवावे लागतात. इथे Numpad वर मास्टर असणे अनिवार्य आहे.</li>
+                        <li><strong class="text-white">Bank Tellers &amp; Clerks:</strong> बँकेत कॅश काउंटर किंवा पासबुक एंट्री करताना खाते क्रमांक, रक्कम आणि तारीख टाकण्यासाठी वेगाची गरज असते.</li>
+                        <li><strong class="text-white">E-commerce &amp; Inventory Management:</strong> Amazon, Flipkart किंवा रिटेल स्टोअर्समध्ये बिलिंग करताना प्रॉडक्ट बारकोड, स्टॉक Quantity आणि Price एंट्री Numpad वरच केली जाते.</li>
+                        <li><strong class="text-white">MPSC, SSC &amp; Court Typing Exams:</strong> अनेक सरकारी परीक्षांमध्ये डेटा एंट्री स्किल टेस्ट घेतली जाते, जिथे नंबर टायपिंगमध्ये ९५%+ ॲक्युरेसी असणे आवश्यक असते.</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION 3 -->
+                <section id="finger-placement" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">03.</span>
+                        <span>10-Key Numpad ची Home Row आणि बोटांची रचना (Finger Placement)</span>
+                    </h2>
+                    <p>
+                        टच टायपिंगचा (Blind Typing) सर्वात पहिला नियम म्हणजे कीबोर्डकडे न बघता होम रो (Home Row) वर बोटे ठेवणे. Numpad वर काम करताना फक्त <strong class="text-white">उजव्या हाताचा (Right Hand)</strong> वापर केला जातो.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">
+                        Numpad Home Row: <code class="px-2.5 py-1 rounded bg-slate-800 text-indigo-300 font-mono text-base border border-slate-700">4 - 5 - 6</code>
+                    </h3>
+                    <p>
+                        Numpad ची होम रो म्हणजे मधली लाईन ज्यावर <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">4</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">6</code> हे नंबर असतात. कीबोर्डकडे न बघता खालीलप्रमाणे बोटे सेट करा:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li><strong class="text-white">तर्जनी (Index Finger):</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">4</code> या नंबरवर ठेवा.</li>
+                        <li><strong class="text-white">मध्यमा (Middle Finger):</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code> या नंबरवर ठेवा. (<code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code> च्या की वर स्पर्श करून Bump फील करा).</li>
+                        <li><strong class="text-white">अनामिका (Ring Finger):</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">6</code> या नंबरवर ठेवा.</li>
+                        <li><strong class="text-white">अंगठा (Thumb):</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">0</code> या मोठ्या की वर किंवा Spacebar वर हलका ठेवा.</li>
+                        <li><strong class="text-white">करंगळी (Pinky Finger):</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">+</code> (Plus) आणि <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> की वर नियंत्रण ठेवण्यासाठी वापरा.</li>
+                    </ul>
+
+                    <!-- Quote Block -->
+                    <div class="my-6 p-6 rounded-2xl bg-indigo-950/20 border-l-4 border-indigo-500 text-slate-200">
+                        <p class="font-semibold text-white mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-star text-indigo-400"></i>
+                            <span>प्रो-टिप</span>
+                        </p>
+                        <p class="italic text-slate-300">
+                            प्रत्येक वेळी टायपिंग सुरू करण्यापूर्वी तुमच्या मधल्या बोटाने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code> नंबरवरील Bump ओळखा. हे तुमचे होम बेझ (Home Base) आहे. कोणतीही की प्रेस केल्यानंतर बोट पुन्हा ५-४-६ च्या होम रो वरच आले पाहिजे.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 4 -->
+                <section id="key-mapping" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">04.</span>
+                        <span>सर्व कीजसाठी बोटांचे वाटप (Numpad Key Mapping)</span>
+                    </h2>
+                    <p>
+                        न बघता वेगवान टायपिंग करण्यासाठी प्रत्येक बोटाला ठराविक कीज वाटून दिलेल्या असतात. खालील कोष्टकावरून तुम्हाला समजेल की कोणते बोट कोणत्या की साठी वापरायचे आहे:
+                    </p>
+
+                    <!-- Responsive Key Mapping Table -->
+                    <div class="my-6 overflow-x-auto rounded-2xl border border-slate-800 shadow-xl bg-slate-900/60">
+                        <table class="w-full text-left text-sm border-collapse">
+                            <thead class="bg-slate-800/80 text-white font-semibold border-b border-slate-700/80">
+                                <tr>
+                                    <th class="p-4 sm:p-5">बोट (Finger)</th>
+                                    <th class="p-4 sm:p-5">Home Row Key</th>
+                                    <th class="p-4 sm:p-5">वरची रो (Top Row)</th>
+                                    <th class="p-4 sm:p-5">खालची रो (Bottom Row)</th>
+                                    <th class="p-4 sm:p-5">स्पेशल / मॅथ कीज</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Index Finger (तर्जनी)</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">4</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">7</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">1</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Num Lock</code> (काही वेळेस)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Middle Finger (मध्यमा)</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">5</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">8</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">2</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">/</code> (Division)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Ring Finger (अनामिका)</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">6</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">9</code></td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">3</code> आणि <code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">.</code> (Decimal)</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">*</code> (Multiplication)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Thumb (अंगठा)</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                    <td class="p-4 sm:p-5 font-mono text-indigo-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">0</code> (Zero)</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 sm:p-5 font-bold text-white whitespace-nowrap">Pinky Finger (करंगळी)</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                    <td class="p-4 sm:p-5 text-slate-500">-</td>
+                                    <td class="p-4 sm:p-5 font-mono text-slate-300"><code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">-</code>, <code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">+</code>, <code class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">Enter</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- SECTION 5 -->
+                <section id="blind-typing" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">05.</span>
+                        <span>Blind Numeric Typing म्हणजे काय आणि ते कसे साध्य करावे?</span>
+                    </h2>
+                    <p>
+                        बऱ्याचदा नवशिक्या टायपिस्ट्स स्क्रीनवरील डेटा बघतात, मग कीबोर्डवर नंबर शोधतात, तो प्रेस करतात आणि पुन्हा स्क्रीनकडे बघतात. या प्रक्रियेत खूप वेळ वाया जातो. <strong class="text-white">Blind Numeric Typing</strong> मध्ये तुमचे डोळे फक्त मूळ कागदपत्रावर (Source Document) किंवा स्क्रीनवरील डेटावर असतात आणि तुमचे हात न बघता Numpad वर वेगाने चालतात.
+                    </p>
+                    <p>
+                        हे साध्य करण्यासाठी तुमच्या मेंदूमध्ये <strong class="text-white">Muscle Memory</strong> तयार व्हावी लागते. जेव्हा तुम्ही रोज १० ते १५ मिनिटे बोटांच्या हालचालींचा सराव करता, तेव्हा मेंदूला न बघता <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code> वरून <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">9</code> वर किंवा <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">4</code> वरून <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">1</code> वर बोट किती अंतरावर हलवायचे हे अचूक समजते.
+                    </p>
+                </section>
+
+                <!-- SECTION 6 -->
+                <section id="special-keys" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">06.</span>
+                        <span>10-Key Numpad मधील सर्वात महत्त्वाच्या कीज आणि त्यांचा अचूक वापर</span>
+                    </h2>
+                    <p>
+                        फक्त ० ते ९ हे आकडे टायपिंग करणे म्हणजे संपूर्ण Numpad शिकणे नव्हे. डेटा एंट्री करताना इतर अनेक स्पेशल कीजचा वापर करावा लागतो. चला पाहूया त्या कीजचा अचूक वापर कसा करावा:
+                    </p>
+
+                    <div class="space-y-4 my-6">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-mono font-bold">1</span>
+                                <span><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Num Lock</code> की चे महत्त्व</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                Numpad च्या वरच्या डाव्या कोपऱ्यात <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Num Lock</code> ही की असते. ही की <strong class="text-white">ON</strong> असेल तरच Numpad वरील नंबर टाईप होतात. जर <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Num Lock</code> बंद असेल, तर हे नंबर नेव्हिगेशन एरो कीज (Arrow Keys - Up, Down, Left, Right, Home, End, Page Up, Page Down) म्हणून काम करू लागतात. त्यामुळे टायपिंग सुरू करण्यापूर्वी <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Num Lock</code> इंडिकेटर लाईट सुरु आहे की नाही हे नेहमी तपासा.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-mono font-bold">2</span>
+                                <span><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">0</code> (Zero) आणि <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">00</code> (Double Zero) कीज</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                अकाउंटिंग आणि बँक एंट्री करताना <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">0</code> चा वापर सर्वाधिक होतो. <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">0</code> ही की Numpad वर खालच्या बाजूला मोठी दिलेली असते. या की वर <strong class="text-white">उजव्या हाताच्या अंगठ्याचा (Thumb)</strong> वापर करणे हा सर्वात शास्त्रीय नियम आहे. काही कीबोर्डवर <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">00</code> ची की देखील असते, ज्यामुळे मोठ्या रक्कमा टाईप करताना वेळ वाचतो.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-mono font-bold">3</span>
+                                <span><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Decimal Point (.)</code> म्हणजे दशांश चिन्ह</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                पैशांची रक्कम किंवा अचूक आकडेवारी (उदा. ₹1,250.75 यामधील <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">.</code>) टाकण्यासाठी अनामिकेचा (Ring Finger) वापर <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">.</code> वर करा. <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">6</code> वरून बोट खाली सरकवून <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">.</code> प्रेस करणे आणि लगेच <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">6</code> वर परत जाणे हा सराव अत्यंत महत्त्वाचा आहे.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-mono font-bold">4</span>
+                                <span><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> की चा वापर</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                Excel किंवा Data Entry Software मध्ये डेटा सबमिट करण्यासाठी किंवा पुढच्या रो (Row) वर जाण्यासाठी <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> की दाबावी लागते. Numpad वर उजव्या बाजूला उभी मोठी <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> की असते. ही की <strong class="text-white">करंगळीने (Pinky Finger)</strong> प्रेस केली पाहिजे. यासाठी मुख्य कीबोर्डवरील Enter दाबण्यासाठी हात हलवण्याची अजिबात गरज नाही.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 7 -->
+                <section id="kph-benchmark" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">07.</span>
+                        <span>KPH (Keystrokes Per Hour) म्हणजे काय? आणि ते कसे मोजावे?</span>
+                    </h2>
+                    <p>
+                        साध्या टायपिंगमध्ये जसा <strong class="text-white">WPM (Words Per Minute)</strong> वापरला जातो, तसाच Data Entry किंवा Numeric Typing मध्ये <strong class="text-white">KPH (Keystrokes Per Hour)</strong> चा निकष वापरला जातो. १ तासात तुम्ही Numpad वर एकूण किती कीज (Numbers &amp; Symbols) प्रेस करता, याला KPH म्हणतात.
+                    </p>
+
+                    <!-- Info Box -->
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>KPH चे गणित आणि बेंचमार्क</span>
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            समजा तुम्ही ५ मिनिटांच्या टेस्टमध्ये एकूण ५०० आकडे टाईप केले, तर तुमचा KPH मोजण्यासाठी: <br>
+                            <code class="px-2.5 py-1 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700 inline-block mt-2">(500 ÷ 5) × 60 = 6,000 KPH</code>
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-slate-300 text-sm sm:text-base">
+                            <li><strong class="text-white">Beginner (नवशिक्या):</strong> 4,000 - 6,000 KPH</li>
+                            <li><strong class="text-white">Intermediate (मध्यम):</strong> 7,000 - 9,000 KPH</li>
+                            <li><strong class="text-white">Professional Data Entry Operator:</strong> 10,000 - 12,000+ KPH (98%+ Accuracy सह)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 8 -->
+                <section id="step-by-step" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">08.</span>
+                        <span>Numpad Typing Speed वाढवण्यासाठी टप्प्याटप्प्याने सराव कसा करावा?</span>
+                    </h2>
+                    <p>
+                        जर तुम्हाला Numpad वर १०,०००+ KPH चा स्पीड मिळवायचा असेल, तर खालील ५ टप्प्यांचा सराव (Step-by-Step Training) फॉलो करा:
+                    </p>
+
+                    <div class="space-y-4 my-6">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">टप्पा १</span>
+                                <span>Home Row Alignment (<code class="text-indigo-300 font-mono">4</code>, <code class="text-indigo-300 font-mono">5</code>, <code class="text-indigo-300 font-mono">6</code>)</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                सुरुवातीला फक्त तर्जनी, मध्यमा आणि अनामिका बोटांनी <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">4-5-6-4-5-6</code> हा पॅटर्न सलग १० मिनिटे टाईप करा. डोळे बंद करून फक्त बोटांच्या स्पर्शाने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">5</code> वरील Bump ओळखायचा प्रयत्न करा.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">टप्पा २</span>
+                                <span>Vertical Reaching (<code class="text-indigo-300 font-mono">7-8-9</code> आणि <code class="text-indigo-300 font-mono">1-2-3</code>)</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-2">होम रो वरून वरच्या रो वर बोटे नेण्याचा सराव करा:</p>
+                            <ul class="list-disc pl-6 space-y-1 text-slate-300 text-sm">
+                                <li><code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">4</code> वरून वर <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">7</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">5</code> वरून <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">8</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">6</code> वरून <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">9</code> (Index, Middle, Ring Finger).</li>
+                                <li>त्यानंतर <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">4</code> वरून खाली <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">1</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">5</code> वरून <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">2</code>, <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">6</code> वरून <code class="px-1.5 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs">3</code>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">टप्पा ३</span>
+                                <span>Zero आणि Decimal Control (<code class="text-indigo-300 font-mono">0</code> आणि <code class="text-indigo-300 font-mono">.</code>)</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                रक्कमा टाईप करण्याचा सराव करा, जसे की <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">10.50</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">450.00</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">98.25</code>. यात अंगठ्याने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">0</code> आणि अनामिकेने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">.</code> दाबण्याची सवय लावा.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">टप्पा ४</span>
+                                <span>Random Number Sequences</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                कोणतेही ५ ते ८ अंकी रँडम आकडे टाईप करा (उदा. <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">482910</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">730592</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">194628</code>). यामुळे मेंदूचा आणि बोटांचा समन्वय (Coordination) वेगाने विकसित होतो.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">टप्पा ५</span>
+                                <span>Math &amp; Operator Practice</span>
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                आकड्यांसोबत गणितीय चिन्हे वापरा: <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">250 + 150 =</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">1250 * 5 =</code>, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">800 / 4 =</code>. यात करंगळीने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">+</code> आणि <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-xs border border-slate-700">Enter</code> दाबण्याचा पुरेसा सराव करा.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 9 -->
+                <section id="common-mistakes" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">09.</span>
+                        <span>Data Entry मध्ये होणाऱ्या ५ मोठ्या चुका आणि त्यावर उपाय</span>
+                    </h2>
+                    <p>
+                        अनेक विद्यार्थी कितीही सराव केला तरी स्पीड वाढवता येत नाही अशी तक्रार करतात. याचे कारण ते नकळत खालील चुका करत असतात:
+                    </p>
+                    <ol class="list-decimal pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">चुकीची पद्धत - कीबोर्डकडे सारखे बघणे:</strong> कीबोर्डकडे बघून टाईप केल्याने स्पीड ५०% ने कमी होतो. चुकलात तरी चालेल, पण कीबोर्डकडे बघू नका.</li>
+                        <li><strong class="text-white">एकाच बोटाचा वापर करणे (One-finger typing):</strong> फक्त तर्जनीने (Index Finger) संपूर्ण Numpad वर फिरणे अत्यंत चुकीचे आहे. पाचही बोटांचा नेमून दिलेला वापर करा.</li>
+                        <li><strong class="text-white">स्पीडसाठी ॲक्युरेसीचा बळी देणे:</strong> Data Entry मध्ये एका चुकिच्या आकड्यामुळे (उदा. ₹१०,००० ऐवजी ₹१,००,०००) कंपनीचे लाखो रुपयांचे नुकसान होऊ शकते. त्यामुळे आधी <strong class="text-white">100% Accuracy</strong> वर लक्ष द्या, स्पीड आपोआप वाढेल.</li>
+                        <li><strong class="text-white">अंगठ्याचा वापर न करणे:</strong> <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">0</code> की वर अंगठा न वापरता तर्जनी वापरल्याने होम रो चे पोझिशन बिघडते.</li>
+                        <li><strong class="text-white">हात हवेत ठेवणे किंवा मनगट टेबलवर दाबणे:</strong> टायपिंग करताना मनगट (Wrist) टेबलवर जास्त जोरात टेकवून ठेवल्याने हाताचे स्नायू दुखू लागतात. मनगट नेहमी हलके आणि रिलॅक्स ठेवा.</li>
+                    </ol>
+                </section>
+
+                <!-- SECTION 10 -->
+                <section id="ergonomics" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">10.</span>
+                        <span>10-Key Numpad टायपिंगसाठी सर्वोत्तम Ergonomics आणि बसण्याची योग्य पद्धत</span>
+                    </h2>
+                    <p>
+                        डेटा एंट्री आणि अकाउंटिंगमध्ये सलग ८ ते १० तास कॉम्प्युटरसमोर बसून काम करावे लागते. जर तुमची बसण्याची पद्धत (Posture) आणि हातांची स्थिती योग्य नसेल, तर <strong class="text-white">Carpal Tunnel Syndrome (CTS)</strong> किंवा मनगटाचे, पाठीचे आजार उद्भवू शकतात. त्यामुळे Numpad चा सराव करताना खालील Ergonomic मार्गदर्शक तत्त्वे पाळा:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 text-slate-300">
+                        <li><strong class="text-white">खुर्चीची उंची (Chair Height):</strong> तुमची कोपर (Elbow) टेबलसोबत ९० अंशाच्या कोनात (90-degree angle) असावी. यामुळे हाताच्या स्नायूंवर ताण येत नाही.</li>
+                        <li><strong class="text-white">मनगटाची स्थिती (Straight Wrists):</strong> Numpad वर काम करताना मनगट सरळ असावे. ते वर किंवा खाली जास्त वाकवू नका.</li>
+                        <li><strong class="text-white">हलका स्पर्श (Light Touch):</strong> कीबोर्डच्या कीज जास्त जोरात ठोकू नका. आजकालच्या मॉडर्न कीबोर्ड्सवर अगदी हलक्या स्पर्शानेही की प्रेस होते.</li>
+                        <li><strong class="text-white">ब्रेक घ्या (Take Short Breaks):</strong> दर ४५ मिनिटांच्या सलग टायपिंगनंतर २ ते ३ मिनिटे हाताची बोटे आणि मनगट स्ट्रेच (Stretch) करा.</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION 11 -->
+                <section id="shortcuts-excel" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-4">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">11.</span>
+                        <span>10-Key Numpad मधील Shortcuts आणि Tally / Excel टिप्स</span>
+                    </h2>
+                    <p>
+                        प्रोफेशनल फायनान्स आणि डेटा एंट्री एक्सपर्ट्स फक्त नंबर्स टाईप करत नाहीत, तर ते Numpad चा वापर करून सॉफ्टवेअरमधील कामाचा वेग प्रचंड वाढवतात:
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">१. Excel मध्ये Numpad सह Navigation</h3>
+                    <p>
+                        जर तुम्हाला Excel मध्ये डेटा एंट्री करताना वेगाने काम करायचे असेल, तर <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> दाबल्यास कर्सर खाली जातो आणि <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Tab</code> दाबल्यास कर्सर उजवीकडे सरकतो. डाव्या हाताने <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Tab</code> आणि उजव्या हाताने Numpad वर आकडे टाईप करणे ही डेटा एंट्रीची सर्वात फास्ट पद्धत मानली जाते.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">२. Tally Prime मधील Numpad टिप्स</h3>
+                    <p>
+                        Tally मध्ये व्हाउचर एंट्री करताना सर्व आकडे Numpad वरून टाकले जातात. रक्कम टाकून झाल्यावर लगेच उजव्या हाताच्या करंगळीने Numpad वरील <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Enter</code> दाबल्यास सेकंदात एंट्री सेव्ह होते.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-white mt-6 mb-3">३. Alt Codes चा वापर</h3>
+                    <p>
+                        Numpad चा वापर विशेष सिम्बॉल्स (Special Characters) टाईप करण्यासाठी केला जातो. <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Alt</code> की धरून Numpad वर ठराविक नंबर टाईप केल्यास युनिकोड सिम्बॉल्स तयार होतात:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Alt + 0160</code> = Non-breaking Space</li>
+                        <li><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Alt + 0176</code> = Degree Symbol (°)</li>
+                        <li><code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">Alt + 1</code> = Smiley Face (☺)</li>
+                    </ul>
+                </section>
+
+                <!-- SECTION: TYPENEST PRACTICE -->
+                <section class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">TypeNest वर 10-Key Numpad चा सराव कसा करावा?</h2>
+                    <p>
+                        <strong class="text-white">TypeNest</strong> हे खास अशा विद्यार्थ्यांसाठी डिझाइन केलेले प्लॅटफॉर्म आहे ज्यांना आपला टायपिंग स्पीड शास्त्रीय पद्धतीने वाढवायचा आहे. Numpad वर मास्टर होण्यासाठी TypeNest तुम्हाला खालील सुविधा पुरवते:
+                    </p>
+
+                    <div class="my-6 p-6 rounded-2xl bg-slate-900/90 border border-indigo-500/30 shadow-lg">
+                        <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2 mb-4">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>TypeNest Numpad Features</span>
+                        </h3>
+                        <ul class="space-y-3 text-slate-300 text-sm sm:text-base">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Interactive Numpad Drills:</strong> सुरुवातीच्या विद्यार्थ्यांसाठी होम रो, टॉप रो आणि बॉटम रो चे स्वतंत्र सराव सेशन्स. (थेट प्रॅक्टिससाठी <a href=index.html class="text-indigo-400 hover:text-indigo-300 underline font-medium">TypeNest Practice Page</a> ला भेट द्या).</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Live KPH Calculator:</strong> टायपिंग करत असतानाच तुमचा रिअल-टाईम KPH (Keystrokes Per Hour) आणि Accuracy स्क्रीनवर दिसणे.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Error Heatmap Analysis:</strong> टायपिंग संपल्यानंतर कोणत्या नंबरवर तुमचे बोट सर्वात जास्त चुकले याचे सविस्तर विश्लेषण.</div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-check text-indigo-400 mt-1"></i>
+                                <div><strong class="text-white">Exam Simulator:</strong> MPSC, SSC, Court Typing Exam आणि Banking Data Entry च्या धर्तीवर डिझाइन केलेल्या मॉक टेस्ट्स. (तुमची गती तपासण्यासाठी <a href="tests.html" class="text-indigo-400 hover:text-indigo-300 underline font-medium">TypeNest Tests</a> वर क्लिक करा).</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- SECTION 12: FAQS -->
+                <section id="faq" class="pt-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight flex items-center gap-3 mb-6">
+                        <span class="text-indigo-400 font-mono text-xl sm:text-2xl">12.</span>
+                        <span>नेहमी विचारले जाणारे प्रश्न (Frequently Asked Questions - FAQs)</span>
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q1. Numpad वर चांगला KPH स्पीड किती मानला जातो?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                कोणत्याही डेटा एंट्री किंवा अकाउंटिंग जॉबसाठी <strong class="text-white">8,000 ते 10,000 KPH (98% ॲक्युरेसीसह)</strong> हा एक उत्तम आणि प्रोफेशनल स्पीड मानला जातो.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q2. माझ्या लॅपटॉपवर Numpad नाहीये, मी काय करावे?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                अनेक १४-इंची लॅपटॉप्सवर उजव्या बाजूला सेपरेट Numpad नसतो. अशा वेळी तुम्ही बाजारातून <strong class="text-white">External USB Numeric Keypad</strong> (किंवा वायरलेस Numpad) विकत घेऊन लॅपटॉपला जोडू शकता आणि सराव करू शकता.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q3. Numpad शिकण्यासाठी दररोज किती वेळ सराव करावा?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                दररोज फक्त <strong class="text-white">१५ ते २० मिनिटे</strong> सलग २ आठवडे (14 Days) मन लावून सराव केल्यास तुमची Numpad वरील Muscle Memory तयार होते आणि तुमचा स्पीड दुप्पट होतो.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+                            <h3 class="text-base sm:text-lg font-bold text-white mb-2">Q4. नंबर टायपिंग करताना नेहमी चुका का होतात?</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                घाईघाईत स्पीड वाढवण्याच्या नादात किंवा '5' वरील Bump वर बोट न ठेवता टायपिंग सुरू केल्याने पोझिशन बिघडते आणि चुका होतात. नेहमी ॲक्युरेसीला प्राधान्य द्या.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONCLUSION -->
+                <section class="pt-8 border-t border-slate-800">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">निष्कर्ष (Conclusion)</h2>
+                    <p>
+                        10-Key Numeric Keypad वर प्रभुत्व मिळवणे ही डेटा एंट्री, अकाउंटिंग आणि बँकिंग क्षेत्रातील करिअरसाठी एक मोठी पायरी आहे. न बघता वेगाने आकडे टाईप करण्याची कला ही एका रात्रीत येत नाही, तर ती योग्य पद्धत आणि रोजच्या सरावाने साध्य होते.
+                    </p>
+                    <p>
+                        आजच तुमच्या उजव्या हाताची बोटे Numpad च्या <strong class="text-white"><code class="px-2.5 py-1 rounded bg-slate-800 text-indigo-300 font-mono text-base border border-slate-700">4 - 5 - 6</code></strong> या होम रो वर ठेवा, <code class="px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-mono text-sm border border-slate-700">5</code> वरील Bump ओळखा आणि <strong class="text-white">TypeNest</strong> च्या मोफत 10-Key Numpad Drills सह आपल्या वेगाची नवी सुरुवात करा!
+                    </p>
+                </section>
+
+                <!-- CONTINUE LEARNING SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Continue Learning</h2>
+                    <p class="text-slate-300 mb-4">
+                        Mastering the numeric keypad is just one step in building high-speed typing efficiency. Check out these guides to further improve your speed, accuracy, and professional keyboarding skills:
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 not-prose">
+                        <li>
+                            <a href="touch-typing-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Beginner's Guide to Touch Typing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-accuracy-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Typing Accuracy Guide</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="increase-typing-speed-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Complete Guide to Increase Typing Speed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="typing-ergonomics-guide.html" class="flex items-center gap-2 p-3 rounded-xl bg-slate-900/70 border border-slate-800 text-slate-300 hover:text-indigo-400 hover:border-indigo-500/50 transition-all text-sm font-medium">
+                                <i class="fa-solid fa-angle-right text-indigo-400 text-xs"></i>
+                                <span>Typing Ergonomics Guide: Healthy Habits</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- CALL TO ACTION SECTION -->
+                <section class="pt-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-4">Boost Your 10-Key Data Entry Speed with TypeNest</h2>
+                    <p class="text-slate-300">
+                        Achieving professional data entry speeds requires structured 10-key numeric practice. TypeNest offers dedicated keypad drills, speed tests, and accuracy tracking built specifically for data entry and accounting professionals.
+                    </p>
+                    <p class="text-slate-300">
+                        Practice just 10 minutes a day to build subconscious numpad muscle memory and hit top Keystrokes Per Hour (KPH). Start your numeric keypad training on TypeNest today!
+                    </p>
+                </section>
+
+                <!-- Meta Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-400">
+                    <p><strong class="text-slate-300">Last Updated:</strong> August 2026</p>
+                    <p><strong class="text-slate-300">Author:</strong> TypeNest Editorial Team</p>
+                </div>
+            </article>
         </div>
 
-        <!-- MAIN ARTICLE CONTENT -->
-        <p class="lead">
-            आजच्या डिजिटल युगात Accounting, Banking, Data Entry, Order Processing आणि Billing यांसारख्या क्षेत्रांमध्ये जलद आणि बिनचूक काम करण्यासाठी फक्त अक्षरे (Alphabets) टायपिंग करून चालत नाही. तर त्यासाठी <strong>Numeric Keypad (Numpad)</strong> वर जबरदस्त स्पीड असणे अत्यंत आवश्यक आहे. अनेक जण अल्फाबेट्स टायपिंगमध्ये ५० WPM चा स्पीड मिळवतात, परंतु जेव्हा आकडेमोड किंवा नंबर एंट्रीची वेळ येते, तेव्हा ते कीबोर्डकडे बघून एका हाताच्या एकाच बोटाने नंबर प्रेस करताना दिसतात. 
-        </p>
-
-        <p>
-            कीबोर्डच्या उजव्या बाजूला दिलेला <strong>10-Key Numeric Keypad</strong> हा विशेषतः जलद गतीने डेटा एंट्री करण्यासाठी डिझाइन केलेला आहे. जर तुम्ही कीबोर्डकडे न बघता (Blind Typing) उजव्या हाताच्या बोटांनी Numpad वर टायपिंग करायला शिकलात, तर तुमचा डेटा एंट्रीचा स्पीड तब्बल तिप्पट होऊ शकतो. या मार्गदर्शकामध्ये आपण 10-Key Numpad टायपिंगचे बेसिक नियम, बोटांची अचूक पोझिशन, स्पीड वाढवण्याच्या ट्रिक्स आणि प्रोफेशनल्स वापरत असलेले सिक्रेट्स सविस्तर शिकणार आहोत.
-        </p>
-
-        <h2 id="what-is-numpad">10-Key Numeric Keypad म्हणजे काय? (What is 10-Key Numpad?)</h2>
-        <p>
-            स्टँडर्ड कम्प्युटर कीबोर्डच्या उजव्या बाजूला असलेल्या ३x४ च्या ग्रिडमधील नंबरच्या सेक्शनला <strong>10-Key Numeric Keypad</strong> किंवा <strong>Numpad</strong> म्हटले जाते. यात ० ते ९ हे आकडे, बेसिक गणितीय चिन्हे (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), <code>Enter</code> की आणि <code>Decimal Point (.)</code> यांचा समावेश असतो. 
-        </p>
-
-        <p>
-            जरी कीबोर्डवर वरच्या बाजूला (Function Keys च्या खाली) नंबर रो (Number Row) उपलब्ध असली, तरी मोठ्या प्रमाणात नंबर टायपिंग करताना ही वरची लाईन अत्यंत संथ आणि थकवणारी ठरते. Numpad चे डिझाइन कॅल्क्युलेटरसारखे असल्यामुळे एकाच हाताच्या ५ बोटांचा वापर करून अत्यंत वेगाने आकडेमोड करणे शक्य होते.
-        </p>
-
-        <div class="info-box">
-            <h3>💡 Numpad चा इतिहास आणि डिझाईन</h3>
-            <p>
-                Numpad ची रचना १९५० च्या दशकात 10-key ॲडिंग मशीन्सवरून प्रेरित होऊन करण्यात आली आहे. यात <strong>'5'</strong> या की वर एक छोटा टेकलेला भाग (Tactile Bump) दिलेला असतो. हा Bump तुमच्या बोटांना न बघता होम रो ओळखण्यास मदत करतो.
-            </p>
-        </div>
-
-        <h2 id="importance">Data Entry, Accounting आणि Banking मध्ये Numpad चे महत्त्व</h2>
-        <p>
-            तुम्ही जर कॉरपोरेट क्षेत्रात किंवा सरकारी नोकरीत डेटा एंट्रीशी संबंधित काम करत असाल, तर तुमचा <strong>KPH (Keystrokes Per Hour)</strong> मोजला जातो. टायपिंग स्पीड हा WPM (Words Per Minute) मध्ये मोजला जातो, तर नंबर टायपिंगचा वेग KPH मध्ये मोजला जातो. 
-        </p>
-
-        <ul>
-            <li><strong>Accounting &amp; Tally Users:</strong> सीए (CA) फर्म्स, फायनान्स आणि अकाउंटिंगमध्ये दिवसभर इन्व्हॉइस, डेबिट/क्रेडिट नोट आणि व्हाउचर्स बनवावे लागतात. इथे Numpad वर मास्टर असणे अनिवार्य आहे.</li>
-            <li><strong>Bank Tellers &amp; Clerks:</strong> बँकेत कॅश काउंटर किंवा पासबुक एंट्री करताना खाते क्रमांक, रक्कम आणि तारीख टाकण्यासाठी वेगाची गरज असते.</li>
-            <li><strong>E-commerce &amp; Inventory Management:</strong> Amazon, Flipkart किंवा रिटेल स्टोअर्समध्ये बिलिंग करताना प्रॉडक्ट बारकोड, स्टॉक Quantity आणि Price एंट्री Numpad वरच केली जाते.</li>
-            <li><strong>MPSC, SSC &amp; Court Typing Exams:</strong> अनेक सरकारी परीक्षांमध्ये डेटा एंट्री स्किल टेस्ट घेतली जाते, जिथे नंबर टायपिंगमध्ये ९५%+ ॲक्युरेसी असणे आवश्यक असते.</li>
-        </ul>
-
-        <h2 id="finger-placement">10-Key Numpad ची Home Row आणि बोटांची रचना (Finger Placement)</h2>
-        <p>
-            टच टायपिंगचा (Blind Typing) सर्वात पहिला नियम म्हणजे कीबोर्डकडे न बघता होम रो (Home Row) वर बोटे ठेवणे. Numpad वर काम करताना फक्त <strong>उजव्या हाताचा (Right Hand)</strong> वापर केला जातो.
-        </p>
-
-        <h3>Numpad Home Row: <code>4 - 5 - 6</code></h3>
-        <p>
-            Numpad ची होम रो म्हणजे मधली लाईन ज्यावर <code>4</code>, <code>5</code>, <code>6</code> हे नंबर असतात. कीबोर्डकडे न बघता खालीलप्रमाणे बोटे सेट करा:
-        </p>
-
-        <ul>
-            <li><strong>तर्जनी (Index Finger):</strong> <code>4</code> या नंबरवर ठेवा.</li>
-            <li><strong>मध्यमा (Middle Finger):</strong> <code>5</code> या नंबरवर ठेवा. (<code>5</code> च्या की वर स्पर्श करून Bump फील करा).</li>
-            <li><strong>अनामिका (Ring Finger):</strong> <code>6</code> या नंबरवर ठेवा.</li>
-            <li><strong>अंगठा (Thumb):</strong> <code>0</code> या मोठ्या की वर किंवा Spacebar वर हलका ठेवा.</li>
-            <li><strong>करंगळी (Pinky Finger):</strong> <code>+</code> (Plus) आणि <code>Enter</code> की वर नियंत्रण ठेवण्यासाठी वापरा.</li>
-        </ul>
-
-        <blockquote class="quote">
-            <strong>प्रो-टिप:</strong> प्रत्येक वेळी टायपिंग सुरू करण्यापूर्वी तुमच्या मधल्या बोटाने <code>5</code> नंबरवरील Bump ओळखा. हे तुमचे होम बेझ (Home Base) आहे. कोणतीही की प्रेस केल्यानंतर बोट पुन्हा ५-४-६ च्या होम रो वरच आले पाहिजे.
-        </blockquote>
-
-        <h2 id="key-mapping">सर्व कीजसाठी बोटांचे वाटप (Numpad Key Mapping)</h2>
-        <p>
-            न बघता वेगवान टायपिंग करण्यासाठी प्रत्येक बोटाला ठराविक कीज वाटून दिलेल्या असतात. खालील कोष्टकावरून तुम्हाला समजेल की कोणते बोट कोणत्या की साठी वापरायचे आहे:
-        </p>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>बोट (Finger)</th>
-                    <th>Home Row Key</th>
-                    <th>वरची रो (Top Row)</th>
-                    <th>खालची रो (Bottom Row)</th>
-                    <th>स्पेशल / मॅथ कीज</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Index Finger (तर्जनी)</strong></td>
-                    <td><code>4</code></td>
-                    <td><code>7</code></td>
-                    <td><code>1</code></td>
-                    <td><code>Num Lock</code> (काही वेळेस)</td>
-                </tr>
-                <tr>
-                    <td><strong>Middle Finger (मध्यमा)</strong></td>
-                    <td><code>5</code></td>
-                    <td><code>8</code></td>
-                    <td><code>2</code></td>
-                    <td><code>/</code> (Division)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ring Finger (अनामिका)</strong></td>
-                    <td><code>6</code></td>
-                    <td><code>9</code></td>
-                    <td><code>3</code> आणि <code>.</code> (Decimal)</td>
-                    <td><code>*</code> (Multiplication)</td>
-                </tr>
-                <tr>
-                    <td><strong>Thumb (अंगठा)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><code>0</code> (Zero)</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td><strong>Pinky Finger (करंगळी)</strong></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><code>-</code>, <code>+</code>, <code>Enter</code></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="blind-typing">Blind Numeric Typing म्हणजे काय आणि ते कसे साध्य करावे?</h2>
-        <p>
-            बऱ्याचदा नवशिक्या टायपिस्ट्स स्क्रीनवरील डेटा बघतात, मग कीबोर्डवर नंबर शोधतात, तो प्रेस करतात आणि पुन्हा स्क्रीनकडे बघतात. या प्रक्रियेत खूप वेळ वाया जातो. <strong>Blind Numeric Typing</strong> मध्ये तुमचे डोळे फक्त मूळ कागदपत्रावर (Source Document) किंवा स्क्रीनवरील डेटावर असतात आणि तुमचे हात न बघता Numpad वर वेगाने चालतात.
-        </p>
-
-        <p>
-            हे साध्य करण्यासाठी तुमच्या मेंदूमध्ये <strong>Muscle Memory</strong> तयार व्हावी लागते. जेव्हा तुम्ही रोज १० ते १५ मिनिटे बोटांच्या हालचालींचा सराव करता, तेव्हा मेंदूला न बघता <code>5</code> वरून <code>9</code> वर किंवा <code>4</code> वरून <code>1</code> वर बोट किती अंतरावर हलवायचे हे अचूक समजते.
-        </p>
-
-        <h2 id="special-keys">10-Key Numpad मधील सर्वात महत्त्वाच्या कीज आणि त्यांचा अचूक वापर</h2>
-        <p>
-            फक्त ० ते ९ हे आकडे टायपिंग करणे म्हणजे संपूर्ण Numpad शिकणे नव्हे. डेटा एंट्री करताना इतर अनेक स्पेशल कीजचा वापर करावा लागतो. चला पाहूया त्या कीजचा अचूक वापर कसा करावा:
-        </p>
-
-        <h3>1. <code>Num Lock</code> की चे महत्त्व</h3>
-        <p>
-            Numpad च्या वरच्या डाव्या कोपऱ्यात <code>Num Lock</code> ही की असते. ही की <strong>ON</strong> असेल तरच Numpad वरील नंबर टाईप होतात. जर <code>Num Lock</code> बंद असेल, तर हे नंबर नेव्हिगेशन एरो कीज (Arrow Keys - Up, Down, Left, Right, Home, End, Page Up, Page Down) म्हणून काम करू लागतात. त्यामुळे टायपिंग सुरू करण्यापूर्वी <code>Num Lock</code> इंडिकेटर लाईट सुरु आहे की नाही हे नेहमी तपासा.
-        </p>
-
-        <h3>2. <code>0</code> (Zero) आणि <code>00</code> (Double Zero) कीज</h3>
-        <p>
-            अकाउंटिंग आणि बँक एंट्री करताना <code>0</code> चा वापर सर्वाधिक होतो. <code>0</code> ही की Numpad वर खालच्या बाजूला मोठी दिलेली असते. या की वर <strong>उजव्या हाताच्या अंगठ्याचा (Thumb)</strong> वापर करणे हा सर्वात शास्त्रीय नियम आहे. काही कीबोर्डवर <code>00</code> ची की देखील असते, ज्यामुळे मोठ्या रक्कमा टाईप करताना वेळ वाचतो.
-        </p>
-
-        <h3>3. <code>Decimal Point (.)</code> म्हणजे दशांश चिन्ह</h3>
-        <p>
-            पैशांची रक्कम किंवा अचूक आकडेवारी (उदा. ₹1,250.75 यामधील <code>.</code>) टाकण्यासाठी अनामिकेचा (Ring Finger) वापर <code>.</code> वर करा. <code>6</code> वरून बोट खाली सरकवून <code>.</code> प्रेस करणे आणि लगेच <code>6</code> वर परत जाणे हा सराव अत्यंत महत्त्वाचा आहे.
-        </p>
-
-        <h3>4. <code>Enter</code> की चा वापर</h3>
-        <p>
-            Excel किंवा Data Entry Software मध्ये डेटा सबमिट करण्यासाठी किंवा पुढच्या रो (Row) वर जाण्यासाठी <code>Enter</code> की दाबावी लागते. Numpad वर उजव्या बाजूला उभी मोठी <code>Enter</code> की असते. ही की <strong>करंगळीने (Pinky Finger)</strong> प्रेस केली पाहिजे. यासाठी मुख्य कीबोर्डवरील Enter दाबण्यासाठी हात हलवण्याची अजिबात गरज नाही.
-        </p>
-
-        <h2 id="kph-benchmark">KPH (Keystrokes Per Hour) म्हणजे काय? आणि ते कसे मोजावे?</h2>
-        <p>
-            साध्या टायपिंगमध्ये जसा <strong>WPM (Words Per Minute)</strong> वापरला जातो, तसाच Data Entry किंवा Numeric Typing मध्ये <strong>KPH (Keystrokes Per Hour)</strong> चा निकष वापरला जातो. १ तासात तुम्ही Numpad वर एकूण किती कीज (Numbers &amp; Symbols) प्रेस करता, याला KPH म्हणतात.
-        </p>
-
-        <div class="info-box">
-            <h3>📊 KPH चे गणित आणि बेंचमार्क</h3>
-            <p>
-                समजा तुम्ही ५ मिनिटांच्या टेस्टमध्ये एकूण ५०० आकडे टाईप केले, तर तुमचा KPH मोजण्यासाठी: <br>
-                <code>(500 ÷ 5) × 60 = 6,000 KPH</code>
-            </p>
-            <ul>
-                <li><strong>Beginner (नवशिक्या):</strong> 4,000 - 6,000 KPH</li>
-                <li><strong>Intermediate (मध्यम):</strong> 7,000 - 9,000 KPH</li>
-                <li><strong>Professional Data Entry Operator:</strong> 10,000 - 12,000+ KPH (98%+ Accuracy सह)</li>
-            </ul>
-        </div>
-
-        <h2 id="step-by-step">Numpad Typing Speed वाढवण्यासाठी टप्प्याटप्प्याने सराव कसा करावा?</h2>
-        <p>
-            जर तुम्हाला Numpad वर १०,०००+ KPH चा स्पीड मिळवायचा असेल, तर खालील ५ टप्प्यांचा सराव (Step-by-Step Training) फॉलो करा:
-        </p>
-
-        <h3>टप्पा १: Home Row Alignment (<code>4</code>, <code>5</code>, <code>6</code>)</h3>
-        <p>
-            सुरुवातीला फक्त तर्जनी, मध्यमा आणि अनामिका बोटांनी <code>4-5-6-4-5-6</code> हा पॅटर्न सलग १० मिनिटे टाईप करा. डोळे बंद करून फक्त बोटांच्या स्पर्शाने <code>5</code> वरील Bump ओळखायचा प्रयत्न करा.
-        </p>
-
-        <h3>टप्पा २: Vertical Reaching (<code>7-8-9</code> आणि <code>1-2-3</code>)</h3>
-        <p>
-            होम रो वरून वरच्या रो वर बोटे नेण्याचा सराव करा:
-        </p>
-        <ul>
-            <li><code>4</code> वरून वर <code>7</code>, <code>5</code> वरून <code>8</code>, <code>6</code> वरून <code>9</code> (Index, Middle, Ring Finger).</li>
-            <li>त्यानंतर <code>4</code> वरून खाली <code>1</code>, <code>5</code> वरून <code>2</code>, <code>6</code> वरून <code>3</code>.</li>
-        </ul>
-
-        <h3>टप्पा ३: Zero आणि Decimal Control (<code>0</code> आणि <code>.</code>)</h3>
-        <p>
-            रक्कमा टाईप करण्याचा सराव करा, जसे की <code>10.50</code>, <code>450.00</code>, <code>98.25</code>. यात अंगठ्याने <code>0</code> आणि अनामिकेने <code>.</code> दाबण्याची सवय लावा.
-        </p>
-
-        <h3>टप्पा ४: Random Number Sequences</h3>
-        <p>
-            कोणतेही ५ ते ८ अंकी रँडम आकडे टाईप करा (उदा. <code>482910</code>, <code>730592</code>, <code>194628</code>). यामुळे मेंदूचा आणि बोटांचा समन्वय (Coordination) वेगाने विकसित होतो.
-        </p>
-
-        <h3>टप्पा ५: Math &amp; Operator Practice</h3>
-        <p>
-            आकड्यांसोबत गणितीय चिन्हे वापरा: <code>250 + 150 =</code>, <code>1250 * 5 =</code>, <code>800 / 4 =</code>. यात करंगळीने <code>+</code> आणि <code>Enter</code> दाबण्याचा पुरेसा सराव करा.
-        </p>
-
-        <h2 id="common-mistakes">Data Entry मध्ये होणाऱ्या ५ मोठ्या चुका आणि त्यावर उपाय</h2>
-        <p>
-            अनेक विद्यार्थी कितीही सराव केला तरी स्पीड वाढवता येत नाही अशी तक्रार करतात. याचे कारण ते नकळत खालील चुका करत असतात:
-        </p>
-
-        <ol>
-            <li><strong>चुकीची पद्धत - कीबोर्डकडे सारखे बघणे:</strong> कीबोर्डकडे बघून टाईप केल्याने स्पीड ५०% ने कमी होतो. चुकलात तरी चालेल, पण कीबोर्डकडे बघू नका.</li>
-            <li><strong>एकाच बोटाचा वापर करणे (One-finger typing):</strong> फक्त तर्जनीने (Index Finger) संपूर्ण Numpad वर फिरणे अत्यंत चुकीचे आहे. पाचही बोटांचा नेमून दिलेला वापर करा.</li>
-            <li><strong>स्पीडसाठी ॲक्युरेसीचा बळी देणे:</strong> Data Entry मध्ये एका चुकिच्या आकड्यामुळे (उदा. ₹१०,००० ऐवजी ₹१,००,०००) कंपनीचे लाखो रुपयांचे नुकसान होऊ शकते. त्यामुळे आधी <strong>100% Accuracy</strong> वर लक्ष द्या, स्पीड आपोआप वाढेल.</li>
-            <li><strong>अंगठ्याचा वापर न करणे:</strong> <code>0</code> की वर अंगठा न वापरता तर्जनी वापरल्याने होम रो चे पोझिशन बिघडते.</li>
-            <li><strong>हात हवेत ठेवणे किंवा मनगट टेबलवर दाबणे:</strong> टायपिंग करताना मनगट (Wrist) टेबलवर जास्त जोरात टेकवून ठेवल्याने हाताचे स्नायू दुखू लागतात. मनगट नेहमी हलके आणि रिलॅक्स ठेवा.</li>
-        </ol>
-
-        <h2 id="ergonomics">10-Key Numpad टायपिंगसाठी सर्वोत्तम Ergonomics आणि बसण्याची योग्य पद्धत</h2>
-        <p>
-            डेटा एंट्री आणि अकाउंटिंगमध्ये सलग ८ ते १० तास कॉम्प्युटरसमोर बसून काम करावे लागते. जर तुमची बसण्याची पद्धत (Posture) आणि हातांची स्थिती योग्य नसेल, तर <strong>Carpal Tunnel Syndrome (CTS)</strong> किंवा मनगटाचे, पाठीचे आजार उद्भवू शकतात. त्यामुळे Numpad चा सराव करताना खालील Ergonomic मार्गदर्शक तत्त्वे पाळा:
-        </p>
-
-        <ul>
-            <li><strong>खुर्चीची उंची (Chair Height):</strong> तुमची कोपर (Elbow) टेबलसोबत ९० अंशाच्या कोनात (90-degree angle) असावी. यामुळे हाताच्या स्नायूंवर ताण येत नाही.</li>
-            <li><strong>मनगटाची स्थिती (Straight Wrists):</strong> Numpad वर काम करताना मनगट सरळ असावे. ते वर किंवा खाली जास्त वाकवू नका.</li>
-            <li><strong>हलका स्पर्श (Light Touch):</strong> कीबोर्डच्या कीज जास्त जोरात ठोकू नका. आजकालच्या मॉडर्न कीबोर्ड्सवर अगदी हलक्या स्पर्शानेही की प्रेस होते.</li>
-            <li><strong>ब्रेक घ्या (Take Short Breaks):</strong> दर ४५ मिनिटांच्या सलग टायपिंगनंतर २ ते ३ मिनिटे हाताची बोटे आणि मनगट स्ट्रेच (Stretch) करा.</li>
-        </ul>
-
-        <h2 id="shortcuts-excel">10-Key Numpad मधील Shortcuts आणि Tally / Excel टिप्स</h2>
-        <p>
-            प्रोफेशनल फायनान्स आणि डेटा एंट्री एक्सपर्ट्स फक्त नंबर्स टाईप करत नाहीत, तर ते Numpad चा वापर करून सॉफ्टवेअरमधील कामाचा वेग प्रचंड वाढवतात:
-        </p>
-
-        <h3>१. Excel मध्ये Numpad सह Navigation</h3>
-        <p>
-            जर तुम्हाला Excel मध्ये डेटा एंट्री करताना वेगाने काम करायचे असेल, तर <code>Enter</code> दाबल्यास कर्सर खाली जातो आणि <code>Tab</code> दाबल्यास कर्सर उजवीकडे सरकतो. डाव्या हाताने <code>Tab</code> आणि उजव्या हाताने Numpad वर आकडे टाईप करणे ही डेटा एंट्रीची सर्वात फास्ट पद्धत मानली जाते.
-        </p>
-
-        <h3>२. Tally Prime मधील Numpad टिप्स</h3>
-        <p>
-            Tally मध्ये व्हाउचर एंट्री करताना सर्व आकडे Numpad वरून टाकले जातात. रक्कम टाकून झाल्यावर लगेच उजव्या हाताच्या करंगळीने Numpad वरील <code>Enter</code> दाबल्यास सेकंदात एंट्री सेव्ह होते.
-        </p>
-
-        <h3>३. Alt Codes चा वापर</h3>
-        <p>
-            Numpad चा वापर विशेष सिम्बॉल्स (Special Characters) टाईप करण्यासाठी केला जातो. <code>Alt</code> की धरून Numpad वर ठराविक नंबर टाईप केल्यास युनिकोड सिम्बॉल्स तयार होतात:
-        </p>
-        <ul>
-            <li><code>Alt + 0160</code> = Non-breaking Space</li>
-            <li><code>Alt + 0176</code> = Degree Symbol (°)</li>
-            <li><code>Alt + 1</code> = Smiley Face (☺)</li>
-        </ul>
-
-        <h2>TypeNest वर 10-Key Numpad चा सराव कसा करावा?</h2>
-        <p>
-            <strong>TypeNest</strong> हे खास अशा विद्यार्थ्यांसाठी डिझाइन केलेले प्लॅटफॉर्म आहे ज्यांना आपला टायपिंग स्पीड शास्त्रीय पद्धतीने वाढवायचा आहे. Numpad वर मास्टर होण्यासाठी TypeNest तुम्हाला खालील सुविधा पुरवते:
-        </p>
-
-        <div class="info-box">
-            <h3>🚀 TypeNest Numpad Features</h3>
-            <ul>
-                <li><strong>Interactive Numpad Drills:</strong> सुरुवातीच्या विद्यार्थ्यांसाठी होम रो, टॉप रो आणि बॉटम रो चे स्वतंत्र सराव सेशन्स. (थेट प्रॅक्टिससाठी <a href="typing.html">TypeNest Practice Page</a> ला भेट द्या).</li>
-                <li><strong>Live KPH Calculator:</strong> टायपिंग करत असतानाच तुमचा रिअल-टाईम KPH (Keystrokes Per Hour) आणि Accuracy स्क्रीनवर दिसणे.</li>
-                <li><strong>Error Heatmap Analysis:</strong> टायपिंग संपल्यानंतर कोणत्या नंबरवर तुमचे बोट सर्वात जास्त चुकले याचे सविस्तर विश्लेषण.</li>
-                <li><strong>Exam Simulator:</strong> MPSC, SSC, Court Typing Exam आणि Banking Data Entry च्या धर्तीवर डिझाइन केलेल्या मॉक टेस्ट्स. (तुमची गती तपासण्यासाठी <a href="tests.html">TypeNest Tests</a> वर क्लिक करा).</li>
-            </ul>
-        </div>
-
-        <h2 id="faq">नेहमी विचारले जाणारे प्रश्न (Frequently Asked Questions - FAQs)</h2>
-
-        <h3>Q1. Numpad वर चांगला KPH स्पीड किती मानला जातो?</h3>
-        <p>
-            कोणत्याही डेटा एंट्री किंवा अकाउंटिंग जॉबसाठी <strong>8,000 ते 10,000 KPH (98% ॲक्युरेसीसह)</strong> हा एक उत्तम आणि प्रोफेशनल स्पीड मानला जातो.
-        </p>
-
-        <h3>Q2. माझ्या लॅपटॉपवर Numpad नाहीये, मी काय करावे?</h3>
-        <p>
-            अनेक १४-इंची लॅपटॉप्सवर उजव्या बाजूला सेपरेट Numpad नसतो. अशा वेळी तुम्ही बाजारातून <strong>External USB Numeric Keypad</strong> (किंवा वायरलेस Numpad) विकत घेऊन लॅपटॉपला जोडू शकता आणि सराव करू शकता.
-        </p>
-
-        <h3>Q3. Numpad शिकण्यासाठी दररोज किती वेळ सराव करावा?</h3>
-        <p>
-            दररोज फक्त <strong>१५ ते २० मिनिटे</strong> सलग २ आठवडे (14 Days) मन लावून सराव केल्यास तुमची Numpad वरील Muscle Memory तयार होते आणि तुमचा स्पीड दुप्पट होतो.
-        </p>
-
-        <h3>Q4. नंबर टायपिंग करताना नेहमी चुका का होतात?</h3>
-        <p>
-            घाईघाईत स्पीड वाढवण्याच्या नादात किंवा '5' वरील Bump वर बोट न ठेवता टायपिंग सुरू केल्याने पोझिशन बिघडते आणि चुका होतात. नेहमी ॲक्युरेसीला प्राधान्य द्या.
-        </p>
-
-        <h2>निष्कर्ष (Conclusion)</h2>
-        <p>
-            10-Key Numeric Keypad वर प्रभुत्व मिळवणे ही डेटा एंट्री, अकाउंटिंग आणि बँकिंग क्षेत्रातील करिअरसाठी एक मोठी पायरी आहे. न बघता वेगाने आकडे टाईप करण्याची कला ही एका रात्रीत येत नाही, तर ती योग्य पद्धत आणि रोजच्या सरावाने साध्य होते.
-        </p>
-
-        <p>
-            आजच तुमच्या उजव्या हाताची बोटे Numpad च्या <strong><code>4 - 5 - 6</code></strong> या होम रो वर ठेवा, <code>5</code> वरील Bump ओळखा आणि <strong>TypeNest</strong> च्या मोफत 10-Key Numpad Drills सह आपल्या वेगाची नवी सुरुवात करा!
-        </p>
-
-        <!-- CONTINUE LEARNING -->
-        <h2>Continue Learning</h2>
-        <p>
-            Mastering the numeric keypad is just one step in building high-speed typing efficiency. Check out these guides to further improve your speed, accuracy, and professional keyboarding skills:
-        </p>
-
-        <ul>
-            <li><a href="touch-typing-guide.html">Complete Beginner's Guide to Touch Typing</a></li>
-            <li><a href="typing-accuracy-guide.html">Complete Typing Accuracy Guide</a></li>
-            <li><a href="increase-typing-speed-guide.html">Complete Guide to Increase Typing Speed</a></li>
-            <li><a href="typing-ergonomics-guide.html">Typing Ergonomics Guide: Healthy Habits for Long Sessions</a></li>
-        </ul>
-
-        <!-- CALL TO ACTION -->
-        <h2>Boost Your 10-Key Data Entry Speed with TypeNest</h2>
-        <p>
-            Achieving professional data entry speeds requires structured 10-key numeric practice. TypeNest offers dedicated keypad drills, speed tests, and accuracy tracking built specifically for data entry and accounting professionals.
-        </p>
-
-        <p>
-            Practice just 10 minutes a day to build subconscious numpad muscle memory and hit top Keystrokes Per Hour (KPH). Start your numeric keypad training on TypeNest today!
-        </p>
-
-        <hr>
-
-        <p>
-            <strong>Last Updated:</strong> August 2026<br>
-            <strong>Author:</strong> TypeNest Editorial Team
-        </p>
-
-    </article>
-</div>
-
-<!-- RELATED ARTICLES -->
-<section class="related-articles">
-    <div class="container">
-        <h2>📚 Continue Learning</h2>
-        <p>Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
-
-        <div class="related-grid">
-            <a href="touch-typing-guide.html" class="related-card">
-                <span>⌨️ Touch Typing</span>
-                <h3>Complete Beginner's Guide to Touch Typing</h3>
-                <p>Master home row muscle memory and proper finger placement step by step.</p>
-            </a>
-
-            <a href="typing-accuracy-guide.html" class="related-card">
-                <span>🎯 Precision &amp; Focus</span>
-                <h3>Complete Typing Accuracy Guide</h3>
-                <p>Learn how mental concentration and muscle memory drastically reduce typos.</p>
-            </a>
-
-            <a href="typing-ergonomics-guide.html" class="related-card">
-                <span>🧘 Ergonomics &amp; Health</span>
-                <h3>Typing Ergonomics Guide</h3>
-                <p>Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- UNIVERSAL CTA -->
-<section class="blog-cta">
-    <div class="container">
-        <h2>🚀 Master Numpad Speed. Boost Your Data Entry Career.</h2>
-        <p>Train your fingers with interactive numeric keypad drills, timed tests, and real-time accuracy feedback on TypeNest.</p>
-        <div class="cta-buttons">
-            <a href="blog.html" class="cta-btn-outline">📚 Explore More Guides</a>
-            <a href="typing.html" class="cta-btn-primary">📊 Start 10-Key Practice</a>
-        </div>
-    </div>
-</section>
-
-<!-- =========================================
-     COMPACT & ORGANIZED 4-COLUMN FOOTER
-========================================= -->
-<footer class="footer-compact">
-    <div class="footer-grid-4">
-        <!-- COL 1: BRAND & MISSION -->
-        <div class="footer-brand">
-            <h2>TypeNest</h2>
-            <p>Smart online touch typing platform built to help students, developers, and job aspirants develop fast and accurate typing habits.</p>
-            <p style="font-size:0.8rem; color:var(--text-dim, #64748b);">
-                Operated from Moshi, Pune, Maharashtra.<br>
-                Founder: <strong>Dayanand Dinkar Kendre</strong>
-            </p>
-        </div>
-
-        <!-- COL 2: TIMED TESTS -->
-        <div class="footer-col">
-            <h3>Timed Tests</h3>
-            <a href="typing-test-30-seconds.html">› 30s Speed Sprint</a>
-            <a href="typing-test-60-seconds.html">› 1-Minute Standard</a>
-            <a href="typing-test-100-seconds.html">› 100s Stamina Test</a>
-            <a href="typing.html">› All Typing Tests</a>
-            <a href="leaderboard.html">› Global Leaderboard</a>
-        </div>
-
-        <!-- COL 3: SKILL DRILLS -->
-        <div class="footer-col">
-            <h3>Skill Drills</h3>
-            <a href="number-typing-practice.html">› Number Row Practice</a>
-            <a href="difficult-words-typing-practice.html">› Difficult Words Drill</a>
-            <a href="punctuation-typing-practice.html">› Punctuation &amp; Code</a>
-            <a href="courses.html">› Typing Courses</a>
-            <a href="beginner.html">› Beginner Course</a>
-        </div>
-
-        <!-- COL 4: LEGAL & TRUST -->
-        <div class="footer-col">
-            <h3>Trust &amp; Legal</h3>
-            <a href="about.html">› About Us</a>
-            <a href="contact.html">› Contact Support</a>
-            <a href="faq.html">› FAQ &amp; Guides</a>
-            <a href="privacy.html">› Privacy Policy</a>
-            <a href="terms.html">› Terms &amp; Conditions</a>
-            <a href="disclaimer.html">› Legal Disclaimer</a>
-        </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-compact">
-        <span>© 2026 TypeNest (typenest.in). All rights reserved.</span>
-        <span>Dedicated to Free Typing Education.</span>
-    </div>
-</footer>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal">
-    <div class="login-box">
-        <div class="close-login" onclick="closeLoginModal()">✕</div>
-        <h2>Welcome Back</h2>
-        <p>Login to continue your typing journey.</p>
-
-        <input type="email" id="modalEmail" placeholder="Email Address">
-        <input type="password" id="modalPassword" placeholder="Password">
-        <button id="modalLoginBtn">Login</button>
-        <div class="google-login" id="googleLoginBtn">Continue with Google</div>
-    </div>
-</div>
-
-<!-- LOGIN MODAL SCRIPT -->
-<script>
-function closeLoginModal(){
-    document.getElementById("loginModal").style.display = "none";
-}
-</script>
-
-<!-- MAIN SCRIPTS -->
-<script src="script.js"></script>
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="auth-navbar.js"></script>
-
+        <!-- RELATED ARTICLES -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-slate-800">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-book-open text-indigo-400 text-xl"></i>
+                    <span>Continue Learning</span>
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Dive deeper into touch typing science, accuracy building, and physical efficiency to elevate your computer skills.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="touch-typing-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-indigo-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-regular fa-keyboard"></i>
+                            <span>Touch Typing</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors mb-2">Complete Beginner's Guide to Touch Typing</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Master home row muscle memory and proper finger placement step by step.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+
+                <a href="typing-accuracy-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span>Precision &amp; Focus</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">Complete Typing Accuracy Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Learn how mental concentration and muscle memory drastically reduce typos.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+
+                <a href="typing-ergonomics-guide.html" class="group p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chair"></i>
+                            <span>Ergonomics &amp; Health</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors mb-2">Typing Ergonomics Guide</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Optimize your posture and wrist alignment to support long, fatigue-free typing sessions.</p>
+                    </div>
+                    <span class="mt-4 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read Guide →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- UNIVERSAL CTA -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-slate-900/80 border border-indigo-500/30 p-8 sm:p-12 text-center shadow-2xl">
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
+                        Master Numpad Speed. Boost Your Data Entry Career.
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mb-8">
+                        Train your fingers with interactive numeric keypad drills, timed tests, and real-time accuracy feedback on TypeNest.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href=index.html class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Start 10-Key Practice</span>
+                        </a>
+                        <a href="blog.html" class="px-6 py-3 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Explore More Guides</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- DYNAMIC FOOTER CONTAINER -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/layout.js"></script>
+    <script type="module" src="assets/js/firebase-config.js"></script>
+    <script type="module" src="assets/js/login.js"></script>
 </body>
 </html>

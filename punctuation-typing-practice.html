@@ -1,467 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics 4 (GA4) Integration -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZC84S6JF5T');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Title, Description & Keywords -->
+  <title>Punctuation Typing Practice & Symbol Drills | TypeNest</title>
+  <meta name="description" content="Improve typing speed and accuracy with punctuation marks, quotes, brackets, semicolons, and special symbols on TypeNest.">
+  <meta name="keywords" content="punctuation typing practice, symbol typing practice, quotes typing practice, typing punctuation marks, typenest">
+  <meta name="robots" content="index, follow">
 
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Canonical Tag for Google Indexing -->
+  <link rel="canonical" href="https://typenest.in/punctuation-typing-practice.html">
 
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Dedicated SEO Meta Tags for Punctuation Practice -->
-    <title>Punctuation Typing Practice & Symbols Test | TypeNest</title>
-    <meta name="description" content="Practice typing punctuation marks, symbols, quotes, brackets, and code syntax online on TypeNest. Master Shift key coordination and symbol muscle memory.">
-    <meta name="keywords" content="punctuation typing practice, symbol typing test, coding symbols typing, shift key coordination typing, programmer typing practice, TypeNest punctuation">
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/punctuation-typing-practice.html">
+  <meta property="og:title" content="Punctuation Typing Practice & Symbol Drills | TypeNest">
+  <meta property="og:description" content="Practice quotation marks, colons, brackets, and complex grammar punctuation to master real-world typing.">
+  <meta property="og:image" content="https://typenest.in/images/courses/accuracy-course.webp">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://typenest.in/punctuation-typing-practice.html">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/punctuation-typing-practice.html">
+  <meta name="twitter:title" content="Punctuation Typing Practice | TypeNest">
+  <meta name="twitter:description" content="Master keyboard punctuation and special symbol reaches on TypeNest.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/accuracy-course.webp">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Punctuation & Symbols Typing Practice | TypeNest">
-    <meta property="og:description" content="Master commas, quotes, colons, brackets, and coding symbols without breaking your typing rhythm.">
-    <meta property="og:url" content="https://typenest.in/punctuation-typing-practice.html">
-    <meta property="og:image" content="https://typenest.in/favicon.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Punctuation & Symbols Typing Practice | TypeNest">
-    <meta name="twitter:description" content="Build muscle memory for keyboard punctuation, brackets, and Shift-key symbols.">
-    <meta name="twitter:image" content="https://typenest.in/favicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- Structured Data (JSON-LD WebApplication Schema for E-E-A-T) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "TypeNest Punctuation & Symbols Typing Drill",
-      "url": "https://typenest.in/punctuation-typing-practice.html",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "All",
-      "description": "An interactive typing application training users in punctuation marks, mathematical operators, brackets, and dual-hand Shift key execution.",
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "creator": {
-        "@type": "Person",
-        "name": "Dayanand Dinkar Kendre"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+
+    @keyframes blinkCursor {
+      0%, 100% { border-color: #10b981; }
+      50% { border-color: transparent; }
+    }
+    .typing-cursor {
+      border-left: 2.5px solid #10b981;
+      animation: blinkCursor 0.9s infinite ease-in-out;
+      margin-left: -1px;
+    }
+
+    .key-cap {
+      transition: all 0.08s ease;
+      user-select: none;
+      box-shadow: 0 3px 0 0 #0f172a, 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+    .key-active {
+      transform: translateY(2px) scale(0.96) !important;
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      color: #ffffff !important;
+      border-color: #34d399 !important;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.85) !important;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- Header is automatically injected by assets/js/layout.js -->
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- Top Banner -->
+    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Target Drill</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Punctuation Typing Practice</h1>
+        </div>
+        <p class="text-slate-400 text-sm mt-1">Develop flawless rhythm with commas, semicolons, quotation marks, and brackets without breaking flow[cite: 2, 4].</p>
+      </div>
+
+      <!-- Punctuation Selector -->
+      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
+        <button onclick="setPuncDrill(0, this)" id="puncbtn-0" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 text-white transition">Drill 1: Quotes & Semicolons</button>
+        <button onclick="setPuncDrill(1, this)" id="puncbtn-1" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 2: Dialogue & Parentheses</button>
+        <button onclick="setPuncDrill(2, this)" id="puncbtn-2" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 3: Technical Syntax</button>
+      </div>
+    </div>
+
+    <!-- Live Performance Stats Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Speed (WPM)</div>
+          <div id="statWPM" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
+          <div id="statAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-0.5">100<span class="text-lg font-normal">%</span></div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
+          <div id="statErrors" class="text-3xl font-extrabold text-rose-400 font-mono mt-0.5">0</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      </div>
+
+      <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
+        <div>
+          <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Symbol Precision</div>
+          <div class="text-2xl font-extrabold text-amber-400 font-mono mt-0.5">Shift Reaches</div>
+        </div>
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-base"><i class="fa-solid fa-quote-right"></i></div>
+      </div>
+    </div>
+
+    <!-- Active Arena Box -->
+    <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+        <span id="puncTitle" class="font-medium text-slate-300 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Drill 1: Quotes, Semicolons & Controlled Pauses
+        </span>
+        <button onclick="resetPuncDrill(this)" class="hover:text-emerald-400 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+        </button>
+      </div>
+
+      <!-- Hidden input for mobile keyboard touch focus -->
+      <input type="text" id="mobileInputSink" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off" autocapitalize="off" spellcheck="false">
+
+      <div id="typingArea" onclick="focusPunctuationEngine()" class="cursor-text relative min-h-[140px] max-h-[220px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-3 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+        <div id="textDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
+      </div>
+    </div>
+
+    <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
+    <div id="keyboardWrapper"></div>
+
+  </main>
+
+  <!-- Page Logic Controller -->
+  <script>
+    const PUNC_SETS = [
+      { title: "Drill 1: Quotes, Semicolons & Controlled Pauses", text: "Can you believe it? She asked: 'Will you finish by 5:00 PM, or should we postpone?' I replied, 'No; everything is ready!' Always remember; punctuation clarifies meaning; commas provide cadence, and colons introduce clarity." },
+      { title: "Drill 2: Dialogue, Em-Dashes & Parentheses", text: "Wait—did you double-check the client's configuration file? It's under `/var/data/log`; please verify its checksum (SHA-256) immediately! 'Patience,' he whispered, 'produces excellence.'" },
+      { title: "Drill 3: Technical Syntax & Bracket Combinations", text: "const config = { host: 'localhost', port: 8080, secure: true }; if (response.status === 200) { list.push(data[0]); } else { throw new Error('Failed: ' + response.code); }" }
+    ];
+
+    let currentDrillIdx = 0;
+
+    function initPuncSession() {
+      const drill = PUNC_SETS[currentDrillIdx];
+      const titleEl = document.getElementById('puncTitle');
+      if (titleEl) {
+        titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> ${drill.title}`;
+      }
+
+      // Master typing engine call (0 = Zen Mode / untimed symbol practice)
+      if (window.startTypingSession) {
+        window.startTypingSession(drill.text, 0);
       }
     }
-    </script>
 
-    <!-- Fonts & Favicon -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
+    // Global reset hook for Escape key
+    window.resetCurrentTest = function() {
+      initPuncSession();
+    };
 
-    <!-- External Scripts & Stylesheets -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="typing.css">
-
-    <!-- Inline Styles for Guide Section -->
-    <style>
-        .guide-article-wrapper {
-            max-width: 950px;
-            margin: 40px auto 60px auto;
-            padding: 30px;
-            background: #18191e;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            color: #d1d5db;
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-        }
-        .guide-article-wrapper h2 {
-            color: #f3f4f6;
-            font-size: 1.6rem;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 8px;
-        }
-        .guide-article-wrapper h3 {
-            color: #60a5fa;
-            font-size: 1.2rem;
-            margin-top: 18px;
-            margin-bottom: 8px;
-        }
-        .guide-article-wrapper p {
-            font-size: 0.96rem;
-            color: #9ca3af;
-            margin-bottom: 14px;
-        }
-        .guide-article-wrapper ul {
-            padding-left: 24px;
-            margin-bottom: 15px;
-            color: #9ca3af;
-            font-size: 0.95rem;
-        }
-        .guide-article-wrapper li {
-            margin-bottom: 6px;
-        }
-        .benchmark-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.95rem;
-        }
-        .benchmark-table th, .benchmark-table td {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 14px;
-            text-align: left;
-        }
-        .benchmark-table th {
-            background: rgba(255, 255, 255, 0.04);
-            color: #60a5fa;
-        }
-        .practice-switcher-links {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .practice-pill-link {
-            padding: 8px 16px;
-            background: #202128;
-            color: #9ca3af;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.2s;
-        }
-        .practice-pill-link.active, .practice-pill-link:hover {
-            background: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
-        }
-        .symbol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin: 20px 0;
-        }
-        .symbol-card {
-            background: #202128;
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .symbol-card h4 {
-            color: #38bdf8;
-            margin: 0 0 8px 0;
-            font-size: 1.05rem;
-        }
-        .symbol-card code {
-            background: rgba(0,0,0,0.3);
-            color: #f59e0b;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.95rem;
-        }
-    </style>
-</head>
-<body>
-
-<div class="typing-page">    
-    <!-- TOPBAR -->
-    <div class="topbar">
-        <div class="nav-left">
-            <span class="brand-logo" onclick="window.location.href='index.html'">Type<span>Nest</span></span>
-            <div class="nav-links">
-                <a href="/learn/learn.html" class="nav-item">🎯 Practice</a>
-                <a href="leaderboard.html" class="nav-item">🏆 Leaderboard</a>
-                <a href="blog.html" class="nav-item">📚 Blog</a>
-            </div>
-        </div>
-        <div class="nav-right">
-            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
-                <span class="theme-icon" id="themeIcon">🌙</span>
-                <span class="theme-text" id="themeText">Dark</span>
-            </button>
-            <button class="login-profile-btn" id="loginNavBtn">
-                👤 <span id="loginBtnText">Sign In</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- SUB CONFIGURATION BAR (PRE-CONFIGURED FOR PUNCTUATION) -->
-    <div class="sub-config-wrapper" id="subConfigWrapper">
-        <div class="config-bar">
-            <div class="config-group" id="typeGroup">
-                <a href="typing.html" class="cfg-btn" style="text-decoration:none; color:inherit;"># normal</a>
-                <span class="cfg-btn active-cfg" data-type="punctuation">@ punctuation</span>
-                <a href="number-typing-practice.html" class="cfg-btn" style="text-decoration:none; color:inherit;">🔢 numbers</a>
-                <a href="difficult-words-typing-practice.html" class="cfg-btn" style="text-decoration:none; color:inherit;">⚡ difficult</a>
-            </div>
-            <div class="config-gap">|</div>
-            <div class="config-group" id="modeGroup">
-                <span class="cfg-btn active-cfg" data-mode="time">🕒 time</span>
-                <span class="cfg-btn" data-mode="words">🔤 words</span>
-            </div>
-            <div class="config-gap">|</div>
-            <div class="config-group" id="timeGroup">
-                <span class="cfg-btn" data-value="15">15</span>
-                <span class="cfg-btn" data-value="30">30</span>
-                <span class="cfg-btn active-cfg" data-value="60">60</span>
-                <span class="cfg-btn" data-value="100">100</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN TYPING CONTAINER -->
-    <div class="main-container" id="typingContainer">
-        <div class="live-timer-wrapper">
-            <span id="time" class="giant-timer">60</span>
-        </div>
-
-        <div class="text-display" id="textDisplayContainer">
-            <div class="text-display-inner" id="textDisplay"></div>
-        </div>
-
-        <div class="hidden-input-box">
-            <textarea id="input" autofocus></textarea>
-        </div>
-    </div>
-
-    <!-- SHORTCUT BAR -->
-    <div class="bottom-shortcut-bar" id="footerShortcut">
-        <span class="shortcut-item"><kbd>tab</kbd> + <kbd>enter</kbd> - restart drill</span>
-        <span class="shortcut-item"><kbd>esc</kbd> - focus input</span>
-    </div>
-
-    <!-- RESULT SCREEN -->
-    <div class="monkey-result-container" id="resultScreen" style="display: none;">
-        <div class="result-main-row">
-            <div class="giant-stats-block">
-                <div class="giant-stat">
-                    <span class="g-label">wpm</span>
-                    <span class="g-value yellow-text" id="finalWpm">0</span>
-                </div>
-                <div class="giant-stat">
-                    <span class="g-label">acc</span>
-                    <span class="g-value yellow-text" id="finalAccuracy">0%</span>
-                </div>
-            </div>
-
-            <div class="chart-placeholder-block">
-                <canvas id="performanceChart"></canvas>
-            </div>
-        </div>
-
-        <div class="result-details-row">
-            <div class="detail-box">
-                <span class="d-label">mode</span>
-                <span class="d-value" id="resultModeInfo">punctuation 60</span>
-            </div>
-            <div class="detail-box">
-                <span class="d-label">raw wpm</span>
-                <span class="d-value" id="rawWpm">0</span>
-            </div>
-            <div class="detail-box">
-                <span class="d-label">characters</span>
-                <span class="d-value" id="finalChars">0/0/0/0</span>
-            </div>
-            <div class="detail-box">
-                <span class="d-label">mistakes</span>
-                <span class="d-value red-text" id="finalMistakes">0</span>
-            </div>
-            <div class="detail-box">
-                <span class="d-label">personal best</span>
-                <span class="d-value" id="bestWpm">0</span>
-            </div>
-        </div>
-
-        <div class="result-features-wrapper">
-            <p class="features-label">Explore Specialized Practice Modules</p>
-            <div class="feature-cards-grid">
-                <div class="f-card" onclick="window.location.href='difficult-words-typing-practice.html'">
-                    <span class="f-icon">⚡</span>
-                    <div class="f-info">
-                        <h4>Difficult Words</h4>
-                        <p>Overcome tricky key combos</p>
-                    </div>
-                </div>
-                <div class="f-card" onclick="window.location.href='number-typing-practice.html'">
-                    <span class="f-icon">🔢</span>
-                    <div class="f-info">
-                        <h4>Number Row</h4>
-                        <p>Master numerical input</p>
-                    </div>
-                </div>
-                <div class="f-card" onclick="window.location.href='typing-test-60-seconds.html'">
-                    <span class="f-icon">⏱️</span>
-                    <div class="f-info">
-                        <h4>Standard 60s</h4>
-                        <p>Check 1-minute benchmark</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="result-action-buttons">
-            <button class="icon-action-btn" onclick="location.reload()">[r] retry</button>
-            <button class="icon-action-btn" onclick="window.location.href='index.html'">[h] home</button>
-        </div>
-    </div>
-
-    <!-- ====================================================================
-         🔥 DEDICATED EDITORIAL GUIDE: PUNCTUATION, SHIFT SYMBOLS & CODE SYNTAX
-         (ELIMINATES LOW VALUE / THIN CONTENT FLAGS)
-    ==================================================================== -->
-    <div class="guide-article-wrapper">
-        <div class="practice-switcher-links">
-            <span style="color:#64748b; font-size:0.88rem; align-self:center;">Practice Modes:</span>
-            <a href="punctuation-typing-practice.html" class="practice-pill-link active">Punctuation &amp; Code Symbols</a>
-            <a href="difficult-words-typing-practice.html" class="practice-pill-link">Difficult Words</a>
-            <a href="number-typing-practice.html" class="practice-pill-link">Number Row Drill</a>
-        </div>
-
-        <h2>Mastering Punctuation &amp; Keyboard Symbols: The Typist's Guide</h2>
-        <p>
-            Typing ordinary lowercase alphabets is only half the battle. In professional software development, technical writing, academic research, and official clerical exams, your typing cadence is constantly interrupted by <strong>punctuation marks, quotation symbols, brackets, colons, and mathematical operators</strong>.
-        </p>
-        <p>
-            For many typists who easily achieve 70+ WPM on clean prose, introducing punctuation causes an immediate <strong>25% to 40% drop in Net WPM</strong>. This happens because symbol typing relies on dual-hand coordination with the <strong>Shift Key</strong> and extreme pinky finger reaches on the keyboard edges.
-        </p>
-
-        <h3>Why Symbol &amp; Punctuation Typing Breaks Your Rhythm</h3>
-        <p>
-            Standard alphabetic typing relies on simple single-keystroke inputs. Punctuation introduces three unique neurological and mechanical challenges:
-        </p>
-
-        <div class="symbol-grid">
-            <div class="symbol-card">
-                <h4>1. Opposing Shift Coordination</h4>
-                <p>To capitalize or type symbols like <code>! @ # $ % ^ &amp; * ( )</code>, you must depress the Shift key with one hand while the opposite hand strikes the target key. Using the same hand causes severe wrist strain.</p>
-            </div>
-            <div class="symbol-card">
-                <h4>2. Pinky Finger Overload</h4>
-                <p>The weakest finger on each hand (the pinky) carries the heaviest symbol responsibility: <code>Enter, Backspace, Shift, Caps Lock, Tab, P, Q, Z</code>, plus brackets <code>[ ] { }</code> and punctuation <code>; : ' " / ?</code>.</p>
-            </div>
-            <div class="symbol-card">
-                <h4>3. Coding Syntax Micro-Pauses</h4>
-                <p>Writing programming constructs such as arrow functions <code>() =&gt; {}</code>, JSON blocks, or SQL queries requires rapid alternation between letters, numbers, and symbols without spacing.</p>
-            </div>
-        </div>
-
-        <h3>The Golden Rule: The "Opposite-Hand Shift" Technique</h3>
-        <p>
-            The single most impactful habit you can adopt to maintain 80+ WPM through punctuation-heavy text is the <strong>Opposite-Hand Shift Rule</strong>:
-        </p>
-        <ul>
-            <li>When the symbol key is on the <strong>Right Hand</strong> (e.g., <code>: " ? &gt; &lt; { } + _</code>), hold the <strong>Left Shift Key</strong> with your left pinky.</li>
-            <li>When the symbol key is on the <strong>Left Hand</strong> (e.g., <code>! @ # $ % ~</code>), hold the <strong>Right Shift Key</strong> with your right pinky.</li>
-        </ul>
-        <p>
-            Typists who attempt to press Shift and a symbol using the same hand twist their wrists unnaturally, drastically slowing character output and risking repetitive strain injury (RSI).
-        </p>
-
-        <h3>Punctuation Complexity Breakdown</h3>
-        <table class="benchmark-table">
-            <thead>
-                <tr>
-                    <th>Symbol Tier</th>
-                    <th>Characters Included</th>
-                    <th>Recommended Finger Assignment</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Everyday Punctuation</strong></td>
-                    <td><code>. , ; ' - /</code></td>
-                    <td>Right ring finger (<code>.</code>), Right middle finger (<code>,</code>), Right pinky (<code>; ' / -</code>). No Shift required.</td>
-                </tr>
-                <tr>
-                    <td><strong>Shifted Sentence Marks</strong></td>
-                    <td><code>! ? " : _</code></td>
-                    <td>Dual-hand coordination; Left Pinky (Shift) + Right Pinky/Index reaches.</td>
-                </tr>
-                <tr>
-                    <td><strong>Enclosures &amp; Brackets</strong></td>
-                    <td><code>( ) [ ] { } &lt; &gt;</code></td>
-                    <td>Crucial for programmers; Right pinky covers brackets; Shift alternates based on side.</td>
-                </tr>
-                <tr>
-                    <td><strong>Code &amp; Math Operators</strong></td>
-                    <td><code>= + * &amp; | ^ % $ # @ ~ \</code></td>
-                    <td>Top-row numbers combined with Shift; requires muscle-memory reach without looking down.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>4 Drills to Build Flawless Symbol Muscle Memory</h3>
-        <ul>
-            <li><strong>Isolate Paired Delimiters:</strong> Practice typing bracket pairs together first: type <code>()</code>, <code>[]</code>, or <code>""</code>, then use the Left Arrow key to step inside. This is how modern code editors function.</li>
-            <li><strong>Maintain Light Pinky Pressure:</strong> Do not slam down on the semicolon or quote keys. Use light, crisp actuations to avoid fatigue during long programming or writing sessions.</li>
-            <li><strong>Eliminate Visual Checks on Shift Keys:</strong> Your pinky fingers should know the exact boundary of the Shift keys by tactile feel without your eyes leaving the screen.</li>
-            <li><strong>Emphasize Clean Backspacing:</strong> In punctuation tests, missing a quote or comma invalidates the subsequent word. Take an extra 50 milliseconds to hit the symbol correctly on the first attempt.</li>
-        </ul>
-    </div>
-
-</div>
-
-<audio id="keySound" src="key.wav" preload="auto"></audio>
-
-<!-- LOGIN MODAL -->
-<div class="login-modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 10, 12, 0.85); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; font-family: 'Roboto Mono', monospace;">
-    <div class="login-box" style="background: #18191e; border: 1px solid rgba(255, 255, 255, 0.05); padding: 40px; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; text-align: center; box-sizing: border-box;">
-        <div class="close-login" onclick="closeLoginModal()" style="position: absolute; top: 20px; right: 25px; cursor: pointer; color: #646669; font-size: 22px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#646669'">✕</div>
-        <div style="font-size: 32px; margin-bottom: 10px;">@</div>
-        <h1 style="color: #fff; font-size: 26px; margin: 0 0 8px 0; font-weight: 600; letter-spacing: -0.5px;">Welcome Back</h1>
-        <p style="color: #646669; font-size: 14px; margin: 0 0 25px 0;">Login to track your punctuation accuracy.</p>
-        <input type="email" id="email" placeholder="Email Address" style="width: 100%; padding: 14px 16px; margin-bottom: 14px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
-        <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 14px 16px; margin-bottom: 20px; background: #202128; border: 1px solid rgba(255, 255, 255, 0.03); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: all 0.2s; box-sizing: border-box;">
-        <button id="modalLoginBtn" style="width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-bottom: 15px;">Login</button>
-        <div style="color: #444; font-size: 12px; margin: 15px 0; position: relative;">
-            <span style="background: #18191e; padding: 0 10px; position: relative; z-index: 2;">OR</span>
-            <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.05); z-index: 1;"></div>
-        </div>
-        <div class="google-login" id="googleLoginBtn" style="width: 100%; padding: 14px; background: transparent; color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center; gap: 10px; box-sizing: border-box;">
-            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" alt="G" style="width: 18px; height: 18px;"> Continue with Google
-        </div>
-    </div>
-</div>
-
-<script>
-function openLoginModal(){
-    const modal = document.getElementById("loginModal");
-    if(modal) {
-        modal.style.display = "flex";
-        const mainInput = document.getElementById("input");
-        if(mainInput) mainInput.blur();
+    function resetPuncDrill(btn) {
+      if (btn) btn.blur(); // Blur button so Spacebar never triggers reset
+      initPuncSession();
     }
-}
-function closeLoginModal(){
-    const modal = document.getElementById("loginModal");
-    if(modal) modal.style.display = "none";
-}
 
-// Automatically activates "punctuation" mode in typing.js
-window.addEventListener('DOMContentLoaded', () => {
-    const punctBtn = document.querySelector('[data-type="punctuation"]');
-    if (punctBtn) punctBtn.click();
-});
-</script>
+    function focusPunctuationEngine() {
+      const sink = document.getElementById('mobileInputSink');
+      if (sink) sink.focus();
+    }
 
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="typing.js"></script>
+    function setPuncDrill(idx, btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = idx;
+      document.querySelectorAll('.puncbtn').forEach(b => {
+        b.classList.remove('bg-emerald-600', 'text-white');
+        b.classList.add('bg-transparent', 'text-slate-400');
+      });
+      const targetBtn = document.getElementById(`puncbtn-${idx}`);
+      if (targetBtn) {
+        targetBtn.classList.add('bg-emerald-600', 'text-white');
+        targetBtn.classList.remove('text-slate-400');
+      }
+      initPuncSession();
+    }
 
+    window.addEventListener('DOMContentLoaded', () => {
+      initPuncSession();
+    });
+  </script>
+
+  <!-- Reusable Modular Scripts -->
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/typing-engine.js"></script>
 </body>
 </html>
