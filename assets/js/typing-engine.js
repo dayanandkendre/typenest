@@ -1,21 +1,29 @@
-// assets/js/typing-engine.js - Adaptive Desktop Engine, Ultra Analytics & Firebase Auto-Save
+// assets/js/typing-engine.js - Adaptive Desktop Engine, Ultra Analytics & Audio-Fixed Engine
 (function () {
   let audioCtx = null;
   let isSoundEnabled = true;
 
+  // Audio Context Instant Initialization & Auto-Resume
   function initAudio() {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
   }
 
   function playKeyClickSound() {
     if (!isSoundEnabled) return;
     initAudio();
+    if (!audioCtx) return;
+
     try {
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(450 + Math.random() * 80, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
       osc.connect(gain);
       gain.connect(audioCtx.destination);
@@ -27,6 +35,8 @@
   function playErrorSound() {
     if (!isSoundEnabled) return;
     initAudio();
+    if (!audioCtx) return;
+
     try {
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
@@ -67,7 +77,6 @@
     if (!keyboardContainer) return;
 
     keyboardContainer.innerHTML = `
-      <!-- Desktop 5-Row Mechanical Keyboard -->
       <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-5 shadow-lg hidden md:block select-none">
         <div class="flex items-center justify-between mb-3 text-xs text-slate-400 font-medium">
           <span class="flex items-center gap-2">
@@ -79,7 +88,6 @@
           </span>
         </div>
         <div id="virtualKeyboard" class="space-y-1.5 max-w-4xl mx-auto font-mono text-xs">
-          <!-- Row 1 -->
           <div class="flex justify-center gap-1.5">
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="\`">\`</div>
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="1">1</div>
@@ -96,7 +104,6 @@
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="=">=</div>
             <div class="key-cap w-16 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]" data-key="backspace">Back</div>
           </div>
-          <!-- Row 2 -->
           <div class="flex justify-center gap-1.5">
             <div class="key-cap w-14 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]" data-key="tab">Tab</div>
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center font-bold" data-key="q">Q</div>
@@ -113,7 +120,6 @@
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="]">]</div>
             <div class="key-cap w-11 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="\\">\\</div>
           </div>
-          <!-- Row 3 -->
           <div class="flex justify-center gap-1.5">
             <div class="key-cap w-16 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]" data-key="capslock">Caps</div>
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 flex items-center justify-center font-bold" data-key="a">A</div>
@@ -129,7 +135,6 @@
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center" data-key="'">'</div>
             <div class="key-cap w-16 h-10 rounded-lg bg-indigo-600/80 border border-indigo-500/80 text-white flex items-center justify-center text-[10px] font-bold" data-key="enter">Enter</div>
           </div>
-          <!-- Row 4 -->
           <div class="flex justify-center gap-1.5">
             <div class="key-cap w-20 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]" data-key="shift">Shift</div>
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center font-bold" data-key="z">Z</div>
@@ -144,7 +149,6 @@
             <div class="key-cap w-9 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 flex items-center justify-center font-bold" data-key="/">/</div>
             <div class="key-cap w-20 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]" data-key="shift">Shift</div>
           </div>
-          <!-- Row 5 -->
           <div class="flex justify-center gap-1.5">
             <div class="key-cap w-16 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]">Ctrl</div>
             <div class="key-cap w-14 h-10 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 flex items-center justify-center text-[10px]">Alt</div>
@@ -246,8 +250,11 @@
     }
   }
 
-  // Keydown Engine
+  // Keydown Engine with Audio Resume Guarantee
   window.addEventListener('keydown', function (e) {
+    // Key dabtaach audio context resume kara
+    initAudio();
+
     if (e.key === 'Tab' || e.key === 'Alt' || e.key === 'Control' || e.key === 'Meta') return;
     if (e.key === 'Escape') {
       if (window.resetCurrentTest) window.resetCurrentTest();
@@ -414,7 +421,6 @@
     const finalAcc = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
     const netWPM = Math.max(0, Math.round(finalWPM - (errorCount / elapsedMins)));
 
-    // Trigger Firebase save
     saveProgressToFirebase(finalWPM, finalAcc, netWPM, totalTypedCount, errorCount);
 
     showResultsModal({
@@ -515,7 +521,6 @@
     document.getElementById('modalCorrectChars').innerText = stats.correctChars;
     document.getElementById('modalTime').innerText = `${stats.timeTaken}s`;
 
-    // Tier calculation & badge classes
     const tierBadge = document.getElementById('modalTierBadge');
     const ratingEl = document.getElementById('modalRating');
 
@@ -555,6 +560,10 @@
   document.addEventListener("DOMContentLoaded", function () {
     injectAdaptiveKeyboard();
     injectResultsModal();
+
+    // Screen var kuthehi touch/click/key kelyaas lagech audio unlock kara
     window.addEventListener('click', initAudio, { once: true });
+    window.addEventListener('touchstart', initAudio, { once: true });
+    window.addEventListener('keydown', initAudio, { once: true });
   });
 })();
