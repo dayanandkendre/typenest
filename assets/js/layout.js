@@ -1,8 +1,86 @@
-// assets/js/layout.js - Clean Nav + Mobile Optimized + 1-Col Footer + Active Theme Switching
+// assets/js/layout.js - Clean Nav + Mobile Optimized + Seamless Light/Dark Footer & Dashboard
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-  // 1. Conditional Sound Icon Logic: Typing/Practice Pages Check
+  // 1. Clean Theme Styling (Targeted overrides to prevent boxy footer)
+  if (!document.getElementById("tn-theme-overrides")) {
+    const styleEl = document.createElement("style");
+    styleEl.id = "tn-theme-overrides";
+    styleEl.innerHTML = `
+      /* Global Light Background */
+      html:not(.dark) body {
+        background-color: #f8fafc !important;
+        color: #0f172a !important;
+      }
+
+      /* Header Light Mode */
+      html:not(.dark) #siteHeader {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+      }
+      html:not(.dark) #siteHeader span,
+      html:not(.dark) #siteHeader a,
+      html:not(.dark) #siteHeader button {
+        color: #0f172a !important;
+      }
+      html:not(.dark) #siteHeader .bg-slate-800,
+      html:not(.dark) #siteHeader .bg-slate-800\\/90,
+      html:not(.dark) #siteHeader .bg-slate-800\\/60 {
+        background-color: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+      }
+      html:not(.dark) #mobileNavMenu {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+      }
+      html:not(.dark) #mobileNavMenu a {
+        color: #334155 !important;
+      }
+
+      /* Dashboard / Typing Cards ONLY (Footer exclude kela ahe) */
+      html:not(.dark) main div[class*="bg-[#0f172a]"],
+      html:not(.dark) main div[class*="bg-[#1e293b]"],
+      html:not(.dark) main div[class*="bg-slate-900"],
+      html:not(.dark) main div[class*="bg-slate-800"],
+      html:not(.dark) .typing-card,
+      html:not(.dark) #typing-arena {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+        color: #0f172a !important;
+      }
+
+      /* SEAMLESS FOOTER (Boxy look fix) */
+      html:not(.dark) footer#siteFooter {
+        background-color: #f8fafc !important;
+        border-color: #e2e8f0 !important;
+        color: #475569 !important;
+      }
+      html:not(.dark) footer#siteFooter div {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border-color: #e2e8f0 !important;
+      }
+      html:not(.dark) footer#siteFooter h3 {
+        color: #0f172a !important;
+      }
+      html:not(.dark) footer#siteFooter a {
+        color: #475569 !important;
+      }
+      html:not(.dark) footer#siteFooter a:hover {
+        color: #4f46e5 !important;
+      }
+      html:not(.dark) footer#siteFooter p,
+      html:not(.dark) footer#siteFooter span {
+        color: #64748b !important;
+      }
+      html:not(.dark) footer#siteFooter strong {
+        color: #0f172a !important;
+      }
+    `;
+    document.head.appendChild(styleEl);
+  }
+
+  // 2. Conditional Sound Icon Logic: Typing/Practice Pages Check
   const typingPages = [
     "index.html",
     "tests.html",
@@ -16,17 +94,13 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   const isTypingPage = typingPages.includes(currentPath);
 
-  // 2. Global Theme Function (Dark / Light)
+  // 3. Theme Application & Switching
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
     if (isDark) {
       document.documentElement.classList.add("dark");
-      document.body.classList.remove("bg-slate-50", "text-slate-900");
-      document.body.classList.add("bg-[#070b12]", "text-slate-100");
     } else {
       document.documentElement.classList.remove("dark");
-      document.body.classList.remove("bg-[#070b12]", "text-slate-100");
-      document.body.classList.add("bg-slate-50", "text-slate-900");
     }
 
     const themeIcon = document.getElementById("themeIcon");
@@ -39,12 +113,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const savedTheme = localStorage.getItem("tn_theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const initialTheme = savedTheme ? savedTheme : (prefersDark ? "dark" : "dark"); // default dark
+  const initialTheme = savedTheme ? savedTheme : (prefersDark ? "dark" : "dark");
   applyTheme(initialTheme);
 
-  // 3. Header: Size waadhvun & Mobile balanced look
+  // 4. Header Component
   const navbarHTML = `
-  <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 dark:bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
+  <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
       
       <!-- Logo + Tagline -->
@@ -88,26 +162,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <!-- Right Action Controls -->
       <div class="flex items-center gap-3">
-        
-        <!-- Sound Toggle Button -->
         ${isTypingPage ? `
         <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-11 h-11 rounded-2xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
           <i id="soundIcon" class="fa-solid fa-volume-high text-base"></i>
         </button>
         ` : ''}
 
-        <!-- Dark / Light Theme Toggle Button -->
+        <!-- Dark / Light Mode Button -->
         <button id="themeToggleBtn" title="Toggle Theme" class="w-11 h-11 rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-indigo-500/50 text-slate-300 hover:text-white transition flex items-center justify-center shadow-sm">
           <i id="themeIcon" class="fa-solid ${initialTheme === 'dark' ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-lg"></i>
         </button>
 
-        <!-- Desktop Login Button -->
+        <!-- Desktop Login -->
         <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/20">
           <span>👤</span>
           <span id="userNavText">Login</span>
         </button>
 
-        <!-- Mobile Hamburger Button -->
+        <!-- Hamburger Icon Button -->
         <button id="mobileMenuToggle" class="md:hidden w-11 h-11 rounded-2xl bg-slate-800/90 border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-700 transition flex items-center justify-center shadow-sm">
           <i class="fa-solid fa-bars text-xl"></i>
         </button>
@@ -180,13 +252,12 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // 4. Footer: Mobile var pure 1-column (grid-cols-1)
+  // 5. Professional Seamless Footer
   const footerHTML = `
-  <footer class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10">
+  <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
         
-        <!-- Brand Info -->
         <div class="sm:col-span-2 space-y-4">
           <a href="index.html" class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
@@ -208,7 +279,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
 
-        <!-- Practice & Drills -->
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
@@ -220,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </ul>
         </div>
 
-        <!-- Courses -->
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Courses</h3>
           <ul class="space-y-2 font-medium">
@@ -232,7 +301,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </ul>
         </div>
 
-        <!-- Support & Trust -->
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Support & Trust</h3>
           <ul class="space-y-2 font-medium">
@@ -260,13 +328,11 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
   `;
 
-  // Insert Header & Footer to DOM
+  // Insert to DOM
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
   document.body.insertAdjacentHTML("beforeend", footerHTML);
 
-  // 5. Setup Listeners
-
-  // Hamburger Menu + Outside Click Detection
+  // 6. Listeners (Mobile Menu + Outside Click + Theme Toggle)
   const menuBtn = document.getElementById("mobileMenuToggle");
   const navMenu = document.getElementById("mobileNavMenu");
 
@@ -287,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Theme Toggle Listener (Working Dark <-> Light)
+  // Theme Toggle Button
   const themeBtn = document.getElementById("themeToggleBtn");
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
@@ -298,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Login Modal Trigger Listener
+  // Login Modal Trigger
   const loginBtn = document.getElementById("loginBtn");
   const mobileLoginBtn = document.getElementById("mobileLoginBtn");
   const loginModal = document.getElementById("loginModal");
