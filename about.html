@@ -3,82 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Immediate Anti-FOUC Theme Check (Zero White Flicker) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('tn_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <title>About Us | TypeNest Academy</title>
-  <meta name="description" content="Learn about TypeNest Academy, our mission to improve touch typing speeds, government exam preparation tools, and our editorial standards.">
+  <meta name="description" content="Learn about TypeNest Academy, our mission to improve touch typing speeds, educational practice tools, and our editorial standards.">
+  <meta name="keywords" content="about typenest, touch typing academy, dayanand dinkar kendre, typing platform pune">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/about.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/about.html">
+  <meta property="og:title" content="About Us | TypeNest Academy">
+  <meta property="og:description" content="Discover TypeNest Academy's mission to deliver free, high-performance touch typing training and speed evaluation tools.">
+  <meta property="og:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header is automatically injected by layout.js -->
 
   <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
     
     <!-- Hero Section -->
     <div class="text-center space-y-4 max-w-3xl mx-auto">
-      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">About TypeNest Academy</span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Empowering Typists with Free, Accessible Tools</h1>
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        About TypeNest Academy
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        Empowering Typists with Free, Accessible Tools
+      </h1>
       <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-        TypeNest is an independent touch typing practice and speed-building platform built for students, professionals, and government typing exam candidates across India and worldwide.
+        TypeNest Academy is an independent touch typing practice, ergonomic education, and speed evaluation platform built for students, professionals, and competitive typing test candidates.
       </p>
     </div>
 
     <!-- Mission & Origin -->
-    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-10 space-y-6">
+    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-10 space-y-6 shadow-xl">
       <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
         <i class="fa-solid fa-bullseye text-indigo-400"></i> Our Mission & Background
       </h2>
       <p class="text-slate-300 text-sm leading-relaxed">
-        Founded in 2026, TypeNest Academy was established to solve a common barrier faced by competitive exam aspirants: the lack of clean, non-distracting, and syllabus-aligned typing drill environments. Traditional practice sites often focus purely on casual English speed races, ignoring specialized test formats required by competitive commissions.
+        Established in 2026, TypeNest Academy was developed to address a critical learning challenge: the absence of clean, distraction-free, and curriculum-aligned typing practice arenas. Many web typing tools are designed primarily as casual gaming lobbies, frequently overlooking the strict mechanical accuracy and cadence discipline demanded by technical roles and administrative examinations.
       </p>
       <p class="text-slate-300 text-sm leading-relaxed">
-        Our curriculum and evaluation drills cater specifically to regional and national typing standards, including Maharashtra GCC-TBC examinations, Staff Selection Commission (SSC) skill tests, High Court clerical exams, and bilingual keyboard layouts like Marathi Inscript.
+        Our training modules and timed evaluation passes replicate recognized typing evaluation standards—such as Maharashtra GCC-TBC speed benchmarks, Staff Selection Commission (SSC) typing skill tests, high court clerical exams, and bilingual keyboard formats including Marathi Inscript.
       </p>
     </div>
 
     <!-- Editorial & Accuracy Standards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 space-y-3">
+      <div class="bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 space-y-3 shadow-lg">
         <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg">
           <i class="fa-solid fa-feather-pointed"></i>
         </div>
-        <h3 class="text-lg font-bold text-white">Editorial & Curriculum Standards</h3>
+        <h3 class="text-lg font-bold text-white">Editorial & Technical Standards</h3>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Every guide and technical tutorial on TypeNest is authored and cross-verified against official exam notifications (such as MSCE Pune guidelines) and verified ergonomic research to ensure practical, reliable instruction.
+          Instructional guides, ergonomic assessments, and speed tutorials on TypeNest are written and reviewed with reference to official public examination syllabi and verified typing research to deliver accurate, dependable instruction.
         </p>
       </div>
 
-      <div class="bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 space-y-3">
+      <div class="bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 space-y-3 shadow-lg">
         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
         <h3 class="text-lg font-bold text-white">100% Free & Open Access</h3>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          We believe foundational digital literacy and touch typing muscle memory should be freely accessible to every student without paywalls, subscriptions, or restrictive sign-up demands.
+          We maintain that touch typing muscle memory is a foundational modern literacy skill. Every exercise, arcade drill level, and speed test module remains freely available without paywalls, fees, or mandatory account creation.
         </p>
       </div>
     </div>
 
-    <!-- Leadership / Founder Section (Crucial for AdSense EEAT) -->
-    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-      <div class="w-24 h-24 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-3xl font-bold flex-shrink-0">
+    <!-- Leadership / Founder Section (EEAT Transparency) -->
+    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-indigo-600 to-sky-500 text-white flex items-center justify-center text-2xl sm:text-3xl font-extrabold flex-shrink-0 shadow-lg shadow-indigo-600/20">
         DK
       </div>
       <div class="space-y-2 text-center sm:text-left">
         <div class="flex flex-col sm:flex-row sm:items-center gap-2">
           <h3 class="text-xl font-bold text-white">Dayanand Dinkar Kendre</h3>
-          <span class="text-xs text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20 font-medium">Founder & Lead Developer</span>
+          <span class="text-xs text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20 font-medium">
+            Founder & Lead Developer
+          </span>
         </div>
         <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Dayanand is a web developer and engineering professional based in Pune, Maharashtra. Passionate about educational web platforms and student enablement, he designed and actively maintains the TypeNest typing engine, testing protocols, and curriculum.
+          Dayanand is a web developer and technical professional based in Pune, Maharashtra. Focused on accessible digital learning tools, he designed and actively maintains the TypeNest typing engine, testing suite, and instructional material.
         </p>
-        <p class="text-slate-500 text-xs pt-1">
-          Location: Pune, Maharashtra, India • Contact: <a href="mailto:typenest.in@gmail.com" class="text-indigo-400 hover:underline">dayanandkendre10@gmal.com</a>
-        </p>
+        <div class="text-slate-400 text-xs pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1">
+          <span><i class="fa-solid fa-location-dot text-indigo-400 mr-1.5"></i> Pune, Maharashtra, India</span>
+          <span><i class="fa-solid fa-envelope text-emerald-400 mr-1.5"></i> <a href="mailto:typenest.in@gmail.com" class="text-slate-200 hover:text-emerald-400 transition font-mono">typenest.in@gmail.com</a></span>
+        </div>
       </div>
     </div>
 
   </main>
 
+  <!-- Reusable Modular Navbar & Footer Script -->
   <script type="module" src="assets/js/layout.js"></script>
+
 </body>
 </html>
