@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Immediate Anti-FOUC Theme Execution -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('tn_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <title>Learn Home Row Typing | 20 Interactive Levels | TypeNest Academy</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+    .level-card {
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .level-card:not(.locked):hover {
+      transform: translateY(-3px);
+      border-color: rgba(99, 102, 241, 0.6);
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
+    }
+    .level-card.locked {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header is automatically injected by layout.js -->
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Hero Banner -->
+    <div class="bg-gradient-to-r from-indigo-950/40 via-purple-950/20 to-slate-900/60 border border-indigo-500/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl">
+      <div class="space-y-2">
+        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          Touch Typing Arcade
+        </span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Home Row Fundamentals
+        </h1>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-xl leading-relaxed">
+          Master the foundation of touch typing muscle memory. Complete all 20 sequential levels to unlock higher keyboard rows.
+        </p>
+      </div>
+
+      <!-- Quick Progress Pill -->
+      <div class="bg-[#0b0f19] border border-slate-800 rounded-2xl p-4 flex items-center gap-4 shrink-0 shadow-lg">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl font-bold">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">Home Row Completion</span>
+          <span id="progressCount" class="text-xl font-black text-indigo-400 font-mono">0 / 20</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Module Switcher -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      <a href="learn.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-md shadow-indigo-600/20 whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-house text-[11px]"></i> Home Row
+      </a>
+      <a href="toprow.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-arrow-up text-[11px]"></i> Top Row
+      </a>
+      <a href="bottomrow.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-arrow-down text-[11px]"></i> Bottom Row
+      </a>
+      <a href="words.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-font text-[11px]"></i> Words
+      </a>
+      <a href="numbers.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-hashtag text-[11px]"></i> Numbers
+      </a>
+      <a href="advanced.html" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-rocket text-[11px]"></i> Advanced
+      </a>
+    </div>
+
+    <!-- 20-Level Progression Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="levelsGrid">
+      
+      <!-- Levels 1 to 20 -->
+      <div class="level-card bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative cursor-pointer" id="level1" onclick="window.location.href='level.html?id=1'">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white text-xs font-extrabold flex items-center justify-center font-mono">1</span>
+          <span class="lock-icon text-slate-600 text-xs hidden"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">F J</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Introduction</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars1"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score1"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level2">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">2</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">F & J</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keys F & J</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars2"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score2"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level3">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">3</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">FJ</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">FJ Practice</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars3"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score3"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level4">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">4</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">Space</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Space Bar</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars4"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score4"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level5">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">5</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">D K</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keys D & K</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars5"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score5"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level6">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">6</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">D F</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keys D & F</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars6"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score6"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level7">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">7</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">J K</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keys J & K</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars7"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score7"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level8">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">8</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">DKF</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">DKF Practice</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars8"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score8"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level9">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">9</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">S L</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keys S & L</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars9"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score9"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level10">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">10</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">;</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Semicolon</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars10"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score10"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level11">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">11</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">ALL</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">All Home Keys</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars11"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score11"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level12">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">12</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">TEST</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Home Row Review</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars12"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score12"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level13">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">13</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">ASDF</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Left Hand</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars13"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score13"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level14">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">14</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">JKL;</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Right Hand</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars14"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score14"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level15">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">15</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">LEFT</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Left Drill</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars15"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score15"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level16">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">16</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">RIGHT</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Right Drill</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars16"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score16"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level17">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">17</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">MIX 1</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Home Row Mix</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars17"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score17"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level18">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">18</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">MIX 2</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Advanced Mix</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars18"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score18"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level19">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">19</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">WORDS</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Home Words</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars19"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score19"></span>
+        </div>
+      </div>
+
+      <div class="level-card locked bg-[#111827]/80 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between relative" id="level20">
+        <div class="flex items-center justify-between">
+          <span class="w-7 h-7 rounded-lg bg-slate-800 text-slate-300 text-xs font-extrabold flex items-center justify-center font-mono">20</span>
+          <span class="lock-icon text-slate-600 text-xs"><i class="fa-solid fa-lock"></i></span>
+        </div>
+        <div class="my-3 text-center">
+          <div class="text-base font-bold text-white font-mono tracking-wider">FINAL</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Final Test</div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[11px]">
+          <span class="stars text-amber-400 tracking-wider text-xs" id="stars20"></span>
+          <span class="score text-emerald-400 font-mono font-semibold" id="score20"></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- User Milestone Dashboard -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-bars-progress"></i>
+        </div>
+        <div class="flex-1">
+          <span class="text-xs uppercase font-bold text-slate-400">Total Completion</span>
+          <div class="w-full h-2 bg-slate-800 rounded-full mt-2 overflow-hidden">
+            <div id="progressFill" class="h-full bg-indigo-500 rounded-full transition-all duration-300" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-fire"></i>
+        </div>
+        <div>
+          <span class="text-xs uppercase font-bold text-slate-400">Best Streak</span>
+          <p id="bestStreak" class="text-base font-bold text-white mt-0.5 font-mono">0 Levels</p>
+        </div>
+      </div>
+
+      <div class="bg-[#111827]/80 border border-slate-800 rounded-2xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div>
+          <span class="text-xs uppercase font-bold text-slate-400">Curriculum Target</span>
+          <p class="text-base font-bold text-white mt-0.5 font-mono">20 Total Levels</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modular Scripts -->
+  <script type="module" src="../assets/js/layout.js"></script>
+  <script type="module" src="learn.js"></script>
+
+</body>
+</html>
