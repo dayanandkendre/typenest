@@ -1,22 +1,50 @@
-// assets/js/layout.js - Clean Nav + Login Popup Modal Trigger
+// assets/js/layout.js - Clean Nav + Mobile Optimized + Login Modal + Theme & Sound Controls
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-  // 1. Header with Desktop Nav + Mobile Hamburger
+  // 1. Conditional Sound Icon Logic: Typing/Practice Pages Check
+  const typingPages = [
+    "index.html",
+    "tests.html",
+    "number-typing-practice.html",
+    "punctuation-typing-practice.html",
+    "difficult-words-typing-practice.html",
+    "beginner.html",
+    "speed-building.html",
+    "accuracy-mastery.html",
+    "advanced-typing.html"
+  ];
+  const isTypingPage = typingPages.includes(currentPath);
+
+  // 2. Theme Initialization (Dark mode default / LocalStorage)
+  const savedTheme = localStorage.getItem("tn_theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+
+  if (isDark) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  // 3. Header with Desktop Nav + Mobile Hamburger
   const navbarHTML = `
-  <header class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800">
+  <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
-      <!-- Logo + Tagline -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
-          <i class="fa-solid fa-keyboard text-white text-lg"></i>
+      <!-- Logo + Tagline (Mobile var Clean & Compact) -->
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform flex-shrink-0">
+          <i class="fa-solid fa-keyboard text-white text-base sm:text-lg"></i>
         </div>
         <div>
-          <span class="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-            TypeNest <span class="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">ACADEMY</span>
+          <span class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-1.5 leading-none">
+            TypeNest 
+            <!-- ACADEMY badge: Mobile var hide, desktop var visible -->
+            <span class="hidden sm:inline-flex text-[10px] px-2 py-0.5 rounded-full font-semibold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">ACADEMY</span>
           </span>
-          <p class="text-[10px] text-slate-400 font-medium tracking-wide">Touch Typing, Drills & Certification</p>
+          <!-- Tagline: Mobile var hide, desktop var visible -->
+          <p class="hidden sm:block text-[10px] text-slate-400 font-medium tracking-wide mt-0.5">Touch Typing, Drills & Certification</p>
         </div>
       </a>
 
@@ -46,26 +74,35 @@ document.addEventListener("DOMContentLoaded", function () {
       </nav>
 
       <!-- Right Action Controls -->
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        
+        <!-- Sound Toggle Button (Fakt Typing Pages var) -->
+        ${isTypingPage ? `
         <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex p-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center">
           <i id="soundIcon" class="fa-solid fa-volume-high text-sm"></i>
         </button>
+        ` : ''}
 
-        <!-- Smart Login / Profile Button -->
-        <button id="loginBtn" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition shadow-sm">
+        <!-- Dark / Light Theme Toggle Button -->
+        <button id="themeToggleBtn" title="Toggle Theme" class="p-2 sm:p-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-slate-300 hover:text-white transition flex items-center justify-center">
+          <i id="themeIcon" class="fa-solid ${isDark ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-sm"></i>
+        </button>
+
+        <!-- Smart Login / Profile Button (Mobile var Navbar madhun HIDE kela ahe, Desktop var disel) -->
+        <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition shadow-sm">
           <span>👤</span>
           <span id="userNavText">Login</span>
         </button>
 
         <!-- Hamburger Icon Button for Mobile -->
-        <button id="mobileMenuToggle" class="md:hidden p-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition">
-          <i class="fa-solid fa-bars text-lg"></i>
+        <button id="mobileMenuToggle" class="md:hidden p-2 sm:p-2.5 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+          <i class="fa-solid fa-bars text-base"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Slide-Down Menu -->
-    <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-4 py-4 space-y-2 text-sm shadow-2xl">
+    <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-4 py-4 space-y-1.5 text-sm shadow-2xl">
       <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl ${currentPath === 'index.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-xs w-4"></i> Typing Arena
       </a>
@@ -87,9 +124,14 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="blog.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl ${currentPath === 'blog.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-newspaper text-xs w-4"></i> Typing Guides & Tips
       </a>
-      <button id="mobileLoginBtn" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs">
-        <i class="fa-solid fa-user text-xs w-4"></i> <span id="mobileNavUserText">Login / Account</span>
-      </button>
+
+      <!-- Mobile Login Button: Menu chya bottom la -->
+      <div class="pt-2 border-t border-slate-800/80 mt-2">
+        <button id="mobileLoginBtn" class="w-full flex items-center justify-center gap-2.5 px-3 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-md transition">
+          <i class="fa-solid fa-user text-xs"></i> 
+          <span id="mobileNavUserText">Login / Account</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -126,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // 2. Footer
+  // 4. Footer
   const footerHTML = `
   <footer class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -202,15 +244,67 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
   `;
 
+  // Insert Header & Footer to DOM
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
   document.body.insertAdjacentHTML("beforeend", footerHTML);
 
-  // Hamburger Toggle Listener
+  // 5. Setup Event Listeners
+
+  // Hamburger Menu + Outside Click Detection
   const menuBtn = document.getElementById("mobileMenuToggle");
   const navMenu = document.getElementById("mobileNavMenu");
+
   if (menuBtn && navMenu) {
-    menuBtn.addEventListener("click", () => {
+    // Menu icon click var toggle
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       navMenu.classList.toggle("hidden");
     });
+
+    // Menu chya aat click kelyas event baher jaau naye
+    navMenu.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
+    // Screen var kuthehi baher click kelyas menu automatically close hoil
+    document.addEventListener("click", () => {
+      if (!navMenu.classList.contains("hidden")) {
+        navMenu.classList.add("hidden");
+      }
+    });
   }
+
+  // Theme Toggle Listener
+  const themeBtn = document.getElementById("themeToggleBtn");
+  const themeIcon = document.getElementById("themeIcon");
+  if (themeBtn && themeIcon) {
+    themeBtn.addEventListener("click", () => {
+      const activeIsDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("tn_theme", activeIsDark ? "dark" : "light");
+
+      if (activeIsDark) {
+        themeIcon.className = "fa-solid fa-sun text-amber-400 text-sm";
+      } else {
+        themeIcon.className = "fa-solid fa-moon text-indigo-400 text-sm";
+      }
+    });
+  }
+
+  // Login Modal Trigger Listener (Desktop & Mobile)
+  const loginBtn = document.getElementById("loginBtn");
+  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
+  const loginModal = document.getElementById("loginModal");
+
+  const openLoginModal = () => {
+    if (loginModal) {
+      loginModal.classList.remove("hidden");
+      // Mobile menu open asel tar band karne
+      if (navMenu && !navMenu.classList.contains("hidden")) {
+        navMenu.classList.add("hidden");
+      }
+    }
+  };
+
+  if (loginBtn) loginBtn.addEventListener("click", openLoginModal);
+  if (mobileLoginBtn) mobileLoginBtn.addEventListener("click", openLoginModal);
 });
