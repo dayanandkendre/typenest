@@ -361,7 +361,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="flex items-center justify-center gap-4 font-medium">
           <a href="privacy.html" class="hover:text-slate-300 transition">Privacy</a>
           <a href="terms.html" class="hover:text-slate-300 transition">Terms</a>
-          <a href="contact.html" class="hover:text-slate-300 transition">Support</a>
+          <a href="contact.html" class="hover:text-slate-300 transition">Contact & Support</a>
+          <a href="about.html" class="hover:text-slate-300 transition">about</a>
         </div>
       </div>
     </div>
