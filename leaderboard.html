@@ -22,8 +22,6 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-  
-
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
@@ -39,8 +37,7 @@
       <!-- Filter Tabs -->
       <div class="flex items-center gap-2 bg-[#111827] p-1 rounded-xl border border-slate-800">
         <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold">All Time</button>
-        <button class="px-3 py-1.5 rounded-lg bg-transparent text-slate-400 hover:text-white text-xs font-semibold">This Month</button>
-        <button class="px-3 py-1.5 rounded-lg bg-transparent text-slate-400 hover:text-white text-xs font-semibold">Today</button>
+        <button class="px-3 py-1.5 rounded-lg bg-transparent text-slate-400 hover:text-white text-xs font-semibold">Top Speed</button>
       </div>
     </div>
 
@@ -52,14 +49,19 @@
             <tr>
               <th class="py-4 px-6">Rank</th>
               <th class="py-4 px-6">Typist Name</th>
-              <th class="py-4 px-6">Test Preset</th>
+              <th class="py-4 px-6">Preset</th>
               <th class="py-4 px-6 text-right">Speed (WPM)</th>
               <th class="py-4 px-6 text-right">Accuracy</th>
               <th class="py-4 px-6 text-right">Tier Badge</th>
             </tr>
           </thead>
           <tbody id="leaderboardRows" class="divide-y divide-slate-800/60 font-mono">
-            <!-- Dynamically populated via JS -->
+            <!-- Loading State -->
+            <tr>
+              <td colspan="6" class="text-center py-10 text-slate-400 font-sans">
+                <i class="fa-solid fa-circle-notch fa-spin text-indigo-500 text-xl mr-2"></i> Loading live rankings...
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -73,7 +75,7 @@
         </div>
         <div>
           <h3 class="text-base font-bold text-white">Want to claim the #1 spot?</h3>
-          <p class="text-xs text-slate-400">Regular 15-minute home row and burst drills increase typing velocity by 35% in two weeks.</p>
+          <p class="text-xs text-slate-400">Take timed tests and practice home row bursts to climb the rankings.</p>
         </div>
       </div>
       <a href="tests.html" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition shadow-lg shadow-indigo-600/30 whitespace-nowrap">
@@ -83,85 +85,123 @@
 
   </main>
 
-  <!-- Script to Render Leaderboard -->
-  <script>
-    const DEFAULT_LEADERBOARD = [
-      { rank: 1, name: "Elena Rostova", country: "🇺🇸", preset: "1 min Test", wpm: 124, acc: "99.2%", badge: "Grandmaster" },
-      { rank: 2, name: "Marcus Chen", country: "🇸🇬", preset: "1 min Test", wpm: 118, acc: "98.9%", badge: "Grandmaster" },
-      { rank: 3, name: "Sarah Al-Mansoor", country: "🇦🇪", preset: "3 min Test", wpm: 112, acc: "99.5%", badge: "Master" },
-      { rank: 4, name: "Liam O'Connor", country: "🇮🇪", preset: "1 min Test", wpm: 104, acc: "97.8%", badge: "Master" },
-      { rank: 5, name: "Kenji Takahashi", country: "🇯🇵", preset: "5 min Test", wpm: 99, acc: "99.1%", badge: "Expert" }
-    ];
+  <!-- Live Leaderboard Script via Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { 
+      getFirestore, 
+      collection, 
+      query, 
+      orderBy, 
+      limit, 
+      getDocs 
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const userWPM = parseInt(localStorage.getItem('tn_last_wpm') || '78', 10);
-      const userAcc = localStorage.getItem('tn_last_acc') || '98.5';
-      const userName = localStorage.getItem('tn_username') || 'Jordan Davis';
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
+      authDomain: "typenext-5bd90.firebaseapp.com",
+      projectId: "typenext-5bd90",
+      storageBucket: "typenext-5bd90.firebasestorage.app",
+      messagingSenderId: "848488048236",
+      appId: "1:848488048236:web:a742a647977a48ca63da49",
+      measurementId: "G-B5WGZM350T"
+    };
 
-      let userBadge = "Practitioner";
-      if (userWPM >= 100) userBadge = "Grandmaster";
-      else if (userWPM >= 80) userBadge = "Master";
-      else if (userWPM >= 60) userBadge = "Professional";
-      else if (userWPM >= 40) userBadge = "Intermediate";
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-      const fullList = [...DEFAULT_LEADERBOARD];
-      
-      // Insert User into ranking
-      fullList.push({
-        rank: 6,
-        name: `${userName} (You)`,
-        country: "🇮🇳",
-        preset: "Arena Challenge",
-        wpm: userWPM,
-        acc: `${userAcc}%`,
-        badge: userBadge,
-        isUser: true
-      });
+    async function fetchLeaderboard() {
+      const tbody = document.getElementById("leaderboardRows");
+      if (!tbody) return;
 
-      // Sort according to WPM
-      fullList.sort((a, b) => b.wpm - a.wpm);
+      try {
+        // Top 25 Typists sorted by WPM (Highest to Lowest)
+        const q = query(collection(db, "leaderboard"), orderBy("wpm", "desc"), limit(25));
+        const querySnapshot = await getDocs(q);
 
-      const tbody = document.getElementById('leaderboardRows');
-      tbody.innerHTML = '';
-
-      fullList.forEach((typist, idx) => {
-        const rankNum = idx + 1;
-        const tr = document.createElement('tr');
-        
-        if (typist.isUser) {
-          tr.className = 'bg-indigo-950/40 text-indigo-200 border-l-4 border-indigo-500';
-        } else {
-          tr.className = 'hover:bg-slate-800/40 transition';
+        if (querySnapshot.empty) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" class="text-center py-8 text-slate-400 font-sans">
+                <i class="fa-solid fa-medal text-amber-400 text-lg mb-2 block"></i>
+                No scores recorded yet! Complete a test to become the first on the board.
+              </td>
+            </tr>`;
+          return;
         }
 
-        tr.innerHTML = `
-          <td class="py-3.5 px-6 font-bold flex items-center gap-2">
-            ${rankNum === 1 ? '<i class="fa-solid fa-crown text-amber-400 text-sm"></i>' : `#${rankNum}`}
-          </td>
-          <td class="py-3.5 px-6 font-sans font-medium text-white flex items-center gap-2">
-            <span>${typist.country}</span> ${typist.name}
-          </td>
-          <td class="py-3.5 px-6 text-slate-400 font-sans text-xs">${typist.preset}</td>
-          <td class="py-3.5 px-6 text-right font-extrabold text-indigo-400 text-base">${typist.wpm}</td>
-          <td class="py-3.5 px-6 text-right text-emerald-400">${typist.acc}</td>
-          <td class="py-3.5 px-6 text-right">
-            <span class="px-2.5 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${
-              typist.badge === 'Grandmaster' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40' :
-              typist.badge === 'Master' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' :
-              'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40'
-            }">
-              ${typist.badge}
-            </span>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    });
+        tbody.innerHTML = "";
+        let rank = 1;
+        const currentUid = localStorage.getItem("tn_uid");
+
+        querySnapshot.forEach((docItem) => {
+          const row = docItem.data();
+          const isCurrentUser = (docItem.id === currentUid);
+
+          // Calculate Badges based on WPM
+          let badge = "Novice";
+          let badgeClass = "bg-slate-700/40 text-slate-300 border-slate-600/50";
+
+          if (row.wpm >= 100) {
+            badge = "Grandmaster";
+            badgeClass = "bg-purple-500/20 text-purple-300 border-purple-500/40";
+          } else if (row.wpm >= 80) {
+            badge = "Master";
+            badgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/40";
+          } else if (row.wpm >= 60) {
+            badge = "Professional";
+            badgeClass = "bg-indigo-500/20 text-indigo-300 border-indigo-500/40";
+          } else if (row.wpm >= 40) {
+            badge = "Intermediate";
+            badgeClass = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
+          }
+
+          const tr = document.createElement("tr");
+          tr.className = isCurrentUser 
+            ? "bg-indigo-950/40 text-indigo-200 border-l-4 border-indigo-500" 
+            : "hover:bg-slate-800/40 transition";
+
+          tr.innerHTML = `
+            <td class="py-3.5 px-6 font-bold flex items-center gap-2">
+              ${rank === 1 ? '<i class="fa-solid fa-crown text-amber-400 text-sm"></i>' : `#${rank}`}
+            </td>
+            <td class="py-3.5 px-6 font-sans font-medium text-white flex items-center gap-2.5">
+              ${row.photoURL 
+                ? `<img src="${row.photoURL}" class="w-6 h-6 rounded-full object-cover">` 
+                : `<span class="w-6 h-6 rounded-full bg-indigo-600 text-[10px] flex items-center justify-center font-bold">TN</span>`
+              }
+              <span>${row.name || "Anonymous Typist"}${isCurrentUser ? " (You)" : ""}</span>
+            </td>
+            <td class="py-3.5 px-6 text-slate-400 font-sans text-xs">${row.preset || "Classic Test"}</td>
+            <td class="py-3.5 px-6 text-right font-extrabold text-indigo-400 text-base">${row.wpm}</td>
+            <td class="py-3.5 px-6 text-right text-emerald-400">${row.accuracy}%</td>
+            <td class="py-3.5 px-6 text-right">
+              <span class="px-2.5 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider border ${badgeClass}">
+                ${badge}
+              </span>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+          rank++;
+        });
+
+      } catch (error) {
+        console.error("Error fetching leaderboard:", error);
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="text-center py-6 text-rose-400 font-sans text-xs">
+              Unable to load leaderboard. Please check Firestore security rules.
+            </td>
+          </tr>`;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", fetchLeaderboard);
   </script>
-  
-  <!-- Reusable Modular Scripts -->
+
+  <!-- Reusable Modular Layout Script -->
   <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
-  
+
 </body>
 </html>
