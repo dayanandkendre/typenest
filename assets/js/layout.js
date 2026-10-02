@@ -156,13 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isCurrentDark = document.documentElement.classList.contains("dark");
 
-  // 4. Header Component (Standard Height: h-16 mobile / h-20 desktop, No compression)
+  // Determine active states
+  const isLearnActive = currentPath.includes("learn") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
+
+  // 4. Header Component (Clean spacing, Certificates removed, Drills added)
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- Logo + Tagline -->
-      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group py-1 flex-shrink-0">
+      <a href="/index.html" class="flex items-center gap-2.5 sm:gap-3 group py-1 flex-shrink-0">
         <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
           <i class="fa-solid fa-keyboard text-white text-base sm:text-lg"></i>
         </div>
@@ -174,33 +177,30 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-sm font-medium">
-        <a href="index.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'index.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+      <!-- Desktop Nav (Balanced spacing) -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-xs sm:text-sm font-medium">
+        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
         </a>
-        <a href="learn.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'learn.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-graduation-cap text-xs"></i> Lessons
+        <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-gamepad text-xs"></i> Drills
         </a>
-        <a href="tests.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'tests.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/tests.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'tests.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-stopwatch text-xs"></i> Tests
         </a>
-        <a href="courses.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'courses.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/courses.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'courses.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-layer-group text-xs"></i> Courses
         </a>
-        <a href="leaderboard.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'leaderboard.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/leaderboard.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'leaderboard.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-trophy text-xs"></i> Leaderboard
         </a>
-        <a href="certificate.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'certificate.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-award text-xs"></i> Certificate
-        </a>
-        <a href="blog.html" class="px-3.5 py-2 rounded-xl transition flex items-center gap-2 ${currentPath === 'blog.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/blog.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'blog.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-newspaper text-xs"></i> Guides
         </a>
       </nav>
 
       <!-- Right Action Controls -->
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
         ${isTypingPage ? `
         <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
           <i id="soundIcon" class="fa-solid fa-volume-high text-sm"></i>
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </button>
 
         <!-- Desktop Login Button -->
-        <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/20">
+        <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/20">
           <span>👤</span>
           <span id="userNavText">Login</span>
         </button>
@@ -227,25 +227,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Mobile Slide-Down Menu -->
     <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-5 py-5 space-y-2 text-base shadow-2xl">
-      <a href="index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
       </a>
-      <a href="learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'learn.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
-        <i class="fa-solid fa-graduation-cap text-sm w-5"></i> Lessons Curriculum
+      <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-gamepad text-sm w-5"></i> Practice Drills
       </a>
-      <a href="tests.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'tests.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/tests.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'tests.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-stopwatch text-sm w-5"></i> Speed Tests
       </a>
-      <a href="courses.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'courses.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/courses.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'courses.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-layer-group text-sm w-5"></i> Typing Courses
       </a>
-      <a href="leaderboard.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'leaderboard.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/leaderboard.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'leaderboard.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-trophy text-sm w-5"></i> Leaderboard Ranks
       </a>
-      <a href="certificate.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'certificate.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/certificate.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'certificate.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-award text-sm w-5"></i> Verified Certificate
       </a>
-      <a href="blog.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'blog.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/blog.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'blog.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-newspaper text-sm w-5"></i> Typing Guides & Tips
       </a>
 
@@ -292,14 +292,14 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // 5. Professional Seamless Footer
+  // 5. Professional Seamless Footer (Keeps Certificate link intact)
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
         
         <div class="sm:col-span-2 space-y-4">
-          <a href="index.html" class="flex items-center gap-3">
+          <a href="/index.html" class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/25">
               <i class="fa-solid fa-keyboard text-white text-base"></i>
             </div>
@@ -322,33 +322,33 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
-            <li><a href="index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
-            <li><a href="tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
-            <li><a href="number-typing-practice.html" class="hover:text-indigo-400 transition">Number Row Practice</a></li>
-            <li><a href="punctuation-typing-practice.html" class="hover:text-indigo-400 transition">Punctuation Drills</a></li>
-            <li><a href="difficult-words-typing-practice.html" class="hover:text-indigo-400 transition">Difficult Words</a></li>
+            <li><a href="/index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
+            <li><a href="/learn/learn.html" class="hover:text-indigo-400 transition">20-Level Drills</a></li>
+            <li><a href="/tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
+            <li><a href="/number-typing-practice.html" class="hover:text-indigo-400 transition">Number Row Practice</a></li>
+            <li><a href="/difficult-words-typing-practice.html" class="hover:text-indigo-400 transition">Difficult Words</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Courses</h3>
           <ul class="space-y-2 font-medium">
-            <li><a href="courses.html" class="hover:text-indigo-400 transition">All Courses Hub</a></li>
-            <li><a href="beginner.html" class="hover:text-indigo-400 transition">Beginner Typing</a></li>
-            <li><a href="speed-building.html" class="hover:text-indigo-400 transition">Speed Building</a></li>
-            <li><a href="accuracy-mastery.html" class="hover:text-indigo-400 transition">Accuracy Mastery</a></li>
-            <li><a href="advanced-typing.html" class="hover:text-indigo-400 transition">Advanced Technical</a></li>
+            <li><a href="/courses.html" class="hover:text-indigo-400 transition">All Courses Hub</a></li>
+            <li><a href="/beginner.html" class="hover:text-indigo-400 transition">Beginner Typing</a></li>
+            <li><a href="/speed-building.html" class="hover:text-indigo-400 transition">Speed Building</a></li>
+            <li><a href="/accuracy-mastery.html" class="hover:text-indigo-400 transition">Accuracy Mastery</a></li>
+            <li><a href="/advanced-typing.html" class="hover:text-indigo-400 transition">Advanced Technical</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Support & Trust</h3>
           <ul class="space-y-2 font-medium">
-            <li><a href="certificate.html" class="hover:text-indigo-400 transition">Print Certificate</a></li>
-            <li><a href="leaderboard.html" class="hover:text-indigo-400 transition">Global Leaderboard</a></li>
-            <li><a href="blog.html" class="hover:text-indigo-400 transition">Guides & Tips</a></li>
-            <li><a href="privacy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
-            <li><a href="terms.html" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+            <li><a href="/certificate.html" class="hover:text-indigo-400 transition">Print Certificate</a></li>
+            <li><a href="/leaderboard.html" class="hover:text-indigo-400 transition">Global Leaderboard</a></li>
+            <li><a href="/blog.html" class="hover:text-indigo-400 transition">Guides & Tips</a></li>
+            <li><a href="/privacy.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-indigo-400 transition">Terms of Service</a></li>
           </ul>
         </div>
 
@@ -359,10 +359,10 @@ document.addEventListener("DOMContentLoaded", function () {
           © 2026 TypeNest Academy. Developed by <strong class="text-slate-300 font-semibold">Dayanand Dinkar Kendre</strong>. All rights reserved.
         </div>
         <div class="flex items-center justify-center gap-4 font-medium">
-          <a href="privacy.html" class="hover:text-slate-300 transition">Privacy</a>
-          <a href="terms.html" class="hover:text-slate-300 transition">Terms</a>
-          <a href="contact.html" class="hover:text-slate-300 transition">Contact & Support</a>
-          <a href="about.html" class="hover:text-slate-300 transition">about</a>
+          <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-300 transition">Terms</a>
+          <a href="/contact.html" class="hover:text-slate-300 transition">Contact & Support</a>
+          <a href="/about.html" class="hover:text-slate-300 transition">About</a>
         </div>
       </div>
     </div>
@@ -468,12 +468,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (loginBtn) {
         loginBtn.innerHTML = `${avatarHTML}<span>${displayName}</span>`;
-        loginBtn.onclick = () => window.location.href = "profile.html";
+        loginBtn.onclick = () => window.location.href = "/profile.html";
       }
 
       if (mobileLoginBtn) {
         mobileLoginBtn.innerHTML = `${avatarHTML}<span>${displayName}</span>`;
-        mobileLoginBtn.onclick = () => window.location.href = "profile.html";
+        mobileLoginBtn.onclick = () => window.location.href = "/profile.html";
       }
 
       localStorage.setItem("tn_username", displayName);
