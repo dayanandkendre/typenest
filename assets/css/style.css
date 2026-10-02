@@ -1,0 +1,42 @@
+/* Light Mode Active aslyavar automatically UI light/clean disnyasathi */
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html:not(.dark) header {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) header a,
+html:not(.dark) header button {
+  color: #0f172a !important;
+}
+
+html:not(.dark) #mobileNavMenu {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+html:not(.dark) #mobileNavMenu a {
+  color: #334155 !important;
+}
+
+/* Typing cards aani boxes sathi light background */
+html:not(.dark) .grid > div,
+html:not(.dark) [class*="bg-[#0f172a]"],
+html:not(.dark) [class*="bg-[#1e293b]"],
+html:not(.dark) [class*="bg-slate-900"],
+html:not(.dark) [class*="bg-slate-800"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+/* Typing text area */
+html:not(.dark) [class*="text-slate-400"],
+html:not(.dark) [class*="text-slate-300"] {
+  color: #64748b !important;
+}
