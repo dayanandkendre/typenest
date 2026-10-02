@@ -155,7 +155,7 @@
         </div>
       </div>
 
-      <!-- Mobile Desktop Recommended Card -->
+      <!-- Mobile Recommendation Notice -->
       <div class="block md:hidden bg-slate-900/90 border border-slate-800 rounded-3xl p-6 text-center space-y-4 shadow-xl">
         <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mx-auto border border-indigo-500/20">
           <i class="fa-solid fa-laptop"></i>
@@ -323,31 +323,80 @@
     updateHUD();
   });
 
-  // FIREBASE AUTO SAVE PROGRESS (History + Users stats update)
+  // FIREBASE AUTO SAVE PROGRESS (Leaderboard + Profile Sync)
   async function saveProgressToFirebase(finalWPM, finalAcc, totalTypedCount, errorCount) {
-    const uid = localStorage.getItem("userUID");
+    const uid = localStorage.getItem("tn_uid");
+    const username = localStorage.getItem("tn_username") || "Typist";
+    const photoURL = localStorage.getItem("tn_photo") || "";
+
+    // LocalStorage Backup
+    localStorage.setItem("tn_last_wpm", finalWPM);
+    localStorage.setItem("tn_last_acc", finalAcc);
+
     if (!uid) return;
 
     try {
-      const { collection, addDoc, doc, updateDoc, increment } = await import("https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js");
-      const { db } = await import("./firebase-config.js");
+      const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js");
+      const { getFirestore, doc, getDoc, setDoc, updateDoc, collection, addDoc, serverTimestamp } = 
+        await import("https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js");
 
-      // 1. Save in history collection (profile.js can read this)
-      await addDoc(collection(db, "history"), {
-        userId: uid,
-        wpm: finalWPM,
-        accuracy: finalAcc,
-        chars: totalTypedCount,
-        errors: errorCount,
-        date: new Date().toISOString()
-      });
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
+        authDomain: "typenext-5bd90.firebaseapp.com",
+        projectId: "typenext-5bd90",
+        storageBucket: "typenext-5bd90.firebasestorage.app",
+        messagingSenderId: "848488048236",
+        appId: "1:848488048236:web:a742a647977a48ca63da49",
+        measurementId: "G-B5WGZM350T"
+      };
 
-      // 2. Increment tests taken in users profile
+      const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+      const db = getFirestore(app);
+
+      // 1. Leaderboard Document Update
+      const leaderRef = doc(db, "leaderboard", uid);
+      const leaderSnap = await getDoc(leaderRef);
+      const prevWpm = leaderSnap.exists() ? (leaderSnap.data().wpm || 0) : 0;
+
+      if (finalWPM >= prevWpm) {
+        await setDoc(leaderRef, {
+          name: username,
+          wpm: finalWPM,
+          accuracy: finalAcc,
+          preset: durationSeconds > 0 ? `${durationSeconds / 60}m Sprint` : "Arena Challenge",
+          photoURL: photoURL,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+      }
+
+      // 2. User Aggregate Stats & History Log
       const userRef = doc(db, "users", uid);
-      await updateDoc(userRef, {
-        testsTaken: increment(1)
-      });
-      console.log("Progress saved to Firebase!");
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const uData = userSnap.data();
+        const tests = (uData.testsCompleted || 0) + 1;
+        const topWpm = Math.max(uData.topWpm || 0, finalWPM);
+        const prevAccSum = (uData.avgAcc || 100) * (uData.testsCompleted || 0);
+        const newAvgAcc = Math.round((prevAccSum + finalAcc) / tests);
+
+        await updateDoc(userRef, {
+          topWpm: topWpm,
+          avgAcc: newAvgAcc,
+          testsCompleted: tests,
+          lastActive: serverTimestamp()
+        });
+
+        // 3. User Recent Session Log
+        await addDoc(collection(db, "users", uid, "sessions"), {
+          wpm: finalWPM,
+          accuracy: finalAcc,
+          chars: totalTypedCount,
+          errors: errorCount,
+          preset: durationSeconds > 0 ? `${durationSeconds / 60}m Test` : "Arena Challenge",
+          createdAt: serverTimestamp()
+        });
+      }
     } catch (e) {
       console.error("Firebase save error:", e);
     }
