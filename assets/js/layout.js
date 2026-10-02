@@ -1,4 +1,4 @@
-// assets/js/layout.js - Complete Nav + Seamless Theme + Direct Google Firebase Auth
+// assets/js/layout.js - Instant Theme Execution (Zero White Flicker) + Nav + Firebase Auth
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { 
   getAuth, 
@@ -13,6 +13,18 @@ import {
   setDoc, 
   serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+// -------------------------------------------------------------
+// 1. INSTANT THEME RUN (DOMContentLoaded chya baher, bina delay)
+// -------------------------------------------------------------
+(function () {
+  const savedTheme = localStorage.getItem("tn_theme");
+  if (savedTheme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+})();
 
 // Firebase App Initialization
 const firebaseConfig = {
@@ -33,7 +45,7 @@ const googleProvider = new GoogleAuthProvider();
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-  // 1. Clean Theme Styling (Targeted overrides to prevent boxy footer & maintain neat look)
+  // 1. Clean Theme Styling
   if (!document.getElementById("tn-theme-overrides")) {
     const styleEl = document.createElement("style");
     styleEl.id = "tn-theme-overrides";
@@ -68,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #334155 !important;
       }
 
-      /* Dashboard / Typing Cards ONLY (Footer exclude kela ahe) */
+      /* Dashboard / Typing Cards ONLY */
       html:not(.dark) main div[class*="bg-[#0f172a]"],
       html:not(.dark) main div[class*="bg-[#1e293b]"],
       html:not(.dark) main div[class*="bg-slate-900"],
@@ -80,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #0f172a !important;
       }
 
-      /* SEAMLESS FOOTER (Boxy look fix) */
+      /* Seamless Footer */
       html:not(.dark) footer#siteFooter {
         background-color: #f8fafc !important;
         border-color: #e2e8f0 !important;
@@ -142,10 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  const savedTheme = localStorage.getItem("tn_theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const initialTheme = savedTheme ? savedTheme : (prefersDark ? "dark" : "dark");
-  applyTheme(initialTheme);
+  const isCurrentDark = document.documentElement.classList.contains("dark");
 
   // 4. Header Component (Standard Height: h-16 mobile / h-20 desktop, No compression)
   const navbarHTML = `
@@ -200,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <!-- Dark / Light Mode Button -->
         <button id="themeToggleBtn" title="Toggle Theme" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-indigo-500/50 text-slate-300 hover:text-white transition flex items-center justify-center shadow-sm flex-shrink-0">
-          <i id="themeIcon" class="fa-solid ${initialTheme === 'dark' ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-base"></i>
+          <i id="themeIcon" class="fa-solid ${isCurrentDark ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-base"></i>
         </button>
 
         <!-- Desktop Login Button -->
@@ -424,7 +433,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await signInWithPopup(auth, googleProvider);
         const user = result.user;
 
-        // Create user document in Firestore if not exists
         const userRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(userRef);
 
@@ -457,13 +465,11 @@ document.addEventListener("DOMContentLoaded", function () {
         ? `<img src="${user.photoURL}" class="w-5 h-5 rounded-full border border-indigo-300 object-cover">`
         : `<span>👤</span>`;
 
-      // Desktop Navbar Login -> User Profile Link
       if (loginBtn) {
         loginBtn.innerHTML = `${avatarHTML}<span>${displayName}</span>`;
         loginBtn.onclick = () => window.location.href = "profile.html";
       }
 
-      // Mobile Drawer Login -> User Profile Link
       if (mobileLoginBtn) {
         mobileLoginBtn.innerHTML = `${avatarHTML}<span>${displayName}</span>`;
         mobileLoginBtn.onclick = () => window.location.href = "profile.html";
@@ -473,7 +479,6 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("tn_uid", user.uid);
       if (user.photoURL) localStorage.setItem("tn_photo", user.photoURL);
     } else {
-      // User is logged out
       if (loginBtn) {
         loginBtn.innerHTML = `<span>👤</span><span id="userNavText">Login</span>`;
         loginBtn.onclick = openLoginModal;
