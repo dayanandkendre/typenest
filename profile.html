@@ -1,204 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile & Performance Stats | TypeNest</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Live Profile Data Handler -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    import { 
+      getFirestore, 
+      doc, 
+      getDoc, 
+      updateDoc, 
+      collection, 
+      query, 
+      orderBy, 
+      limit, 
+      getDocs 
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-  <style>
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
-  </style>
-</head>
-<body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
+      authDomain: "typenext-5bd90.firebaseapp.com",
+      projectId: "typenext-5bd90",
+      storageBucket: "typenext-5bd90.firebasestorage.app",
+      messagingSenderId: "848488048236",
+      appId: "1:848488048236:web:a742a647977a48ca63da49",
+      measurementId: "G-B5WGZM350T"
+    };
 
-  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  <!-- Main Profile Container -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    let currentUserId = null;
 
-    <!-- Profile Hero Card -->
-    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-      
-      <div class="flex items-center gap-5">
-        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-emerald-400 p-1 flex items-center justify-center shadow-lg shadow-indigo-600/30">
-          <div class="w-full h-full bg-[#0b0f19] rounded-[14px] flex items-center justify-center text-2xl font-extrabold text-white" id="profileBigAvatar">
-            AL
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center gap-3">
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="profileNameDisplay">Alex</h1>
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Active Typist</span>
-          </div>
-          <p class="text-xs text-slate-400 mt-1 flex items-center gap-2">
-            <span><i class="fa-solid fa-bolt text-indigo-400"></i> Level: <strong class="text-slate-200">Tier 1 Master</strong></span>
-            <span>•</span>
-            <span><i class="fa-solid fa-calendar-check text-amber-400"></i> 14 Day Streak</span>
-          </p>
-        </div>
-      </div>
+    // 1. Auth Listener: Check if user is logged in
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        currentUserId = user.uid;
+        loadProfileData(user);
+      } else {
+        // User login nasel tar login modal open kara
+        const loginModal = document.getElementById("loginModal");
+        if (loginModal) loginModal.classList.remove("hidden");
+      }
+    });
 
-      <!-- Quick Edit Name -->
-      <div class="flex items-center gap-2 bg-[#0b0f19] p-1.5 rounded-2xl border border-slate-800 w-full sm:w-auto">
-        <i class="fa-solid fa-user-pen text-indigo-400 text-xs pl-2"></i>
-        <input type="text" id="usernameInput" value="Alex" class="bg-transparent text-xs text-white px-2 py-1.5 focus:outline-none w-36 sm:w-44 font-semibold" placeholder="Display Name">
-        <button onclick="saveProfileName()" class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-md">
-          Save
-        </button>
-      </div>
+    // 2. Fetch User Stats & Sessions
+    async function loadProfileData(user) {
+      const userRef = doc(db, "users", user.uid);
+      const snap = await getDoc(userRef);
 
-    </div>
+      const nameDisplay = document.getElementById("profileNameDisplay");
+      const usernameInput = document.getElementById("usernameInput");
+      const avatarBox = document.getElementById("profileBigAvatar");
+      const statWPM = document.getElementById("statTopWPM");
+      const statAcc = document.getElementById("statAvgAcc");
 
-    <!-- 3 Big Metric Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-      
-      <!-- Top Speed Card -->
-      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Personal Best (WPM)</span>
-          <div id="statTopWPM" class="text-4xl font-extrabold text-indigo-400 font-mono">78</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">Standard 1m Sprint</span>
-        </div>
-        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl">
-          <i class="fa-solid fa-gauge-high"></i>
-        </div>
-      </div>
+      const displayName = (snap.exists() && snap.data().displayName) || user.displayName || "Typist";
+      const photoURL = (snap.exists() && snap.data().photoURL) || user.photoURL;
 
-      <!-- Accuracy Card -->
-      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Average Accuracy</span>
-          <div id="statAvgAcc" class="text-4xl font-extrabold text-emerald-400 font-mono">98%</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">Calculated over tests</span>
-        </div>
-        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl">
-          <i class="fa-solid fa-bullseye"></i>
-        </div>
-      </div>
+      if (nameDisplay) nameDisplay.innerText = displayName;
+      if (usernameInput) usernameInput.value = displayName;
 
-      <!-- Tests Taken Card -->
-      <div class="bg-[#111827]/70 border border-slate-800 rounded-3xl p-6 flex items-center justify-between shadow-xl">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">Tests Completed</span>
-          <div class="text-4xl font-extrabold text-amber-400 font-mono">42</div>
-          <span class="text-[11px] text-slate-500 mt-1 block">3.2 hours typing practice</span>
-        </div>
-        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl">
-          <i class="fa-solid fa-keyboard"></i>
-        </div>
-      </div>
+      // Set Avatar Image or Initials
+      if (avatarBox) {
+        if (photoURL) {
+          avatarBox.innerHTML = `<img src="${photoURL}" class="w-full h-full rounded-[14px] object-cover">`;
+        } else {
+          avatarBox.innerText = displayName.substring(0, 2).toUpperCase();
+        }
+      }
 
-    </div>
+      if (snap.exists()) {
+        const data = snap.data();
+        if (statWPM) statWPM.innerText = data.topWpm || 0;
+        if (statAcc) statAcc.innerText = `${data.avgAcc || 100}%`;
+      }
 
-    <!-- Certificate Badges & Milestone Rewards -->
-    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
-        <div>
-          <h2 class="text-lg font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-award text-amber-400"></i> Certificate Badges & Achievements
-          </h2>
-          <p class="text-xs text-slate-400 mt-0.5">Badges unlocked by speed tiers and verified tests.</p>
-        </div>
-        <a href="certificate.html" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5">
-          View Certificate &rarr;
-        </a>
-      </div>
+      // Load Recent Sessions Log
+      const sessionList = document.getElementById("sessionList");
+      if (sessionList) {
+        try {
+          const sessionsQuery = query(
+            collection(db, "users", user.uid, "sessions"),
+            orderBy("createdAt", "desc"),
+            limit(5)
+          );
+          const sessionsSnap = await getDocs(sessionsQuery);
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-amber-800/40 flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-amber-900/30 text-amber-400 flex items-center justify-center text-2xl">🥉</div>
-          <div>
-            <h3 class="text-sm font-bold text-slate-200">Bronze Typist</h3>
-            <span class="text-xs text-slate-500 font-mono">Completed 40+ WPM</span>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-700/60 flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl">🥈</div>
-          <div>
-            <h3 class="text-sm font-bold text-slate-200">Silver Competency</h3>
-            <span class="text-xs text-slate-500 font-mono">Completed 60+ WPM</span>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-yellow-600/40 flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-2xl">🥇</div>
-          <div>
-            <h3 class="text-sm font-bold text-slate-200">Gold Master</h3>
-            <span class="text-xs text-emerald-400 font-mono font-semibold">Active: 78+ WPM</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recent Session Activity Log -->
-    <div class="bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
-      <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-        <i class="fa-solid fa-clock-rotate-left text-indigo-400"></i> Recent Typing Sessions
-      </h2>
-      <div class="divide-y divide-slate-800/80 font-mono text-xs" id="sessionList">
-        <div class="py-3 flex items-center justify-between">
-          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>Today • 1-Minute Classic Test</span>
-          <span class="text-indigo-400 font-bold text-sm">78 WPM <span class="text-emerald-400 text-xs font-normal">(98% Accuracy)</span></span>
-        </div>
-        <div class="py-3 flex items-center justify-between">
-          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>Yesterday • Numbers & Symbols</span>
-          <span class="text-indigo-400 font-bold text-sm">65 WPM <span class="text-emerald-400 text-xs font-normal">(96% Accuracy)</span></span>
-        </div>
-        <div class="py-3 flex items-center justify-between">
-          <span class="text-slate-400"><i class="fa-regular fa-calendar mr-2"></i>2 days ago • Advanced Prose</span>
-          <span class="text-indigo-400 font-bold text-sm">71 WPM <span class="text-emerald-400 text-xs font-normal">(99% Accuracy)</span></span>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <script>
-    function saveProfileName() {
-      const name = document.getElementById('usernameInput').value.trim() || 'Alex';
-      localStorage.setItem('tn_username', name);
-
-      document.getElementById('profileNameDisplay').innerText = name;
-      document.getElementById('navUserLabel').innerText = name;
-      
-      const initials = name.substring(0, 2).toUpperCase();
-      document.getElementById('profileBigAvatar').innerText = initials;
-      document.getElementById('navAvatar').innerText = initials;
+          if (!sessionsSnap.empty) {
+            sessionList.innerHTML = "";
+            sessionsSnap.forEach((docItem) => {
+              const s = docItem.data();
+              const div = document.createElement("div");
+              div.className = "py-3 flex items-center justify-between";
+              div.innerHTML = `
+                <span class="text-slate-400"><i class="fa-regular fa-clock mr-2"></i>${s.preset || "Classic Test"}</span>
+                <span class="text-indigo-400 font-bold text-sm">${s.wpm} WPM <span class="text-emerald-400 text-xs font-normal">(${s.accuracy}% Acc)</span></span>
+              `;
+              sessionList.appendChild(div);
+            });
+          }
+        } catch (e) {
+          console.warn("Sessions history not found or empty yet.");
+        }
+      }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedName = localStorage.getItem('tn_username') || 'Alex';
-      document.getElementById('usernameInput').value = savedName;
-      document.getElementById('profileNameDisplay').innerText = savedName;
-      document.getElementById('navUserLabel').innerText = savedName;
+    // 3. Save Edited Profile Name to Firestore
+    window.saveProfileName = async function () {
+      const newName = document.getElementById("usernameInput").value.trim();
+      if (!newName || !currentUserId) return;
 
-      const initials = savedName.substring(0, 2).toUpperCase();
-      document.getElementById('profileBigAvatar').innerText = initials;
-      document.getElementById('navAvatar').innerText = initials;
+      try {
+        const userRef = doc(db, "users", currentUserId);
+        await updateDoc(userRef, { displayName: newName });
 
-      const savedWPM = localStorage.getItem('tn_last_wpm');
-      const savedAcc = localStorage.getItem('tn_last_acc');
-
-      if (savedWPM) document.getElementById('statTopWPM').innerText = savedWPM;
-      if (savedAcc) document.getElementById('statAvgAcc').innerText = `${savedAcc}%`;
-    });
+        document.getElementById("profileNameDisplay").innerText = newName;
+        localStorage.setItem("tn_username", newName);
+        alert("Name updated successfully!");
+      } catch (err) {
+        console.error("Error updating name:", err);
+      }
+    };
   </script>
-  
-  <!-- Reusable Modular Scripts -->
+
+  <!-- Reusable Scripts -->
   <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
-  
-</body>
-</html>
