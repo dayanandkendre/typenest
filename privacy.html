@@ -3,18 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Immediate Anti-FOUC Theme Check (Zero White Flicker) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('tn_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <title>Privacy Policy | TypeNest Academy</title>
-  <meta name="description" content="TypeNest Academy Privacy Policy: Information on cookies, Google AdSense compliance, data retention, and user privacy rights.">
+  <meta name="description" content="TypeNest Academy Privacy Policy: Information on cookies, Google AdSense compliance, data retention, DPDP Act 2023 alignment, and user privacy rights.">
+  <meta name="keywords" content="typenest privacy policy, adsense cookies, dpdp compliance, data protection typenest">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://typenest.in/privacy.html">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/privacy.html">
+  <meta property="og:title" content="Privacy Policy | TypeNest Academy">
+  <meta property="og:description" content="Transparent disclosures regarding third-party cookies, Google AdSense, authentication, and data rights on TypeNest.">
+  <meta property="og:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header is automatically injected by layout.js -->
 
   <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
     
     <div class="border-b border-slate-800 pb-5">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Privacy Policy</h1>
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        Legal &amp; Compliance Transparency
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">Privacy Policy</h1>
       <p class="text-slate-400 text-xs sm:text-sm mt-1">Last Updated: October 2, 2026 • Effective Date: October 2, 2026</p>
     </div>
 
@@ -22,59 +68,78 @@
       
       <section class="space-y-2">
         <h2 class="text-lg font-bold text-white">1. Introduction</h2>
-        <p>TypeNest Academy ("TypeNest", "we", "our", or "us"), accessible via <a href="https://typenest.in" class="text-indigo-400 underline">https://typenest.in</a>, respects your privacy. This policy outlines how we handle personal data, cookies, authentication records, and user preferences when you interact with our typing practice arena and informational guides.</p>
+        <p>TypeNest Academy ("TypeNest", "we", "our", or "us"), operating via <a href="https://typenest.in" class="text-indigo-400 underline font-medium">https://typenest.in</a>, respects user privacy. This policy details how we process user data, local storage preferences, third-party advertising cookies, and authentication records when you access our interactive typing arena, curriculum courses, and educational guides.</p>
       </section>
 
       <section class="space-y-2">
         <h2 class="text-lg font-bold text-white">2. Information We Collect</h2>
-        <p>We only collect data strictly necessary to deliver typing performance tracking:</p>
-        <ul class="list-disc pl-5 space-y-1 text-slate-400">
-          <li><strong class="text-slate-200">Account Credentials:</strong> When you sign in using Google Sign-In, we receive your name, email address, and profile photo via Google Firebase Authentication. We do not receive or store your Google passwords.</li>
-          <li><strong class="text-slate-200">Typing Performance Metrics:</strong> We store test duration, Gross WPM, Net WPM, accuracy percentage, and test dates to render your profile statistics and public leaderboard rankings.</li>
-          <li><strong class="text-slate-200">Local Browser Storage:</strong> Settings such as selected theme (Dark/Light mode) and sound preferences are stored locally in your browser's LocalStorage.</li>
-        </ul>
-      </section>
-
-      <!-- Google AdSense Mandatory Clause -->
-      <section class="space-y-3 bg-[#111827]/80 border border-slate-800 rounded-2xl p-5">
-        <h2 class="text-lg font-bold text-white">3. Third-Party Advertising & Google AdSense Cookies</h2>
-        <p>We may display advertisements served by Google AdSense and affiliated third-party ad networks:</p>
+        <p>TypeNest operates on a principle of minimal data collection. We only gather information strictly required to maintain performance statistics and authentication:</p>
         <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
-          <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites on the internet.</li>
-          <li>Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to TypeNest and/or other sites on the Internet.</li>
-          <li>Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">Google Ads Settings</a>.</li>
-          <li>Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline">www.aboutads.info</a>.</li>
+          <li><strong class="text-slate-200">Authentication Information:</strong> When signing in through Google Sign-In, we receive basic profile parameters (display name, email address, and profile photo) managed by Google Firebase Authentication. We never access, handle, or store user account passwords.</li>
+          <li><strong class="text-slate-200">Typing Performance Records:</strong> For authenticated typists, we log session metrics including Gross Words Per Minute (WPM), Net WPM, accuracy percentages, test durations, and timestamps to calculate personal profile progression and community leaderboard rankings.</li>
+          <li><strong class="text-slate-200">Browser LocalStorage:</strong> Interface preferences such as visual themes (Dark/Light mode), keystroke audio feedback states, and offline drill progress are maintained locally within your browser.</li>
+        </ul>
+      </section>
+
+      <!-- Google AdSense Mandatory Compliance Disclosure -->
+      <section class="space-y-3 bg-[#111827]/80 border border-slate-800 rounded-2xl p-5 shadow-lg">
+        <h2 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-cookie-bite text-indigo-400"></i>
+          <span>3. Third-Party Advertising &amp; Google AdSense Cookies</span>
+        </h2>
+        <p>We may display advertisements provided by Google AdSense and accredited third-party advertising partners across our editorial and guide pages:</p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-400">
+          <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other sites across the internet.</li>
+          <li>Google's use of advertising cookies enables it and its network partners to deliver relevant advertisements to our visitors based on their browsing behavior on TypeNest and other web properties.</li>
+          <li>Users can opt out of personalized ad targeting at any time by configuring their preferences in <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline font-medium">Google Ads Settings</a>.</li>
+          <li>Alternatively, visitors can opt out of third-party vendor tracking cookies for interest-based advertising by visiting the Digital Advertising Alliance at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 underline font-medium">www.aboutads.info</a>.</li>
         </ul>
       </section>
 
       <section class="space-y-2">
-        <h2 class="text-lg font-bold text-white">4. Data Storage & Security (Firebase)</h2>
-        <p>All authenticated user data and leaderboard rankings are secured using Google Cloud Firestore infrastructure located in compliant enterprise data centers. We implement strict Firestore Security Rules preventing unauthorized modifications.</p>
+        <h2 class="text-lg font-bold text-white">4. Cloud Storage &amp; Infrastructure Security</h2>
+        <p>User profile statistics and authenticated sessions are maintained using Google Cloud Firestore database infrastructure. Data is protected using strict server-side Firestore Security Rules to prevent unauthorized read/write access.</p>
       </section>
 
+      <!-- Children's Privacy (Issue #6 Precision Fix) -->
+      <section class="space-y-2 bg-[#111827]/50 border border-slate-800 rounded-2xl p-5">
+        <h2 class="text-lg font-bold text-white">5. Children's Privacy &amp; Advertising Restrictions</h2>
+        <p>TypeNest Academy is an educational keyboarding platform designed for general audiences, students, and competitive test candidates. We observe strict advertising protections:</p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+          <li>We do not knowingly direct commercial advertising personalization toward children under 13 years of age in accordance with Google Publisher policies and international standards.</li>
+          <li>Where Indian data protection requirements concerning minors apply under the Digital Personal Data Protection (DPDP) Act, personal data of individuals recognized as children is handled strictly in adherence to statutory parental consent and data protection mandates.</li>
+          <li>If a parent or guardian becomes aware that personal credentials have been submitted without appropriate authorization, they may reach out to our contact desk to initiate immediate deletion.</li>
+        </ul>
+      </section>
+
+      <!-- Indian DPDP Act 2023 Alignment -->
       <section class="space-y-2">
-        <h2 class="text-lg font-bold text-white">5. Children's Privacy</h2>
-        <p>TypeNest does not knowingly collect identifiable personal information from children under the age of 13. If you believe your child has submitted personal details through Google login without consent, please contact us immediately to have the record deleted from our database.</p>
+        <h2 class="text-lg font-bold text-white">6. Data Subject Rights (DPDP Act 2023 Alignment)</h2>
+        <p>In accordance with the Digital Personal Data Protection Act, 2023 (India) and international privacy frameworks, users maintain full control over their personal data:</p>
+        <ul class="list-disc pl-5 space-y-1.5 text-slate-400">
+          <li><strong class="text-slate-200">Right of Access &amp; Summary:</strong> You can review your historical speed test sessions on your user profile dashboard at any time.</li>
+          <li><strong class="text-slate-200">Right to Rectification:</strong> You may request corrections to incorrect profile metadata.</li>
+          <li><strong class="text-slate-200">Right to Complete Erasure:</strong> You have the right to request the permanent deletion of your account, leaderboard entries, and stored practice metrics by contacting us.</li>
+        </ul>
       </section>
 
-      <section class="space-y-2">
-        <h2 class="text-lg font-bold text-white">6. Compliance with Indian DPDP Act & Global Regulations</h2>
-        <p>In accordance with India's Digital Personal Data Protection (DPDP) Act 2023 and applicable privacy standards, users retain the right to access, rectify, or request complete erasure of their stored profile data and test history by contacting our support desk.</p>
-      </section>
-
-      <section class="space-y-2 border-t border-slate-800 pt-4">
-        <h2 class="text-lg font-bold text-white">7. Contact Information</h2>
-        <p>If you have any questions regarding this Privacy Policy or wish to delete your stored profile data, contact:</p>
-        <p class="text-slate-400 font-mono text-xs">
-          Email: typenest.in@gmail.com<br>
-          Address: Pune, Maharashtra, India
-        </p>
+      <!-- Standardized Identity & Contact Info -->
+      <section class="space-y-2 border-t border-slate-800 pt-5">
+        <h2 class="text-lg font-bold text-white">7. Governance &amp; Contact Desk</h2>
+        <p>For inquiries regarding privacy disclosures, data deletion requests, or technical clarifications, contact the site administrator:</p>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1 text-slate-400 font-mono text-xs">
+          <p><strong class="text-slate-200">Platform Operator:</strong> Dayanand Dinkar Kendre</p>
+          <p><strong class="text-slate-200">Entity:</strong> TypeNest Academy</p>
+          <p><strong class="text-slate-200">Operational Base:</strong> Pune, Maharashtra, India</p>
+          <p><strong class="text-slate-200">Direct Inquiries:</strong> <a href="mailto:typenest.in@gmail.com" class="text-indigo-400 hover:underline">typenest.in@gmail.com</a></p>
+        </div>
       </section>
 
     </div>
 
   </main>
 
+  <!-- Reusable Modular Navbar & Footer Script -->
   <script type="module" src="assets/js/layout.js"></script>
 </body>
 </html>
