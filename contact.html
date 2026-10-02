@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO Title, Description & Keywords -->
+  <!-- SEO Title, Description & Robots -->
   <title>Contact Us | TypeNest Academy</title>
   <meta name="description" content="Get in touch with TypeNest Academy. Send your feedback, business inquiries, or typing support questions directly to our team in Pune, Maharashtra.">
-  <meta name="keywords" content="contact typenest, typenest support, typing feedback, dayanand dinkar kendre">
+  <meta name="keywords" content="contact typenest, typenest support, typing feedback, dayanand kendre">
   <meta name="robots" content="index, follow">
 
-  <!-- CRITICAL: Canonical URL -->
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://typenest.in/contact.html">
 
   <!-- Open Graph Meta Tags -->
@@ -41,18 +41,6 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-  
-
-      <!-- Profile Link -->
-      <div class="flex items-center gap-3">
-        <a href="profile.html" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm font-medium hover:border-slate-700 transition">
-          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-500 to-emerald-400 text-slate-950 font-extrabold text-[10px] flex items-center justify-center">TN</div>
-          <span class="hidden sm:inline">Profile</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
 
@@ -65,7 +53,7 @@
         Connect With <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400">TypeNest Team</span>
       </h1>
       <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-        Aapan typing tools, bug reports, feature suggestions kinva licensing sandarbhat amchyashi sahaj sampark sadhu shakta.
+        Have questions about our typing curriculum, found a bug in the testing arena, or want to share feedback? We would love to hear from you.
       </p>
     </div>
 
@@ -82,8 +70,8 @@
           </div>
           <div>
             <span class="text-[11px] uppercase tracking-wider text-slate-500 font-bold block">Developer & Founder</span>
-            <h3 class="text-base font-bold text-white mt-0.5">Dayanand Dinkar Kendre</h3>
-            <p class="text-xs text-slate-400 mt-1">Full-Stack Lead & Platform Administrator</p>
+            <h3 class="text-base font-bold text-white mt-0.5">Dayanand Kendre</h3>
+            <p class="text-xs text-slate-400 mt-1">Lead Developer & Platform Administrator</p>
           </div>
         </div>
 
@@ -93,11 +81,11 @@
             <i class="fa-solid fa-envelope"></i>
           </div>
           <div class="overflow-hidden">
-            <span class="text-[11px] uppercase tracking-wider text-slate-500 font-bold block">Direct Email</span>
-            <a href="mailto:dayanandkendre10@gmail.com" class="text-sm font-bold text-white hover:text-emerald-400 transition break-all mt-0.5 block">
-              dayanandkendre10@gmail.com
+            <span class="text-[11px] uppercase tracking-wider text-slate-500 font-bold block">Official Inquiries</span>
+            <a href="mailto:typenest.in@gmail.com" class="text-sm font-bold text-white hover:text-emerald-400 transition break-all mt-0.5 block">
+              typenest.in@gmail.com
             </a>
-            <p class="text-xs text-slate-400 mt-1">24-48 tasat reply dila jail.</p>
+            <p class="text-xs text-slate-400 mt-1">Typical response within 24–48 business hours.</p>
           </div>
         </div>
 
@@ -107,9 +95,9 @@
             <i class="fa-solid fa-location-dot"></i>
           </div>
           <div>
-            <span class="text-[11px] uppercase tracking-wider text-slate-500 font-bold block">Location</span>
+            <span class="text-[11px] uppercase tracking-wider text-slate-500 font-bold block">HQ Location</span>
             <h3 class="text-sm font-bold text-white mt-0.5">Moshi, Taluka Khed</h3>
-            <p class="text-xs text-slate-400 mt-0.5">District Pune, Maharashtra, India</p>
+            <p class="text-xs text-slate-400 mt-0.5">Pune, Maharashtra, India - 412105</p>
           </div>
         </div>
 
@@ -119,42 +107,43 @@
       <div class="lg:col-span-2 bg-[#111827]/80 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
         <div>
           <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-            <i class="fa-solid fa-paper-plane text-indigo-400 text-lg"></i> Send Us a Message
+            <i class="fa-solid fa-paper-plane text-indigo-400 text-lg"></i> Send Us a Direct Message
           </h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">Kahi adchan aslyas kinva feedback denyasaathi khali dilela form bhara.</p>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Fill out the fields below. Messages are saved securely and delivered straight to our team.</p>
         </div>
 
-        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+        <form id="contactForm" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Full Name</label>
-              <input type="text" required placeholder="John Doe" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
+              <input type="text" id="senderName" required placeholder="John Doe" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Email Address</label>
-              <input type="email" required placeholder="you@example.com" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
+              <input type="email" id="senderEmail" required placeholder="you@example.com" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
             </div>
           </div>
 
           <div>
             <label class="block text-xs font-semibold text-slate-400 mb-1.5">Subject</label>
-            <input type="text" required placeholder="Feedback on Speed Tests / Bug Report" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
+            <input type="text" id="msgSubject" required placeholder="Feedback on Speed Tests / Exam Drills / Bug Report" class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition">
           </div>
 
           <div>
             <label class="block text-xs font-semibold text-slate-400 mb-1.5">Your Message</label>
-            <textarea rows="5" required placeholder="Type your message here..." class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition resize-none"></textarea>
+            <textarea id="msgBody" rows="5" required placeholder="Type your detailed thoughts or questions here..." class="w-full bg-[#0b0f19] border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/80 transition resize-none"></textarea>
           </div>
 
-          <div class="pt-2">
+          <div class="pt-2 flex items-center gap-4">
             <button type="submit" id="submitBtn" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30">
               <i class="fa-solid fa-paper-plane"></i> Send Message
             </button>
+            <span id="formStatusNotice" class="text-xs text-slate-400 hidden"></span>
           </div>
         </form>
 
         <div id="formSuccessMessage" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm">
-          <i class="fa-solid fa-circle-check mr-2"></i> Dhanyawad! Tumcha sandesh yashasvipane pathavla gela ahe. Amhi lavkarach uttar deu.
+          <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been securely submitted to TypeNest. We will get back to you shortly.
         </div>
       </div>
 
@@ -162,25 +151,74 @@
 
   </main>
 
-  <!-- Form Submit Handler Script -->
-  <script>
-    function handleContactSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-      btn.disabled = true;
+  <!-- Firebase Message Dispatch Script -->
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent!';
-        document.getElementById('formSuccessMessage').classList.remove('hidden');
-        e.target.reset();
-      }, 1000);
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
+      authDomain: "typenext-5bd90.firebaseapp.com",
+      projectId: "typenext-5bd90",
+      storageBucket: "typenext-5bd90.firebasestorage.app",
+      messagingSenderId: "848488048236",
+      appId: "1:848488048236:web:a742a647977a48ca63da49",
+      measurementId: "G-B5WGZM350T"
+    };
+
+    const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+    const db = getFirestore(app);
+
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("submitBtn");
+    const successMsg = document.getElementById("formSuccessMessage");
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("senderName").value.trim();
+        const email = document.getElementById("senderEmail").value.trim();
+        const subject = document.getElementById("msgSubject").value.trim();
+        const message = document.getElementById("msgBody").value.trim();
+
+        if (!name || !email || !message) return;
+
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+        btn.disabled = true;
+
+        try {
+          // Direct save to Firestore 'messages' collection
+          await addDoc(collection(db, "messages"), {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+            submittedAt: serverTimestamp(),
+            platform: "TypeNest Academy Contact Portal"
+          });
+
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully';
+          successMsg.classList.remove("hidden");
+          form.reset();
+
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+            btn.disabled = false;
+          }, 3500);
+
+        } catch (error) {
+          console.error("Firestore message write error:", error);
+          btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Error Sending';
+          btn.disabled = false;
+          alert("Unable to send message right now. Please try reaching us directly at typenest.in@gmail.com.");
+        }
+      });
     }
   </script>
-  
-  <!-- Reusable Modular Scripts -->
+
+  <!-- Reusable Modular Header & Footer Layout Script -->
   <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
-  
+
 </body>
 </html>
