@@ -1,8 +1,8 @@
-// assets/js/layout.js - Clean Nav + Mobile Optimized + Seamless Light/Dark Footer & Dashboard
+// assets/js/layout.js - Clean Nav + Standard Mobile Height + Seamless Light/Dark UI
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
 
-  // 1. Clean Theme Styling (Targeted overrides to prevent boxy footer)
+  // 1. Clean Theme Styling (Targeted overrides to prevent boxy footer & maintain neat look)
   if (!document.getElementById("tn-theme-overrides")) {
     const styleEl = document.createElement("style");
     styleEl.id = "tn-theme-overrides";
@@ -106,8 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const themeIcon = document.getElementById("themeIcon");
     if (themeIcon) {
       themeIcon.className = isDark 
-        ? "fa-solid fa-sun text-amber-400 text-lg" 
-        : "fa-solid fa-moon text-indigo-400 text-lg";
+        ? "fa-solid fa-sun text-amber-400 text-base" 
+        : "fa-solid fa-moon text-indigo-400 text-base";
     }
   };
 
@@ -116,22 +116,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const initialTheme = savedTheme ? savedTheme : (prefersDark ? "dark" : "dark");
   applyTheme(initialTheme);
 
-  // 4. Header Component
+  // 4. Header Component (Standard Height: h-16 mobile / h-20 desktop, No compression)
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- Logo + Tagline -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform flex-shrink-0">
-          <i class="fa-solid fa-keyboard text-white text-lg sm:text-xl"></i>
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group py-1 flex-shrink-0">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-sky-400 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+          <i class="fa-solid fa-keyboard text-white text-base sm:text-lg"></i>
         </div>
-        <div class="flex flex-col justify-center">
-          <span class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-            TypeNest 
-            <span class="hidden sm:inline-flex text-[11px] px-2.5 py-0.5 rounded-full font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">ACADEMY</span>
+        <div class="flex items-center gap-2">
+          <span class="text-xl sm:text-2xl font-bold tracking-tight text-white leading-none">
+            TypeNest
           </span>
-          <p class="hidden sm:block text-[11px] text-slate-400 font-medium tracking-wide">Touch Typing, Drills & Certification</p>
+          <span class="hidden sm:inline-flex text-[10px] px-2 py-0.5 rounded-full font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">ACADEMY</span>
         </div>
       </a>
 
@@ -161,27 +160,27 @@ document.addEventListener("DOMContentLoaded", function () {
       </nav>
 
       <!-- Right Action Controls -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
         ${isTypingPage ? `
-        <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-11 h-11 rounded-2xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
-          <i id="soundIcon" class="fa-solid fa-volume-high text-base"></i>
+        <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
+          <i id="soundIcon" class="fa-solid fa-volume-high text-sm"></i>
         </button>
         ` : ''}
 
         <!-- Dark / Light Mode Button -->
-        <button id="themeToggleBtn" title="Toggle Theme" class="w-11 h-11 rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-indigo-500/50 text-slate-300 hover:text-white transition flex items-center justify-center shadow-sm">
-          <i id="themeIcon" class="fa-solid ${initialTheme === 'dark' ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-lg"></i>
+        <button id="themeToggleBtn" title="Toggle Theme" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-indigo-500/50 text-slate-300 hover:text-white transition flex items-center justify-center shadow-sm flex-shrink-0">
+          <i id="themeIcon" class="fa-solid ${initialTheme === 'dark' ? 'fa-sun text-amber-400' : 'fa-moon text-indigo-400'} text-base"></i>
         </button>
 
-        <!-- Desktop Login -->
-        <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/20">
+        <!-- Desktop Login Button -->
+        <button id="loginBtn" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow-md shadow-indigo-600/20">
           <span>👤</span>
           <span id="userNavText">Login</span>
         </button>
 
-        <!-- Hamburger Icon Button -->
-        <button id="mobileMenuToggle" class="md:hidden w-11 h-11 rounded-2xl bg-slate-800/90 border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-700 transition flex items-center justify-center shadow-sm">
-          <i class="fa-solid fa-bars text-xl"></i>
+        <!-- Mobile Hamburger Button -->
+        <button id="mobileMenuToggle" class="md:hidden w-10 h-10 rounded-xl bg-slate-800/90 border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-700 transition flex items-center justify-center shadow-sm flex-shrink-0">
+          <i class="fa-solid fa-bars text-lg"></i>
         </button>
       </div>
     </div>
@@ -252,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // 5. Professional Seamless Footer
+  // 5. Professional Seamless Footer (Mobile Single Column)
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10">
