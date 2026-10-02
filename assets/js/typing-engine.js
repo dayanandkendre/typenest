@@ -252,7 +252,6 @@
 
   // Keydown Engine with Audio Resume Guarantee
   window.addEventListener('keydown', function (e) {
-    // Key dabtaach audio context resume kara
     initAudio();
 
     if (e.key === 'Tab' || e.key === 'Alt' || e.key === 'Control' || e.key === 'Meta') return;
@@ -435,7 +434,7 @@
     });
   }
 
-  // Ultra-Premium Results Modal Component
+  // Results Modal Component with Precise Non-Misleading Certificate Language
   function injectResultsModal() {
     const modalHTML = `
     <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
@@ -501,8 +500,9 @@
               <i class="fa-solid fa-trophy text-amber-400"></i> Board
             </a>
           </div>
+          <!-- Neutral Non-Misleading Certificate Action -->
           <a href="certificate.html" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition flex items-center justify-center gap-2">
-            <i class="fa-solid fa-award text-amber-400"></i> View Verified Certificate &rarr;
+            <i class="fa-solid fa-award text-amber-400"></i> View TypeNest Certificate &rarr;
           </a>
         </div>
 
@@ -561,7 +561,6 @@
     injectAdaptiveKeyboard();
     injectResultsModal();
 
-    // Screen var kuthehi touch/click/key kelyaas lagech audio unlock kara
     window.addEventListener('click', initAudio, { once: true });
     window.addEventListener('touchstart', initAudio, { once: true });
     window.addEventListener('keydown', initAudio, { once: true });
