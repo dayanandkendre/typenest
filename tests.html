@@ -34,8 +34,6 @@
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
- 
-
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
@@ -129,61 +127,108 @@
         <i class="fa-solid fa-graduation-cap text-emerald-400 text-2xl mb-3"></i>
         <h3 class="text-base font-bold text-white">Structured Drills</h3>
         <p class="text-xs text-slate-400 mt-1">Struggling with accuracy? Master the home row and top row fingers in our curriculum.</p>
-        <a href="learn/learn.html" class="inline-block text-xs font-semibold text-indigo-400 hover:underline mt-3">Go to Lessons &rarr;</a>
+        <a href="learn.html" class="inline-block text-xs font-semibold text-indigo-400 hover:underline mt-3">Go to Lessons &rarr;</a>
       </div>
     </div>
 
   </main>
 
-  <!-- Results Modal -->
-  <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-[#111827] border border-slate-800 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl">
-      <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-indigo-500/30">
-        <i class="fa-solid fa-trophy"></i>
-      </div>
-      <h3 class="text-2xl font-bold text-white mb-1">Test Completed!</h3>
-      <p class="text-slate-400 text-xs">Official test score recorded successfully:</p>
-
-      <div class="grid grid-cols-2 gap-3 my-5">
-        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800">
-          <span class="text-xs uppercase text-slate-400 font-bold">Speed</span>
-          <div id="resWPM" class="text-3xl font-extrabold text-indigo-400 font-mono mt-1">0 <span class="text-xs font-normal">WPM</span></div>
+  <!-- Ultra-Premium Results Modal -->
+  <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-gradient-to-b from-[#111827] to-[#0b0f19] border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      
+      <!-- Header & Tier Badge -->
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800/80">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl border border-indigo-500/30">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white tracking-tight">Performance Summary</h3>
+            <p class="text-slate-400 text-xs">Standard Speed & Accuracy Breakdown</p>
+          </div>
         </div>
-        <div class="p-4 rounded-2xl bg-[#0b0f19] border border-slate-800">
-          <span class="text-xs uppercase text-slate-400 font-bold">Accuracy</span>
-          <div id="resAcc" class="text-3xl font-extrabold text-emerald-400 font-mono mt-1">0%</div>
+        <span id="modalTierBadge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border">
+          Novice
+        </span>
+      </div>
+
+      <!-- Hero Stats (WPM & Accuracy) -->
+      <div class="grid grid-cols-2 gap-3.5 my-5">
+        <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 text-center relative overflow-hidden">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Net Speed (WPM)</span>
+          <div id="modalWPM" class="text-4xl font-black text-indigo-400 font-mono mt-1">0</div>
+          <span class="text-[10px] text-slate-500">Gross: <span id="modalGrossWPM" class="text-slate-300">0</span></span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 text-center relative overflow-hidden">
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Accuracy</span>
+          <div id="modalAccuracy" class="text-4xl font-black text-emerald-400 font-mono mt-1">0%</div>
+          <span class="text-[10px] text-slate-500">Errors: <span id="modalErrors" class="text-rose-400 font-semibold">0</span></span>
         </div>
       </div>
 
-      <div class="flex gap-2">
-        <a href="certificate.html" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-indigo-600/30">
-          <i class="fa-solid fa-award"></i> Certificate
+      <!-- Sub-Metrics Grid -->
+      <div class="grid grid-cols-4 gap-2 mb-6 text-center">
+        <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <span class="text-[10px] text-slate-400 block font-medium">Characters</span>
+          <span id="modalChars" class="text-sm font-bold text-white font-mono">0</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <span class="text-[10px] text-slate-400 block font-medium">Correct</span>
+          <span id="modalCorrectChars" class="text-sm font-bold text-emerald-400 font-mono">0</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <span class="text-[10px] text-slate-400 block font-medium">Time</span>
+          <span id="modalTime" class="text-sm font-bold text-slate-300 font-mono">60s</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <span class="text-[10px] text-slate-400 block font-medium">Rating</span>
+          <span id="modalRating" class="text-sm font-bold text-amber-400 font-mono">★★☆☆☆</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="space-y-2.5">
+        <div class="flex gap-2.5">
+          <button onclick="resetTest(); closeResultsModal();" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25">
+            <i class="fa-solid fa-rotate-right"></i> Try Again (Esc)
+          </button>
+          <a href="leaderboard.html" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-trophy text-amber-400"></i> Board
+          </a>
+        </div>
+        <a href="certificate.html" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-award text-amber-400"></i> View Verified Certificate &rarr;
         </a>
-        <button onclick="resetTest(); document.getElementById('resultsModal').classList.add('hidden');" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition">
-          Retake Test
-        </button>
       </div>
+
     </div>
   </div>
 
-  <!-- Engine Script -->
-  <script>
+  <!-- Dedicated Tested Engine Script -->
+  <script type="module">
     let audioCtx = null;
     let isSoundEnabled = true;
 
     function initAudio() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
     }
 
     function playKeyClickSound() {
       if (!isSoundEnabled) return;
       initAudio();
+      if (!audioCtx) return;
       try {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(450 + Math.random() * 80, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
@@ -195,24 +240,28 @@
     function playErrorSound() {
       if (!isSoundEnabled) return;
       initAudio();
+      if (!audioCtx) return;
       try {
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(140, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.07, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.12);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start();
-        osc.stop(audioCtx.currentTime + 0.1);
+        osc.stop(audioCtx.currentTime + 0.12);
       } catch (e) {}
     }
 
-    function toggleSound() {
+    window.toggleSound = function () {
       isSoundEnabled = !isSoundEnabled;
-      document.getElementById('soundIcon').className = isSoundEnabled ? 'fa-solid fa-volume-high text-sm' : 'fa-solid fa-volume-xmark text-sm text-slate-500';
-    }
+      const icon = document.getElementById('soundIcon');
+      if (icon) {
+        icon.className = isSoundEnabled ? 'fa-solid fa-volume-high text-sm' : 'fa-solid fa-volume-xmark text-sm text-slate-500';
+      }
+    };
 
     const TEST_PASSAGES = {
       60: "Speed tests are designed to measure raw mechanical velocity and neuromuscular efficiency. When you type without looking at the keyboard, your brain converts thought directly into finger movements, bypassing hesitation and unlocking your true cognitive potential.",
@@ -248,22 +297,30 @@
       targetText = TEST_PASSAGES[durationSeconds] || TEST_PASSAGES[60];
 
       const display = document.getElementById('testTextDisplay');
-      display.innerHTML = '';
-      for (let i = 0; i < targetText.length; i++) {
-        const span = document.createElement('span');
-        span.id = `char-${i}`;
-        span.textContent = targetText[i];
-        if (i === 0) span.className = 'typing-cursor text-slate-300 font-semibold';
-        display.appendChild(span);
+      if (display) {
+        display.innerHTML = '';
+        for (let i = 0; i < targetText.length; i++) {
+          const span = document.createElement('span');
+          span.id = `char-${i}`;
+          span.textContent = targetText[i];
+          if (i === 0) span.className = 'typing-cursor text-slate-300 font-semibold';
+          display.appendChild(span);
+        }
       }
-
       updateHUD();
     }
 
     window.addEventListener('keydown', (e) => {
+      initAudio();
       if (e.key === 'Tab' || e.key === 'Alt' || e.key === 'Control' || e.key === 'Meta') return;
-      if (e.key === 'Escape') { resetTest(); return; }
+      if (e.key === 'Escape') { window.resetTest(); return; }
       if (isTestCompleted) return;
+
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA') && activeEl.id !== 'sinkInput') return;
+      if (activeEl && activeEl.tagName === 'BUTTON') activeEl.blur();
+
+      if (e.key === ' ' || e.code === 'Space') e.preventDefault();
 
       if (!isTestActive) startTimer();
 
@@ -273,10 +330,10 @@
       if (e.key === 'Backspace') {
         e.preventDefault();
         if (currentIndex > 0) {
-          charSpan.className = '';
+          if (charSpan) charSpan.className = '';
           currentIndex--;
           const prevSpan = document.getElementById(`char-${currentIndex}`);
-          prevSpan.className = 'typing-cursor text-slate-300';
+          if (prevSpan) prevSpan.className = 'typing-cursor text-slate-300';
         }
         return;
       }
@@ -287,16 +344,17 @@
       if (e.key === expectedChar) {
         playKeyClickSound();
         correctCount++;
-        charSpan.className = 'text-emerald-400 font-medium';
+        if (charSpan) charSpan.className = 'text-emerald-400 font-medium';
       } else {
         playErrorSound();
         errorCount++;
-        charSpan.className = 'text-rose-400 bg-rose-500/20 underline decoration-rose-500';
+        if (charSpan) charSpan.className = 'text-rose-400 bg-rose-500/20 underline decoration-rose-500 rounded px-0.5';
       }
 
       currentIndex++;
       if (currentIndex < targetText.length) {
-        document.getElementById(`char-${currentIndex}`).classList.add('typing-cursor');
+        const nextSpan = document.getElementById(`char-${currentIndex}`);
+        if (nextSpan) nextSpan.classList.add('typing-cursor');
       } else {
         finishTest();
       }
@@ -316,15 +374,99 @@
     function updateHUD() {
       let elapsedMins = startTime ? (Date.now() - startTime) / 60000 : 0;
       let wpm = elapsedMins > 0.03 ? Math.round((correctCount / 5) / elapsedMins) : 0;
-      let accuracy = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
+      let accuracy = totalTypedCount > 0 ? Math.max(0, Math.round((correctCount / totalTypedCount) * 100)) : 100;
 
-      document.getElementById('statWPM').innerText = wpm;
-      document.getElementById('statAccuracy').innerHTML = `${accuracy}<span class="text-lg font-normal">%</span>`;
-      document.getElementById('statErrors').innerText = errorCount;
+      const elWpm = document.getElementById('statWPM');
+      const elAcc = document.getElementById('statAccuracy');
+      const elErr = document.getElementById('statErrors');
+      const elTimer = document.getElementById('statTimer');
 
-      const mins = Math.floor(timeRemaining / 60);
-      const secs = timeRemaining % 60;
-      document.getElementById('statTimer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      if (elWpm) elWpm.innerText = wpm;
+      if (elAcc) elAcc.innerHTML = `${accuracy}<span class="text-lg font-normal">%</span>`;
+      if (elErr) elErr.innerText = errorCount;
+
+      if (elTimer) {
+        const mins = Math.floor(timeRemaining / 60);
+        const secs = timeRemaining % 60;
+        elTimer.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+
+    // Firebase Auto-Save
+    async function saveToFirebase(finalWPM, finalAcc, netWPM) {
+      const uid = localStorage.getItem("tn_uid");
+      const username = localStorage.getItem("tn_username") || "Typist";
+      const photoURL = localStorage.getItem("tn_photo") || "";
+
+      localStorage.setItem("tn_last_wpm", finalWPM);
+      localStorage.setItem("tn_last_acc", finalAcc);
+
+      if (!uid) return;
+
+      try {
+        const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js");
+        const { getFirestore, doc, getDoc, setDoc, updateDoc, collection, addDoc, serverTimestamp } = 
+          await import("https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js");
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
+          authDomain: "typenext-5bd90.firebaseapp.com",
+          projectId: "typenext-5bd90",
+          storageBucket: "typenext-5bd90.firebasestorage.app",
+          messagingSenderId: "848488048236",
+          appId: "1:848488048236:web:a742a647977a48ca63da49",
+          measurementId: "G-B5WGZM350T"
+        };
+
+        const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+        const db = getFirestore(app);
+
+        // Update Leaderboard
+        const leaderRef = doc(db, "leaderboard", uid);
+        const leaderSnap = await getDoc(leaderRef);
+        const prevWpm = leaderSnap.exists() ? (leaderSnap.data().wpm || 0) : 0;
+
+        if (finalWPM >= prevWpm) {
+          await setDoc(leaderRef, {
+            name: username,
+            wpm: finalWPM,
+            accuracy: finalAcc,
+            preset: `${durationSeconds / 60}m Timed Test`,
+            photoURL: photoURL,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        }
+
+        // Update User Profile Stats & Sessions
+        const userRef = doc(db, "users", uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const uData = userSnap.data();
+          const tests = (uData.testsCompleted || 0) + 1;
+          const topWpm = Math.max(uData.topWpm || 0, finalWPM);
+          const prevAccSum = (uData.avgAcc || 100) * (uData.testsCompleted || 0);
+          const newAvgAcc = Math.round((prevAccSum + finalAcc) / tests);
+
+          await updateDoc(userRef, {
+            topWpm: topWpm,
+            avgAcc: newAvgAcc,
+            testsCompleted: tests,
+            lastActive: serverTimestamp()
+          });
+
+          await addDoc(collection(db, "users", uid, "sessions"), {
+            wpm: finalWPM,
+            netWpm: netWPM,
+            accuracy: finalAcc,
+            chars: totalTypedCount,
+            errors: errorCount,
+            preset: `${durationSeconds / 60}m Official Test`,
+            createdAt: serverTimestamp()
+          });
+        }
+      } catch (err) {
+        console.error("Firebase tests save error:", err);
+      }
     }
 
     function finishTest() {
@@ -334,45 +476,96 @@
 
       let elapsedMins = (Date.now() - (startTime || Date.now())) / 60000;
       if (elapsedMins < 0.05) elapsedMins = 0.05;
+
+      const grossWPM = Math.round((totalTypedCount / 5) / elapsedMins);
       const finalWPM = Math.round((correctCount / 5) / elapsedMins);
       const finalAcc = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
+      const netWPM = Math.max(0, Math.round(finalWPM - (errorCount / elapsedMins)));
 
-      // Persist results
-      localStorage.setItem('tn_last_wpm', finalWPM);
-      localStorage.setItem('tn_last_acc', finalAcc);
+      saveToFirebase(finalWPM, finalAcc, netWPM);
 
-      if (typeof confetti === 'function' && finalAcc >= 90) confetti({ particleCount: 80, spread: 70 });
+      // Populate Modal
+      document.getElementById('modalWPM').innerText = finalWPM;
+      document.getElementById('modalGrossWPM').innerText = grossWPM;
+      document.getElementById('modalAccuracy').innerText = `${finalAcc}%`;
+      document.getElementById('modalErrors').innerText = errorCount;
+      document.getElementById('modalChars').innerText = totalTypedCount;
+      document.getElementById('modalCorrectChars').innerText = correctCount;
+      document.getElementById('modalTime').innerText = `${Math.round(elapsedMins * 60)}s`;
 
-      document.getElementById('resWPM').innerHTML = `${finalWPM} <span class="text-xs font-normal">WPM</span>`;
-      document.getElementById('resAcc').innerText = `${finalAcc}%`;
+      const tierBadge = document.getElementById('modalTierBadge');
+      const ratingEl = document.getElementById('modalRating');
+
+      if (finalWPM >= 100) {
+        tierBadge.innerText = 'Grandmaster';
+        tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-purple-500/20 text-purple-300 border-purple-500/40';
+        ratingEl.innerText = '★★★★★';
+      } else if (finalWPM >= 80) {
+        tierBadge.innerText = 'Master';
+        tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-amber-500/20 text-amber-300 border-amber-500/40';
+        ratingEl.innerText = '★★★★☆';
+      } else if (finalWPM >= 60) {
+        tierBadge.innerText = 'Professional';
+        tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-indigo-500/20 text-indigo-300 border-indigo-500/40';
+        ratingEl.innerText = '★★★☆☆';
+      } else if (finalWPM >= 40) {
+        tierBadge.innerText = 'Intermediate';
+        tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+        ratingEl.innerText = '★★☆☆☆';
+      } else {
+        tierBadge.innerText = 'Novice';
+        tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-slate-700/40 text-slate-300 border-slate-600/50';
+        ratingEl.innerText = '★☆☆☆☆';
+      }
+
       document.getElementById('resultsModal').classList.remove('hidden');
+
+      if (typeof confetti === 'function' && finalAcc >= 90) {
+        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+      }
     }
 
-    function resetTest() { initTest(); }
-    function focusSink() { document.getElementById('sinkInput').focus(); }
+    window.resetTest = function () {
+      initTest();
+      window.closeResultsModal();
+    };
 
-    function setTestDuration(sec) {
+    window.closeResultsModal = function () {
+      const modal = document.getElementById('resultsModal');
+      if (modal) modal.classList.add('hidden');
+    };
+
+    window.focusSink = function () {
+      const sink = document.getElementById('sinkInput');
+      if (sink) sink.focus();
+    };
+
+    window.setTestDuration = function (sec) {
       durationSeconds = sec;
       document.querySelectorAll('.time-tab').forEach(btn => {
         btn.classList.remove('bg-indigo-600', 'text-white');
         btn.classList.add('bg-transparent', 'text-slate-400');
       });
-      document.getElementById(`btn-${sec}`).classList.add('bg-indigo-600', 'text-white');
-      document.getElementById(`btn-${sec}`).classList.remove('text-slate-400');
+      const activeBtn = document.getElementById(`btn-${sec}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-indigo-600', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+      }
 
       document.getElementById('testHeading').innerText = `${sec / 60}-Minute Official Evaluation Test`;
       initTest();
-    }
+    };
 
-    window.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       initTest();
       window.addEventListener('click', initAudio, { once: true });
+      window.addEventListener('keydown', initAudio, { once: true });
+      window.addEventListener('touchstart', initAudio, { once: true });
     });
   </script>
-  
-  <!-- Reusable Modular Scripts -->
+
+  <!-- Dynamic Header & Footer Layout Script -->
   <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
-  
+
 </body>
 </html>
