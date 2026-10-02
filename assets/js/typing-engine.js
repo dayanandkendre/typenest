@@ -1,4 +1,4 @@
-// assets/js/typing-engine.js - Adaptive Desktop Engine & Firebase Auto-Save
+// assets/js/typing-engine.js - Adaptive Desktop Engine, Ultra Analytics & Firebase Auto-Save
 (function () {
   let audioCtx = null;
   let isSoundEnabled = true;
@@ -61,7 +61,7 @@
   let isTestActive = false;
   let isTestCompleted = false;
 
-  // Auto-inject Keyboard on Desktop & Clean Notice Card on Mobile
+  // Auto-inject Keyboard on Desktop & Notice Card on Mobile
   function injectAdaptiveKeyboard() {
     const keyboardContainer = document.getElementById('keyboardWrapper');
     if (!keyboardContainer) return;
@@ -246,7 +246,7 @@
     }
   }
 
-  // Desktop Keydown Engine
+  // Keydown Engine
   window.addEventListener('keydown', function (e) {
     if (e.key === 'Tab' || e.key === 'Alt' || e.key === 'Control' || e.key === 'Meta') return;
     if (e.key === 'Escape') {
@@ -259,7 +259,6 @@
     if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA')) {
       if (activeEl.id !== 'mobileInputSink') return;
     }
-
     if (activeEl && activeEl.tagName === 'BUTTON') activeEl.blur();
 
     if (e.key === ' ' || e.code === 'Space') {
@@ -324,12 +323,11 @@
   });
 
   // FIREBASE AUTO SAVE PROGRESS (Leaderboard + Profile Sync)
-  async function saveProgressToFirebase(finalWPM, finalAcc, totalTypedCount, errorCount) {
+  async function saveProgressToFirebase(finalWPM, finalAcc, netWPM, totalTypedCount, errorCount) {
     const uid = localStorage.getItem("tn_uid");
     const username = localStorage.getItem("tn_username") || "Typist";
     const photoURL = localStorage.getItem("tn_photo") || "";
 
-    // LocalStorage Backup
     localStorage.setItem("tn_last_wpm", finalWPM);
     localStorage.setItem("tn_last_acc", finalAcc);
 
@@ -390,6 +388,7 @@
         // 3. User Recent Session Log
         await addDoc(collection(db, "users", uid, "sessions"), {
           wpm: finalWPM,
+          netWpm: netWPM,
           accuracy: finalAcc,
           chars: totalTypedCount,
           errors: errorCount,
@@ -410,67 +409,144 @@
     let elapsedMins = (Date.now() - (startTime || Date.now())) / 60000;
     if (elapsedMins < 0.05) elapsedMins = 0.05;
 
+    const grossWPM = Math.round((totalTypedCount / 5) / elapsedMins);
     const finalWPM = Math.round((correctCount / 5) / elapsedMins);
     const finalAcc = totalTypedCount > 0 ? Math.round((correctCount / totalTypedCount) * 100) : 100;
+    const netWPM = Math.max(0, Math.round(finalWPM - (errorCount / elapsedMins)));
 
     // Trigger Firebase save
-    saveProgressToFirebase(finalWPM, finalAcc, totalTypedCount, errorCount);
+    saveProgressToFirebase(finalWPM, finalAcc, netWPM, totalTypedCount, errorCount);
 
-    if (typeof window.showResultsModal === 'function') {
-      window.showResultsModal(finalWPM, finalAcc, totalTypedCount, errorCount);
-    }
+    showResultsModal({
+      wpm: finalWPM,
+      grossWpm: grossWPM,
+      netWpm: netWPM,
+      accuracy: finalAcc,
+      totalChars: totalTypedCount,
+      correctChars: correctCount,
+      errors: errorCount,
+      timeTaken: Math.round(elapsedMins * 60)
+    });
   }
 
-  // Master Results Modal Component
+  // Ultra-Premium Results Modal Component
   function injectResultsModal() {
     const modalHTML = `
-    <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
-        <div class="text-center">
-          <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-indigo-500/30">
-            <i class="fa-solid fa-flag-checkered"></i>
+    <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+      <div class="bg-gradient-to-b from-[#111827] to-[#0b0f19] border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+        
+        <!-- Header & Tier Badge -->
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800/80">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl border border-indigo-500/30">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-white tracking-tight">Performance Summary</h3>
+              <p class="text-slate-400 text-xs">Standard Speed & Accuracy Breakdown</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-white">Test Completed!</h3>
-          <p class="text-slate-400 text-xs mt-1">Verified throughput breakdown:</p>
+          <span id="modalTierBadge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border">
+            Novice
+          </span>
         </div>
 
-        <div class="grid grid-cols-2 gap-3 my-6">
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-center">
-            <span class="text-xs uppercase text-slate-400 font-bold">Gross WPM</span>
-            <div id="modalWPM" class="text-3xl font-extrabold text-indigo-400 font-mono mt-1">0</div>
+        <!-- Hero Stats (WPM & Accuracy) -->
+        <div class="grid grid-cols-2 gap-3.5 my-5">
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 text-center relative overflow-hidden">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Net Speed (WPM)</span>
+            <div id="modalWPM" class="text-4xl font-black text-indigo-400 font-mono mt-1">0</div>
+            <span class="text-[10px] text-slate-500">Gross: <span id="modalGrossWPM" class="text-slate-300">0</span></span>
           </div>
-          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-center">
-            <span class="text-xs uppercase text-slate-400 font-bold">Accuracy</span>
-            <div id="modalAccuracy" class="text-3xl font-extrabold text-emerald-400 font-mono mt-1">0%</div>
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 text-center relative overflow-hidden">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Accuracy</span>
+            <div id="modalAccuracy" class="text-4xl font-black text-emerald-400 font-mono mt-1">0%</div>
+            <span class="text-[10px] text-slate-500">Errors: <span id="modalErrors" class="text-rose-400 font-semibold">0</span></span>
           </div>
         </div>
 
+        <!-- 4 Sub-Metrics Grid -->
+        <div class="grid grid-cols-4 gap-2 mb-6 text-center">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-[10px] text-slate-400 block font-medium">Characters</span>
+            <span id="modalChars" class="text-sm font-bold text-white font-mono">0</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-[10px] text-slate-400 block font-medium">Correct</span>
+            <span id="modalCorrectChars" class="text-sm font-bold text-emerald-400 font-mono">0</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-[10px] text-slate-400 block font-medium">Time</span>
+            <span id="modalTime" class="text-sm font-bold text-slate-300 font-mono">60s</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+            <span class="text-[10px] text-slate-400 block font-medium">Rating</span>
+            <span id="modalRating" class="text-sm font-bold text-amber-400 font-mono">★★☆☆☆</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
         <div class="space-y-2.5">
-          <a href="certificate.html" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:opacity-95 text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25">
-            <i class="fa-solid fa-award"></i> View Official Certificate
+          <div class="flex gap-2.5">
+            <button onclick="closeResultsModal(); if(window.resetCurrentTest) window.resetCurrentTest();" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25">
+              <i class="fa-solid fa-rotate-right"></i> Try Again (Esc)
+            </button>
+            <a href="leaderboard.html" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-700 transition flex items-center gap-1.5">
+              <i class="fa-solid fa-trophy text-amber-400"></i> Board
+            </a>
+          </div>
+          <a href="certificate.html" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-award text-amber-400"></i> View Verified Certificate &rarr;
           </a>
-          <button onclick="closeResultsModal(); if(window.resetCurrentTest) window.resetCurrentTest();" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs transition flex items-center justify-center gap-2">
-            <i class="fa-solid fa-rotate-right"></i> Try Again
-          </button>
         </div>
+
       </div>
     </div>
     `;
     document.body.insertAdjacentHTML("beforeend", modalHTML);
   }
 
-  window.showResultsModal = function (wpm, accuracy, totalChars, errors) {
-    document.getElementById('modalWPM').innerText = wpm;
-    document.getElementById('modalAccuracy').innerText = accuracy + '%';
+  function showResultsModal(stats) {
+    document.getElementById('modalWPM').innerText = stats.wpm;
+    document.getElementById('modalGrossWPM').innerText = stats.grossWpm;
+    document.getElementById('modalAccuracy').innerText = stats.accuracy + '%';
+    document.getElementById('modalErrors').innerText = stats.errors;
+    document.getElementById('modalChars').innerText = stats.totalChars;
+    document.getElementById('modalCorrectChars').innerText = stats.correctChars;
+    document.getElementById('modalTime').innerText = `${stats.timeTaken}s`;
+
+    // Tier calculation & badge classes
+    const tierBadge = document.getElementById('modalTierBadge');
+    const ratingEl = document.getElementById('modalRating');
+
+    if (stats.wpm >= 100) {
+      tierBadge.innerText = 'Grandmaster';
+      tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-purple-500/20 text-purple-300 border-purple-500/40';
+      ratingEl.innerText = '★★★★★';
+    } else if (stats.wpm >= 80) {
+      tierBadge.innerText = 'Master';
+      tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-amber-500/20 text-amber-300 border-amber-500/40';
+      ratingEl.innerText = '★★★★☆';
+    } else if (stats.wpm >= 60) {
+      tierBadge.innerText = 'Professional';
+      tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-indigo-500/20 text-indigo-300 border-indigo-500/40';
+      ratingEl.innerText = '★★★☆☆';
+    } else if (stats.wpm >= 40) {
+      tierBadge.innerText = 'Intermediate';
+      tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+      ratingEl.innerText = '★★☆☆☆';
+    } else {
+      tierBadge.innerText = 'Novice';
+      tierBadge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border bg-slate-700/40 text-slate-300 border-slate-600/50';
+      ratingEl.innerText = '★☆☆☆☆';
+    }
+
     document.getElementById('resultsModal').classList.remove('hidden');
 
-    localStorage.setItem('typenest_wpm', wpm);
-    localStorage.setItem('typenest_acc', accuracy);
-
-    if (typeof confetti === 'function' && accuracy >= 90) {
-      confetti({ particleCount: 75, spread: 65, origin: { y: 0.6 } });
+    if (typeof confetti === 'function' && stats.accuracy >= 90) {
+      confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
     }
-  };
+  }
 
   window.closeResultsModal = function () {
     document.getElementById('resultsModal').classList.add('hidden');
