@@ -1,7 +1,8 @@
 // =============================================================================
 // FILE: assets/js/layout.js
 // PLATFORM: TypeNest Academy (typenest.in)
-// FEATURES: Instant Theme Sync, Dynamic Navbar & Footer, Firebase Auth & Dropdown
+// FEATURES: Instant Theme Sync, Dynamic Navbar & Footer, Firebase Auth & Dropdown,
+//           Social Branding Links, and Arcade Routing
 // =============================================================================
 
 // -----------------------------------------------------------------------------
@@ -144,11 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     document.head.appendChild(styleEl);
   }
+
   // 4.2 DETECT TYPING PAGES (Includes practice.html for Sound Button)
   const typingPages = [
     "index.html", 
     "tests.html", 
-    "practice.html", // Vocab & practice arena
+    "practice.html", 
     "number-typing-practice.html", 
     "punctuation-typing-practice.html", 
     "difficult-words-typing-practice.html", 
@@ -159,8 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   const isTypingPage = typingPages.includes(currentPath) || fullPath.includes("/vocab/practice.html");
 
-  // 4.3 ROUTE ACTIVE STATE DETECTORS
-  const isVocabActive = fullPath.includes("/vocab/");
+  // 4.3 ROUTE ACTIVE STATE DETECTORS (Including Arcade)
+  const isVocabActive = fullPath.includes("/vocab/") && !fullPath.includes("/vocab-word-defender/");
+  const isArcadeActive = fullPath.includes("/vocab-word-defender/") || currentPath.includes("arcade") || currentPath.includes("games");
   const isLearnActive = fullPath.includes("/learn/") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
 
   // 4.4 THEME TOGGLE HANDLER FUNCTION
@@ -180,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const isCurrentDark = document.documentElement.classList.contains("dark");
 
   // ---------------------------------------------------------------------------
-  // SECTION 5: HEADER COMPONENT TEMPLATE (Navbar, Sound & Profile)
+  // SECTION 5: HEADER COMPONENT TEMPLATE (Navbar, Sound, Arcade & Profile)
   // ---------------------------------------------------------------------------
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
@@ -199,14 +202,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-xs sm:text-sm font-medium">
-        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
+        </a>
+        <a href="/vocab-word-defender/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isArcadeActive ? 'text-amber-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-gamepad text-xs text-amber-400"></i> Arcade
         </a>
         <a href="/vocab/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-spell-check text-xs"></i> Vocab
         </a>
         <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-gamepad text-xs"></i> Drills
+          <i class="fa-solid fa-graduation-cap text-xs"></i> Drills
         </a>
         <a href="/tests.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'tests.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-stopwatch text-xs"></i> Tests
@@ -265,14 +271,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Mobile Slide-Down Menu -->
     <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-5 py-5 space-y-2 text-base shadow-2xl">
-      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
+      </a>
+      <a href="/vocab-word-defender/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isArcadeActive ? 'bg-amber-500/20 text-amber-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-gamepad text-sm w-5 text-amber-400"></i> Arcade Games
       </a>
       <a href="/vocab/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-spell-check text-sm w-5"></i> Learn Vocab
       </a>
       <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
-        <i class="fa-solid fa-gamepad text-sm w-5"></i> Practice Drills
+        <i class="fa-solid fa-graduation-cap text-sm w-5"></i> Practice Drills
       </a>
       <a href="/tests.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'tests.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-stopwatch text-sm w-5"></i> Speed Tests
@@ -336,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
 
   // ---------------------------------------------------------------------------
-  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Social Links)
+  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Social Links & Arcade)
   // ---------------------------------------------------------------------------
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
@@ -380,6 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
             <li><a href="/index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
+            <li><a href="/vocab-word-defender/index.html" class="hover:text-amber-300 transition font-semibold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-gamepad text-xs"></i> Arcade Defender</a></li>
             <li><a href="/vocab/index.html" class="hover:text-indigo-400 transition font-semibold text-indigo-300">Learn Vocab Game</a></li>
             <li><a href="/learn/learn.html" class="hover:text-indigo-400 transition">20-Level Drills</a></li>
             <li><a href="/tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
@@ -426,6 +436,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </footer>
   `;
+
   // ---------------------------------------------------------------------------
   // SECTION 7: INJECT HEADER AND FOOTER INTO DOM
   // ---------------------------------------------------------------------------
