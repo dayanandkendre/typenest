@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>Vocab Word Defender | TypeNest Academy</title>
+  <meta name="description" content="Vocab Word Defender is an arcade typing game for learning English vocabulary with Marathi meanings, combos, levels and boss battles.">
+  <meta name="robots" content="index,follow">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    (function () {
+      const t = localStorage.getItem('tn_theme') || 'dark';
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.toggle('dark', t === 'dark');
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./css/game.css">
+  <script type="module" src="./js/game-engine.js"></script>
+</head>
+<body>
+  <div id="tn-layout"></div>
+
+  <main class="game-page">
+    <div class="page-shell">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/index.html"><i class="fa-solid fa-house"></i> Arena</a>
+        <span>/</span>
+        <a href="/vocab/index.html">Vocabulary</a>
+        <span>/</span>
+        <strong>Vocab Word Defender</strong>
+      </nav>
+
+      <section class="hero-strip">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> TypeNest Academy • Arcade Learning</span>
+          <h1>Vocab Word <span>Defender</span></h1>
+          <p>Type falling English words before they cross the danger line. Learn the Marathi meaning while building speed, accuracy and vocabulary.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="ghost-btn" href="/tests.html"><i class="fa-solid fa-stopwatch"></i> Typing Tests</a>
+          <button id="themeToggle" class="ghost-btn" type="button"><i class="fa-solid fa-circle-half-stroke"></i> Theme</button>
+        </div>
+      </section>
+
+      <div class="keyboard-banner">
+        <i class="fa-solid fa-keyboard"></i>
+        <div><strong>Physical keyboard recommended</strong><span>For the fastest and most accurate gameplay. Mobile visitors can use the on-screen keyboard below.</span></div>
+      </div>
+
+      <section id="levelMap" class="level-map-panel">
+        <div class="section-heading">
+          <div><span class="section-kicker">PROGRESSION</span><h2>Choose Your Mission</h2></div>
+          <div class="map-stats"><span id="mapBest">Best: 0</span><span id="mapUnlocked">Unlocked: 1/25</span></div>
+        </div>
+        <div id="tierGrid" class="tier-grid"></div>
+      </section>
+
+      <section id="gamePanel" class="game-panel hidden">
+        <div class="game-topbar">
+          <button id="backToMap" class="icon-btn" type="button" aria-label="Back to levels"><i class="fa-solid fa-arrow-left"></i></button>
+          <div class="mission-title"><span id="tierLabel">Tier 1</span><strong id="levelTitle">Level 1</strong></div>
+          <div class="hud">
+            <div><small>WPM</small><b id="wpm">0</b></div>
+            <div><small>ACC</small><b id="accuracy">100%</b></div>
+            <div><small>COMBO</small><b id="combo">x1.0</b></div>
+            <div><small>SCORE</small><b id="score">0</b></div>
+            <div class="hearts" id="hearts" aria-label="Lives"></div>
+          </div>
+        </div>
+
+        <div class="game-meta">
+          <span id="levelObjective">Defend the line.</span>
+          <span id="wordCount">0 / 0</span>
+        </div>
+
+        <div id="arena" class="arena" tabindex="0" aria-label="Typing game arena">
+          <div class="sky-grid"></div>
+          <div class="stars"></div>
+          <div id="wordLayer"></div>
+          <div class="crosshair" id="crosshair"></div>
+          <div class="danger-zone">
+            <div class="danger-line"><span>DANGER / LANDFALL</span></div>
+            <div class="danger-glow"></div>
+          </div>
+          <div id="arenaMessage" class="arena-message">
+            <i class="fa-solid fa-bolt"></i>
+            <strong>READY</strong>
+            <span>Type the first letter to lock on.</span>
+          </div>
+        </div>
+
+        <div class="mobile-keyboard" id="mobileKeyboard"></div>
+        <div class="typing-status">
+          <span id="lockStatus"><i class="fa-solid fa-crosshairs"></i> No target locked</span>
+          <span id="lastInput">Awaiting input…</span>
+        </div>
+      </section>
+
+      <div id="modalRoot"></div>
+    </div>
+  </main>
+
+  <footer class="game-footer">
+    <div class="page-shell">
+      <a href="/vocab/index.html"><i class="fa-solid fa-book-open"></i> Back to Vocabulary</a>
+      <span>Vocab Word Defender • TypeNest Academy</span>
+      <a href="/tests.html">Typing Tests <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Seamless TypeNest layout integration; works whether layout.js exposes an injector or simply replaces #tn-layout.
+    (function loadLayout() {
+      const s = document.createElement('script');
+      s.src = '/assets/js/layout.js';
+      s.defer = true;
+      s.onerror = function () { console.info('TypeNest layout.js unavailable; local module shell retained.'); };
+      document.head.appendChild(s);
+    })();
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'tn_theme') {
+        const t = e.newValue || 'dark';
+        document.documentElement.dataset.theme = t;
+        document.documentElement.classList.toggle('dark', t === 'dark');
+      }
+    });
+  </script>
+</body>
+</html>
