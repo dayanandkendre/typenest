@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-<script>
-  (function () {
-    const savedTheme = localStorage.getItem("tn_theme");
-    if (savedTheme === "light") { document.documentElement.classList.remove("dark"); }
-    else { document.documentElement.classList.add("dark"); }
-  })();
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config = { darkMode: "class" };</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="assets/css/vocab.css">
-<title>Learn English with Typing | TypeNest</title>
-<meta name="description" content="Build English vocabulary and typing speed together. Learn words with pronunciation, Marathi meanings and real sentences on TypeNest.">
+  <!-- 1. Google Analytics 4 (GA4) Integration -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZC84S6JF5T');
+  </script>
+
+  <!-- 2. Google AdSense Code -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+
+  <!-- 3. Immediate Anti-FOUC Theme Check (Zero White Flicker) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("tn_theme");
+      if (savedTheme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 4. SEO Meta Tags -->
+  <title>Learn English with Typing | Interactive Vocabulary Practice | TypeNest</title>
+  <meta name="description" content="Improve touch typing velocity while expanding English vocabulary. Practice 60 progressive levels with Marathi meanings, authentic audio pronunciation, and sentence drills.">
+  <meta name="keywords" content="learn english with typing, vocabulary typing practice, touch typing english learning, typenest vocab game, english vocabulary drills">
+  <meta name="robots" content="index, follow">
+
+  <!-- 5. Canonical Link -->
+  <link rel="canonical" href="https://typenest.in/vocab/">
+
+  <!-- 6. Open Graph & Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/vocab/">
+  <meta property="og:title" content="Learn English with Typing | TypeNest Academy">
+  <meta property="og:description" content="Master 60 interactive levels of English vocabulary with real-time typing speed and pronunciation.">
+  <meta property="og:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- 7. Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/vocab/">
+  <meta name="twitter:title" content="Learn English with Typing | TypeNest Academy">
+  <meta name="twitter:description" content="Master English vocabulary with gamified typing drills and real-time pronunciation.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- 8. Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+  <!-- 9. Tailwind CSS CDN & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- 10. Local Vocab CSS -->
+  <link rel="stylesheet" href="assets/css/vocab.css">
+
+  <!-- 11. Tailwind Theme Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
 </head>
 <body class="vocab-font min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-indigo-500 selection:text-white">
 <main class="max-w-5xl mx-auto px-4 py-10">
