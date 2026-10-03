@@ -1,403 +1,115 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Retro Space Typer | TypeNest Arcade</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../css/arcade-core.css">
-
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #030712; color: #f8fafc; font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-    .page-shell { max-width: 1050px; margin: 0 auto; padding: 16px 14px 40px; }
-    .game-box {
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 20px;
-      background: #070e1e;
-      overflow: hidden;
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
-    }
-    .hud-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 18px;
-      background: rgba(15, 23, 42, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .hud-stats { display: flex; gap: 16px; font-size: 13px; font-weight: 700; align-items: center; }
-    .hud-stats div { text-align: center; }
-    .hud-stats small { display: block; font-size: 9px; color: #94a3b8; text-transform: uppercase; }
-    .hud-stats b { font-size: 15px; color: #38bdf8; }
-    .hearts { color: #f43f5e; font-size: 15px; letter-spacing: 2px; }
-
-    #arena {
-      position: relative;
-      height: min(65vh, 560px);
-      min-height: 420px;
-      overflow: hidden;
-      background: radial-gradient(circle at 50% 15%, #0d1e3d 0%, #030712 85%);
-    }
-    #fxCanvas {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 5;
-    }
-    .grid-lines {
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    /* ALIEN SHIP TARGET CARD */
-    .alien-ship {
-      position: absolute;
-      transform: translate3d(-50%, 0, 0);
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 12px;
-      padding: 8px 14px;
-      text-align: center;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-      z-index: 10;
-      transition: transform 0.1s, border-color 0.15s;
-      white-space: nowrap;
-    }
-    .alien-ship.targeted {
-      border-color: #f43f5e;
-      box-shadow: 0 0 25px rgba(244, 63, 94, 0.5);
-      transform: translate3d(-50%, 0, 0) scale(1.08);
-      z-index: 20;
-    }
-    .alien-ship .ship-icon { font-size: 12px; color: #f43f5e; margin-bottom: 2px; }
-    .alien-ship .word { font-family: monospace; font-size: 16px; font-weight: 800; letter-spacing: 1px; }
-    .alien-ship .matched { color: #34d399; text-shadow: 0 0 8px #34d399; }
-    .alien-ship .unmatched { color: #ffffff; }
-    .alien-ship .mr { font-size: 11px; color: #fbbf24; margin-top: 2px; }
-
-    /* PLAYER CANNON / SHIP */
-    #playerCannon {
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #0284c7, #38bdf8);
-      clip-path: polygon(50% 0%, 0% 100%, 50% 75%, 100% 100%);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
-      z-index: 15;
-      transition: left 0.12s ease-out;
-    }
-
-    .modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(3, 7, 18, 0.9);
-      backdrop-filter: blur(8px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 40;
-      gap: 16px;
-      text-align: center;
-    }
-    .modal-btn {
-      background: linear-gradient(135deg, #0ea5e9, #6366f1);
-      color: #fff;
-      border: none;
-      padding: 12px 30px;
-      font-size: 14px;
-      font-weight: 800;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
-      transition: transform 0.15s;
-    }
-    .modal-btn:hover { transform: scale(1.05); }
-  </style>
-</head>
-<body>
-  <div id="tn-layout"></div>
-
-  <div class="page-shell">
-    <div style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">
-      <a href="/arcade/index.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Arcade Hub</a>
-      <span> / </span><strong style="color: #fff;">Retro Space Typer</strong>
-    </div>
-
-    <div class="game-box">
-      <div class="hud-bar">
-        <div>
-          <span style="font-size: 10px; color: #38bdf8; font-weight: 800; letter-spacing: 1px; display: block;">ORBITAL DEFENSE</span>
-          <strong style="font-size: 15px;">Alien Interceptor</strong>
-        </div>
-        <div class="hud-stats">
-          <div><small>Wave</small><b id="waveTxt">1</b></div>
-          <div><small>WPM</small><b id="wpmTxt">0</b></div>
-          <div><small>Score</small><b id="scoreTxt">0</b></div>
-          <div><small>Shields</small><div class="hearts" id="heartsTxt">❤️❤️❤️</div></div>
-        </div>
-      </div>
-
-      <div id="arena">
-        <div class="grid-lines"></div>
-        <canvas id="fxCanvas"></canvas>
-        <div id="playerCannon"></div>
-
-        <div id="readyModal" class="modal-overlay">
-          <div style="font-size: 40px; color: #38bdf8;"><i class="fa-solid fa-shuttle-space"></i></div>
-          <h2 style="font-size: 26px; margin: 0;">RETRO SPACE TYPER</h2>
-          <p style="color: #94a3b8; max-width: 420px; font-size: 13px; line-height: 1.6; margin: 0;">
-            Descend honarya alien ships var target lock kara. Valid key type kelyas plasma laser fire hoil aani ship blast hoil!
-          </p>
-          <button class="modal-btn" id="startBtn">Launch Interceptor (Space / Click)</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // DATASET
-    const WORDS = [
-      { en: "orbit", mr: "कक्षा" },
-      { en: "space", mr: "अवकाश" },
-      { en: "laser", mr: "किरणझोत" },
-      { en: "galaxy", mr: "आकाशगंगा" },
-      { en: "rocket", mr: "क्षेपणास्त्र" },
-      { en: "shield", mr: "संरक्षक ढाल" },
-      { en: "plasma", mr: "प्लाझ्मा" },
-      { en: "cosmos", mr: "विश्व" },
-      { en: "meteor", mr: "उल्का" },
-      { en: "stellar", mr: "तारकाविषयक" },
-      { en: "gravity", mr: "गुरुत्वाकर्षण" },
-      { en: "comet", mr: "धूमकेतू" },
-      { en: "nebula", mr: "तेजोमेघ" },
-      { en: "voyage", mr: "मोहीम" },
-      { en: "pulsar", mr: "स्पंदक तारा" }
-    ];
-
-    // AUDIO SYNTHESIZER
-    let actx = null;
-    function initAudio() {
-      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
-      if (actx.state === 'suspended') actx.resume();
-    }
-    function playTone(freq, dur, type='triangle', vol=0.12, slide=null) {
-      if (!actx) return;
-      try {
-        const o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime;
-        o.type = type;
-        o.frequency.setValueAtTime(freq, t);
-        if (slide) o.frequency.exponentialRampToValueAtTime(slide, t + dur);
-        g.gain.setValueAtTime(vol, t);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-        o.connect(g); g.connect(actx.destination);
-        o.start(t); o.stop(t + dur + 0.02);
-      } catch (e) {}
-    }
-
-    // ENGINE
-    const arena = document.getElementById('arena');
-    const cannon = document.getElementById('playerCannon');
-    const cv = document.getElementById('fxCanvas'), cx = cv.getContext('2d');
-    
-    let running = false, score = 0, lives = 3, wave = 1, typedChars = 0, startTime = 0;
-    let ships = [], target = null, typed = "", lasers = [], particles = [];
-    let spawnTimer = null, lastTime = performance.now();
-
-    function resize() {
-      cv.width = arena.clientWidth;
-      cv.height = arena.clientHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function createAlienShip() {
-      if (!running || ships.length >= 4) return;
-      const data = WORDS[Math.floor(Math.random() * WORDS.length)];
-      const el = document.createElement('div');
-      el.className = 'alien-ship';
-      el.innerHTML = `
-        <div class="ship-icon"><i class="fa-solid fa-satellite-dish"></i></div>
-        <div class="word"><span class="unmatched">${data.en}</span></div>
-        <div class="mr">${data.mr}</div>
-      `;
-      arena.appendChild(el);
-      
-      const w = 120, maxLeft = arena.clientWidth - w;
-      const x = 30 + Math.random() * Math.max(10, maxLeft - 60);
-      const obj = { en: data.en, mr: data.mr, x, y: -65, speed: 28 + wave * 4, el };
-      el.style.left = `${x}px`;
-      el.style.top = `${obj.y}px`;
-      ships.push(obj);
-    }
-
-    function fireLaser(tx, ty) {
-      const sx = cannon.offsetLeft + 22, sy = cannon.offsetTop;
-      lasers.push({ sx, sy, tx, ty, prog: 0 });
-      playTone(850, 0.07, 'sawtooth', 0.1, 240);
-    }
-
-    function createExplosion(x, y) {
-      playTone(130, 0.22, 'square', 0.18, 45);
-      for (let i = 0; i < 22; i++) {
-        const a = Math.random() * Math.PI * 2, v = 60 + Math.random() * 160;
-        particles.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, col: '#38bdf8' });
-      }
-    }
-
-    function loop(now) {
-      if (!running) return;
-      const dt = Math.min((now - lastTime) / 1000, 0.05);
-      lastTime = now;
-
-      const limitY = arena.clientHeight - 80;
-      for (let i = ships.length - 1; i >= 0; i--) {
-        const s = ships[i];
-        s.y += s.speed * dt;
-        s.el.style.top = `${s.y}px`;
-
-        if (s.y >= limitY) {
-          createExplosion(s.x, s.y);
-          s.el.remove();
-          ships.splice(i, 1);
-          if (target === s) { target = null; typed = ""; }
-          lives--;
-          updateHUD();
-          if (lives <= 0) { gameOver(); return; }
-        }
-      }
-
-      cx.clearRect(0, 0, cv.width, cv.height);
-
-      for (let i = lasers.length - 1; i >= 0; i--) {
-        const l = lasers[i];
-        l.prog += dt * 8;
-        cx.strokeStyle = '#38bdf8';
-        cx.lineWidth = 3;
-        cx.shadowBlur = 14;
-        cx.shadowColor = '#0ea5e9';
-        cx.beginPath();
-        cx.moveTo(l.sx, l.sy);
-        cx.lineTo(l.tx, l.ty);
-        cx.stroke();
-        if (l.prog >= 1) lasers.splice(i, 1);
-      }
-      cx.shadowBlur = 0;
-
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx * dt;
-        p.y += p.vy * dt;
-        p.life -= dt * 2.2;
-        cx.fillStyle = p.col;
-        cx.globalAlpha = Math.max(0, p.life);
-        cx.beginPath();
-        cx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-        cx.fill();
-        if (p.life <= 0) particles.splice(i, 1);
-      }
-      cx.globalAlpha = 1;
-
-      requestAnimationFrame(loop);
-    }
-
-    function updateHUD() {
-      document.getElementById('scoreTxt').textContent = score;
-      document.getElementById('waveTxt').textContent = wave;
-      document.getElementById('heartsTxt').textContent = '❤️'.repeat(Math.max(0, lives)) || '💥';
-      const min = Math.max((performance.now() - startTime) / 60000, 0.02);
-      document.getElementById('wpmTxt').textContent = Math.round((typedChars / 5) / min);
-    }
-
-    function updateTargetUI() {
-      if (!target) return;
-      const m = target.en.slice(0, typed.length), u = target.en.slice(typed.length);
-      target.el.querySelector('.word').innerHTML = `<span class="matched">${m}</span><span class="unmatched">${u}</span>`;
-    }
-
-    window.addEventListener('keydown', (e) => {
-      initAudio();
-      if (!running) {
-        if (e.code === 'Space') startGame();
-        return;
-      }
-      if (e.key.length !== 1 || e.ctrlKey || e.altKey || e.metaKey || e.key === ' ') return;
-      const k = e.key.toLowerCase();
-
-      if (!target) {
-        const c = ships.filter(s => s.en[0] === k && s.y > -20).sort((a,b) => b.y - a.y)[0];
-        if (c) {
-          target = c;
-          target.el.classList.add('targeted');
-          typed = k;
-          typedChars++;
-          cannon.style.left = `${target.x}px`;
-          fireLaser(target.x, target.y);
-          updateTargetUI();
-        } else {
-          playTone(140, 0.08, 'sawtooth', 0.1);
-        }
-      } else {
-        if (target.en[typed.length] === k) {
-          typed += k;
-          typedChars++;
-          fireLaser(target.x, target.y);
-          updateTargetUI();
-
-          if (typed.length === target.en.length) {
-            createExplosion(target.x, target.y);
-            score += target.en.length * 20;
-            target.el.remove();
-            ships = ships.filter(s => s !== target);
-            target = null;
-            typed = "";
-            if (score > wave * 250) wave++;
-            updateHUD();
-          }
-        } else {
-          playTone(140, 0.08, 'sawtooth', 0.1);
-        }
-      }
-    });
-
-    function startGame() {
-      document.getElementById('readyModal').style.display = 'none';
-      ships.forEach(s => s.el.remove());
-      ships = []; lasers = []; particles = []; target = null; typed = "";
-      score = 0; lives = 3; wave = 1; typedChars = 0;
-      startTime = performance.now();
-      running = true;
-      updateHUD();
-      if (spawnTimer) clearInterval(spawnTimer);
-      spawnTimer = setInterval(createAlienShip, 1800);
-      createAlienShip();
-      lastTime = performance.now();
-      requestAnimationFrame(loop);
-    }
-
-    function gameOver() {
-      running = false;
-      if (spawnTimer) clearInterval(spawnTimer);
-      const modal = document.getElementById('readyModal');
-      modal.innerHTML = `
-        <div style="font-size: 40px; color: #f43f5e;"><i class="fa-solid fa-triangle-exclamation"></i></div>
-        <h2 style="font-size: 26px; margin: 0; color: #f43f5e;">SHIELD BREACHED</h2>
-        <p style="color: #94a3b8; font-size: 14px; margin: 0;">Final Score: <b style="color: #fff;">${score}</b></p>
-        <button class="modal-btn" onclick="startGame()">Play Again</button>
-      `;
-      modal.style.display = 'flex';
-    }
-
-    document.getElementById('startBtn').onclick = startGame;
-  </script>
-
-  <!-- FIX: type="module" dila ahe jyane layout.js cha crash honar nahi -->
-  <script type="module" src="/assets/js/layout.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Retro Space Typer | TypeNest Arcade</title>
+<script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#030712;color:#e8eefc;font:700 16px Rajdhani,sans-serif;touch-action:manipulation}
+#c{position:fixed;inset:0;width:100%;height:100%}
+#hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px}
+#hud a{color:#38bdf8;text-decoration:none;font-size:1.3rem;padding:0 10px}
+.st{padding:6px 16px;border-radius:12px;background:rgba(15,23,42,.65);border:1px solid rgba(244,63,94,.4);backdrop-filter:blur(12px);text-align:center;min-width:76px}
+.st small{display:block;font-size:.65rem;letter-spacing:.14em;color:#8b9ab5}.st b{font:900 1.2rem Orbitron}
+#hp{color:#f43f5e;letter-spacing:.15em;font-size:1.4rem}
+#bar{position:fixed;bottom:8px;left:0;right:0;text-align:center;color:#8b9ab5;z-index:5;pointer-events:none}
+.ov{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(3,7,18,.72);backdrop-filter:blur(12px)}
+.ov.h{display:none}
+.md{max-width:420px;padding:30px;text-align:center;border-radius:18px;background:rgba(15,23,42,.75);border:1px solid rgba(244,63,94,.5);box-shadow:0 0 40px rgba(244,63,94,.25)}
+.md h1{font:900 1.9rem Orbitron;margin:0 0 10px;color:#f43f5e;text-shadow:0 0 20px #f43f5e}.md p{color:#a9b6cf;margin:10px 0 18px}
+button{font:900 1rem Orbitron;color:#fff;background:#f43f5e;border:0;border-radius:12px;padding:14px 30px;cursor:pointer;box-shadow:0 0 24px rgba(244,63,94,.6)}
+#inp{position:fixed;opacity:0;left:0;top:0;width:1px;height:1px}
+.mu{cursor:pointer;background:none;border:1px solid rgba(148,163,184,.3);box-shadow:none;padding:6px 12px;font:700 .8rem Rajdhani}
+.shk{animation:sh .3s}@keyframes sh{25%{transform:translate(-8px,3px)}75%{transform:translate(8px,-3px)}}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><a href="../index.html" title="Back">←</a>
+<div class="st"><small>WAVE</small><b id="w">1</b></div><div class="st"><small>ACC</small><b id="a">100%</b></div>
+<div class="st"><small>SCORE</small><b id="s">0</b></div><div class="st" id="hp">♥♥♥</div><button class="mu" id="mu">SOUND</button></div>
+<div id="bar">Type the first letter of an alien to lock on and fire.</div>
+<input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+<div class="ov" id="ov"><div class="md"><h1>SPACE TYPER</h1><p id="m">Alien ships are descending. Type their words to destroy them before they reach your shield. Every 5th wave brings a Mothership.</p><button id="go">LAUNCH</button><p><a href="../index.html" style="color:#38bdf8">Back to arcade</a></p></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),cv=$('c'),x=cv.getContext('2d'),inp=$('inp');
+const WORDS="star moon orbit alien laser comet nova pulse void warp rocket planet galaxy cosmos meteor photon plasma shield engine signal vector quantum nebula thruster eclipse gravity asteroid fusion cyber turbo drift pixel neon blast strike swarm hunter radar sonic ion fleet armor core flare beam probe zenith vortex nitro".split(' ');
+const BOSS="mothership annihilate singularity constellation interceptor";
+let W,H,D=Math.min(devicePixelRatio||1,2);
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}addEventListener('resize',rs);rs();
+/* audio */
+let AC,mu=localStorage.getItem('tn_arcade_muted')==='1';const mb=$('mu');const pm=()=>mb.textContent=mu?'SOUND OFF':'SOUND ON';pm();
+mb.onclick=()=>{mu=!mu;localStorage.setItem('tn_arcade_muted',mu?'1':'0');pm()};
+function tn(t,a,b,d,v=.07,w=0){if(mu)return;try{AC=AC||new(window.AudioContext||webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ const T=AC.currentTime+w,o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.setValueAtTime(a,T);o.frequency.exponentialRampToValueAtTime(Math.max(b,1),T+d);
+ g.gain.setValueAtTime(v,T);g.gain.exponentialRampToValueAtTime(.001,T+d);o.connect(g);g.connect(AC.destination);o.start(T);o.stop(T+d)}catch(e){}}
+const sfx={laser:()=>tn('sawtooth',900,200,.15),boom:()=>{tn('sawtooth',180,30,.35,.12);tn('square',90,25,.4,.08)},err:()=>tn('square',140,100,.1),
+ alarm:()=>{tn('sawtooth',220,170,.3,.1);tn('sawtooth',220,170,.3,.1,.35)},up:()=>[392,494,587,784].forEach((f,i)=>tn('triangle',f,f,.14,.09,i*.08)),
+ over:()=>[440,370,311,247,185].forEach((f,i)=>tn('sawtooth',f,f*.95,.3,.09,i*.2))};
+/* state */
+let run=false,al=[],ls=[],ps=[],lock=null,wave=1,queue=0,spawnT=0,score=0,hearts=3,hit=0,miss=0,kills=0,last=0,stars=[];
+for(let i=0;i<90;i++)stars.push({x:Math.random(),y:Math.random(),z:Math.random()*2+.3});
+const shipY=()=>H-70,shipX=()=>W/2,isBoss=()=>wave%5===0;
+const COL=['#f43f5e','#06b6d4','#f59e0b','#a78bfa','#10b981'];
+function pick(extra){const used=new Set(al.map(a=>a.word[0]));const L=Math.min(3+Math.floor(wave/2),9)+(extra||0);
+ for(let t=0;t<30;t++){const w=WORDS[Math.random()*WORDS.length|0];if(w.length<=L+1&&!used.has(w[0]))return w}
+ return WORDS[Math.random()*WORDS.length|0]}
+function spawn(){
+ if(isBoss()&&!al.some(a=>a.boss)){const ws=[pick(4),pick(4),pick(4)].map((w,i)=>i===0?BOSS.split(' ')[wave/5%5|0]:w);
+  al.push({x:W/2,y:-60,boss:1,words:ws,i:0,word:ws[0],pos:0,v:14+wave,c:'#f43f5e',s:2.4,ph:0});queue=0;return}
+ const w=pick();al.push({x:60+Math.random()*(W-120),y:-30,word:w,pos:0,v:26+wave*5+Math.random()*10,c:COL[Math.random()*5|0],s:1,ph:Math.random()*6});queue--}
+function boom(a,n){for(let i=0;i<n;i++){const t=Math.random()*6.28,s=60+Math.random()*260;ps.push({x:a.x,y:a.y,vx:Math.cos(t)*s,vy:Math.sin(t)*s,l:1,c:a.c})}
+ ps.push({x:a.x,y:a.y,r:1,ring:1,l:1,c:a.c})}
+function press(ch){
+ if(!run)return;
+ if(!lock){const c=al.filter(a=>a.word[a.pos]===ch&&a.y>-20).sort((p,q)=>q.y-p.y)[0];if(!c){miss++;sfx.err();return}lock=c}
+ if(lock.word[lock.pos]!==ch){miss++;sfx.err();return}
+ hit++;lock.pos++;sfx.laser();ls.push({tx:lock.x,ty:lock.y,l:1});
+ if(lock.pos>=lock.word.length){const a=lock;
+  if(a.boss&&++a.i<a.words.length){a.word=a.words[a.i];a.pos=0;score+=200;boom(a,30);sfx.boom();lock=a;return}
+  score+=a.word.length*(a.boss?100:10)*(1+wave*.1)|0;kills++;boom(a,a.boss?120:36);sfx.boom();al=al.filter(z=>z!==a);lock=null;
+  if(a.boss){score+=1000}}
+}
+function tick(ts){
+ if(!run&&!ps.length){draw();return}
+ const dt=Math.min((ts-last)/1000,.05);last=ts;
+ if(run){
+  spawnT-=dt;if(queue>0&&spawnT<=0){spawn();spawnT=Math.max(.6,1.8-wave*.07)}
+  if(isBoss()&&queue>0&&!al.length)spawn();
+  for(const a of al){a.y+=a.v*dt*(a.boss?(a.y<H*.28?3:.15):1);a.ph+=dt*2;if(a.boss)a.x=W/2+Math.sin(a.ph*.6)*W*.25;
+   if(a.y>shipY()-34){al=al.filter(z=>z!==a);if(lock===a)lock=null;hearts--;sfx.alarm();boom({x:a.x,y:shipY(),c:'#f43f5e'},20);document.body.classList.remove('shk');void document.body.offsetWidth;document.body.classList.add('shk');
+    if(hearts<=0){over();break}}}
+  if(run&&queue<=0&&!al.length){wave++;queue=isBoss()?1:5+wave*2;sfx.up();spawnT=1.2}
+ }
+ for(const l of ls)l.l-=dt*5;ls=ls.filter(l=>l.l>0);
+ for(const p of ps){if(p.ring){p.r+=dt*260;p.l-=dt*2.2}else{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.97;p.vy*=.97;p.l-=dt*1.4}}ps=ps.filter(p=>p.l>0);
+ for(const s of stars){s.y+=dt*s.z*.06;if(s.y>1)s.y=0}
+ hud();draw();requestAnimationFrame(tick)}
+function hud(){$('w').textContent=wave;$('s').textContent=score;$('a').textContent=(hit+miss?Math.round(hit/(hit+miss)*100):100)+'%';$('hp').textContent='♥'.repeat(Math.max(hearts,0))+'♡'.repeat(3-Math.max(hearts,0));
+ $('bar').textContent=isBoss()?'MOTHERSHIP INCOMING - finish all 3 words':kills+' destroyed'}
+function draw(){
+ x.clearRect(0,0,W,H);const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#030712');g.addColorStop(1,'#0b1226');x.fillStyle=g;x.fillRect(0,0,W,H);
+ for(const s of stars){x.globalAlpha=.3+s.z*.3;x.fillStyle='#bae6fd';x.fillRect(s.x*W,s.y*H,s.z,s.z)}x.globalAlpha=1;
+ x.strokeStyle='#f43f5e';x.shadowColor='#f43f5e';x.shadowBlur=14;x.lineWidth=2;x.beginPath();x.moveTo(0,H-34);x.lineTo(W,H-34);x.stroke();x.shadowBlur=0;
+ for(const a of al){x.save();x.translate(a.x,a.y+Math.sin(a.ph)*4);x.scale(a.s,a.s);x.shadowColor=a.c;x.shadowBlur=18;x.fillStyle=a.c;
+  x.beginPath();x.ellipse(0,0,24,9,0,0,6.28);x.fill();x.fillStyle='rgba(255,255,255,.6)';x.beginPath();x.arc(0,-5,10,Math.PI,0);x.fill();x.restore();
+  if(a.boss){x.fillStyle='rgba(148,163,184,.25)';x.fillRect(a.x-70,a.y-70,140,7);x.fillStyle='#f43f5e';x.fillRect(a.x-70,a.y-70,140*(1-a.i/3),7)}
+  x.font='700 20px Orbitron,monospace';const w=x.measureText(a.word).width,ty=a.y+(a.boss?58:34);
+  x.fillStyle='rgba(3,7,18,.75)';x.fillRect(a.x-w/2-8,ty-18,w+16,26);
+  const done=a.word.slice(0,a.pos),tw=x.measureText(done).width;x.textAlign='left';x.fillStyle='#10b981';x.fillText(done,a.x-w/2,ty);x.fillStyle='#fff';x.fillText(a.word.slice(a.pos),a.x-w/2+tw,ty);
+  if(a===lock){x.strokeStyle='#fbbf24';x.lineWidth=2;x.beginPath();x.arc(a.x,a.y,34*a.s,0,6.28);x.stroke()}}
+ const sx=shipX(),sy=shipY();let ang=0;if(lock)ang=Math.atan2(lock.x-sx,sy-lock.y);
+ for(const l of ls){x.globalAlpha=Math.max(l.l,0);x.strokeStyle='#fff';x.shadowColor='#38bdf8';x.shadowBlur=16;x.lineWidth=3;x.beginPath();x.moveTo(sx+Math.sin(ang)*30,sy-Math.cos(ang)*30);x.lineTo(l.tx,l.ty);x.stroke()}x.globalAlpha=1;x.shadowBlur=0;
+ x.save();x.translate(sx,sy);x.rotate(ang);x.fillStyle='#38bdf8';x.shadowColor='#38bdf8';x.shadowBlur=18;x.beginPath();x.moveTo(0,-30);x.lineTo(18,18);x.lineTo(0,9);x.lineTo(-18,18);x.closePath();x.fill();x.restore();x.shadowBlur=0;
+ for(const p of ps){x.globalAlpha=Math.max(p.l,0);if(p.ring){x.strokeStyle=p.c;x.lineWidth=3;x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.stroke()}else{x.fillStyle=p.c;x.fillRect(p.x,p.y,4,4)}}x.globalAlpha=1}
+function start(){run=true;al=[];ls=[];ps=[];lock=null;wave=1;queue=7;spawnT=.5;score=0;hearts=3;hit=0;miss=0;kills=0;last=performance.now();
+ localStorage.setItem('tn_arcade_sessions',(+localStorage.getItem('tn_arcade_sessions')||0)+1);$('ov').classList.add('h');inp.focus();requestAnimationFrame(tick)}
+function over(){run=false;sfx.over();const B='tn_arcade_space_best';const nb=score>(+localStorage.getItem(B)||0);if(nb)localStorage.setItem(B,score);
+ $('m').innerHTML=`<b style="font:900 2rem Orbitron;color:#f59e0b">${score}</b><br>Wave ${wave} · ${kills} destroyed · ${$('a').textContent} accuracy<br>${nb?'New personal best.':'Best: '+localStorage.getItem(B)}`;
+ $('go').textContent='PLAY AGAIN';$('ov').classList.remove('h')}
+inp.addEventListener('input',()=>{for(const c of inp.value.toLowerCase())if(/[a-z]/.test(c))press(c);inp.value=''});
+addEventListener('keydown',e=>{if(e.key===' '||e.key==='Backspace')e.preventDefault();if(e.key==='Escape')lock=null;if(run&&document.activeElement!==inp)inp.focus()});
+addEventListener('pointerdown',()=>run&&inp.focus());
+$('go').onclick=start;draw();
+})();
+</script>
+<script>const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;document.head.appendChild(s)</script>
+</body></html>
