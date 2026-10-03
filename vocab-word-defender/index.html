@@ -4,11 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#07111f">
-  <title>Vocab Word Defender | TypeNest Academy</title>
-  <meta name="description" content="Vocab Word Defender is an arcade typing game for learning English vocabulary with Marathi meanings, combos, levels and boss battles.">
-  <meta name="robots" content="index,follow">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Vocab Word Defender – Learn English Vocabulary with Typing | TypeNest Academy</title>
+  <meta name="title" content="Vocab Word Defender – Learn English Vocabulary with Typing | TypeNest Academy">
+  <meta name="description" content="Play Vocab Word Defender arcade typing game on TypeNest. Master English vocabulary with Marathi meanings, 25 challenging levels, real-time WPM, and boss battles.">
+  <meta name="keywords" content="typing game, vocab defender, learn english with typing, english to marathi typing practice, typenest arcade, touch typing speed test">
+  <meta name="author" content="Dayanand Dinkar Kendre">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://typenest.in/vocab-word-defender/index.html">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/vocab-word-defender/index.html">
+  <meta property="og:title" content="Vocab Word Defender – Play & Learn English Vocabulary">
+  <meta property="og:description" content="Defend against falling words, boost your typing speed, and learn English vocabulary with Marathi meanings. Free 25-level typing arcade.">
+  <meta property="og:image" content="https://typenest.in/assets/images/og-vocab-defender.jpg">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/vocab-word-defender/index.html">
+  <meta name="twitter:title" content="Vocab Word Defender | TypeNest Academy">
+  <meta name="twitter:description" content="Arcade typing defense game with English-to-Marathi vocabulary learning.">
+  <meta name="twitter:image" content="https://typenest.in/assets/images/og-vocab-defender.jpg">
+
+  <!-- Preconnect & Fonts / Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Zero-Delay Anti-FOUC Theme Init -->
   <script>
     (function () {
       const t = localStorage.getItem('tn_theme') || 'dark';
@@ -16,6 +40,8 @@
       document.documentElement.classList.toggle('dark', t === 'dark');
     })();
   </script>
+
+  <!-- Tailwind CSS Configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -27,7 +53,34 @@
       }
     };
   </script>
+
+  <!-- Custom Game CSS -->
   <link rel="stylesheet" href="./css/game.css">
+
+  <!-- VideoGame Schema.org Rich Snippet for Faster Google Ranking -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Vocab Word Defender",
+    "url": "https://typenest.in/vocab-word-defender/index.html",
+    "description": "An educational arcade typing game designed to improve typing speed and English vocabulary with Marathi meanings.",
+    "genre": ["Educational Game", "Arcade", "Typing Game"],
+    "gamePlatform": ["Web Browser"],
+    "applicationCategory": "Game",
+    "operatingSystem": "Any",
+    "author": {
+      "@type": "Person",
+      "name": "Dayanand Dinkar Kendre"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TypeNest Academy",
+      "url": "https://typenest.in"
+    }
+  }
+  </script>
+
   <script type="module" src="./js/game-engine.js"></script>
 </head>
 <body>
