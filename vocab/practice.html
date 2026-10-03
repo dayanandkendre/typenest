@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<script>
+  (function () {
+    const savedTheme = localStorage.getItem("tn_theme");
+    if (savedTheme === "light") { document.documentElement.classList.remove("dark"); }
+    else { document.documentElement.classList.add("dark"); }
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: "class" };</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/vocab.css">
+<title>Vocabulary Typing Practice | TypeNest</title>
+<meta name="description" content="Practice English vocabulary by typing words and sentences with live WPM, accuracy and pronunciation.">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+</head>
+<body class="vocab-font min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-indigo-500 selection:text-white">
+<main id="arena" class="max-w-3xl mx-auto px-4 py-8">
+  <div class="flex items-center justify-between mb-4">
+    <a href="index.html" class="text-sm text-slate-400 hover:text-indigo-300"><i class="fa-solid fa-chevron-left"></i> All levels</a>
+    <h1 id="level-title" class="font-bold"></h1>
+    <button id="restart-btn" class="text-sm text-slate-400 hover:text-indigo-300"><i class="fa-solid fa-rotate-right"></i> Restart</button>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3 text-center" aria-live="off">
+    <div class="rounded-2xl border border-slate-800 bg-white dark:bg-slate-900/80 p-3"><p class="text-xl font-bold text-indigo-300" id="hud-wpm">0</p><p class="text-xs text-slate-400">WPM</p></div>
+    <div class="rounded-2xl border border-slate-800 bg-white dark:bg-slate-900/80 p-3"><p class="text-xl font-bold text-emerald-400" id="hud-acc">100%</p><p class="text-xs text-slate-400">Accuracy</p></div>
+    <div id="combo-box" class="rounded-2xl border border-slate-800 bg-white dark:bg-slate-900/80 p-3"><p class="text-xl font-bold text-amber-400"><span id="flame" class="flame hidden"><i class="fa-solid fa-fire"></i></span> <span id="hud-combo">0</span></p><p class="text-xs text-slate-400">Combo</p></div>
+    <div class="rounded-2xl border border-slate-800 bg-white dark:bg-slate-900/80 p-3"><p class="text-sm font-bold pt-1" id="hud-progress">Word 1</p><p class="text-xs text-slate-400">Progress</p></div>
+    <div class="rounded-2xl border border-slate-800 bg-white dark:bg-slate-900/80 p-3 col-span-2 sm:col-span-1"><p class="text-xl font-bold font-mono" id="hud-time">0:00</p><p class="text-xs text-slate-400">Time</p></div>
+  </div>
+  <div class="h-2 rounded-full bg-slate-800 overflow-hidden mb-5" role="progressbar" aria-label="Level progress"><div id="progress-bar" class="progress-fill h-full w-0 bg-gradient-to-r from-indigo-500 to-emerald-400"></div></div>
+
+  <section id="card" class="rounded-3xl border border-slate-800 bg-white dark:bg-slate-900/80 p-6 sm:p-8 mb-5">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-3 flex-wrap">
+          <h2 id="card-word" class="text-3xl sm:text-4xl font-extrabold"></h2>
+          <span id="card-pos" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/15 text-indigo-300"></span>
+        </div>
+        <p id="card-phonetic" class="font-mono text-slate-400 mt-1"></p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="accent-btn" class="h-10 px-3 rounded-xl border border-slate-700 text-xs font-semibold" aria-label="Switch US or UK accent">US</button>
+        <button id="speak-btn" class="h-10 w-10 rounded-full bg-indigo-500 text-white" aria-label="Hear pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+      </div>
+    </div>
+    <p id="card-en" class="mt-4 text-slate-300"></p>
+    <p id="card-mr" class="mt-1 text-amber-400 font-semibold"></p>
+  </section>
+
+  <section id="typing-wrap" class="rounded-3xl border border-slate-800 bg-white dark:bg-slate-900/80 p-6 sm:p-8 transition">
+    <div class="flex items-center justify-between mb-4">
+      <p id="stage-label" class="text-sm font-semibold text-emerald-400"></p>
+      <label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer"><input id="strict-toggle" type="checkbox" class="accent-indigo-500"> Strict mode</label>
+    </div>
+    <div id="typing" class="typing-area" aria-live="off"></div>
+    <input id="sink" type="text" class="absolute opacity-0 pointer-events-none h-0 w-0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Typing input">
+    <p class="text-xs text-slate-500 mt-4">Click here and start typing. Backspace fixes mistakes unless strict mode is on.</p>
+  </section>
+</main>
+
+<div id="modal" class="hidden fixed inset-0 z-[100] items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="res-title">
+  <div class="w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8 text-center text-slate-100">
+    <h2 id="res-title" class="text-2xl font-extrabold">Level complete</h2>
+    <div id="res-stars" class="flex justify-center gap-2 my-5"></div>
+    <dl class="grid grid-cols-2 gap-3 text-sm">
+      <div class="rounded-2xl bg-indigo-500/10 p-3"><dt class="text-slate-400">Net WPM</dt><dd id="res-wpm" class="text-xl font-bold text-indigo-300"></dd></div>
+      <div class="rounded-2xl bg-emerald-500/10 p-3"><dt class="text-slate-400">Accuracy</dt><dd id="res-acc" class="text-xl font-bold text-emerald-400"></dd></div>
+      <div class="rounded-2xl bg-amber-500/10 p-3"><dt class="text-slate-400">XP earned</dt><dd id="res-xp" class="text-base font-bold text-amber-400"></dd></div>
+      <div class="rounded-2xl bg-rose-500/10 p-3"><dt class="text-slate-400">Best combo</dt><dd id="res-combo" class="text-xl font-bold text-rose-400"></dd></div>
+    </dl>
+    <div class="flex flex-col gap-2 mt-6">
+      <a id="res-next" href="#" class="rounded-2xl bg-indigo-500 hover:bg-indigo-400 py-3 font-semibold text-white">Next level</a>
+      <button id="res-retry" class="rounded-2xl border border-slate-700 py-3 font-semibold">Play again</button>
+      <a href="index.html" class="text-sm text-slate-400 hover:text-indigo-300 pt-1">Back to all levels</a>
+    </div>
+  </div>
+</div>
+<script type="module" src="assets/js/vocab-ui.js"></script>
+<script type="module" src="../assets/js/layout.js"></script>
+</body>
+</html>
