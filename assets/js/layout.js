@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
 
   // ---------------------------------------------------------------------------
-  // SECTION 6: FOOTER COMPONENT TEMPLATE
+  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Social Links)
   // ---------------------------------------------------------------------------
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
@@ -355,12 +355,24 @@ document.addEventListener("DOMContentLoaded", function () {
           <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
             Empowering students, developers, and exam candidates with professional touch typing muscle memory, real-time WPM analytics, and free certified credentials.
           </p>
+          
           <div class="flex items-center gap-3 pt-1">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 100% Free Platform
             </span>
             <span class="text-slate-600">•</span>
             <span class="text-slate-500 text-[11px] font-mono">Pune, Maharashtra</span>
+          </div>
+
+          <!-- Social Media Follow Links -->
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-[11px] font-semibold text-slate-400">Follow Us:</span>
+            <a href="https://www.facebook.com/profile.php?id=61595099519418" target="_blank" rel="noopener noreferrer" title="Follow TypeNest on Facebook" class="w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all duration-200">
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a href="https://www.instagram.com/typenestacademy/" target="_blank" rel="noopener noreferrer" title="Follow TypeNest on Instagram" class="w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:border-pink-500 transition-all duration-200">
+              <i class="fa-brands fa-instagram text-sm"></i>
+            </a>
           </div>
         </div>
 
@@ -414,7 +426,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </footer>
   `;
-
   // ---------------------------------------------------------------------------
   // SECTION 7: INJECT HEADER AND FOOTER INTO DOM
   // ---------------------------------------------------------------------------
