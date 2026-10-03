@@ -1,1 +1,291 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeNest Arcade</title><meta name="description" content="TypeNest Arcade — four cyberpunk typing games for speed, reflexes and vocabulary."><script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="./css/arcade-core.css"></head><body><div id="tn-layout"></div><main class="page"><div class="shell"><div class="crumbs"><a href="/index.html">TypeNest</a><span>/</span><b>Arcade</b></div><section class="hero"><div><div class="eyebrow">TypeNest Academy • Competitive Arcade</div><h1>TYPE<span>NEST</span><br>ARCADE</h1><p>Four focused modes for vocabulary, reflexes, raw typing speed and competitive consistency. Everything runs locally with a keyboard-first arcade experience.</p></div><div class="actions"><button class="btn" id="theme"><i class="fa-solid fa-circle-half-stroke"></i> Theme</button><button class="btn" id="mute"><i class="fa-solid fa-volume-high"></i> Audio</button></div></section><section class="stats"><div class="stat"><small>Games</small><b>04</b></div><div class="stat"><small>Best WPM</small><b id="bw">0</b></div><div class="stat"><small>Best Score</small><b id="bs">0</b></div><div class="stat"><small>Sessions</small><b id="ss">0</b></div></section><section id="games" class="games"></section><section class="card leader"><div class="actions" style="justify-content:space-between"><div><div class="eyebrow">LOCAL RECORDS</div><h2>Personal Leaderboard</h2></div><button class="btn" id="reset">Reset</button></div><table><thead><tr><th>Game</th><th>Best</th><th>Metric</th><th>Record</th></tr></thead><tbody id="rows"></tbody></table></section></div></main><footer style="padding:25px 0;color:var(--muted);font-size:11px"><div class="shell" style="display:flex;justify-content:space-between"><span>TypeNest Arcade</span><a href="/tests.html" style="color:inherit">Typing Tests →</a></div></footer><script type="module">const G=[['vocab-defender','Vocab Word Defender','fa-shield-halved','Defend the landfall line while learning English vocabulary with Marathi meanings.',['25 Levels','Marathi','Boss Battles'],'accuracy'],['space-typer','Retro Space Typer','fa-rocket','Lock onto alien swarms, fire laser plasma and defend your orbital shield.',['Laser Combat','Swarm Waves','Mothership'],'TARGET'],['speed-rush','Speed Rush','fa-gauge-high','A precise 60-second blitz for raw WPM, CPS, streaks and frenzy multipliers.',['60 Seconds','Overdrive','2× Blitz'],'velocity'],['ghost-racer','Ghost Racer','fa-flag-checkered','Race your live typing against your personal best ghost or adaptive AI pacer.',['1v1 Ghost','WPM Race','Nitro'],'WPM']];document.querySelector('#games').innerHTML=G.map(g=>`<article class="card"><div class="preview"><div class="gridfx"></div><div class="pvword">${g[4]}</div><div class="orb"></div></div><div class="cardbody"><h2><i class="fa-solid ${g[2]}" style="color:var(--cyan)"></i> ${g[1]}</h2><p>${g[3]}</p><div class="tags">${g[4].map(x=>`<span class="tag">${x}</span>`).join('')}</div><a class="launch" href="./${g[0]}/">LAUNCH GAME <i class="fa-solid fa-arrow-right"></i></a></div></article>`).join('');function rec(){return{v:Number(localStorage.getItem('tn_arcade_vocab_best')||0),s:Number(localStorage.getItem('tn_arcade_space_best')||0),r:Number(localStorage.getItem('tn_arcade_rush_best')||0),g:Number(localStorage.getItem('tn_arcade_ghost_best')||0)}}function render(){let x=rec();document.querySelector('#bs').textContent=Math.max(x.v,x.s,x.r,x.g).toLocaleString();document.querySelector('#bw').textContent=Math.max(+localStorage.getItem('tn_arcade_rush_wpm')||0,+localStorage.getItem('tn_arcade_ghost_wpm')||0);document.querySelector('#ss').textContent=localStorage.getItem('tn_arcade_sessions')||0;document.querySelector('#rows').innerHTML=`<tr><td>Vocab Defender</td><td>${x.v}</td><td>Score</td><td>Local</td></tr><tr><td>Space Typer</td><td>${x.s}</td><td>Score</td><td>Local</td></tr><tr><td>Speed Rush</td><td>${x.r}</td><td>Score / WPM</td><td>${localStorage.getItem('tn_arcade_rush_wpm')||0} WPM</td></tr><tr><td>Ghost Racer</td><td>${x.g}</td><td>Best WPM</td><td>${localStorage.getItem('tn_arcade_ghost_wpm')||0} WPM</td></tr>`}render();document.querySelector('#theme').onclick=()=>{let n=(document.documentElement.dataset.theme||'dark')==='dark'?'light':'dark';document.documentElement.dataset.theme=n;document.documentElement.classList.toggle('dark',n);localStorage.setItem('tn_theme',n)};function sm(){document.querySelector('#mute').innerHTML=localStorage.getItem('tn_arcade_muted')==='1'?'<i class="fa-solid fa-volume-xmark"></i> Audio Off':'<i class="fa-solid fa-volume-high"></i> Audio'}document.querySelector('#mute').onclick=()=>{localStorage.setItem('tn_arcade_muted',localStorage.getItem('tn_arcade_muted')==='1'?'0':'1');sm()};sm();document.querySelector('#reset').onclick=()=>{if(confirm('Reset local arcade records?')){['tn_arcade_vocab_best','tn_arcade_space_best','tn_arcade_rush_best','tn_arcade_rush_wpm','tn_arcade_ghost_best','tn_arcade_ghost_wpm','tn_arcade_sessions','tn_ghost_replay'].forEach(k=>localStorage.removeItem(k));render()}};</script><script>const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;document.head.appendChild(s)</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>TypeNest Arcade – Play Free Educational Cyberpunk Typing Games</title>
+  <meta name="title" content="TypeNest Arcade – Play Free Educational Cyberpunk Typing Games">
+  <meta name="description" content="Explore TypeNest Arcade: 5 fast-paced cyberpunk typing games designed to build touch typing speed, English vocabulary with Marathi meanings, and competitive reflexes.">
+  <meta name="keywords" content="typenest arcade, typing games, vocab word defender, retro space typer, speed rush typing, ghost racer 1v1, learn english typing, touch typing games online">
+  <meta name="author" content="Dayanand Dinkar Kendre">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://typenest.in/arcade/index.html">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/arcade/index.html">
+  <meta property="og:title" content="TypeNest Arcade – Competitive & Educational Typing Games">
+  <meta property="og:description" content="Level up your WPM with 5 arcade typing games. Learn English vocabulary, shoot alien swarms, and race your ghost recorder.">
+  <meta property="og:image" content="https://typenest.in/assets/images/og-arcade.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/arcade/index.html">
+  <meta name="twitter:title" content="TypeNest Arcade | Cyberpunk Typing Suite">
+  <meta name="twitter:description" content="Free browser-based typing games for students and competitive exam aspirants.">
+  <meta name="twitter:image" content="https://typenest.in/assets/images/og-arcade.jpg">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/arcade-core.css">
+
+  <!-- Zero-Delay Anti-FOUC Theme Sync -->
+  <script>
+    (function () {
+      let t = localStorage.getItem('tn_theme') || 'dark';
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.toggle('dark', t === 'dark');
+    })();
+  </script>
+
+  <!-- Google Rich Snippet (Schema.org) for Arcade Collection -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "TypeNest Arcade",
+    "url": "https://typenest.in/arcade/index.html",
+    "description": "A collection of competitive, arcade-style typing games to learn English vocabulary and improve WPM.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Vocab Word Defender",
+          "url": "https://typenest.in/vocab-word-defender/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Retro Space Typer",
+          "url": "https://typenest.in/arcade/space-typer/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Speed Rush",
+          "url": "https://typenest.in/arcade/speed-rush/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Ghost Racer",
+          "url": "https://typenest.in/arcade/ghost-racer/index.html"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="tn-layout"></div>
+
+  <main class="page">
+    <div class="shell">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/index.html"><i class="fa-solid fa-house"></i> Arena</a>
+        <span>/</span>
+        <strong>Arcade</strong>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><i class="fa-solid fa-gamepad"></i> TypeNest Academy • Competitive Arcade</div>
+          <h1>TYPE<span>NEST</span><br>ARCADE</h1>
+          <p>Five focused modes for vocabulary, reflexes, raw typing speed, and competitive consistency. Everything runs locally with a keyboard-first arcade experience.</p>
+        </div>
+        <div class="actions">
+          <button class="btn" id="theme"><i class="fa-solid fa-circle-half-stroke"></i> Theme</button>
+          <button class="btn" id="mute"><i class="fa-solid fa-volume-high"></i> Audio</button>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat"><small>Games</small><b>05</b></div>
+        <div class="stat"><small>Best WPM</small><b id="bw">0</b></div>
+        <div class="stat"><small>Best Score</small><b id="bs">0</b></div>
+        <div class="stat"><small>Sessions</small><b id="ss">0</b></div>
+      </section>
+
+      <!-- Dynamic Games Grid -->
+      <section id="games" class="games"></section>
+
+      <!-- Personal Leaderboard / Stats Record -->
+      <section class="card leader">
+        <div class="actions" style="justify-content:space-between">
+          <div>
+            <div class="eyebrow">LOCAL RECORDS</div>
+            <h2>Personal Leaderboard</h2>
+          </div>
+          <button class="btn" id="reset">Reset Records</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Best Score</th>
+              <th>Metric</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <footer style="padding:25px 0;color:var(--muted);font-size:11px">
+    <div class="shell" style="display:flex;justify-content:space-between">
+      <span>TypeNest Arcade • typenest.in</span>
+      <a href="/tests.html" style="color:inherit">Typing Tests →</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    // Game definition array: [targetUrl, title, iconClass, description, tags, previewBannerWord]
+    const G = [
+      [
+        '/vocab-word-defender/index.html',
+        'Vocab Word Defender',
+        'fa-shield-halved',
+        'Defend the landfall line while learning English vocabulary with Marathi meanings across 25 progressive tiers.',
+        ['25 Levels', 'Marathi Meaning', 'Boss Battles'],
+        'VOCAB DEFENSE'
+      ],
+      [
+        './space-typer/',
+        'Retro Space Typer',
+        'fa-rocket',
+        'Lock onto descending alien swarms, fire laser plasma bursts, and defend your planetary orbital shield.',
+        ['Laser Combat', 'Swarm Waves', 'Mothership'],
+        'SPACE COMBAT'
+      ],
+      [
+        './speed-rush/',
+        'Speed Rush',
+        'fa-gauge-high',
+        'A precise 60-second high-adrenaline blitz for raw WPM, CPS, streak multipliers, and instant respawns.',
+        ['60 Seconds', 'Overdrive', '2× Blitz'],
+        'SPEED BLITZ'
+      ],
+      [
+        './ghost-racer/',
+        'Ghost Racer',
+        'fa-flag-checkered',
+        'Race your live typing in real-time against your personal best ghost recording or an adaptive AI pacer.',
+        ['1v1 Ghost', 'WPM Race', 'Nitro Boost'],
+        'GHOST DUEL'
+      ]
+    ];
+
+    // Render Game Cards
+    document.querySelector('#games').innerHTML = G.map(g => `
+      <article class="card">
+        <div class="preview">
+          <div class="gridfx"></div>
+          <div class="pvword">${g[5]}</div>
+          <div class="orb"></div>
+        </div>
+        <div class="cardbody">
+          <h2><i class="fa-solid ${g[2]}" style="color:var(--cyan)"></i> ${g[1]}</h2>
+          <p>${g[3]}</p>
+          <div class="tags">
+            ${g[4].map(x => `<span class="tag">${x}</span>`).join('')}
+          </div>
+          <a class="launch" href="${g[0]}">LAUNCH GAME <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+    `).join('');
+
+    function rec() {
+      // Sync progress with both tn_arcade keys and our custom tn_vwd progress
+      let vBest = Number(localStorage.getItem('tn_arcade_vocab_best') || 0);
+      try {
+        const vwdProg = JSON.parse(localStorage.getItem('tn_vwd_progress') || '{}');
+        if (vwdProg.best) {
+          const maxVwd = Math.max(0, ...Object.values(vwdProg.best).map(Number));
+          vBest = Math.max(vBest, maxVwd);
+        }
+      } catch (e) {}
+
+      return {
+        v: vBest,
+        s: Number(localStorage.getItem('tn_arcade_space_best') || 0),
+        r: Number(localStorage.getItem('tn_arcade_rush_best') || 0),
+        g: Number(localStorage.getItem('tn_arcade_ghost_best') || 0)
+      };
+    }
+
+    function render() {
+      let x = rec();
+      document.querySelector('#bs').textContent = Math.max(x.v, x.s, x.r, x.g).toLocaleString();
+      document.querySelector('#bw').textContent = Math.max(
+        Number(localStorage.getItem('tn_arcade_rush_wpm') || 0),
+        Number(localStorage.getItem('tn_arcade_ghost_wpm') || 0)
+      ) + ' WPM';
+      document.querySelector('#ss').textContent = localStorage.getItem('tn_arcade_sessions') || 0;
+
+      document.querySelector('#rows').innerHTML = `
+        <tr><td>Vocab Defender</td><td>${x.v.toLocaleString()}</td><td>Score</td><td>Active</td></tr>
+        <tr><td>Space Typer</td><td>${x.s.toLocaleString()}</td><td>Score</td><td>Active</td></tr>
+        <tr><td>Speed Rush</td><td>${x.r.toLocaleString()}</td><td>Score / WPM</td><td>${localStorage.getItem('tn_arcade_rush_wpm') || 0} WPM</td></tr>
+        <tr><td>Ghost Racer</td><td>${x.g.toLocaleString()}</td><td>Best WPM</td><td>${localStorage.getItem('tn_arcade_ghost_wpm') || 0} WPM</td></tr>
+      `;
+    }
+    render();
+
+    // Theme Toggle Handler
+    document.querySelector('#theme').onclick = () => {
+      let n = (document.documentElement.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = n;
+      document.documentElement.classList.toggle('dark', n === 'dark');
+      localStorage.setItem('tn_theme', n);
+    };
+
+    // Mute/Audio Handler
+    function sm() {
+      document.querySelector('#mute').innerHTML = localStorage.getItem('tn_arcade_muted') === '1'
+        ? '<i class="fa-solid fa-volume-xmark"></i> Audio Off'
+        : '<i class="fa-solid fa-volume-high"></i> Audio';
+    }
+    document.querySelector('#mute').onclick = () => {
+      localStorage.setItem('tn_arcade_muted', localStorage.getItem('tn_arcade_muted') === '1' ? '0' : '1');
+      sm();
+    };
+    sm();
+
+    // Reset Records Handler
+    document.querySelector('#reset').onclick = () => {
+      if (confirm('Reset all local arcade records?')) {
+        [
+          'tn_arcade_vocab_best',
+          'tn_arcade_space_best',
+          'tn_arcade_rush_best',
+          'tn_arcade_rush_wpm',
+          'tn_arcade_ghost_best',
+          'tn_arcade_ghost_wpm',
+          'tn_arcade_sessions',
+          'tn_ghost_replay',
+          'tn_vwd_progress'
+        ].forEach(k => localStorage.removeItem(k));
+        render();
+      }
+    };
+  </script>
+
+  <!-- TypeNest Global Layout Injection -->
+  <script>
+    (function loadLayout() {
+      const s = document.createElement('script');
+      s.src = '/assets/js/layout.js';
+      s.defer = true;
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
