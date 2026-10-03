@@ -75,7 +75,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
-
+  <url>
+    <loc>https://typenest.in/vocab/index.html</loc>
+    <lastmod>2026-09-11T16:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
   <!-- =========================================
        3. COURSE MODULE & UTILITY PAGES
   ========================================= -->
