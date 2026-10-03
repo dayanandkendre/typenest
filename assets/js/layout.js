@@ -2,7 +2,7 @@
 // FILE: assets/js/layout.js
 // PLATFORM: TypeNest Academy (typenest.in)
 // FEATURES: Instant Theme Sync, Dynamic Navbar & Footer, Firebase Auth & Dropdown,
-//           Social Branding Links, and Arcade Routing
+//           Social Branding Links, and Arcade Suite Routing
 // =============================================================================
 
 // -----------------------------------------------------------------------------
@@ -161,9 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   const isTypingPage = typingPages.includes(currentPath) || fullPath.includes("/vocab/practice.html");
 
-  // 4.3 ROUTE ACTIVE STATE DETECTORS (Including Arcade)
+  // 4.3 ROUTE ACTIVE STATE DETECTORS (Including Master Arcade Hub & Games)
   const isVocabActive = fullPath.includes("/vocab/") && !fullPath.includes("/vocab-word-defender/");
-  const isArcadeActive = fullPath.includes("/vocab-word-defender/") || currentPath.includes("arcade") || currentPath.includes("games");
+  const isArcadeActive = fullPath.includes("/arcade/") || fullPath.includes("/vocab-word-defender/") || currentPath.includes("arcade");
   const isLearnActive = fullPath.includes("/learn/") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
 
   // 4.4 THEME TOGGLE HANDLER FUNCTION
@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
         </a>
-        <a href="/vocab-word-defender/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isArcadeActive ? 'text-amber-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/arcade/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isArcadeActive ? 'text-amber-400 bg-slate-700/70 shadow-sm font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-gamepad text-xs text-amber-400"></i> Arcade
         </a>
         <a href="/vocab/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
@@ -274,8 +274,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
       </a>
-      <a href="/vocab-word-defender/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isArcadeActive ? 'bg-amber-500/20 text-amber-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
-        <i class="fa-solid fa-gamepad text-sm w-5 text-amber-400"></i> Arcade Games
+      <a href="/arcade/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isArcadeActive ? 'bg-amber-500/20 text-amber-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-gamepad text-sm w-5 text-amber-400"></i> Arcade Games Hub
       </a>
       <a href="/vocab/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-spell-check text-sm w-5"></i> Learn Vocab
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
 
   // ---------------------------------------------------------------------------
-  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Social Links & Arcade)
+  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Arcade & Social Links)
   // ---------------------------------------------------------------------------
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
@@ -389,7 +389,8 @@ document.addEventListener("DOMContentLoaded", function () {
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
             <li><a href="/index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
-            <li><a href="/vocab-word-defender/index.html" class="hover:text-amber-300 transition font-semibold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-gamepad text-xs"></i> Arcade Defender</a></li>
+            <li><a href="/arcade/index.html" class="hover:text-amber-300 transition font-semibold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-gamepad text-xs"></i> Arcade Suite (5 Games)</a></li>
+            <li><a href="/vocab-word-defender/index.html" class="hover:text-indigo-400 transition">Vocab Word Defender</a></li>
             <li><a href="/vocab/index.html" class="hover:text-indigo-400 transition font-semibold text-indigo-300">Learn Vocab Game</a></li>
             <li><a href="/learn/learn.html" class="hover:text-indigo-400 transition">20-Level Drills</a></li>
             <li><a href="/tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
