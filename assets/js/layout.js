@@ -1,4 +1,12 @@
-// assets/js/layout.js - Instant Theme Execution + Nav + Profile Dropdown & Logout
+// =============================================================================
+// FILE: assets/js/layout.js
+// PLATFORM: TypeNest Academy (typenest.in)
+// FEATURES: Instant Theme Sync, Dynamic Navbar & Footer, Firebase Auth & Dropdown
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// SECTION 1: FIREBASE SDK IMPORTS
+// -----------------------------------------------------------------------------
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { 
   getAuth, 
@@ -15,9 +23,9 @@ import {
   serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-// -------------------------------------------------------------
-// 1. INSTANT THEME RUN (DOMContentLoaded chya baher, bina delay)
-// -------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// SECTION 2: INSTANT ANTI-FOUC THEME CHECK (Zero Delay Execution)
+// -----------------------------------------------------------------------------
 (function () {
   const savedTheme = localStorage.getItem("tn_theme");
   if (savedTheme === "light") {
@@ -27,7 +35,9 @@ import {
   }
 })();
 
-// Firebase App Initialization
+// -----------------------------------------------------------------------------
+// SECTION 3: FIREBASE CLIENT INITIALIZATION
+// -----------------------------------------------------------------------------
 const firebaseConfig = {
   apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
   authDomain: "typenext-5bd90.firebaseapp.com",
@@ -43,10 +53,14 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
+// -----------------------------------------------------------------------------
+// SECTION 4: DOM INITIALIZATION & INJECTION
+// -----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const fullPath = window.location.pathname;
 
-  // Clean Theme Styling
+  // 4.1 INJECT GLOBAL LIGHT/DARK CSS OVERRIDES
   if (!document.getElementById("tn-theme-overrides")) {
     const styleEl = document.createElement("style");
     styleEl.id = "tn-theme-overrides";
@@ -68,13 +82,26 @@ document.addEventListener("DOMContentLoaded", function () {
     document.head.appendChild(styleEl);
   }
 
+  // 4.2 DETECT TYPING PAGES (Includes practice.html for Sound Button)
   const typingPages = [
-    "index.html", "tests.html", "number-typing-practice.html", 
-    "punctuation-typing-practice.html", "difficult-words-typing-practice.html", 
-    "beginner.html", "speed-building.html", "accuracy-mastery.html", "advanced-typing.html"
+    "index.html", 
+    "tests.html", 
+    "practice.html", // Vocab & practice arena
+    "number-typing-practice.html", 
+    "punctuation-typing-practice.html", 
+    "difficult-words-typing-practice.html", 
+    "beginner.html", 
+    "speed-building.html", 
+    "accuracy-mastery.html", 
+    "advanced-typing.html"
   ];
-  const isTypingPage = typingPages.includes(currentPath);
+  const isTypingPage = typingPages.includes(currentPath) || fullPath.includes("/vocab/practice.html");
 
+  // 4.3 ROUTE ACTIVE STATE DETECTORS
+  const isVocabActive = fullPath.includes("/vocab/");
+  const isLearnActive = fullPath.includes("/learn/") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
+
+  // 4.4 THEME TOGGLE HANDLER FUNCTION
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
     if (isDark) {
@@ -89,9 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const isCurrentDark = document.documentElement.classList.contains("dark");
-  const isLearnActive = currentPath.includes("learn") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
 
-  // Header Component (with User Dropdown Wrapper)
+  // ---------------------------------------------------------------------------
+  // SECTION 5: HEADER COMPONENT TEMPLATE (Navbar, Sound & Profile)
+  // ---------------------------------------------------------------------------
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -109,8 +137,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-xs sm:text-sm font-medium">
-        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
+        </a>
+        <a href="/vocab/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-spell-check text-xs"></i> Vocab
         </a>
         <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-gamepad text-xs"></i> Drills
@@ -129,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </a>
       </nav>
 
-      <!-- Right Action Controls -->
+      <!-- Right Action Controls (Sound, Theme, Auth) -->
       <div class="flex items-center gap-2">
         ${isTypingPage ? `
         <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
@@ -172,8 +203,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Mobile Slide-Down Menu -->
     <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-5 py-5 space-y-2 text-base shadow-2xl">
-      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
+      </a>
+      <a href="/vocab/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-spell-check text-sm w-5"></i> Learn Vocab
       </a>
       <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-gamepad text-sm w-5"></i> Practice Drills
@@ -239,7 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // Footer Component
+  // ---------------------------------------------------------------------------
+  // SECTION 6: FOOTER COMPONENT TEMPLATE
+  // ---------------------------------------------------------------------------
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10">
@@ -270,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
             <li><a href="/index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
+            <li><a href="/vocab/index.html" class="hover:text-indigo-400 transition font-semibold text-indigo-300">Learn Vocab Game</a></li>
             <li><a href="/learn/learn.html" class="hover:text-indigo-400 transition">20-Level Drills</a></li>
             <li><a href="/tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
             <li><a href="/number-typing-practice.html" class="hover:text-indigo-400 transition">Number Row Practice</a></li>
@@ -316,14 +353,20 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
   `;
 
+  // ---------------------------------------------------------------------------
+  // SECTION 7: INJECT HEADER AND FOOTER INTO DOM
+  // ---------------------------------------------------------------------------
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
   document.body.insertAdjacentHTML("beforeend", footerHTML);
 
-  // Mobile Menu Listeners
+  // ---------------------------------------------------------------------------
+  // SECTION 8: UI EVENT LISTENERS (Menu, Theme, Modals)
+  // ---------------------------------------------------------------------------
   const menuBtn = document.getElementById("mobileMenuToggle");
   const navMenu = document.getElementById("mobileNavMenu");
   const userDropdown = document.getElementById("userDropdownMenu");
 
+  // 8.1 MOBILE HAMBURGER MENU LISTENER
   if (menuBtn && navMenu) {
     menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -340,7 +383,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Theme Toggle Button
+  // 8.2 THEME TOGGLE BUTTON LISTENER
   const themeBtn = document.getElementById("themeToggleBtn");
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
@@ -351,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Login Modal Triggers
+  // 8.3 LOGIN MODAL CONTROLS
   const loginBtn = document.getElementById("loginBtn");
   const mobileLoginBtn = document.getElementById("mobileLoginBtn");
   const loginModal = document.getElementById("loginModal");
@@ -372,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Google Login
+  // 8.4 GOOGLE LOGIN POPUP EVENT
   const googleBtn = document.getElementById("googleLoginBtn");
   if (googleBtn) {
     googleBtn.addEventListener("click", async () => {
@@ -403,7 +446,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // LOGOUT HANDLER (Clears Auth + LocalStorage)
+  // ---------------------------------------------------------------------------
+  // SECTION 9: LOGOUT LOGIC (Auth + LocalStorage Flush)
+  // ---------------------------------------------------------------------------
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -420,7 +465,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("logoutBtn")?.addEventListener("click", handleLogout);
   document.getElementById("mobileLogoutBtn")?.addEventListener("click", handleLogout);
 
-  // Observe Auth State
+  // ---------------------------------------------------------------------------
+  // SECTION 10: FIREBASE AUTH STATE LISTENER (UI Synchronization)
+  // ---------------------------------------------------------------------------
   onAuthStateChanged(auth, (user) => {
     const mobileLogoutBtn = document.getElementById("mobileLogoutBtn");
 
