@@ -35,6 +35,12 @@
     <changefreq>daily</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://typenest.in/arcade/index.html</loc>
+    <lastmod>2026-09-11T16:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.80</priority>
+  </url>
 
   <!-- =========================================
        2. PRACTICE & LEARN HUBS (HIGH PRIORITY)
