@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   const fullPath = window.location.pathname;
 
-  // 4.1 INJECT GLOBAL LIGHT/DARK CSS OVERRIDES (Fixed Headings, Article Contrast & Prose)
+  // 4.1 INJECT GLOBAL LIGHT/DARK CSS OVERRIDES
   if (!document.getElementById("tn-theme-overrides")) {
     const styleEl = document.createElement("style");
     styleEl.id = "tn-theme-overrides";
@@ -68,18 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
       /* Light Mode Base Settings */
       html:not(.dark) body { background-color: #f8fafc !important; color: #0f172a !important; }
 
-      /* Blog, Article, H1, H2, H3, H4 & Text Contrast Fixes */
+      /* Blog & Guide Headings & High Contrast Text */
       html:not(.dark) h1, 
       html:not(.dark) h2, 
       html:not(.dark) h3, 
-      html:not(.dark) h4, 
-      html:not(.dark) h5, 
-      html:not(.dark) h6,
+      html:not(.dark) h4,
       html:not(.dark) .text-white { 
         color: #0f172a !important; 
       }
       
-      /* Dim & Gray Headings/Subtitles High-Contrast Fix */
+      /* Fix Grey Faded Text in Light Mode Cards */
       html:not(.dark) .text-slate-200,
       html:not(.dark) .text-slate-300 { 
         color: #1e293b !important; 
@@ -91,20 +89,37 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #475569 !important; 
       }
 
-      /* Tailwind Typography (prose) Light Mode Override */
-      html:not(.dark) article,
-      html:not(.dark) .prose,
-      html:not(.dark) .prose-invert {
-        color: #1e293b !important;
+      /* Cards & Containers in Light Mode */
+      html:not(.dark) main div[class*="bg-[#0f172a]"], 
+      html:not(.dark) main div[class*="bg-[#111827]"],
+      html:not(.dark) main div[class*="bg-[#1e293b]"], 
+      html:not(.dark) main div[class*="bg-slate-900"], 
+      html:not(.dark) main div[class*="bg-slate-800"] { 
+        background-color: #ffffff !important; 
+        border-color: #e2e8f0 !important; 
+        color: #0f172a !important; 
       }
-      html:not(.dark) .prose :where(h1, h2, h3, h4, th, strong):not(:where([class~="not-prose"] *)) {
+
+      /* Fix Bottom CTA Banner Text & Background in Light Mode */
+      html:not(.dark) div[class*="from-indigo-950"],
+      html:not(.dark) div[class*="to-slate-900"],
+      html:not(.dark) .bg-gradient-to-r,
+      html:not(.dark) .bg-gradient-to-b {
         color: #0f172a !important;
       }
-      html:not(.dark) .prose :where(p, li, td):not(:where([class~="not-prose"] *)) {
+      html:not(.dark) div[class*="bg-gradient-to"] p {
         color: #334155 !important;
       }
 
-      /* Header & Navigation Fixes */
+      /* Secondary Buttons in Light Mode */
+      html:not(.dark) a[class*="bg-slate-800"],
+      html:not(.dark) button[class*="bg-slate-800"] {
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      /* Header & Footer Rules */
       html:not(.dark) #siteHeader { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
       html:not(.dark) #siteHeader span, 
       html:not(.dark) #siteHeader a, 
@@ -118,20 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
       html:not(.dark) #userDropdownMenu a, 
       html:not(.dark) #userDropdownMenu button { color: #334155 !important; }
 
-      /* Cards & Containers Contrast */
-      html:not(.dark) main div[class*="bg-[#0f172a]"], 
-      html:not(.dark) main div[class*="bg-[#111827]"],
-      html:not(.dark) main div[class*="bg-[#1e293b]"], 
-      html:not(.dark) main div[class*="bg-slate-900"], 
-      html:not(.dark) main div[class*="bg-slate-800"], 
-      html:not(.dark) .typing-card, 
-      html:not(.dark) #typing-arena { 
-        background-color: #ffffff !important; 
-        border-color: #e2e8f0 !important; 
-        color: #0f172a !important; 
-      }
-
-      /* Footer Overrides */
       html:not(.dark) footer#siteFooter { background-color: #f8fafc !important; border-color: #e2e8f0 !important; color: #475569 !important; }
       html:not(.dark) footer#siteFooter div { background-color: transparent !important; box-shadow: none !important; border-color: #e2e8f0 !important; }
       html:not(.dark) footer#siteFooter h3, 
@@ -143,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     document.head.appendChild(styleEl);
   }
-
   // 4.2 DETECT TYPING PAGES (Includes practice.html for Sound Button)
   const typingPages = [
     "index.html", 
