@@ -1,8 +1,67 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><title>Learn Touch Typing - TypeNest Academy</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="css/curriculum-matrix.css"><script src="/assets/js/layout.js" defer></script></head><body>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <title>Curriculum - 100-Level Touch Typing Path | TypeNest Academy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/curriculum-matrix.css">
+  <script src="/assets/js/layout.js" defer></script>
+</head>
+<body>
 <div id="tn-header"></div>
-<main class="wrap"><section class="glass hero"><div><h1><i class="fa-solid fa-keyboard"></i> 100-Level Mastery Curriculum</h1><p class="text-slate-400 text-sm mt-1">From home row to Grandmaster. Pass each level with 95%+ accuracy to unlock the next.</p></div>
-<div class="text-right"><div class="pct" id="pct">0%</div><div class="pbar"><i id="bar" style="width:0"></i></div><small id="cnt" class="text-slate-400"></small></div></section>
-<nav class="tabs" id="tabs"></nav><section class="lesson-grid" id="grid"></section>
-<div class="mt-8 text-center"><button class="btn alt" id="reset">Reset Progress</button></div></main>
-<div id="tn-footer"></div>
-<script src="js/curriculum-data.js"></script><script src="js/learn-engine.js"></script></body></html>
+
+<main class="wrap">
+  <!-- Top Navigation Bar wit Exit & Home Button -->
+  <div class="flex items-center justify-between gap-4 py-3 px-1 mb-4 border-b border-slate-800">
+    <div class="flex items-center gap-2">
+      <a href="/index.html" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 transition border border-slate-700 shadow-sm" title="Go bak to TypeNest Home">
+        <i class="fa-solid fa-arrow-left text-indigo-400"></i>
+        <span>Bak to Home</span>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a href="/arcade/index.html" class="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/20 text-xs font-semibold flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-gamepad"></i>
+        <span class="hidden sm:inline">Arcade</span>
+      </a>
+      <a href="/learn/learn.html" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-bullseye"></i>
+        <span class="hidden sm:inline">Drills</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">100-Level Touch Typing Path</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Master keyboard ergonomics from Home Row to Elite Speed</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <span id="cnt" class="text-xs font-mono text-indigo-400 font-bold bg-indigo-500/10 px-3 py-1.5 rounded-xl border border-indigo-500/20">0 / 100 cleared</span>
+      <button id="reset" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-semibold flex items-center gap-1.5 transition" title="Clear all progress">
+        <i class="fa-solid fa-rotate-right"></i>
+        <span class="hidden sm:inline">Reset</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Progress Bar Container -->
+  <div class="w-full bg-slate-800/80 rounded-full h-2.5 mb-6 overflow-hidden border border-slate-700">
+    <div id="bar" class="bg-gradient-to-r from-indigo-500 to-sky-400 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+  </div>
+
+  <!-- Chapters Filter Tabs -->
+  <div class="tabs flex flex-wrap gap-2 mb-6" id="tabs"></div>
+
+  <!-- 100 Levels Grid Matrix -->
+  <div class="grid" id="grid"></div>
+</main>
+
+<script src="js/curriculum-data.js"></script>
+<script src="js/learn-engine.js"></script>
+</body>
+</html>
