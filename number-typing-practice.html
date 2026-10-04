@@ -158,10 +158,114 @@
   <!-- Page Logic Controller -->
   <script>
     const NUMBER_SETS = [
-      { title: "Drill 1: Sequential Numbers & Finger Reach", text: "1234 5678 9012 3456 7890 1029 3847 5612 9083 7465 1928 3746 5019 2837 4650 9182 7364 5019" },
-      { title: "Drill 2: Phone Numbers, Dates & Codes", text: "Dial 1-800-555-0199 on 12/04/2026. Account number 98402-1823 confirmed on 24-10-1995. Flight 492 departs at 14:35 gate B18." },
-      { title: "Drill 3: Financial & Mixed Data Statistics", text: "Order #84920: 14 units at 39 dollars totaling 546 dollars with 18% tax. Year 1995 had 16 million users, but 2026 reached 5400 million citizens." }
-    ];
+    // TIER 1: BASIC SEQUENCES & FINGER ANCHOR DRILLS
+    { 
+      title: "Drill 1: Left Hand Numbers (1, 2, 3, 4, 5)", 
+      text: "12345 54321 13524 42513 1122 3344 5511 2345 5432 1524 3142 5312 4513 2415 3251 1425 3524 1245" 
+    },
+    { 
+      title: "Drill 2: Right Hand Numbers (6, 7, 8, 9, 0)", 
+      text: "67890 09876 68079 97086 6677 8899 0066 7890 0987 6079 8697 0867 9068 7960 8706 6970 8079 6790" 
+    },
+    { 
+      title: "Drill 3: Full Number Row Sweep", 
+      text: "1234567890 0987654321 1029384756 5647382910 1928374650 0564738291 1357902468 9753108642 1209348756" 
+    },
+    { 
+      title: "Drill 4: Alternating Two-Digit Pairs", 
+      text: "12 34 56 78 90 21 43 65 87 09 19 28 37 46 50 91 82 73 64 05 10 20 30 40 50 60 70 80 90 15 25 35 45 55" 
+    },
+    { 
+      title: "Drill 5: Triplet Number Rhythm", 
+      text: "101 202 303 404 505 606 707 808 909 123 234 345 456 567 678 789 890 987 876 765 654 543 432 321 210" 
+    },
+    { 
+      title: "Drill 6: Four-Digit Block Memory", 
+      text: "1029 3847 5612 9083 7465 1928 3746 5019 2837 4650 9182 7364 5019 8273 6451 9028 3746 1829 3745 9283" 
+    },
+    { 
+      title: "Drill 7: Mirror Digit Coordination", 
+      text: "1001 2002 3003 4004 5005 6006 7007 8008 9009 1991 2882 3773 4664 5555 1221 2332 3443 4554 5665 6776" 
+    },
+
+    // TIER 2: CODES, PHONE NUMBERS, DATES & ID STRINGS
+    { 
+      title: "Drill 8: Standard Phone Number Formats", 
+      text: "Call 1-800-555-0199 or 1-888-432-9081 immediately. Secondary hotlines: 914-555-2819 and 212-555-7740 recorded on file." 
+    },
+    { 
+      title: "Drill 9: Calendar Dates & Epoch Years", 
+      text: "Milestone dates: 15-08-1947, 26-01-1950, and 24-10-1995. Review upcoming sessions on 12/04/2026, 18/09/2027, and 01/01/2030." 
+    },
+    { 
+      title: "Drill 10: Postal Codes & Regional PINs", 
+      text: "Shipping destination postal codes: 411001, 411014, 400001, 110001, 560001, 600001, 700001, 500001, 380001, and 413512." 
+    },
+    { 
+      title: "Drill 11: Flight Routes, Gates & Timetables", 
+      text: "Flight 492 departs at 14:35 from Gate B18. Flight 810 arrives at 09:15 Gate C04. Connection Flight 1204 scheduled for 22:50 Gate A11." 
+    },
+    { 
+      title: "Drill 12: Account Numbers & Reference IDs", 
+      text: "Account 98402-1823 verified with customer 48201-9931. Reference tracking numbers: TX-90812, REF-44019, and BATCH-77102." 
+    },
+    { 
+      title: "Drill 13: Mixed Alphanumeric Inventory SKUs", 
+      text: "Inventory check: 140 units of SKU-8402, 280 units of SKU-1930, 45 units of SKU-9912, and 1250 units of SKU-3004 ready for transit." 
+    },
+
+    // TIER 3: FINANCIAL, INVOICE & STATISTICAL STRINGS
+    { 
+      title: "Drill 14: Retail Billing & Unit Prices", 
+      text: "Order #84920: 14 units at 39 dollars totaling 546 dollars with 18% tax. Invoice #1049 reflects 28 items at 15 dollars totaling 420 dollars." 
+    },
+    { 
+      title: "Drill 15: Decimal Points & Precision Currencies", 
+      text: "Total charges: 124.50 plus 89.75 plus 14.20 equals 228.45. Deduct discount of 15.50 to yield net balance of 212.95 precisely." 
+    },
+    { 
+      title: "Drill 16: Percentage Calculations & Margins", 
+      text: "Q1 growth reached 12.5%, while Q2 advanced by 18.2%. Operational overhead reduced by 6.4%, leaving profit margins at 24.8% overall." 
+    },
+    { 
+      title: "Drill 17: Banking Transactions & Balances", 
+      text: "Ledger entry: Deposit of 4500 on 05/11, transfer of 1250 on 12/11, and withdrawal of 850 on 19/11 left ledger balance at 2400." 
+    },
+    { 
+      title: "Drill 18: Global Demographic Census Metrics", 
+      text: "In 1995 only 16 million people used the internet; by 2026 over 5400 million citizens interact daily across 195 recognized nations." 
+    },
+    { 
+      title: "Drill 19: Metric Weights & Dimensional Measures", 
+      text: "Container payload: 14500 kg, external length 12.2 meters, internal width 2.4 meters, volume 76.5 cubic meters across 40 pallets." 
+    },
+
+    // TIER 4: TECHNICAL TELEMETRY, IP ADDRESSES & SENSORS
+    { 
+      title: "Drill 20: IPv4 Network Addresses", 
+      text: "Gateway 192.168.1.1 DNS 10.0.0.1 Subnet 255.255.255.0 Router 172.16.254.1 Localhost 127.0.0.1 Broadcast 192.168.1.255 on port 8080." 
+    },
+    { 
+      title: "Drill 21: Thermal & Pressure Telemetry", 
+      text: "Sensor 01 logged 42.8 degrees at 14:00 hours. Sensor 02 recorded 1013.25 bar pressure with flow rate of 34.6 liters per second." 
+    },
+    { 
+      title: "Drill 22: High-Volume Industrial Part Tolerances", 
+      text: "Pipe schedule 40: nominal bore 150 mm, wall thickness 7.11 mm, test pressure 95 bar maintained for 300 seconds without leakage." 
+    },
+    { 
+      title: "Drill 23: Hardware Specifications & Frequencies", 
+      text: "System specs: 8 cores at 3.6 GHz, 32 GB DDR5 RAM at 5600 MHz, 2048 GB NVMe storage reading at 7000 MB per second on PCIe 4.0." 
+    },
+    { 
+      title: "Drill 24: Mathematical Formulas & Constants", 
+      text: "Constant values: Pi equals 3.14159, Euler constant equals 2.71828, and speed of light is 299792458 meters per second in vacuum." 
+    },
+    { 
+      title: "Drill 25: Master Numeric Endurance Sprint", 
+      text: "Run 9041: 34 units at 128 dollars on 15/08/2026. Code 491-02-88. IP 192.168.0.50 port 443. Target count 89000 reached in 3600 seconds." 
+    }
+  ];
 
     let currentDrillIdx = 0;
 
