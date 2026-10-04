@@ -51,7 +51,7 @@ for(let n=1;n<=100;n++){
  }
  const min=EXAMMIN[n]||(n>80?35:Math.round(5+n*.2));
  const tgt=n>=96&&n<100?min+10:Math.ceil(min*1.3);
- levels.push({id:n,chapter:Math.ceil(n/20),title:(n%20===0&&n<100?'Boss Sprint: ':'')+at(T,n)[1],type,newKeys,subtitle:(newKeys||at(T,n)[1]).toUpperCase(),text,minAcc:n===100?100:95,minWpm:n===100?40:min,targetWpm:tgt,exam,noPenalty:!exam});
+ levels.push({id:n,chapter:Math.ceil(n/20),title:(n%20===0&&n<100?'Boss Sprint: ':'')+at(T,n)[1],type,newKeys,subtitle:(newKeys||at(T,n)[1]).toUpperCase(),text,minAcc:n===100?95:80,minWpm:n===100?40:min,targetWpm:tgt,exam,noPenalty:!exam});
 }
 window.TN_CURRICULUM={chapters:CHAPTERS,levels,types:{'Intro':['fa-circle-play','b-intro'],'New Keys':['fa-box-open','b-new'],'Review':['fa-magnifying-glass','b-review'],'Timed Drill':['fa-stopwatch','b-timed'],'Arcade':['fa-gamepad','b-arcade'],'Boss':['fa-trophy','b-boss']}};
 })();
