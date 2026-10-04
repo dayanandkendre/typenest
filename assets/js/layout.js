@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const isCurrentDark = document.documentElement.classList.contains("dark");
 
   // ---------------------------------------------------------------------------
-  // SECTION 5: HEADER COMPONENT TEMPLATE (Navbar, Sound, Arcade & Profile)
+  // SECTION 5: HEADER COMPONENT TEMPLATE (Clean 7-Item Nav with 100-Lvl Learn)
   // ---------------------------------------------------------------------------
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
@@ -200,10 +200,13 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav (Clean, No-Overflow Layout) -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-xs sm:text-sm font-medium">
-        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive && !fullPath.includes('/curriculum/') ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
+        </a>
+        <a href="/curriculum/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${fullPath.includes('/curriculum/') ? 'text-indigo-400 bg-slate-700/70 shadow-sm font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-graduation-cap text-xs text-indigo-400"></i> Learn
         </a>
         <a href="/arcade/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isArcadeActive ? 'text-amber-400 bg-slate-700/70 shadow-sm font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-gamepad text-xs text-amber-400"></i> Arcade
@@ -211,17 +214,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="/vocab/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-spell-check text-xs"></i> Vocab
         </a>
-        <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-graduation-cap text-xs"></i> Drills
+        <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive && !fullPath.includes('/curriculum/') ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-bullseye text-xs"></i> Drills
         </a>
         <a href="/tests.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'tests.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-stopwatch text-xs"></i> Tests
         </a>
         <a href="/courses.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'courses.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-layer-group text-xs"></i> Courses
-        </a>
-        <a href="/leaderboard.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'leaderboard.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-trophy text-xs"></i> Leaderboard
         </a>
         <a href="/blog.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'blog.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-newspaper text-xs"></i> Guides
@@ -252,6 +252,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="/profile.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition">
               <i class="fa-solid fa-user-astronaut text-indigo-400"></i> My Profile
             </a>
+            <a href="/leaderboard.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition">
+              <i class="fa-solid fa-trophy text-indigo-400"></i> Leaderboard
+            </a>
             <a href="/certificate.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition">
               <i class="fa-solid fa-award text-amber-400"></i> Certificates
             </a>
@@ -271,8 +274,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Mobile Slide-Down Menu -->
     <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-5 py-5 space-y-2 text-base shadow-2xl">
-      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive && !fullPath.includes('/curriculum/') ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
+      </a>
+      <a href="/curriculum/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${fullPath.includes('/curriculum/') ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-graduation-cap text-sm w-5 text-indigo-400"></i> 100-Level Learn
       </a>
       <a href="/arcade/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isArcadeActive ? 'bg-amber-500/20 text-amber-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-gamepad text-sm w-5 text-amber-400"></i> Arcade Games Hub
@@ -280,8 +286,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="/vocab/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-spell-check text-sm w-5"></i> Learn Vocab
       </a>
-      <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
-        <i class="fa-solid fa-graduation-cap text-sm w-5"></i> Practice Drills
+      <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive && !fullPath.includes('/curriculum/') ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-bullseye text-sm w-5"></i> Row Practice Drills
       </a>
       <a href="/tests.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'tests.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-stopwatch text-sm w-5"></i> Speed Tests
