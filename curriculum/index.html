@@ -13,12 +13,12 @@
 <div id="tn-header"></div>
 
 <main class="wrap">
-  <!-- Top Navigation Bar wit Exit & Home Button -->
+  <!-- Top Navigation Bar with Exit & Home Button -->
   <div class="flex items-center justify-between gap-4 py-3 px-1 mb-4 border-b border-slate-800">
     <div class="flex items-center gap-2">
-      <a href="/index.html" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 transition border border-slate-700 shadow-sm" title="Go bak to TypeNest Home">
+      <a href="/index.html" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 transition border border-slate-700 shadow-sm" title="Go back to TypeNest Home">
         <i class="fa-solid fa-arrow-left text-indigo-400"></i>
-        <span>Bak to Home</span>
+        <span>Back to Home</span>
       </a>
     </div>
 
@@ -57,8 +57,8 @@
   <!-- Chapters Filter Tabs -->
   <div class="tabs flex flex-wrap gap-2 mb-6" id="tabs"></div>
 
-  <!-- 100 Levels Grid Matrix -->
-  <div class="grid" id="grid"></div>
+  <!-- Multi-Column Grid Matrix -->
+  <div id="grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
 </main>
 
 <script src="js/curriculum-data.js"></script>
