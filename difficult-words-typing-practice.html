@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Title, Description & Keywords -->
   <title>Difficult Words Typing Practice & Tricky Spellings | TypeNest</title>
   <meta name="description" content="Master awkward finger reaches and tricky English spellings with difficult words typing practice on TypeNest. Build muscle memory for complex vocabulary.">
@@ -32,12 +32,15 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -56,7 +59,6 @@
       animation: blinkCursor 0.9s infinite ease-in-out;
       margin-left: -1px;
     }
-
     .key-active {
       transform: translateY(2px) scale(0.96) !important;
       background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
@@ -67,27 +69,28 @@
   </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-rose-500 selection:text-white">
-
   <!-- Header is automatically injected by assets/js/layout.js -->
 
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-
     <!-- Top Banner -->
-    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="border-b border-slate-800 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2.5">
           <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-rose-500/10 text-rose-400 border border-rose-500/30">Target Drill</span>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Difficult Words Typing Practice</h1>
         </div>
-        <p class="text-slate-400 text-sm mt-1">Conquer complex spellings, awkward key reaches, and silent letters with targeted muscle memory drills[cite: 2, 4].</p>
+        <p class="text-slate-400 text-sm mt-1">Conquer complex spellings, awkward key reaches, and silent letters with targeted muscle memory drills.</p>
       </div>
 
-      <!-- Difficult Categories Selector -->
-      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
-        <button onclick="setDiffDrill(0, this)" id="diffbtn-0" class="diffbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-600 text-white transition">Set 1: Common Traps</button>
-        <button onclick="setDiffDrill(1, this)" id="diffbtn-1" class="diffbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Set 2: Awkward Reaches</button>
-        <button onclick="setDiffDrill(2, this)" id="diffbtn-2" class="diffbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Set 3: Silent Letters</button>
+      <!-- Quick Set Selector Dropdown -->
+      <div class="flex items-center gap-2 bg-[#111827] px-3 py-1.5 rounded-2xl border border-slate-800">
+        <label for="drillDropdown" class="text-xs text-slate-400 font-medium whitespace-nowrap">
+          <i class="fa-solid fa-list-check text-rose-400 mr-1"></i> Jump To:
+        </label>
+        <select id="drillDropdown" onchange="onDropdownChange(this.value)" class="bg-[#0b0f19] text-rose-300 text-xs font-bold rounded-xl px-2.5 py-1.5 border border-slate-700 focus:outline-none focus:border-rose-500 cursor-pointer max-w-[210px] sm:max-w-[260px] truncate">
+          <!-- Populated dynamically via JS -->
+        </select>
       </div>
     </div>
 
@@ -100,7 +103,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
@@ -108,7 +110,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
@@ -116,7 +117,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Focus Metric</div>
@@ -128,13 +128,21 @@
 
     <!-- Active Arena Box -->
     <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
-      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
         <span id="diffTitle" class="font-medium text-slate-300 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span> Set 1: Commonly Misspelled & Tricky Words
+          <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span> Set 1: Common Double-Letter Pitfalls
         </span>
-        <button onclick="resetDiffDrill(this)" class="hover:text-rose-400 flex items-center gap-1.5 transition">
-          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
-        </button>
+        <div class="flex items-center gap-4">
+          <!-- Next Set Button -->
+          <button onclick="nextDiffDrill(this)" class="text-rose-400 hover:text-white font-bold flex items-center gap-1.5 transition cursor-pointer">
+            Next Set <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <span class="text-slate-700">•</span>
+          <!-- Reset / Repeat Button -->
+          <button onclick="resetDiffDrill(this)" class="hover:text-rose-400 flex items-center gap-1.5 transition cursor-pointer">
+            <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+          </button>
+        </div>
       </div>
 
       <!-- Hidden input for mobile keyboard touch focus -->
@@ -147,122 +155,129 @@
 
     <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
     <div id="keyboardWrapper"></div>
-
   </main>
 
   <!-- Page Logic Controller -->
   <script>
     const DIFFICULT_SETS = [
-    // TIER 1: HIGH-FREQUENCY SPELLING TRAPS & DOUBLE-LETTER CONFUSION
-    {
-      title: "Set 1: Common Double-Letter Pitfalls",
-      text: "accommodate embarrass millennium occurrence supersede necessary separate continuous Caribbean parallel committee embarrass noticeable gauge vacuum questionnaire hierarchy noticeable recommendation privilege"
-    },
-    {
-      title: "Set 2: Administrative & Official Spelling Traps",
-      text: "bureaucracy liaison maintenance privilege questionnaire maintenance surveillance persistent conscientious maneuver hierarchy handkerchief personnel foreign sovereign deductible collectible indispensable lieutenant"
-    },
-    {
-      title: "Set 3: Vowel Alternation & Confusing Suffixes",
-      text: "independent visible noticeable definitely accidentally thoroughly occasionally calendar cemetery humorous accessible plausible apparent existence discipline absence boundary category persistent"
-    },
-    {
-      title: "Set 4: Deceptive Latin & French Double Consonants",
-      text: "possession harassment aggregate rebellion intelligence dilemma oscillation silhouette aggressive assassination commission embarrassment exaggerate aggravate surveillance accessible accommodate millennium"
-    },
-    {
-      title: "Set 5: Tricky Prefixes & Root Transitions",
-      text: "misspell drunkenness supersede reiterate subconscious unnoticeable dissatisfy unnatural preemptive interrogate symmetrical asynchronous miscellaneous nonconformist reconnaissance prerequisite prerequisite"
-    },
-    {
-      title: "Set 6: Silent Middles & Elusive Letters",
-      text: "handkerchief Wednesday parliament government environment February boundary temperature chocolate privilege laboratory miniature definitely separate disastrous hindrance category miniature jewelry"
-    },
-    {
-      title: "Set 7: Homophone & Transposition Hazards",
-      text: "principle principal stationary stationery complement compliment precede proceed discreet discrete advice advise affect effect ceiling piece deceive believe retrieve perceive"
-    },
+      // TIER 1: HIGH-FREQUENCY SPELLING TRAPS & DOUBLE-LETTER CONFUSION
+      {
+        title: "Set 1: Common Double-Letter Pitfalls",
+        text: "accommodate embarrass millennium occurrence supersede necessary separate continuous Caribbean parallel committee embarrass noticeable gauge vacuum questionnaire hierarchy noticeable recommendation privilege"
+      },
+      {
+        title: "Set 2: Administrative & Official Spelling Traps",
+        text: "bureaucracy liaison maintenance privilege questionnaire maintenance surveillance persistent conscientious maneuver hierarchy handkerchief personnel foreign sovereign deductible collectible indispensable lieutenant"
+      },
+      {
+        title: "Set 3: Vowel Alternation & Confusing Suffixes",
+        text: "independent visible noticeable definitely accidentally thoroughly occasionally calendar cemetery humorous accessible plausible apparent existence discipline absence boundary category persistent"
+      },
+      {
+        title: "Set 4: Deceptive Latin & French Double Consonants",
+        text: "possession harassment aggregate rebellion intelligence dilemma oscillation silhouette aggressive assassination commission embarrassment exaggerate aggravate surveillance accessible accommodate millennium"
+      },
+      {
+        title: "Set 5: Tricky Prefixes & Root Transitions",
+        text: "misspell drunkenness supersede reiterate subconscious unnoticeable dissatisfy unnatural preemptive interrogate symmetrical asynchronous miscellaneous nonconformist reconnaissance prerequisite prerequisite"
+      },
+      {
+        title: "Set 6: Silent Middles & Elusive Letters",
+        text: "handkerchief Wednesday parliament government environment February boundary temperature chocolate privilege laboratory miniature definitely separate disastrous hindrance category miniature jewelry"
+      },
+      {
+        title: "Set 7: Homophone & Transposition Hazards",
+        text: "principle principal stationary stationery complement compliment precede proceed discreet discrete advice advise affect effect ceiling piece deceive believe retrieve perceive"
+      },
 
-    // TIER 2: SILENT LETTERS, PHONETIC DECEPTIONS & CLASSICAL ROOTS
-    {
-      title: "Set 8: Silent Initial & Medial Consonants",
-      text: "pneumonia mnemonic psychology pseudonym knight gnaw phlegm pterodactyl knot kneel gnat wreckage silhouette pseudonym subtle subtle dumbfound doubt receipt debt"
-    },
-    {
-      title: "Set 9: Silent 'G', 'H' & Deep Gutturals",
-      text: "phlegm campaign champagne poignant diaphragm sovereign foreign silhouette ghost vehicle rhythm rhyme chaos cheetah ghastly spaghetti scheme exhaust exhibition echo"
-    },
-    {
-      title: "Set 10: French Borrowings & Silent Terminals",
-      text: "rendezvous faux bouquet chalet bourgeois debris depot reservoir buffet coup gourmet crochet sabotage ballet brochure silhouette fuselage chateau rapport chauffeur"
-    },
-    {
-      title: "Set 11: Deceptive Sibilants & Soft Consonants",
-      text: "asthma subtle whistle muscle scent discipline scissors ascend fascinate descend crescent adolescent fluorescent condescend miscellaneous scene scenery science fascinate"
-    },
-    {
-      title: "Set 12: Silent 'B', 'P' & Dental Stops",
-      text: "subtle thumb plumber doubt debt crumb climb comb tomb numb receipt cupboard psalm pseudonym corps raspberry receipt mortgage subtle indebted succumb"
-    },
-    {
-      title: "Set 13: Tricky Greek Orthography",
-      text: "psychiatrist hierarchy rhythm syndrome symmetry synonym dyslexia rhythmically anonymous asynchronous physical choreography symphony catastrophe hyperbole metamorphosis idiosyncrasy"
-    },
+      // TIER 2: SILENT LETTERS, PHONETIC DECEPTIONS & CLASSICAL ROOTS
+      {
+        title: "Set 8: Silent Initial & Medial Consonants",
+        text: "pneumonia mnemonic psychology pseudonym knight gnaw phlegm pterodactyl knot kneel gnat wreckage silhouette pseudonym subtle subtle dumbfound doubt receipt debt"
+      },
+      {
+        title: "Set 9: Silent 'G', 'H' & Deep Gutturals",
+        text: "phlegm campaign champagne poignant diaphragm sovereign foreign silhouette ghost vehicle rhythm rhyme chaos cheetah ghastly spaghetti scheme exhaust exhibition echo"
+      },
+      {
+        title: "Set 10: French Borrowings & Silent Terminals",
+        text: "rendezvous faux bouquet chalet bourgeois debris depot reservoir buffet coup gourmet crochet sabotage ballet brochure silhouette fuselage chateau rapport chauffeur"
+      },
+      {
+        title: "Set 11: Deceptive Sibilants & Soft Consonants",
+        text: "asthma subtle whistle muscle scent discipline scissors ascend fascinate descend crescent adolescent fluorescent condescend miscellaneous scene scenery science fascinate"
+      },
+      {
+        title: "Set 12: Silent 'B', 'P' & Dental Stops",
+        text: "subtle thumb plumber doubt debt crumb climb comb tomb numb receipt cupboard psalm pseudonym corps raspberry receipt mortgage subtle indebted succumb"
+      },
+      {
+        title: "Set 13: Tricky Greek Orthography",
+        text: "psychiatrist hierarchy rhythm syndrome symmetry synonym dyslexia rhythmically anonymous asynchronous physical choreography symphony catastrophe hyperbole metamorphosis idiosyncrasy"
+      },
 
-    // TIER 3: AWKWARD FINGER REACHES, PINKY STRAIN & LATERAL COMBOS
-    {
-      title: "Set 14: Pinky & Outer Key Reaches (Q, P, Z, A)",
-      text: "quintessential pizza plaza puzzle quartz piazza jeopardize zap applaud opaque jeopardize apply quality quantity equip piazza opaque quiz opaque zap jeopardize"
-    },
-    {
-      title: "Set 15: Rapid Hand Alternation Sprints",
-      text: "dilemma suspend panel problem authentic neighbor formal visitor formal authentic balance penalty element monitor formal panel authentic suspend problem formal"
-    },
-    {
-      title: "Set 16: One-Hand Dominant Clustering (Left Hand)",
-      text: "stew sweater secret career decrease create dessert trade target referee craft water trace regret serve feast state reward cast create sweat target"
-    },
-    {
-      title: "Set 17: One-Hand Dominant Clustering (Right Hand)",
-      text: "polyphony look onion million opinion jump pump loop milk oily nylon poppy polo kimono plum union pill yolk hook monopoly imply join"
-    },
-    {
-      title: "Set 18: Alternating Inward-Outward Swings",
-      text: "juxtaposition awkward rhythmically zigzag complex synchronization blueprint threshold benchmark drawback clockwork wavelength breakdown framework patchwork network playback outflank"
-    },
-    {
-      title: "Set 19: Precision Punctuation & Letter Jumps",
-      text: "exaggerate-rendezvous non-negotiable semi-permeable ultra-modern anti-inflammatory well-established high-frequency cross-reference pre-existing self-discipline re-evaluate co-ordinate pseudo-scientific micro-organism"
-    },
+      // TIER 3: AWKWARD FINGER REACHES, PINKY STRAIN & LATERAL COMBOS
+      {
+        title: "Set 14: Pinky & Outer Key Reaches (Q, P, Z, A)",
+        text: "quintessential pizza plaza puzzle quartz piazza jeopardize zap applaud opaque jeopardize apply quality quantity equip piazza opaque quiz opaque zap jeopardize"
+      },
+      {
+        title: "Set 15: Rapid Hand Alternation Sprints",
+        text: "dilemma suspend panel problem authentic neighbor formal visitor formal authentic balance penalty element monitor formal panel authentic suspend problem formal"
+      },
+      {
+        title: "Set 16: One-Hand Dominant Clustering (Left Hand)",
+        text: "stew sweater secret career decrease create dessert trade target referee craft water trace regret serve feast state reward cast create sweat target"
+      },
+      {
+        title: "Set 17: One-Hand Dominant Clustering (Right Hand)",
+        text: "polyphony look onion million opinion jump pump loop milk oily nylon poppy polo kimono plum union pill yolk hook monopoly imply join"
+      },
+      {
+        title: "Set 18: Alternating Inward-Outward Swings",
+        text: "juxtaposition awkward rhythmically zigzag complex synchronization blueprint threshold benchmark drawback clockwork wavelength breakdown framework patchwork network playback outflank"
+      },
+      {
+        title: "Set 19: Precision Punctuation & Letter Jumps",
+        text: "exaggerate-rendezvous non-negotiable semi-permeable ultra-modern anti-inflammatory well-established high-frequency cross-reference pre-existing self-discipline re-evaluate co-ordinate pseudo-scientific micro-organism"
+      },
 
-    // TIER 4: POLYSYLLABIC MONSTERS, TECHNICAL & LEGAL VOCABULARY
-    {
-      title: "Set 20: Polysyllabic Linguistic Curiosities",
-      text: "floccinaucinihilipilification antidisestablishmentarianism sesquipedalian supercalifragilisticexpialidocious incomprehensibility interdisciplinary compartmentalization institutionalization counterrevolutionary"
-    },
-    {
-      title: "Set 21: High-Order Scientific & Biological Terms",
-      text: "photosynthesis schizophrenia chrysanthemum polypropylene deoxyribonucleic phosphorescence bioluminescence thermodynamics electromagnetic crystallography paleontology gastroenterologist neurodegenerative"
-    },
-    {
-      title: "Set 22: Jurisprudence, Formal & Legal Terminology",
-      text: "jurisdiction indemnification jurisprudence extraterritoriality nonfeasance unconstitutional fiduciary misrepresentation subpoena affidavits reconnaissance jurisprudence confidentiality accountability"
-    },
-    {
-      title: "Set 23: Philosophical & Abstract Concepts",
-      text: "epistemological existentialism phenomenology utilitarianism solipsism hermeneutics anthropomorphism determinism teleological dialectical deconstruction egalitarianism transcendentalism"
-    },
-    {
-      title: "Set 24: Engineering, Fabrication & Mechanical Jargon",
-      text: "eccentricity perpendicular specification perpendicular circumferential tolerancing brazing metallurgy hydrotest calibration thermocouple spectrometer spectrophotometer galvanization crystallization"
-    },
-    {
-      title: "Set 25: Master Tricky Vocabulary Endurance Challenge",
-      text: "bureaucratic maneuver accommodate reconnaissance quintessence rendezvous idiosyncrasy schizophrenia synchronization chrysanthemum polypropylene phlegmatic diaphragm fluorescent liaison handkerchief"
-    }
-  ];
+      // TIER 4: POLYSYLLABIC MONSTERS, TECHNICAL & LEGAL VOCABULARY
+      {
+        title: "Set 20: Polysyllabic Linguistic Curiosities",
+        text: "floccinaucinihilipilification antidisestablishmentarianism sesquipedalian supercalifragilisticexpialidocious incomprehensibility interdisciplinary compartmentalization institutionalization counterrevolutionary"
+      },
+      {
+        title: "Set 21: High-Order Scientific & Biological Terms",
+        text: "photosynthesis schizophrenia chrysanthemum polypropylene deoxyribonucleic phosphorescence bioluminescence thermodynamics electromagnetic crystallography paleontology gastroenterologist neurodegenerative"
+      },
+      {
+        title: "Set 22: Jurisprudence, Formal & Legal Terminology",
+        text: "jurisdiction indemnification jurisprudence extraterritoriality nonfeasance unconstitutional fiduciary misrepresentation subpoena affidavits reconnaissance jurisprudence confidentiality accountability"
+      },
+      {
+        title: "Set 23: Philosophical & Abstract Concepts",
+        text: "epistemological existentialism phenomenology utilitarianism solipsism hermeneutics anthropomorphism determinism teleological dialectical deconstruction egalitarianism transcendentalism"
+      },
+      {
+        title: "Set 24: Engineering, Fabrication & Mechanical Jargon",
+        text: "eccentricity perpendicular specification perpendicular circumferential tolerancing brazing metallurgy hydrotest calibration thermocouple spectrometer spectrophotometer galvanization crystallization"
+      },
+      {
+        title: "Set 25: Master Tricky Vocabulary Endurance Challenge",
+        text: "bureaucratic maneuver accommodate reconnaissance quintessence rendezvous idiosyncrasy schizophrenia synchronization chrysanthemum polypropylene phlegmatic diaphragm fluorescent liaison handkerchief"
+      }
+    ];
 
     let currentDrillIdx = 0;
+
+    function populateDropdown() {
+      const dropdown = document.getElementById('drillDropdown');
+      if (!dropdown) return;
+      dropdown.innerHTML = DIFFICULT_SETS.map((d, i) => 
+        `<option value="${i}" ${i === currentDrillIdx ? 'selected' : ''}>${d.title}</option>`
+      ).join('');
+    }
 
     function initDiffSession() {
       const drill = DIFFICULT_SETS[currentDrillIdx];
@@ -271,43 +286,46 @@
         titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span> ${drill.title}`;
       }
 
+      const dropdown = document.getElementById('drillDropdown');
+      if (dropdown) dropdown.value = currentDrillIdx;
+
       // Master typing engine call (0 = Zen Mode / untimed dexterity focus)
       if (window.startTypingSession) {
         window.startTypingSession(drill.text, 0);
       }
     }
 
+    // Manual change from dropdown
+    function onDropdownChange(val) {
+      currentDrillIdx = parseInt(val, 10);
+      initDiffSession();
+    }
+
+    // Advance to next drill in sequence
+    window.nextDiffDrill = function(btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = (currentDrillIdx + 1) % DIFFICULT_SETS.length;
+      initDiffSession();
+    };
+
+    // Reset current drill without jumping
+    window.resetDiffDrill = function(btn) {
+      if (btn) btn.blur();
+      initDiffSession();
+    };
+
     // Global reset hook for Escape key
     window.resetCurrentTest = function() {
       initDiffSession();
     };
-
-    function resetDiffDrill(btn) {
-      if (btn) btn.blur(); // Blur button so Spacebar never triggers reset
-      initDiffSession();
-    }
 
     function focusDifficultEngine() {
       const sink = document.getElementById('mobileInputSink');
       if (sink) sink.focus();
     }
 
-    function setDiffDrill(idx, btn) {
-      if (btn) btn.blur();
-      currentDrillIdx = idx;
-      document.querySelectorAll('.diffbtn').forEach(b => {
-        b.classList.remove('bg-rose-600', 'text-white');
-        b.classList.add('bg-transparent', 'text-slate-400');
-      });
-      const targetBtn = document.getElementById(`diffbtn-${idx}`);
-      if (targetBtn) {
-        targetBtn.classList.add('bg-rose-600', 'text-white');
-        targetBtn.classList.remove('text-slate-400');
-      }
-      initDiffSession();
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
+      populateDropdown();
       initDiffSession();
     });
   </script>
