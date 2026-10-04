@@ -153,10 +153,114 @@
   <!-- Page Logic Controller -->
   <script>
     const DIFFICULT_SETS = [
-      { title: "Set 1: Commonly Misspelled & Tricky Words", text: "accommodate rhythm silhouette bureaucracy vacuum privilege embarrass maneuver guarantee questionnaire necessary parallel separate maintenance conscientious liaison hierarchy miscellaneous" },
-      { title: "Set 2: Awkward Key Reaches & Alternations", text: "quintessential idiosyncrasy rendezvous exaggeration phenomenon rendezvous asynchronous juxtaposition polypropylene chrysanthemum schizophrenia synchronization perpendicular" },
-      { title: "Set 3: Silent Letters & Phonetic Deceptions", text: "pneumonia rendezvous subtle receipt psychology mnemonic knight dumbfound sovereign champagne phlegm silhouette diaphragm mortgage poignant solemn foreign gnaw subtle" }
-    ];
+    // TIER 1: HIGH-FREQUENCY SPELLING TRAPS & DOUBLE-LETTER CONFUSION
+    {
+      title: "Set 1: Common Double-Letter Pitfalls",
+      text: "accommodate embarrass millennium occurrence supersede necessary separate continuous Caribbean parallel committee embarrass noticeable gauge vacuum questionnaire hierarchy noticeable recommendation privilege"
+    },
+    {
+      title: "Set 2: Administrative & Official Spelling Traps",
+      text: "bureaucracy liaison maintenance privilege questionnaire maintenance surveillance persistent conscientious maneuver hierarchy handkerchief personnel foreign sovereign deductible collectible indispensable lieutenant"
+    },
+    {
+      title: "Set 3: Vowel Alternation & Confusing Suffixes",
+      text: "independent visible noticeable definitely accidentally thoroughly occasionally calendar cemetery humorous accessible plausible apparent existence discipline absence boundary category persistent"
+    },
+    {
+      title: "Set 4: Deceptive Latin & French Double Consonants",
+      text: "possession harassment aggregate rebellion intelligence dilemma oscillation silhouette aggressive assassination commission embarrassment exaggerate aggravate surveillance accessible accommodate millennium"
+    },
+    {
+      title: "Set 5: Tricky Prefixes & Root Transitions",
+      text: "misspell drunkenness supersede reiterate subconscious unnoticeable dissatisfy unnatural preemptive interrogate symmetrical asynchronous miscellaneous nonconformist reconnaissance prerequisite prerequisite"
+    },
+    {
+      title: "Set 6: Silent Middles & Elusive Letters",
+      text: "handkerchief Wednesday parliament government environment February boundary temperature chocolate privilege laboratory miniature definitely separate disastrous hindrance category miniature jewelry"
+    },
+    {
+      title: "Set 7: Homophone & Transposition Hazards",
+      text: "principle principal stationary stationery complement compliment precede proceed discreet discrete advice advise affect effect ceiling piece deceive believe retrieve perceive"
+    },
+
+    // TIER 2: SILENT LETTERS, PHONETIC DECEPTIONS & CLASSICAL ROOTS
+    {
+      title: "Set 8: Silent Initial & Medial Consonants",
+      text: "pneumonia mnemonic psychology pseudonym knight gnaw phlegm pterodactyl knot kneel gnat wreckage silhouette pseudonym subtle subtle dumbfound doubt receipt debt"
+    },
+    {
+      title: "Set 9: Silent 'G', 'H' & Deep Gutturals",
+      text: "phlegm campaign champagne poignant diaphragm sovereign foreign silhouette ghost vehicle rhythm rhyme chaos cheetah ghastly spaghetti scheme exhaust exhibition echo"
+    },
+    {
+      title: "Set 10: French Borrowings & Silent Terminals",
+      text: "rendezvous faux bouquet chalet bourgeois debris depot reservoir buffet coup gourmet crochet sabotage ballet brochure silhouette fuselage chateau rapport chauffeur"
+    },
+    {
+      title: "Set 11: Deceptive Sibilants & Soft Consonants",
+      text: "asthma subtle whistle muscle scent discipline scissors ascend fascinate descend crescent adolescent fluorescent condescend miscellaneous scene scenery science fascinate"
+    },
+    {
+      title: "Set 12: Silent 'B', 'P' & Dental Stops",
+      text: "subtle thumb plumber doubt debt crumb climb comb tomb numb receipt cupboard psalm pseudonym corps raspberry receipt mortgage subtle indebted succumb"
+    },
+    {
+      title: "Set 13: Tricky Greek Orthography",
+      text: "psychiatrist hierarchy rhythm syndrome symmetry synonym dyslexia rhythmically anonymous asynchronous physical choreography symphony catastrophe hyperbole metamorphosis idiosyncrasy"
+    },
+
+    // TIER 3: AWKWARD FINGER REACHES, PINKY STRAIN & LATERAL COMBOS
+    {
+      title: "Set 14: Pinky & Outer Key Reaches (Q, P, Z, A)",
+      text: "quintessential pizza plaza puzzle quartz piazza jeopardize zap applaud opaque jeopardize apply quality quantity equip piazza opaque quiz opaque zap jeopardize"
+    },
+    {
+      title: "Set 15: Rapid Hand Alternation Sprints",
+      text: "dilemma suspend panel problem authentic neighbor formal visitor formal authentic balance penalty element monitor formal panel authentic suspend problem formal"
+    },
+    {
+      title: "Set 16: One-Hand Dominant Clustering (Left Hand)",
+      text: "stew sweater secret career decrease create dessert trade target referee craft water trace regret serve feast state reward cast create sweat target"
+    },
+    {
+      title: "Set 17: One-Hand Dominant Clustering (Right Hand)",
+      text: "polyphony look onion million opinion jump pump loop milk oily nylon poppy polo kimono plum union pill yolk hook monopoly imply join"
+    },
+    {
+      title: "Set 18: Alternating Inward-Outward Swings",
+      text: "juxtaposition awkward rhythmically zigzag complex synchronization blueprint threshold benchmark drawback clockwork wavelength breakdown framework patchwork network playback outflank"
+    },
+    {
+      title: "Set 19: Precision Punctuation & Letter Jumps",
+      text: "exaggerate-rendezvous non-negotiable semi-permeable ultra-modern anti-inflammatory well-established high-frequency cross-reference pre-existing self-discipline re-evaluate co-ordinate pseudo-scientific micro-organism"
+    },
+
+    // TIER 4: POLYSYLLABIC MONSTERS, TECHNICAL & LEGAL VOCABULARY
+    {
+      title: "Set 20: Polysyllabic Linguistic Curiosities",
+      text: "floccinaucinihilipilification antidisestablishmentarianism sesquipedalian supercalifragilisticexpialidocious incomprehensibility interdisciplinary compartmentalization institutionalization counterrevolutionary"
+    },
+    {
+      title: "Set 21: High-Order Scientific & Biological Terms",
+      text: "photosynthesis schizophrenia chrysanthemum polypropylene deoxyribonucleic phosphorescence bioluminescence thermodynamics electromagnetic crystallography paleontology gastroenterologist neurodegenerative"
+    },
+    {
+      title: "Set 22: Jurisprudence, Formal & Legal Terminology",
+      text: "jurisdiction indemnification jurisprudence extraterritoriality nonfeasance unconstitutional fiduciary misrepresentation subpoena affidavits reconnaissance jurisprudence confidentiality accountability"
+    },
+    {
+      title: "Set 23: Philosophical & Abstract Concepts",
+      text: "epistemological existentialism phenomenology utilitarianism solipsism hermeneutics anthropomorphism determinism teleological dialectical deconstruction egalitarianism transcendentalism"
+    },
+    {
+      title: "Set 24: Engineering, Fabrication & Mechanical Jargon",
+      text: "eccentricity perpendicular specification perpendicular circumferential tolerancing brazing metallurgy hydrotest calibration thermocouple spectrometer spectrophotometer galvanization crystallization"
+    },
+    {
+      title: "Set 25: Master Tricky Vocabulary Endurance Challenge",
+      text: "bureaucratic maneuver accommodate reconnaissance quintessence rendezvous idiosyncrasy schizophrenia synchronization chrysanthemum polypropylene phlegmatic diaphragm fluorescent liaison handkerchief"
+    }
+  ];
 
     let currentDrillIdx = 0;
 
