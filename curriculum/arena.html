@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><title>Arena - TypeNest Academy</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="css/curriculum-matrix.css"><script src="/assets/js/layout.js" defer></script></head><body>
+<div id="tn-header"></div>
+<main class="wrap"><div class="crumb" id="crumb"></div>
+<div class="flex flex-wrap items-baseline justify-between gap-2"><h1 id="ttl"></h1><span class="text-sm text-slate-400" id="typ"></span></div>
+<section class="stats"><div class="stat glass"><b id="st-wpm">0</b><small>WPM</small></div><div class="stat glass"><b id="st-acc">100%</b><small>Accuracy</small></div><div class="stat glass"><b id="st-err">0</b><small>Errors</small></div><div class="stat glass"><b id="st-time">00:00</b><small>Timer</small></div><div class="stat glass"><b id="st-target" style="font-size:.95rem;line-height:2.1rem">-</b><small>Target</small></div></section>
+<section class="glass textbox"><div><div id="text"></div></div><input id="mi" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="typing input"></section>
+<p class="text-center text-xs text-slate-500 mt-2">Start typing. Press Tab to restart. Tap the text box on mobile to open the keyboard.</p>
+<section class="glass kb" id="kb"></section><section class="hands" id="hands"></section></main>
+<div class="modal" id="modal"><div class="glass mbox"><h2 id="m-title" class="text-2xl font-bold"></h2><div class="mstars" id="m-stars"></div>
+<div class="flex justify-center gap-8"><div><div class="pct" id="m-wpm"></div><small>WPM</small></div><div><div class="pct" id="m-acc"></div><small>Accuracy</small></div></div>
+<p id="m-msg" class="mt-3 text-slate-300 text-sm"></p>
+<div class="mrow"><button class="btn alt" id="m-home">Levels</button><button class="btn alt" id="m-repeat">Repeat Lesson</button><button class="btn" id="m-next">Next Level</button></div></div></div>
+<script src="js/curriculum-data.js"></script><script src="js/learn-engine.js"></script></body></html>
