@@ -567,4 +567,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <!-- BLOG 60 -->
+  <url>
+    <loc>https://typenest.in/typenest-arcade-typing-games-guide.html</loc>
+    <lastmod>2026-10-03T06:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
