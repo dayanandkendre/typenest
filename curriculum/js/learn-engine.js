@@ -5,7 +5,7 @@ try{document.documentElement.dataset.theme=localStorage.getItem('tn_theme')||'da
 const load=()=>{try{return JSON.parse(localStorage.getItem(KEY))||{levels:{}}}catch(e){return{levels:{}}}};
 const save=p=>{try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}};
 const unlocked=(p,n)=>n===1||!!p.levels[n-1];
-const stars=(acc,wpm,L)=>acc<L.minAcc||wpm<L.minWpm?0:acc>=100&&wpm>=L.targetWpm?5:acc>=98?4:3;
+const stars=(acc,wpm,L)=>{   if(acc < L.minAcc || wpm < L.minWpm) return 0;   if(acc >= 98 && wpm >= L.targetWpm) return 5;   if(acc >= 95) return 4;   if(acc >= 90) return 3;   if(acc >= 85) return 2;   return 1; // 80% te 84.9% accuracy asel tari 1 star milun level clear hoil };
 /* ---- polyphonic procedural audio ---- */
 let ac;const A=()=>ac||(ac=new(window.AudioContext||window.webkitAudioContext)());
 function tone(f,d,type,v,t){try{const a=A(),o=a.createOscillator(),g=a.createGain(),s=a.currentTime+(t||0);o.type=type||'sine';o.frequency.value=f;g.gain.setValueAtTime(v||.06,s);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(g);g.connect(a.destination);o.start(s);o.stop(s+d)}catch(e){}}
