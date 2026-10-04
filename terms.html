@@ -3,45 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem('tn_theme'); } catch (e) {}
+      if (theme === 'light') { document.documentElement.classList.remove('dark'); }
+      else { document.documentElement.classList.add('dark'); }
+    })();
+  </script>
+
   <title>Terms and Conditions | TypeNest Academy</title>
-  <meta name="description" content="Terms and conditions for using TypeNest Academy typing tests, learning materials, and certificates.">
+  <meta name="description" content="Terms and conditions for using TypeNest Academy's typing practice, speed tests, learning materials and certificates, including acceptable use and disclaimers.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://typenest.in/terms.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TypeNest Academy">
+  <meta property="og:url" content="https://typenest.in/terms.html">
+  <meta property="og:title" content="Terms and Conditions | TypeNest Academy">
+  <meta property="og:description" content="The terms that apply when you use TypeNest Academy's typing tools, learning materials and certificates.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terms and Conditions | TypeNest Academy">
+  <meta name="twitter:description" content="The terms that apply when you use TypeNest Academy.">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://typenest.in/terms.html#webpage",
+        "url": "https://typenest.in/terms.html",
+        "name": "Terms and Conditions | TypeNest Academy",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "name": "TypeNest Academy", "url": "https://typenest.in/" },
+        "breadcrumb": { "@id": "https://typenest.in/terms.html#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://typenest.in/terms.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://typenest.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Terms and Conditions", "item": "https://typenest.in/terms.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    a:focus-visible { outline: 2px solid #818cf8; outline-offset: 3px; border-radius: 4px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; background: #4f46e5; color: #fff; padding: 0.75rem 1rem; font-weight: 600; }
+    .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+    main { overflow-wrap: anywhere; }
+  </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-  
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-    <div class="border-b border-slate-800 pb-4">
+  <!-- Header is injected by layout.js -->
+
+  <main id="main-content" class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+    <header class="border-b border-slate-800 pb-4">
       <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Terms and Conditions</h1>
-      <p class="text-xs text-slate-400 mt-1">Effective Date: October 2026</p>
-    </div>
+      <p class="text-xs text-slate-400 mt-1">Effective date: October 2026</p>
+    </header>
 
-    <div class="space-y-5 text-xs sm:text-sm text-slate-300 leading-relaxed bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 sm:p-8">
-      <h2 class="text-base font-bold text-white">1. Platform Usage</h2>
-      <p>TypeNest Academy platform-ti shobar typing skills unnoto korar uddeshye toiri[cite: 7]। Ekhane kono automated bot ba script diye leaderboard ba test manipulate kora nishiddho।</p>
+    <div class="space-y-5 text-sm text-slate-300 leading-relaxed bg-[#111827]/60 border border-slate-800 rounded-3xl p-6 sm:p-8">
+      <p>These terms apply when you use TypeNest Academy ("TypeNest", "we", "us") at typenest.in. By using the site you agree to them. If you do not agree, please do not use the site.</p>
 
-      <h2 class="text-base font-bold text-white">2. Educational Certificates</h2>
-      <p>TypeNest-er certificate-gulo apnar self-evaluated typing speed ebong accuracy proman kore। Eti resume ba personal skill showcase hishebe bebohar kora jabe।</p>
+      <h2 class="text-base font-bold text-white pt-2">1. Use of the platform</h2>
+      <p>TypeNest provides free typing practice, speed tests, arcade drills and learning guides to help people improve their typing. You may use it for personal, educational purposes. You must not use bots, scripts, automation or any other method to manipulate tests, scores or leaderboards, or interfere with the site's operation or security.</p>
 
-      <h2 class="text-base font-bold text-white">3. Intellectual Property</h2>
-      <p>TypeNest platform-er design, custom layout, code ebong content TypeNest Academy-r shompotti[cite: 7]।</p>
+      <h2 class="text-base font-bold text-white pt-2">2. Certificates</h2>
+      <p>Certificates issued by TypeNest record the typing speed and accuracy you achieved on TypeNest's own tests. They are self-evaluated practice records and are not official, government-recognised or examination-board certificates. You may include one in a resume or portfolio as evidence of practice, but you must not present it as an official qualification, and you must not alter it. Whether any employer or institution accepts it is their decision.</p>
 
-      <h2 class="text-base font-bold text-white">4. Modifications</h2>
-      <p>Amra shomoy shomoy platform-er terms ebong features update korar odhikar rakhi।</p>
+      <h2 class="text-base font-bold text-white pt-2">3. Results and learning content</h2>
+      <p>Speed and accuracy results are practice indicators and vary with your keyboard, the text and your practice. Guides and tutorials are general educational information. TypeNest does not guarantee any speed improvement, exam result, job or other outcome. TypeNest is independent and is not affiliated with any government department or examination authority; always check official sources for exam rules.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">4. Intellectual property</h2>
+      <p>The design, layout, code and original content of TypeNest belong to TypeNest Academy unless stated otherwise. You may not copy, republish or resell them without our written permission. Short quotations with a link back to the source are fine.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">5. Advertising and third-party services</h2>
+      <p>The site may display advertising and may use third-party services such as hosting, analytics or sign-in. These providers operate under their own terms and policies, and we are not responsible for their content or practices.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">6. Availability and disclaimer</h2>
+      <p>TypeNest is provided "as is" and "as available". We try to keep it accurate and running, but we do not promise uninterrupted or error-free service. To the extent permitted by applicable law, TypeNest is not liable for losses arising from your use of the site or reliance on its content or results.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">7. Changes to these terms</h2>
+      <p>We may update these terms or the site's features from time to time. The effective date above shows the latest version. Continued use after a change means you accept the updated terms.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">8. Governing law</h2>
+      <p>These terms are governed by the laws of India.</p>
+
+      <h2 class="text-base font-bold text-white pt-2">9. Contact</h2>
+      <p>Questions about these terms? Email <a href="mailto:typenest.in@gmail.com" class="text-indigo-300 underline hover:text-indigo-200">typenest.in@gmail.com</a>.</p>
     </div>
   </main>
-  
-  <!-- Reusable Modular Scripts -->
+
   <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
-  
+
 </body>
 </html>

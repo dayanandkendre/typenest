@@ -324,113 +324,231 @@
     </div>
   </div>
 
-  <!-- Page Logic Controller -->
-  <script>
-    const TEXT_PRESETS = {
-      beginner: [
-        "the quick brown fox jumps over the lazy dog and runs through the green forest with high speed and great energy each day",
-        "learning to type without looking at the keys builds automatic muscle memory that will last throughout your career and studies",
-        "keep your hands relaxed above the desk and let your fingers return naturally to the middle home row keys after every stroke"
-      ],
-      advanced: [
-        "Architectural excellence in software design requires both intuitive understanding of data flow and strict adherence to decoupled abstractions that survive unexpected complexity.",
-        "Precision precedes velocity. Those who rush into speed without mastering exact mechanical placement inevitably hit an impassable ceiling of frequent corrections."
-      ],
-      punctuation: [
-        "Can you believe it? She asked: 'Will you finish by 5:00 PM, or should we postpone?' I replied, 'No; everything is ready!'",
-        "Wait—did you double-check the server's configuration file? It's under `/var/log/syslog`; please verify its checksum immediately!"
-      ],
-      numbers: [
-        "In 1995, only 16 million people used the internet; by 2026, over 5,400,000,000 citizens interact daily across 195 nations.",
-        "Order #84920: Quantity 14 units at $39.99 each equals $559.86 plus 8.25% state tax ($46.19), totaling $606.05 precisely."
-      ],
-      tricky: [
-        "Rhythm rhythmically accommodates bizarre embarrassments through conscientious rendezvous and quintessential idiosyncrasies.",
-        "Pneumonia phlegm psychology gnaw knight silhouette mnemonic subtlety subtle camouflage privilege vacuum separate."
-      ]
-    };
+  <!-- Page Logic Controller with 125+ High-Quality Test Presets -->
+<script>
+  const TEXT_PRESETS = {
+    beginner: [
+      "the quick brown fox jumps over the lazy dog and runs through the green forest with high speed and great energy each day",
+      "learning to type without looking at the keys builds automatic muscle memory that will last throughout your career and studies",
+      "keep your hands relaxed above the desk and let your fingers return naturally to the middle home row keys after every stroke",
+      "simple habits practiced every single day lead to massive progress over time when you focus on steady rhythm and form",
+      "always sit with a straight back and ensure your feet rest flat on the floor while keeping your shoulders loose and calm",
+      "typing with all ten fingers saves thousands of hours over a lifetime compared to hunting and pecking with two fingers",
+      "focus on accuracy first because speed is simply a natural byproduct of clean finger positioning and repetition",
+      "the home row keys are the foundation of all touch typing and your index fingers should always rest on the marked keys",
+      "take brief breaks every thirty minutes to stretch your wrists and fingers so you never develop physical fatigue",
+      "consistency beats intensity every time when learning a new physical skill that relies on deep neuromuscular coordination",
+      "smooth motion across the keyboard comes from gentle keystrokes rather than hammering down forcefully on the keys",
+      "read each word carefully with your eyes slightly ahead of where your fingers are currently typing to avoid pausing",
+      "every great typist started out slowly by making deliberate strokes until their mind learned the exact key coordinates",
+      "make sure your wrists do not rest on the edge of the desk or laptop while active keystrokes are being made",
+      "regular daily drills for just fifteen minutes will improve your words per minute much faster than weekend cramming",
+      "trust the position of each finger and resist the urge to glance down at the keycaps even when you make an error",
+      "steady breathing and a calm mental state help reduce tension in your hands during long paragraphs and timed tests",
+      "developing clean rhythm means every letter is struck with uniform timing rather than rushing and halting randomly",
+      "good posture not only improves your typing speed but also protects your neck and spine during long computer sessions",
+      "the spacebar should be struck gently with the thumb of your dominant hand right after completing each full word",
+      "practice typing without backspacing every minor mistake during early warmup drills to maintain continuous forward momentum",
+      "accuracy above ninety-five percent should always be your target before attempting to push for higher raw speed",
+      "a light touch on the mechanical switches allows your fingers to glide effortlessly across rows without friction",
+      "patience with yourself during the first few weeks will pay huge dividends when words begin to flow automatically",
+      "great typing skill is like playing a musical instrument where each keystroke contributes to an uninterrupted melody"
+    ],
 
-    let currentCategory = 'beginner';
-    let durationSeconds = 60;
+    advanced: [
+      "Architectural excellence in software design requires both intuitive understanding of data flow and strict adherence to decoupled abstractions that survive unexpected complexity.",
+      "Precision precedes velocity. Those who rush into speed without mastering exact mechanical placement inevitably hit an impassable ceiling of frequent corrections.",
+      "Modern cloud infrastructure demands resilient microservices capable of handling distributed failures gracefully through automated failovers and robust circuit breakers.",
+      "Continuous deliberate practice in high-cognitive domains reshapes neural pathways, turning deliberate conscious calculation into instantaneous instinctual execution.",
+      "Cognitive endurance is often the decisive factor when navigating dense technical literature under rigorous professional and academic deadlines.",
+      "The synthesis of quantitative rigor and qualitative intuition distinguishes groundbreaking scientific research from routine procedural experimentation.",
+      "Decentralized consensus algorithms enable untrusted actors to coordinate state transitions deterministically without relying on centralized verification intermediaries.",
+      "Microscopic deviations in manufacturing tolerances can produce compounding structural instability across massive industrial fabrication assemblies.",
+      "Algorithmic optimization frequently involves navigating fundamental trade-offs between asymptotic time complexity and volatile memory consumption footprints.",
+      "Effective leaders cultivate psychological safety within engineering organizations to encourage transparent post-mortems after catastrophic production outages.",
+      "Distributed asynchronous message queues decouple heavy transactional processing pipelines from client-facing synchronous interface responsiveness.",
+      "Heuristic evaluation protocols provide rapid actionable diagnostics for user interface ergonomics before expensive longitudinal field testing begins.",
+      "Cryptographic integrity relies on computational asymmetry where mathematical verification remains trivial while brute-force inversion remains intractable.",
+      "Systemic refactoring initiatives must be balanced against feature development velocity to prevent cumulative technical debt from paralyzing the product roadmap.",
+      "Advanced metallurgical casting processes require precise thermal equilibrium curves to prevent premature micro-fracturing along internal crystalline boundaries.",
+      "Syntactic clarity within production codebases drastically reduces the cognitive overhead required for downstream peer code reviews and maintenance.",
+      "Strategic decision frameworks force executives to evaluate counterfactual scenarios rather than succumbing to confirmation bias during market volatility.",
+      "Real-time telemetric monitoring platforms must filter background noise effectively to alert site reliability engineers before downstream consumers experience degraded latency.",
+      "The historical evolution of touch typing mirrors the industrial transition from mechanical lever action to solid-state capacitive tactile actuation.",
+      "Epistemological humility encourages practitioners to continuously test empirical assumptions against newly emerging statistical observations.",
+      "Concurrency primitives such as mutexes and semaphores prevent race conditions but introduce non-trivial deadlocking hazards if lock hierarchies are violated.",
+      "Dynamic memory allocation across embedded real-time systems introduces dangerous fragmentation risks that can degrade predictable interrupt execution times.",
+      "Mastery in technical disciplines is marked not by the absence of friction, but by the effortless navigation through complex emergent friction points.",
+      "Iterative prototype validation minimizes commercial risk by exposing core product assumptions to real user scrutiny as early as feasible.",
+      "Robust cybersecurity posture requires continuous identity verification coupled with defense-in-depth principles across every internal network boundary."
+    ],
 
-    function getRandomText(cat) {
-      const arr = TEXT_PRESETS[cat] || TEXT_PRESETS.beginner;
-      return arr[Math.floor(Math.random() * arr.length)];
+    punctuation: [
+      "Can you believe it? She asked: 'Will you finish by 5:00 PM, or should we postpone?' I replied, 'No; everything is ready!'",
+      "Wait—did you double-check the server's configuration file? It's under `/var/log/syslog`; please verify its checksum immediately!",
+      "The company's Q3 results (excluding offshore subsidiaries) showed an increase: revenue rose by 14.8%, whereas operational costs dropped.",
+      "Look at that sentence structure: subject, verb, direct object; however, when conjunctions fail, a semicolon bridges the gap!",
+      "Alert! The system's response was: 'Error 404: Object not found.' Did you check the URL's spelling, path, and port parameters?",
+      "\"Success isn't final, failure isn't fatal,\" he whispered; \"it's the courage to continue that counts—always remember that.\"",
+      "What a remarkable performance! The orchestra's strings (violins, cellos, and harps) delivered an emotional, breathtaking crescendo.",
+      "Please provide the following: full name, date of birth (DD/MM/YYYY), contact number, and your supervisor's formal recommendation.",
+      "If you're unsure about the answer, don't guess! Ask yourself: 'What does the hypothesis imply?' Then, re-evaluate the data.",
+      "The recipe calls for: 2 cups of flour, 1/2 teaspoon of salt, 3 eggs (whisked), and a dash of vanilla; bake at 350°F.",
+      "\"Stop!\" shouted the guard. \"Who goes there? Identify yourself—friend or foe?\" The traveler replied, \"A weary friend; grant passage.\"",
+      "Is that true? The report stated: 'Carbon emissions decreased by 12% in 2024; however, methane levels surged unpredictably!'",
+      "Every developer's toolkit includes: a reliable IDE, Git CLI (with SSH keys configured), and proper terminal aliases; check yours!",
+      "\"Wait—what did she say?\" \"She insisted that we meet at the station by 6:30 AM; don't be late!\" replied Marcus.",
+      "Notice the contrast: black-and-white prints look classic; vibrant, high-saturation photographs convey contemporary energy and warmth.",
+      "To succeed, you'll need three qualities: relentless focus, patience (even during setbacks), and unwavering self-discipline.",
+      "Why did the client complain? The invoice read: 'Item #45-B: $1,250.00'—yet the initial quotation specified only $950.00!",
+      "\"Good morning!\" said the instructor. \"Today's lecture covers: semicolons, em-dashes, and parenthetical citations; take careful notes.\"",
+      "The lab's safety manual insists: 'Wear protective goggles at all times; failure to comply results in immediate suspension!'",
+      "Look closely at the equation: (a + b)² = a² + 2ab + b²; do not confuse multiplication with exponential addition!",
+      "\"Are you ready?\" asked the captain. \"The weather's worsening; we must set sail now, or we'll be stranded until tomorrow!\"",
+      "His favorite quote—originating from an ancient proverb—was simple: 'A smooth sea never made a skilled sailor; embrace the storm.'",
+      "Warning: unauthorized access to this workstation is strictly prohibited; all activities are logged, audited, and monitored.",
+      "Check the checklist: passports (valid for 6+ months), visas, vaccination certificates, and flight itineraries—all accounted for?",
+      "\"Bravo!\" the audience cheered. The soprano's final note hung in the air—pure, delicate, and flawless—until the curtains fell."
+    ],
+
+    numbers: [
+      "In 1995, only 16 million people used the internet; by 2026, over 5,400,000,000 citizens interact daily across 195 nations.",
+      "Order #84920: Quantity 14 units at $39.99 each equals $559.86 plus 8.25% state tax ($46.19), totaling $606.05 precisely.",
+      "The marathon record stands at 2 hours, 0 minutes, and 35 seconds, covering 42.195 kilometers across certified road circuits.",
+      "Flight 482 departed from Gate 18 at 06:45 AM with 186 passengers, climbing to a cruising altitude of 34,000 feet.",
+      "The highway project required 14,500 metric tons of steel, 82,000 cubic meters of concrete, and 340 working days to finish.",
+      "Invoice #9381: Subtotal $4,850.00 minus 15% corporate discount ($727.50) leaves a net payable balance of $4,122.50 due on 12/15/2026.",
+      "A standard keyboard has 104 keys, while compact 60% layouts eliminate the number pad, reducing the key count to 61 keys.",
+      "The Apollo 11 mission launched on July 16, 1969, traveling 384,400 kilometers to touch down on the lunar surface 4 days later.",
+      "Container #9402 weighs 28,450 kg, measuring 12.19 meters in length, 2.44 meters in width, and 2.59 meters in external height.",
+      "Temperature telemetry showed a sharp drop from 42.5 degrees Celsius at 14:00 hours down to 18.2 degrees by 22:30 hours.",
+      "Section 402(b) of the revised penal code mandates a 90-day review period for compliance filings submitted after March 31, 2025.",
+      "The stock index rose 342.80 points to close at 24,891.15, marking a 1.39% single-day advance on volume of 892,400,000 shares.",
+      "Server cluster #08 logged 1,842,910 requests between 02:00 and 03:00 UTC, averaging 512 transactions per second with 0 errors.",
+      "Account #5501-9284 recorded three deposits: $1,250.00, $840.50, and $3,190.25, yielding an end-of-month aggregate of $5,280.75.",
+      "Earth orbits the Sun at an average velocity of 29.78 kilometers per second, completing 1 revolution every 365.25 solar days.",
+      "The recipe scaling factor of 4.5 requires: 900 grams of flour, 450 ml of milk, 18 grams of yeast, and 67.5 grams of sugar.",
+      "Between 2010 and 2020, city population surged by 28.4%, growing from 1,240,500 residents to an estimated 1,592,800 people.",
+      "Batch #774-A passed quality inspection with 99.85% conformance across 48,000 manufactured parts, logging only 72 defects.",
+      "The speed of light in a vacuum is defined as 299,792,458 meters per second, traveling roughly 300,000 kilometers each second.",
+      "Serial #99-0482-11 shows warranty coverage through 11/30/2028 with service tier 3 covering 24/7 technical hotline access.",
+      "The bridge span measures 1,991 meters, supported by 2 main towers standing 297 meters tall with cables weighing 50,000 tons.",
+      "Student ID 83921 scored 94 out of 100 on test 1, 88 on test 2, and 96 on the final exam, securing an average mark of 92.67%.",
+      "During Q4, store #12 sold 3,420 laptops, 1,890 tablets, 7,650 accessories, and 410 monitors, generating $4,892,100 in sales.",
+      "The deep-sea submersible descended to a depth of 10,928 meters in the Mariana Trench, enduring pressure exceeding 1,086 bar.",
+      "System memory usage peaked at 87.4% across 64 GB of RAM, triggering automatic garbage collection on 14 worker threads."
+    ],
+
+    tricky: [
+      "Rhythm rhythmically accommodates bizarre embarrassments through conscientious rendezvous and quintessential idiosyncrasies.",
+      "Pneumonia phlegm psychology gnaw knight silhouette mnemonic subtlety subtle camouflage privilege vacuum separate.",
+      "Mischievous bureaucracy gauge questionnaire liaison hierarchy guarantee lieutenant miniature fluorescent maintenance handkerchief.",
+      "Acquiesce connoisseur exhilarate millennium occurred noticeable persistent supersede collectible deductible recommend occasionally.",
+      "Desiccate supersede accommodate silhouette conscience foreign sovereign neighbor poignant dilemma prejudice gauge vacuum.",
+      "Millennium liaison drunkenness embarrass sergeant subtle poignant asthma rhythm camouflage phlegm gnaw psychological.",
+      "Idiosyncrasy conscientious rendezvous questionnaire accommodate maneuver hierarchy mischievous bureaucracy privilege fluorescent.",
+      "Acquaintance supersede vacuum silhouette guarantee handkerchief maintenance collectible noticeable connoisseur exhilarate.",
+      "Unconscious drunkenness desiccate questionnaire neighbor poignant sergeant millennium recommend separate rhythmically.",
+      "Phlegm camouflage lieutenant miniature hierarchy liaison guarantee subtle gnaw pneumonic conscientious idiosyncrasies.",
+      "Exhilarate accommodate rendezvous embarrass noticeable collectible connoisseur maintenance bureaucracy mischievous.",
+      "Dilemma prejudice sovereignty silhouette handkerchief millennium vacuum supersede rhythm camouflage conscientious.",
+      "Pneumonia phlegm liaison hierarchy maneuver questionnaire guarantee subtle gnaw conscientious idiosyncrasy camouflage.",
+      "Mischievous drunkenness desiccate exhilarate connoisseur recommend vacuum handkerchief noticeable lieutenant miniature.",
+      "Fluorescent silhouette prejudice dilemma hierarchy rendezvous accommodate rhythmically conscientious maintenance collectible.",
+      "Sovereign neighbor poignant millennium liaison questionnaire guarantee subtle gnaw vacuum supersede embarrass.",
+      "Conscientious camouflage hierarchy miniature lieutenant mischievous bureaucracy handkerchief noticeable connoisseur exhilarate.",
+      "Acquiesce silhouette questionnaire vacuum desiccate rhythm poignant drunkenness recommend separate idiosyncratic.",
+      "Phlegm pneumonia subtle gnaw rendezvous hierarchy maneuver guarantee accommodate fluorescent collectible maintenance.",
+      "Dilemma prejudice connoisseur silhouette millennium vacuum supersede recommend conscientious handkerchief mischievous.",
+      "Exhilarate liaison bureaucracy miniature lieutenant noticeable rhythmically camouflage drunkenness desiccate subtle.",
+      "Conscientious questionnaire accommodate hierarchy rendezvous poignant neighbor sovereign handkerchief collectible.",
+      "Vacuum silhouette guarantee subtle gnaw pneumonia phlegm maneuver fluorescent maintenance connoisseur exhilarate.",
+      "Mischievous drunkenness separate recommend supersede dilemma prejudice questionnaire millennium conscientious.",
+      "Idiosyncrasies rhythmically accommodate rendezvous camouflage bureaucracy lieutenant miniature silhouette exhilarate."
+    ]
+  };
+
+  let currentCategory = 'beginner';
+  let durationSeconds = 60;
+
+  function getRandomText(cat) {
+    const arr = TEXT_PRESETS[cat] || TEXT_PRESETS.beginner;
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function initPageTest(textOverride = null) {
+    const chosenText = textOverride || getRandomText(currentCategory);
+    if (window.startTypingSession) {
+      window.startTypingSession(chosenText, durationSeconds);
     }
+  }
 
-    function initPageTest(textOverride = null) {
-      const chosenText = textOverride || getRandomText(currentCategory);
-      if (window.startTypingSession) {
-        window.startTypingSession(chosenText, durationSeconds);
-      }
-    }
+  window.resetCurrentTest = function() {
+    initPageTest();
+  };
 
-    window.resetCurrentTest = function() {
-      initPageTest();
-    };
+  function resetTypingTest(btn) {
+    if (btn) btn.blur();
+    initPageTest();
+  }
 
-    function resetTypingTest(btn) {
-      if (btn) btn.blur();
-      initPageTest();
-    }
+  function focusTypingEngine() {
+    const sink = document.getElementById('mobileInputSink');
+    if (sink) sink.focus();
+  }
 
-    function focusTypingEngine() {
-      const sink = document.getElementById('mobileInputSink');
-      if (sink) sink.focus();
-    }
-
-    function setTestCategory(cat, btn) {
-      if (btn) btn.blur();
-      currentCategory = cat;
-      document.querySelectorAll('.cat-pill').forEach(b => {
-        b.classList.remove('bg-indigo-600', 'text-white');
-        b.classList.add('bg-slate-800', 'text-slate-300');
-      });
-      const activeBtn = document.getElementById(`cat-${cat}`);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-indigo-600', 'text-white');
-        activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
-      }
-      initPageTest();
-    }
-
-    function setTimerDuration(seconds, btn) {
-      if (btn) btn.blur();
-      durationSeconds = seconds;
-      document.querySelectorAll('.dur-btn').forEach(b => {
-        b.classList.remove('bg-indigo-600', 'text-white');
-        b.classList.add('bg-transparent', 'text-slate-400');
-      });
-      const activeBtn = document.getElementById(`dur-${seconds}`);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-indigo-600', 'text-white');
-        activeBtn.classList.remove('bg-transparent', 'text-slate-400');
-      }
-      initPageTest();
-    }
-
-    function openCustomTextModal(btn) {
-      if (btn) btn.blur();
-      document.getElementById('customTextModal').classList.remove('hidden');
-      document.getElementById('customTextInput').focus();
-    }
-
-    function closeCustomTextModal() {
-      document.getElementById('customTextModal').classList.add('hidden');
-    }
-
-    function applyCustomText() {
-      const text = document.getElementById('customTextInput').value.trim();
-      if (text.length > 5) {
-        closeCustomTextModal();
-        initPageTest(text);
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      initPageTest();
+  function setTestCategory(cat, btn) {
+    if (btn) btn.blur();
+    currentCategory = cat;
+    document.querySelectorAll('.cat-pill').forEach(b => {
+      b.classList.remove('bg-indigo-600', 'text-white');
+      b.classList.add('bg-slate-800', 'text-slate-300');
     });
-  </script>
+    const activeBtn = document.getElementById(`cat-${cat}`);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-indigo-600', 'text-white');
+      activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+    }
+    initPageTest();
+  }
+
+  function setTimerDuration(seconds, btn) {
+    if (btn) btn.blur();
+    durationSeconds = seconds;
+    document.querySelectorAll('.dur-btn').forEach(b => {
+      b.classList.remove('bg-indigo-600', 'text-white');
+      b.classList.add('bg-transparent', 'text-slate-400');
+    });
+    const activeBtn = document.getElementById(`dur-${seconds}`);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-indigo-600', 'text-white');
+      activeBtn.classList.remove('bg-transparent', 'text-slate-400');
+    }
+    initPageTest();
+  }
+
+  function openCustomTextModal(btn) {
+    if (btn) btn.blur();
+    document.getElementById('customTextModal').classList.remove('hidden');
+    document.getElementById('customTextInput').focus();
+  }
+
+  function closeCustomTextModal() {
+    document.getElementById('customTextModal').classList.add('hidden');
+  }
+
+  function applyCustomText() {
+    const text = document.getElementById('customTextInput').value.trim();
+    if (text.length > 5) {
+      closeCustomTextModal();
+      initPageTest(text);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    initPageTest();
+  });
+</script>
 
   <!-- Reusable Modular Scripts -->
   <script type="module" src="assets/js/layout.js"></script>

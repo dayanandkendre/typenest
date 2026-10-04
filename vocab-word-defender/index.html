@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="theme-color" content="#030712">
+<title>Vocab Word Defender – Learn English Vocabulary with Typing | TypeNest Academy</title>
+<meta name="description" content="Play Vocab Word Defender arcade typing game on TypeNest. Master English vocabulary with Marathi meanings, 25 challenging levels, real-time WPM, and boss battles.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://typenest.in/vocab-word-defender/index.html">
+<meta property="og:type" content="website"><meta property="og:url" content="https://typenest.in/vocab-word-defender/index.html">
+<meta property="og:title" content="Vocab Word Defender – Play & Learn English Vocabulary">
+<meta property="og:description" content="Defend against falling words, boost your typing speed, and learn English vocabulary with Marathi meanings. Free 25-level typing arcade.">
+<script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Vocab Word Defender","url":"https://typenest.in/vocab-word-defender/index.html","description":"An educational arcade typing game to improve typing speed and English vocabulary with Marathi meanings.","genre":["Educational Game","Arcade","Typing Game"],"gamePlatform":["Web Browser"],"applicationCategory":"Game","operatingSystem":"Any","author":{"@type":"Person","name":"Dayanand Dinkar Kendre"},"publisher":{"@type":"Organization","name":"TypeNest Academy","url":"https://typenest.in"}}</script>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#030712;color:#e8eefc;font:700 16px Rajdhani,sans-serif;touch-action:manipulation}
+body::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px);opacity:.5}
+a{color:#38bdf8;text-decoration:none}.h{display:none!important}
+#map{position:relative;z-index:2;width:min(1100px,100% - 32px);margin:0 auto;padding:30px 0 60px}
+#map::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 40% at 20% 0,rgba(6,182,212,.2),transparent),radial-gradient(50% 40% at 90% 10%,rgba(244,63,94,.14),transparent),linear-gradient(rgba(6,182,212,.05) 1px,transparent 1px) 0 0/100% 40px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.kick{color:#06b6d4;letter-spacing:.18em;font-size:.8rem}
+h1{font:900 clamp(2rem,6vw,4rem)/1 Orbitron;margin:8px 0 8px;background:linear-gradient(90deg,#fff,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px rgba(6,182,212,.4))}
+.sub{color:#8b9ab5;max-width:520px;margin:0}
+.chips{display:flex;gap:10px}.chip{padding:8px 16px;border-radius:12px;background:rgba(15,23,42,.7);border:1px solid rgba(148,163,184,.2);backdrop-filter:blur(12px)}
+.tier{--c:#06b6d4;margin-bottom:22px;padding:18px;border-radius:18px;background:rgba(12,18,34,.7);border:1px solid color-mix(in srgb,var(--c) 35%,transparent);backdrop-filter:blur(12px)}
+.tier h2{margin:0 0 12px;font:800 1.05rem Orbitron;color:var(--c);text-shadow:0 0 14px var(--c)}
+.lv{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.tile{position:relative;border:1px solid color-mix(in srgb,var(--c) 45%,transparent);background:rgba(3,7,18,.6);color:#fff;border-radius:12px;padding:14px 8px;cursor:pointer;font:800 1.3rem Orbitron;transition:.2s;text-align:center}
+.tile small{display:block;font:600 .75rem Rajdhani;color:#8b9ab5;margin-top:4px}
+.tile:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 0 22px color-mix(in srgb,var(--c) 55%,transparent);border-color:var(--c)}
+.tile:disabled{opacity:.35;cursor:not-allowed}
+.tile.boss{border-color:#f59e0b;color:#f59e0b}.tile.boss::after{content:"BOSS";position:absolute;top:-8px;right:8px;font:900 .6rem Orbitron;background:#f59e0b;color:#1a1204;padding:2px 6px;border-radius:6px}
+#game canvas{position:fixed;inset:0;width:100%;height:100%;z-index:1}
+#hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px}
+#hud button{background:none;border:0;color:#38bdf8;font-size:1.3rem;cursor:pointer;padding:0 10px}
+.st{padding:6px 14px;border-radius:12px;background:rgba(15,23,42,.65);border:1px solid rgba(6,182,212,.4);backdrop-filter:blur(12px);text-align:center;min-width:72px}
+.st small{display:block;font-size:.62rem;letter-spacing:.14em;color:#8b9ab5}.st b{font:900 1.1rem Orbitron;font-variant-numeric:tabular-nums}
+#hp{color:#f43f5e;font-size:1.4rem;letter-spacing:.1em}
+#obj{position:fixed;bottom:6px;left:0;right:0;text-align:center;color:#8b9ab5;z-index:5;pointer-events:none}
+.ov{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(3,7,18,.75);backdrop-filter:blur(12px)}
+.md{max-width:440px;padding:30px;text-align:center;border-radius:18px;background:rgba(15,23,42,.8);border:1px solid rgba(6,182,212,.5);box-shadow:0 0 40px rgba(6,182,212,.22)}
+.md h2{font:900 1.8rem Orbitron;margin:0 0 10px;color:#06b6d4;text-shadow:0 0 20px #06b6d4}.md p{color:#a9b6cf;margin:10px 0 18px}
+.btn{font:900 .95rem Orbitron;color:#031018;background:#06b6d4;border:0;border-radius:12px;padding:13px 24px;cursor:pointer;margin:4px;box-shadow:0 0 22px rgba(6,182,212,.5)}
+.btn.g{background:none;color:#a9b6cf;border:1px solid rgba(148,163,184,.35);box-shadow:none}
+#inp{position:fixed;opacity:0;left:0;top:0;width:1px;height:1px}
+.shk{animation:sh .3s}@keyframes sh{25%{transform:translate(-8px,3px)}75%{transform:translate(8px,-3px)}}
+@media (max-width:560px){.lv{grid-template-columns:repeat(5,1fr);gap:6px}.tile{padding:10px 2px;font-size:1rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="tn-layout"></div>
+<main id="map">
+ <div class="top"><div><span class="kick">TYPENEST ARCADE · SKY DEFENSE</span><h1>Vocab Word Defender</h1>
+ <p class="sub">Type falling English words before they cross the danger line. Every word shows its Marathi meaning.</p><p style="margin:10px 0 0"><a href="/arcade/index.html">← Back to arcade</a></p></div>
+ <div class="chips"><div class="chip" id="mb">Best: 0</div><div class="chip" id="mu">Unlocked: 1/25</div></div></div>
+ <div id="tiers"></div>
+</main>
+<section id="game" class="h">
+ <canvas id="c"></canvas>
+ <div id="hud"><button id="bk" aria-label="Back to levels">←</button><div class="st"><small id="tn">TIER</small><b id="lv">1</b></div>
+ <div class="st"><small>WPM</small><b id="wp">0</b></div><div class="st"><small>ACC</small><b id="ac">100%</b></div>
+ <div class="st"><small>COMBO</small><b id="cb">x1.0</b></div><div class="st"><small>SCORE</small><b id="sc">0</b></div><div class="st" id="hp"></div></div>
+ <div id="obj"></div><input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+</section>
+<div class="ov h" id="ov"><div class="md" id="md"></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const D5=[
+ ['Novice Warmup','#06b6d4','cat:मांजर|dog:कुत्रा|sun:सूर्य|moon:चंद्र|book:पुस्तक|tree:झाड|fish:मासा|bird:पक्षी|milk:दूध|rain:पाऊस|road:रस्ता|door:दार|hand:हात|home:घर|king:राजा|lamp:दिवा|star:तारा|wind:वारा|gold:सोने|farm:शेत'],
+ ['Beginner Defense','#38bdf8','water:पाणी|river:नदी|friend:मित्र|window:खिडकी|school:शाळा|garden:बाग|flower:फूल|mother:आई|father:वडील|sister:बहीण|brother:भाऊ|market:बाजार|doctor:डॉक्टर|teacher:शिक्षक|bridge:पूल|mountain:डोंगर|forest:जंगल|village:गाव|season:ऋतू|morning:सकाळ'],
+ ['Intermediate Assault','#10b981','journey:प्रवास|courage:धैर्य|honest:प्रामाणिक|victory:विजय|freedom:स्वातंत्र्य|kindness:दयाळूपणा|silence:शांतता|danger:धोका|promise:वचन|mystery:रहस्य|balance:समतोल|curious:उत्सुक|patience:संयम|challenge:आव्हान|discover:शोध लावणे|protect:संरक्षण करणे|advice:सल्ला|quality:गुणवत्ता|ancient:प्राचीन|generous:उदार'],
+ ['Advanced Siege','#f59e0b','knowledge:ज्ञान|ambition:महत्त्वाकांक्षा|curiosity:जिज्ञासा|determination:दृढनिश्चय|responsibility:जबाबदारी|opportunity:संधी|atmosphere:वातावरण|achievement:यश|democracy:लोकशाही|environment:पर्यावरण|imagination:कल्पनाशक्ती|tradition:परंपरा|enthusiasm:उत्साह|encourage:प्रोत्साहन देणे|essential:आवश्यक|graceful:डौलदार|independent:स्वतंत्र|temperature:तापमान|leadership:नेतृत्व|wisdom:शहाणपण'],
+ ['Grandmaster Boss Battles','#f43f5e','perseverance:चिकाटी|magnificent:भव्य|unprecedented:अभूतपूर्व|extraordinary:असाधारण|sophisticated:अत्याधुनिक|collaboration:सहकार्य|perpetual:शाश्वत|resilience:लवचिकता|phenomenon:विलक्षण घटना|architecture:वास्तुकला|constitution:राज्यघटना|philosophy:तत्त्वज्ञान|accomplishment:सिद्धी|communication:संवाद|intelligence:बुद्धिमत्ता|civilization:सभ्यता|revolution:क्रांती|initiative:पुढाकार|controversy:वाद|hypothesis:गृहीतक']];
+const T=D5.map(([n,c,s])=>({n,c,w:s.split('|').map(p=>p.split(':'))}));
+const SK='tn_vwd_progress';
+const ld=()=>{try{const p=JSON.parse(localStorage.getItem(SK)||'{}');return{unlocked:p.unlocked||1,best:p.best||{}}}catch(e){return{unlocked:1,best:{}}}};
+let P=ld();const sv=()=>localStorage.setItem(SK,JSON.stringify(P));
+const cv=$('c'),x=cv.getContext('2d'),inp=$('inp');let W,H,Dp=Math.min(devicePixelRatio||1,2);
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*Dp;cv.height=H*Dp;x.setTransform(Dp,0,0,Dp,0,0)}addEventListener('resize',rs);rs();
+/* audio */
+let AC;const mu=()=>localStorage.getItem('tn_arcade_muted')==='1';
+function tn(t,a,b,d,v=.07,w=0){if(mu())return;try{AC=AC||new(window.AudioContext||webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ const T0=AC.currentTime+w,o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.setValueAtTime(a,T0);o.frequency.exponentialRampToValueAtTime(Math.max(b,1),T0+d);
+ g.gain.setValueAtTime(v,T0);g.gain.exponentialRampToValueAtTime(.001,T0+d);o.connect(g);g.connect(AC.destination);o.start(T0);o.stop(T0+d)}catch(e){}}
+const sfx={k:()=>{tn('square',1400,900,.04,.04);tn('triangle',500,300,.03,.04)},laser:()=>tn('sawtooth',900,200,.12,.05),err:()=>tn('square',140,100,.1),boom:()=>{tn('sawtooth',200,40,.3,.1)},
+ alarm:()=>{tn('sawtooth',220,170,.3,.1);tn('sawtooth',220,170,.3,.1,.35)},win:()=>[392,494,587,784,988].forEach((f,i)=>tn('triangle',f,f,.14,.1,i*.08)),over:()=>[440,370,311,247,185].forEach((f,i)=>tn('sawtooth',f,f*.95,.3,.09,i*.2))};
+/* map */
+function map(){let tot=0;const bs=Math.max(0,...Object.values(P.best).map(Number));
+ $('mb').textContent='Best: '+bs.toLocaleString();$('mu').textContent='Unlocked: '+Math.min(P.unlocked,25)+'/25';
+ $('tiers').innerHTML=T.map((t,i)=>`<div class="tier" style="--c:${t.c}"><h2>TIER ${i+1} · ${t.n.toUpperCase()}</h2><div class="lv">${[1,2,3,4,5].map(k=>{const L=i*5+k,b=P.best[L];
+  return`<button class="tile${k===5?' boss':''}" data-l="${L}" ${L>P.unlocked?'disabled':''}>${L}<small>${b?Number(b).toLocaleString():(L>P.unlocked?'locked':'new')}</small></button>`}).join('')}</div></div>`).join('');
+ document.querySelectorAll('.tile').forEach(b=>b.onclick=()=>start(+b.dataset.l))}
+map();
+/* game */
+let L=1,run=false,al=[],ls=[],ps=[],lock=null,queue=0,total=0,spawnT=0,hearts=3,score=0,combo=0,hit=0,miss=0,t0=0,last=0,boss=false,killed=0,stars=[],loopOn=false;
+for(let i=0;i<80;i++)stars.push({x:Math.random(),y:Math.random(),z:Math.random()*2+.3});
+const tierOf=l=>Math.ceil(l/5)-1,mult=()=>1+Math.min(Math.floor(combo/5)*.5,2);
+function pick(isBoss){const ti=tierOf(L);let pool=T[ti].w;if(ti>0&&Math.random()<.25)pool=T[ti-1].w;if(isBoss)pool=T[Math.min(ti+1,4)].w.slice().sort((a,b)=>b[0].length-a[0].length).slice(0,6);
+ const used=new Set(al.map(a=>a.en[0]));let c=pool.filter(w=>!used.has(w[0][0])&&!al.some(a=>a.en===w[0]));if(!c.length)c=pool;return c[Math.random()*c.length|0]}
+function spawn(){const lastOne=queue===1&&boss,[en,mr]=pick(lastOne);x.font=`800 ${lastOne?30:22}px Orbitron`;const w1=x.measureText(en).width;x.font='600 16px "Noto Sans Devanagari"';const w=Math.max(w1,x.measureText(mr).width)+28;
+ al.push({en,mr,pos:0,w,x:Math.min(W-w/2-10,Math.max(w/2+10,Math.random()*W)),y:-40,v:(26+L*3.4)*(lastOne?.7:1)*(.9+Math.random()*.2),boss:lastOne,s:lastOne?1.35:1});queue--}
+function boom(a,k,c){for(let i=0;i<k;i++){const t=Math.random()*6.28,s=60+Math.random()*280;ps.push({x:a.x,y:a.y,vx:Math.cos(t)*s,vy:Math.sin(t)*s,l:1,c})}ps.push({x:a.x,y:a.y,r:1,ring:1,l:1,c})}
+function press(ch){
+ if(!run)return;
+ if(!lock){const c=al.filter(a=>a.en[a.pos]===ch).sort((p,q)=>q.y-p.y)[0];if(!c){miss++;combo=0;sfx.err();return}lock=c}
+ if(lock.en[lock.pos]!==ch){miss++;combo=0;sfx.err();return}
+ hit++;lock.pos++;sfx.k();sfx.laser();ls.push({tx:lock.x,ty:lock.y,l:1});
+ if(lock.pos>=lock.en.length){const a=lock,col=T[tierOf(L)].c;score+=Math.round(a.en.length*10*mult()*(a.boss?5:1));combo++;killed++;boom(a,a.boss?100:34,a.boss?'#f59e0b':col);sfx.boom();al=al.filter(z=>z!==a);lock=null}}
+function start(l){L=l;boss=l%5===0;total=8+l+(boss?3:0);queue=total;al=[];ls=[];ps=[];lock=null;spawnT=.6;hearts=3;score=0;combo=0;hit=0;miss=0;killed=0;t0=performance.now();last=t0;run=true;
+ $('map').classList.add('h');$('game').classList.remove('h');$('ov').classList.add('h');$('tn').textContent='TIER '+(tierOf(l)+1);$('lv').textContent='L'+l;
+ $('obj').textContent=`${T[tierOf(l)].n} · destroy ${total} words${boss?' · BOSS at the end':''}`;inp.focus();if(!loopOn){loopOn=true;requestAnimationFrame(tick)}}
+function popup(h){$('md').innerHTML=h;$('ov').classList.remove('h')}
+function win(){run=false;sfx.win();const wpm=Math.round(hit/5/((performance.now()-t0)/60000)),acc=Math.round(hit/(hit+miss||1)*100);
+ if(score>(P.best[L]||0))P.best[L]=score;if(L<25&&P.unlocked<=L)P.unlocked=L+1;sv();localStorage.setItem('tn_arcade_sessions',(+localStorage.getItem('tn_arcade_sessions')||0)+1);
+ popup(`<h2>${boss?'BOSS DEFEATED':'LEVEL CLEAR'}</h2><p><b style="font:900 2rem Orbitron;color:#f59e0b">${score.toLocaleString()}</b><br>${wpm} WPM · ${acc}% accuracy · ${hearts} lives left</p>${L<25?`<button class="btn" id="nx">NEXT LEVEL</button>`:'<p>You cleared all 25 levels. Grandmaster.</p>'}<button class="btn g" id="mp">LEVEL MAP</button>`);bind()}
+function lose(){run=false;sfx.over();popup(`<h2 style="color:#f43f5e;text-shadow:0 0 20px #f43f5e">BREACHED</h2><p>${killed} of ${total} words destroyed on Level ${L}.<br>Score ${score.toLocaleString()}</p><button class="btn" id="rt">RETRY</button><button class="btn g" id="mp">LEVEL MAP</button>`);bind()}
+function bind(){const g=i=>$(i);if(g('nx'))g('nx').onclick=()=>start(L+1);if(g('rt'))g('rt').onclick=()=>start(L);if(g('mp'))g('mp').onclick=toMap}
+function toMap(){run=false;$('ov').classList.add('h');$('game').classList.add('h');$('map').classList.remove('h');P=ld();map();scrollTo(0,0)}
+$('bk').onclick=toMap;
+function tick(ts){
+ const dt=Math.min((ts-last)/1000,.05);last=ts;
+ if(run){spawnT-=dt;if(queue>0&&spawnT<=0){spawn();spawnT=Math.max(.9,2.6-L*.07)}
+  for(const a of al){a.y+=a.v*dt;if(a.y>H-84){al=al.filter(z=>z!==a);if(lock===a)lock=null;hearts--;combo=0;sfx.alarm();boom({x:a.x,y:H-70},24,'#f43f5e');
+   const g=$('game');g.classList.remove('shk');void g.offsetWidth;g.classList.add('shk');if(hearts<=0){lose();break}}}
+  if(run&&queue<=0&&!al.length)win();
+  const el=(ts-t0)/60000;$('wp').textContent=Math.round(hit/5/Math.max(el,.05));$('ac').textContent=(hit+miss?Math.round(hit/(hit+miss)*100):100)+'%';$('cb').textContent='x'+mult().toFixed(1);$('sc').textContent=score;
+  $('hp').textContent='♥'.repeat(Math.max(hearts,0))+'♡'.repeat(3-Math.max(hearts,0))}
+ for(const l of ls)l.l-=dt*5;ls=ls.filter(l=>l.l>0);
+ for(const p of ps){if(p.ring){p.r+=dt*240;p.l-=dt*2}else{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.97;p.vy*=.97;p.l-=dt*1.4}}ps=ps.filter(p=>p.l>0);
+ for(const s of stars){s.y+=dt*s.z*.04;if(s.y>1)s.y=0}
+ if(!$('game').classList.contains('h'))draw();requestAnimationFrame(tick)}
+function draw(){
+ const T0=T[tierOf(L)],col=T0.c;
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#030712');g.addColorStop(1,'#0b1226');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.strokeStyle=col+'14';x.lineWidth=1;for(let j=0;j<H;j+=60){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke()}for(let i=0;i<W;i+=60){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke()}
+ for(const s of stars){x.globalAlpha=.3+s.z*.3;x.fillStyle='#bae6fd';x.fillRect(s.x*W,s.y*H,s.z,s.z)}x.globalAlpha=1;
+ const dg=x.createLinearGradient(0,H-110,0,H);dg.addColorStop(0,'transparent');dg.addColorStop(1,'rgba(244,63,94,.28)');x.fillStyle=dg;x.fillRect(0,H-110,W,110);
+ x.strokeStyle='#f43f5e';x.shadowColor='#f43f5e';x.shadowBlur=16;x.lineWidth=2;x.beginPath();x.moveTo(0,H-62);x.lineTo(W,H-62);x.stroke();x.shadowBlur=0;
+ x.font='700 11px Orbitron';x.fillStyle='#f43f5e';x.textAlign='center';x.fillText('DANGER / LANDFALL',W/2,H-46);
+ for(const a of al){const bc=a.boss?'#f59e0b':col,s=a.s,hh=a.boss?72:56;
+  x.save();x.translate(a.x,a.y);x.fillStyle=a.boss?'rgba(40,24,4,.88)':'rgba(8,14,28,.88)';x.strokeStyle=bc;x.shadowColor=bc;x.shadowBlur=a===lock?26:12;x.lineWidth=a===lock?3:1.5;
+  x.beginPath();x.roundRect(-a.w/2*s,-hh/2,a.w*s,hh,12);x.fill();x.stroke();x.shadowBlur=0;
+  x.font=`800 ${a.boss?30:22}px Orbitron`;x.textAlign='left';const w=x.measureText(a.en).width,dn=a.en.slice(0,a.pos),dw=x.measureText(dn).width;
+  x.fillStyle='#10b981';x.fillText(dn,-w/2,a.boss?4:-2);x.fillStyle='#fff';x.fillText(a.en.slice(a.pos),-w/2+dw,a.boss?4:-2);
+  x.font='600 '+(a.boss?19:16)+'px "Noto Sans Devanagari"';x.textAlign='center';x.fillStyle='#f59e0b';x.fillText(a.mr,0,a.boss?30:20);
+  if(a.boss){x.font='900 10px Orbitron';x.fillStyle='#f59e0b';x.fillText('BOSS',0,-hh/2-6)}x.restore();
+  if(a===lock){x.strokeStyle='#fbbf24';x.lineWidth=1.5;x.setLineDash([6,5]);x.beginPath();x.arc(a.x,a.y,a.w/2*s+14,0,6.28);x.stroke();x.setLineDash([])}}
+ const sx=W/2,sy=H-30;let ang=lock?Math.atan2(lock.x-sx,sy-lock.y):0;
+ for(const l of ls){x.globalAlpha=Math.max(l.l,0);x.strokeStyle='#fff';x.shadowColor=col;x.shadowBlur=16;x.lineWidth=3;x.beginPath();x.moveTo(sx+Math.sin(ang)*26,sy-Math.cos(ang)*26);x.lineTo(l.tx,l.ty+24);x.stroke()}x.globalAlpha=1;x.shadowBlur=0;
+ x.save();x.translate(sx,sy);x.rotate(ang);x.fillStyle=col;x.shadowColor=col;x.shadowBlur=18;x.beginPath();x.moveTo(0,-28);x.lineTo(14,12);x.lineTo(-14,12);x.closePath();x.fill();x.restore();x.shadowBlur=0;
+ for(const p of ps){x.globalAlpha=Math.max(p.l,0);if(p.ring){x.strokeStyle=p.c;x.lineWidth=3;x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.stroke()}else{x.fillStyle=p.c;x.fillRect(p.x,p.y,4,4)}}x.globalAlpha=1}
+inp.addEventListener('input',()=>{for(const c of inp.value.toLowerCase())if(/[a-z]/.test(c))press(c);inp.value=''});
+addEventListener('keydown',e=>{if(e.key===' '||e.key==='Backspace')e.preventDefault();if(e.key==='Escape')lock=null;if(run&&document.activeElement!==inp)inp.focus()});
+addEventListener('pointerdown',()=>run&&inp.focus());
+addEventListener('storage',e=>{if(e.key==='tn_theme'){const t=e.newValue||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')}});
+})();
+</script>
+<script>(function(){const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;s.onerror=function(){console.info('layout.js unavailable')};document.head.appendChild(s)})()</script>
+</body></html>

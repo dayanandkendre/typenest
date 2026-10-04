@@ -1,9 +1,20 @@
-// assets/js/typing-engine.js - Adaptive Desktop Engine, Ultra Analytics & Audio-Fixed Engine
-(function () {
-  let audioCtx = null;
-  let isSoundEnabled = true;
+// =============================================================================
+// FILE: assets/js/typing-engine.js
+// PLATFORM: TypeNest Academy (typenest.in)
+// FEATURES: Web Audio Sound Engine, Live Adaptive Keyboard, Session Analytics,
+//           Firebase Cloud Sync, and Performance Modal
+// =============================================================================
 
-  // Audio Context Instant Initialization & Auto-Resume
+(function () {
+
+  // ---------------------------------------------------------------------------
+  // SECTION 1: WEB AUDIO API & KEYSTROKE SOUND SYNTHESIZER
+  // ---------------------------------------------------------------------------
+  let audioCtx = null;
+  // LocalStorage madhun sound state ghene (Default: Enabled)
+  let isSoundEnabled = localStorage.getItem('tn_sound') !== 'muted';
+
+  // Audio Context unlock ani auto-resume logic (Browser policy fix)
   function initAudio() {
     if (!audioCtx) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -13,6 +24,7 @@
     }
   }
 
+  // Realistic mechanical keyboard click sound
   function playKeyClickSound() {
     if (!isSoundEnabled) return;
     initAudio();
@@ -21,17 +33,24 @@
     try {
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
+
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(450 + Math.random() * 80, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.05);
+      osc.frequency.setValueAtTime(580 + Math.random() * 60, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.04);
+
+      // Volume 0.25 thevla ahe jyane spashta click aawaj yeil
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+
       osc.connect(gain);
       gain.connect(audioCtx.destination);
+
       osc.start();
-      osc.stop(audioCtx.currentTime + 0.05);
+      osc.stop(audioCtx.currentTime + 0.04);
     } catch (e) {}
   }
 
+  // Error buzz sound (chukichya key press sathi)
   function playErrorSound() {
     if (!isSoundEnabled) return;
     initAudio();
@@ -40,25 +59,38 @@
     try {
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
+
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(140, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.12);
+
+      gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.09);
+
       osc.connect(gain);
       gain.connect(audioCtx.destination);
+
       osc.start();
-      osc.stop(audioCtx.currentTime + 0.12);
+      osc.stop(audioCtx.currentTime + 0.09);
     } catch (e) {}
   }
 
+  // Global sound toggle function (Layout.js sobat sync)
   window.toggleSound = function () {
     isSoundEnabled = !isSoundEnabled;
+    localStorage.setItem('tn_sound', isSoundEnabled ? 'active' : 'muted');
+
     const icon = document.getElementById('soundIcon');
     if (icon) {
-      icon.className = isSoundEnabled ? 'fa-solid fa-volume-high text-sm' : 'fa-solid fa-volume-xmark text-sm text-slate-500';
+      icon.className = isSoundEnabled 
+        ? 'fa-solid fa-volume-high text-sm' 
+        : 'fa-solid fa-volume-xmark text-sm text-slate-500';
     }
   };
 
+
+  // ---------------------------------------------------------------------------
+  // SECTION 2: CORE TYPING STATE & ENGINE VARIABLES
+  // ---------------------------------------------------------------------------
   let targetText = "";
   let currentIndex = 0;
   let correctCount = 0;
@@ -71,7 +103,10 @@
   let isTestActive = false;
   let isTestCompleted = false;
 
-  // Auto-inject Keyboard on Desktop & Notice Card on Mobile
+
+  // ---------------------------------------------------------------------------
+  // SECTION 3: VIRTUAL KEYBOARD INJECTION (Desktop live feedback & Mobile note)
+  // ---------------------------------------------------------------------------
   function injectAdaptiveKeyboard() {
     const keyboardContainer = document.getElementById('keyboardWrapper');
     if (!keyboardContainer) return;
@@ -182,6 +217,20 @@
     `;
   }
 
+  // Active key highlighter on virtual keyboard
+  function updateKeyHighlight() {
+    document.querySelectorAll('.key-cap').forEach(el => el.classList.remove('key-active'));
+    if (currentIndex < targetText.length) {
+      const expected = targetText[currentIndex].toLowerCase();
+      const keyCap = document.querySelector(`.key-cap[data-key="${expected}"]`);
+      if (keyCap) keyCap.classList.add('key-active');
+    }
+  }
+
+
+  // ---------------------------------------------------------------------------
+  // SECTION 4: SESSION INITIALIZATION & HUD METRICS (WPM, Accuracy, Timer)
+  // ---------------------------------------------------------------------------
   window.startTypingSession = function (text, duration = 60) {
     clearInterval(timerInterval);
     isTestActive = false;
@@ -212,15 +261,6 @@
     updateKeyHighlight();
   };
 
-  function updateKeyHighlight() {
-    document.querySelectorAll('.key-cap').forEach(el => el.classList.remove('key-active'));
-    if (currentIndex < targetText.length) {
-      const expected = targetText[currentIndex].toLowerCase();
-      const keyCap = document.querySelector(`.key-cap[data-key="${expected}"]`);
-      if (keyCap) keyCap.classList.add('key-active');
-    }
-  }
-
   function updateHUD() {
     let elapsedMins = startTime ? (Date.now() - startTime) / 60000 : 0;
     let wpm = elapsedMins > 0.03 ? Math.round((correctCount / 5) / elapsedMins) : 0;
@@ -250,7 +290,10 @@
     }
   }
 
-  // Keydown Engine with Audio Resume Guarantee
+
+  // ---------------------------------------------------------------------------
+  // SECTION 5: LIVE KEYDOWN EVENT LISTENER & INPUT EVALUATION
+  // ---------------------------------------------------------------------------
   window.addEventListener('keydown', function (e) {
     initAudio();
 
@@ -271,6 +314,7 @@
       e.preventDefault();
     }
 
+    // Start timer on first keystroke
     if (!isTestActive) {
       isTestActive = true;
       startTime = Date.now();
@@ -291,6 +335,7 @@
     const expectedChar = targetText[currentIndex];
     const charSpan = document.getElementById(`char-${currentIndex}`);
 
+    // Backspace handling
     if (e.key === 'Backspace') {
       e.preventDefault();
       if (currentIndex > 0) {
@@ -306,6 +351,8 @@
     if (e.key.length > 1 && e.key !== 'Enter') return;
 
     totalTypedCount++;
+
+    // Character accuracy check and sound triggers
     if (e.key === expectedChar) {
       playKeyClickSound();
       correctCount++;
@@ -328,7 +375,10 @@
     updateHUD();
   });
 
-  // FIREBASE AUTO SAVE PROGRESS (Leaderboard + Profile Sync)
+
+  // ---------------------------------------------------------------------------
+  // SECTION 6: FIREBASE CLOUD PROGRESS SYNC (Leaderboard & Profile Aggregates)
+  // ---------------------------------------------------------------------------
   async function saveProgressToFirebase(finalWPM, finalAcc, netWPM, totalTypedCount, errorCount) {
     const uid = localStorage.getItem("tn_uid");
     const username = localStorage.getItem("tn_username") || "Typist";
@@ -357,7 +407,7 @@
       const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
       const db = getFirestore(app);
 
-      // 1. Leaderboard Document Update
+      // 6.1 Leaderboard Document Update
       const leaderRef = doc(db, "leaderboard", uid);
       const leaderSnap = await getDoc(leaderRef);
       const prevWpm = leaderSnap.exists() ? (leaderSnap.data().wpm || 0) : 0;
@@ -373,7 +423,7 @@
         }, { merge: true });
       }
 
-      // 2. User Aggregate Stats & History Log
+      // 6.2 User Profile Aggregate Stats
       const userRef = doc(db, "users", uid);
       const userSnap = await getDoc(userRef);
 
@@ -391,7 +441,7 @@
           lastActive: serverTimestamp()
         });
 
-        // 3. User Recent Session Log
+        // 6.3 Recent Session Log Entry
         await addDoc(collection(db, "users", uid, "sessions"), {
           wpm: finalWPM,
           netWpm: netWPM,
@@ -407,6 +457,10 @@
     }
   }
 
+
+  // ---------------------------------------------------------------------------
+  // SECTION 7: SESSION COMPLETION & ACCURACY CALCULATIONS
+  // ---------------------------------------------------------------------------
   function finishSession() {
     clearInterval(timerInterval);
     isTestActive = false;
@@ -434,7 +488,10 @@
     });
   }
 
-  // Results Modal Component with Precise Non-Misleading Certificate Language
+
+  // ---------------------------------------------------------------------------
+  // SECTION 8: RESULTS MODAL COMPONENT & CONFETTI CELEBRATION
+  // ---------------------------------------------------------------------------
   function injectResultsModal() {
     const modalHTML = `
     <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
@@ -500,7 +557,7 @@
               <i class="fa-solid fa-trophy text-amber-400"></i> Board
             </a>
           </div>
-          <!-- Neutral Non-Misleading Certificate Action -->
+          <!-- Certificate Action -->
           <a href="certificate.html" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-xs border border-slate-800 transition flex items-center justify-center gap-2">
             <i class="fa-solid fa-award text-amber-400"></i> View TypeNest Certificate &rarr;
           </a>
@@ -557,12 +614,18 @@
     document.getElementById('resultsModal').classList.add('hidden');
   };
 
+
+  // ---------------------------------------------------------------------------
+  // SECTION 9: DOM READY BOOTSTRAP & AUDIO UNLOCK LISTENERS
+  // ---------------------------------------------------------------------------
   document.addEventListener("DOMContentLoaded", function () {
     injectAdaptiveKeyboard();
     injectResultsModal();
 
+    // User chya paylyach interaction var audio context activate honyasathi
     window.addEventListener('click', initAudio, { once: true });
     window.addEventListener('touchstart', initAudio, { once: true });
     window.addEventListener('keydown', initAudio, { once: true });
   });
+
 })();

@@ -1,4 +1,13 @@
-// assets/js/layout.js - Instant Theme Execution + Nav + Profile Dropdown & Logout
+// =============================================================================
+// FILE: assets/js/layout.js
+// PLATFORM: TypeNest Academy (typenest.in)
+// FEATURES: Instant Theme Sync, Dynamic Navbar & Footer, Firebase Auth & Dropdown,
+//           Social Branding Links, and Arcade Suite Routing
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// SECTION 1: FIREBASE SDK IMPORTS
+// -----------------------------------------------------------------------------
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { 
   getAuth, 
@@ -15,9 +24,9 @@ import {
   serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-// -------------------------------------------------------------
-// 1. INSTANT THEME RUN (DOMContentLoaded chya baher, bina delay)
-// -------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// SECTION 2: INSTANT ANTI-FOUC THEME CHECK (Zero Delay Execution)
+// -----------------------------------------------------------------------------
 (function () {
   const savedTheme = localStorage.getItem("tn_theme");
   if (savedTheme === "light") {
@@ -27,7 +36,9 @@ import {
   }
 })();
 
-// Firebase App Initialization
+// -----------------------------------------------------------------------------
+// SECTION 3: FIREBASE CLIENT INITIALIZATION
+// -----------------------------------------------------------------------------
 const firebaseConfig = {
   apiKey: "AIzaSyAXzw_g1r7kvYC2d6_d4RqDOoTF_svAphc",
   authDomain: "typenext-5bd90.firebaseapp.com",
@@ -43,38 +54,119 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
+// -----------------------------------------------------------------------------
+// SECTION 4: DOM INITIALIZATION & INJECTION
+// -----------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const fullPath = window.location.pathname;
 
-  // Clean Theme Styling
+  // 4.1 INJECT GLOBAL LIGHT/DARK CSS OVERRIDES
   if (!document.getElementById("tn-theme-overrides")) {
     const styleEl = document.createElement("style");
     styleEl.id = "tn-theme-overrides";
     styleEl.innerHTML = `
+      /* Light Mode Base Settings */
       html:not(.dark) body { background-color: #f8fafc !important; color: #0f172a !important; }
+
+      /* Blog & Guide Headings & High Contrast Text */
+      html:not(.dark) h1, 
+      html:not(.dark) h2, 
+      html:not(.dark) h3, 
+      html:not(.dark) h4,
+      html:not(.dark) .text-white { 
+        color: #0f172a !important; 
+      }
+      
+      /* Fix Grey Faded Text in Light Mode Cards */
+      html:not(.dark) .text-slate-200,
+      html:not(.dark) .text-slate-300 { 
+        color: #1e293b !important; 
+      }
+      html:not(.dark) .text-slate-400 { 
+        color: #334155 !important; 
+      }
+      html:not(.dark) .text-slate-500 { 
+        color: #475569 !important; 
+      }
+
+      /* Cards & Containers in Light Mode */
+      html:not(.dark) main div[class*="bg-[#0f172a]"], 
+      html:not(.dark) main div[class*="bg-[#111827]"],
+      html:not(.dark) main div[class*="bg-[#1e293b]"], 
+      html:not(.dark) main div[class*="bg-slate-900"], 
+      html:not(.dark) main div[class*="bg-slate-800"] { 
+        background-color: #ffffff !important; 
+        border-color: #e2e8f0 !important; 
+        color: #0f172a !important; 
+      }
+
+      /* Fix Bottom CTA Banner Text & Background in Light Mode */
+      html:not(.dark) div[class*="from-indigo-950"],
+      html:not(.dark) div[class*="to-slate-900"],
+      html:not(.dark) .bg-gradient-to-r,
+      html:not(.dark) .bg-gradient-to-b {
+        color: #0f172a !important;
+      }
+      html:not(.dark) div[class*="bg-gradient-to"] p {
+        color: #334155 !important;
+      }
+
+      /* Secondary Buttons in Light Mode */
+      html:not(.dark) a[class*="bg-slate-800"],
+      html:not(.dark) button[class*="bg-slate-800"] {
+        background-color: #f1f5f9 !important;
+        color: #0f172a !important;
+        border-color: #cbd5e1 !important;
+      }
+
+      /* Header & Footer Rules */
       html:not(.dark) #siteHeader { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
-      html:not(.dark) #siteHeader span, html:not(.dark) #siteHeader a, html:not(.dark) #siteHeader button { color: #0f172a !important; }
-      html:not(.dark) #siteHeader .bg-slate-800, html:not(.dark) #siteHeader .bg-slate-800\\/90, html:not(.dark) #siteHeader .bg-slate-800\\/60 { background-color: #f1f5f9 !important; border-color: #cbd5e1 !important; }
-      html:not(.dark) #mobileNavMenu, html:not(.dark) #userDropdownMenu { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
-      html:not(.dark) #mobileNavMenu a, html:not(.dark) #userDropdownMenu a, html:not(.dark) #userDropdownMenu button { color: #334155 !important; }
-      html:not(.dark) main div[class*="bg-[#0f172a]"], html:not(.dark) main div[class*="bg-[#1e293b]"], html:not(.dark) main div[class*="bg-slate-900"], html:not(.dark) main div[class*="bg-slate-800"], html:not(.dark) .typing-card, html:not(.dark) #typing-arena { background-color: #ffffff !important; border-color: #e2e8f0 !important; color: #0f172a !important; }
+      html:not(.dark) #siteHeader span, 
+      html:not(.dark) #siteHeader a, 
+      html:not(.dark) #siteHeader button { color: #0f172a !important; }
+      html:not(.dark) #siteHeader .bg-slate-800, 
+      html:not(.dark) #siteHeader .bg-slate-800\\/90, 
+      html:not(.dark) #siteHeader .bg-slate-800\\/60 { background-color: #f1f5f9 !important; border-color: #cbd5e1 !important; }
+      html:not(.dark) #mobileNavMenu, 
+      html:not(.dark) #userDropdownMenu { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
+      html:not(.dark) #mobileNavMenu a, 
+      html:not(.dark) #userDropdownMenu a, 
+      html:not(.dark) #userDropdownMenu button { color: #334155 !important; }
+
       html:not(.dark) footer#siteFooter { background-color: #f8fafc !important; border-color: #e2e8f0 !important; color: #475569 !important; }
       html:not(.dark) footer#siteFooter div { background-color: transparent !important; box-shadow: none !important; border-color: #e2e8f0 !important; }
-      html:not(.dark) footer#siteFooter h3, html:not(.dark) footer#siteFooter strong { color: #0f172a !important; }
+      html:not(.dark) footer#siteFooter h3, 
+      html:not(.dark) footer#siteFooter strong { color: #0f172a !important; }
       html:not(.dark) footer#siteFooter a { color: #475569 !important; }
       html:not(.dark) footer#siteFooter a:hover { color: #4f46e5 !important; }
-      html:not(.dark) footer#siteFooter p, html:not(.dark) footer#siteFooter span { color: #64748b !important; }
+      html:not(.dark) footer#siteFooter p, 
+      html:not(.dark) footer#siteFooter span { color: #64748b !important; }
     `;
     document.head.appendChild(styleEl);
   }
 
+  // 4.2 DETECT TYPING PAGES (Includes practice.html for Sound Button)
   const typingPages = [
-    "index.html", "tests.html", "number-typing-practice.html", 
-    "punctuation-typing-practice.html", "difficult-words-typing-practice.html", 
-    "beginner.html", "speed-building.html", "accuracy-mastery.html", "advanced-typing.html"
+    "index.html", 
+    "tests.html", 
+    "practice.html", 
+    "number-typing-practice.html", 
+    "punctuation-typing-practice.html", 
+    "difficult-words-typing-practice.html", 
+    "beginner.html", 
+    "speed-building.html", 
+    "accuracy-mastery.html", 
+    "advanced-typing.html"
   ];
-  const isTypingPage = typingPages.includes(currentPath);
+  const isTypingPage = typingPages.includes(currentPath) || fullPath.includes("/vocab/practice.html");
 
+  // 4.3 ROUTE ACTIVE STATE DETECTORS (Including Master Arcade Hub & Games)
+  const isVocabActive = fullPath.includes("/vocab/") && !fullPath.includes("/vocab-word-defender/");
+  const isArcadeActive = fullPath.includes("/arcade/") || fullPath.includes("/vocab-word-defender/") || currentPath.includes("arcade");
+  const isLearnActive = fullPath.includes("/learn/") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
+
+  // 4.4 THEME TOGGLE HANDLER FUNCTION
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
     if (isDark) {
@@ -89,9 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const isCurrentDark = document.documentElement.classList.contains("dark");
-  const isLearnActive = currentPath.includes("learn") || currentPath.includes("row") || currentPath.includes("wordslevel") || currentPath.includes("numberslevel") || currentPath.includes("advancedlevel");
 
-  // Header Component (with User Dropdown Wrapper)
+  // ---------------------------------------------------------------------------
+  // SECTION 5: HEADER COMPONENT TEMPLATE (Navbar, Sound, Arcade & Profile)
+  // ---------------------------------------------------------------------------
   const navbarHTML = `
   <header id="siteHeader" class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-800 transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -109,11 +202,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-800/60 p-1.5 rounded-2xl border border-slate-700/60 text-xs sm:text-sm font-medium">
-        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+        <a href="/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-house text-xs"></i> Arena
         </a>
+        <a href="/arcade/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isArcadeActive ? 'text-amber-400 bg-slate-700/70 shadow-sm font-semibold' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-gamepad text-xs text-amber-400"></i> Arcade
+        </a>
+        <a href="/vocab/index.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isVocabActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
+          <i class="fa-solid fa-spell-check text-xs"></i> Vocab
+        </a>
         <a href="/learn/learn.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${isLearnActive ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
-          <i class="fa-solid fa-gamepad text-xs"></i> Drills
+          <i class="fa-solid fa-graduation-cap text-xs"></i> Drills
         </a>
         <a href="/tests.html" class="px-3 py-2 rounded-xl transition flex items-center gap-1.5 ${currentPath === 'tests.html' ? 'text-indigo-400 bg-slate-700/70 shadow-sm' : 'text-slate-300 hover:text-white hover:bg-slate-700/40'}">
           <i class="fa-solid fa-stopwatch text-xs"></i> Tests
@@ -129,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </a>
       </nav>
 
-      <!-- Right Action Controls -->
+      <!-- Right Action Controls (Sound, Theme, Auth) -->
       <div class="flex items-center gap-2">
         ${isTypingPage ? `
         <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Keystroke Audio" class="hidden sm:flex w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 hover:border-indigo-500/50 text-indigo-400 hover:text-white transition items-center justify-center shadow-sm">
@@ -172,11 +271,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Mobile Slide-Down Menu -->
     <div id="mobileNavMenu" class="hidden md:hidden bg-[#0b0f19] border-b border-slate-800 px-5 py-5 space-y-2 text-base shadow-2xl">
-      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+      <a href="/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'index.html' && !isVocabActive && !isArcadeActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-house text-sm w-5"></i> Typing Arena
       </a>
+      <a href="/arcade/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isArcadeActive ? 'bg-amber-500/20 text-amber-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-gamepad text-sm w-5 text-amber-400"></i> Arcade Games Hub
+      </a>
+      <a href="/vocab/index.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isVocabActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
+        <i class="fa-solid fa-spell-check text-sm w-5"></i> Learn Vocab
+      </a>
       <a href="/learn/learn.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${isLearnActive ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
-        <i class="fa-solid fa-gamepad text-sm w-5"></i> Practice Drills
+        <i class="fa-solid fa-graduation-cap text-sm w-5"></i> Practice Drills
       </a>
       <a href="/tests.html" class="flex items-center gap-3.5 px-4 py-3 rounded-xl ${currentPath === 'tests.html' ? 'bg-indigo-600/20 text-indigo-400 font-bold' : 'text-slate-300 hover:bg-slate-800/60'}">
         <i class="fa-solid fa-stopwatch text-sm w-5"></i> Speed Tests
@@ -239,7 +344,9 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
   `;
 
-  // Footer Component
+  // ---------------------------------------------------------------------------
+  // SECTION 6: FOOTER COMPONENT TEMPLATE (Updated with Arcade & Social Links)
+  // ---------------------------------------------------------------------------
   const footerHTML = `
   <footer id="siteFooter" class="mt-auto border-t border-slate-800/80 bg-[#070b12] text-slate-400 text-xs font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10">
@@ -257,6 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
             Empowering students, developers, and exam candidates with professional touch typing muscle memory, real-time WPM analytics, and free certified credentials.
           </p>
+          
           <div class="flex items-center gap-3 pt-1">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 100% Free Platform
@@ -264,12 +372,26 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="text-slate-600">•</span>
             <span class="text-slate-500 text-[11px] font-mono">Pune, Maharashtra</span>
           </div>
+
+          <!-- Social Media Follow Links -->
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-[11px] font-semibold text-slate-400">Follow Us:</span>
+            <a href="https://www.facebook.com/profile.php?id=61595099519418" target="_blank" rel="noopener noreferrer" title="Follow TypeNest on Facebook" class="w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all duration-200">
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+            <a href="https://www.instagram.com/typenestacademy/" target="_blank" rel="noopener noreferrer" title="Follow TypeNest on Instagram" class="w-8 h-8 rounded-lg bg-slate-800/80 border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:border-pink-500 transition-all duration-200">
+              <i class="fa-brands fa-instagram text-sm"></i>
+            </a>
+          </div>
         </div>
 
         <div class="space-y-3">
           <h3 class="text-xs uppercase font-extrabold text-white tracking-wider">Practice & Drills</h3>
           <ul class="space-y-2 font-medium">
             <li><a href="/index.html" class="hover:text-indigo-400 transition">Typing Arena</a></li>
+            <li><a href="/arcade/index.html" class="hover:text-amber-300 transition font-semibold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-gamepad text-xs"></i> Arcade Suite (5 Games)</a></li>
+            <li><a href="/vocab-word-defender/index.html" class="hover:text-indigo-400 transition">Vocab Word Defender</a></li>
+            <li><a href="/vocab/index.html" class="hover:text-indigo-400 transition font-semibold text-indigo-300">Learn Vocab Game</a></li>
             <li><a href="/learn/learn.html" class="hover:text-indigo-400 transition">20-Level Drills</a></li>
             <li><a href="/tests.html" class="hover:text-indigo-400 transition">Timed Speed Tests</a></li>
             <li><a href="/number-typing-practice.html" class="hover:text-indigo-400 transition">Number Row Practice</a></li>
@@ -316,14 +438,20 @@ document.addEventListener("DOMContentLoaded", function () {
   </footer>
   `;
 
+  // ---------------------------------------------------------------------------
+  // SECTION 7: INJECT HEADER AND FOOTER INTO DOM
+  // ---------------------------------------------------------------------------
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
   document.body.insertAdjacentHTML("beforeend", footerHTML);
 
-  // Mobile Menu Listeners
+  // ---------------------------------------------------------------------------
+  // SECTION 8: UI EVENT LISTENERS (Menu, Theme, Modals)
+  // ---------------------------------------------------------------------------
   const menuBtn = document.getElementById("mobileMenuToggle");
   const navMenu = document.getElementById("mobileNavMenu");
   const userDropdown = document.getElementById("userDropdownMenu");
 
+  // 8.1 MOBILE HAMBURGER MENU LISTENER
   if (menuBtn && navMenu) {
     menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -340,7 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Theme Toggle Button
+  // 8.2 THEME TOGGLE BUTTON LISTENER
   const themeBtn = document.getElementById("themeToggleBtn");
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
@@ -351,7 +479,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Login Modal Triggers
+  // 8.3 LOGIN MODAL CONTROLS
   const loginBtn = document.getElementById("loginBtn");
   const mobileLoginBtn = document.getElementById("mobileLoginBtn");
   const loginModal = document.getElementById("loginModal");
@@ -372,7 +500,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Google Login
+  // 8.4 GOOGLE LOGIN POPUP EVENT
   const googleBtn = document.getElementById("googleLoginBtn");
   if (googleBtn) {
     googleBtn.addEventListener("click", async () => {
@@ -403,7 +531,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // LOGOUT HANDLER (Clears Auth + LocalStorage)
+  // ---------------------------------------------------------------------------
+  // SECTION 9: LOGOUT LOGIC (Auth + LocalStorage Flush)
+  // ---------------------------------------------------------------------------
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -420,7 +550,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("logoutBtn")?.addEventListener("click", handleLogout);
   document.getElementById("mobileLogoutBtn")?.addEventListener("click", handleLogout);
 
-  // Observe Auth State
+  // ---------------------------------------------------------------------------
+  // SECTION 10: FIREBASE AUTH STATE LISTENER (UI Synchronization)
+  // ---------------------------------------------------------------------------
   onAuthStateChanged(auth, (user) => {
     const mobileLogoutBtn = document.getElementById("mobileLogoutBtn");
 

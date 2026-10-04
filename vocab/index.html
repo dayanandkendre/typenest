@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- 1. Google Analytics 4 (GA4) Integration -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC84S6JF5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZC84S6JF5T');
+  </script>
+
+  <!-- 2. Google AdSense Code -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8300473989533585" crossorigin="anonymous"></script>
+
+  <!-- 3. Immediate Anti-FOUC Theme Check (Zero White Flicker) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("tn_theme");
+      if (savedTheme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 4. SEO Meta Tags -->
+  <title>Learn English with Typing | Interactive Vocabulary Practice | TypeNest</title>
+  <meta name="description" content="Improve touch typing velocity while expanding English vocabulary. Practice 60 progressive levels with Marathi meanings, authentic audio pronunciation, and sentence drills.">
+  <meta name="keywords" content="learn english with typing, vocabulary typing practice, touch typing english learning, typenest vocab game, english vocabulary drills">
+  <meta name="robots" content="index, follow">
+
+  <!-- 5. Canonical Link -->
+  <link rel="canonical" href="https://typenest.in/vocab/">
+
+  <!-- 6. Open Graph & Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://typenest.in/vocab/">
+  <meta property="og:title" content="Learn English with Typing | TypeNest Academy">
+  <meta property="og:description" content="Master 60 interactive levels of English vocabulary with real-time typing speed and pronunciation.">
+  <meta property="og:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- 7. Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://typenest.in/vocab/">
+  <meta name="twitter:title" content="Learn English with Typing | TypeNest Academy">
+  <meta name="twitter:description" content="Master English vocabulary with gamified typing drills and real-time pronunciation.">
+  <meta name="twitter:image" content="https://typenest.in/images/courses/beginner-course.webp">
+
+  <!-- 8. Favicon -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+  <!-- 9. Tailwind CSS CDN & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- 10. Local Vocab CSS -->
+  <link rel="stylesheet" href="assets/css/vocab.css">
+
+  <!-- 11. Tailwind Theme Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="vocab-font min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-indigo-500 selection:text-white">
+<main class="max-w-5xl mx-auto px-4 py-10">
+  <section class="rounded-3xl border border-slate-800 bg-white dark:bg-slate-900/80 p-8 mb-8">
+    <h1 class="text-3xl sm:text-4xl font-extrabold">Learn English with Typing</h1>
+    <p class="mt-2 text-slate-400 max-w-xl">Type each word, then use it in a sentence. You learn the meaning, the sound and the spelling together.</p>
+    <div class="grid grid-cols-3 gap-3 mt-6 max-w-lg">
+      <div class="rounded-2xl bg-indigo-500/10 p-4"><p class="text-2xl font-bold text-indigo-300" id="xp-total">0</p><p class="text-xs text-slate-400">Total XP</p></div>
+      <div class="rounded-2xl bg-amber-500/10 p-4"><p class="text-2xl font-bold text-amber-400"><i class="fa-solid fa-fire"></i> <span id="day-streak">0</span></p><p class="text-xs text-slate-400">Day streak</p></div>
+      <div class="rounded-2xl bg-emerald-500/10 p-4"><p class="text-2xl font-bold text-emerald-400" id="levels-done">0/0</p><p class="text-xs text-slate-400">Levels done</p></div>
+    </div>
+    <a id="quick-start" href="practice.html?level=1" class="inline-flex items-center gap-2 mt-6 rounded-2xl bg-indigo-500 hover:bg-indigo-400 px-6 py-3 font-semibold text-white focus-visible:ring-2 focus-visible:ring-indigo-300 outline-none">
+      <i class="fa-solid fa-play"></i><span id="quick-start-label">Start Beginner Level 1</span>
+    </a>
+  </section>
+  <div class="flex flex-wrap gap-2 mb-6" role="group" aria-label="Choose a section">
+    <button data-filter="Beginner" aria-pressed="true" class="rounded-full px-4 py-1.5 text-sm font-semibold bg-indigo-500 text-white">Beginner</button>
+    <button data-filter="Intermediate" aria-pressed="false" class="rounded-full px-4 py-1.5 text-sm font-semibold border border-slate-700">Intermediate</button>
+    <button data-filter="Advanced" aria-pressed="false" class="rounded-full px-4 py-1.5 text-sm font-semibold border border-slate-700">Advanced</button>
+  </div>
+  <div id="level-grid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+</main>
+<script type="module" src="assets/js/vocab-ui.js"></script>
+<script type="module" src="../assets/js/layout.js"></script>
+</body>
+</html>

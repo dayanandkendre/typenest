@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#030712">
+<title>TypeNest Arcade – 4 Cyberpunk Typing Games</title>
+<meta name="description" content="Play four intense arcade typing games on TypeNest Arcade. Master vocabulary with Marathi meanings, retro space laser combat, 60s speed rush, and ghost racing.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://typenest.in/arcade/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+<script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script>
+<style>
+@property --p{syntax:'<percentage>';inherits:false;initial-value:0%}
+:root{--bg:#030712;--panel:rgba(12,18,34,.72);--line:rgba(148,163,184,.16);--text:#e8eefc;--muted:#8b9ab5;--cyan:#06b6d4;--sky:#38bdf8;--green:#10b981;--gold:#f59e0b;--pink:#f43f5e}
+:root[data-theme=light]{--bg:#eaf0f8;--panel:rgba(255,255,255,.8);--line:rgba(15,23,42,.12);--text:#0b1220;--muted:#516079}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:500 16px/1.5 Rajdhani,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px);opacity:.5}
+a{color:inherit;text-decoration:none}
+.wrap{position:relative;z-index:2;width:min(1240px,100% - 40px);margin:0 auto;padding:26px 0 70px}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:70px 0 54px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end}
+.floor{position:absolute;left:50%;top:0;width:100vw;height:560px;transform:translateX(-50%);z-index:-1;overflow:hidden;
+ mask-image:linear-gradient(#000 55%,transparent);-webkit-mask-image:linear-gradient(#000 55%,transparent)}
+.floor::before{content:"";position:absolute;inset:-40% -20% 0;background:
+ linear-gradient(rgba(6,182,212,.55) 1px,transparent 1px) 0 0/100% 60px,
+ linear-gradient(90deg,rgba(6,182,212,.4) 1px,transparent 1px) 0 0/80px 100%;
+ transform:perspective(420px) rotateX(62deg);transform-origin:50% 100%;animation:run 1.6s linear infinite;top:38%}
+.floor::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 20% 25%,rgba(6,182,212,.22),transparent 70%),radial-gradient(45% 45% at 85% 15%,rgba(244,63,94,.16),transparent 70%)}
+@keyframes run{to{background-position:0 60px,0 0}}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.18em;font-size:.82rem;color:var(--cyan);border:1px solid rgba(6,182,212,.4);padding:6px 14px;border-radius:99px;background:rgba(6,182,212,.08)}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+h1{font:900 clamp(2.8rem,7.4vw,6.4rem)/.95 Orbitron,sans-serif;margin:22px 0 20px;letter-spacing:-.01em;
+ background:linear-gradient(180deg,#fff 30%,#7dd3fc);-webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 0 28px rgba(6,182,212,.45))}
+:root[data-theme=light] h1{background:linear-gradient(180deg,#0b1220,#0369a1);-webkit-background-clip:text;background-clip:text}
+h1 em{font-style:normal;display:block;background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{max-width:560px;color:var(--muted);font-size:1.18rem;margin:0}
+.ctrl{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.btn{font:700 .9rem Rajdhani;letter-spacing:.06em;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 18px;cursor:pointer;backdrop-filter:blur(12px);transition:.2s}
+.btn:hover,.btn:focus-visible{border-color:var(--cyan);box-shadow:0 0 22px rgba(6,182,212,.35);outline:none}
+
+/* ===== STATS ===== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:34px}
+.stat{padding:18px 22px;border-radius:16px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--a,var(--cyan));box-shadow:0 0 16px var(--a,var(--cyan))}
+.stat small{display:block;color:var(--muted);font-weight:600;letter-spacing:.14em;font-size:.78rem}
+.stat b{font:800 1.9rem Orbitron;font-variant-numeric:tabular-nums}
+
+/* ===== GAME CARDS ===== */
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{--c:var(--cyan);--mx:50%;--my:50%;position:relative;border-radius:22px;padding:1px;background:linear-gradient(160deg,var(--line),transparent 40%);transition:transform .3s}
+.card::before{content:"";position:absolute;inset:0;border-radius:22px;background:radial-gradient(420px circle at var(--mx) var(--my),var(--c),transparent 55%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-6px)}
+.card:hover::before{opacity:.9}
+.inner{position:relative;border-radius:21px;overflow:hidden;background:linear-gradient(170deg,#0c1426,#050914);height:100%;display:flex;flex-direction:column}
+:root[data-theme=light] .inner{background:linear-gradient(170deg,#fff,#eef3fb)}
+.inner::after{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx) var(--my),color-mix(in srgb,var(--c) 14%,transparent),transparent 60%);pointer-events:none}
+.pv{position:relative;height:200px;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(70% 90% at 50% 100%,color-mix(in srgb,var(--c) 22%,transparent),transparent),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/100% 26px}
+.badge{position:absolute;top:14px;right:14px;z-index:3;font:700 .72rem Orbitron;letter-spacing:.1em;color:var(--c);border:1px solid var(--c);border-radius:8px;padding:4px 9px;background:rgba(3,7,18,.6)}
+.body{padding:22px 26px 26px;display:flex;flex-direction:column;flex:1;position:relative;z-index:2}
+.body h2{margin:0 0 6px;font:800 1.35rem Orbitron;letter-spacing:.01em}
+.body p{margin:0 0 16px;color:var(--muted);flex:1}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tags span{font-size:.82rem;font-weight:700;color:var(--text);padding:3px 11px;border-radius:99px;border:1px solid var(--line);background:rgba(148,163,184,.08)}
+.go{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:13px;font:800 .95rem Orbitron;letter-spacing:.08em;color:#031018;background:var(--c);box-shadow:0 0 26px color-mix(in srgb,var(--c) 55%,transparent);transition:.2s}
+.go:hover{filter:brightness(1.12);letter-spacing:.14em}
+.go svg{width:20px;height:20px}
+
+/* --- preview 1: vocab --- */
+.fw{position:absolute;top:-50px;text-align:center;font:700 1rem Rajdhani;color:#fff;animation:fall 5s linear infinite;text-shadow:0 0 10px var(--c)}
+.fw small{display:block;font:600 .8rem 'Noto Sans Devanagari',sans-serif;color:var(--gold)}
+.fw .m{color:var(--green)}
+@keyframes fall{to{transform:translateY(260px)}}
+.dl{position:absolute;left:0;right:0;bottom:16px;height:2px;background:var(--pink);box-shadow:0 0 14px var(--pink)}
+/* --- preview 2: space --- */
+.ship{position:absolute;left:50%;bottom:10px;width:34px;margin-left:-17px;fill:var(--c);filter:drop-shadow(0 0 8px var(--c))}
+.al{position:absolute;width:20px;height:14px;border-radius:6px 6px 3px 3px;background:var(--c);box-shadow:0 0 14px var(--c);animation:hov 2.4s ease-in-out infinite alternate}
+@keyframes hov{to{transform:translate(14px,10px)}}
+.beam{position:absolute;left:50%;bottom:40px;width:2px;height:110px;margin-left:-1px;background:linear-gradient(#fff,transparent);transform-origin:bottom;animation:zap 1.2s ease-out infinite}
+@keyframes zap{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+/* --- preview 3: rush --- */
+.ring{position:absolute;left:50%;top:50%;width:132px;height:132px;margin:-66px 0 0 -66px;border-radius:50%;
+ background:conic-gradient(var(--c) var(--p),rgba(148,163,184,.14) 0);-webkit-mask:radial-gradient(circle,transparent 54px,#000 55px);mask:radial-gradient(circle,transparent 54px,#000 55px);animation:sweep 6s linear infinite;filter:drop-shadow(0 0 10px var(--c))}
+@keyframes sweep{to{--p:100%}}
+.rt{position:absolute;inset:0;display:grid;place-items:center;font:900 2.4rem Orbitron;color:#fff;text-shadow:0 0 18px var(--c)}
+.rt small{display:block;font:700 .7rem Rajdhani;letter-spacing:.2em;color:var(--c);text-align:center;margin-top:-6px}
+/* --- preview 4: ghost --- */
+.lane{position:absolute;left:18px;right:18px;height:2px;background:linear-gradient(90deg,transparent,rgba(148,163,184,.4),transparent)}
+.pod{position:absolute;width:38px;height:14px;border-radius:99px 30px 30px 99px;background:var(--c);box-shadow:0 0 16px var(--c);animation:race 3.2s ease-in-out infinite alternate;left:18px}
+.pod.g{opacity:.35;background:#fff;animation-duration:3.6s;box-shadow:0 0 16px #fff}
+@keyframes race{to{transform:translateX(calc(min(1240px,100vw - 40px) / 2 - 130px))}}
+@media (max-width:560px){@keyframes race{to{transform:translateX(220px)}}}
+
+/* ===== LEADERBOARD ===== */
+.board{margin-top:40px;border-radius:20px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);padding:26px}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
+.bh h2{margin:0;font:800 1.4rem Orbitron}
+.bh small{color:var(--cyan);letter-spacing:.2em;font-weight:700}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;color:var(--muted);font-size:.78rem;letter-spacing:.16em;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:15px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border:0}
+td b{font:800 1rem Orbitron;color:var(--c)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);margin-right:10px}
+.st{color:var(--green);font-weight:700}
+.foot{margin-top:40px;text-align:center;color:var(--muted);font-size:.9rem}
+.foot a{color:var(--sky)}
+
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:40px}.ctrl{justify-content:flex-start}.stats{grid-template-columns:repeat(2,1fr)}.games{grid-template-columns:1fr}th:nth-child(3),td:nth-child(3){display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="tn-layout"></div>
+<div class="floor" aria-hidden="true"></div>
+
+<main class="wrap">
+ <section class="hero">
+  <div>
+   <span class="kicker"><i></i>TYPENEST ACADEMY · COMPETITIVE SUITE</span>
+   <h1>TYPENEST<em>ARCADE</em></h1>
+   <p class="lede">Four arcade modes that build vocabulary, reflexes and raw speed. Every score is saved on your device.</p>
+  </div>
+  <div class="ctrl">
+   <button class="btn" id="theme">THEME</button>
+   <button class="btn" id="mute">AUDIO</button>
+  </div>
+ </section>
+
+ <section class="stats">
+  <div class="stat" style="--a:var(--cyan)"><small>GAMES</small><b>04</b></div>
+  <div class="stat" style="--a:var(--gold)"><small>BEST WPM</small><b id="bw">0</b></div>
+  <div class="stat" style="--a:var(--green)"><small>BEST SCORE</small><b id="bs">0</b></div>
+  <div class="stat" style="--a:var(--pink)"><small>SESSIONS</small><b id="ss">0</b></div>
+ </section>
+
+ <section id="games" class="games"></section>
+
+ <section class="board">
+  <div class="bh"><div><small>LOCAL RECORDS</small><h2>Personal Leaderboard</h2></div><button class="btn" id="reset">RESET</button></div>
+  <table><thead><tr><th>GAME</th><th>BEST</th><th>MODE</th><th>STATUS</th></tr></thead><tbody id="rows"></tbody></table>
+ </section>
+ <p class="foot">TypeNest Arcade · <a href="https://typenest.in">typenest.in</a></p>
+</main>
+
+<script type="module">
+const ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const SHIP='<svg class="ship" viewBox="0 0 40 40"><path d="M20 2l9 26-9-6-9 6z"/><path d="M8 30l12-4 12 4-12 8z" opacity=".6"/></svg>';
+const G=[
+ {url:'/vocab-word-defender/index.html',title:'Vocab Word Defender',c:'#06b6d4',lvl:'MEDIUM',
+  desc:'Stop falling English words before they hit the danger line. Each word shows its Marathi meaning.',tags:['25 Levels','Marathi Vocab','Boss Battles'],
+  pv:`<div class="fw" style="left:14%;animation-delay:0s">defend<small>रक्षण करणे</small></div><div class="fw" style="left:40%;animation-delay:1.7s">knowledge<small>ज्ञान</small></div><div class="fw m" style="left:68%;animation-delay:3.2s">brave<small>धाडसी</small></div><div class="dl"></div>`},
+ {url:'./space-typer/index.html',title:'Retro Space Typer',c:'#f43f5e',lvl:'HARD',
+  desc:'Lock onto alien ships, fire plasma with every keystroke and defend your orbital shield.',tags:['Plasma Lasers','Alien Swarms','Mothership'],
+  pv:`<div class="al" style="left:22%;top:30px"></div><div class="al" style="left:48%;top:18px;animation-delay:.6s"></div><div class="al" style="left:72%;top:36px;animation-delay:1.2s"></div><div class="beam"></div>${SHIP}`},
+ {url:'./speed-rush/index.html',title:'Speed Rush (60s Blitz)',c:'#f59e0b',lvl:'EASY',
+  desc:'60 seconds on the clock. Build a streak for Overdrive 1.5x and Blitz Mode 2.0x.',tags:['60 Seconds','Hyper Streak','WPM Blast'],
+  pv:`<div class="ring"></div><div class="rt"><span>60<small>SECONDS</small></span></div>`},
+ {url:'./ghost-racer/index.html',title:'1v1 Ghost Racer',c:'#10b981',lvl:'HARD',
+  desc:'Race a ghost replay of your own best run, with nitro boosts and a live time delta.',tags:['1v1 Duel','Nitro Boost','Live Delta'],
+  pv:`<div class="lane" style="top:70px"></div><div class="lane" style="top:132px"></div><div class="pod g" style="top:63px"></div><div class="pod" style="top:125px"></div>`}
+];
+const el=document.querySelector('#games');
+el.innerHTML=G.map(g=>`<article class="card" style="--c:${g.c}"><div class="inner">
+ <div class="pv"><span class="badge">${g.lvl}</span>${g.pv}</div>
+ <div class="body"><h2>${g.title}</h2><p>${g.desc}</p>
+ <div class="tags">${g.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+ <a class="go" href="${g.url}"><span>LAUNCH MISSION</span>${ARROW}</a></div></div></article>`).join('');
+el.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}));
+
+const n=k=>Number(localStorage.getItem(k)||0);
+function rec(){let v=0;try{const r=JSON.parse(localStorage.getItem('tn_vwd_progress')||'{}');if(r.best)v=Math.max(0,...Object.values(r.best).map(Number))}catch(e){}
+ return{v,s:n('tn_arcade_space_best'),r:n('tn_arcade_rush_best'),g:n('tn_arcade_ghost_best')}}
+function count(id,to,suffix=''){const e=document.querySelector(id);const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/900);e.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString()+(p===1?suffix:'');if(p<1)requestAnimationFrame(f)})(t0)}
+function renderStats(){
+ const x=rec(),w=Math.max(n('tn_arcade_rush_wpm'),n('tn_arcade_ghost_wpm'));
+ count('#bs',Math.max(x.v,x.s,x.r,x.g));count('#bw',w,' WPM');count('#ss',n('tn_arcade_sessions'));
+ const row=(c,name,val,mode)=>`<tr style="--c:${c}"><td><span class="dot"></span>${name}</td><td><b>${val}</b></td><td>${mode}</td><td class="st">Active</td></tr>`;
+ document.querySelector('#rows').innerHTML=
+  row('#06b6d4','Vocab Word Defender',x.v.toLocaleString()+' pts','25 Levels')+
+  row('#f43f5e','Retro Space Typer',x.s.toLocaleString()+' pts','Laser Combat')+
+  row('#f59e0b','Speed Rush (60s)',n('tn_arcade_rush_wpm')+' WPM','Time Blitz')+
+  row('#10b981','1v1 Ghost Racer',n('tn_arcade_ghost_wpm')+' WPM','Ghost Duel');
+}
+renderStats();
+document.querySelector('#theme').onclick=()=>{const t=(document.documentElement.dataset.theme||'dark')==='dark'?'light':'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark');localStorage.setItem('tn_theme',t)};
+const sm=()=>document.querySelector('#mute').textContent=localStorage.getItem('tn_arcade_muted')==='1'?'AUDIO OFF':'AUDIO ON';
+document.querySelector('#mute').onclick=()=>{localStorage.setItem('tn_arcade_muted',localStorage.getItem('tn_arcade_muted')==='1'?'0':'1');sm()};sm();
+document.querySelector('#reset').onclick=()=>{if(confirm('Reset local arcade records?')){['tn_arcade_space_best','tn_arcade_rush_best','tn_arcade_rush_wpm','tn_arcade_ghost_best','tn_arcade_ghost_wpm','tn_arcade_sessions','tn_ghost_replay','tn_vwd_progress'].forEach(k=>localStorage.removeItem(k));renderStats()}};
+</script>
+<script>const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;document.head.appendChild(s)</script>
+</body>
+</html>

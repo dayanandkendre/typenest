@@ -1,0 +1,132 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Speed Rush | TypeNest Arcade</title>
+<script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#030712;color:#e8eefc;font:700 16px Rajdhani,sans-serif;touch-action:manipulation}
+#c{position:fixed;inset:0;width:100%;height:100%}
+#hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px}
+#hud a{color:#38bdf8;text-decoration:none;font-size:1.3rem;padding:0 10px}
+.st{width:96px;padding:6px 8px;border-radius:12px;background:rgba(15,23,42,.65);border:1px solid rgba(245,158,11,.4);backdrop-filter:blur(12px);text-align:center;flex:none}
+.st.t{width:150px}
+.st small{display:block;font-size:.65rem;letter-spacing:.14em;color:#8b9ab5}
+.st b{display:block;font:900 1.2rem/1.4 Orbitron;white-space:nowrap}
+#tm{display:flex;justify-content:center;font:900 1.4rem/1.3 Orbitron;color:#f59e0b}
+#tm i{font-style:normal;display:inline-block;width:.8em;text-align:center}#tm i.p{width:.4em}
+#tm.low{color:#f43f5e;animation:pl .5s infinite alternate}@keyframes pl{to{text-shadow:0 0 18px #f43f5e}}
+#mid{position:fixed;left:0;right:0;top:50%;transform:translateY(-50%);z-index:5;text-align:center;pointer-events:none}
+#word{font:900 clamp(2.4rem,9vw,5.6rem)/1 Orbitron,monospace;letter-spacing:.06em;text-shadow:0 0 30px rgba(255,255,255,.15)}
+#word .ok{color:#10b981;text-shadow:0 0 22px #10b981}
+#mean{margin-top:14px;font:600 clamp(1.1rem,3vw,1.6rem) 'Noto Sans Devanagari',sans-serif;color:#f59e0b;min-height:2.2rem}
+#nxt{margin-top:12px;font:700 1.1rem Orbitron;color:#475569;letter-spacing:.12em;min-height:1.6rem}
+#mode{position:fixed;left:0;right:0;bottom:7%;z-index:5;text-align:center;pointer-events:none}
+#mode b{font:900 1.2rem Orbitron;letter-spacing:.12em}
+#bar{width:min(360px,70vw);height:8px;margin:12px auto 0;border-radius:99px;background:rgba(148,163,184,.18);overflow:hidden}
+#bar i{display:block;height:100%;width:0;background:#06b6d4;box-shadow:0 0 14px currentColor;transition:width .12s,background .2s}
+#hint{margin-top:10px;color:#8b9ab5;font-size:.9rem}
+#big{position:fixed;inset:0;z-index:6;display:grid;place-items:center;font:900 clamp(5rem,22vw,12rem) Orbitron;color:#f59e0b;text-shadow:0 0 40px currentColor;pointer-events:none}
+.ov{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(3,7,18,.74);backdrop-filter:blur(12px)}
+.ov.h{display:none}
+.md{max-width:460px;padding:30px;text-align:center;border-radius:18px;background:rgba(15,23,42,.75);border:1px solid rgba(245,158,11,.5);box-shadow:0 0 40px rgba(245,158,11,.22)}
+.md h1{font:900 1.9rem Orbitron;margin:0 0 10px;color:#f59e0b;text-shadow:0 0 20px #f59e0b}.md p{color:#a9b6cf;margin:10px 0 18px}
+.rk{font:900 .85rem Orbitron;letter-spacing:.2em;color:#38bdf8;margin-bottom:6px}
+button{font:900 1rem Orbitron;color:#1a1204;background:#f59e0b;border:0;border-radius:12px;padding:14px 30px;cursor:pointer;box-shadow:0 0 24px rgba(245,158,11,.55)}
+#inp{position:fixed;opacity:0;left:0;top:0;width:1px;height:1px}
+.shk{animation:sh .25s}@keyframes sh{25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
+@media (max-width:560px){.st{width:74px}.st.t{width:118px}.st b{font-size:1rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><a href="../index.html" title="Back">←</a>
+<div class="st t"><small>TIME</small><div id="tm"></div></div><div class="st"><small>WPM</small><b id="wp">0</b></div>
+<div class="st"><small>CPS</small><b id="cp">0.0</b></div><div class="st"><small>STREAK</small><b id="sk">0</b></div><div class="st"><small>SCORE</small><b id="sc">0</b></div></div>
+<div id="mid"><div id="word"></div><div id="mean"></div><div id="nxt"></div></div>
+<div id="big"></div>
+<div id="mode"><b id="md2">STANDARD</b><div id="bar"><i id="bf"></i></div><div id="hint">5 flawless words = Overdrive 1.5x · 10 = Blitz 2.0x · a typo resets the streak</div></div>
+<input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+<div class="ov" id="ov"><div class="md"><h1>SPEED RUSH</h1><p id="m">60 seconds. Destroy as many words as you can. Build a streak to unlock Overdrive and Blitz Mode.</p><button id="go">START</button><p><a href="../index.html" style="color:#38bdf8">Back to arcade</a></p></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),cv=$('c'),x=cv.getContext('2d'),inp=$('inp'),DUR=60000;
+const V={speed:'वेग',fast:'जलद',focus:'लक्ष',power:'शक्ती',skill:'कौशल्य',learn:'शिकणे',brain:'मेंदू',word:'शब्द',time:'वेळ',brave:'धाडसी',light:'प्रकाश',water:'पाणी',fire:'अग्नी',earth:'पृथ्वी',sky:'आकाश',moon:'चंद्र',star:'तारा',sun:'सूर्य',river:'नदी',mountain:'डोंगर',friend:'मित्र',family:'कुटुंब',school:'शाळा',teacher:'शिक्षक',book:'पुस्तक',garden:'बाग',journey:'प्रवास',victory:'विजय',courage:'धैर्य',knowledge:'ज्ञान',strong:'मजबूत',simple:'साधा',bright:'तेजस्वी',dream:'स्वप्न',future:'भविष्य',memory:'स्मृती',energy:'ऊर्जा',signal:'संकेत',engine:'इंजिन',planet:'ग्रह',silver:'चांदी',golden:'सोनेरी'};
+const KEYS=Object.keys(V);let W,H,D=Math.min(devicePixelRatio||1,2);
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}addEventListener('resize',rs);rs();
+/* fixed-width timer cells: no more flicker */
+const tmEl=$('tm');const cells=[...'60.000'].map(ch=>{const i=document.createElement('i');if(ch==='.')i.className='p';i.textContent=ch;tmEl.appendChild(i);return i});
+function setTime(ms){const s=(Math.max(ms,0)/1000).toFixed(3).padStart(6,'0');for(let k=0;k<6;k++)if(cells[k].textContent!==s[k])cells[k].textContent=s[k];tmEl.classList.toggle('low',ms<=10000&&ms>0)}
+setTime(DUR);
+/* audio */
+let AC;const mu=()=>localStorage.getItem('tn_arcade_muted')==='1';
+function tn(t,a,b,d,v=.07,w=0){if(mu())return;try{AC=AC||new(window.AudioContext||webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ const T=AC.currentTime+w,o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.setValueAtTime(a,T);o.frequency.exponentialRampToValueAtTime(Math.max(b,1),T+d);
+ g.gain.setValueAtTime(v,T);g.gain.exponentialRampToValueAtTime(.001,T+d);o.connect(g);g.connect(AC.destination);o.start(T);o.stop(T+d)}catch(e){}}
+const sfx={k:()=>{tn('square',1400,900,.04,.04);tn('triangle',500,300,.03,.04)},err:()=>tn('square',140,100,.1),boom:()=>tn('sawtooth',200,40,.25,.09),beep:h=>tn('square',h?880:440,h?880:440,.15,.08),
+ combo:()=>[523,659,784,1047].forEach((f,i)=>tn('square',f,f,.1,.07,i*.06)),over:()=>[440,370,311,247,185].forEach((f,i)=>tn('sawtooth',f,f*.95,.3,.09,i*.2)),tick:()=>tn('square',880,880,.06,.05)};
+/* state */
+let run=false,cnt=false,t0=0,bag=[],q=[],word='',pos=0,score=0,streak=0,n=0,miss=0,words=0,rec=[],ps=[],pop=[],lastW='',lastSec=99,ring=1,spd=1,flash=0,bn=null,prevT=0;
+const mult=()=>streak>=10?2:streak>=5?1.5:1,tier=()=>streak>=10?2:streak>=5?1:0;
+const MODE=[['STANDARD','#06b6d4'],['OVERDRIVE 1.5x','#f59e0b'],['BLITZ MODE 2.0x','#f43f5e']];
+function draw1(){if(!bag.length)bag=KEYS.slice().sort(()=>Math.random()-.5);let w=bag.pop();if(w===lastW||q.includes(w))w=bag.length?bag.pop():w;lastW=w;return w}
+function nextWord(){while(q.length<3)q.push(draw1());word=q.shift();pos=0;show()}
+function show(){$('word').innerHTML=`<span class="ok">${word.slice(0,pos)}</span>${word.slice(pos)}`;$('mean').textContent=V[word]||'';$('nxt').textContent=q.slice(0,2).join('   ')}
+function ui(){const t=tier(),[nm,col]=MODE[t];$('md2').textContent=nm;$('md2').style.color=col;const f=$('bf');f.style.background=col;f.style.color=col;
+ f.style.width=(t===2?100:t===1?(streak-5)/5*100:streak/5*100)+'%';$('sk').textContent=streak;
+ if(t!==prevT){if(t>prevT){bn={t:t===2?'BLITZ MODE':'OVERDRIVE',c:col,l:1}}prevT=t}}
+function burst(px,py,k,c,sp=320){for(let i=0;i<k;i++){const a=Math.random()*6.28,s=80+Math.random()*sp;ps.push({x:px,y:py,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,c})}}
+function press(ch){
+ if(!run)return;
+ if(ch===word[pos]){pos++;n++;rec.push(performance.now()-t0);sfx.k();burst(W/2,H/2+40,3,'#10b981',160);
+  if(pos===word.length){const m=mult(),pts=Math.round(word.length*10*m);score+=pts;words++;streak++;sfx.boom();
+   const col=MODE[tier()][1];burst(W/2,H/2,44,col);ps.push({x:W/2,y:H/2,r:10,ring:1,l:1,c:col});pop.push({t:`+${pts}`,x:W/2+(Math.random()-.5)*160,y:H/2-110,l:1,c:col});
+   if(streak===5||streak===10){sfx.combo();ring=1.15}nextWord();ui();$('sc').textContent=score;return}
+  show()}
+ else{streak=0;miss++;flash=1;sfx.err();const e=$('word');e.classList.remove('shk');void e.offsetWidth;e.classList.add('shk');ui()}}
+function go(){cnt=true;score=0;streak=0;n=0;miss=0;words=0;rec=[];ps=[];pop=[];bag=[];q=[];prevT=0;lastSec=99;bn=null;$('ov').classList.add('h');$('sc').textContent=0;$('wp').textContent=0;$('cp').textContent='0.0';setTime(DUR);ui();inp.focus();
+ while(q.length<3)q.push(draw1());$('word').textContent='';$('mean').textContent='';$('nxt').textContent='';
+ let c=3;const B=$('big');const step=()=>{if(c>0){B.style.color='#f59e0b';B.textContent=c;sfx.beep(0);c--;setTimeout(step,750)}else{B.style.color='#10b981';B.textContent='GO';sfx.beep(1);cnt=false;run=true;t0=performance.now();nextWord();setTimeout(()=>B.textContent='',500)}};step()}
+function end(){run=false;sfx.over();const wpm=Math.round(n/5),acc=n+miss?Math.round(n/(n+miss)*100):100;
+ const bs=+localStorage.getItem('tn_arcade_rush_best')||0,bw=+localStorage.getItem('tn_arcade_rush_wpm')||0,nb=score>bs;
+ if(nb)localStorage.setItem('tn_arcade_rush_best',score);if(wpm>bw)localStorage.setItem('tn_arcade_rush_wpm',wpm);
+ localStorage.setItem('tn_arcade_sessions',(+localStorage.getItem('tn_arcade_sessions')||0)+1);
+ const rk=wpm>=80?'LEGEND':wpm>=60?'ACE':wpm>=40?'PILOT':wpm>=20?'CADET':'ROOKIE';
+ $('word').textContent='';$('mean').textContent='';$('nxt').textContent='';
+ $('m').innerHTML=`<div class="rk">RANK: ${rk}</div><b style="font:900 2.4rem Orbitron;color:#f59e0b">${score}</b> points<br><b style="font:900 1.4rem Orbitron;color:#38bdf8">${wpm} WPM</b> · ${acc}% accuracy · ${words} words<br>${nb?'New personal best.':'Best: '+bs+' ('+(score-bs)+')'}`;
+ $('go').textContent='PLAY AGAIN';setTime(0);setTimeout(()=>$('ov').classList.remove('h'),700)}
+let last=0;
+function loop(ts){
+ const dt=Math.min((ts-last)/1000,.05);last=ts;
+ if(run){const el=ts-t0,left=Math.max(0,DUR-el);setTime(left);
+  const sec=Math.ceil(left/1000);if(sec<=5&&sec<lastSec&&sec>0)sfx.tick();lastSec=sec;
+  const w=Math.min(el,5000)/1000,rc=rec.filter(t=>t>el-5000).length,rc3=rec.filter(t=>t>el-3000).length,w3=Math.min(el,3000)/1000;
+  $('wp').textContent=w>.8?Math.round(rc/5/(w/60)):0;$('cp').textContent=w3>.8?(rc3/w3).toFixed(1):'0.0';
+  ring=1+(ring-1)*.9;if(tier()===2&&Math.random()<.9)for(let i=0;i<2;i++){const s=Math.random()<.5;ps.push({x:s?0:W,y:H*(.4+Math.random()*.6),vx:(s?1:-1)*(40+Math.random()*120),vy:-80-Math.random()*220,l:1,c:Math.random()<.5?'#f43f5e':'#f59e0b'})}
+  if(left<=0)end()}
+ spd=run?1+tier()*.8:.5;flash=Math.max(0,flash-dt*4);if(bn){bn.l-=dt*.9;if(bn.l<=0)bn=null}
+ draw(ts,run?Math.max(0,DUR-(ts-t0))/DUR:1,run?Math.max(0,DUR-(ts-t0)):DUR);
+ for(const p of ps){if(p.ring){p.r+=dt*420;p.l-=dt*2.4}else{p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.97;p.vy*=.97;p.l-=dt*1.3}}ps=ps.filter(p=>p.l>0);
+ for(const p of pop){p.y-=dt*60;p.l-=dt*1.4}pop=pop.filter(p=>p.l>0);
+ requestAnimationFrame(loop)}
+let gy=0;
+function draw(ts,frac,left){
+ const t=tier(),low=run&&left<=10000,col=low?'#f43f5e':MODE[t][1];
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#030712');g.addColorStop(1,t===2?'#1a0610':t===1?'#1a1204':'#07141f');x.fillStyle=g;x.fillRect(0,0,W,H);
+ gy=(gy+spd*1.4)%80;x.strokeStyle=`${MODE[t][1]}22`;x.lineWidth=1;for(let j=-1;j<H/80+1;j++){x.beginPath();x.moveTo(0,j*80+gy);x.lineTo(W,j*80+gy);x.stroke()}
+ for(let i=0;i<W/80+1;i++){x.beginPath();x.moveTo(i*80,0);x.lineTo(i*80,H);x.stroke()}
+ const R=Math.min(W,H)*.3*ring*(low?1+Math.sin(ts/120)*.008:1),cx=W/2,cy=H/2;
+ x.lineWidth=10;x.strokeStyle='rgba(148,163,184,.14)';x.beginPath();x.arc(cx,cy,R,0,6.28);x.stroke();
+ x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=24;x.lineCap='round';x.beginPath();x.arc(cx,cy,R,-Math.PI/2,-Math.PI/2+6.28*frac);x.stroke();x.shadowBlur=0;
+ if(t>0){const gl=x.createRadialGradient(cx,H,0,cx,H,H*.8);gl.addColorStop(0,`${MODE[t][1]}${t===2?'55':'33'}`);gl.addColorStop(1,'transparent');x.fillStyle=gl;x.fillRect(0,0,W,H)}
+ if(low){const v=x.createRadialGradient(cx,cy,Math.min(W,H)*.35,cx,cy,Math.max(W,H)*.75);v.addColorStop(0,'transparent');v.addColorStop(1,`rgba(244,63,94,${.22+Math.sin(ts/160)*.1})`);x.fillStyle=v;x.fillRect(0,0,W,H)}
+ if(flash>0){x.fillStyle=`rgba(244,63,94,${flash*.16})`;x.fillRect(0,0,W,H)}
+ for(const p of ps){x.globalAlpha=Math.max(p.l,0);if(p.ring){x.strokeStyle=p.c;x.lineWidth=3;x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.stroke()}else{x.fillStyle=p.c;x.fillRect(p.x,p.y,4,4)}}x.globalAlpha=1;
+ x.textAlign='center';x.font='900 24px Orbitron';for(const p of pop){x.globalAlpha=Math.max(p.l,0);x.fillStyle=p.c;x.shadowColor=p.c;x.shadowBlur=14;x.fillText(p.t,p.x,p.y)}x.globalAlpha=1;x.shadowBlur=0;
+ if(bn){const s=1+(1-bn.l)*.25;x.save();x.translate(W/2,H*.2);x.scale(s,s);x.globalAlpha=Math.min(1,bn.l*2);x.font='900 clamp(2rem,6vw,3.4rem) Orbitron';x.font='900 44px Orbitron';x.fillStyle=bn.c;x.shadowColor=bn.c;x.shadowBlur=30;x.fillText(bn.t,0,0);x.restore();x.globalAlpha=1;x.shadowBlur=0}}
+inp.addEventListener('input',()=>{for(const c of inp.value.toLowerCase())if(/[a-z]/.test(c))press(c);inp.value=''});
+addEventListener('keydown',e=>{if(e.key===' '||e.key==='Backspace')e.preventDefault();if((run||cnt)&&document.activeElement!==inp)inp.focus()});
+addEventListener('pointerdown',()=>(run||cnt)&&inp.focus());
+$('go').onclick=go;requestAnimationFrame(t=>{last=t;loop(t)});
+})();
+</script>
+<script>const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;document.head.appendChild(s)</script>
+</body></html>

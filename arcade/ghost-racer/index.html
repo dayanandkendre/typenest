@@ -1,0 +1,127 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Ghost Racer | TypeNest Arcade</title>
+<script>(function(){let t=localStorage.getItem('tn_theme')||'dark';document.documentElement.dataset.theme=t;document.documentElement.classList.toggle('dark',t==='dark')})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#030712;color:#e8eefc;font:700 16px Rajdhani,sans-serif;touch-action:manipulation}
+#c{position:fixed;inset:0;width:100%;height:100%}
+#hud{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px}
+#hud a{color:#38bdf8;text-decoration:none;font-size:1.3rem;padding:0 10px}
+.st{padding:6px 16px;border-radius:12px;background:rgba(15,23,42,.65);border:1px solid rgba(16,185,129,.4);backdrop-filter:blur(12px);text-align:center;min-width:84px}
+.st small{display:block;font-size:.65rem;letter-spacing:.14em;color:#8b9ab5}.st b{font:900 1.2rem Orbitron;font-variant-numeric:tabular-nums}
+#dl{min-width:150px}
+#wp{position:fixed;left:0;right:0;bottom:14%;z-index:5;text-align:center;pointer-events:none}
+#word{font:900 clamp(2rem,7vw,4.2rem)/1 Orbitron,monospace;letter-spacing:.06em;transition:transform .1s}
+#word .ok{color:#10b981;text-shadow:0 0 18px #10b981}
+#nx{margin-top:14px;font:700 1.2rem Orbitron;color:#64748b;letter-spacing:.1em}
+#tag{position:fixed;left:0;right:0;top:46%;z-index:6;text-align:center;font:900 clamp(2rem,8vw,5rem) Orbitron;pointer-events:none;text-shadow:0 0 30px currentColor}
+.ov{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;background:rgba(3,7,18,.74);backdrop-filter:blur(12px)}
+.ov.h{display:none}
+.md{max-width:440px;padding:30px;text-align:center;border-radius:18px;background:rgba(15,23,42,.75);border:1px solid rgba(16,185,129,.5);box-shadow:0 0 40px rgba(16,185,129,.22)}
+.md h1{font:900 1.9rem Orbitron;margin:0 0 10px;color:#10b981;text-shadow:0 0 20px #10b981}.md p{color:#a9b6cf;margin:10px 0 18px}
+button{font:900 1rem Orbitron;color:#031018;background:#10b981;border:0;border-radius:12px;padding:14px 30px;cursor:pointer;box-shadow:0 0 24px rgba(16,185,129,.55)}
+.tr{display:flex;gap:8px;justify-content:center;margin:0 0 18px}.tr button{background:none;color:#a9b6cf;border:1px solid rgba(148,163,184,.3);box-shadow:none;padding:8px 14px;font:700 .85rem Orbitron}
+.tr button.on{color:#10b981;border-color:#10b981;box-shadow:0 0 16px rgba(16,185,129,.4)}
+#inp{position:fixed;opacity:0;left:0;top:0;width:1px;height:1px}
+.shk{animation:sh .25s}@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<canvas id="c"></canvas>
+<div id="hud"><a href="../index.html" title="Back">←</a>
+<div class="st"><small>TIME</small><b id="tm">0.0</b></div><div class="st"><small>WPM</small><b id="wp2">0</b></div>
+<div class="st" id="dl"><small>DELTA</small><b id="de">—</b></div><div class="st"><small>BEST WPM</small><b id="bs">0</b></div></div>
+<div id="tag"></div>
+<div id="wp"><div id="word"></div><div id="nx"></div></div>
+<input id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+<div class="ov" id="ov"><div class="md"><h1>GHOST RACER</h1>
+<p id="m">Race the ghost of your personal best. No best yet on a track? An AI ghost sets the pace. Long words fire nitro.</p>
+<div class="tr" id="tr"></div><button id="go">START RACE</button><p><a href="../index.html" style="color:#38bdf8">Back to arcade</a></p></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),cv=$('c'),x=cv.getContext('2d'),inp=$('inp');
+const TR=["the quick signal cuts through the neon night as every keystroke pushes your pod faster down the glowing track keep your rhythm steady and let accuracy build the speed that wins the race",
+"engines roar beneath a sky of electric rain while the circuit curves ahead stay focused breathe slowly and trust your fingers because precision always beats panic when the finish line approaches",
+"ghosts of past victories race beside you reminding you that every second counts push through the final stretch with perfect control and prove that practice turns ordinary typists into legends"];
+const NAMES=['NEON LOOP','RAIN CIRCUIT','LEGEND RUN'];
+let W,H,D=Math.min(devicePixelRatio||1,2);
+function rs(){W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}addEventListener('resize',rs);rs();
+/* audio */
+let AC;const mu=()=>localStorage.getItem('tn_arcade_muted')==='1';
+function tn(t,a,b,d,v=.07,w=0){if(mu())return;try{AC=AC||new(window.AudioContext||webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ const T=AC.currentTime+w,o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.setValueAtTime(a,T);o.frequency.exponentialRampToValueAtTime(Math.max(b,1),T+d);
+ g.gain.setValueAtTime(v,T);g.gain.exponentialRampToValueAtTime(.001,T+d);o.connect(g);g.connect(AC.destination);o.start(T);o.stop(T+d)}catch(e){}}
+const sfx={k:()=>{tn('square',1400,900,.04,.04);tn('triangle',500,300,.03,.04)},err:()=>tn('square',140,100,.1),beep:h=>tn('square',h?880:440,h?880:440,.15,.08),
+ nitro:()=>tn('sawtooth',200,1200,.35,.08),win:()=>[523,659,784,1047].forEach((f,i)=>tn('square',f,f,.12,.08,i*.08)),lose:()=>[330,277,220].forEach((f,i)=>tn('sawtooth',f,f*.95,.25,.08,i*.15))};
+/* state */
+let tk=+localStorage.getItem('tn_ghost_track')||0,state='menu',t0=0,wi=0,ci=0,n=0,miss=0,rec=[],g=[],gi=0,words=[],N=0,pp=0,gp=0,nit=0,off=0,last=0,spd=0,curWpm=0,streak=0,P='';
+const store=()=>{try{return JSON.parse(localStorage.getItem('tn_ghost_replay')||'{}')}catch(e){return{}}};
+const bestWpm=()=>+localStorage.getItem('tn_arcade_ghost_wpm')||0;
+function trk(){const b=$('tr');b.innerHTML=NAMES.map((t,i)=>`<button class="${i===tk?'on':''}" data-i="${i}">${t}</button>`).join('');
+ b.querySelectorAll('button').forEach(e=>e.onclick=()=>{tk=+e.dataset.i;localStorage.setItem('tn_ghost_track',tk);trk()})}
+trk();$('bs').textContent=bestWpm();
+function mkAI(L){const w=Math.max(30,bestWpm()*.95||38),per=12000/w;let t=1200,f=1;const a=[];for(let i=0;i<L;i++){f+=(Math.random()-.5)*.25;f=Math.min(1.35,Math.max(.7,f));t+=per*f;a.push(t)}return a}
+function show(){const w=words[wi]||'';$('word').innerHTML=`<span class="ok">${w.slice(0,ci)}</span>${w.slice(ci)}`;$('nx').textContent=words.slice(wi+1,wi+4).join('  ')}
+function start(){P=TR[tk];words=P.split(' ');N=P.length;wi=0;ci=0;n=0;miss=0;rec=[];gi=0;pp=0;gp=0;nit=0;streak=0;curWpm=0;
+ const r=store()[tk];g=r&&r.t&&r.t.length===N?r.t:mkAI(N);window.__ai=!(r&&r.t&&r.t.length===N);
+ $('ov').classList.add('h');inp.focus();show();$('de').textContent='—';state='count';let c=3;const T=$('tag');
+ const step=()=>{if(c>0){T.style.color='#f59e0b';T.textContent=c;sfx.beep(0);c--;setTimeout(step,800)}else{T.style.color='#10b981';T.textContent='GO';sfx.beep(1);state='run';t0=performance.now();setTimeout(()=>T.textContent='',600)}};step()}
+function press(ch){
+ if(state!=='run')return;const w=words[wi];
+ if(ch===w[ci]){ci++;n++;rec.push(performance.now()-t0);sfx.k();streak++;
+  if(ci===w.length){if(wi<words.length-1){n++;rec.push(rec[rec.length-1])}
+   if(w.length>=7||streak>=15){nit=1;sfx.nitro();if(streak>=15)streak=0}
+   wi++;ci=0;if(wi>=words.length){finish();return}}
+  show()}
+ else{miss++;streak=0;sfx.err();const e=$('word');e.classList.remove('shk');void e.offsetWidth;e.classList.add('shk')}}
+function finish(){state='done';const el=performance.now()-t0,wpm=Math.round(N/5/(el/60000)),gt=g[N-1],d=el-gt;
+ const acc=Math.round(n/(n+miss)*100),all=store(),old=all[tk];
+ if(!old||!old.t||old.t.length!==N||el<old.time){all[tk]={t:rec,time:el};localStorage.setItem('tn_ghost_replay',JSON.stringify(all))}
+ const pb=wpm>bestWpm();if(pb){localStorage.setItem('tn_arcade_ghost_wpm',wpm);localStorage.setItem('tn_arcade_ghost_best',wpm)}
+ localStorage.setItem('tn_arcade_sessions',(+localStorage.getItem('tn_arcade_sessions')||0)+1);
+ const won=d<0;won?sfx.win():sfx.lose();$('bs').textContent=bestWpm();
+ $('m').innerHTML=`<b style="font:900 1.8rem Orbitron;color:${won?'#10b981':'#f43f5e'}">${won?'YOU WIN':'GHOST WINS'}</b><br>${(Math.abs(d)/1000).toFixed(2)}s ${won?'ahead':'behind'} · ${(el/1000).toFixed(2)}s<br><b style="font:900 1.6rem Orbitron;color:#f59e0b">${wpm} WPM</b> · ${acc}% accuracy<br>${pb?'New personal best.':''}`;
+ $('go').textContent='RACE AGAIN';setTimeout(()=>$('ov').classList.remove('h'),900)}
+const LH=84,ly=()=>[Math.max(120,H*.2),Math.max(120,H*.2)+130];
+const X0=()=>80,X1=()=>W-130;
+function pod(px,y,col,a,boost,lab){
+ x.save();x.globalAlpha=a;x.translate(px,y);
+ const tl=x.createLinearGradient(-130,0,0,0);tl.addColorStop(0,'transparent');tl.addColorStop(1,col);x.fillStyle=tl;x.fillRect(-130-boost*60,-4,130+boost*60,8);
+ if(boost>0){x.fillStyle='#f59e0b';x.shadowColor='#f59e0b';x.shadowBlur=24;x.beginPath();x.moveTo(-34,0);x.lineTo(-34-50*boost,-8);x.lineTo(-34-80*boost,0);x.lineTo(-34-50*boost,8);x.fill()}
+ x.shadowColor=col;x.shadowBlur=22;x.fillStyle=col;x.beginPath();x.moveTo(34,0);x.quadraticCurveTo(10,-16,-30,-12);x.lineTo(-34,0);x.lineTo(-30,12);x.quadraticCurveTo(10,16,34,0);x.fill();
+ x.shadowBlur=0;x.fillStyle='rgba(255,255,255,.75)';x.beginPath();x.ellipse(6,0,10,5,0,0,6.28);x.fill();
+ x.font='700 12px Orbitron';x.fillStyle=col;x.textAlign='center';x.fillText(lab,0,-24);x.restore()}
+function lane(y,col){
+ x.fillStyle='rgba(15,23,42,.6)';x.fillRect(40,y-LH/2,W-80,LH);x.strokeStyle=col;x.shadowColor=col;x.shadowBlur=14;x.lineWidth=2;x.strokeRect(40,y-LH/2,W-80,LH);x.shadowBlur=0;
+ x.setLineDash([26,22]);x.lineDashOffset=off;x.strokeStyle='rgba(148,163,184,.3)';x.lineWidth=2;x.beginPath();x.moveTo(40,y);x.lineTo(W-40,y);x.stroke();x.setLineDash([]);
+ for(let r=0;r<6;r++)for(let c=0;c<2;c++){x.fillStyle=(r+c)%2?'#fff':'#111';x.fillRect(X1()+60+c*10,y-LH/2+r*(LH/6),10,LH/6)}}
+function draw(dt){
+ const gr=x.createLinearGradient(0,0,0,H);gr.addColorStop(0,'#030712');gr.addColorStop(1,'#07141f');x.fillStyle=gr;x.fillRect(0,0,W,H);
+ off-=spd*dt;x.strokeStyle='rgba(16,185,129,.09)';x.lineWidth=1;const m=((off%90)+90)%90;
+ for(let i=-1;i<W/90+2;i++){x.beginPath();x.moveTo(i*90+m,0);x.lineTo(i*90+m,H);x.stroke()}for(let j=0;j<H;j+=90){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke()}
+ if(nit>.05||spd>500){x.strokeStyle=`rgba(245,158,11,${Math.max(nit,.12)*.7})`;x.lineWidth=2;for(let i=0;i<14;i++){const yy=(i*131+off*-3)%H,xx=((i*277-off*4)%W+W)%W;x.beginPath();x.moveTo(xx,Math.abs(yy));x.lineTo(xx-90-nit*80,Math.abs(yy));x.stroke()}}
+ const [y1,y2]=ly();lane(y1,'#a78bfa');lane(y2,'#06b6d4');
+ const gx=X0()+gp*(X1()-X0()),px=X0()+pp*(X1()-X0());
+ pod(gx,y1,'#a78bfa',.55,0,window.__ai?'AI GHOST':'GHOST');pod(px,y2,'#06b6d4',1,nit,'YOU');
+ if(state==='run'&&pp<gp&&gp-pp<.07){x.font='700 13px Orbitron';x.fillStyle='#38bdf8';x.textAlign='center';x.fillText('SLIPSTREAM',px,y2+LH/2+22)}}
+function loop(ts){
+ const dt=Math.min((ts-last)/1000,.05);last=ts;
+ if(state==='run'||state==='done'){
+  const el=state==='run'?ts-t0:last-t0;
+  if(state==='run'){
+   while(gi<N&&g[gi]<=el)gi++;
+   const a=gi?g[gi-1]:0,b=g[gi]||a+1;gp=gi>=N?1:Math.min(1,(gi+Math.max(0,Math.min(1,(el-a)/(b-a))))/N);
+   const rc=rec.filter(t=>t>el-4000).length,win=Math.min(el,4000)/1000;curWpm=win>.8?rc/5/(win/60):0;
+   $('tm').textContent=(el/1000).toFixed(1);$('wp2').textContent=Math.round(curWpm);
+   if(n>0){const d=el-g[n-1],s=Math.abs(d/1000).toFixed(2),e=$('de');e.textContent=d<0?`+${s}s AHEAD`:`${s}s BEHIND`;e.style.color=d<0?'#10b981':'#f43f5e'}}
+  pp+=(n/N-pp)*Math.min(1,dt*12);nit=Math.max(0,nit-dt*.9);spd=120+curWpm*7+nit*500}
+ else{spd=state==='count'?60:80;nit=Math.max(0,nit-dt)}
+ draw(dt);requestAnimationFrame(loop)}
+inp.addEventListener('input',()=>{for(const c of inp.value.toLowerCase())if(/[a-z]/.test(c))press(c);inp.value=''});
+addEventListener('keydown',e=>{if(e.key===' '||e.key==='Backspace')e.preventDefault();if(state!=='menu'&&document.activeElement!==inp)inp.focus()});
+addEventListener('pointerdown',()=>state==='run'&&inp.focus());
+$('go').onclick=start;requestAnimationFrame(t=>{last=t;loop(t)});
+})();
+</script>
+<script>const s=document.createElement('script');s.src='/assets/js/layout.js';s.defer=true;document.head.appendChild(s)</script>
+</body></html>
