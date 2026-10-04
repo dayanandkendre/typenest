@@ -16,10 +16,16 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+    /* Ultra-clean hidden scrollbar for distraction-free auto-scrolling */
+    #arenaBox {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: #334155 transparent;
+    }
+    #arenaBox::-webkit-scrollbar { width: 5px; }
+    #arenaBox::-webkit-scrollbar-track { background: transparent; }
+    #arenaBox::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    #arenaBox::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 
     @keyframes blinkCursor {
       0%, 100% { border-color: #6366f1; }
@@ -103,7 +109,8 @@
         </div>
       </div>
       <input type="text" id="sinkInput" class="absolute opacity-0 pointer-events-none -left-full top-0" autocomplete="off">
-      <div id="arenaBox" onclick="focusSink()" class="cursor-text relative min-h-[160px] max-h-[260px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-4 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
+      <!-- Arena Box with Smooth Typing Focus & Fixed Height Viewport -->
+      <div id="arenaBox" onclick="focusSink()" class="cursor-text relative h-[180px] sm:h-[210px] overflow-y-auto font-mono text-xl sm:text-2xl leading-relaxed tracking-wider select-none p-5 rounded-2xl bg-[#0b0f19]/70 border border-slate-800">
         <div id="testTextDisplay" class="text-slate-500 whitespace-pre-wrap break-words"></div>
       </div>
     </div>
@@ -134,7 +141,6 @@
   <!-- Ultra-Premium Results Modal -->
   <div id="resultsModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
     <div class="bg-gradient-to-b from-[#111827] to-[#0b0f19] border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
-      <!-- Header & Tier Badge -->
       <div class="flex items-center justify-between pb-4 border-b border-slate-800/80">
         <div class="flex items-center gap-3">
           <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl border border-indigo-500/30">
@@ -150,7 +156,6 @@
         </span>
       </div>
 
-      <!-- Hero Stats (WPM & Accuracy) -->
       <div class="grid grid-cols-2 gap-3.5 my-5">
         <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 text-center relative overflow-hidden">
           <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold block">Net Speed (WPM)</span>
@@ -164,7 +169,6 @@
         </div>
       </div>
 
-      <!-- Sub-Metrics Grid -->
       <div class="grid grid-cols-4 gap-2 mb-6 text-center">
         <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
           <span class="text-[10px] text-slate-400 block font-medium">Characters</span>
@@ -184,7 +188,6 @@
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="space-y-2.5">
         <div class="flex gap-2.5">
           <button onclick="resetTest(); closeResultsModal();" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25">
@@ -372,10 +375,32 @@
     let totalTypedCount = 0;
     let startTime = null;
 
-    // Helper: Selects a random passage from the active duration's pool
     function getRandomPassage(sec) {
       const pool = TEST_PASSAGES[sec] || TEST_PASSAGES[60];
       return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    // THE CARET-LOCKED AUTO-SCROLL ENGINE
+    function syncCaretScroll(targetSpan) {
+      const arena = document.getElementById('arenaBox');
+      if (!arena || !targetSpan) return;
+
+      const spanTop = targetSpan.offsetTop;
+      const spanHeight = targetSpan.offsetHeight;
+      const arenaHeight = arena.clientHeight;
+      const currentScroll = arena.scrollTop;
+
+      // Desired target: keep active line at around 35%-40% of the viewport height
+      const targetScroll = spanTop - (arenaHeight * 0.35);
+
+      if (targetScroll > 0) {
+        arena.scrollTo({
+          top: targetScroll,
+          behavior: 'smooth'
+        });
+      } else {
+        arena.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
     function initTest(textOverride = null) {
@@ -393,6 +418,9 @@
       targetText = textOverride || getRandomPassage(durationSeconds);
 
       const display = document.getElementById('testTextDisplay');
+      const arena = document.getElementById('arenaBox');
+      if (arena) arena.scrollTop = 0; // Reset scroll to top on test reset
+
       if (display) {
         display.innerHTML = '';
         for (let i = 0; i < targetText.length; i++) {
@@ -406,7 +434,6 @@
       updateHUD();
     }
 
-    // Advance to a new random passage
     window.nextPassage = function() {
       initTest();
     };
@@ -433,7 +460,10 @@
           if (charSpan) charSpan.className = '';
           currentIndex--;
           const prevSpan = document.getElementById(`char-${currentIndex}`);
-          if (prevSpan) prevSpan.className = 'typing-cursor text-slate-300';
+          if (prevSpan) {
+            prevSpan.className = 'typing-cursor text-slate-300';
+            syncCaretScroll(prevSpan);
+          }
         }
         return;
       }
@@ -454,7 +484,11 @@
       currentIndex++;
       if (currentIndex < targetText.length) {
         const nextSpan = document.getElementById(`char-${currentIndex}`);
-        if (nextSpan) nextSpan.classList.add('typing-cursor');
+        if (nextSpan) {
+          nextSpan.classList.add('typing-cursor');
+          // Trigger the auto-scroll smoothly without user needing to touch mouse
+          syncCaretScroll(nextSpan);
+        }
       } else {
         finishTest();
       }
