@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Title, Description & Keywords -->
   <title>Punctuation Typing Practice & Symbol Drills | TypeNest</title>
   <meta name="description" content="Improve typing speed and accuracy with punctuation marks, quotes, brackets, semicolons, and special symbols on TypeNest.">
@@ -32,12 +32,15 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -56,7 +59,6 @@
       animation: blinkCursor 0.9s infinite ease-in-out;
       margin-left: -1px;
     }
-
     .key-cap {
       transition: all 0.08s ease;
       user-select: none;
@@ -72,27 +74,28 @@
   </style>
 </head>
 <body class="bg-[#0b0f19] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
-
   <!-- Header is automatically injected by assets/js/layout.js -->
 
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-
     <!-- Top Banner -->
-    <div class="border-b border-slate-800 pb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="border-b border-slate-800 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2.5">
           <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Target Drill</span>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Punctuation Typing Practice</h1>
         </div>
-        <p class="text-slate-400 text-sm mt-1">Develop flawless rhythm with commas, semicolons, quotation marks, and brackets without breaking flow[cite: 2, 4].</p>
+        <p class="text-slate-400 text-sm mt-1">Develop flawless rhythm with commas, semicolons, quotation marks, and brackets without breaking flow.</p>
       </div>
 
-      <!-- Punctuation Selector -->
-      <div class="flex items-center gap-2 bg-[#111827] p-1.5 rounded-2xl border border-slate-800">
-        <button onclick="setPuncDrill(0, this)" id="puncbtn-0" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 text-white transition">Drill 1: Quotes & Semicolons</button>
-        <button onclick="setPuncDrill(1, this)" id="puncbtn-1" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 2: Dialogue & Parentheses</button>
-        <button onclick="setPuncDrill(2, this)" id="puncbtn-2" class="puncbtn px-3 py-1.5 rounded-xl text-xs font-bold bg-transparent text-slate-400 hover:text-white transition">Drill 3: Technical Syntax</button>
+      <!-- Quick Set Selector Dropdown -->
+      <div class="flex items-center gap-2 bg-[#111827] px-3 py-1.5 rounded-2xl border border-slate-800">
+        <label for="puncDropdown" class="text-xs text-slate-400 font-medium whitespace-nowrap">
+          <i class="fa-solid fa-list-check text-emerald-400 mr-1"></i> Jump To:
+        </label>
+        <select id="puncDropdown" onchange="onDropdownChange(this.value)" class="bg-[#0b0f19] text-emerald-300 text-xs font-bold rounded-xl px-2.5 py-1.5 border border-slate-700 focus:outline-none focus:border-emerald-500 cursor-pointer max-w-[210px] sm:max-w-[270px] truncate">
+          <!-- Populated dynamically via JS -->
+        </select>
       </div>
     </div>
 
@@ -105,7 +108,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bolt"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Accuracy</div>
@@ -113,7 +115,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-base"><i class="fa-solid fa-bullseye"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Mistakes</div>
@@ -121,7 +122,6 @@
         </div>
         <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-base"><i class="fa-solid fa-triangle-exclamation"></i></div>
       </div>
-
       <div class="bg-[#111827]/60 border border-slate-800/80 rounded-2xl p-4 flex items-center justify-between">
         <div>
           <div class="text-[11px] uppercase font-bold text-slate-400 tracking-wider">Symbol Precision</div>
@@ -133,13 +133,21 @@
 
     <!-- Active Arena Box -->
     <div class="relative bg-[#111827] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
-      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800/90 text-xs text-slate-400">
         <span id="puncTitle" class="font-medium text-slate-300 flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Drill 1: Quotes, Semicolons & Controlled Pauses
         </span>
-        <button onclick="resetPuncDrill(this)" class="hover:text-emerald-400 flex items-center gap-1.5 transition">
-          <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
-        </button>
+        <div class="flex items-center gap-4">
+          <!-- Next Drill Button -->
+          <button onclick="nextPuncDrill(this)" class="text-emerald-400 hover:text-white font-bold flex items-center gap-1.5 transition cursor-pointer">
+            Next Drill <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <span class="text-slate-700">•</span>
+          <!-- Reset / Repeat Button -->
+          <button onclick="resetPuncDrill(this)" class="hover:text-emerald-400 flex items-center gap-1.5 transition cursor-pointer">
+            <i class="fa-solid fa-rotate-right"></i> Reset Drill (Esc)
+          </button>
+        </div>
       </div>
 
       <!-- Hidden input for mobile keyboard touch focus -->
@@ -152,18 +160,129 @@
 
     <!-- Virtual Keyboard is automatically injected here by typing-engine.js -->
     <div id="keyboardWrapper"></div>
-
   </main>
 
   <!-- Page Logic Controller -->
   <script>
     const PUNC_SETS = [
-      { title: "Drill 1: Quotes, Semicolons & Controlled Pauses", text: "Can you believe it? She asked: 'Will you finish by 5:00 PM, or should we postpone?' I replied, 'No; everything is ready!' Always remember; punctuation clarifies meaning; commas provide cadence, and colons introduce clarity." },
-      { title: "Drill 2: Dialogue, Em-Dashes & Parentheses", text: "Wait—did you double-check the client's configuration file? It's under `/var/data/log`; please verify its checksum (SHA-256) immediately! 'Patience,' he whispered, 'produces excellence.'" },
-      { title: "Drill 3: Technical Syntax & Bracket Combinations", text: "const config = { host: 'localhost', port: 8080, secure: true }; if (response.status === 200) { list.push(data[0]); } else { throw new Error('Failed: ' + response.code); }" }
+      // TIER 1: CORE PUNCTUATION, COMMAS, QUOTES & SEMICOLONS
+      {
+        title: "Drill 1: Quotes, Semicolons & Controlled Pauses",
+        text: "Can you believe it? She asked: 'Will you finish by 5:00 PM, or should we postpone?' I replied, 'No; everything is ready!' Always remember; punctuation clarifies meaning; commas provide cadence, and colons introduce clarity."
+      },
+      {
+        title: "Drill 2: Dialogue, Em-Dashes & Parentheses",
+        text: "Wait—did you double-check the client's configuration file? It's under `/var/data/log`; please verify its checksum (SHA-256) immediately! 'Patience,' he whispered, 'produces excellence—always remember that.'"
+      },
+      {
+        title: "Drill 3: Quotation Inception & Attributions",
+        text: "\"What did she mean by 'non-negotiable'?\" asked David. Sarah replied, \"She clearly stated: 'The deadline stands; no extensions will be granted under any circumstance!'\""
+      },
+      {
+        title: "Drill 4: Semicolon vs. Comma Splice Drills",
+        text: "The server crashed at midnight; however, the backup generator activated immediately. We lost some cached sessions; nevertheless, primary database transactions remained uncorrupted and intact."
+      },
+      {
+        title: "Drill 5: Colons, Enumerations & Lists",
+        text: "The itinerary includes three primary destinations: Zurich, Switzerland; Kyoto, Japan; and Reykjavik, Iceland. Pack accordingly: thermal layers, hiking boots, passport, and universal adapters."
+      },
+      {
+        title: "Drill 6: Hyphens, Compound Modifiers & Dashes",
+        text: "The state-of-the-art facility features high-speed connectivity, cutting-edge equipment, and round-the-clock monitoring—ensuring uninterrupted, top-tier performance for all users."
+      },
+      {
+        title: "Drill 7: Question Marks & Interrogative Clusters",
+        text: "Who authorized the transfer? Why wasn't I informed earlier? Did you review the terms, verify the credentials, and secure managerial approval? If not, why proceed?"
+      },
+
+      // TIER 2: BRACKETS, PARENTHESES, CURRENCY & PERCENTAGES
+      {
+        title: "Drill 8: Parenthetical Notes & Brackets",
+        text: "The quarterly report (published on October 14th) indicated significant gains [see Figure 3.2(b)], although secondary expenditures (chiefly travel and licensing) rose by 4.8%."
+      },
+      {
+        title: "Drill 9: Currencies, Percentages & Hash Symbols",
+        text: "Invoice #9402: Subtotal was $1,450.00; after applying a 12.5% discount (-$181.25) and adding $45.00 for express shipping, the grand total amounted to $1,313.75 precisely."
+      },
+      {
+        title: "Drill 10: Nested Brackets & Bibliographic References",
+        text: "According to recent studies [Johnson et al. (2024), pp. 112-119], cognitive typing automaticity correlates positively with reading speed (r = 0.84, p < 0.001)."
+      },
+      {
+        title: "Drill 11: Ampersands, At-Signs & Electronic Addresses",
+        text: "Send inquiries to admin@typenest.in & support@typenest.in before 18:00 UTC. Check @TypeNestUpdates for live server status, maintenance windows, and patch releases."
+      },
+      {
+        title: "Drill 12: Exclamations, Interjections & Directives",
+        text: "Halt! Verify the integrity of the cryptographic signature before proceeding! Warning: unauthorized alterations to `/etc/shadow` will compromise system security immediately!"
+      },
+      {
+        title: "Drill 13: Ellipses, Hesitations & Suspended Thoughts",
+        text: "\"I wasn't sure... perhaps we should have waited...\" murmured Arthur. \"No... the window of opportunity was closing fast; we had to take decisive action right then!\""
+      },
+
+      // TIER 3: TECHNICAL CODING SYNTAX, OPERATORS & DELIMITERS
+      {
+        title: "Drill 14: JavaScript Object & Function Delimiters",
+        text: "const config = { host: 'localhost', port: 8080, secure: true }; if (response.status === 200) { list.push(data[0]); } else { throw new Error('Failed: ' + response.code); }"
+      },
+      {
+        title: "Drill 15: Array Indexing, Logic Gates & Comparisons",
+        text: "if ((user.age >= 18 && user.hasLicense) || user.isEmancipated) { return matrix[i][j] !== null ? matrix[i][j] : defaultVal; } else { return false; }"
+      },
+      {
+        title: "Drill 16: CSS Selectors, Pseudo-Classes & Units",
+        text: ".card:hover > .thumb[data-active='true'] { background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; transform: scale(1.05); transition: all 0.2s ease-in-out; }"
+      },
+      {
+        title: "Drill 17: SQL Query Clauses & Quoted Strings",
+        text: "SELECT u.id, u.username, COUNT(s.id) AS total FROM users u LEFT JOIN sessions s ON u.id = s.user_id WHERE u.status = 'ACTIVE' GROUP BY u.id HAVING total > 10;"
+      },
+      {
+        title: "Drill 18: Regular Expressions & Escaped Sequences",
+        text: "const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/; const match = str.replace(/[\\s,]+/g, '-').trim().toLowerCase();"
+      },
+      {
+        title: "Drill 19: Shell CLI Commands & Flag Parameters",
+        text: "tar -czvf backup_2026-10-04.tar.gz /var/www/html/ --exclude='*.log' && scp -P 2222 backup.tar.gz deploy@192.168.1.100:/opt/backups/ || echo 'Backup failed!'"
+      },
+
+      // TIER 4: MATHEMATICAL EXPRESSIONS, FORMAL CLAUSES & ADVANCED DENSITY
+      {
+        title: "Drill 20: Mathematical Notations & Algebraic Bounds",
+        text: "For all x in [0, 1], let f(x) = (x^2 + 2x + 1) / (x + 1); therefore, f'(x) = 1, provided that x != -1. Note: |a - b| <= |a| + |b| for all real numbers."
+      },
+      {
+        title: "Drill 21: Formal Legal Clauses & Statutory Provisos",
+        text: "Provided, however, that Section 4(a)(i) shall not apply to: (1) bona fide corporate reorganizations; (2) transfers by operation of law; or (3) acquisitions approved by 66.7% of shareholders."
+      },
+      {
+        title: "Drill 22: Academic Footnotes & Inline Citations",
+        text: "The paradox of collective action (Olson, 1965: 33-36; cf. Hardin, 1982: 89) suggests that rational individuals will free-ride unless selective incentives—positive or negative—are introduced."
+      },
+      {
+        title: "Drill 23: Temperature, Geographic Coordinates & Measures",
+        text: "Coordinates: 18°31'12\"N, 73°51'24\"E; Elevation: 560 m above sea level; Barometric pressure: 1013.25 hPa; Ambient temperature: 28.5°C (83.3°F); Relative humidity: 64%."
+      },
+      {
+        title: "Drill 24: Complex Financial & Actuarial Equations",
+        text: "NPV = Sum_{t=1}^{n} [CF_t / (1 + r)^t] - Initial_Outlay; if IRR > WACC (e.g., 14.2% > 9.8%), the project yields positive alpha [E(R) - R_f = beta * (R_m - R_f)]."
+      },
+      {
+        title: "Drill 25: Master Punctuation Grand Challenge",
+        text: "\"Stop!\" shouted the inspector; \"Did you read Section 12-B(ii)? It clearly mandates: 'All containers (Lots #401-#499) must be sealed, labeled, & logged before 06:00 AM!'\" He sighed—\"Why ignore this?\""
+      }
     ];
 
     let currentDrillIdx = 0;
+
+    function populateDropdown() {
+      const dropdown = document.getElementById('puncDropdown');
+      if (!dropdown) return;
+      dropdown.innerHTML = PUNC_SETS.map((d, i) => 
+        `<option value="${i}" ${i === currentDrillIdx ? 'selected' : ''}>${d.title}</option>`
+      ).join('');
+    }
 
     function initPuncSession() {
       const drill = PUNC_SETS[currentDrillIdx];
@@ -172,49 +291,57 @@
         titleEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> ${drill.title}`;
       }
 
+      const dropdown = document.getElementById('puncDropdown');
+      if (dropdown) dropdown.value = currentDrillIdx;
+
       // Master typing engine call (0 = Zen Mode / untimed symbol practice)
       if (window.startTypingSession) {
         window.startTypingSession(drill.text, 0);
       }
     }
 
-    // Global reset hook for Escape key
-    window.resetCurrentTest = function() {
+    // Manual change from dropdown
+    function onDropdownChange(val) {
+      currentDrillIdx = parseInt(val, 10);
+      initPuncSession();
+    }
+
+    // Advance to next drill in sequence
+    window.nextPuncDrill = function(btn) {
+      if (btn) btn.blur();
+      currentDrillIdx = (currentDrillIdx + 1) % PUNC_SETS.length;
       initPuncSession();
     };
 
-    function resetPuncDrill(btn) {
-      if (btn) btn.blur(); // Blur button so Spacebar never triggers reset
+    // Reset dablyavar randomly navin drill switch hoil (toch set repeat honar nahi)
+    window.resetPuncDrill = function(btn) {
+      if (btn) btn.blur();
+      let nextIdx = Math.floor(Math.random() * PUNC_SETS.length);
+      if (nextIdx === currentDrillIdx) {
+        nextIdx = (currentDrillIdx + 1) % PUNC_SETS.length;
+      }
+      currentDrillIdx = nextIdx;
       initPuncSession();
-    }
+    };
+
+    // Global reset hook for Escape key
+    window.resetCurrentTest = function() {
+      window.resetPuncDrill();
+    };
 
     function focusPunctuationEngine() {
       const sink = document.getElementById('mobileInputSink');
       if (sink) sink.focus();
     }
 
-    function setPuncDrill(idx, btn) {
-      if (btn) btn.blur();
-      currentDrillIdx = idx;
-      document.querySelectorAll('.puncbtn').forEach(b => {
-        b.classList.remove('bg-emerald-600', 'text-white');
-        b.classList.add('bg-transparent', 'text-slate-400');
-      });
-      const targetBtn = document.getElementById(`puncbtn-${idx}`);
-      if (targetBtn) {
-        targetBtn.classList.add('bg-emerald-600', 'text-white');
-        targetBtn.classList.remove('text-slate-400');
-      }
-      initPuncSession();
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
+      populateDropdown();
       initPuncSession();
     });
   </script>
 
   <!-- Reusable Modular Scripts -->
-  <script type="module" src="assets/js/layout.js"></script>
-  <script src="assets/js/typing-engine.js"></script>
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script src="/assets/js/typing-engine.js"></script>
 </body>
 </html>
